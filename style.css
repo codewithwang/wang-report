@@ -1,0 +1,324 @@
+/* THE WANG REPORT — Drudge-faithful CSS */
+body {
+    background: #FFFFFF;
+    margin: 0;
+    padding: 10px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* Masthead */
+.masthead {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 5px 0;
+    border-bottom: 1px solid #000;
+    letter-spacing: 2px;
+}
+
+/* Subhead links row */
+.subhead {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding: 4px 0;
+    border-bottom: 1px solid #ccc;
+}
+.subhead a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 8px;
+}
+.subhead a:hover { text-decoration: underline; }
+
+/* Timestamp bar */
+.timestamp-bar {
+    text-align: center;
+    font-size: 11px;
+    color: #333;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+}
+
+/* Hero headline — THE top story */
+.hero-headline {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 15px 10px;
+    color: #000000;
+}
+.hero-headline a { color: #000000; text-decoration: none; }
+.hero-headline a:hover { text-decoration: underline; }
+
+/* Hero subheadline */
+.hero-sub {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 10px 10px;
+    color: #000;
+}
+.hero-sub a { color: #000; text-decoration: none; }
+.hero-sub a:hover { text-decoration: underline; }
+
+/* Center image */
+.hero-image {
+    text-align: center;
+    padding: 10px 0;
+}
+.hero-image img {
+    max-width: 600px;
+    border: 1px solid #ccc;
+}
+
+/* Siren for breaking news */
+.siren { display: inline; width: 30px; vertical-align: middle; }
+
+/* Three-column layout */
+.columns {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.column {
+    flex: 1;
+    padding: 0 10px;
+    border-right: 1px solid #ccc;
+}
+.column:last-child { border-right: none; }
+
+/* Column headers */
+.column-header {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+/* Story links */
+.story a {
+    color: #000000;
+    text-decoration: none;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.story a:hover { text-decoration: underline; }
+
+/* Red stories */
+.story.red a { color: #FF0000; }
+
+/* CAPS stories */
+.story.caps a { text-transform: uppercase; }
+
+/* Red + CAPS combo */
+.story.red.caps a { color: #FF0000; text-transform: uppercase; }
+
+/* Source attribution */
+.story .source {
+    font-size: 10px;
+    color: #666;
+    font-weight: normal;
+}
+
+/* Dense packing — minimal spacing */
+.story { margin-bottom: 6px; }
+
+/* Section dividers in columns */
+.section-divider {
+    border-top: 1px solid #ccc;
+    margin: 10px 0 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    padding-top: 4px;
+}
+
+/* Markets bar */
+.markets-bar {
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin: 8px auto;
+    max-width: 1000px;
+}
+.markets-bar span { margin: 0 10px; }
+.market-up { color: #006600; }
+.market-down { color: #CC0000; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #666;
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 15px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer a { color: #333; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* Refresh button */
+.refresh-btn {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #666;
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+.refresh-btn:hover { background: #f0f0f0; }
+
+/* Editorial direction bar */
+.editorial-bar {
+    text-align: center;
+    padding: 8px 0;
+    max-width: 1000px;
+    margin: 10px auto 0;
+    border-top: 1px solid #ccc;
+}
+.editorial-bar form { display: inline; }
+.editorial-bar input[type="text"] {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    padding: 3px 6px;
+    color: #333;
+}
+.editorial-bar button {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #666;
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 3px 8px;
+    margin-left: 4px;
+}
+.editorial-bar button:hover { background: #f0f0f0; }
+
+/* Navigation bar */
+.nav-bar {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 0;
+    border-bottom: 2px solid #000;
+    background: #f8f8f8;
+    letter-spacing: 1px;
+}
+.nav-bar a {
+    color: #000;
+    text-decoration: none;
+    padding: 2px 12px;
+}
+.nav-bar a:hover { text-decoration: underline; }
+.nav-bar .nav-active {
+    color: #CC0000;
+    border-bottom: 2px solid #CC0000;
+}
+
+/* Client Watch styles */
+.client-roster {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding: 8px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.client-tag {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 1px 6px;
+    margin: 2px 3px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+}
+.client-add-bar {
+    text-align: center;
+    padding: 6px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+}
+.client-add-bar input[type="text"] {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 11px;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    color: #333;
+}
+.client-add-bar button {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #666;
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 2px 6px;
+    margin-left: 4px;
+}
+.clients-grid {
+    max-width: 1000px;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+.client-block {
+    flex: 1 1 48%;
+    min-width: 300px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.client-block:nth-child(2n) { border-right: none; }
+.client-header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000;
+    padding-bottom: 3px;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+.client-image {
+    text-align: center;
+    padding: 6px 0;
+}
+.client-image img {
+    max-width: 100%;
+    max-height: 200px;
+    border: 1px solid #ccc;
+}
+
+/* Cyber Intel hero */
+.cyber-hero a { color: #CC0000 !important; }
+.cyber-masthead { color: #CC0000; }
