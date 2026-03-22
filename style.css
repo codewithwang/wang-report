@@ -322,3 +322,36 @@ body {
 /* Cyber Intel hero */
 .cyber-hero a { color: #CC0000 !important; }
 .cyber-masthead { color: #CC0000; }
+
+/* Health & Fitness — meal idea card */
+.meal-idea {
+    background: #f8f8f0;
+    border: 2px solid #228B22;
+    padding: 12px 16px;
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+}
+.meal-header {
+    font-weight: bold;
+    font-size: 14px;
+    color: #228B22;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+.meal-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.meal-desc {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 4px;
+}
+.meal-macros {
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
+}
