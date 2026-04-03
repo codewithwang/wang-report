@@ -74,8 +74,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 </head>
 <body>
 <header class="header">
-  <h1>HK Kids Calendar &#127880;</h1>
+  <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;position:relative;z-index:1">&#127758; wangreport.com presents</div>
+  <h1 style="font-family:'Comic Sans MS','Marker Felt','Inter',cursive">HK Kids Calendar &#127880;</h1>
   <p>Hong Kong Kids Activities &amp; Open Days</p>
+  <div style="margin-top:10px;font-size:11px;color:var(--muted);position:relative;z-index:1">&#128338; Last refreshed: <strong id="refreshDate"></strong></div>
 </header>
 <main class="container">
   <section class="calendar-wrap" aria-label="Event Calendar">
@@ -89,17 +91,22 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   <section class="filters" id="filters" aria-label="Filter events by category"></section>
   <section class="event-list" id="eventList" aria-label="Events"></section>
 </main>
-<footer class="footer">Curated by <a href="https://wangreport.com">WangReport.com</a></footer>
+<footer class="footer">
+  <div style="font-size:16px;margin-bottom:8px">&#127880;&#127752;&#127912;</div>
+  <div><strong>WangReport's HK Kids Calendar</strong></div>
+  <div style="margin-top:4px">Curated by <a href="https://wangreport.com">WangReport.com</a></div>
+  <div style="margin-top:8px;font-size:11px;color:#aaa">Events are sourced from official government and venue websites. Always verify dates before attending.</div>
+</footer>
 <script>
 var events=[
-{emoji:"\uD83D\uDD25",title:"Fire & Ambulance Services Academy Open Day",startDate:"2026-04-12",endDate:null,time:"10:00 AM \u2013 2:00 PM",location:"11 Pak Shing Kok Road, Tseung Kwan O",description:"National flag-raising ceremony, fire & ambulance appliances parade, live demonstrations (joint rescue, high angle rescue, swift water rescue, road crash rescue), compartment fire behaviour training, hazmat incident demo, fire investigation dog demo.",cost:"Free",registration:"Register via HKFSD Mobile App March 26\u201329, computer ballot, max 4 tickets.",category:"Government Open Day"},
-{emoji:"\uD83C\uDFAA",title:"Customs & Excise Department Open Day",startDate:"2026-04-18",endDate:null,time:"All day",location:"Hong Kong Customs College, Tuen Mun",description:"National security education exhibitions, performances, carnival games, Dragon & Lion Dance, Customs detector dogs, firearms & equipment exhibition.",cost:"Free",registration:"Online registration March 30 \u2013 April 1, ballot results emailed April 10. Free shuttle buses from Tuen Mun and Tsuen Wan.",category:"Government Open Day"},
-{emoji:"\uD83D\uDC31",title:"WestK FunFest 2026",startDate:"2026-03-19",endDate:"2026-04-12",time:"Various",location:"West Kowloon Cultural District",description:"120+ programmes including a giant inflatable cat installation (10m long, interactive \u2014 purrs when you touch it!), international puppet theatre, baby music sensory events, dance & musical theatre, outdoor arts, FunFest Market.",cost:"Free entry (50%+ events free), some ticketed performances",registration:"Tickets via West Kowloon website.",category:"Arts & Culture"},
-{emoji:"\uD83D\uDE8C",title:"KMB Bus Depot Study Tour",startDate:"2026-04-01",endDate:"2026-12-31",time:"Various sessions",location:"KMB Kowloon Bay Depot, 9 Wang Kwong Rd, Kowloon Bay",description:"Tour the bus depot, experience the bus wash, learn about bus maintenance and environmental protection, see antique buses, learn to be a good passenger. Certificate and KMB souvenirs included. Language: Cantonese.",cost:"Paid",registration:"Book online via KKday, Pelago, or design1933.hk. All participants need tickets including infants; under-18s need adult companion.",category:"Transport Experience"},
-{emoji:"\uD83D\uDD2C",title:"Hong Kong Science Museum",startDate:"2026-04-01",endDate:"2026-12-31",time:"Open daily (closed Thursdays)",location:"2 Science Museum Rd, Tsim Sha Tsui East",description:"500+ interactive exhibits across 4 floors on mechanics, acoustics, optics, electromagnetism. 70%+ exhibits are hands-on. Perfect for curious kids.",cost:"HK$20 (free for full-time students)",registration:"No registration required \u2014 walk in.",category:"Museum"},
-{emoji:"\uD83C\uDF0C",title:"Hong Kong Space Museum",startDate:"2026-04-01",endDate:"2026-12-31",time:"Open daily (closed Tuesdays)",location:"10 Salisbury Road, Tsim Sha Tsui",description:"Iconic dome-shaped planetarium. Interactive astronomy & space science exhibits. Omnimax sky shows and 3D Dome films.",cost:"HK$10 (free for full-time students)",registration:"No registration required \u2014 walk in.",category:"Museum"},
-{emoji:"\uD83C\uDFB5",title:"WestK FunFest: Mushroom Fantasy",startDate:"2026-04-11",endDate:"2026-04-12",time:"Check schedule",location:"Xiqu Centre, West Kowloon Cultural District",description:"Interactive theatrical performance as part of WestK FunFest.",cost:"Ticketed",registration:"Tickets via West Kowloon website.",category:"Arts & Culture"},
-{emoji:"\uD83D\uDC76",title:"WestK FunFest: Bob Marley for Babies",startDate:"2026-03-19",endDate:"2026-04-12",time:"Check schedule",location:"West Kowloon Cultural District",description:"Multi-sensory musical experience for infants and toddlers up to 36 months.",cost:"Check West Kowloon website",registration:"Tickets via West Kowloon website.",category:"Baby & Toddler"}
+{emoji:"\uD83D\uDD25",title:"Fire & Ambulance Services Academy Open Day",startDate:"2026-04-12",endDate:null,time:"10:00 AM \u2013 2:00 PM",location:"11 Pak Shing Kok Road, Tseung Kwan O",description:"National flag-raising ceremony, fire & ambulance appliances parade, live demonstrations (joint rescue, high angle rescue, swift water rescue, road crash rescue), compartment fire behaviour training, hazmat incident demo, fire investigation dog demo.",cost:"Free",registration:"Register via HKFSD Mobile App March 26\u201329, computer ballot, max 4 tickets.",category:"Government Open Day",url:"https://www.hkfsd.gov.hk/eng/education/events/"},
+{emoji:"\uD83C\uDFAA",title:"Customs & Excise Department Open Day",startDate:"2026-04-18",endDate:null,time:"All day",location:"Hong Kong Customs College, Tuen Mun",description:"National security education exhibitions, performances, carnival games, Dragon & Lion Dance, Customs detector dogs, firearms & equipment exhibition.",cost:"Free",registration:"Online registration March 30 \u2013 April 1, ballot results emailed April 10. Free shuttle buses from Tuen Mun and Tsuen Wan.",category:"Government Open Day",url:"https://www.customs.gov.hk/en/customs-announcement/whats-new/index_id_177.html"},
+{emoji:"\uD83D\uDC31",title:"WestK FunFest 2026",startDate:"2026-03-19",endDate:"2026-04-12",time:"Various",location:"West Kowloon Cultural District",description:"120+ programmes including a giant inflatable cat installation (10m long, interactive \u2014 purrs when you touch it!), international puppet theatre, baby music sensory events, dance & musical theatre, outdoor arts, FunFest Market.",cost:"Free entry (50%+ events free), some ticketed performances",registration:"Tickets via West Kowloon website.",category:"Arts & Culture",url:"https://www.westk.hk/en/events/westkfunfest"},
+{emoji:"\uD83D\uDE8C",title:"KMB Bus Depot Study Tour",startDate:"2026-04-01",endDate:"2026-12-31",time:"Various sessions",location:"KMB Kowloon Bay Depot, 9 Wang Kwong Rd, Kowloon Bay",description:"Tour the bus depot, experience the bus wash, learn about bus maintenance and environmental protection, see antique buses, learn to be a good passenger. Certificate and KMB souvenirs included. Language: Cantonese.",cost:"Paid",registration:"Book online. All participants need tickets including infants; under-18s need adult companion.",category:"Transport Experience",url:"https://www.design1933.hk/default/depot-tour.html"},
+{emoji:"\uD83D\uDD2C",title:"Hong Kong Science Museum",startDate:"2026-04-01",endDate:"2026-12-31",time:"Open daily (closed Thursdays)",location:"2 Science Museum Rd, Tsim Sha Tsui East",description:"500+ interactive exhibits across 4 floors on mechanics, acoustics, optics, electromagnetism. 70%+ exhibits are hands-on. Perfect for curious kids.",cost:"HK$20 (free for full-time students)",registration:"No registration required \u2014 walk in.",category:"Museum",url:"https://hk.science.museum/"},
+{emoji:"\uD83C\uDF0C",title:"Hong Kong Space Museum",startDate:"2026-04-01",endDate:"2026-12-31",time:"Open daily (closed Tuesdays)",location:"10 Salisbury Road, Tsim Sha Tsui",description:"Iconic dome-shaped planetarium. Interactive astronomy & space science exhibits. Omnimax sky shows and 3D Dome films.",cost:"HK$10 (free for full-time students)",registration:"No registration required \u2014 walk in.",category:"Museum",url:"https://www.lcsd.gov.hk/CE/Museum/Space/en/home/index.html"},
+{emoji:"\uD83C\uDFB5",title:"WestK FunFest: Mushroom Fantasy",startDate:"2026-04-11",endDate:"2026-04-12",time:"Check schedule",location:"Xiqu Centre, West Kowloon Cultural District",description:"Interactive theatrical performance as part of WestK FunFest.",cost:"Ticketed",registration:"Tickets via West Kowloon website.",category:"Arts & Culture",url:"https://www.westk.hk/en/events/westkfunfest"},
+{emoji:"\uD83D\uDC76",title:"WestK FunFest: Bob Marley for Babies",startDate:"2026-03-19",endDate:"2026-04-12",time:"Check schedule",location:"West Kowloon Cultural District",description:"Multi-sensory musical experience for infants and toddlers up to 36 months.",cost:"Check West Kowloon website",registration:"Tickets via West Kowloon website.",category:"Baby & Toddler",url:"https://www.westk.hk/en/events/westkfunfest"}
 ];
 
 var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -153,10 +160,12 @@ function renderEvents(){
     +'<p class="ev-desc">'+e.description+'</p>'
     +'<div class="ev-tags"><span class="ev-tag '+cc+'">'+e.cost+'</span><span class="ev-tag cat">'+e.category+'</span></div>'
     +'<div class="ev-reg">\uD83D\uDCDD '+e.registration+'</div>'
+    +(e.url?'<div style="margin-top:10px"><a href="'+e.url+'" target="_blank" rel="noopener" style="display:inline-block;padding:8px 20px;background:var(--primary);color:#fff;border-radius:12px;text-decoration:none;font-size:13px;font-weight:700;transition:opacity .2s" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">\uD83C\uDFAB Official Website &rarr;</a></div>':'')
     +'</article>'
   }).join("")
 }
 
+document.getElementById("refreshDate").textContent="3 April 2026";
 renderCalendar();renderFilters();renderEvents();
 document.getElementById("prevMonth").addEventListener("click",function(){curMonth--;if(curMonth<0){curMonth=11;curYear--}selectedDay=null;renderCalendar();renderEvents()});
 document.getElementById("nextMonth").addEventListener("click",function(){curMonth++;if(curMonth>11){curMonth=0;curYear++}selectedDay=null;renderCalendar();renderEvents()});
