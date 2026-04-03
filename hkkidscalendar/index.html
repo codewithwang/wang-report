@@ -152,8 +152,9 @@ function renderCalendar(){
   })
 }
 
+var AGE_LABELS={"0-3":"\uD83C\uDF7C 0\u20133 yrs","3-6":"\uD83E\uDDD2 3\u20136 yrs","6-12":"\uD83C\uDF92 6\u201312 yrs"};
+var activeAge="All";
 function renderFilters(){
-  var AGE_LABELS={"0-3":"\uD83C\uDF7C 0\u20133 yrs","3-6":"\uD83E\uDDD2 3\u20136 yrs","6-12":"\uD83C\uDF92 6\u201312 yrs"};var activeAge="All";
 var cats=["All"].concat(Object.keys(CAT_COLORS)),w=document.getElementById("filters");
   var ageHtml='<div style="display:flex;gap:6px;width:100%;margin-bottom:4px"><span style="font-size:11px;font-weight:700;color:var(--muted);padding:6px 0">Age:</span>'+["All","0-3","3-6","6-12"].map(function(a){return'<button class="filter-btn'+(activeAge===a?" active":"")+'" data-age="'+a+'">'+(a==="All"?"All Ages":(AGE_LABELS[a]||a))+"</button>"}).join("")+"</div>";
 w.innerHTML=ageHtml+cats.map(function(c){return'<button class="filter-btn'+(activeFilter===c?" active":"")+'" data-cat="'+c+'">'+c+"</button>"}).join("");
