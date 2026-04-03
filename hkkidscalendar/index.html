@@ -3,101 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HK Kids Calendar</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>HK Kids Calendar - Hong Kong Kids Activities &amp; Open Days</title>
+<meta name="description" content="Curated calendar of kid-friendly events, open days, and activities in Hong Kong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#faf7f2;color:#2d2d2d;line-height:1.6}
-header{background:linear-gradient(135deg,#ff9a9e,#fad0c4,#a8edea);padding:40px 20px;text-align:center;border-radius:0 0 30px 30px}
-header h1{font-size:clamp(28px,5vw,42px);font-weight:800;color:#2d2d2d}
-header p{font-size:16px;color:#555;margin-top:4px}
-.container{max-width:900px;margin:0 auto;padding:20px}
-.calendar{background:#fff;border-radius:20px;padding:24px;margin:24px 0;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
-.cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.cal-header h2{font-size:20px;font-weight:700}
-.cal-nav{background:none;border:2px solid #e0e0e0;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.cal-nav:hover{background:#ff9a9e;color:#fff;border-color:#ff9a9e}
-.cal-days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:4px}
-.cal-day-name{font-size:11px;font-weight:700;color:#999;padding:8px 0;text-transform:uppercase}
-.cal-cell{padding:8px 4px;border-radius:12px;cursor:default;font-size:14px;font-weight:600;position:relative;min-height:40px;display:flex;align-items:center;justify-content:center}
-.cal-cell.other{color:#ccc}
-.cal-cell.today{background:#fff3cd;border:2px solid #ffc107}
-.cal-cell.has-event{cursor:pointer;color:#d63384}
-.cal-cell.has-event:hover{background:#fce4ec}
-.cal-cell .dot-row{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
-.cal-cell .dot{width:5px;height:5px;border-radius:50%}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.filter-btn{padding:8px 16px;border-radius:20px;border:2px solid #e0e0e0;background:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
-.filter-btn:hover,.filter-btn.active{background:#ff9a9e;color:#fff;border-color:#ff9a9e}
-.events{display:flex;flex-direction:column;gap:16px;margin:20px 0}
-.event-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.05);border-left:4px solid #ccc;transition:transform .2s}
-.event-card:hover{transform:translateY(-2px)}
-.event-card.cat-gov{border-left-color:#dc3545}
-.event-card.cat-arts{border-left-color:#6f42c1}
-.event-card.cat-transport{border-left-color:#0d6efd}
-.event-card.cat-museum{border-left-color:#198754}
-.event-card.cat-baby{border-left-color:#e91e8b}
-.ec-top{display:flex;gap:12px;align-items:start}
-.ec-icon{font-size:32px;min-width:40px}
-.ec-title{font-size:18px;font-weight:700;margin-bottom:2px}
-.ec-meta{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0;font-size:13px;color:#666}
-.ec-meta span::before{margin-right:4px}
-.ec-desc{font-size:14px;color:#555;margin:10px 0;line-height:1.6}
-.ec-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px}
-.badge-free{background:#d4edda;color:#155724}
-.badge-paid{background:#fff3cd;color:#856404}
-.badge-cat{background:#e8e0f0;color:#6f42c1}
-.ec-reg{font-size:13px;color:#888;margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0}
-footer{text-align:center;padding:40px 20px;color:#999;font-size:13px}
-footer a{color:#d63384;text-decoration:none}
-@media(max-width:600px){.cal-cell{font-size:12px;min-height:36px}.ec-top{flex-direction:column}.container{padding:12px}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fdf6ee;--card:#ffffff;--primary:#ff6b6b;--secondary:#4ecdc4;
+  --accent:#ffe66d;--purple:#a78bfa;--pink:#f9a8d4;--blue:#7dd3fc;
+  --text:#2d3436;--muted:#636e72;--border:#e8e0d6;--radius:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.header{text-align:center;padding:2.5rem 1rem 1.5rem;background:linear-gradient(135deg,#fff5f5,#f0fffe,#fffbeb);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-40px;left:-40px;width:120px;height:120px;background:var(--accent);opacity:.3;border-radius:50%}
+.header::after{content:'';position:absolute;bottom:-30px;right:-20px;width:100px;height:100px;background:var(--pink);opacity:.25;border-radius:50%}
+.header h1{font-size:2.2rem;font-weight:800;color:var(--primary);position:relative;z-index:1}
+.header p{color:var(--muted);font-size:1rem;margin-top:.25rem;position:relative;z-index:1}
+.container{max-width:860px;margin:0 auto;padding:0 1rem 3rem}
+.calendar-wrap{background:var(--card);border-radius:var(--radius);padding:1.25rem;margin:1.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.cal-nav button{background:none;border:2px solid var(--border);border-radius:10px;width:40px;height:40px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.cal-nav button:hover{border-color:var(--primary);color:var(--primary)}
+.cal-nav h2{font-size:1.15rem;font-weight:700}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-day-label{font-size:.7rem;font-weight:600;color:var(--muted);padding:4px 0;text-transform:uppercase}
+.cal-day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.85rem;border-radius:10px;cursor:default;font-weight:500;transition:.15s}
+.cal-day.today{background:#fff3cd;font-weight:700}
+.cal-day.has-event{cursor:pointer;font-weight:700}
+.cal-day.has-event:hover{background:#ffeaea}
+.cal-day .dot-row{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
+.cal-day .dot{width:5px;height:5px;border-radius:50%}
+.cal-day.selected{background:var(--primary);color:#fff}
+.cal-day.selected .dot{border:1px solid #fff}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0}
+.filter-btn{padding:6px 14px;border-radius:20px;border:2px solid var(--border);background:var(--card);font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+.filter-btn:hover{border-color:var(--secondary)}
+.filter-btn.active{background:var(--secondary);color:#fff;border-color:var(--secondary)}
+.event-list{display:flex;flex-direction:column;gap:1rem}
+.event-card{background:var(--card);border-radius:var(--radius);padding:1.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid var(--secondary);transition:transform .15s,box-shadow .15s}
+.event-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.event-card[data-cat="Government Open Day"]{border-left-color:var(--primary)}
+.event-card[data-cat="Transport Experience"]{border-left-color:var(--accent)}
+.event-card[data-cat="Arts \26 Culture"]{border-left-color:var(--purple)}
+.event-card[data-cat="Museum"]{border-left-color:var(--blue)}
+.event-card[data-cat="Baby \26 Toddler"]{border-left-color:var(--pink)}
+.ev-header{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.5rem}
+.ev-emoji{font-size:2rem;line-height:1}
+.ev-title{font-size:1.1rem;font-weight:700}
+.ev-meta{display:flex;flex-wrap:wrap;gap:.5rem .75rem;margin:.5rem 0;font-size:.82rem;color:var(--muted)}
+.ev-meta span{display:flex;align-items:center;gap:4px}
+.ev-desc{font-size:.9rem;margin:.5rem 0;color:#444}
+.ev-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.65rem}
+.ev-tag{font-size:.72rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.ev-tag.cost-free{background:#d1fae5;color:#065f46}
+.ev-tag.cost-paid{background:#fef3c7;color:#92400e}
+.ev-tag.cat{background:#ede9fe;color:#5b21b6}
+.ev-reg{font-size:.82rem;color:var(--muted);margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--border)}
+.no-events{text-align:center;padding:2rem;color:var(--muted);font-size:.95rem}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.82rem}
+.footer a{color:var(--primary);text-decoration:none;font-weight:600}
+@media(max-width:500px){
+  .header h1{font-size:1.6rem}
+  .cal-day{font-size:.75rem}
+  .ev-emoji{font-size:1.5rem}
+  .ev-title{font-size:1rem}
+}
 </style>
 </head>
 <body>
-<header><h1>HK Kids Calendar 🎈</h1><p>Hong Kong Kids Activities & Open Days</p></header>
-<div class="container">
-<div class="calendar"><div class="cal-header"><button class="cal-nav" id="prev">‹</button><h2 id="cal-title"></h2><button class="cal-nav" id="next">›</button></div><div class="cal-days" id="cal-grid"></div></div>
-<div class="filters" id="filters"></div>
-<div class="events" id="events"></div>
-</div>
-<footer>Curated by <a href="https://wangreport.com">WangReport.com</a></footer>
+<header class="header">
+  <h1>HK Kids Calendar &#127880;</h1>
+  <p>Hong Kong Kids Activities &amp; Open Days</p>
+</header>
+<main class="container">
+  <section class="calendar-wrap" aria-label="Event Calendar">
+    <nav class="cal-nav">
+      <button id="prevMonth" aria-label="Previous month">&#8249;</button>
+      <h2 id="calTitle"></h2>
+      <button id="nextMonth" aria-label="Next month">&#8250;</button>
+    </nav>
+    <div class="cal-grid" id="calGrid"></div>
+  </section>
+  <section class="filters" id="filters" aria-label="Filter events by category"></section>
+  <section class="event-list" id="eventList" aria-label="Events"></section>
+</main>
+<footer class="footer">Curated by <a href="https://wangreport.com">WangReport.com</a></footer>
 <script>
-const EVENTS=[
-{id:1,icon:"🔥",title:"Fire & Ambulance Services Academy Open Day",start:"2026-04-12",end:"2026-04-12",time:"10am – 2pm",location:"11 Pak Shing Kok Road, Tseung Kwan O",desc:"National flag-raising ceremony, fire & ambulance appliances parade, live rescue demonstrations (joint rescue, high angle, swift water, road crash), compartment fire behaviour training, hazmat demo, fire investigation dog show.",cost:"free",cat:"Government Open Day",color:"#dc3545",cls:"cat-gov",reg:"Register via HKFSD Mobile App Mar 26-29. Computer ballot, max 4 tickets."},
-{id:2,icon:"🎪",title:"Customs & Excise Department Open Day",start:"2026-04-18",end:"2026-04-18",time:"Full day",location:"HK Customs College, Tuen Mun",desc:"National security exhibitions, carnival games, Dragon & Lion Dance, Customs detector dogs, firearms & equipment display. Free shuttle buses from Tuen Mun & Tsuen Wan.",cost:"free",cat:"Government Open Day",color:"#dc3545",cls:"cat-gov",reg:"Online registration Mar 30 – Apr 1. Ballot results emailed Apr 10."},
-{id:3,icon:"🐱",title:"WestK FunFest 2026",start:"2026-03-19",end:"2026-04-12",time:"All day",location:"West Kowloon Cultural District",desc:"120+ programmes: giant 10m inflatable cat installation (interactive — purrs when you touch it), international puppet theatre, baby music, dance & musical theatre, outdoor arts, FunFest Market.",cost:"free",cat:"Arts & Culture",color:"#6f42c1",cls:"cat-arts",reg:"Tickets via West Kowloon website. 50%+ events free."},
-{id:4,icon:"🚌",title:"KMB Bus Depot Study Tour",start:"2026-04-01",end:"2026-06-30",time:"Various sessions",location:"KMB Kowloon Bay Depot, 9 Wang Kwong Rd",desc:"Tour the bus depot, experience the bus wash, learn about maintenance & environmental protection, see antique buses. Certificate & KMB souvenirs included. Language: Cantonese.",cost:"paid",cat:"Transport Experience",color:"#0d6efd",cls:"cat-transport",reg:"Book via KKday, Pelago, or design1933.hk. All participants need tickets incl. infants."},
-{id:5,icon:"🔬",title:"Hong Kong Science Museum",start:"2026-01-01",end:"2026-12-31",time:"Mon-Sun (closed Thu)",location:"2 Science Museum Rd, Tsim Sha Tsui East",desc:"500+ interactive exhibits across 4 floors: mechanics, acoustics, optics, electromagnetism. 70%+ hands-on. Perfect for curious kids of all ages.",cost:"paid",cat:"Museum",color:"#198754",cls:"cat-museum",reg:"$20 standard, free for full-time students. No booking needed."},
-{id:6,icon:"🌌",title:"Hong Kong Space Museum",start:"2026-01-01",end:"2026-12-31",time:"Mon-Sun (closed Tue)",location:"10 Salisbury Road, Tsim Sha Tsui",desc:"Iconic dome-shaped planetarium. Interactive astronomy & space science exhibits. Omnimax sky shows and 3D Dome films.",cost:"paid",cat:"Museum",color:"#198754",cls:"cat-museum",reg:"$10 standard, free for full-time students."},
-{id:7,icon:"🎵",title:"WestK FunFest: Mushroom Fantasy",start:"2026-04-11",end:"2026-04-12",time:"Various",location:"Xiqu Centre, West Kowloon Cultural District",desc:"Interactive theatrical performance as part of WestK FunFest. A magical mushroom world brought to life on stage.",cost:"paid",cat:"Arts & Culture",color:"#6f42c1",cls:"cat-arts",reg:"Ticketed — check West Kowloon website."},
-{id:8,icon:"👶",title:"Bob Marley for Babies",start:"2026-03-19",end:"2026-04-12",time:"Various",location:"West Kowloon Cultural District",desc:"Multi-sensory musical experience for infants and toddlers up to 36 months. Part of WestK FunFest.",cost:"paid",cat:"Baby & Toddler",color:"#e91e8b",cls:"cat-baby",reg:"Check West Kowloon website for session times."}
+var events=[
+{emoji:"\uD83D\uDD25",title:"Fire & Ambulance Services Academy Open Day",startDate:"2026-04-12",endDate:null,time:"10:00 AM \u2013 2:00 PM",location:"11 Pak Shing Kok Road, Tseung Kwan O",description:"National flag-raising ceremony, fire & ambulance appliances parade, live demonstrations (joint rescue, high angle rescue, swift water rescue, road crash rescue), compartment fire behaviour training, hazmat incident demo, fire investigation dog demo.",cost:"Free",registration:"Register via HKFSD Mobile App March 26\u201329, computer ballot, max 4 tickets.",category:"Government Open Day"},
+{emoji:"\uD83C\uDFAA",title:"Customs & Excise Department Open Day",startDate:"2026-04-18",endDate:null,time:"All day",location:"Hong Kong Customs College, Tuen Mun",description:"National security education exhibitions, performances, carnival games, Dragon & Lion Dance, Customs detector dogs, firearms & equipment exhibition.",cost:"Free",registration:"Online registration March 30 \u2013 April 1, ballot results emailed April 10. Free shuttle buses from Tuen Mun and Tsuen Wan.",category:"Government Open Day"},
+{emoji:"\uD83D\uDC31",title:"WestK FunFest 2026",startDate:"2026-03-19",endDate:"2026-04-12",time:"Various",location:"West Kowloon Cultural District",description:"120+ programmes including a giant inflatable cat installation (10m long, interactive \u2014 purrs when you touch it!), international puppet theatre, baby music sensory events, dance & musical theatre, outdoor arts, FunFest Market.",cost:"Free entry (50%+ events free), some ticketed performances",registration:"Tickets via West Kowloon website.",category:"Arts & Culture"},
+{emoji:"\uD83D\uDE8C",title:"KMB Bus Depot Study Tour",startDate:"2026-04-01",endDate:"2026-12-31",time:"Various sessions",location:"KMB Kowloon Bay Depot, 9 Wang Kwong Rd, Kowloon Bay",description:"Tour the bus depot, experience the bus wash, learn about bus maintenance and environmental protection, see antique buses, learn to be a good passenger. Certificate and KMB souvenirs included. Language: Cantonese.",cost:"Paid",registration:"Book online via KKday, Pelago, or design1933.hk. All participants need tickets including infants; under-18s need adult companion.",category:"Transport Experience"},
+{emoji:"\uD83D\uDD2C",title:"Hong Kong Science Museum",startDate:"2026-04-01",endDate:"2026-12-31",time:"Open daily (closed Thursdays)",location:"2 Science Museum Rd, Tsim Sha Tsui East",description:"500+ interactive exhibits across 4 floors on mechanics, acoustics, optics, electromagnetism. 70%+ exhibits are hands-on. Perfect for curious kids.",cost:"HK$20 (free for full-time students)",registration:"No registration required \u2014 walk in.",category:"Museum"},
+{emoji:"\uD83C\uDF0C",title:"Hong Kong Space Museum",startDate:"2026-04-01",endDate:"2026-12-31",time:"Open daily (closed Tuesdays)",location:"10 Salisbury Road, Tsim Sha Tsui",description:"Iconic dome-shaped planetarium. Interactive astronomy & space science exhibits. Omnimax sky shows and 3D Dome films.",cost:"HK$10 (free for full-time students)",registration:"No registration required \u2014 walk in.",category:"Museum"},
+{emoji:"\uD83C\uDFB5",title:"WestK FunFest: Mushroom Fantasy",startDate:"2026-04-11",endDate:"2026-04-12",time:"Check schedule",location:"Xiqu Centre, West Kowloon Cultural District",description:"Interactive theatrical performance as part of WestK FunFest.",cost:"Ticketed",registration:"Tickets via West Kowloon website.",category:"Arts & Culture"},
+{emoji:"\uD83D\uDC76",title:"WestK FunFest: Bob Marley for Babies",startDate:"2026-03-19",endDate:"2026-04-12",time:"Check schedule",location:"West Kowloon Cultural District",description:"Multi-sensory musical experience for infants and toddlers up to 36 months.",cost:"Check West Kowloon website",registration:"Tickets via West Kowloon website.",category:"Baby & Toddler"}
 ];
-const CATS=[...new Set(EVENTS.map(e=>e.cat))];
-let curYear=2026,curMonth=3,activeFilter='All';
-const $=id=>document.getElementById(id);
-const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
-function eventsOnDate(y,m,d){const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;return EVENTS.filter(e=>{const s=e.start,en=e.end;return ds>=s&&ds<=en;});}
-function renderCal(){$('cal-title').textContent=months[curMonth]+' '+curYear;const g=$('cal-grid');g.innerHTML='';['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{const c=document.createElement('div');c.className='cal-day-name';c.textContent=d;g.appendChild(c);});
-const first=new Date(curYear,curMonth,1).getDay();const dim=new Date(curYear,curMonth+1,0).getDate();const prevDim=new Date(curYear,curMonth,0).getDate();const today=new Date();
-for(let i=0;i<first;i++){const c=document.createElement('div');c.className='cal-cell other';c.textContent=prevDim-first+1+i;g.appendChild(c);}
-for(let d=1;d<=dim;d++){const c=document.createElement('div');c.className='cal-cell';const evts=eventsOnDate(curYear,curMonth,d);
-if(today.getFullYear()===curYear&&today.getMonth()===curMonth&&today.getDate()===d)c.classList.add('today');
-if(evts.length){c.classList.add('has-event');const dr=document.createElement('div');dr.className='dot-row';evts.slice(0,3).forEach(e=>{const dot=document.createElement('div');dot.className='dot';dot.style.background=e.color;dr.appendChild(dot);});c.appendChild(dr);
-c.onclick=()=>{activeFilter='All';renderFilters();renderEvents(d);const el=document.querySelector('.event-card');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}}
-c.insertBefore(document.createTextNode(d),c.firstChild);g.appendChild(c);}
-const total=first+dim;const rem=total%7?7-total%7:0;for(let i=1;i<=rem;i++){const c=document.createElement('div');c.className='cal-cell other';c.textContent=i;g.appendChild(c);}}
-function renderFilters(){const f=$('filters');f.innerHTML='';['All',...CATS].forEach(c=>{const b=document.createElement('button');b.className='filter-btn'+(activeFilter===c?' active':'');b.textContent=c;b.onclick=()=>{activeFilter=c;renderFilters();renderEvents();};f.appendChild(b);});}
-function renderEvents(highlightDay){const el=$('events');el.innerHTML='';let filtered=EVENTS.filter(e=>activeFilter==='All'||e.cat===activeFilter);
-if(highlightDay){const ds=`${curYear}-${String(curMonth+1).padStart(2,'0')}-${String(highlightDay).padStart(2,'0')}`;filtered=filtered.filter(e=>ds>=e.start&&ds<=e.end);}
-filtered.sort((a,b)=>a.start.localeCompare(b.start));
-filtered.forEach(e=>{const card=document.createElement('div');card.className='event-card '+e.cls;
-const startD=new Date(e.start+'T00:00:00');const endD=new Date(e.end+'T00:00:00');
-const dateStr=e.start===e.end?startD.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'}):startD.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' – '+endD.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-card.innerHTML=`<div class="ec-top"><div class="ec-icon">${e.icon}</div><div><div class="ec-title">${e.title}</div><div class="ec-meta"><span>📅 ${dateStr}</span><span>🕐 ${e.time}</span><span>📍 ${e.location}</span></div></div></div><div class="ec-desc">${e.desc}</div><div class="ec-badges"><span class="badge ${e.cost==='free'?'badge-free':'badge-paid'}">${e.cost==='free'?'✓ Free':'$ Paid'}</span><span class="badge badge-cat">${e.cat}</span></div><div class="ec-reg">📝 ${e.reg}</div>`;
-el.appendChild(card);});
-if(!filtered.length){el.innerHTML='<div style="text-align:center;padding:40px;color:#999">No events found for this filter.</div>';}}
-$('prev').onclick=()=>{curMonth--;if(curMonth<0){curMonth=11;curYear--;}renderCal();renderEvents();};
-$('next').onclick=()=>{curMonth++;if(curMonth>11){curMonth=0;curYear++;}renderCal();renderEvents();};
-renderCal();renderFilters();renderEvents();
-</script></body></html>
+
+var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+var CAT_COLORS={"Government Open Day":"#ff6b6b","Transport Experience":"#ffe66d","Arts & Culture":"#a78bfa","Museum":"#7dd3fc","Baby & Toddler":"#f9a8d4"};
+var curYear=2026,curMonth=3,activeFilter="All",selectedDay=null;
+
+function pad(n){return n<10?"0"+n:""+n}
+function dateStr(y,m,d){return y+"-"+pad(m+1)+"-"+pad(d)}
+function eventsOnDate(y,m,d){var ds=dateStr(y,m,d);return events.filter(function(e){return e.endDate?ds>=e.startDate&&ds<=e.endDate:ds===e.startDate})}
+function catSet(evs){var s={};evs.forEach(function(e){s[e.category]=1});return Object.keys(s)}
+function fmtDate(ds){var d=new Date(ds+"T00:00:00");return d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})}
+
+function renderCalendar(){
+  var g=document.getElementById("calGrid"),t=document.getElementById("calTitle");
+  t.textContent=MONTHS[curMonth]+" "+curYear;
+  var h=DAYS.map(function(d){return'<div class="cal-day-label">'+d+"</div>"}).join("");
+  var f=new Date(curYear,curMonth,1).getDay(),dim=new Date(curYear,curMonth+1,0).getDate(),now=new Date();
+  for(var i=0;i<f;i++)h+='<div class="cal-day empty"></div>';
+  for(var d=1;d<=dim;d++){
+    var ev=eventsOnDate(curYear,curMonth,d),isT=now.getFullYear()===curYear&&now.getMonth()===curMonth&&now.getDate()===d;
+    var c="cal-day";if(isT)c+=" today";if(ev.length)c+=" has-event";if(selectedDay===d)c+=" selected";
+    var dots="";
+    if(ev.length){var cats=catSet(ev);dots='<span class="dot-row">'+cats.slice(0,4).map(function(k){return'<span class="dot" style="background:'+(CAT_COLORS[k]||"#ccc")+'"></span>'}).join("")+"</span>"}
+    h+='<div class="'+c+'" data-day="'+d+'">'+d+dots+"</div>"
+  }
+  g.innerHTML=h;
+  g.querySelectorAll(".has-event").forEach(function(el){
+    el.addEventListener("click",function(){selectedDay=parseInt(el.dataset.day);renderCalendar();renderEvents();var fc=document.querySelector(".event-card");if(fc)fc.scrollIntoView({behavior:"smooth",block:"start"})})
+  })
+}
+
+function renderFilters(){
+  var cats=["All"].concat(Object.keys(CAT_COLORS)),w=document.getElementById("filters");
+  w.innerHTML=cats.map(function(c){return'<button class="filter-btn'+(activeFilter===c?" active":"")+'" data-cat="'+c+'">'+c+"</button>"}).join("");
+  w.querySelectorAll(".filter-btn").forEach(function(b){b.addEventListener("click",function(){activeFilter=b.dataset.cat;selectedDay=null;renderCalendar();renderFilters();renderEvents()})})
+}
+
+function renderEvents(){
+  var list=document.getElementById("eventList"),filtered=events.slice();
+  if(selectedDay){var ds=dateStr(curYear,curMonth,selectedDay);filtered=events.filter(function(e){return e.endDate?ds>=e.startDate&&ds<=e.endDate:ds===e.startDate})}
+  if(activeFilter!=="All")filtered=filtered.filter(function(e){return e.category===activeFilter});
+  filtered.sort(function(a,b){return a.startDate.localeCompare(b.startDate)});
+  if(!filtered.length){list.innerHTML='<div class="no-events">No events found for this selection.</div>';return}
+  list.innerHTML=filtered.map(function(e){
+    var cc=e.cost==="Free"?"cost-free":"cost-paid";
+    var dd=e.endDate&&e.endDate!==e.startDate?fmtDate(e.startDate)+" \u2013 "+fmtDate(e.endDate):fmtDate(e.startDate);
+    return'<article class="event-card" data-cat="'+e.category+'">'
+    +'<div class="ev-header"><span class="ev-emoji">'+e.emoji+'</span><div><div class="ev-title">'+e.title+'</div></div></div>'
+    +'<div class="ev-meta"><span>\uD83D\uDCC5 '+dd+'</span><span>\uD83D\uDD50 '+e.time+'</span><span>\uD83D\uDCCD '+e.location+'</span></div>'
+    +'<p class="ev-desc">'+e.description+'</p>'
+    +'<div class="ev-tags"><span class="ev-tag '+cc+'">'+e.cost+'</span><span class="ev-tag cat">'+e.category+'</span></div>'
+    +'<div class="ev-reg">\uD83D\uDCDD '+e.registration+'</div>'
+    +'</article>'
+  }).join("")
+}
+
+renderCalendar();renderFilters();renderEvents();
+document.getElementById("prevMonth").addEventListener("click",function(){curMonth--;if(curMonth<0){curMonth=11;curYear--}selectedDay=null;renderCalendar();renderEvents()});
+document.getElementById("nextMonth").addEventListener("click",function(){curMonth++;if(curMonth>11){curMonth=0;curYear++}selectedDay=null;renderCalendar();renderEvents()});
+</script>
+</body>
+</html>
