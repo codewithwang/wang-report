@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HK Kids Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#faf7f2;color:#2d2d2d;line-height:1.6}
+header{background:linear-gradient(135deg,#ff9a9e,#fad0c4,#a8edea);padding:40px 20px;text-align:center;border-radius:0 0 30px 30px}
+header h1{font-size:clamp(28px,5vw,42px);font-weight:800;color:#2d2d2d}
+header p{font-size:16px;color:#555;margin-top:4px}
+.container{max-width:900px;margin:0 auto;padding:20px}
+.calendar{background:#fff;border-radius:20px;padding:24px;margin:24px 0;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cal-header h2{font-size:20px;font-weight:700}
+.cal-nav{background:none;border:2px solid #e0e0e0;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cal-nav:hover{background:#ff9a9e;color:#fff;border-color:#ff9a9e}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:4px}
+.cal-day-name{font-size:11px;font-weight:700;color:#999;padding:8px 0;text-transform:uppercase}
+.cal-cell{padding:8px 4px;border-radius:12px;cursor:default;font-size:14px;font-weight:600;position:relative;min-height:40px;display:flex;align-items:center;justify-content:center}
+.cal-cell.other{color:#ccc}
+.cal-cell.today{background:#fff3cd;border:2px solid #ffc107}
+.cal-cell.has-event{cursor:pointer;color:#d63384}
+.cal-cell.has-event:hover{background:#fce4ec}
+.cal-cell .dot-row{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
+.cal-cell .dot{width:5px;height:5px;border-radius:50%}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.filter-btn{padding:8px 16px;border-radius:20px;border:2px solid #e0e0e0;background:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:#ff9a9e;color:#fff;border-color:#ff9a9e}
+.events{display:flex;flex-direction:column;gap:16px;margin:20px 0}
+.event-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.05);border-left:4px solid #ccc;transition:transform .2s}
+.event-card:hover{transform:translateY(-2px)}
+.event-card.cat-gov{border-left-color:#dc3545}
+.event-card.cat-arts{border-left-color:#6f42c1}
+.event-card.cat-transport{border-left-color:#0d6efd}
+.event-card.cat-museum{border-left-color:#198754}
+.event-card.cat-baby{border-left-color:#e91e8b}
+.ec-top{display:flex;gap:12px;align-items:start}
+.ec-icon{font-size:32px;min-width:40px}
+.ec-title{font-size:18px;font-weight:700;margin-bottom:2px}
+.ec-meta{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0;font-size:13px;color:#666}
+.ec-meta span::before{margin-right:4px}
+.ec-desc{font-size:14px;color:#555;margin:10px 0;line-height:1.6}
+.ec-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px}
+.badge-free{background:#d4edda;color:#155724}
+.badge-paid{background:#fff3cd;color:#856404}
+.badge-cat{background:#e8e0f0;color:#6f42c1}
+.ec-reg{font-size:13px;color:#888;margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0}
+footer{text-align:center;padding:40px 20px;color:#999;font-size:13px}
+footer a{color:#d63384;text-decoration:none}
+@media(max-width:600px){.cal-cell{font-size:12px;min-height:36px}.ec-top{flex-direction:column}.container{padding:12px}}
+</style>
+</head>
+<body>
+<header><h1>HK Kids Calendar 🎈</h1><p>Hong Kong Kids Activities & Open Days</p></header>
+<div class="container">
+<div class="calendar"><div class="cal-header"><button class="cal-nav" id="prev">‹</button><h2 id="cal-title"></h2><button class="cal-nav" id="next">›</button></div><div class="cal-days" id="cal-grid"></div></div>
+<div class="filters" id="filters"></div>
+<div class="events" id="events"></div>
+</div>
+<footer>Curated by <a href="https://wangreport.com">WangReport.com</a></footer>
+<script>
+const EVENTS=[
+{id:1,icon:"🔥",title:"Fire & Ambulance Services Academy Open Day",start:"2026-04-12",end:"2026-04-12",time:"10am – 2pm",location:"11 Pak Shing Kok Road, Tseung Kwan O",desc:"National flag-raising ceremony, fire & ambulance appliances parade, live rescue demonstrations (joint rescue, high angle, swift water, road crash), compartment fire behaviour training, hazmat demo, fire investigation dog show.",cost:"free",cat:"Government Open Day",color:"#dc3545",cls:"cat-gov",reg:"Register via HKFSD Mobile App Mar 26-29. Computer ballot, max 4 tickets."},
+{id:2,icon:"🎪",title:"Customs & Excise Department Open Day",start:"2026-04-18",end:"2026-04-18",time:"Full day",location:"HK Customs College, Tuen Mun",desc:"National security exhibitions, carnival games, Dragon & Lion Dance, Customs detector dogs, firearms & equipment display. Free shuttle buses from Tuen Mun & Tsuen Wan.",cost:"free",cat:"Government Open Day",color:"#dc3545",cls:"cat-gov",reg:"Online registration Mar 30 – Apr 1. Ballot results emailed Apr 10."},
+{id:3,icon:"🐱",title:"WestK FunFest 2026",start:"2026-03-19",end:"2026-04-12",time:"All day",location:"West Kowloon Cultural District",desc:"120+ programmes: giant 10m inflatable cat installation (interactive — purrs when you touch it), international puppet theatre, baby music, dance & musical theatre, outdoor arts, FunFest Market.",cost:"free",cat:"Arts & Culture",color:"#6f42c1",cls:"cat-arts",reg:"Tickets via West Kowloon website. 50%+ events free."},
+{id:4,icon:"🚌",title:"KMB Bus Depot Study Tour",start:"2026-04-01",end:"2026-06-30",time:"Various sessions",location:"KMB Kowloon Bay Depot, 9 Wang Kwong Rd",desc:"Tour the bus depot, experience the bus wash, learn about maintenance & environmental protection, see antique buses. Certificate & KMB souvenirs included. Language: Cantonese.",cost:"paid",cat:"Transport Experience",color:"#0d6efd",cls:"cat-transport",reg:"Book via KKday, Pelago, or design1933.hk. All participants need tickets incl. infants."},
+{id:5,icon:"🔬",title:"Hong Kong Science Museum",start:"2026-01-01",end:"2026-12-31",time:"Mon-Sun (closed Thu)",location:"2 Science Museum Rd, Tsim Sha Tsui East",desc:"500+ interactive exhibits across 4 floors: mechanics, acoustics, optics, electromagnetism. 70%+ hands-on. Perfect for curious kids of all ages.",cost:"paid",cat:"Museum",color:"#198754",cls:"cat-museum",reg:"$20 standard, free for full-time students. No booking needed."},
+{id:6,icon:"🌌",title:"Hong Kong Space Museum",start:"2026-01-01",end:"2026-12-31",time:"Mon-Sun (closed Tue)",location:"10 Salisbury Road, Tsim Sha Tsui",desc:"Iconic dome-shaped planetarium. Interactive astronomy & space science exhibits. Omnimax sky shows and 3D Dome films.",cost:"paid",cat:"Museum",color:"#198754",cls:"cat-museum",reg:"$10 standard, free for full-time students."},
+{id:7,icon:"🎵",title:"WestK FunFest: Mushroom Fantasy",start:"2026-04-11",end:"2026-04-12",time:"Various",location:"Xiqu Centre, West Kowloon Cultural District",desc:"Interactive theatrical performance as part of WestK FunFest. A magical mushroom world brought to life on stage.",cost:"paid",cat:"Arts & Culture",color:"#6f42c1",cls:"cat-arts",reg:"Ticketed — check West Kowloon website."},
+{id:8,icon:"👶",title:"Bob Marley for Babies",start:"2026-03-19",end:"2026-04-12",time:"Various",location:"West Kowloon Cultural District",desc:"Multi-sensory musical experience for infants and toddlers up to 36 months. Part of WestK FunFest.",cost:"paid",cat:"Baby & Toddler",color:"#e91e8b",cls:"cat-baby",reg:"Check West Kowloon website for session times."}
+];
+const CATS=[...new Set(EVENTS.map(e=>e.cat))];
+let curYear=2026,curMonth=3,activeFilter='All';
+const $=id=>document.getElementById(id);
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function eventsOnDate(y,m,d){const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;return EVENTS.filter(e=>{const s=e.start,en=e.end;return ds>=s&&ds<=en;});}
+function renderCal(){$('cal-title').textContent=months[curMonth]+' '+curYear;const g=$('cal-grid');g.innerHTML='';['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{const c=document.createElement('div');c.className='cal-day-name';c.textContent=d;g.appendChild(c);});
+const first=new Date(curYear,curMonth,1).getDay();const dim=new Date(curYear,curMonth+1,0).getDate();const prevDim=new Date(curYear,curMonth,0).getDate();const today=new Date();
+for(let i=0;i<first;i++){const c=document.createElement('div');c.className='cal-cell other';c.textContent=prevDim-first+1+i;g.appendChild(c);}
+for(let d=1;d<=dim;d++){const c=document.createElement('div');c.className='cal-cell';const evts=eventsOnDate(curYear,curMonth,d);
+if(today.getFullYear()===curYear&&today.getMonth()===curMonth&&today.getDate()===d)c.classList.add('today');
+if(evts.length){c.classList.add('has-event');const dr=document.createElement('div');dr.className='dot-row';evts.slice(0,3).forEach(e=>{const dot=document.createElement('div');dot.className='dot';dot.style.background=e.color;dr.appendChild(dot);});c.appendChild(dr);
+c.onclick=()=>{activeFilter='All';renderFilters();renderEvents(d);const el=document.querySelector('.event-card');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}}
+c.insertBefore(document.createTextNode(d),c.firstChild);g.appendChild(c);}
+const total=first+dim;const rem=total%7?7-total%7:0;for(let i=1;i<=rem;i++){const c=document.createElement('div');c.className='cal-cell other';c.textContent=i;g.appendChild(c);}}
+function renderFilters(){const f=$('filters');f.innerHTML='';['All',...CATS].forEach(c=>{const b=document.createElement('button');b.className='filter-btn'+(activeFilter===c?' active':'');b.textContent=c;b.onclick=()=>{activeFilter=c;renderFilters();renderEvents();};f.appendChild(b);});}
+function renderEvents(highlightDay){const el=$('events');el.innerHTML='';let filtered=EVENTS.filter(e=>activeFilter==='All'||e.cat===activeFilter);
+if(highlightDay){const ds=`${curYear}-${String(curMonth+1).padStart(2,'0')}-${String(highlightDay).padStart(2,'0')}`;filtered=filtered.filter(e=>ds>=e.start&&ds<=e.end);}
+filtered.sort((a,b)=>a.start.localeCompare(b.start));
+filtered.forEach(e=>{const card=document.createElement('div');card.className='event-card '+e.cls;
+const startD=new Date(e.start+'T00:00:00');const endD=new Date(e.end+'T00:00:00');
+const dateStr=e.start===e.end?startD.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'}):startD.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' – '+endD.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+card.innerHTML=`<div class="ec-top"><div class="ec-icon">${e.icon}</div><div><div class="ec-title">${e.title}</div><div class="ec-meta"><span>📅 ${dateStr}</span><span>🕐 ${e.time}</span><span>📍 ${e.location}</span></div></div></div><div class="ec-desc">${e.desc}</div><div class="ec-badges"><span class="badge ${e.cost==='free'?'badge-free':'badge-paid'}">${e.cost==='free'?'✓ Free':'$ Paid'}</span><span class="badge badge-cat">${e.cat}</span></div><div class="ec-reg">📝 ${e.reg}</div>`;
+el.appendChild(card);});
+if(!filtered.length){el.innerHTML='<div style="text-align:center;padding:40px;color:#999">No events found for this filter.</div>';}}
+$('prev').onclick=()=>{curMonth--;if(curMonth<0){curMonth=11;curYear--;}renderCal();renderEvents();};
+$('next').onclick=()=>{curMonth++;if(curMonth>11){curMonth=0;curYear++;}renderCal();renderEvents();};
+renderCal();renderFilters();renderEvents();
+</script></body></html>
