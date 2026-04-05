@@ -1,389 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wang Kitchen</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lam Wang Cha Chaang Teng · Menu</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
-
   :root {
-    --bg: #1a1410;
-    --card: #231e18;
-    --gold: #c9a84c;
-    --gold-dim: #8a7235;
-    --cream: #f0e6d3;
-    --cream-dim: #a89880;
-    --red: #8b3a3a;
-    --green: #4a7a4a;
-    --border: #3a3228;
+    --cream: #f6efe1;
+    --parchment: #fbf6ea;
+    --ink: #2b1d12;
+    --ink-soft: #5a4632;
+    --accent: #8a1e1e;
+    --rule: #c8b48a;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); }
   body {
-    font-family: 'Lato', sans-serif;
-    background: var(--bg);
-    color: var(--cream);
-    min-height: 100vh;
-    padding: 0 0 4rem 0;
+    font-family: "Garamond", "EB Garamond", "Baskerville", "Palatino Linotype", Georgia, serif;
+    line-height: 1.55;
+    padding: 48px 24px 96px;
   }
-
-  header {
+  .menu {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--rule);
+    box-shadow: 0 18px 48px rgba(90, 70, 50, 0.15);
+    padding: 64px 64px 80px;
+  }
+  header.masthead {
     text-align: center;
-    padding: 2.5rem 1rem 1.5rem;
-    border-bottom: 1px solid var(--gold-dim);
-    margin-bottom: 1.5rem;
+    border-bottom: 2px double var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
   }
-
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    margin-bottom: 0.3rem;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
   }
-
-  header .subtitle {
-    font-size: 0.8rem;
-    color: var(--cream-dim);
-    letter-spacing: 0.3em;
+  h1.restaurant {
+    font-family: "Playfair Display", "Didot", "Garamond", serif;
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0;
+  }
+  .ornament {
+    text-align: center;
+    color: var(--rule);
+    margin: 24px 0 8px;
+    font-size: 18px;
+    letter-spacing: 0.5em;
+  }
+  section.course {
+    margin-top: 36px;
+  }
+  h2.course-title {
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    margin: 0 0 4px;
+    color: var(--ink);
   }
-
-  .filters {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+  .course-sub {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin: 0 0 20px;
   }
-
-  .filters button {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--cream-dim);
-    font-family: 'Lato', sans-serif;
-    font-size: 0.75rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 2px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.2s;
+  .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 48px;
   }
-
-  .filters button.active, .filters button:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(201, 168, 76, 0.08);
+  .items.single { grid-template-columns: 1fr; }
+  .dish {
+    padding: 4px 0;
   }
-
-  section {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    padding: 0 1.2rem;
+  .dish h3 {
+    font-size: 17px;
+    margin: 0 0 4px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    font-variant: small-caps;
+    font-weight: 700;
   }
-
-  section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--gold);
-    text-transform: uppercase;
+  .dish p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .weekly {
+    margin-top: 48px;
+    border-top: 2px double var(--rule);
+    border-bottom: 2px double var(--rule);
+    padding: 24px 0 28px;
+    text-align: center;
+  }
+  .weekly h2 {
+    font-size: 22px;
     letter-spacing: 0.2em;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .item {
-    padding: 0.6rem 0;
-    border-bottom: 1px dotted var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.8rem;
-    cursor: pointer;
-    transition: background 0.15s;
-    border-radius: 2px;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-  }
-
-  .item:hover { background: rgba(201, 168, 76, 0.04); }
-  .item:last-child { border-bottom: none; }
-
-  .item-left { flex: 1; }
-
-  .item-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    color: var(--cream);
-    display: inline;
-  }
-
-  .item-tag {
-    font-size: 0.6rem;
-    padding: 0.15rem 0.4rem;
-    border-radius: 2px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-left: 0.5rem;
-    vertical-align: middle;
+    margin: 0 0 10px;
+    color: var(--accent);
   }
-
-  .tag-v { background: var(--green); color: #c8e6c8; }
-  .tag-quick { background: #4a5a7a; color: #c8d8f0; }
-  .tag-kid { background: #7a5a4a; color: #f0d8c8; }
-
-  .item-desc {
-    font-size: 0.75rem;
-    color: var(--cream-dim);
-    margin-top: 0.2rem;
-    font-weight: 300;
+  .weekly p {
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
   }
-
-  .item-time {
-    font-size: 0.7rem;
-    color: var(--gold-dim);
-    white-space: nowrap;
-    font-weight: 300;
+  footer.foot {
+    text-align: center;
+    margin-top: 36px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
-
-  .item.selected { background: rgba(201, 168, 76, 0.1); }
-  .item.selected .item-name { color: var(--gold); }
-
-  .tonight {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--card);
-    border-top: 1px solid var(--gold-dim);
-    padding: 0.7rem 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
+  @media (max-width: 720px) {
+    body { padding: 16px 8px 48px; }
+    .menu { padding: 28px 20px 40px; }
+    h1.restaurant { font-size: 32px; }
+    .items { grid-template-columns: 1fr; gap: 18px; }
   }
-
-  .tonight-label {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-size: 0.85rem;
+  @media print {
+    body { background: white; padding: 0; }
+    .menu { box-shadow: none; border: none; }
   }
-
-  .tonight-items {
-    font-size: 0.75rem;
-    color: var(--cream-dim);
-    max-width: 70%;
-    text-align: right;
-  }
-
-  .tonight-clear {
-    background: none;
-    border: none;
-    color: var(--red);
-    font-size: 0.7rem;
-    cursor: pointer;
-    padding: 0.2rem;
-  }
-
-  .hidden { display: none; }
 </style>
 </head>
 <body>
+  <div class="menu">
+    <header class="masthead">
+      <p class="eyebrow">Est. 2026 · Wang Family Kitchen</p>
+      <h1 class="restaurant">Lam Wang Cha Chaang Teng</h1>
+      <p class="tagline">A family table for the dishes we love, from Taipei to Texas.</p>
+    </header>
 
-<header>
-  <h1>The Wang Kitchen</h1>
-  <div class="subtitle">Family Dinner Menu</div>
-</header>
+    <div class="ornament">✦ ❦ ✦</div>
 
-<div class="filters">
-  <button class="active" data-filter="all">All</button>
-  <button data-filter="quick">Quick (&lt;30m)</button>
-  <button data-filter="v">Vegetarian</button>
-  <button data-filter="kid">Kid Friendly</button>
-</div>
-
-<main id="menu"></main>
-
-<div class="tonight" id="tonight">
-  <div>
-    <span class="tonight-label">Tonight:</span>
-    <button class="tonight-clear" id="clearBtn" onclick="clearSelections()">clear</button>
-  </div>
-  <div class="tonight-items" id="tonightItems">Tap items to plan dinner</div>
-</div>
-
-<script>
-// ═══════════════════════════════════════════════════════════════
-// MENU DATA — Edit this to add/remove/change items
-// tags: v = vegetarian, quick = under 30 min, kid = kid-friendly
-// ═══════════════════════════════════════════════════════════════
-const MENU = {
-  "Appetizers & Snacks": [
-    { name: "Bruschetta Trio", desc: "Tomato basil, mushroom truffle, ricotta honey", time: "15m", tags: ["v", "quick"] },
-    { name: "Crispy Chicken Wings", desc: "Buffalo, garlic parm, or honey soy", time: "35m", tags: ["kid"] },
-    { name: "Shrimp Cocktail", desc: "Poached with cocktail sauce and lemon", time: "20m", tags: ["quick"] },
-    { name: "Edamame", desc: "Sea salt or garlic chili", time: "10m", tags: ["v", "quick", "kid"] },
-    { name: "Caprese Salad", desc: "Fresh mozzarella, tomato, basil, balsamic", time: "10m", tags: ["v", "quick"] },
-    { name: "Gyoza", desc: "Pan-fried pork and cabbage dumplings", time: "25m", tags: ["kid", "quick"] },
-    { name: "Soup of the Day", desc: "Rotate: tomato bisque, corn chowder, hot & sour", time: "30m", tags: ["v"] },
-  ],
-
-  "Salads & Light": [
-    { name: "Caesar Salad", desc: "Romaine, croutons, parm, anchovy dressing", time: "15m", tags: ["quick"] },
-    { name: "Wedge Salad", desc: "Iceberg, blue cheese, bacon, tomato", time: "10m", tags: ["quick"] },
-    { name: "Asian Slaw", desc: "Cabbage, carrot, sesame ginger dressing", time: "15m", tags: ["v", "quick"] },
-    { name: "Greek Salad", desc: "Cucumber, tomato, olive, feta, oregano", time: "10m", tags: ["v", "quick"] },
-  ],
-
-  "Sides": [
-    { name: "Garlic Mashed Potatoes", desc: "Yukon gold, butter, roasted garlic", time: "30m", tags: ["v", "kid"] },
-    { name: "Roasted Broccolini", desc: "Lemon, chili flakes, parm", time: "20m", tags: ["v", "quick"] },
-    { name: "Mac & Cheese", desc: "Three cheese with breadcrumb crust", time: "35m", tags: ["v", "kid"] },
-    { name: "Grilled Asparagus", desc: "Olive oil, lemon zest", time: "15m", tags: ["v", "quick"] },
-    { name: "Creamed Spinach", desc: "Classic steakhouse style", time: "20m", tags: ["v", "quick"] },
-    { name: "Sweet Potato Fries", desc: "With chipotle aioli", time: "30m", tags: ["v", "kid"] },
-    { name: "Fried Rice", desc: "Egg, scallion, soy — goes with everything", time: "15m", tags: ["v", "quick", "kid"] },
-    { name: "Corn on the Cob", desc: "Butter, salt, or elote style", time: "15m", tags: ["v", "quick", "kid"] },
-    { name: "Stir-Fried Greens", desc: "Bok choy or gai lan with garlic", time: "10m", tags: ["v", "quick"] },
-  ],
-
-  "Mains — Beef & Lamb": [
-    { name: "Ribeye Steak", desc: "Cast iron seared, herb butter", time: "25m", tags: ["quick"] },
-    { name: "NY Strip", desc: "Reverse sear, peppercorn sauce", time: "30m", tags: [] },
-    { name: "Beef Short Ribs", desc: "Red wine braised, fall-off-bone", time: "3h", tags: [] },
-    { name: "Smash Burgers", desc: "Double patty, American cheese, special sauce", time: "20m", tags: ["quick", "kid"] },
-    { name: "Beef Stir-Fry", desc: "Flank steak, peppers, black bean sauce", time: "20m", tags: ["quick"] },
-    { name: "Bolognese", desc: "Slow-simmered meat sauce over pappardelle", time: "2h", tags: ["kid"] },
-    { name: "Korean BBQ Bulgogi", desc: "Marinated thin-sliced beef, lettuce wraps", time: "25m", tags: ["quick"] },
-    { name: "Lamb Chops", desc: "Rosemary garlic, mint yogurt", time: "25m", tags: ["quick"] },
-    { name: "Cottage Pie", desc: "Beef mince, veg, mashed potato top", time: "1h", tags: ["kid"] },
-  ],
-
-  "Mains — Poultry": [
-    { name: "Roast Chicken", desc: "Whole spatchcocked, lemon herb", time: "1h", tags: ["kid"] },
-    { name: "Chicken Parm", desc: "Breaded, marinara, mozzarella, pasta", time: "40m", tags: ["kid"] },
-    { name: "Teriyaki Chicken", desc: "Glazed thighs with rice", time: "30m", tags: ["kid"] },
-    { name: "Thai Green Curry", desc: "Chicken, bamboo, basil, coconut", time: "30m", tags: [] },
-    { name: "Kung Pao Chicken", desc: "Peanuts, chili, Sichuan pepper", time: "25m", tags: ["quick"] },
-    { name: "Chicken Caesar Wrap", desc: "Quick lunch-for-dinner option", time: "15m", tags: ["quick", "kid"] },
-    { name: "Duck Breast", desc: "Pan-seared, cherry reduction", time: "30m", tags: [] },
-  ],
-
-  "Mains — Seafood": [
-    { name: "Pan-Seared Salmon", desc: "Crispy skin, dill cream sauce", time: "20m", tags: ["quick"] },
-    { name: "Fish Tacos", desc: "Beer-battered cod, slaw, lime crema", time: "30m", tags: ["kid"] },
-    { name: "Garlic Butter Shrimp", desc: "Over linguine or with crusty bread", time: "20m", tags: ["quick"] },
-    { name: "Miso Glazed Cod", desc: "Broiled with bok choy", time: "25m", tags: ["quick"] },
-    { name: "Seafood Pasta", desc: "Shrimp, clams, white wine, garlic", time: "30m", tags: [] },
-    { name: "Tuna Poke Bowl", desc: "Rice, avocado, edamame, spicy mayo", time: "20m", tags: ["quick"] },
-  ],
-
-  "Mains — Vegetarian": [
-    { name: "Mushroom Risotto", desc: "Arborio, porcini, parm, truffle oil", time: "40m", tags: ["v"] },
-    { name: "Eggplant Parm", desc: "Breaded, marinara, mozzarella", time: "45m", tags: ["v"] },
-    { name: "Mapo Tofu", desc: "Silken tofu, Sichuan chili, fermented black bean", time: "20m", tags: ["v", "quick"] },
-    { name: "Veggie Stir-Fry", desc: "Seasonal veg, oyster sauce, rice", time: "20m", tags: ["v", "quick", "kid"] },
-    { name: "Pasta Primavera", desc: "Seasonal vegetables, light garlic olive oil", time: "25m", tags: ["v", "quick", "kid"] },
-    { name: "Stuffed Bell Peppers", desc: "Rice, black beans, corn, cheese", time: "45m", tags: ["v", "kid"] },
-    { name: "Dan Dan Noodles", desc: "Spicy sesame peanut sauce, veg version", time: "20m", tags: ["v", "quick"] },
-  ],
-
-  "Pasta & Comfort": [
-    { name: "Carbonara", desc: "Guanciale, egg, pecorino, black pepper", time: "25m", tags: ["quick"] },
-    { name: "Cacio e Pepe", desc: "Pecorino, black pepper — 3 ingredients", time: "20m", tags: ["v", "quick"] },
-    { name: "Lasagna", desc: "Layers of meat, ricotta, mozzarella", time: "1.5h", tags: ["kid"] },
-    { name: "Pad Thai", desc: "Rice noodles, shrimp or tofu, peanuts", time: "25m", tags: ["quick"] },
-    { name: "Ramen", desc: "Tonkotsu or miso broth, soft egg, chashu", time: "30m", tags: [] },
-    { name: "Fried Noodles", desc: "HK-style crispy noodles with gravy", time: "25m", tags: ["quick", "kid"] },
-  ],
-};
-
-// ═══════════════════════════════════════════════════════════════
-// RENDER — You shouldn't need to edit below here
-// ═══════════════════════════════════════════════════════════════
-let selected = JSON.parse(localStorage.getItem('wk-tonight') || '[]');
-let activeFilter = 'all';
-
-function render() {
-  const menu = document.getElementById('menu');
-  menu.innerHTML = '';
-
-  for (const [section, items] of Object.entries(MENU)) {
-    const filtered = items.filter(item => {
-      if (activeFilter === 'all') return true;
-      return item.tags.includes(activeFilter);
-    });
-    if (filtered.length === 0) continue;
-
-    const sec = document.createElement('section');
-    sec.innerHTML = `<h2>${section}</h2>`;
-
-    filtered.forEach(item => {
-      const isSelected = selected.includes(item.name);
-      const div = document.createElement('div');
-      div.className = `item${isSelected ? ' selected' : ''}`;
-      div.onclick = () => toggleItem(item.name);
-
-      let tags = '';
-      if (item.tags.includes('v')) tags += '<span class="item-tag tag-v">V</span>';
-      if (item.tags.includes('quick')) tags += '<span class="item-tag tag-quick">fast</span>';
-      if (item.tags.includes('kid')) tags += '<span class="item-tag tag-kid">kids</span>';
-
-      div.innerHTML = `
-        <div class="item-left">
-          <span class="item-name">${item.name}</span>${tags}
-          <div class="item-desc">${item.desc}</div>
+    <!-- BREAKFAST -->
+    <section class="course">
+      <h2 class="course-title">Breakfast</h2>
+      <p class="course-sub">To start the day gently</p>
+      <div class="items single">
+        <div class="dish">
+          <h3>Banana Oatmeal Cake</h3>
+          <p>Warm, moist oat cake baked with ripe bananas and a hint of cinnamon. Wholesome and sweet — equally at home with morning coffee or as an afternoon snack.</p>
         </div>
-        <div class="item-time">${item.time}</div>
-      `;
-      sec.appendChild(div);
-    });
+      </div>
+    </section>
 
-    menu.appendChild(sec);
-  }
+    <!-- APPETIZERS -->
+    <section class="course">
+      <h2 class="course-title">Appetizers &amp; Dips</h2>
+      <p class="course-sub">Small plates to share around the table</p>
+      <div class="items">
+        <div class="dish">
+          <h3>Hummus</h3>
+          <p>Creamy chickpea purée whipped with tahini, lemon, and olive oil. Served with warm flatbread or crisp vegetables.</p>
+        </div>
+        <div class="dish">
+          <h3>Cucumber Tzatziki</h3>
+          <p>Cool Greek yogurt sauce folded with shredded cucumber, garlic, and fresh dill. The perfect companion to kebabs.</p>
+        </div>
+        <div class="dish">
+          <h3>House Salsa</h3>
+          <p>Bright, chunky tomato salsa with onion, cilantro, jalapeño, and a squeeze of lime. Served with tortilla chips.</p>
+        </div>
+        <div class="dish">
+          <h3>Thai Lettuce Wraps</h3>
+          <p>Fragrant minced chicken or pork stir-fried with garlic, chili, and basil, served inside crisp lettuce cups with a tangy dipping sauce.</p>
+        </div>
+        <div class="dish">
+          <h3>Anchovy, Pepperoni &amp; Olive Board</h3>
+          <p>A savory trio of cured anchovies, spicy pepperoni, and briny olives — served with crusty bread.</p>
+        </div>
+      </div>
+    </section>
 
-  updateTonight();
-}
+    <!-- SALADS -->
+    <section class="course">
+      <h2 class="course-title">Salads</h2>
+      <p class="course-sub">Crisp, bright, and always fresh</p>
+      <div class="items">
+        <div class="dish">
+          <h3>Classic Caesar Salad</h3>
+          <p>Crisp romaine hearts tossed with creamy Caesar dressing, parmesan, and golden croutons. Simple and satisfying.</p>
+        </div>
+        <div class="dish">
+          <h3>Lemon Parmesan Romaine with Anchovies</h3>
+          <p>Romaine leaves dressed in bright lemon, extra-virgin olive oil, and shaved parmesan — finished with whole anchovy fillets for a salty kick.</p>
+        </div>
+      </div>
+    </section>
 
-function toggleItem(name) {
-  const i = selected.indexOf(name);
-  if (i >= 0) selected.splice(i, 1);
-  else selected.push(name);
-  localStorage.setItem('wk-tonight', JSON.stringify(selected));
-  render();
-}
+    <!-- MAIN ENTRÉES -->
+    <section class="course">
+      <h2 class="course-title">Main Entrées</h2>
+      <p class="course-sub">From around the world — the heart of the table</p>
+      <div class="items">
+        <div class="dish">
+          <h3>Turkish Kebabs</h3>
+          <p>Marinated and grilled skewers of seasoned meat served with warm flatbread, tzatziki, and a side of rice or salad.</p>
+        </div>
+        <div class="dish">
+          <h3>Soondooboo (순두부찌개)</h3>
+          <p>Bubbling Korean soft tofu stew with seafood or pork, kimchi, and a runny egg cracked in at the table. Served piping hot with rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Bulgogi (불고기)</h3>
+          <p>Thinly sliced beef marinated in soy, garlic, pear, and sesame, grilled until caramelized. Served with steamed rice and banchan.</p>
+        </div>
+        <div class="dish">
+          <h3>Pork Belly Rice (滷肉飯)</h3>
+          <p>Taiwanese braised pork belly, slow-simmered in soy, rice wine, and five-spice until silky. Spooned over a bowl of hot white rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Taiwan Radish &amp; Meatball Soup</h3>
+          <p>Clear, comforting broth with tender daikon radish and hand-rolled pork meatballs. A homestyle Taiwanese classic.</p>
+        </div>
+        <div class="dish">
+          <h3>Thai Green Curry</h3>
+          <p>Fragrant coconut curry with green chilies, Thai basil, bamboo shoots, and chicken or beef. Served over jasmine rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Sukiyaki (すき焼き)</h3>
+          <p>Japanese hot pot of thinly sliced beef, tofu, mushrooms, and vegetables simmered in a sweet-savory soy broth. Dip in raw egg before eating.</p>
+        </div>
+        <div class="dish">
+          <h3>Meatball Marinara</h3>
+          <p>Hand-rolled beef and pork meatballs simmered in a slow-cooked marinara. Served over spaghetti or with crusty bread.</p>
+        </div>
+        <div class="dish">
+          <h3>Thai Basil Minced Pork &amp; Egg (Pad Kra Pao)</h3>
+          <p>Spicy stir-fried minced pork with Thai holy basil, garlic, and chili — crowned with a crispy fried egg over jasmine rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Texas Chili</h3>
+          <p>Hearty slow-simmered beef chili, Texas-style — no beans, just tender chunks of beef in a deep, smoky chili sauce.</p>
+        </div>
+        <div class="dish">
+          <h3>Keto Beef Stew</h3>
+          <p>Rich low-carb beef stew with tender beef, celery, mushrooms, and herbs in a savory bone broth. Comforting and wholesome.</p>
+        </div>
+        <div class="dish">
+          <h3>Chicken Parmesan</h3>
+          <p>Golden breaded chicken cutlet topped with marinara and melted mozzarella. Served with pasta or a green salad.</p>
+        </div>
+        <div class="dish">
+          <h3>Stoofvlees</h3>
+          <p>Belgian beef stew braised in dark ale with mustard, onions, and a touch of brown sugar — rich, tangy, and deeply savory. Traditionally served with frites.</p>
+        </div>
+        <div class="dish">
+          <h3>Yoshinoya-Style Beef Rice</h3>
+          <p>Thinly sliced beef and onions simmered in a sweet soy-dashi sauce, ladled generously over hot steamed rice. A Japanese comfort classic.</p>
+        </div>
+      </div>
+    </section>
 
-function clearSelections() {
-  selected = [];
-  localStorage.setItem('wk-tonight', '[]');
-  render();
-}
+    <!-- WEEKLY MENU -->
+    <aside class="weekly">
+      <h2>This Week's Menu</h2>
+      <p>Ask the chef about today's special preparation. Seasonal rotations and family favorites are posted fresh each week.</p>
+    </aside>
 
-function updateTonight() {
-  const el = document.getElementById('tonightItems');
-  if (selected.length === 0) {
-    el.textContent = 'Tap items to plan dinner';
-  } else {
-    el.textContent = selected.join(' + ');
-  }
-}
-
-document.querySelectorAll('.filters button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    render();
-  });
-});
-
-render();
-</script>
+    <footer class="foot">
+      Prepared with love · Lam Wang Cha Chaang Teng
+    </footer>
+  </div>
 </body>
 </html>
