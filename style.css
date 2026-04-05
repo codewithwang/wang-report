@@ -40,6 +40,35 @@ body {
     padding: 5px;
     font-family: Arial, sans-serif;
 }
+.refresh-info {
+    font-size: 10px;
+    color: #777;
+    margin-top: 3px;
+    font-style: italic;
+}
+.permalinks {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 10px;
+    background: #ffffcc;
+    border: 1px solid #cc0000;
+    display: inline-block;
+    margin: 8px 0 4px 10px;
+    font-family: Arial, sans-serif;
+}
+.permalinks a {
+    color: #cc0000;
+    text-decoration: none;
+}
+.permalinks a:hover { text-decoration: underline; }
+.story-thumb {
+    display: block;
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    margin: 6px auto 4px auto;
+    border: 1px solid #999;
+}
 
 /* Hero headline — THE top story */
 .hero-headline {
