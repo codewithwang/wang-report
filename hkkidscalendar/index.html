@@ -70,7 +70,11 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .footer a{color:var(--primary);text-decoration:none;font-weight:600}
 @media(min-width:1024px){
   .main-grid{display:grid;grid-template-columns:420px 1fr;gap:2rem;align-items:start}
-  .cal-panel{position:sticky;top:1rem}
+  .cal-panel{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow-y:auto}
+  .header{padding:1.5rem 1rem 1rem}
+  .header h1{font-size:1.6rem}
+  .cal-day{font-size:.75rem}
+  .filter-btn{padding:4px 10px;font-size:.72rem}
 }
 @media(max-width:500px){
   .header h1{font-size:1.6rem}
