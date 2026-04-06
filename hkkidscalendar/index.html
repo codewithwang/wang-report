@@ -21,7 +21,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .header::after{content:'';position:absolute;bottom:-30px;right:-20px;width:100px;height:100px;background:var(--pink);opacity:.25;border-radius:50%}
 .header h1{font-size:2.2rem;font-weight:800;color:var(--primary);position:relative;z-index:1}
 .header p{color:var(--muted);font-size:1rem;margin-top:.25rem;position:relative;z-index:1}
-.container{max-width:860px;margin:0 auto;padding:0 1rem 3rem}
+.container{max-width:1200px;margin:0 auto;padding:0 1rem 3rem}
 .calendar-wrap{background:var(--card);border-radius:var(--radius);padding:1.25rem;margin:1.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
 .cal-nav button{background:none;border:2px solid var(--border);border-radius:10px;width:40px;height:40px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
@@ -68,6 +68,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .no-events{text-align:center;padding:2rem;color:var(--muted);font-size:.95rem}
 .footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.82rem}
 .footer a{color:var(--primary);text-decoration:none;font-weight:600}
+@media(min-width:1024px){
+  .main-grid{display:grid;grid-template-columns:420px 1fr;gap:2rem;align-items:start}
+  .cal-panel{position:sticky;top:1rem}
+}
 @media(max-width:500px){
   .header h1{font-size:1.6rem}
   .cal-day{font-size:.75rem}
@@ -84,6 +88,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   <div style="margin-top:10px;font-size:11px;color:var(--muted);position:relative;z-index:1">&#128338; Last refreshed: <strong id="refreshDate"></strong></div>
 </header>
 <main class="container">
+  <div class="main-grid">
+  <div class="cal-panel">
   <section class="calendar-wrap" aria-label="Event Calendar">
     <nav class="cal-nav">
       <button id="prevMonth" aria-label="Previous month">&#8249;</button>
@@ -93,12 +99,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <div class="cal-grid" id="calGrid"></div>
   </section>
   <section class="filters" id="filters" aria-label="Filter events by category"></section>
+  </div>
+  <div class="events-panel">
   <section class="event-list" id="eventList" aria-label="Events"></section>
   <div style="margin:40px 0 16px;padding-top:24px;border-top:2px dashed var(--border)">
     <h2 style="font-size:1.3rem;font-weight:800;color:var(--primary)">Always On &mdash; Places to Go Anytime</h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:4px">Museums, playgrounds, and play centres open year-round. Check websites for current hours.</p>
   </div>
   <section class="event-list" id="alwaysOnList" aria-label="Always-on venues"></section>
+  </div>
+  </div>
 </main>
 <footer class="footer">
   <div style="font-size:16px;margin-bottom:8px">&#127880;&#127752;&#127912;</div>
