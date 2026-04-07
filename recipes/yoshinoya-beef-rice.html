@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pork Belly Rice · Lam Wang Cha Chaang Teng</title>
+  <title>Yoshinoya-Style Beef Rice · Lam Wang Cha Chaang Teng</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -205,12 +205,7 @@
 
     .ingredients-list li:last-child { border-bottom: none; }
 
-    .ing-amount {
-      font-weight: 700;
-      color: var(--dark);
-      white-space: nowrap;
-    }
-
+    .ing-amount { font-weight: 700; color: var(--dark); white-space: nowrap; }
     .ing-name { color: var(--mid); }
 
     .steps-list { list-style: none; }
@@ -261,10 +256,7 @@
       transition: all 0.2s;
     }
 
-    .timer-btn:hover, .timer-btn.running {
-      background: var(--gold);
-      color: white;
-    }
+    .timer-btn:hover, .timer-btn.running { background: var(--gold); color: white; }
 
     .timer-display {
       display: inline-block;
@@ -275,11 +267,7 @@
       min-width: 3.5rem;
     }
 
-    .timer-done {
-      color: #4a7a4a;
-      font-size: 0.8rem;
-      margin-left: 0.5rem;
-    }
+    .timer-done { color: #4a7a4a; font-size: 0.8rem; margin-left: 0.5rem; }
 
     .notes-box {
       background: var(--warm-white);
@@ -306,19 +294,6 @@
 
     .notes-box p:last-child { margin-bottom: 0; }
     .notes-box strong { color: var(--dark); font-weight: 700; }
-
-    .source-link {
-      display: inline-block;
-      margin-top: 1.5rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      color: var(--light-mid);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-    }
-
-    .source-link:hover { color: var(--gold); border-color: var(--gold); }
 
     .back-link {
       display: inline-block;
@@ -355,13 +330,12 @@
 <div class="container">
 
   <div class="recipe-header">
-    <div class="recipe-category">Main Entree · Taiwanese</div>
-    <h1 class="recipe-title">Pork Belly Rice</h1>
-    <div class="recipe-subtitle">Lu Rou Fan (滷肉飯)</div>
+    <div class="recipe-category">Main Entree · Japanese</div>
+    <h1 class="recipe-title">Yoshinoya-Style Beef Rice</h1>
+    <div class="recipe-subtitle">Gyudon (牛丼)</div>
     <p class="recipe-desc">
-      Skin-on pork belly slow-braised in soy, rice wine, and warm spices until it melts apart.
-      Spooned over steamed white rice with a soy-stained egg on the side.
-      The dish that makes you understand why Taiwan exists.
+      Paper-thin beef and sweet onions simmered in a soy-dashi sauce, ladled generously over hot steamed rice.
+      The 20-minute weeknight meal that tastes like it took all afternoon. Japan's ultimate comfort bowl.
     </p>
   </div>
 
@@ -379,8 +353,10 @@
     <div class="ingredients-col">
       <h2 class="section-title">Ingredients</h2>
       <ul class="ingredients-list" id="ingredientsList"></ul>
-      <h3 class="sub-title" id="spiceLabel">Spice Bundle</h3>
-      <ul class="ingredients-list" id="spiceList"></ul>
+      <h3 class="sub-title">Sauce</h3>
+      <ul class="ingredients-list" id="sauceList"></ul>
+      <h3 class="sub-title">To Serve</h3>
+      <ul class="ingredients-list" id="servingList"></ul>
     </div>
 
     <div class="steps-col">
@@ -392,16 +368,13 @@
 
   <div class="notes-box">
     <h3>Chef's Notes</h3>
-    <p><strong>The spice bundle:</strong> Wrap everything in cheesecloth and tie with kitchen string. This keeps the braise clean and makes removal easy. No cheesecloth? A tea infuser ball works.</p>
-    <p><strong>Soy sauce:</strong> The recipe calls for both light and dark soy. Light gives saltiness, dark gives the deep mahogany colour. If you only have one type, use 4 tbsp of regular soy sauce — the colour will be lighter but the flavour is fine.</p>
-    <p><strong>Rock sugar vs granulated:</strong> Rock sugar melts into a glossier, smoother glaze. Granulated works — just stir a bit more to prevent catching.</p>
-    <p><strong>Sichuan peppercorn:</strong> Optional — skip it if you don't have it. The dish is still deeply flavoured without.</p>
-    <p><strong>Dried tangerine peel:</strong> Adds a subtle citrus note. Orange peel works, or leave it out entirely.</p>
-    <p><strong>The eggs:</strong> Add them peeled and whole so they absorb the braising liquid. The longer they sit, the deeper they stain. Leftover eggs are incredible cold the next day.</p>
-    <p><strong>Allulose:</strong> Works fine as a 1:1 swap for the rock sugar. The glaze will be slightly thinner but the flavour holds up well.</p>
-    <p><strong>Day two is better:</strong> This dish improves overnight. The sauce thickens, the pork absorbs more flavour. Make a big batch.</p>
-    <p><strong>Serve over:</strong> Freshly steamed white rice — ideally slightly sticky short-grain. Day-old rice works beautifully too.</p>
-    <a class="source-link" href="https://thewoksoflife.com/lu-rou-fan-taiwanese-braised-pork-rice-bowl/" target="_blank">Adapted from The Woks of Life</a>
+    <p><strong>Thin-sliced beef:</strong> The thinner the better. Freeze the beef for 30–45 minutes before slicing — it firms up and you can get paper-thin cuts. Many Asian supermarkets sell pre-sliced shabu-shabu beef which is perfect.</p>
+    <p><strong>Ribeye vs chuck:</strong> Ribeye has more marbling and melts in the sauce. Chuck is leaner but still good — just don't overcook it or it gets chewy.</p>
+    <p><strong>Dashi stock:</strong> Instant dashi granules dissolved in hot water work perfectly. No dashi? Beef stock is a fine substitute — the flavour profile shifts slightly but it's still delicious.</p>
+    <p><strong>Allulose:</strong> Works as a 1:1 swap for the sugar. The sauce will be marginally thinner but the sweet-savoury balance holds.</p>
+    <p><strong>Don't stir too much:</strong> Once the beef is in, let it simmer gently. Over-stirring breaks up the slices and makes the sauce cloudy.</p>
+    <p><strong>The toppings matter:</strong> Pickled ginger (beni shoga) cuts through the richness. A raw egg cracked over the hot rice is traditional. Togarashi adds a gentle heat.</p>
+    <p><strong>Leftovers:</strong> Reheats well the next day — add a splash of water when warming to loosen the sauce.</p>
   </div>
 
   <a class="back-link" href="/menu.html">← Return to Full Menu</a>
@@ -414,58 +387,50 @@
   const BASE_SERVINGS = 4;
 
   const ingredients = [
-    { amount: 1,    unit: 'lb',   name: 'skin-on pork belly, cut into ½" pieces (450g)' },
-    { amount: 2,    unit: 'tsp',  name: 'neutral oil' },
-    { amount: 1.5,  unit: 'tbsp', name: 'rock sugar (or granulated sugar)' },
-    { amount: 1,    unit: '',     name: 'onion, diced (or 2 shallots — a large onion is fine)' },
-    { amount: 8,    unit: '',     name: 'shiitake mushrooms, diced into ½" pieces (or one pack button mushrooms)' },
-    { amount: 0.25, unit: 'cup',  name: 'Shaoxing wine (60 ml)' },
-    { amount: 3,    unit: 'tbsp', name: 'light soy sauce' },
-    { amount: 2,    unit: 'tbsp', name: 'dark soy sauce (or use 4 tbsp regular if only one type)' },
-    { amount: 2,    unit: 'cups', name: 'water (475 ml)' },
-    { amount: 4,    unit: '',     name: 'hard-boiled eggs, peeled (optional)' },
+    { amount: 1,   unit: 'lb',  name: 'thinly sliced beef (ribeye or chuck)' },
+    { amount: 2,   unit: '',    name: 'medium onions, thinly sliced' },
+    { amount: 2,   unit: 'tbsp', name: 'vegetable oil' },
   ];
 
-  const spices = [
-    { amount: 3, unit: '', name: 'star anise' },
-    { amount: 1, unit: '', name: 'small cinnamon stick' },
-    { amount: 6, unit: '', name: 'cloves' },
-    { amount: 3, unit: '', name: 'bay leaves' },
-    { amount: 2, unit: '', name: 'slices fresh ginger' },
-    { amount: 2, unit: '', name: 'pieces dried tangerine or orange peel (optional)' },
-    { amount: 2, unit: 'tsp', name: 'Sichuan peppercorns (optional)' },
+  const sauce = [
+    { amount: 0.5, unit: 'cup',  name: 'dashi stock (or beef stock)' },
+    { amount: 0.25, unit: 'cup', name: 'soy sauce' },
+    { amount: 0.25, unit: 'cup', name: 'mirin' },
+    { amount: 2,   unit: 'tbsp', name: 'sake' },
+    { amount: 2,   unit: 'tbsp', name: 'sugar (or allulose)' },
+  ];
+
+  const serving = [
+    { amount: 4,   unit: 'cups', name: 'steamed Japanese short-grain rice' },
+    { amount: 1,   unit: '',     name: 'pickled ginger (beni shoga), optional' },
+    { amount: 1,   unit: '',     name: 'togarashi (Japanese chili powder), optional' },
   ];
 
   const steps = [
     {
-      title: 'Blanch the pork',
-      text: 'Bring a pot of water to a boil — enough to fully submerge the pork. Add the chopped pork belly and blanch for 1 minute. Drain, rinse off any scum under running water, and set aside.',
-      timer: 60
-    },
-    {
-      title: 'Prep the spice bundle',
-      text: 'Place star anise, cinnamon stick, cloves, bay leaves, ginger slices, and dried peel (if using) into a piece of cheesecloth. Tie securely with kitchen string. Set aside.',
+      title: 'Mix the sauce',
+      text: 'Combine the dashi stock, soy sauce, mirin, sake, and sugar in a bowl. Stir until the sugar dissolves. Set aside.',
       timer: null
     },
     {
-      title: 'Caramelise the sugar and aromatics',
-      text: 'Heat the oil in a wok or heavy pot over low heat. Add the rock sugar and let it melt slowly, stirring gently — don\'t rush this. Once the sugar starts to caramelise and turn amber, add the diced onion. Turn heat to medium-high and stir-fry for about 1 minute until fragrant. Add the mushrooms and stir-fry another 2 minutes.',
+      title: 'Cook the onions',
+      text: 'Heat vegetable oil in a large pan or skillet over medium heat. Add the sliced onions and cook until softened and translucent, about 5–7 minutes. Don\'t rush — the sweetness of the onions is half the dish.',
+      timer: 420
+    },
+    {
+      title: 'Add the sauce',
+      text: 'Pour the sauce mixture over the onions and bring to a gentle simmer. Let it bubble for a minute so the flavours come together.',
       timer: null
     },
     {
-      title: 'Build the braise',
-      text: 'Add the blanched pork belly, Shaoxing wine, light soy sauce, dark soy sauce, and water. Stir everything together and bring to a boil. Once boiling, drop in the spice bundle and the peeled hard-boiled eggs (if using). Reduce heat to the lowest possible setting.',
+      title: 'Simmer the beef',
+      text: 'Add the sliced beef, gently separating the pieces as you lay them in. Don\'t dump it all in at once — spread it out so it cooks evenly. Simmer for 10–12 minutes until the beef is cooked through and the sauce has reduced slightly. Avoid stirring too much.',
+      timer: 720
+    },
+    {
+      title: 'Serve',
+      text: 'Spoon the beef and onions generously over bowls of hot steamed rice, making sure to ladle plenty of sauce. Top with pickled ginger and a sprinkle of togarashi if you like. Serve immediately.',
       timer: null
-    },
-    {
-      title: 'Slow braise',
-      text: 'Cover and simmer on the lowest heat for 1½ hours, stirring occasionally to prevent sticking. The pork should be fall-apart tender and the liquid deeply coloured.',
-      timer: 5400
-    },
-    {
-      title: 'Reduce and finish',
-      text: 'Remove the spice bundle. Turn heat to medium-high and reduce the sauce for about 5 minutes, stirring occasionally. The sauce should be thick enough to coat a spoon but still have plenty left — this is not a dry dish. Serve generous spoonfuls over steamed white rice with an egg halved on top.',
-      timer: 300
     }
   ];
 
@@ -558,11 +523,13 @@
     servings = Math.max(1, Math.min(12, servings + delta));
     document.getElementById('servingCount').textContent = servings;
     renderList(ingredients, 'ingredientsList');
-    renderList(spices, 'spiceList');
+    renderList(sauce, 'sauceList');
+    renderList(serving, 'servingList');
   }
 
   renderList(ingredients, 'ingredientsList');
-  renderList(spices, 'spiceList');
+  renderList(sauce, 'sauceList');
+  renderList(serving, 'servingList');
   renderSteps();
 </script>
 
