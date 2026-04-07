@@ -83,70 +83,53 @@ body {
     background: #f8f8f2;
     border-left: 2px solid #cc0000;
 }
-/* Tension Dashboard — Bloomberg-style status bar */
+/* Tension Dashboard */
 .tension-dashboard {
     background: #111;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0;
-    padding: 10px 16px;
+    padding: 6px 0;
     max-width: 98%;
     margin: 8px auto;
-    border: 1px solid #333;
-    flex-wrap: wrap;
+    border: 1px solid #2a2a2a;
 }
 .td-gauge {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px 10px;
-    border-right: 1px solid #333;
+    padding: 4px 6px;
     flex: 1;
     min-width: 0;
 }
-.td-gauge:last-child { border-right: none; }
 a.td-link { text-decoration: none; color: inherit; }
 a.td-link:hover { background: #1a1a1a; }
-.td-wrti {
-    padding: 4px 14px;
-    flex: 1.3;
-}
-.td-divider {
-    width: 1px;
-    height: 40px;
-    background: #333;
-    margin: 0 2px;
-    flex: 0 0 1px;
-}
+.td-divider { display: none; }
 .td-label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
     font-weight: bold;
-    letter-spacing: 1.5px;
-    color: #777;
+    letter-spacing: 1px;
+    color: #555;
     text-transform: uppercase;
     margin-bottom: 2px;
     white-space: nowrap;
 }
 .td-value {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
     font-weight: bold;
     color: #ccc;
     line-height: 1.2;
 }
-.td-wrti .td-value, .td-wrti-num {
-    font-size: 28px;
-    letter-spacing: 1px;
-}
+.td-wrti .td-value, .td-wrti-num { font-size: 15px; }
 .td-sub {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    color: #666;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    color: #555;
     margin-top: 1px;
     white-space: nowrap;
 }
+.td-arc { margin-bottom: 2px; }
 .td-color-green { color: #00cc66 !important; }
 .td-color-amber { color: #ffaa00 !important; }
 .td-color-red { color: #ff3333 !important; }
@@ -154,14 +137,9 @@ a.td-link:hover { background: #1a1a1a; }
 .td-color-blue { color: #4488ff !important; }
 
 @media (max-width: 700px) {
-    .tension-dashboard {
-        flex-wrap: wrap;
-        gap: 4px;
-        padding: 8px;
-    }
-    .td-gauge { min-width: 60px; padding: 4px 8px; }
-    .td-wrti .td-value, .td-wrti-num { font-size: 22px; }
-    .td-divider { display: none; }
+    .tension-dashboard { flex-wrap: wrap; padding: 4px; }
+    .td-gauge { padding: 3px 4px; }
+    .td-value { font-size: 13px; }
 }
 
 /* Geopolitical narrative threads */
