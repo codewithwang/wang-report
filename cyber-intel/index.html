@@ -38,36 +38,42 @@ a:hover{text-decoration:underline}
 .sector-pill.active{border-color:#c9a84c;color:#c9a84c;background:#1a1808}
 .sort-select{margin-left:auto;background:#1a1a1a;border:1px solid #333;color:#aaa;font-family:Impact,sans-serif;font-size:11px;letter-spacing:0.5px;padding:4px 8px;border-radius:2px;cursor:pointer}
 
-/* CARD GRID */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:20px}
+/* CARD GRID — fixed 240px columns, centered */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,240px);gap:20px;justify-content:center;margin-bottom:24px}
 
 /* EMPTY STATE */
 .empty-state{grid-column:1/-1;text-align:center;padding:40px;color:#555;font-family:Impact,sans-serif;font-size:16px;letter-spacing:1px}
 
-/* MARVEL CARD */
-.marvel-card{background:#111;border:1px solid #2a2a2a;border-radius:3px;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;outline:none}
-.marvel-card:hover,.marvel-card:focus{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,.5)}
-.marvel-card.wr-featured{border-color:#c9a84c}
+/* CARD SCENE — fixed 240x336 playing-card ratio */
+.card-scene{width:240px;height:336px;perspective:1000px;flex-shrink:0;cursor:pointer;outline:none}
+.card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.card-scene.flipped .card-inner{transform:rotateY(180deg)}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;overflow:hidden}
+.card-back{transform:rotateY(180deg)}
+
+/* FRONT FACE */
+.card-front{display:flex;flex-direction:column;border:1px solid #2a2a2a;background:#111}
+.card-front.wr-featured{border-color:#c9a84c}
 
 /* WR FEATURED CORNER BADGE */
 .wr-badge{position:absolute;top:0;right:0;z-index:5;width:70px;height:70px;overflow:hidden;pointer-events:none}
-.wr-badge span{display:block;position:absolute;top:10px;right:-22px;width:90px;text-align:center;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.5px;color:#1a1208;background:linear-gradient(90deg,#c9a84c,#e8d48a,#c9a84c);transform:rotate(45deg);padding:2px 0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.wr-badge span{display:block;position:absolute;top:10px;right:-22px;width:90px;text-align:center;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.5px;color:#1a1208;background:linear-gradient(90deg,#c9a84c,#e8d48a,#c9a84c);transform:rotate(45deg);padding:2px 0}
 
-/* HOLO OVERLAY */
-.holo-wrap{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;z-index:4;border-radius:3px;overflow:hidden}
-.marvel-card.wr-featured:hover .holo-wrap,.marvel-card.wr-featured:focus .holo-wrap{opacity:1}
+/* HOLO OVERLAY — always-on for WR featured */
+.holo-wrap{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;z-index:4;border-radius:14px;overflow:hidden}
+.card-front.wr-featured .holo-wrap{opacity:.35}
+.card-scene:hover .card-front.wr-featured .holo-wrap,
+.card-scene:focus .card-front.wr-featured .holo-wrap{opacity:1}
 .holo-layer{position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,50,50,.12) 30%,rgba(255,165,0,.12) 38%,rgba(255,255,0,.1) 44%,rgba(0,255,0,.1) 50%,rgba(0,200,255,.12) 56%,rgba(100,100,255,.12) 62%,rgba(200,50,255,.1) 70%,transparent 80%);background-size:200% 200%;animation:holoShift 3s ease infinite;mix-blend-mode:screen}
 .holo-lines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px);animation:holoShift 5s linear infinite reverse}
-.holo-wr-badge{position:absolute;bottom:8px;right:8px;width:28px;height:28px;border:2px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:8px;color:rgba(201,168,76,.6);animation:holoSpin 4s linear infinite}
 @keyframes holoShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
-@keyframes holoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-/* CARD: TOP BANNER */
-.card-banner{background:linear-gradient(90deg,#1a1208,#2a1a08);padding:4px 8px;font-family:Impact,sans-serif;font-size:8px;color:#7a6a3a;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c}
+/* FRONT: TOP RIBBON */
+.card-banner{background:linear-gradient(90deg,#0a1030,#14204a);padding:4px 8px;font-family:Impact,sans-serif;font-size:8px;color:#7a8aaa;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:2px solid #c9a84c}
 
-/* CARD: ART AREA */
-.card-art{height:110px;display:flex;align-items:center;justify-content:center;position:relative}
-.card-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:72px;letter-spacing:2px;opacity:.85}
+/* FRONT: ART ZONE */
+.card-art{height:90px;display:flex;align-items:center;justify-content:center;position:relative}
+.card-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:56px;letter-spacing:2px;opacity:.85}
 .grade-seal{position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:14px;font-weight:bold}
 .grade-A{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
 .grade-B{background:#1a2a3a;border-color:#3a6aaa;color:#6aaaee}
@@ -75,48 +81,53 @@ a:hover{text-decoration:underline}
 .grade-D{background:#3a1a0a;border-color:#aa4a1a;color:#ee7a3a}
 .grade-F{background:#3a0a0a;border-color:#aa1a1a;color:#ee3a3a}
 
-/* CARD: NAME PLATE */
-.card-nameplate{background:linear-gradient(90deg,#2a1a08,#1a1208);padding:6px 8px;border-top:1px solid #3a2a0a}
-.card-nameplate .vname{font-family:Impact,sans-serif;font-size:13px;text-transform:uppercase;color:#c9a84c;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-nameplate .vsector{font-size:9px;color:#7a6a3a;text-transform:uppercase;letter-spacing:0.5px}
+/* FRONT: NAMEPLATE — WHITE background */
+.card-nameplate{background:#ffffff;padding:5px 8px;border-top:1px solid #ddd}
+.card-nameplate .vname{font-family:Impact,sans-serif;font-size:13px;text-transform:uppercase;color:#111111;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-nameplate .vsector{font-size:9px;color:#777;text-transform:uppercase;letter-spacing:0.5px}
 
-/* CARD: STATS */
-.card-stats{padding:8px;background:#0d0d14}
-.stat-row{display:flex;align-items:center;margin-bottom:3px}
-.stat-label{font-family:Impact,sans-serif;font-size:8px;color:#666;width:62px;text-transform:uppercase;letter-spacing:0.3px;flex-shrink:0}
-.stat-bar-bg{flex:1;height:8px;background:#1a1a1a;border-radius:1px;overflow:hidden}
+/* FRONT: STATS — WHITE background */
+.card-stats{padding:6px 8px;background:#ffffff}
+.stats-title{font-family:Impact,sans-serif;font-size:8px;color:#cc2222;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.stat-row{display:flex;align-items:center;margin-bottom:2px}
+.stat-label{font-family:Impact,sans-serif;font-size:8px;color:#555;width:62px;text-transform:uppercase;letter-spacing:0.3px;flex-shrink:0}
+.stat-bar-bg{flex:1;height:7px;background:#e8e8e8;border-radius:1px;overflow:hidden}
 .stat-bar-fill{height:100%;border-radius:1px;transition:width .4s}
 .bar-green{background:#5a9a3a}
 .bar-blue{background:#3a6aaa}
 .bar-amber{background:#aa7a1a}
 .bar-red{background:#aa1a1a}
 
-/* CARD: FACTS STRIP */
-.card-facts{padding:4px 8px;background:#0a0a10;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;border-top:1px solid #1a1a1a}
+/* FRONT: FACTS STRIP */
+.card-facts{padding:4px 8px;background:#1a1a2e;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-top:1px solid #2a2a3e}
 .fact{text-align:center}
-.fact .fval{font-family:Impact,sans-serif;font-size:11px;color:#ccc}
-.fact .flbl{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:0.3px}
+.fact .fval{font-family:Impact,sans-serif;font-size:11px}
+.fact .flbl{font-size:7px;color:#c9a84c;text-transform:uppercase;letter-spacing:0.3px}
 
-/* CARD: WR TAKE */
-.card-take{padding:6px 8px;background:#0d0d14;border-top:1px solid #1a1a1a;font-size:10px;font-style:italic;color:#7a6a3a;line-height:1.3;max-height:48px;overflow:hidden}
-.card-take.empty{color:#333;font-style:normal}
+/* FRONT: WR TAKE */
+.card-take{padding:4px 8px;background:#0d0d12;border-top:1px solid #1a1a1a;font-size:9px;font-style:italic;color:#7a6a3a;line-height:1.3;max-height:36px;overflow:hidden;flex:1}
 
-/* CARD: FOOTER */
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:#111;border-top:1px solid #1a1a1a;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.5px}
+/* FRONT: FOOTER */
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;border-top:1px solid #1a1a1a;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.5px}
+.card-footer-A{background:linear-gradient(90deg,#1a3a1a,#0d2a0d)}
+.card-footer-B{background:linear-gradient(90deg,#1a2a3a,#0d1a2a)}
+.card-footer-C{background:linear-gradient(90deg,#3a2a0a,#2a1a08)}
+.card-footer-D{background:linear-gradient(90deg,#3a1a0a,#2a0d08)}
+.card-footer-F{background:linear-gradient(90deg,#3a0a0a,#2a0808)}
+.footer-grade{font-size:14px;font-family:Impact,sans-serif;color:#c9a84c}
 .kev-badge{padding:2px 6px;border-radius:1px;font-size:8px;letter-spacing:0.5px}
 .kev-active{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
 .kev-clear{background:#1a3a1a;color:#5a9a3a;border:1px solid #3a6a3a}
 
-/* DRILL-DOWN PANEL */
-.drill-down{display:none;max-width:700px;margin:20px auto;padding:0;border:2px solid #c9a84c;background:#1a1208;border-radius:4px;position:relative}
-.drill-down.open{display:block}
-.drill-close{position:absolute;top:8px;right:12px;background:none;border:none;color:#c9a84c;font-size:20px;cursor:pointer;z-index:10;font-family:Georgia,serif}
+/* BACK FACE (Magic card) */
+.card-back-inner{width:100%;height:100%;background:#2a1f0e;border:2px solid #c9a84c;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.mtg-inner-frame{flex:1;margin:4px;border:1px solid #6a5020;background:#1a1208;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
 
 /* MTG TITLE BAR */
-.mtg-title{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(90deg,#2a1a08,#1a1208);border-bottom:1px solid #3a2a0a}
-.mtg-title .mtg-name{font-family:Impact,sans-serif;font-size:20px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase}
-.mana-cost{display:flex;gap:3px}
-.mana-pip{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:10px;font-weight:bold;border:1px solid rgba(255,255,255,.2)}
+.mtg-title{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:linear-gradient(90deg,#3a2808,#4a3410,#3a2808);border-bottom:1px solid #6a5020}
+.mtg-title .mtg-name{font-family:Impact,sans-serif;font-size:13px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.mana-cost{display:flex;gap:2px;flex-shrink:0;margin-left:4px}
+.mana-pip{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:8px;font-weight:bold;border:1px solid rgba(255,255,255,.2)}
 .mana-W{background:#f0e6c0;color:#222}
 .mana-U{background:#0e6eb8;color:#fff}
 .mana-B{background:#222;color:#aaa;border-color:#555}
@@ -124,25 +135,28 @@ a:hover{text-decoration:underline}
 .mana-G{background:#0a6;color:#fff}
 
 /* MTG ART */
-.mtg-art{height:120px;display:flex;align-items:center;justify-content:center}
-.mtg-art .big-mono{font-family:Impact,sans-serif;font-size:64px;letter-spacing:3px;opacity:.85}
+.mtg-art{height:60px;display:flex;align-items:center;justify-content:center}
+.mtg-art .big-mono{font-family:Impact,sans-serif;font-size:48px;letter-spacing:3px;opacity:.85}
 
 /* MTG TYPE LINE */
-.mtg-type{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:#12100a;border-top:1px solid #3a2a0a;border-bottom:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:12px;color:#c9a84c;letter-spacing:0.5px}
-.rarity-gem{width:14px;height:14px;border-radius:50%;display:inline-block;vertical-align:middle}
+.mtg-type{display:flex;justify-content:space-between;align-items:center;padding:3px 8px;background:#12100a;border-top:1px solid #3a2a0a;border-bottom:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:9px;color:#c9a84c;letter-spacing:0.5px}
+.rarity-gem{width:12px;height:12px;border-radius:50%;display:inline-block;vertical-align:middle;flex-shrink:0}
 .rarity-mythic{background:conic-gradient(#c9a84c,#e8d48a,#c9a84c,#e8d48a);animation:holoSpin 3s linear infinite}
 .rarity-rare{background:linear-gradient(135deg,#c9a84c,#e8d48a)}
 .rarity-uncommon{background:linear-gradient(135deg,#888,#bbb)}
 .rarity-common{background:#333}
+@keyframes holoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* MTG TEXT BOX */
-.mtg-textbox{padding:10px 12px;background:#14120a;min-height:80px;font-size:12px;color:#bba860;line-height:1.5}
-.mtg-textbox .ability{margin-bottom:4px}
-.mtg-textbox .flavor{font-style:italic;color:#8a7a40;border-top:1px solid #2a2008;padding-top:6px;margin-top:6px;font-size:11px}
+.mtg-textbox{padding:6px 8px;background:#0e0a04;flex:1;font-size:9px;color:#bba860;line-height:1.4;overflow:hidden}
+.mtg-textbox .ability{margin-bottom:3px}
+.mtg-textbox .flavor{font-style:italic;color:#8a7a40;border-top:1px solid #2a2008;padding-top:4px;margin-top:4px;font-size:8px}
+.mtg-textbox .cve-link{display:block;margin-top:4px;font-size:8px;color:#6aaaee;font-style:normal;text-decoration:none}
+.mtg-textbox .cve-link:hover{text-decoration:underline}
 
 /* RRR STRIP */
-.rrr-strip{display:flex;gap:8px;padding:6px 12px;background:#12100a;border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:11px;color:#888}
-.rrr-pip{display:inline-block;width:14px;height:14px;border-radius:50%;text-align:center;line-height:14px;font-size:9px;margin-right:2px;border:1px solid rgba(255,255,255,.1)}
+.rrr-strip{display:flex;gap:6px;padding:4px 8px;background:#12100a;border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:9px;color:#888}
+.rrr-pip{display:inline-block;width:12px;height:12px;border-radius:50%;text-align:center;line-height:12px;font-size:8px;margin-right:1px;border:1px solid rgba(255,255,255,.1)}
 .rrr-A{background:#1a3a1a;color:#8acc5a}
 .rrr-B{background:#1a2a3a;color:#6aaaee}
 .rrr-C{background:#3a2a0a;color:#eaaa3a}
@@ -151,24 +165,7 @@ a:hover{text-decoration:underline}
 .rrr-null{background:#1a1a1a;color:#444}
 
 /* MTG BOTTOM BAR */
-.mtg-bottom{display:flex;justify-content:space-between;padding:6px 12px;background:linear-gradient(90deg,#2a1a08,#1a1208);border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:10px;color:#7a6a3a;letter-spacing:0.5px}
-
-/* CVE TABLE */
-.cve-table-wrap{max-width:700px;margin:12px auto 30px;background:#111;border:1px solid #2a2a2a;border-radius:3px;overflow-x:auto}
-.cve-table-wrap.hidden{display:none}
-.cve-table{width:100%;border-collapse:collapse;font-size:11px}
-.cve-table th{background:#1a1208;color:#c9a84c;font-family:Impact,sans-serif;font-size:10px;letter-spacing:0.5px;padding:6px 8px;text-align:left;border-bottom:1px solid #3a2a0a}
-.cve-table td{padding:5px 8px;border-bottom:1px solid #1a1a1a;vertical-align:top}
-.cve-table tr:hover td{background:#151515}
-.cve-table a{color:#6aaaee}
-.sev-pill{display:inline-block;padding:1px 6px;border-radius:2px;font-family:Impact,sans-serif;font-size:9px;letter-spacing:0.5px}
-.sev-CRITICAL{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
-.sev-HIGH{background:#3a1a0a;color:#ee7a3a;border:1px solid #aa4a1a}
-.sev-MEDIUM{background:#3a2a0a;color:#eaaa3a;border:1px solid #aa7a1a}
-.sev-LOW{background:#1a2a3a;color:#6aaaee;border:1px solid #3a6aaa}
-.cve-badge{display:inline-block;padding:1px 4px;border-radius:2px;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.3px;margin-left:3px}
-.badge-kev{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
-.badge-zday{background:#3a2a0a;color:#eaaa3a;border:1px solid #aa7a1a}
+.mtg-bottom{display:flex;justify-content:space-between;padding:4px 8px;background:linear-gradient(90deg,#2a1a08,#1a1208);border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:8px;color:#7a6a3a;letter-spacing:0.5px}
 
 /* FOOTER */
 .page-footer{text-align:center;padding:20px 12px;border-top:1px solid #222;margin-top:30px;font-size:10px;color:#444}
@@ -180,7 +177,7 @@ a:hover{text-decoration:underline}
 .legend-swatch{width:12px;height:8px;border-radius:1px}
 
 @media(max-width:600px){
-  .card-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+  .card-grid{grid-template-columns:repeat(auto-fill,240px)}
   .filter-bar{gap:4px}
   .sector-pill{font-size:10px;padding:3px 6px}
 }
@@ -214,8 +211,6 @@ a:hover{text-decoration:underline}
   </div>
 
   <div class="card-grid" id="cardGrid"></div>
-  <div class="drill-down" id="drillDown"></div>
-  <div class="cve-table-wrap hidden" id="cveWrap"></div>
 
   <div class="page-footer">
     <div class="legend">
@@ -271,13 +266,31 @@ var DATA = null;
 var currentSector = 'all';
 var currentSort = 'grade';
 var cisoMode = false;
-var openVendorId = null;
 
 function barColor(v) {
   if (v >= 70) return 'bar-green';
   if (v >= 50) return 'bar-blue';
   if (v >= 35) return 'bar-amber';
   return 'bar-red';
+}
+
+function factColor(type, val) {
+  switch (type) {
+    case 'kev':
+      return val > 0 ? '#ff4444' : '#44ee44';
+    case 'mttp':
+      if (val > 30) return '#ff6060';
+      if (val > 14) return '#ffaa44';
+      return '#44ee44';
+    case 'cves':
+      if (val > 80) return '#ff6060';
+      if (val > 30) return '#ffaa44';
+      return '#44ee44';
+    case 'zdays':
+      return val > 0 ? '#ffaa44' : '#44ee44';
+    default:
+      return '#ccc';
+  }
 }
 
 function calcStats(v) {
@@ -311,48 +324,75 @@ function buildCard(v) {
   var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
   var stats = calcStats(v);
   var featured = v.wr_featured;
-  var html = '<div class="marvel-card' + (featured ? ' wr-featured' : '') + '" tabindex="0" data-id="' + v.id + '">';
+
+  // -- Card scene wrapper --
+  var html = '<div class="card-scene" tabindex="0" data-id="' + v.id + '">';
+  html += '<div class="card-inner">';
+
+  // === FRONT FACE (Marvel) ===
+  html += '<div class="card-face card-front' + (featured ? ' wr-featured' : '') + '">';
   if (featured) {
     html += '<div class="wr-badge"><span>WR FEATURED</span></div>';
-    html += '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div><div class="holo-wr-badge">WR</div></div>';
+    html += '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>';
   }
+
+  // 1. Top ribbon
   html += '<div class="card-banner"><span>CYBER INTEL &middot; WANG REPORT</span><span>' + esc(v.serial) + '</span></div>';
+
+  // 2. Art zone
   html += '<div class="card-art" style="background:' + art.bg + '">';
   html += '<span class="card-monogram" style="color:' + art.mono + '">' + esc(v.monogram) + '</span>';
   html += '<span class="grade-seal grade-' + v.grade + '">' + v.grade + '</span>';
   html += '</div>';
+
+  // 3. Nameplate — WHITE
   html += '<div class="card-nameplate"><div class="vname">' + esc(v.name) + '</div><div class="vsector">' + esc(SECTOR_LABELS[v.sector] || v.sector) + ' &middot; Tier ' + v.tier + ' &middot; ' + esc(v.market_position) + '</div></div>';
+
+  // 4. Security Power Ratings — WHITE
   html += '<div class="card-stats">';
+  html += '<div class="stats-title">SECURITY POWER RATINGS</div>';
   for (var i = 0; i < stats.length; i++) {
     var s = stats[i];
     html += '<div class="stat-row"><span class="stat-label">' + s.label + '</span><div class="stat-bar-bg"><div class="stat-bar-fill ' + barColor(s.val) + '" style="width:' + s.val + '%"></div></div></div>';
   }
   html += '</div>';
+
+  // 5. Facts strip — dark with gold labels, colored values
   html += '<div class="card-facts">';
-  html += '<div class="fact"><div class="fval">' + v.cves_12m + '</div><div class="flbl">CVEs</div></div>';
-  html += '<div class="fact"><div class="fval">' + v.kev_count + '</div><div class="flbl">CISA KEV</div></div>';
-  html += '<div class="fact"><div class="fval">' + v.mttp_days + 'd</div><div class="flbl">Avg Patch</div></div>';
-  html += '<div class="fact"><div class="fval">' + v.zero_days + '</div><div class="flbl">Zero-days</div></div>';
-  html += '<div class="fact"><div class="fval">' + (v.rrr_react||'-') + '/' + (v.rrr_respond||'-') + '/' + (v.rrr_resilient||'-') + '</div><div class="flbl">RRR</div></div>';
+  html += '<div class="fact"><div class="fval" style="color:' + factColor('cves', v.cves_12m) + '">' + v.cves_12m + '</div><div class="flbl">CVEs</div></div>';
+  html += '<div class="fact"><div class="fval" style="color:' + factColor('kev', v.kev_count) + '">' + v.kev_count + '</div><div class="flbl">KEV</div></div>';
+  html += '<div class="fact"><div class="fval" style="color:' + factColor('mttp', v.mttp_days) + '">' + v.mttp_days + 'd</div><div class="flbl">Patch</div></div>';
+  html += '<div class="fact"><div class="fval" style="color:' + factColor('zdays', v.zero_days) + '">' + v.zero_days + '</div><div class="flbl">0days</div></div>';
   html += '</div>';
+
+  // 6. WR take (featured only)
   if (featured && v.wr_take) {
     html += '<div class="card-take">' + esc(v.wr_take) + '</div>';
-  } else {
-    html += '<div class="card-take empty">No WR editorial</div>';
   }
-  html += '<div class="card-footer">';
+
+  // 7. Footer bar — grade gradient, KEV pill left, gold grade right
+  html += '<div class="card-footer card-footer-' + v.grade + '">';
   if (v.kev_count > 0) {
-    html += '<span class="kev-badge kev-active">KEV ACTIVE (' + v.kev_count + ')</span>';
+    html += '<span class="kev-badge kev-active">KEV (' + v.kev_count + ')</span>';
   } else {
     html += '<span class="kev-badge kev-clear">KEV CLEAR</span>';
   }
-  html += '<span style="color:#555">' + esc(v.serial) + '</span>';
+  html += '<span class="footer-grade">' + v.grade + '</span>';
   html += '</div>';
-  html += '</div>';
+
+  html += '</div>'; // end card-front
+
+  // === BACK FACE (Magic card) ===
+  html += '<div class="card-face card-back">';
+  html += buildBackFace(v);
+  html += '</div>'; // end card-back
+
+  html += '</div>'; // end card-inner
+  html += '</div>'; // end card-scene
   return html;
 }
 
-function buildDrillDown(v) {
+function buildBackFace(v) {
   var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
   var el = SECTOR_ELEMENT[v.sector] || 'W';
   var baseCost = v.tier === 1 ? 4 : v.tier === 2 ? 3 : 2;
@@ -361,57 +401,49 @@ function buildDrillDown(v) {
 
   var manaHtml = '';
   for (var i = 0; i < baseCost; i++) {
-    var m = el;
-    if (highRisk && i < 2) m = el;
-    manaHtml += '<span class="mana-pip mana-' + m + '">' + m + '</span>';
+    manaHtml += '<span class="mana-pip mana-' + el + '">' + el + '</span>';
   }
 
   var rarity = v.wr_featured ? 'mythic' : (v.tier === 1 ? 'rare' : (v.tier === 2 ? 'uncommon' : 'common'));
-  var rarityLabel = rarity.charAt(0).toUpperCase() + rarity.slice(1);
   var sectorLabel = SECTOR_LABELS[v.sector] || v.sector;
 
-  var html = '<button class="drill-close" title="Close">&times;</button>';
-  html += '<div class="mtg-title"><span class="mtg-name">' + esc(v.name) + '</span><div class="mana-cost">' + manaHtml + '</div></div>';
-  html += '<div class="mtg-art" style="background:' + art.bg + '"><span class="big-mono" style="color:' + art.mono + '">' + esc(v.monogram) + '</span></div>';
-  html += '<div class="mtg-type"><span>Legendary Artifact &mdash; ' + esc(sectorLabel) + ' Security</span><span class="rarity-gem rarity-' + rarity + '" title="' + rarityLabel + '"></span></div>';
+  var html = '<div class="card-back-inner">';
+  html += '<div class="mtg-inner-frame">';
 
+  // Title bar
+  html += '<div class="mtg-title"><span class="mtg-name">' + esc(v.name) + '</span><div class="mana-cost">' + manaHtml + '</div></div>';
+
+  // Art zone — smaller
+  html += '<div class="mtg-art" style="background:' + art.bg + '"><span class="big-mono" style="color:' + art.mono + '">' + esc(v.monogram) + '</span></div>';
+
+  // Type line
+  html += '<div class="mtg-type"><span>Legendary Artifact &mdash; ' + esc(sectorLabel) + ' Security</span><span class="rarity-gem rarity-' + rarity + '"></span></div>';
+
+  // Text box
   html += '<div class="mtg-textbox">';
-  html += '<div class="ability">Patch velocity: ' + v.mttp_days + ' days mean-time-to-patch across ' + v.cves_12m + ' CVEs in trailing 12 months.</div>';
-  html += '<div class="ability">' + v.critical_count + ' critical-severity vulnerabilities. ' + v.zero_days + ' zero-day(s) observed. ' + v.kev_count + ' CISA KEV listing(s).</div>';
-  html += '<div class="ability">Market position: ' + esc(v.market_position) + ' (Tier ' + v.tier + '). Concentration risk factor: ' + (v.market_position === 'Leader' ? 'HIGH' : v.market_position === 'Challenger' ? 'MODERATE' : 'LOW') + '.</div>';
+  html += '<div class="ability">Patch velocity: ' + v.mttp_days + 'd MTTP across ' + v.cves_12m + ' CVEs (12mo).</div>';
+  html += '<div class="ability">' + v.critical_count + ' critical. ' + v.zero_days + ' zero-day(s). ' + v.kev_count + ' KEV listing(s).</div>';
+  html += '<div class="ability">' + esc(v.market_position) + ' (Tier ' + v.tier + '). Conc. risk: ' + (v.market_position === 'Leader' ? 'HIGH' : v.market_position === 'Challenger' ? 'MOD' : 'LOW') + '.</div>';
   if (v.wr_take) {
     html += '<div class="flavor">' + esc(v.wr_take) + '</div>';
   }
+  // View CVEs link instead of CVE table
+  html += '<a class="cve-link" href="https://nvd.nist.gov/vuln/search/results?query=' + encodeURIComponent(v.name) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">View CVEs &rarr;</a>';
   html += '</div>';
 
+  // RRR strip
   html += '<div class="rrr-strip">';
-  html += '<span>React: ' + rrrGrade(v.rrr_react) + '</span>';
-  html += '<span>Respond: ' + rrrGrade(v.rrr_respond) + '</span>';
-  html += '<span>Resilient: ' + rrrGrade(v.rrr_resilient) + '</span>';
+  html += '<span>Re: ' + rrrGrade(v.rrr_react) + '</span>';
+  html += '<span>Rs: ' + rrrGrade(v.rrr_respond) + '</span>';
+  html += '<span>Rl: ' + rrrGrade(v.rrr_resilient) + '</span>';
   html += '</div>';
 
-  html += '<div class="mtg-bottom"><span>' + esc(v.serial) + ' &middot; ' + esc(sectorLabel) + '</span><span>Score ' + v.score + ' &middot; Grade ' + v.grade + '</span></div>';
+  // Bottom bar
+  html += '<div class="mtg-bottom"><span>' + esc(v.serial) + '</span><span>' + v.score + ' / ' + v.grade + '</span></div>';
 
-  var cveHtml = '';
-  if (v.cve_list && v.cve_list.length > 0) {
-    cveHtml = '<table class="cve-table"><thead><tr><th>CVE ID</th><th>Severity</th><th>Description</th><th>Days</th><th>Flags</th></tr></thead><tbody>';
-    for (var j = 0; j < v.cve_list.length; j++) {
-      var c = v.cve_list[j];
-      cveHtml += '<tr>';
-      cveHtml += '<td><a href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener">' + esc(c.id) + '</a></td>';
-      cveHtml += '<td><span class="sev-pill sev-' + c.severity + '">' + c.severity + '</span></td>';
-      cveHtml += '<td style="color:#999">' + esc(c.description) + '</td>';
-      cveHtml += '<td style="text-align:center;color:#ccc">' + c.days_to_patch + '</td>';
-      cveHtml += '<td>';
-      if (c.kev) cveHtml += '<span class="cve-badge badge-kev">KEV</span>';
-      if (c.zero_day) cveHtml += '<span class="cve-badge badge-zday">0DAY</span>';
-      cveHtml += '</td>';
-      cveHtml += '</tr>';
-    }
-    cveHtml += '</tbody></table>';
-  }
-
-  return {panel: html, cve: cveHtml};
+  html += '</div>'; // end mtg-inner-frame
+  html += '</div>'; // end card-back-inner
+  return html;
 }
 
 function sortVendors(vendors) {
@@ -460,48 +492,25 @@ function render() {
   } else {
     grid.innerHTML = vendors.map(buildCard).join('');
   }
-  closeDrillDown();
   bindCards();
 }
 
-function closeDrillDown() {
-  openVendorId = null;
-  document.getElementById('drillDown').className = 'drill-down';
-  document.getElementById('drillDown').innerHTML = '';
-  document.getElementById('cveWrap').className = 'cve-table-wrap hidden';
-  document.getElementById('cveWrap').innerHTML = '';
-}
-
-function openDrillDown(vendorId) {
-  var v = DATA.vendors.find(function(x){ return x.id === vendorId; });
-  if (!v) return;
-  if (openVendorId === vendorId) { closeDrillDown(); return; }
-  openVendorId = vendorId;
-  var dd = buildDrillDown(v);
-  var panel = document.getElementById('drillDown');
-  panel.innerHTML = dd.panel;
-  panel.className = 'drill-down open';
-  var cveWrap = document.getElementById('cveWrap');
-  if (dd.cve) {
-    cveWrap.innerHTML = dd.cve;
-    cveWrap.className = 'cve-table-wrap';
-  } else {
-    cveWrap.className = 'cve-table-wrap hidden';
-    cveWrap.innerHTML = '';
-  }
-  panel.querySelector('.drill-close').addEventListener('click', closeDrillDown);
-  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
-}
-
 function bindCards() {
-  var cards = document.querySelectorAll('.marvel-card');
-  for (var i = 0; i < cards.length; i++) {
-    (function(card){
-      card.addEventListener('click', function(){ openDrillDown(card.dataset.id); });
-      card.addEventListener('keydown', function(e){
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDrillDown(card.dataset.id); }
+  var scenes = document.querySelectorAll('.card-scene');
+  for (var i = 0; i < scenes.length; i++) {
+    (function(scene){
+      scene.addEventListener('click', function(e){
+        // Don't flip if clicking a link
+        if (e.target.tagName === 'A') return;
+        scene.classList.toggle('flipped');
       });
-    })(cards[i]);
+      scene.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          scene.classList.toggle('flipped');
+        }
+      });
+    })(scenes[i]);
   }
 }
 
