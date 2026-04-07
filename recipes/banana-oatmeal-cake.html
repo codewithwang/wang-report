@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banana Oatmeal Cake · Lam Wang Cha Chaang Teng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cream: #fdf6ec; --warm-white: #fffdf9; --gold: #b8860b; --gold-light: #d4a017; --dark: #2c2218; --mid: #5c4a32; --light-mid: #8b7355; --border: #e0d0b8; --accent: #8b3a3a; }
+    body { background-color: var(--cream); color: var(--dark); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+    header { background: var(--dark); color: var(--cream); text-align: center; padding: 2.5rem 1rem 2rem; border-bottom: 3px solid var(--gold); }
+    header .site-name { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 4vw, 2rem); letter-spacing: 0.08em; color: var(--gold-light); }
+    header .tagline { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: #a89070; margin-top: 0.3rem; }
+    header nav { margin-top: 1.2rem; }
+    header nav a { color: #c8b090; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    header nav a:hover { color: var(--gold-light); }
+    .ornament { text-align: center; color: var(--gold); font-size: 1rem; letter-spacing: 0.5em; margin: 2rem 0; }
+    .container { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .recipe-header { text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+    .recipe-category { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--light-mid); margin-bottom: 0.8rem; }
+    .recipe-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--dark); line-height: 1.2; }
+    .recipe-subtitle { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--light-mid); margin-top: 0.4rem; }
+    .recipe-desc { margin-top: 1.2rem; font-size: 0.95rem; color: var(--mid); max-width: 560px; margin-left: auto; margin-right: auto; }
+    .serving-control { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem 0; background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem 1.5rem; }
+    .serving-label { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); }
+    .serving-btn { background: var(--dark); color: var(--cream); border: none; width: 28px; height: 28px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .serving-btn:hover { background: var(--gold); }
+    .serving-count { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); min-width: 2rem; text-align: center; }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+    @media (max-width: 600px) { .recipe-body { grid-template-columns: 1fr; gap: 2rem; } }
+    h2.section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.2rem; letter-spacing: 0.03em; }
+    .ingredients-list { list-style: none; }
+    .ingredients-list li { font-size: 0.9rem; color: var(--mid); padding: 0.45rem 0; border-bottom: 1px solid #ede3d3; display: flex; justify-content: space-between; gap: 0.5rem; }
+    .ingredients-list li:last-child { border-bottom: none; }
+    .ing-amount { font-weight: 700; color: var(--dark); white-space: nowrap; }
+    .ing-name { color: var(--mid); }
+    .steps-list { list-style: none; }
+    .step { display: flex; gap: 1.2rem; margin-bottom: 2rem; align-items: flex-start; }
+    .step-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--border); line-height: 1; min-width: 2rem; text-align: center; flex-shrink: 0; }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dark); margin-bottom: 0.3rem; }
+    .step-text { font-size: 0.9rem; color: var(--mid); line-height: 1.7; }
+    .timer-wrap { margin-top: 0.7rem; }
+    .timer-btn { background: none; border: 1px solid var(--gold); color: var(--gold); font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+    .timer-btn:hover, .timer-btn.running { background: var(--gold); color: white; }
+    .timer-display { display: inline-block; margin-left: 0.8rem; font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--accent); min-width: 3.5rem; }
+    .timer-done { color: #4a7a4a; font-size: 0.8rem; margin-left: 0.5rem; }
+    .notes-box { background: var(--warm-white); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-top: 2.5rem; border-radius: 0 4px 4px 0; }
+    .notes-box h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--dark); margin-bottom: 0.7rem; letter-spacing: 0.03em; }
+    .notes-box p { font-size: 0.87rem; color: var(--mid); margin-bottom: 0.6rem; line-height: 1.7; }
+    .notes-box p:last-child { margin-bottom: 0; }
+    .notes-box strong { color: var(--dark); font-weight: 700; }
+    .back-link { display: inline-block; margin-top: 3rem; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
+    .back-link:hover { color: var(--gold); border-color: var(--gold); }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--light-mid); letter-spacing: 0.1em; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="site-name">Lam Wang Cha Chaang Teng</div>
+  <div class="tagline">Est. 2026 · Wang Family Kitchen</div>
+  <nav><a href="/menu.html">← Back to Menu</a></nav>
+</header>
+
+<div class="container">
+
+  <div class="recipe-header">
+    <div class="recipe-category">Breakfast · Healthy</div>
+    <h1 class="recipe-title">Banana Oatmeal Cake</h1>
+    <div class="recipe-subtitle">Baked, cubed, then pan-fried in butter</div>
+    <p class="recipe-desc">
+      A ripe banana, oats, and one egg — beaten fluffy, baked into a cake, then cut into cubes
+      and pan-fried in butter until golden and crisp on the outside, soft in the middle.
+      Five ingredients. No flour, no sugar. Breakfast in 20 minutes.
+    </p>
+  </div>
+
+  <div class="ornament">✦ ❦ ✦</div>
+
+  <div class="serving-control">
+    <span class="serving-label">Servings</span>
+    <button class="serving-btn" onclick="changeServings(-1)">−</button>
+    <span class="serving-count" id="servingCount">1</span>
+    <button class="serving-btn" onclick="changeServings(1)">+</button>
+  </div>
+
+  <div class="recipe-body">
+
+    <div class="ingredients-col">
+      <h2 class="section-title">Ingredients</h2>
+      <ul class="ingredients-list" id="ingredientsList"></ul>
+    </div>
+
+    <div class="steps-col">
+      <h2 class="section-title">Method</h2>
+      <ol class="steps-list" id="stepsList"></ol>
+    </div>
+
+  </div>
+
+  <div class="notes-box">
+    <h3>Chef's Notes</h3>
+    <p><strong>The banana must be ripe:</strong> Look for black spots on the skin — the riper the banana, the sweeter and more flavourful the cake. Green or yellow bananas won't mash smoothly and lack sweetness.</p>
+    <p><strong>Beat until fluffy:</strong> This isn't just mixing — you want to whisk the batter vigorously until it's airy and light. This is what gives the cake its structure without flour. A hand mixer helps but a fork and some energy works too.</p>
+    <p><strong>The oat bran:</strong> Adds fibre and a slightly nutty texture. If you don't have oat bran, use all oatmeal (⅔ cup total). The texture will be a bit less dense but still good.</p>
+    <p><strong>Don't skip the cool-down:</strong> Cutting into the cake while it's hot will make it crumble. Let it cool for a few minutes so it firms up and holds its shape when cubed.</p>
+    <p><strong>Low heat on the pan-fry:</strong> This is important. High heat burns the butter and the outside before the cubes warm through. Low heat gives you a golden, crispy crust with a soft warm centre.</p>
+    <p><strong>Toppings:</strong> A drizzle of honey, a dusting of cinnamon sugar, a spoonful of yogurt, or fresh berries. Or just eat them plain — they're sweet enough from the banana.</p>
+    <p><strong>Batch prep:</strong> Bake a double batch, cube, and store in the fridge. Pan-fry portions fresh each morning. The baked cake keeps 3–4 days refrigerated.</p>
+  </div>
+
+  <a class="back-link" href="/menu.html">← Return to Full Menu</a>
+
+</div>
+
+<footer>Lam Wang Cha Chaang Teng</footer>
+
+<script>
+  const BASE_SERVINGS = 1;
+
+  const ingredients = [
+    { amount: 1,    unit: '',     name: 'ripe banana (with black spots)' },
+    { amount: 1,    unit: '',     name: 'egg' },
+    { amount: 0.5,  unit: 'cup',  name: 'oatmeal' },
+    { amount: 0.17, unit: 'cup',  name: 'oat bran' },
+    { amount: 0.25, unit: 'tsp',  name: 'vanilla extract' },
+    { amount: 0.25, unit: 'tsp',  name: 'cinnamon' },
+    { amount: 1,    unit: 'tbsp', name: 'butter (for pan-frying)' },
+  ];
+
+  const steps = [
+    {
+      title: 'Preheat oven',
+      text: 'Preheat oven to 180°C (350°F). Line a small baking tin or ramekin with parchment paper or grease lightly.',
+      timer: null
+    },
+    {
+      title: 'Make the batter',
+      text: 'Mash the ripe banana in a bowl until smooth. Add the egg, oatmeal, oat bran, vanilla extract, and cinnamon. Beat the mixture until fluffy and well combined — you want air in the batter. A hand mixer is ideal but a whisk works with some effort.',
+      timer: null
+    },
+    {
+      title: 'Bake',
+      text: 'Pour the batter into the prepared tin. Bake for 10 minutes until set and lightly golden on top. A toothpick inserted in the centre should come out clean.',
+      timer: 600
+    },
+    {
+      title: 'Cool and cube',
+      text: 'Remove from the oven and let cool for 5 minutes. Turn out onto a cutting board and cut into small bite-sized cubes — roughly 1 inch.',
+      timer: 300
+    },
+    {
+      title: 'Pan-fry in butter',
+      text: 'Melt butter in a non-stick pan over LOW heat. Add the cubes and fry gently, turning occasionally, until golden and crispy on all sides — about 3–4 minutes total. The butter should sizzle gently, not brown quickly.',
+      timer: 240
+    },
+    {
+      title: 'Serve',
+      text: 'Transfer to a plate. Eat warm as-is, or top with a drizzle of honey, a sprinkle of cinnamon, fresh berries, or a spoonful of yogurt.',
+      timer: null
+    }
+  ];
+
+  let servings = BASE_SERVINGS;
+  const timers = {};
+
+  function formatAmount(base) {
+    const val = (base / BASE_SERVINGS) * servings;
+    if (val % 1 === 0) return val;
+    const frac = val % 1;
+    const whole = Math.floor(val);
+    const fracs = { 0.25: '¼', 0.5: '½', 0.75: '¾', 0.33: '⅓', 0.67: '⅔' };
+    const nearest = Object.keys(fracs).reduce((a, b) => Math.abs(b - frac) < Math.abs(a - frac) ? b : a);
+    if (Math.abs(frac - nearest) < 0.05) {
+      return whole > 0 ? `${whole} ${fracs[nearest]}` : fracs[nearest];
+    }
+    return parseFloat(val.toFixed(1));
+  }
+
+  function renderList(items, elementId) {
+    const list = document.getElementById(elementId);
+    list.innerHTML = items.map(ing => `
+      <li>
+        <span class="ing-name">${ing.name}</span>
+        <span class="ing-amount">${formatAmount(ing.amount)}${ing.unit ? ' ' + ing.unit : ''}</span>
+      </li>
+    `).join('');
+  }
+
+  function renderSteps() {
+    const list = document.getElementById('stepsList');
+    list.innerHTML = steps.map((step, i) => `
+      <li class="step">
+        <div class="step-num">${i + 1}</div>
+        <div class="step-content">
+          <div class="step-title">${step.title}</div>
+          <div class="step-text">${step.text}</div>
+          ${step.timer ? `
+          <div class="timer-wrap">
+            <button class="timer-btn" id="btn-${i}" onclick="toggleTimer(${i}, ${step.timer})">
+              ⏱ Start Timer
+            </button>
+            <span class="timer-display" id="display-${i}"></span>
+            <span class="timer-done" id="done-${i}" style="display:none">✓ Done</span>
+          </div>` : ''}
+        </div>
+      </li>
+    `).join('');
+  }
+
+  function toggleTimer(idx, seconds) {
+    if (timers[idx] && timers[idx].interval) {
+      clearInterval(timers[idx].interval);
+      timers[idx] = null;
+      document.getElementById(`btn-${idx}`).textContent = '⏱ Start Timer';
+      document.getElementById(`btn-${idx}`).classList.remove('running');
+      document.getElementById(`display-${idx}`).textContent = '';
+      document.getElementById(`done-${idx}`).style.display = 'none';
+      return;
+    }
+
+    let remaining = seconds;
+    const display = document.getElementById(`display-${idx}`);
+    const btn = document.getElementById(`btn-${idx}`);
+    const done = document.getElementById(`done-${idx}`);
+
+    btn.textContent = '⏹ Stop';
+    btn.classList.add('running');
+
+    function update() {
+      const m = Math.floor(remaining / 60);
+      const s = remaining % 60;
+      display.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+      if (remaining <= 0) {
+        clearInterval(timers[idx].interval);
+        display.textContent = '';
+        btn.textContent = '✓ Complete';
+        btn.classList.remove('running');
+        done.style.display = 'inline';
+        timers[idx] = null;
+      }
+      remaining--;
+    }
+
+    update();
+    timers[idx] = { interval: setInterval(update, 1000) };
+  }
+
+  function changeServings(delta) {
+    servings = Math.max(1, Math.min(6, servings + delta));
+    document.getElementById('servingCount').textContent = servings;
+    renderList(ingredients, 'ingredientsList');
+  }
+
+  renderList(ingredients, 'ingredientsList');
+  renderSteps();
+</script>
+
+</body>
+</html>
