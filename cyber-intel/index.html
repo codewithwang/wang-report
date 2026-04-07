@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VENDOR SECURITY SCORECARD — THE WANG REPORT</title>
+  <style>
+    /* ── Reset & Base ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d14;
+      --card-bg: #16161e;
+      --gold: #c9a84c;
+      --gold-dim: rgba(201, 168, 76, 0.35);
+      --border-subtle: #2a2a3a;
+      --text: #e8e6e1;
+      --text-dim: #7a7a8a;
+      --text-muted: #555566;
+      --grade-a: #34d058;
+      --grade-b: #4a90d9;
+      --grade-c: #e0a800;
+      --grade-d: #e87040;
+      --grade-f: #e04040;
+      --severity-critical: #ff4444;
+      --severity-high: #ff8c00;
+      --severity-medium: #e0a800;
+      --severity-low: #4a90d9;
+      --font-serif: Georgia, 'Times New Roman', Times, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Consolas, monospace;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav Bar ───────────────────────────────────────── */
+    .nav-bar {
+      background: #111119;
+      border-bottom: 1px solid #222233;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 0.73rem;
+      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+    }
+    .nav-bar a {
+      color: #999;
+      text-decoration: none;
+      padding: 0 6px;
+    }
+    .nav-bar a:hover { color: var(--gold); }
+    .nav-bar a.nav-active { color: var(--gold); font-weight: 700; }
+
+    /* ── Header ────────────────────────────────────────── */
+    .page-header {
+      text-align: center;
+      padding: 48px 20px 12px;
+    }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .page-header .subhead {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .data-as-of {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-family: var(--font-mono);
+    }
+
+    /* ── Filter Bar ────────────────────────────────────── */
+    .controls {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      flex: 1 1 auto;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      padding: 5px 14px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      font-family: var(--font-sans);
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { border-color: var(--gold-dim); color: var(--text); }
+    .filter-btn.active {
+      background: var(--gold);
+      color: #0d0d14;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .sort-select {
+      background: #111119;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      padding: 5px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .sort-select:focus { outline: 1px solid var(--gold); }
+
+    /* ── Card Grid ─────────────────────────────────────── */
+    .card-grid {
+      max-width: 1200px;
+      margin: 28px auto 48px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── Card ──────────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 22px 20px 16px;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      overflow: hidden;
+    }
+    .card:hover, .card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    /* WR Featured */
+    .card.wr-featured {
+      border-color: var(--gold);
+      border-width: 1.5px;
+    }
+    .card.wr-featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+      background: linear-gradient(
+        135deg,
+        rgba(201, 168, 76, 0) 0%,
+        rgba(201, 168, 76, 0.15) 25%,
+        rgba(201, 168, 76, 0.05) 50%,
+        rgba(201, 168, 76, 0.2) 75%,
+        rgba(201, 168, 76, 0) 100%
+      );
+      background-size: 200% 200%;
+      border-radius: 6px;
+    }
+    .card.wr-featured:hover::before,
+    .card.wr-featured:focus-visible::before {
+      opacity: 1;
+      animation: shimmer 3s ease infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    /* WR Badge */
+    .wr-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--gold);
+      color: #0d0d14;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-family: var(--font-sans);
+    }
+
+    /* Card header */
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .monogram {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #222233;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      flex-shrink: 0;
+      border: 1px solid var(--border-subtle);
+    }
+    .card.wr-featured .monogram { border-color: var(--gold-dim); }
+    .vendor-info { flex: 1; min-width: 0; }
+    .vendor-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sector-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid #333344;
+      padding: 1px 8px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+
+    /* Grade seal */
+    .grade-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .grade-seal {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+    .grade-seal.grade-A { background: var(--grade-a); }
+    .grade-seal.grade-B { background: var(--grade-b); }
+    .grade-seal.grade-C { background: var(--grade-c); }
+    .grade-seal.grade-D { background: var(--grade-d); }
+    .grade-seal.grade-F { background: var(--grade-f); }
+    .grade-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .grade-score {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .stat {
+      padding: 6px 2px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 2px;
+    }
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 1px;
+    }
+    .stat-val.warn { color: var(--severity-high); }
+    .stat-val.danger { color: var(--severity-critical); }
+
+    /* WR Take */
+    .wr-take {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.8rem;
+      color: #aaa;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      padding: 8px 0 0;
+      border-top: 1px solid #222233;
+    }
+
+    /* Serial */
+    .serial {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    /* ── Modal / Drill-down Panel ──────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 1000;
+      display: none;
+      justify-content: flex-end;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-panel {
+      width: min(640px, 95vw);
+      height: 100vh;
+      background: #111119;
+      border-left: 1px solid #222233;
+      overflow-y: auto;
+      padding: 32px 28px;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+    }
+    .modal-overlay.open .modal-panel {
+      transform: translateX(0);
+    }
+    .modal-close {
+      background: none;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 36px; height: 36px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: right;
+    }
+    .modal-close:hover { color: var(--text); border-color: var(--gold-dim); }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .modal-header .monogram { width: 60px; height: 60px; font-size: 1.4rem; }
+    .modal-header .vendor-name { font-size: 1.3rem; }
+    .modal-header .modal-meta {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .modal-grade-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: var(--card-bg);
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+    .modal-grade-row .grade-seal { width: 64px; height: 64px; font-size: 2rem; }
+
+    .grade-breakdown {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .breakdown-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .breakdown-dim {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .breakdown-score {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .breakdown-bar {
+      height: 3px;
+      background: #222233;
+      border-radius: 2px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+    .breakdown-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+
+    .modal-wr-take {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.55;
+      margin-bottom: 24px;
+      padding: 14px 16px;
+      background: rgba(201,168,76,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .section-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    /* CVE Table */
+    .cve-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      margin-bottom: 24px;
+    }
+    .cve-table th {
+      text-align: left;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 8px 6px;
+      border-bottom: 1px solid #222233;
+      font-weight: 600;
+    }
+    .cve-table td {
+      padding: 10px 6px;
+      border-bottom: 1px solid #1a1a28;
+      vertical-align: top;
+    }
+    .cve-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .cve-id {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+    .cve-desc {
+      color: #aaa;
+      line-height: 1.4;
+      max-width: 280px;
+    }
+    .severity-badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 2px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .severity-CRITICAL { background: var(--severity-critical); }
+    .severity-HIGH { background: var(--severity-high); }
+    .severity-MEDIUM { background: var(--severity-medium); color: #111; }
+    .severity-LOW { background: var(--severity-low); }
+    .mini-badge {
+      display: inline-block;
+      font-size: 0.55rem;
+      padding: 1px 5px;
+      border-radius: 2px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-left: 3px;
+      vertical-align: middle;
+    }
+    .badge-kev { background: #ff4444; color: #fff; }
+    .badge-zeroday { background: #9b59b6; color: #fff; }
+    .days-patch {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    /* ── Footer ────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      border-top: 1px solid #1a1a28;
+      line-height: 2;
+      letter-spacing: 0.06em;
+    }
+    .footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+    .footer a:hover { color: var(--gold); }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .page-header h1 { font-size: 1.4rem; letter-spacing: 0.08em; }
+      .controls { flex-direction: column; align-items: stretch; }
+      .card-grid { grid-template-columns: 1fr; }
+      .grade-breakdown { grid-template-columns: repeat(3, 1fr); }
+      .modal-panel { width: 100vw; }
+      .cve-desc { max-width: 160px; }
+    }
+
+    /* ── No results ────────────────────────────────────── */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav Bar -->
+<div class="nav-bar"><a href="../index.html">MAIN</a> | <a href="../geopolitical.html">GEOPOLITICAL</a> | <a href="../companies.html">COMPANY WATCH</a> | <a href="../hk-local.html">HK LOCAL</a> | <a href="../cyber.html" class="nav-active">CYBER INTEL</a> | <a href="../sports.html">SPORTS</a> | <a href="../health.html">HEALTH</a></div>
+
+<!-- Header -->
+<div class="page-header">
+  <h1>VENDOR SECURITY SCORECARD</h1>
+  <div class="subhead">THE WANG REPORT &mdash; PRACTITIONER-GRADE VENDOR SECURITY INTELLIGENCE</div>
+  <div class="data-as-of" id="dataAsOf">Loading&hellip;</div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <div class="filter-group" id="filterGroup">
+    <button class="filter-btn active" data-sector="all">All</button>
+    <button class="filter-btn" data-sector="endpoint">Endpoint</button>
+    <button class="filter-btn" data-sector="network">Network</button>
+    <button class="filter-btn" data-sector="cloud">Cloud</button>
+    <button class="filter-btn" data-sector="identity">Identity</button>
+    <button class="filter-btn" data-sector="siem">SIEM</button>
+    <button class="filter-btn" data-sector="ot">OT</button>
+  </div>
+  <select class="sort-select" id="sortSelect">
+    <option value="grade">Sort: Grade</option>
+    <option value="score">Sort: Score</option>
+    <option value="mttp">Sort: MTTP</option>
+    <option value="kev">Sort: KEV Count</option>
+    <option value="cves">Sort: CVEs</option>
+  </select>
+</div>
+
+<!-- Card Grid -->
+<div class="card-grid" id="cardGrid"></div>
+
+<!-- Drill-down Modal -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="Vendor detail panel">
+  <div class="modal-panel" id="modalPanel"></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
+  <br>
+  <a href="../index.html">MAIN</a> | <a href="../geopolitical.html">GEOPOLITICAL</a> | <a href="../companies.html">COMPANY WATCH</a> | <a href="../hk-local.html">HK LOCAL</a> | <a href="../cyber.html">CYBER INTEL</a> | <a href="../sports.html">SPORTS</a> | <a href="../health.html">HEALTH &amp; FITNESS</a>
+  <br>
+  <a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── State ─────────────────────────────────────────── */
+  var vendors = [];
+  var activeSector = 'all';
+  var activeSort = 'grade';
+
+  /* ── Grade helpers ─────────────────────────────────── */
+  var GRADE_ORDER = { A: 0, B: 1, C: 2, D: 3, F: 4 };
+
+  function gradeColor(g) {
+    var map = { A: 'var(--grade-a)', B: 'var(--grade-b)', C: 'var(--grade-c)', D: 'var(--grade-d)', F: 'var(--grade-f)' };
+    return map[g] || '#666';
+  }
+
+  /* ── Grading dimensions (for breakdown) ────────────── */
+  function mttpScore(days) {
+    if (days <= 7) return 100;
+    if (days <= 14) return 80;
+    if (days <= 30) return 60;
+    if (days <= 60) return 35;
+    return 10;
+  }
+  function kevScore(count) {
+    if (count === 0) return 100;
+    if (count <= 2) return 70;
+    if (count <= 5) return 50;
+    if (count <= 10) return 25;
+    return 5;
+  }
+  function zdScore(count) {
+    if (count === 0) return 100;
+    if (count === 1) return 75;
+    if (count <= 3) return 50;
+    return 20;
+  }
+  function critRatioScore(crit, total) {
+    if (total === 0) return 100;
+    var r = crit / total;
+    if (r <= 0.05) return 100;
+    if (r <= 0.10) return 80;
+    if (r <= 0.20) return 55;
+    if (r <= 0.35) return 30;
+    return 10;
+  }
+  function breakdownFor(v) {
+    var m = mttpScore(v.mttp_days);
+    var k = kevScore(v.kev_count);
+    var z = zdScore(v.zero_days);
+    var c = critRatioScore(v.critical_count, v.cves_12m);
+    return [
+      { dim: 'MTTP', score: m, weight: 30 },
+      { dim: 'KEV', score: k, weight: 25 },
+      { dim: '0-Day', score: z, weight: 20 },
+      { dim: 'Crit %', score: c, weight: 15 },
+      { dim: 'Trend', score: Math.round((v.score - (m * 0.3 + k * 0.25 + z * 0.2 + c * 0.15)) / 0.1) || 50, weight: 10 }
+    ];
+  }
+
+  /* ── Sort functions ────────────────────────────────── */
+  function sortVendors(arr, key) {
+    var copy = arr.slice();
+    copy.sort(function (a, b) {
+      switch (key) {
+        case 'grade': return (GRADE_ORDER[a.grade] - GRADE_ORDER[b.grade]) || (b.score - a.score);
+        case 'score': return b.score - a.score;
+        case 'mttp': return a.mttp_days - b.mttp_days;
+        case 'kev': return b.kev_count - a.kev_count;
+        case 'cves': return b.cves_12m - a.cves_12m;
+        default: return 0;
+      }
+    });
+    // WR Featured first within same sort
+    copy.sort(function (a, b) {
+      if (a.wr_featured && !b.wr_featured) return -1;
+      if (!a.wr_featured && b.wr_featured) return 1;
+      return 0;
+    });
+    return copy;
+  }
+
+  /* ── Render cards ──────────────────────────────────── */
+  function renderCards() {
+    var grid = document.getElementById('cardGrid');
+    var filtered = vendors.filter(function (v) {
+      return activeSector === 'all' || v.sector === activeSector;
+    });
+    var sorted = sortVendors(filtered, activeSort);
+
+    if (sorted.length === 0) {
+      grid.innerHTML = '<div class="no-results">No vendors match this filter.</div>';
+      return;
+    }
+
+    var html = '';
+    sorted.forEach(function (v) {
+      var featured = v.wr_featured;
+      var cls = 'card' + (featured ? ' wr-featured' : '');
+      html += '<div class="' + cls + '" tabindex="0" data-id="' + v.id + '" role="button" aria-label="View details for ' + v.name + '">';
+      if (featured) html += '<span class="wr-badge">WR</span>';
+
+      // Top
+      html += '<div class="card-top">';
+      html += '<div class="monogram">' + esc(v.monogram) + '</div>';
+      html += '<div class="vendor-info"><div class="vendor-name">' + esc(v.name) + '</div>';
+      html += '<span class="sector-tag">' + esc(v.sector) + '</span></div>';
+      html += '</div>';
+
+      // Grade
+      html += '<div class="grade-row">';
+      html += '<div class="grade-seal grade-' + v.grade + '">' + v.grade + '</div>';
+      html += '<div><div class="grade-label">WR Security Grade</div>';
+      html += '<div class="grade-score">' + v.score + ' / 100</div></div>';
+      html += '</div>';
+
+      // Stats
+      html += '<div class="stats-row">';
+      html += statCell(v.cves_12m, 'CVEs', v.cves_12m > 100 ? 'danger' : v.cves_12m > 50 ? 'warn' : '');
+      html += statCell(v.critical_count, 'Critical', v.critical_count > 20 ? 'danger' : v.critical_count > 10 ? 'warn' : '');
+      html += statCell(v.mttp_days + 'd', 'MTTP', v.mttp_days > 45 ? 'danger' : v.mttp_days > 25 ? 'warn' : '');
+      html += statCell(v.zero_days, '0-Day', v.zero_days > 3 ? 'danger' : v.zero_days > 0 ? 'warn' : '');
+      html += statCell(v.kev_count, 'KEV', v.kev_count > 5 ? 'danger' : v.kev_count > 0 ? 'warn' : '');
+      html += '</div>';
+
+      // WR Take
+      if (v.wr_take) {
+        html += '<div class="wr-take">&ldquo;' + esc(v.wr_take) + '&rdquo;</div>';
+      }
+
+      // Serial
+      html += '<div class="serial">' + esc(v.serial) + '</div>';
+      html += '</div>';
+    });
+
+    grid.innerHTML = html;
+
+    // Bind events
+    var cards = grid.querySelectorAll('.card');
+    cards.forEach(function (el) {
+      el.addEventListener('click', function () { openModal(el.dataset.id); });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(el.dataset.id); }
+      });
+    });
+  }
+
+  function statCell(val, label, cls) {
+    return '<div class="stat"><span class="stat-val' + (cls ? ' ' + cls : '') + '">' + val + '</span><span class="stat-label">' + label + '</span></div>';
+  }
+
+  function esc(s) {
+    if (!s) return '';
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  /* ── Modal ─────────────────────────────────────────── */
+  function openModal(id) {
+    var v = vendors.find(function (x) { return x.id === id; });
+    if (!v) return;
+
+    var panel = document.getElementById('modalPanel');
+    var bd = breakdownFor(v);
+
+    var html = '<button class="modal-close" aria-label="Close panel">&times;</button>';
+
+    // Header
+    html += '<div class="modal-header">';
+    html += '<div class="monogram">' + esc(v.monogram) + '</div>';
+    html += '<div><div class="vendor-name">' + esc(v.name) + '</div>';
+    html += '<div class="modal-meta">' + esc(v.sector.toUpperCase()) + ' &bull; ' + esc(v.serial);
+    if (v.market_position) html += ' &bull; ' + esc(v.market_position);
+    html += '</div></div>';
+    html += '</div>';
+
+    // Grade
+    html += '<div class="modal-grade-row">';
+    html += '<div class="grade-seal grade-' + v.grade + '">' + v.grade + '</div>';
+    html += '<div><div class="grade-label">WR Security Grade</div>';
+    html += '<div class="grade-score" style="font-size:1.4rem;">' + v.score + ' / 100</div></div>';
+    html += '</div>';
+
+    // WR Take
+    if (v.wr_take) {
+      html += '<div class="modal-wr-take">&ldquo;' + esc(v.wr_take) + '&rdquo;</div>';
+    }
+
+    // Breakdown
+    html += '<div class="section-title">Grade Breakdown</div>';
+    html += '<div class="grade-breakdown">';
+    bd.forEach(function (d) {
+      var clampedScore = Math.max(0, Math.min(100, d.score));
+      var color = clampedScore >= 75 ? 'var(--grade-a)' : clampedScore >= 55 ? 'var(--grade-b)' : clampedScore >= 35 ? 'var(--grade-c)' : 'var(--grade-f)';
+      html += '<div class="breakdown-item">';
+      html += '<div class="breakdown-dim">' + d.dim + ' (' + d.weight + '%)</div>';
+      html += '<div class="breakdown-score" style="color:' + color + '">' + clampedScore + '</div>';
+      html += '<div class="breakdown-bar"><div class="breakdown-fill" style="width:' + clampedScore + '%;background:' + color + '"></div></div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Stats summary
+    html += '<div class="section-title">12-Month Statistics</div>';
+    html += '<div class="stats-row" style="margin-bottom:24px;">';
+    html += statCell(v.cves_12m, 'Total CVEs', '');
+    html += statCell(v.critical_count, 'Critical', '');
+    html += statCell(v.mttp_days + 'd', 'MTTP', '');
+    html += statCell(v.zero_days, 'Zero-Days', '');
+    html += statCell(v.kev_count, 'KEV Listed', '');
+    html += '</div>';
+
+    // CVE Table
+    if (v.cve_list && v.cve_list.length > 0) {
+      html += '<div class="section-title">CVE Detail</div>';
+      html += '<table class="cve-table"><thead><tr>';
+      html += '<th>CVE ID</th><th>Severity</th><th>Description</th><th>Days</th><th>Flags</th>';
+      html += '</tr></thead><tbody>';
+      v.cve_list.forEach(function (c) {
+        html += '<tr>';
+        html += '<td><a class="cve-id" href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener">' + esc(c.id) + '</a></td>';
+        html += '<td><span class="severity-badge severity-' + c.severity + '">' + c.severity + '</span></td>';
+        html += '<td class="cve-desc">' + esc(c.description) + '</td>';
+        html += '<td class="days-patch">' + c.days_to_patch + 'd</td>';
+        html += '<td>';
+        if (c.kev) html += '<span class="mini-badge badge-kev">KEV</span>';
+        if (c.zero_day) html += '<span class="mini-badge badge-zeroday">0DAY</span>';
+        if (!c.kev && !c.zero_day) html += '<span style="color:var(--text-muted);font-size:0.65rem">&mdash;</span>';
+        html += '</td>';
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
+    }
+
+    panel.innerHTML = html;
+
+    // Open
+    var overlay = document.getElementById('modal');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Close handlers
+    panel.querySelector('.modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Focus trap
+    panel.querySelector('.modal-close').focus();
+  }
+
+  function closeModal() {
+    var overlay = document.getElementById('modal');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── Keyboard ──────────────────────────────────────── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ── Filter & Sort ─────────────────────────────────── */
+  document.getElementById('filterGroup').addEventListener('click', function (e) {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    e.target.classList.add('active');
+    activeSector = e.target.dataset.sector;
+    renderCards();
+  });
+
+  document.getElementById('sortSelect').addEventListener('change', function () {
+    activeSort = this.value;
+    renderCards();
+  });
+
+  /* ── Load data ─────────────────────────────────────── */
+  fetch('../data/vendors.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('Failed to load vendor data');
+      return r.json();
+    })
+    .then(function (data) {
+      // Timestamp
+      if (data._meta && data._meta.generated) {
+        document.getElementById('dataAsOf').textContent = 'Data as of ' + data._meta.generated;
+      }
+      vendors = data.vendors || [];
+      renderCards();
+    })
+    .catch(function (err) {
+      document.getElementById('cardGrid').innerHTML = '<div class="no-results">Failed to load vendor data. ' + esc(err.message) + '</div>';
+    });
+
+})();
+</script>
+</body>
+</html>
