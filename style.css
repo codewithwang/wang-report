@@ -136,11 +136,7 @@ a.td-link:hover { background: #1a1a1a; }
 .td-color-darkred { color: #cc0000 !important; }
 .td-color-blue { color: #4488ff !important; }
 
-@media (max-width: 700px) {
-    .tension-dashboard { flex-wrap: wrap; padding: 4px; }
-    .td-gauge { padding: 3px 4px; }
-    .td-value { font-size: 13px; }
-}
+/* Tension dashboard mobile — replaced by comprehensive responsive rules at end of file */
 
 /* Geopolitical narrative threads */
 .geo-threads {
@@ -511,4 +507,85 @@ a.td-link:hover { background: #1a1a1a; }
     font-size: 11px;
     color: #666;
     font-style: italic;
+}
+
+/* ========== IMAGE-LEFT LAYOUT (all viewports) ========== */
+
+.story.has-thumb {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.story.has-thumb .story-thumb {
+    max-width: 100px;
+    min-width: 80px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* ========== RESPONSIVE: TABLET (≤900px) ========== */
+
+@media (max-width: 900px) {
+    .columns { flex-wrap: wrap; }
+    .column {
+        flex: 1 1 48%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .column:last-child { border-bottom: none; }
+    .hero-headline { font-size: 36px; }
+    .hero-image img { max-width: 100%; }
+    .markets-bar { font-size: 11px; display: flex; flex-wrap: wrap; justify-content: center; }
+}
+
+/* ========== RESPONSIVE: PHONE (≤600px) ========== */
+
+@media (max-width: 600px) {
+    body { padding: 6px; }
+
+    /* Layout: stack to single column */
+    .columns { flex-direction: column; }
+    .column {
+        flex: 1 1 100%;
+        padding: 0 6px;
+        border-right: none;
+    }
+
+    /* Masthead + hero */
+    .masthead { font-size: 22px; letter-spacing: 1px; }
+    .hero-headline { font-size: 28px; padding: 10px 6px; }
+    .hero-sub { font-size: 15px; }
+    .hero-image img { max-width: 100%; }
+
+    /* Story text — larger for readability */
+    .story a { font-size: 16px; line-height: 1.5; }
+    .story .source { font-size: 11px; }
+    .story-take { font-size: 13px; }
+    .story-thumb { max-width: 90px; min-width: 70px; }
+
+    /* Nav bar — compact for small screens */
+    .nav-bar { font-size: 11px; letter-spacing: 0; }
+    .nav-bar a { padding: 2px 6px; }
+    .subhead { font-size: 10px; }
+    .subhead a { margin: 0 4px; }
+
+    /* Markets bar — wrap gracefully */
+    .markets-bar span { margin: 0 4px; }
+
+    /* Geopolitical narrative threads */
+    .thread-para { font-size: 15px; }
+    .geo-threads { padding: 0 8px; }
+
+    /* Tension dashboard — clean 3×2 grid */
+    .tension-dashboard { flex-wrap: wrap; padding: 4px; }
+    .td-gauge { flex: 0 0 33.33%; padding: 6px 2px; }
+    .td-label { font-size: 9px; }
+    .td-value { font-size: 14px; }
+    .td-sub { font-size: 9px; }
+
+    /* Companies page specifics */
+    .client-tag { font-size: 10px; }
+    .client-add-bar input { max-width: 120px; }
 }
