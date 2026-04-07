@@ -1,1182 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VENDOR SECURITY SCORECARD — THE WANG REPORT</title>
-  <style>
-    /* ── Reset & Base ──────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendor Security Scorecard — THE WANG REPORT</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:#0d0d14;color:#ccc;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.4}
+body{background:#0d0d14;min-height:100vh}
+a{color:#c9a84c;text-decoration:none}
+a:hover{text-decoration:underline}
 
-    :root {
-      --bg: #0d0d14;
-      --card-bg: #16161e;
-      --gold: #c9a84c;
-      --gold-dim: rgba(201, 168, 76, 0.35);
-      --border-subtle: #2a2a3a;
-      --text: #e8e6e1;
-      --text-dim: #7a7a8a;
-      --text-muted: #555566;
-      --grade-a: #34d058;
-      --grade-b: #4a90d9;
-      --grade-c: #e0a800;
-      --grade-d: #e87040;
-      --grade-f: #e04040;
-      --severity-critical: #ff4444;
-      --severity-high: #ff8c00;
-      --severity-medium: #e0a800;
-      --severity-low: #4a90d9;
-      --font-serif: Georgia, 'Times New Roman', Times, serif;
-      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Consolas, monospace;
-    }
+/* NAV */
+.nav-bar{text-align:center;padding:10px 12px;background:#111;border-bottom:1px solid #333;font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;letter-spacing:1px}
+.nav-bar a{color:#888;margin:0 6px;text-decoration:none}
+.nav-bar a:hover,.nav-bar a.nav-active{color:#c9a84c}
 
-    html { font-size: 15px; }
+/* WRAPPER */
+.wrap{max-width:1200px;margin:0 auto;padding:16px 12px 40px}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.5;
-      min-height: 100vh;
-    }
+/* HEADER */
+.page-header{text-align:center;margin-bottom:24px;border-bottom:1px solid #222;padding-bottom:16px}
+.page-header h1{font-family:Impact,'Arial Narrow',sans-serif;font-size:32px;color:#c9a84c;letter-spacing:2px;margin-bottom:4px}
+.page-header .sub{font-size:12px;color:#666}
+.page-header .meta-line{font-size:11px;color:#555;margin-top:4px}
+.ciso-toggle-wrap{margin-top:8px}
+.ciso-toggle{background:#1a0a0a;border:1px solid #aa1a1a;color:#ee3a3a;font-family:Impact,sans-serif;font-size:12px;letter-spacing:1px;padding:6px 14px;cursor:pointer;border-radius:2px}
+.ciso-toggle.active{background:#3a0a0a;border-color:#ee3a3a;animation:cisoPulse 1.5s infinite}
+@keyframes cisoPulse{0%,100%{box-shadow:0 0 4px #aa1a1a}50%{box-shadow:0 0 12px #ee3a3a}}
+.ciso-banner{display:none;font-family:Impact,sans-serif;font-size:14px;color:#ee3a3a;letter-spacing:2px;margin-top:6px}
+.ciso-banner.show{display:block}
 
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+/* FILTER BAR */
+.filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:20px;padding:10px;background:#111;border:1px solid #1a1a1a;border-radius:4px}
+.sector-pill{font-family:Impact,sans-serif;font-size:11px;letter-spacing:0.5px;padding:4px 10px;border:1px solid #333;background:#1a1a1a;color:#888;cursor:pointer;border-radius:2px;transition:all .15s}
+.sector-pill:hover{border-color:#666;color:#ccc}
+.sector-pill.active{border-color:#c9a84c;color:#c9a84c;background:#1a1808}
+.sort-select{margin-left:auto;background:#1a1a1a;border:1px solid #333;color:#aaa;font-family:Impact,sans-serif;font-size:11px;letter-spacing:0.5px;padding:4px 8px;border-radius:2px;cursor:pointer}
 
-    /* ── Nav Bar ───────────────────────────────────────── */
-    .nav-bar {
-      background: #111119;
-      border-bottom: 1px solid #222233;
-      padding: 10px 20px;
-      text-align: center;
-      font-size: 0.73rem;
-      letter-spacing: 0.12em;
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-    }
-    .nav-bar a {
-      color: #999;
-      text-decoration: none;
-      padding: 0 6px;
-    }
-    .nav-bar a:hover { color: var(--gold); }
-    .nav-bar a.nav-active { color: var(--gold); font-weight: 700; }
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:20px}
 
-    /* ── Header ────────────────────────────────────────── */
-    .page-header {
-      text-align: center;
-      padding: 48px 20px 12px;
-    }
-    .page-header h1 {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .page-header .subhead {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .data-as-of {
-      text-align: center;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-      font-family: var(--font-mono);
-    }
+/* EMPTY STATE */
+.empty-state{grid-column:1/-1;text-align:center;padding:40px;color:#555;font-family:Impact,sans-serif;font-size:16px;letter-spacing:1px}
 
-    /* ── Filter Bar ────────────────────────────────────── */
-    .controls {
-      max-width: 1200px;
-      margin: 28px auto 0;
-      padding: 0 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-    }
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      flex: 1 1 auto;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-dim);
-      padding: 5px 14px;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      font-family: var(--font-sans);
-      transition: all 0.15s;
-    }
-    .filter-btn:hover { border-color: var(--gold-dim); color: var(--text); }
-    .filter-btn.active {
-      background: var(--gold);
-      color: #0d0d14;
-      border-color: var(--gold);
-      font-weight: 700;
-    }
-    .sort-select {
-      background: #111119;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-dim);
-      padding: 5px 10px;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-family: var(--font-sans);
-      cursor: pointer;
-      border-radius: 2px;
-    }
-    .sort-select:focus { outline: 1px solid var(--gold); }
+/* MARVEL CARD */
+.marvel-card{background:#111;border:1px solid #2a2a2a;border-radius:3px;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;outline:none}
+.marvel-card:hover,.marvel-card:focus{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.marvel-card.wr-featured{border-color:#c9a84c}
 
-    /* ── Card Grid ─────────────────────────────────────── */
-    .card-grid {
-      max-width: 1200px;
-      margin: 28px auto 48px;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
-      gap: 20px;
-    }
+/* WR FEATURED CORNER BADGE */
+.wr-badge{position:absolute;top:0;right:0;z-index:5;width:70px;height:70px;overflow:hidden;pointer-events:none}
+.wr-badge span{display:block;position:absolute;top:10px;right:-22px;width:90px;text-align:center;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.5px;color:#1a1208;background:linear-gradient(90deg,#c9a84c,#e8d48a,#c9a84c);transform:rotate(45deg);padding:2px 0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
 
-    /* ── Card ──────────────────────────────────────────── */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 22px 20px 16px;
-      position: relative;
-      cursor: pointer;
-      outline: none;
-      transition: transform 0.15s, box-shadow 0.15s;
-      overflow: hidden;
-    }
-    .card:hover, .card:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-    .card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+/* HOLO OVERLAY */
+.holo-wrap{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;z-index:4;border-radius:3px;overflow:hidden}
+.marvel-card.wr-featured:hover .holo-wrap,.marvel-card.wr-featured:focus .holo-wrap{opacity:1}
+.holo-layer{position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,50,50,.12) 30%,rgba(255,165,0,.12) 38%,rgba(255,255,0,.1) 44%,rgba(0,255,0,.1) 50%,rgba(0,200,255,.12) 56%,rgba(100,100,255,.12) 62%,rgba(200,50,255,.1) 70%,transparent 80%);background-size:200% 200%;animation:holoShift 3s ease infinite;mix-blend-mode:screen}
+.holo-lines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px);animation:holoShift 5s linear infinite reverse}
+.holo-wr-badge{position:absolute;bottom:8px;right:8px;width:28px;height:28px;border:2px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:8px;color:rgba(201,168,76,.6);animation:holoSpin 4s linear infinite}
+@keyframes holoShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+@keyframes holoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-    /* WR Featured */
-    .card.wr-featured {
-      border-color: var(--gold);
-      border-width: 1.5px;
-    }
-    .card.wr-featured::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      background: linear-gradient(
-        135deg,
-        rgba(201, 168, 76, 0) 0%,
-        rgba(201, 168, 76, 0.15) 25%,
-        rgba(201, 168, 76, 0.05) 50%,
-        rgba(201, 168, 76, 0.2) 75%,
-        rgba(201, 168, 76, 0) 100%
-      );
-      background-size: 200% 200%;
-      border-radius: 6px;
-    }
-    .card.wr-featured:hover::before,
-    .card.wr-featured:focus-visible::before {
-      opacity: 1;
-      animation: shimmer 3s ease infinite;
-    }
-    @keyframes shimmer {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
-    }
+/* CARD: TOP BANNER */
+.card-banner{background:linear-gradient(90deg,#1a1208,#2a1a08);padding:4px 8px;font-family:Impact,sans-serif;font-size:8px;color:#7a6a3a;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c}
 
-    /* WR Badge */
-    .wr-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--gold);
-      color: #0d0d14;
-      font-size: 0.6rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      padding: 2px 6px;
-      border-radius: 2px;
-      font-family: var(--font-sans);
-    }
+/* CARD: ART AREA */
+.card-art{height:110px;display:flex;align-items:center;justify-content:center;position:relative}
+.card-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:72px;letter-spacing:2px;opacity:.85}
+.grade-seal{position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:14px;font-weight:bold}
+.grade-A{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
+.grade-B{background:#1a2a3a;border-color:#3a6aaa;color:#6aaaee}
+.grade-C{background:#3a2a0a;border-color:#aa7a1a;color:#eaaa3a}
+.grade-D{background:#3a1a0a;border-color:#aa4a1a;color:#ee7a3a}
+.grade-F{background:#3a0a0a;border-color:#aa1a1a;color:#ee3a3a}
 
-    /* Card header */
-    .card-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-    .monogram {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: #222233;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text);
-      flex-shrink: 0;
-      border: 1px solid var(--border-subtle);
-    }
-    .card.wr-featured .monogram { border-color: var(--gold-dim); }
-    .vendor-info { flex: 1; min-width: 0; }
-    .vendor-name {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.25;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .sector-tag {
-      display: inline-block;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border: 1px solid #333344;
-      padding: 1px 8px;
-      border-radius: 2px;
-      margin-top: 4px;
-    }
+/* CARD: NAME PLATE */
+.card-nameplate{background:linear-gradient(90deg,#2a1a08,#1a1208);padding:6px 8px;border-top:1px solid #3a2a0a}
+.card-nameplate .vname{font-family:Impact,sans-serif;font-size:13px;text-transform:uppercase;color:#c9a84c;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-nameplate .vsector{font-size:9px;color:#7a6a3a;text-transform:uppercase;letter-spacing:0.5px}
 
-    /* Grade seal */
-    .grade-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-    .grade-seal {
-      width: 54px; height: 54px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #fff;
-      flex-shrink: 0;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    }
-    .grade-seal.grade-A { background: var(--grade-a); }
-    .grade-seal.grade-B { background: var(--grade-b); }
-    .grade-seal.grade-C { background: var(--grade-c); }
-    .grade-seal.grade-D { background: var(--grade-d); }
-    .grade-seal.grade-F { background: var(--grade-f); }
-    .grade-label {
-      font-size: 0.7rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .grade-score {
-      font-family: var(--font-mono);
-      font-size: 1.1rem;
-      color: var(--text);
-    }
+/* CARD: STATS */
+.card-stats{padding:8px;background:#0d0d14}
+.stat-row{display:flex;align-items:center;margin-bottom:3px}
+.stat-label{font-family:Impact,sans-serif;font-size:8px;color:#666;width:62px;text-transform:uppercase;letter-spacing:0.3px;flex-shrink:0}
+.stat-bar-bg{flex:1;height:8px;background:#1a1a1a;border-radius:1px;overflow:hidden}
+.stat-bar-fill{height:100%;border-radius:1px;transition:width .4s}
+.bar-green{background:#5a9a3a}
+.bar-blue{background:#3a6aaa}
+.bar-amber{background:#aa7a1a}
+.bar-red{background:#aa1a1a}
 
-    /* Stats row */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 2px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-    .stat {
-      padding: 6px 2px;
-      background: rgba(255,255,255,0.02);
-      border-radius: 2px;
-    }
-    .stat-val {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-      display: block;
-    }
-    .stat-label {
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      display: block;
-      margin-top: 1px;
-    }
-    .stat-val.warn { color: var(--severity-high); }
-    .stat-val.danger { color: var(--severity-critical); }
+/* CARD: FACTS STRIP */
+.card-facts{padding:4px 8px;background:#0a0a10;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;border-top:1px solid #1a1a1a}
+.fact{text-align:center}
+.fact .fval{font-family:Impact,sans-serif;font-size:11px;color:#ccc}
+.fact .flbl{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:0.3px}
 
-    /* WR Take */
-    .wr-take {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 0.8rem;
-      color: #aaa;
-      line-height: 1.45;
-      margin-bottom: 10px;
-      padding: 8px 0 0;
-      border-top: 1px solid #222233;
-    }
+/* CARD: WR TAKE */
+.card-take{padding:6px 8px;background:#0d0d14;border-top:1px solid #1a1a1a;font-size:10px;font-style:italic;color:#7a6a3a;line-height:1.3;max-height:48px;overflow:hidden}
+.card-take.empty{color:#333;font-style:normal}
 
-    /* Serial */
-    .serial {
-      text-align: right;
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      opacity: 0.6;
-    }
+/* CARD: FOOTER */
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:#111;border-top:1px solid #1a1a1a;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.5px}
+.kev-badge{padding:2px 6px;border-radius:1px;font-size:8px;letter-spacing:0.5px}
+.kev-active{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
+.kev-clear{background:#1a3a1a;color:#5a9a3a;border:1px solid #3a6a3a}
 
-    /* ── Modal / Drill-down Panel ──────────────────────── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      z-index: 1000;
-      display: none;
-      justify-content: flex-end;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .modal-overlay.open {
-      display: flex;
-      opacity: 1;
-    }
-    .modal-panel {
-      width: min(640px, 95vw);
-      height: 100vh;
-      background: #111119;
-      border-left: 1px solid #222233;
-      overflow-y: auto;
-      padding: 32px 28px;
-      transform: translateX(100%);
-      transition: transform 0.25s ease;
-    }
-    .modal-overlay.open .modal-panel {
-      transform: translateX(0);
-    }
-    .modal-close {
-      background: none;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-dim);
-      font-size: 1.2rem;
-      cursor: pointer;
-      width: 36px; height: 36px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      float: right;
-    }
-    .modal-close:hover { color: var(--text); border-color: var(--gold-dim); }
+/* DRILL-DOWN PANEL */
+.drill-down{display:none;max-width:700px;margin:20px auto;padding:0;border:2px solid #c9a84c;background:#1a1208;border-radius:4px;position:relative}
+.drill-down.open{display:block}
+.drill-close{position:absolute;top:8px;right:12px;background:none;border:none;color:#c9a84c;font-size:20px;cursor:pointer;z-index:10;font-family:Georgia,serif}
 
-    .modal-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .modal-header .monogram { width: 60px; height: 60px; font-size: 1.4rem; }
-    .modal-header .vendor-name { font-size: 1.3rem; }
-    .modal-header .modal-meta {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      margin-top: 4px;
-    }
+/* MTG TITLE BAR */
+.mtg-title{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(90deg,#2a1a08,#1a1208);border-bottom:1px solid #3a2a0a}
+.mtg-title .mtg-name{font-family:Impact,sans-serif;font-size:20px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase}
+.mana-cost{display:flex;gap:3px}
+.mana-pip{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:10px;font-weight:bold;border:1px solid rgba(255,255,255,.2)}
+.mana-W{background:#f0e6c0;color:#222}
+.mana-U{background:#0e6eb8;color:#fff}
+.mana-B{background:#222;color:#aaa;border-color:#555}
+.mana-R{background:#c33;color:#fff}
+.mana-G{background:#0a6;color:#fff}
 
-    .modal-grade-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-      padding: 16px;
-      background: var(--card-bg);
-      border-radius: 6px;
-      border: 1px solid var(--border-subtle);
-    }
-    .modal-grade-row .grade-seal { width: 64px; height: 64px; font-size: 2rem; }
+/* MTG ART */
+.mtg-art{height:120px;display:flex;align-items:center;justify-content:center}
+.mtg-art .big-mono{font-family:Impact,sans-serif;font-size:64px;letter-spacing:3px;opacity:.85}
 
-    .grade-breakdown {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .breakdown-item {
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 4px;
-      padding: 10px 8px;
-      text-align: center;
-    }
-    .breakdown-dim {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .breakdown-score {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    .breakdown-bar {
-      height: 3px;
-      background: #222233;
-      border-radius: 2px;
-      margin-top: 6px;
-      overflow: hidden;
-    }
-    .breakdown-fill {
-      height: 100%;
-      border-radius: 2px;
-      transition: width 0.3s;
-    }
+/* MTG TYPE LINE */
+.mtg-type{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:#12100a;border-top:1px solid #3a2a0a;border-bottom:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:12px;color:#c9a84c;letter-spacing:0.5px}
+.rarity-gem{width:14px;height:14px;border-radius:50%;display:inline-block;vertical-align:middle}
+.rarity-mythic{background:conic-gradient(#c9a84c,#e8d48a,#c9a84c,#e8d48a);animation:holoSpin 3s linear infinite}
+.rarity-rare{background:linear-gradient(135deg,#c9a84c,#e8d48a)}
+.rarity-uncommon{background:linear-gradient(135deg,#888,#bbb)}
+.rarity-common{background:#333}
 
-    .modal-wr-take {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 0.9rem;
-      color: #bbb;
-      line-height: 1.55;
-      margin-bottom: 24px;
-      padding: 14px 16px;
-      background: rgba(201,168,76,0.06);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 4px 4px 0;
-    }
+/* MTG TEXT BOX */
+.mtg-textbox{padding:10px 12px;background:#14120a;min-height:80px;font-size:12px;color:#bba860;line-height:1.5}
+.mtg-textbox .ability{margin-bottom:4px}
+.mtg-textbox .flavor{font-style:italic;color:#8a7a40;border-top:1px solid #2a2008;padding-top:6px;margin-top:6px;font-size:11px}
 
-    .section-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
+/* RRR STRIP */
+.rrr-strip{display:flex;gap:8px;padding:6px 12px;background:#12100a;border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:11px;color:#888}
+.rrr-pip{display:inline-block;width:14px;height:14px;border-radius:50%;text-align:center;line-height:14px;font-size:9px;margin-right:2px;border:1px solid rgba(255,255,255,.1)}
+.rrr-A{background:#1a3a1a;color:#8acc5a}
+.rrr-B{background:#1a2a3a;color:#6aaaee}
+.rrr-C{background:#3a2a0a;color:#eaaa3a}
+.rrr-D{background:#3a1a0a;color:#ee7a3a}
+.rrr-F{background:#3a0a0a;color:#ee3a3a}
+.rrr-null{background:#1a1a1a;color:#444}
 
-    /* CVE Table */
-    .cve-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-      margin-bottom: 24px;
-    }
-    .cve-table th {
-      text-align: left;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      padding: 8px 6px;
-      border-bottom: 1px solid #222233;
-      font-weight: 600;
-    }
-    .cve-table td {
-      padding: 10px 6px;
-      border-bottom: 1px solid #1a1a28;
-      vertical-align: top;
-    }
-    .cve-table tr:hover td { background: rgba(255,255,255,0.02); }
-    .cve-id {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      white-space: nowrap;
-    }
-    .cve-desc {
-      color: #aaa;
-      line-height: 1.4;
-      max-width: 280px;
-    }
-    .severity-badge {
-      display: inline-block;
-      padding: 2px 7px;
-      border-radius: 2px;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-    .severity-CRITICAL { background: var(--severity-critical); }
-    .severity-HIGH { background: var(--severity-high); }
-    .severity-MEDIUM { background: var(--severity-medium); color: #111; }
-    .severity-LOW { background: var(--severity-low); }
-    .mini-badge {
-      display: inline-block;
-      font-size: 0.55rem;
-      padding: 1px 5px;
-      border-radius: 2px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-left: 3px;
-      vertical-align: middle;
-    }
-    .badge-kev { background: #ff4444; color: #fff; }
-    .badge-zeroday { background: #9b59b6; color: #fff; }
-    .days-patch {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-    }
+/* MTG BOTTOM BAR */
+.mtg-bottom{display:flex;justify-content:space-between;padding:6px 12px;background:linear-gradient(90deg,#2a1a08,#1a1208);border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:10px;color:#7a6a3a;letter-spacing:0.5px}
 
-    /* ── Footer ────────────────────────────────────────── */
-    .footer {
-      text-align: center;
-      padding: 32px 20px;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      border-top: 1px solid #1a1a28;
-      line-height: 2;
-      letter-spacing: 0.06em;
-    }
-    .footer a {
-      color: var(--text-dim);
-      text-decoration: none;
-    }
-    .footer a:hover { color: var(--gold); }
+/* CVE TABLE */
+.cve-table-wrap{max-width:700px;margin:12px auto 30px;background:#111;border:1px solid #2a2a2a;border-radius:3px;overflow-x:auto}
+.cve-table-wrap.hidden{display:none}
+.cve-table{width:100%;border-collapse:collapse;font-size:11px}
+.cve-table th{background:#1a1208;color:#c9a84c;font-family:Impact,sans-serif;font-size:10px;letter-spacing:0.5px;padding:6px 8px;text-align:left;border-bottom:1px solid #3a2a0a}
+.cve-table td{padding:5px 8px;border-bottom:1px solid #1a1a1a;vertical-align:top}
+.cve-table tr:hover td{background:#151515}
+.cve-table a{color:#6aaaee}
+.sev-pill{display:inline-block;padding:1px 6px;border-radius:2px;font-family:Impact,sans-serif;font-size:9px;letter-spacing:0.5px}
+.sev-CRITICAL{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
+.sev-HIGH{background:#3a1a0a;color:#ee7a3a;border:1px solid #aa4a1a}
+.sev-MEDIUM{background:#3a2a0a;color:#eaaa3a;border:1px solid #aa7a1a}
+.sev-LOW{background:#1a2a3a;color:#6aaaee;border:1px solid #3a6aaa}
+.cve-badge{display:inline-block;padding:1px 4px;border-radius:2px;font-family:Impact,sans-serif;font-size:8px;letter-spacing:0.3px;margin-left:3px}
+.badge-kev{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
+.badge-zday{background:#3a2a0a;color:#eaaa3a;border:1px solid #aa7a1a}
 
-    /* ── Responsive ────────────────────────────────────── */
-    @media (max-width: 640px) {
-      .page-header h1 { font-size: 1.4rem; letter-spacing: 0.08em; }
-      .controls { flex-direction: column; align-items: stretch; }
-      .card-grid { grid-template-columns: 1fr; }
-      .grade-breakdown { grid-template-columns: repeat(3, 1fr); }
-      .modal-panel { width: 100vw; }
-      .cve-desc { max-width: 160px; }
-    }
+/* FOOTER */
+.page-footer{text-align:center;padding:20px 12px;border-top:1px solid #222;margin-top:30px;font-size:10px;color:#444}
+.page-footer a{color:#666;margin:0 6px}
 
-    /* ── Tier Badge ─────────────────────────────────────── */
-    .tier-badge {
-      display: inline-block;
-      font-size: 0.55rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      padding: 2px 6px;
-      border-radius: 2px;
-      margin-left: 6px;
-      vertical-align: middle;
-      font-family: var(--font-mono);
-    }
-    .tier-T1 { background: var(--gold); color: #0d0d14; }
-    .tier-T2 { background: #4a90d9; color: #fff; }
-    .tier-T3 { background: #555566; color: #ddd; }
+/* LEGEND */
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:12px}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#666}
+.legend-swatch{width:12px;height:8px;border-radius:1px}
 
-    /* ── Market Position Tag ───────────────────────────── */
-    .market-tag {
-      display: inline-block;
-      font-size: 0.55rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 1px 7px;
-      border-radius: 2px;
-      margin-left: 4px;
-      vertical-align: middle;
-    }
-    .market-Leader { background: rgba(52,208,88,0.15); color: var(--grade-a); border: 1px solid rgba(52,208,88,0.3); }
-    .market-Challenger { background: rgba(74,144,217,0.15); color: var(--grade-b); border: 1px solid rgba(74,144,217,0.3); }
-    .market-Niche { background: rgba(85,85,102,0.15); color: var(--text-dim); border: 1px solid rgba(85,85,102,0.3); }
-
-    /* ── CISO Alert Mode ───────────────────────────────── */
-    .ciso-toggle {
-      background: transparent;
-      border: 1px solid #662222;
-      color: #cc4444;
-      padding: 5px 14px;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      font-family: var(--font-sans);
-      font-weight: 700;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    .ciso-toggle:hover { background: rgba(204,68,68,0.1); border-color: #cc4444; }
-    .ciso-toggle.active {
-      background: #cc4444;
-      color: #fff;
-      border-color: #cc4444;
-    }
-    .ciso-alert-banner {
-      display: none;
-      text-align: center;
-      padding: 8px 20px;
-      background: rgba(204,68,68,0.12);
-      border-bottom: 1px solid rgba(204,68,68,0.3);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #cc4444;
-      font-weight: 700;
-      font-family: var(--font-mono);
-    }
-    .ciso-alert-banner.visible { display: block; }
-    body.ciso-mode .nav-bar { background: #1a0f0f; border-bottom-color: #442222; }
-
-    /* ── Aggregate Stats Bar ───────────────────────────── */
-    .agg-stats {
-      max-width: 1200px;
-      margin: 16px auto 0;
-      padding: 0 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-    }
-    .agg-stat {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .agg-stat .agg-val {
-      color: var(--text);
-      font-weight: 700;
-    }
-    .agg-stat .agg-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .agg-stat.agg-danger .agg-val { color: var(--severity-critical); }
-    .agg-stat.agg-warn .agg-val { color: var(--severity-high); }
-    .grade-dist {
-      font-size: 0.65rem;
-      letter-spacing: 0.06em;
-    }
-    .grade-dist span { margin-right: 6px; }
-
-    /* ── RRR Rating Strip ──────────────────────────────── */
-    .rrr-strip {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-      padding: 12px 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 4px;
-      align-items: center;
-    }
-    .rrr-strip .rrr-title {
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 700;
-      margin-right: 8px;
-    }
-    .rrr-cell {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-    }
-    .rrr-cell .rrr-dim {
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .rrr-cell .rrr-grade {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .rrr-sep {
-      color: var(--border-subtle);
-      font-size: 0.9rem;
-    }
-    .rrr-na {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-style: italic;
-      padding: 12px 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 4px;
-      margin-bottom: 24px;
-    }
-
-    /* ── No results ────────────────────────────────────── */
-    .no-results {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-muted);
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1rem;
-    }
-  </style>
+@media(max-width:600px){
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+  .filter-bar{gap:4px}
+  .sector-pill{font-size:10px;padding:3px 6px}
+}
+</style>
 </head>
 <body>
 
-<!-- Nav Bar -->
-<div class="nav-bar"><a href="../index.html">MAIN</a> | <a href="../geopolitical.html">GEOPOLITICAL</a> | <a href="../companies.html">COMPANY WATCH</a> | <a href="../hk-local.html">HK LOCAL</a> | <a href="../cyber.html" class="nav-active">CYBER INTEL</a> | <a href="../sports.html">SPORTS</a> | <a href="../health.html">HEALTH</a></div>
-
-<!-- Header -->
-<div class="page-header">
-  <h1>VENDOR SECURITY SCORECARD</h1>
-  <div class="subhead">THE WANG REPORT &mdash; PRACTITIONER-GRADE VENDOR SECURITY INTELLIGENCE</div>
-  <div class="data-as-of" id="dataAsOf">Loading&hellip;</div>
+<div class="nav-bar">
+  <a href="../index.html">MAIN</a> |
+  <a href="../geopolitical.html">GEOPOLITICAL</a> |
+  <a href="../companies.html">COMPANY WATCH</a> |
+  <a href="../hk-local.html">HK LOCAL</a> |
+  <a href="../cyber.html" class="nav-active">CYBER INTEL</a> |
+  <a href="../sports.html">SPORTS</a> |
+  <a href="../health.html">HEALTH</a>
 </div>
 
-<!-- CISO Alert Banner -->
-<div class="ciso-alert-banner" id="cisoBanner">CISO ALERT MODE — ACTIVE THREATS ONLY</div>
-
-<!-- Controls -->
-<div class="controls">
-  <div class="filter-group" id="filterGroup">
-    <button class="filter-btn active" data-sector="all">All</button>
-    <button class="filter-btn" data-sector="endpoint">Endpoint</button>
-    <button class="filter-btn" data-sector="network">Network</button>
-    <button class="filter-btn" data-sector="cloud">Cloud</button>
-    <button class="filter-btn" data-sector="identity">Identity</button>
-    <button class="filter-btn" data-sector="siem">SIEM</button>
-    <button class="filter-btn" data-sector="ot">OT</button>
-    <button class="filter-btn" data-sector="devops">DevOps</button>
-    <button class="filter-btn" data-sector="backup">Backup</button>
-    <button class="filter-btn" data-sector="email">Email</button>
-    <button class="filter-btn" data-sector="iam">IAM</button>
-    <button class="filter-btn" data-sector="erp">ERP</button>
-    <button class="filter-btn" data-sector="itsm">ITSM</button>
-    <button class="filter-btn" data-sector="payments">Payments</button>
-    <button class="filter-btn" data-sector="healthcare">Healthcare</button>
-    <button class="filter-btn" data-sector="insurance">Insurance</button>
+<div class="wrap">
+  <div class="page-header">
+    <h1>VENDOR SECURITY SCORECARD</h1>
+    <div class="sub">CYBER INTEL &middot; THE WANG REPORT</div>
+    <div class="meta-line" id="metaLine"></div>
+    <div class="ciso-toggle-wrap">
+      <button class="ciso-toggle" id="cisoBtn">CISO ALERT MODE</button>
+    </div>
+    <div class="ciso-banner" id="cisoBanner">CISO ALERT MODE ACTIVE</div>
   </div>
-  <button class="ciso-toggle" id="cisoToggle">CISO Alert</button>
-  <select class="sort-select" id="sortSelect">
-    <option value="grade">Sort: Grade</option>
-    <option value="score">Sort: Score</option>
-    <option value="tier">Sort: Tier</option>
-    <option value="mttp">Sort: MTTP</option>
-    <option value="kev">Sort: KEV Count</option>
-    <option value="cves">Sort: CVEs</option>
-  </select>
-</div>
 
-<!-- Aggregate Stats -->
-<div class="agg-stats" id="aggStats"></div>
+  <div class="filter-bar" id="filterBar">
+    <span class="sector-pill active" data-sector="all">ALL</span>
+  </div>
 
-<!-- Card Grid -->
-<div class="card-grid" id="cardGrid"></div>
+  <div class="card-grid" id="cardGrid"></div>
+  <div class="drill-down" id="drillDown"></div>
+  <div class="cve-table-wrap hidden" id="cveWrap"></div>
 
-<!-- Drill-down Modal -->
-<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="Vendor detail panel">
-  <div class="modal-panel" id="modalPanel"></div>
-</div>
-
-<!-- Footer -->
-<div class="footer">
-  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
-  <br>
-  <a href="../index.html">MAIN</a> | <a href="../geopolitical.html">GEOPOLITICAL</a> | <a href="../companies.html">COMPANY WATCH</a> | <a href="../hk-local.html">HK LOCAL</a> | <a href="../cyber.html">CYBER INTEL</a> | <a href="../sports.html">SPORTS</a> | <a href="../health.html">HEALTH &amp; FITNESS</a>
-  <br>
-  <a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a>
+  <div class="page-footer">
+    <div class="legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:#5a9a3a"></span> &ge;70</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#3a6aaa"></span> &ge;50</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#aa7a1a"></span> &ge;35</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#aa1a1a"></span> &lt;35</div>
+      <div class="legend-item"><span class="kev-badge kev-active" style="font-size:9px">KEV ACTIVE</span></div>
+      <div class="legend-item"><span class="kev-badge kev-clear" style="font-size:9px">KEV CLEAR</span></div>
+    </div>
+    <div>THE WANG REPORT &middot; Vendor Security Scorecard &middot; Schema 1.1</div>
+    <div style="margin-top:4px"><a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a></div>
+  </div>
 </div>
 
 <script>
-(function () {
-  'use strict';
+(function(){
+'use strict';
 
-  /* ── State ─────────────────────────────────────────── */
-  var vendors = [];
-  var activeSector = 'all';
-  var activeSort = 'grade';
-  var cisoMode = sessionStorage.getItem('cisoMode') === 'true';
+var SECTOR_ART = {
+  endpoint: {bg:'linear-gradient(160deg,#0d1a2e,#1a3a5a)',mono:'#60aaff'},
+  network:  {bg:'linear-gradient(160deg,#0d1a14,#1a3a2a)',mono:'#60ddaa'},
+  cloud:    {bg:'linear-gradient(160deg,#14100d,#2a2010)',mono:'#ddaa60'},
+  identity: {bg:'linear-gradient(160deg,#1a0d2e,#2a1a4a)',mono:'#aa88ff'},
+  siem:     {bg:'linear-gradient(160deg,#1a1a0d,#2a2a14)',mono:'#dddd60'},
+  ot:       {bg:'linear-gradient(160deg,#2a0d0d,#3a1a1a)',mono:'#ff8866'},
+  devops:   {bg:'linear-gradient(160deg,#0d2a1a,#1a3a2a)',mono:'#66dd88'},
+  backup:   {bg:'linear-gradient(160deg,#1a1a2a,#2a2a3a)',mono:'#aaaadd'},
+  email:    {bg:'linear-gradient(160deg,#0d1a2a,#1a2a3a)',mono:'#88aadd'},
+  iam:      {bg:'linear-gradient(160deg,#2a0d2a,#3a1a3a)',mono:'#dd88dd'},
+  erp:      {bg:'linear-gradient(160deg,#2a1a0d,#3a2a1a)',mono:'#ddaa88'},
+  itsm:     {bg:'linear-gradient(160deg,#0d2a2a,#1a3a3a)',mono:'#88dddd'},
+  payments: {bg:'linear-gradient(160deg,#1a2a0d,#2a3a1a)',mono:'#aadd88'},
+  healthcare:{bg:'linear-gradient(160deg,#0d1a1a,#1a2a2a)',mono:'#66cccc'},
+  insurance:{bg:'linear-gradient(160deg,#1a0d1a,#2a1a2a)',mono:'#cc88cc'}
+};
 
-  var TIER_ORDER = { T1: 0, T2: 1, T3: 2 };
+var SECTOR_ELEMENT = {
+  endpoint:'U', network:'G', cloud:'W', identity:'U', siem:'B',
+  ot:'R', devops:'G', backup:'W', email:'U', erp:'W',
+  itsm:'G', payments:'W', healthcare:'W', insurance:'W', iam:'U'
+};
 
-  /* ── Grade helpers ─────────────────────────────────── */
-  var GRADE_ORDER = { A: 0, B: 1, C: 2, D: 3, F: 4 };
+var GRADE_VAL = {A:95, B:80, C:60, D:35, F:10};
 
-  function gradeColor(g) {
-    var map = { A: 'var(--grade-a)', B: 'var(--grade-b)', C: 'var(--grade-c)', D: 'var(--grade-d)', F: 'var(--grade-f)' };
-    return map[g] || '#666';
+var SECTOR_LABELS = {
+  endpoint:'Endpoint',network:'Network',cloud:'Cloud',identity:'Identity',siem:'SIEM',
+  ot:'OT/ICS',devops:'DevOps',backup:'Backup',email:'Email',iam:'IAM',erp:'ERP',
+  itsm:'ITSM',payments:'Payments',healthcare:'Healthcare',insurance:'Insurance'
+};
+
+var DATA = null;
+var currentSector = 'all';
+var currentSort = 'grade';
+var cisoMode = false;
+var openVendorId = null;
+
+function barColor(v) {
+  if (v >= 70) return 'bar-green';
+  if (v >= 50) return 'bar-blue';
+  if (v >= 35) return 'bar-amber';
+  return 'bar-red';
+}
+
+function calcStats(v) {
+  var patchVel = Math.max(0, Math.min(100, 100 - (v.mttp_days / 90 * 100)));
+  var disc = v.rrr_respond ? GRADE_VAL[v.rrr_respond] : v.score;
+  var resil = v.rrr_resilient ? GRADE_VAL[v.rrr_resilient] : v.score;
+  var cvePost = v.score;
+  var concMap = {Leader:65, Challenger:40, Niche:20};
+  var conc = concMap[v.market_position] || 20;
+  return [
+    {label:'Patch Vel', val:Math.round(patchVel)},
+    {label:'Disclosure', val:Math.round(disc)},
+    {label:'Resilience', val:Math.round(resil)},
+    {label:'CVE Post', val:Math.round(cvePost)},
+    {label:'Conc. Risk', val:Math.round(conc)}
+  ];
+}
+
+function rrrGrade(g) {
+  if (!g) return '<span class="rrr-pip rrr-null">-</span>';
+  return '<span class="rrr-pip rrr-' + g + '">' + g + '</span>';
+}
+
+function esc(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function buildCard(v) {
+  var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
+  var stats = calcStats(v);
+  var featured = v.wr_featured;
+  var html = '<div class="marvel-card' + (featured ? ' wr-featured' : '') + '" tabindex="0" data-id="' + v.id + '">';
+  if (featured) {
+    html += '<div class="wr-badge"><span>WR FEATURED</span></div>';
+    html += '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div><div class="holo-wr-badge">WR</div></div>';
+  }
+  html += '<div class="card-banner"><span>CYBER INTEL &middot; WANG REPORT</span><span>' + esc(v.serial) + '</span></div>';
+  html += '<div class="card-art" style="background:' + art.bg + '">';
+  html += '<span class="card-monogram" style="color:' + art.mono + '">' + esc(v.monogram) + '</span>';
+  html += '<span class="grade-seal grade-' + v.grade + '">' + v.grade + '</span>';
+  html += '</div>';
+  html += '<div class="card-nameplate"><div class="vname">' + esc(v.name) + '</div><div class="vsector">' + esc(SECTOR_LABELS[v.sector] || v.sector) + ' &middot; Tier ' + v.tier + ' &middot; ' + esc(v.market_position) + '</div></div>';
+  html += '<div class="card-stats">';
+  for (var i = 0; i < stats.length; i++) {
+    var s = stats[i];
+    html += '<div class="stat-row"><span class="stat-label">' + s.label + '</span><div class="stat-bar-bg"><div class="stat-bar-fill ' + barColor(s.val) + '" style="width:' + s.val + '%"></div></div></div>';
+  }
+  html += '</div>';
+  html += '<div class="card-facts">';
+  html += '<div class="fact"><div class="fval">' + v.cves_12m + '</div><div class="flbl">CVEs</div></div>';
+  html += '<div class="fact"><div class="fval">' + v.kev_count + '</div><div class="flbl">CISA KEV</div></div>';
+  html += '<div class="fact"><div class="fval">' + v.mttp_days + 'd</div><div class="flbl">Avg Patch</div></div>';
+  html += '<div class="fact"><div class="fval">' + v.zero_days + '</div><div class="flbl">Zero-days</div></div>';
+  html += '<div class="fact"><div class="fval">' + (v.rrr_react||'-') + '/' + (v.rrr_respond||'-') + '/' + (v.rrr_resilient||'-') + '</div><div class="flbl">RRR</div></div>';
+  html += '</div>';
+  if (featured && v.wr_take) {
+    html += '<div class="card-take">' + esc(v.wr_take) + '</div>';
+  } else {
+    html += '<div class="card-take empty">No WR editorial</div>';
+  }
+  html += '<div class="card-footer">';
+  if (v.kev_count > 0) {
+    html += '<span class="kev-badge kev-active">KEV ACTIVE (' + v.kev_count + ')</span>';
+  } else {
+    html += '<span class="kev-badge kev-clear">KEV CLEAR</span>';
+  }
+  html += '<span style="color:#555">' + esc(v.serial) + '</span>';
+  html += '</div>';
+  html += '</div>';
+  return html;
+}
+
+function buildDrillDown(v) {
+  var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
+  var el = SECTOR_ELEMENT[v.sector] || 'W';
+  var baseCost = v.tier === 1 ? 4 : v.tier === 2 ? 3 : 2;
+  var highRisk = v.grade === 'D' || v.grade === 'F';
+  if (highRisk) baseCost += 1;
+
+  var manaHtml = '';
+  for (var i = 0; i < baseCost; i++) {
+    var m = el;
+    if (highRisk && i < 2) m = el;
+    manaHtml += '<span class="mana-pip mana-' + m + '">' + m + '</span>';
   }
 
-  /* ── Grading dimensions (for breakdown) ────────────── */
-  function mttpScore(days) {
-    if (days <= 7) return 100;
-    if (days <= 14) return 80;
-    if (days <= 30) return 60;
-    if (days <= 60) return 35;
-    return 10;
-  }
-  function kevScore(count) {
-    if (count === 0) return 100;
-    if (count <= 2) return 70;
-    if (count <= 5) return 50;
-    if (count <= 10) return 25;
-    return 5;
-  }
-  function zdScore(count) {
-    if (count === 0) return 100;
-    if (count === 1) return 75;
-    if (count <= 3) return 50;
-    return 20;
-  }
-  function critRatioScore(crit, total) {
-    if (total === 0) return 100;
-    var r = crit / total;
-    if (r <= 0.05) return 100;
-    if (r <= 0.10) return 80;
-    if (r <= 0.20) return 55;
-    if (r <= 0.35) return 30;
-    return 10;
-  }
-  function breakdownFor(v) {
-    var m = mttpScore(v.mttp_days);
-    var k = kevScore(v.kev_count);
-    var z = zdScore(v.zero_days);
-    var c = critRatioScore(v.critical_count, v.cves_12m);
-    return [
-      { dim: 'MTTP', score: m, weight: 30 },
-      { dim: 'KEV', score: k, weight: 25 },
-      { dim: '0-Day', score: z, weight: 20 },
-      { dim: 'Crit %', score: c, weight: 15 },
-      { dim: 'Trend', score: Math.round((v.score - (m * 0.3 + k * 0.25 + z * 0.2 + c * 0.15)) / 0.1) || 50, weight: 10 }
-    ];
-  }
+  var rarity = v.wr_featured ? 'mythic' : (v.tier === 1 ? 'rare' : (v.tier === 2 ? 'uncommon' : 'common'));
+  var rarityLabel = rarity.charAt(0).toUpperCase() + rarity.slice(1);
+  var sectorLabel = SECTOR_LABELS[v.sector] || v.sector;
 
-  /* ── Sort functions ────────────────────────────────── */
-  function sortVendors(arr, key) {
-    var copy = arr.slice();
-    copy.sort(function (a, b) {
-      switch (key) {
-        case 'grade': return (GRADE_ORDER[a.grade] - GRADE_ORDER[b.grade]) || (b.score - a.score);
-        case 'score': return b.score - a.score;
-        case 'mttp': return a.mttp_days - b.mttp_days;
-        case 'kev': return b.kev_count - a.kev_count;
-        case 'cves': return b.cves_12m - a.cves_12m;
-        case 'tier': return ((TIER_ORDER[a.tier] || 9) - (TIER_ORDER[b.tier] || 9)) || (b.score - a.score);
-        default: return 0;
-      }
-    });
-    // WR Featured first within same sort
-    copy.sort(function (a, b) {
-      if (a.wr_featured && !b.wr_featured) return -1;
-      if (!a.wr_featured && b.wr_featured) return 1;
-      return 0;
-    });
-    return copy;
+  var html = '<button class="drill-close" title="Close">&times;</button>';
+  html += '<div class="mtg-title"><span class="mtg-name">' + esc(v.name) + '</span><div class="mana-cost">' + manaHtml + '</div></div>';
+  html += '<div class="mtg-art" style="background:' + art.bg + '"><span class="big-mono" style="color:' + art.mono + '">' + esc(v.monogram) + '</span></div>';
+  html += '<div class="mtg-type"><span>Legendary Artifact &mdash; ' + esc(sectorLabel) + ' Security</span><span class="rarity-gem rarity-' + rarity + '" title="' + rarityLabel + '"></span></div>';
+
+  html += '<div class="mtg-textbox">';
+  html += '<div class="ability">Patch velocity: ' + v.mttp_days + ' days mean-time-to-patch across ' + v.cves_12m + ' CVEs in trailing 12 months.</div>';
+  html += '<div class="ability">' + v.critical_count + ' critical-severity vulnerabilities. ' + v.zero_days + ' zero-day(s) observed. ' + v.kev_count + ' CISA KEV listing(s).</div>';
+  html += '<div class="ability">Market position: ' + esc(v.market_position) + ' (Tier ' + v.tier + '). Concentration risk factor: ' + (v.market_position === 'Leader' ? 'HIGH' : v.market_position === 'Challenger' ? 'MODERATE' : 'LOW') + '.</div>';
+  if (v.wr_take) {
+    html += '<div class="flavor">' + esc(v.wr_take) + '</div>';
   }
+  html += '</div>';
 
-  /* ── Render aggregate stats ─────────────────────────── */
-  function renderAggStats(list) {
-    var el = document.getElementById('aggStats');
-    if (!list.length) { el.innerHTML = ''; return; }
-    var totalKev = 0, totalZd = 0, totalMttp = 0, grades = { A:0, B:0, C:0, D:0, F:0 };
-    list.forEach(function(v) {
-      totalKev += v.kev_count || 0;
-      totalZd += v.zero_days || 0;
-      totalMttp += v.mttp_days || 0;
-      grades[v.grade] = (grades[v.grade] || 0) + 1;
-    });
-    var avgMttp = Math.round(totalMttp / list.length);
-    var h = '';
-    h += '<div class="agg-stat"><span class="agg-val">' + list.length + '</span><span class="agg-label">Vendors</span></div>';
-    h += '<div class="agg-stat' + (totalKev > 0 ? ' agg-danger' : '') + '"><span class="agg-val">' + totalKev + '</span><span class="agg-label">Active KEVs</span></div>';
-    h += '<div class="agg-stat' + (totalZd > 0 ? ' agg-warn' : '') + '"><span class="agg-val">' + totalZd + '</span><span class="agg-label">Zero-Days</span></div>';
-    h += '<div class="agg-stat"><span class="agg-val">' + avgMttp + 'd</span><span class="agg-label">Avg MTTP</span></div>';
-    h += '<div class="agg-stat grade-dist">';
-    ['A','B','C','D','F'].forEach(function(g) {
-      if (grades[g]) h += '<span style="color:' + gradeColor(g) + '">' + g + ':' + grades[g] + '</span>';
-    });
-    h += '</div>';
-    el.innerHTML = h;
-  }
+  html += '<div class="rrr-strip">';
+  html += '<span>React: ' + rrrGrade(v.rrr_react) + '</span>';
+  html += '<span>Respond: ' + rrrGrade(v.rrr_respond) + '</span>';
+  html += '<span>Resilient: ' + rrrGrade(v.rrr_resilient) + '</span>';
+  html += '</div>';
 
-  /* ── Render cards ──────────────────────────────────── */
-  function renderCards() {
-    var grid = document.getElementById('cardGrid');
-    var filtered = vendors.filter(function (v) {
-      if (activeSector !== 'all' && v.sector !== activeSector) return false;
-      if (cisoMode && !(v.kev_count > 0 || v.zero_days > 0)) return false;
-      return true;
-    });
-    var sorted = sortVendors(filtered, activeSort);
+  html += '<div class="mtg-bottom"><span>' + esc(v.serial) + ' &middot; ' + esc(sectorLabel) + '</span><span>Score ' + v.score + ' &middot; Grade ' + v.grade + '</span></div>';
 
-    renderAggStats(filtered);
-
-    if (sorted.length === 0) {
-      grid.innerHTML = '<div class="no-results">No vendors match this filter.</div>';
-      return;
+  var cveHtml = '';
+  if (v.cve_list && v.cve_list.length > 0) {
+    cveHtml = '<table class="cve-table"><thead><tr><th>CVE ID</th><th>Severity</th><th>Description</th><th>Days</th><th>Flags</th></tr></thead><tbody>';
+    for (var j = 0; j < v.cve_list.length; j++) {
+      var c = v.cve_list[j];
+      cveHtml += '<tr>';
+      cveHtml += '<td><a href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener">' + esc(c.id) + '</a></td>';
+      cveHtml += '<td><span class="sev-pill sev-' + c.severity + '">' + c.severity + '</span></td>';
+      cveHtml += '<td style="color:#999">' + esc(c.description) + '</td>';
+      cveHtml += '<td style="text-align:center;color:#ccc">' + c.days_to_patch + '</td>';
+      cveHtml += '<td>';
+      if (c.kev) cveHtml += '<span class="cve-badge badge-kev">KEV</span>';
+      if (c.zero_day) cveHtml += '<span class="cve-badge badge-zday">0DAY</span>';
+      cveHtml += '</td>';
+      cveHtml += '</tr>';
     }
+    cveHtml += '</tbody></table>';
+  }
 
-    var html = '';
-    sorted.forEach(function (v) {
-      var featured = v.wr_featured;
-      var cls = 'card' + (featured ? ' wr-featured' : '');
-      html += '<div class="' + cls + '" tabindex="0" data-id="' + v.id + '" role="button" aria-label="View details for ' + v.name + '">';
-      if (featured) html += '<span class="wr-badge">WR</span>';
+  return {panel: html, cve: cveHtml};
+}
 
-      // Tier badge (top-left area, next to WR badge)
-      if (v.tier) {
-        html += '<span class="tier-badge tier-' + v.tier + '" style="position:absolute;top:10px;' + (featured ? 'right:42px' : 'right:10px') + '">' + v.tier + '</span>';
-      }
+function sortVendors(vendors) {
+  var copy = vendors.slice();
+  var gradeOrd = {A:5, B:4, C:3, D:2, F:1};
+  switch (currentSort) {
+    case 'grade':
+      copy.sort(function(a,b){ return (gradeOrd[b.grade]||0) - (gradeOrd[a.grade]||0) || b.score - a.score; });
+      break;
+    case 'mttp':
+      copy.sort(function(a,b){ return a.mttp_days - b.mttp_days; });
+      break;
+    case 'cves':
+      copy.sort(function(a,b){ return b.cves_12m - a.cves_12m; });
+      break;
+    case 'kev':
+      copy.sort(function(a,b){ return b.kev_count - a.kev_count; });
+      break;
+    case 'zerodays':
+      copy.sort(function(a,b){ return b.zero_days - a.zero_days; });
+      break;
+    case 'score':
+      copy.sort(function(a,b){ return b.score - a.score; });
+      break;
+  }
+  return copy;
+}
 
-      // Top
-      html += '<div class="card-top">';
-      html += '<div class="monogram">' + esc(v.monogram) + '</div>';
-      html += '<div class="vendor-info"><div class="vendor-name">' + esc(v.name) + '</div>';
-      html += '<span class="sector-tag">' + esc(v.sector) + '</span>';
-      if (v.market_position) {
-        html += '<span class="market-tag market-' + v.market_position + '">' + esc(v.market_position) + '</span>';
-      }
-      html += '</div>';
-      html += '</div>';
+function filterVendors() {
+  if (!DATA) return [];
+  var list = DATA.vendors;
+  if (currentSector !== 'all') {
+    list = list.filter(function(v){ return v.sector === currentSector; });
+  }
+  if (cisoMode) {
+    list = list.filter(function(v){ return v.kev_count > 0 || v.zero_days > 0; });
+  }
+  return sortVendors(list);
+}
 
-      // Grade
-      html += '<div class="grade-row">';
-      html += '<div class="grade-seal grade-' + v.grade + '">' + v.grade + '</div>';
-      html += '<div><div class="grade-label">WR Security Grade</div>';
-      html += '<div class="grade-score">' + v.score + ' / 100</div></div>';
-      html += '</div>';
+function render() {
+  var grid = document.getElementById('cardGrid');
+  var vendors = filterVendors();
+  if (vendors.length === 0) {
+    grid.innerHTML = '<div class="empty-state">No vendors match this filter</div>';
+  } else {
+    grid.innerHTML = vendors.map(buildCard).join('');
+  }
+  closeDrillDown();
+  bindCards();
+}
 
-      // Stats
-      html += '<div class="stats-row">';
-      html += statCell(v.cves_12m, 'CVEs', v.cves_12m > 100 ? 'danger' : v.cves_12m > 50 ? 'warn' : '');
-      html += statCell(v.critical_count, 'Critical', v.critical_count > 20 ? 'danger' : v.critical_count > 10 ? 'warn' : '');
-      html += statCell(v.mttp_days + 'd', 'MTTP', v.mttp_days > 45 ? 'danger' : v.mttp_days > 25 ? 'warn' : '');
-      html += statCell(v.zero_days, '0-Day', v.zero_days > 3 ? 'danger' : v.zero_days > 0 ? 'warn' : '');
-      html += statCell(v.kev_count, 'KEV', v.kev_count > 5 ? 'danger' : v.kev_count > 0 ? 'warn' : '');
-      html += '</div>';
+function closeDrillDown() {
+  openVendorId = null;
+  document.getElementById('drillDown').className = 'drill-down';
+  document.getElementById('drillDown').innerHTML = '';
+  document.getElementById('cveWrap').className = 'cve-table-wrap hidden';
+  document.getElementById('cveWrap').innerHTML = '';
+}
 
-      // WR Take
-      if (v.wr_take) {
-        html += '<div class="wr-take">&ldquo;' + esc(v.wr_take) + '&rdquo;</div>';
-      }
+function openDrillDown(vendorId) {
+  var v = DATA.vendors.find(function(x){ return x.id === vendorId; });
+  if (!v) return;
+  if (openVendorId === vendorId) { closeDrillDown(); return; }
+  openVendorId = vendorId;
+  var dd = buildDrillDown(v);
+  var panel = document.getElementById('drillDown');
+  panel.innerHTML = dd.panel;
+  panel.className = 'drill-down open';
+  var cveWrap = document.getElementById('cveWrap');
+  if (dd.cve) {
+    cveWrap.innerHTML = dd.cve;
+    cveWrap.className = 'cve-table-wrap';
+  } else {
+    cveWrap.className = 'cve-table-wrap hidden';
+    cveWrap.innerHTML = '';
+  }
+  panel.querySelector('.drill-close').addEventListener('click', closeDrillDown);
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
 
-      // Serial
-      html += '<div class="serial">' + esc(v.serial) + '</div>';
-      html += '</div>';
-    });
-
-    grid.innerHTML = html;
-
-    // Bind events
-    var cards = grid.querySelectorAll('.card');
-    cards.forEach(function (el) {
-      el.addEventListener('click', function () { openModal(el.dataset.id); });
-      el.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(el.dataset.id); }
+function bindCards() {
+  var cards = document.querySelectorAll('.marvel-card');
+  for (var i = 0; i < cards.length; i++) {
+    (function(card){
+      card.addEventListener('click', function(){ openDrillDown(card.dataset.id); });
+      card.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDrillDown(card.dataset.id); }
       });
-    });
+    })(cards[i]);
+  }
+}
+
+function buildFilters() {
+  var bar = document.getElementById('filterBar');
+  var seen = {};
+  var sectors = [];
+  for (var i = 0; i < DATA.vendors.length; i++) {
+    var s = DATA.vendors[i].sector;
+    if (!seen[s]) { seen[s] = true; sectors.push(s); }
+  }
+  for (var j = 0; j < sectors.length; j++) {
+    var pill = document.createElement('span');
+    pill.className = 'sector-pill';
+    pill.dataset.sector = sectors[j];
+    pill.textContent = (SECTOR_LABELS[sectors[j]] || sectors[j]).toUpperCase();
+    bar.appendChild(pill);
   }
 
-  function statCell(val, label, cls) {
-    return '<div class="stat"><span class="stat-val' + (cls ? ' ' + cls : '') + '">' + val + '</span><span class="stat-label">' + label + '</span></div>';
-  }
+  var sel = document.createElement('select');
+  sel.className = 'sort-select';
+  sel.innerHTML = '<option value="grade">Sort: Grade</option><option value="mttp">Sort: MTTP (fastest)</option><option value="cves">Sort: CVE count</option><option value="kev">Sort: KEV count</option><option value="zerodays">Sort: Zero-days</option><option value="score">Sort: Score</option>';
+  bar.appendChild(sel);
 
-  function esc(s) {
-    if (!s) return '';
-    var d = document.createElement('div');
-    d.textContent = s;
-    return d.innerHTML;
-  }
-
-  /* ── Modal ─────────────────────────────────────────── */
-  function openModal(id) {
-    var v = vendors.find(function (x) { return x.id === id; });
-    if (!v) return;
-
-    var panel = document.getElementById('modalPanel');
-    var bd = breakdownFor(v);
-
-    var html = '<button class="modal-close" aria-label="Close panel">&times;</button>';
-
-    // Header
-    html += '<div class="modal-header">';
-    html += '<div class="monogram">' + esc(v.monogram) + '</div>';
-    html += '<div><div class="vendor-name">' + esc(v.name) + '</div>';
-    html += '<div class="modal-meta">' + esc(v.sector.toUpperCase());
-    if (v.tier) html += ' &bull; <span class="tier-badge tier-' + v.tier + '" style="position:static">' + v.tier + '</span>';
-    if (v.market_position) html += ' &bull; <span class="market-tag market-' + v.market_position + '" style="position:static">' + esc(v.market_position) + '</span>';
-    html += ' &bull; ' + esc(v.serial);
-    html += '</div></div>';
-    html += '</div>';
-
-    // Grade
-    html += '<div class="modal-grade-row">';
-    html += '<div class="grade-seal grade-' + v.grade + '">' + v.grade + '</div>';
-    html += '<div><div class="grade-label">WR Security Grade</div>';
-    html += '<div class="grade-score" style="font-size:1.4rem;">' + v.score + ' / 100</div></div>';
-    html += '</div>';
-
-    // RRR Rating
-    if (v.rrr_react != null && v.rrr_respond != null && v.rrr_resilient != null) {
-      html += '<div class="rrr-strip">';
-      html += '<span class="rrr-title">RRR Rating</span>';
-      html += '<div class="rrr-cell"><span class="rrr-dim">React</span> <span class="rrr-grade" style="color:' + gradeColor(v.rrr_react) + '">' + v.rrr_react + '</span></div>';
-      html += '<span class="rrr-sep">|</span>';
-      html += '<div class="rrr-cell"><span class="rrr-dim">Respond</span> <span class="rrr-grade" style="color:' + gradeColor(v.rrr_respond) + '">' + v.rrr_respond + '</span></div>';
-      html += '<span class="rrr-sep">|</span>';
-      html += '<div class="rrr-cell"><span class="rrr-dim">Resilient</span> <span class="rrr-grade" style="color:' + gradeColor(v.rrr_resilient) + '">' + v.rrr_resilient + '</span></div>';
-      html += '</div>';
-    } else {
-      html += '<div class="rrr-na">No RRR rating available for this vendor.</div>';
+  bar.addEventListener('click', function(e) {
+    if (e.target.classList.contains('sector-pill')) {
+      var pills = bar.querySelectorAll('.sector-pill');
+      for (var k = 0; k < pills.length; k++) pills[k].classList.remove('active');
+      e.target.classList.add('active');
+      currentSector = e.target.dataset.sector;
+      render();
     }
-
-    // WR Take
-    if (v.wr_take) {
-      html += '<div class="modal-wr-take">&ldquo;' + esc(v.wr_take) + '&rdquo;</div>';
-    }
-
-    // Breakdown
-    html += '<div class="section-title">Grade Breakdown</div>';
-    html += '<div class="grade-breakdown">';
-    bd.forEach(function (d) {
-      var clampedScore = Math.max(0, Math.min(100, d.score));
-      var color = clampedScore >= 75 ? 'var(--grade-a)' : clampedScore >= 55 ? 'var(--grade-b)' : clampedScore >= 35 ? 'var(--grade-c)' : 'var(--grade-f)';
-      html += '<div class="breakdown-item">';
-      html += '<div class="breakdown-dim">' + d.dim + ' (' + d.weight + '%)</div>';
-      html += '<div class="breakdown-score" style="color:' + color + '">' + clampedScore + '</div>';
-      html += '<div class="breakdown-bar"><div class="breakdown-fill" style="width:' + clampedScore + '%;background:' + color + '"></div></div>';
-      html += '</div>';
-    });
-    html += '</div>';
-
-    // Stats summary
-    html += '<div class="section-title">12-Month Statistics</div>';
-    html += '<div class="stats-row" style="margin-bottom:24px;">';
-    html += statCell(v.cves_12m, 'Total CVEs', '');
-    html += statCell(v.critical_count, 'Critical', '');
-    html += statCell(v.mttp_days + 'd', 'MTTP', '');
-    html += statCell(v.zero_days, 'Zero-Days', '');
-    html += statCell(v.kev_count, 'KEV Listed', '');
-    html += '</div>';
-
-    // CVE Table
-    if (v.cve_list && v.cve_list.length > 0) {
-      html += '<div class="section-title">CVE Detail</div>';
-      html += '<table class="cve-table"><thead><tr>';
-      html += '<th>CVE ID</th><th>Severity</th><th>Description</th><th>Days</th><th>Flags</th>';
-      html += '</tr></thead><tbody>';
-      v.cve_list.forEach(function (c) {
-        html += '<tr>';
-        html += '<td><a class="cve-id" href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener">' + esc(c.id) + '</a></td>';
-        html += '<td><span class="severity-badge severity-' + c.severity + '">' + c.severity + '</span></td>';
-        html += '<td class="cve-desc">' + esc(c.description) + '</td>';
-        html += '<td class="days-patch">' + c.days_to_patch + 'd</td>';
-        html += '<td>';
-        if (c.kev) html += '<span class="mini-badge badge-kev">KEV</span>';
-        if (c.zero_day) html += '<span class="mini-badge badge-zeroday">0DAY</span>';
-        if (!c.kev && !c.zero_day) html += '<span style="color:var(--text-muted);font-size:0.65rem">&mdash;</span>';
-        html += '</td>';
-        html += '</tr>';
-      });
-      html += '</tbody></table>';
-    }
-
-    panel.innerHTML = html;
-
-    // Open
-    var overlay = document.getElementById('modal');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    // Close handlers
-    panel.querySelector('.modal-close').addEventListener('click', closeModal);
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) closeModal();
-    });
-
-    // Focus trap
-    panel.querySelector('.modal-close').focus();
-  }
-
-  function closeModal() {
-    var overlay = document.getElementById('modal');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  /* ── Keyboard ──────────────────────────────────────── */
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeModal();
   });
 
-  /* ── Filter & Sort ─────────────────────────────────── */
-  document.getElementById('filterGroup').addEventListener('click', function (e) {
-    if (!e.target.classList.contains('filter-btn')) return;
-    document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-    e.target.classList.add('active');
-    activeSector = e.target.dataset.sector;
-    renderCards();
+  sel.addEventListener('change', function() {
+    currentSort = sel.value;
+    render();
   });
+}
 
-  document.getElementById('sortSelect').addEventListener('change', function () {
-    activeSort = this.value;
-    renderCards();
-  });
-
-  /* ── CISO Alert Mode ──────────────────────────────── */
-  function applyCisoUI() {
-    var btn = document.getElementById('cisoToggle');
-    var banner = document.getElementById('cisoBanner');
+function initCiso() {
+  cisoMode = sessionStorage.getItem('cisoMode') === 'true';
+  var btn = document.getElementById('cisoBtn');
+  var banner = document.getElementById('cisoBanner');
+  function updateCiso() {
     if (cisoMode) {
       btn.classList.add('active');
-      banner.classList.add('visible');
-      document.body.classList.add('ciso-mode');
+      banner.classList.add('show');
     } else {
       btn.classList.remove('active');
-      banner.classList.remove('visible');
-      document.body.classList.remove('ciso-mode');
+      banner.classList.remove('show');
     }
+    sessionStorage.setItem('cisoMode', String(cisoMode));
   }
-  applyCisoUI();
-
-  document.getElementById('cisoToggle').addEventListener('click', function () {
+  updateCiso();
+  btn.addEventListener('click', function() {
     cisoMode = !cisoMode;
-    sessionStorage.setItem('cisoMode', cisoMode ? 'true' : 'false');
-    applyCisoUI();
-    renderCards();
+    updateCiso();
+    render();
   });
+}
 
-  /* ── Load data ─────────────────────────────────────── */
+function init() {
   fetch('../data/vendors.json')
-    .then(function (r) {
-      if (!r.ok) throw new Error('Failed to load vendor data');
-      return r.json();
+    .then(function(r){ return r.json(); })
+    .then(function(data) {
+      DATA = data;
+      var meta = data._meta || {};
+      document.getElementById('metaLine').textContent =
+        'Last updated: ' + (meta.last_updated || 'N/A') +
+        ' | ' + (meta.total_vendors || DATA.vendors.length) + ' vendors | Schema ' + (meta.schema_version || '1.1');
+      buildFilters();
+      initCiso();
+      render();
     })
-    .then(function (data) {
-      // Timestamp
-      if (data._meta && data._meta.generated) {
-        document.getElementById('dataAsOf').textContent = 'Data as of ' + data._meta.generated;
-      }
-      vendors = data.vendors || [];
-      renderCards();
-    })
-    .catch(function (err) {
-      document.getElementById('cardGrid').innerHTML = '<div class="no-results">Failed to load vendor data. ' + esc(err.message) + '</div>';
+    .catch(function(err) {
+      document.getElementById('cardGrid').innerHTML = '<div class="empty-state">Failed to load vendor data</div>';
+      console.error(err);
     });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 
 })();
 </script>
