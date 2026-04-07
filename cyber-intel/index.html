@@ -568,6 +568,162 @@
       .cve-desc { max-width: 160px; }
     }
 
+    /* ── Tier Badge ─────────────────────────────────────── */
+    .tier-badge {
+      display: inline-block;
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+      font-family: var(--font-mono);
+    }
+    .tier-T1 { background: var(--gold); color: #0d0d14; }
+    .tier-T2 { background: #4a90d9; color: #fff; }
+    .tier-T3 { background: #555566; color: #ddd; }
+
+    /* ── Market Position Tag ───────────────────────────── */
+    .market-tag {
+      display: inline-block;
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1px 7px;
+      border-radius: 2px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .market-Leader { background: rgba(52,208,88,0.15); color: var(--grade-a); border: 1px solid rgba(52,208,88,0.3); }
+    .market-Challenger { background: rgba(74,144,217,0.15); color: var(--grade-b); border: 1px solid rgba(74,144,217,0.3); }
+    .market-Niche { background: rgba(85,85,102,0.15); color: var(--text-dim); border: 1px solid rgba(85,85,102,0.3); }
+
+    /* ── CISO Alert Mode ───────────────────────────────── */
+    .ciso-toggle {
+      background: transparent;
+      border: 1px solid #662222;
+      color: #cc4444;
+      padding: 5px 14px;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .ciso-toggle:hover { background: rgba(204,68,68,0.1); border-color: #cc4444; }
+    .ciso-toggle.active {
+      background: #cc4444;
+      color: #fff;
+      border-color: #cc4444;
+    }
+    .ciso-alert-banner {
+      display: none;
+      text-align: center;
+      padding: 8px 20px;
+      background: rgba(204,68,68,0.12);
+      border-bottom: 1px solid rgba(204,68,68,0.3);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #cc4444;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+    .ciso-alert-banner.visible { display: block; }
+    body.ciso-mode .nav-bar { background: #1a0f0f; border-bottom-color: #442222; }
+
+    /* ── Aggregate Stats Bar ───────────────────────────── */
+    .agg-stats {
+      max-width: 1200px;
+      margin: 16px auto 0;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+    .agg-stat {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .agg-stat .agg-val {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .agg-stat .agg-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .agg-stat.agg-danger .agg-val { color: var(--severity-critical); }
+    .agg-stat.agg-warn .agg-val { color: var(--severity-high); }
+    .grade-dist {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+    }
+    .grade-dist span { margin-right: 6px; }
+
+    /* ── RRR Rating Strip ──────────────────────────────── */
+    .rrr-strip {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      align-items: center;
+    }
+    .rrr-strip .rrr-title {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    .rrr-cell {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+    }
+    .rrr-cell .rrr-dim {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .rrr-cell .rrr-grade {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .rrr-sep {
+      color: var(--border-subtle);
+      font-size: 0.9rem;
+    }
+    .rrr-na {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
     /* ── No results ────────────────────────────────────── */
     .no-results {
       text-align: center;
@@ -591,6 +747,9 @@
   <div class="data-as-of" id="dataAsOf">Loading&hellip;</div>
 </div>
 
+<!-- CISO Alert Banner -->
+<div class="ciso-alert-banner" id="cisoBanner">CISO ALERT MODE — ACTIVE THREATS ONLY</div>
+
 <!-- Controls -->
 <div class="controls">
   <div class="filter-group" id="filterGroup">
@@ -601,15 +760,29 @@
     <button class="filter-btn" data-sector="identity">Identity</button>
     <button class="filter-btn" data-sector="siem">SIEM</button>
     <button class="filter-btn" data-sector="ot">OT</button>
+    <button class="filter-btn" data-sector="devops">DevOps</button>
+    <button class="filter-btn" data-sector="backup">Backup</button>
+    <button class="filter-btn" data-sector="email">Email</button>
+    <button class="filter-btn" data-sector="iam">IAM</button>
+    <button class="filter-btn" data-sector="erp">ERP</button>
+    <button class="filter-btn" data-sector="itsm">ITSM</button>
+    <button class="filter-btn" data-sector="payments">Payments</button>
+    <button class="filter-btn" data-sector="healthcare">Healthcare</button>
+    <button class="filter-btn" data-sector="insurance">Insurance</button>
   </div>
+  <button class="ciso-toggle" id="cisoToggle">CISO Alert</button>
   <select class="sort-select" id="sortSelect">
     <option value="grade">Sort: Grade</option>
     <option value="score">Sort: Score</option>
+    <option value="tier">Sort: Tier</option>
     <option value="mttp">Sort: MTTP</option>
     <option value="kev">Sort: KEV Count</option>
     <option value="cves">Sort: CVEs</option>
   </select>
 </div>
+
+<!-- Aggregate Stats -->
+<div class="agg-stats" id="aggStats"></div>
 
 <!-- Card Grid -->
 <div class="card-grid" id="cardGrid"></div>
@@ -636,6 +809,9 @@
   var vendors = [];
   var activeSector = 'all';
   var activeSort = 'grade';
+  var cisoMode = sessionStorage.getItem('cisoMode') === 'true';
+
+  var TIER_ORDER = { T1: 0, T2: 1, T3: 2 };
 
   /* ── Grade helpers ─────────────────────────────────── */
   var GRADE_ORDER = { A: 0, B: 1, C: 2, D: 3, F: 4 };
@@ -699,6 +875,7 @@
         case 'mttp': return a.mttp_days - b.mttp_days;
         case 'kev': return b.kev_count - a.kev_count;
         case 'cves': return b.cves_12m - a.cves_12m;
+        case 'tier': return ((TIER_ORDER[a.tier] || 9) - (TIER_ORDER[b.tier] || 9)) || (b.score - a.score);
         default: return 0;
       }
     });
@@ -711,13 +888,42 @@
     return copy;
   }
 
+  /* ── Render aggregate stats ─────────────────────────── */
+  function renderAggStats(list) {
+    var el = document.getElementById('aggStats');
+    if (!list.length) { el.innerHTML = ''; return; }
+    var totalKev = 0, totalZd = 0, totalMttp = 0, grades = { A:0, B:0, C:0, D:0, F:0 };
+    list.forEach(function(v) {
+      totalKev += v.kev_count || 0;
+      totalZd += v.zero_days || 0;
+      totalMttp += v.mttp_days || 0;
+      grades[v.grade] = (grades[v.grade] || 0) + 1;
+    });
+    var avgMttp = Math.round(totalMttp / list.length);
+    var h = '';
+    h += '<div class="agg-stat"><span class="agg-val">' + list.length + '</span><span class="agg-label">Vendors</span></div>';
+    h += '<div class="agg-stat' + (totalKev > 0 ? ' agg-danger' : '') + '"><span class="agg-val">' + totalKev + '</span><span class="agg-label">Active KEVs</span></div>';
+    h += '<div class="agg-stat' + (totalZd > 0 ? ' agg-warn' : '') + '"><span class="agg-val">' + totalZd + '</span><span class="agg-label">Zero-Days</span></div>';
+    h += '<div class="agg-stat"><span class="agg-val">' + avgMttp + 'd</span><span class="agg-label">Avg MTTP</span></div>';
+    h += '<div class="agg-stat grade-dist">';
+    ['A','B','C','D','F'].forEach(function(g) {
+      if (grades[g]) h += '<span style="color:' + gradeColor(g) + '">' + g + ':' + grades[g] + '</span>';
+    });
+    h += '</div>';
+    el.innerHTML = h;
+  }
+
   /* ── Render cards ──────────────────────────────────── */
   function renderCards() {
     var grid = document.getElementById('cardGrid');
     var filtered = vendors.filter(function (v) {
-      return activeSector === 'all' || v.sector === activeSector;
+      if (activeSector !== 'all' && v.sector !== activeSector) return false;
+      if (cisoMode && !(v.kev_count > 0 || v.zero_days > 0)) return false;
+      return true;
     });
     var sorted = sortVendors(filtered, activeSort);
+
+    renderAggStats(filtered);
 
     if (sorted.length === 0) {
       grid.innerHTML = '<div class="no-results">No vendors match this filter.</div>';
@@ -731,11 +937,20 @@
       html += '<div class="' + cls + '" tabindex="0" data-id="' + v.id + '" role="button" aria-label="View details for ' + v.name + '">';
       if (featured) html += '<span class="wr-badge">WR</span>';
 
+      // Tier badge (top-left area, next to WR badge)
+      if (v.tier) {
+        html += '<span class="tier-badge tier-' + v.tier + '" style="position:absolute;top:10px;' + (featured ? 'right:42px' : 'right:10px') + '">' + v.tier + '</span>';
+      }
+
       // Top
       html += '<div class="card-top">';
       html += '<div class="monogram">' + esc(v.monogram) + '</div>';
       html += '<div class="vendor-info"><div class="vendor-name">' + esc(v.name) + '</div>';
-      html += '<span class="sector-tag">' + esc(v.sector) + '</span></div>';
+      html += '<span class="sector-tag">' + esc(v.sector) + '</span>';
+      if (v.market_position) {
+        html += '<span class="market-tag market-' + v.market_position + '">' + esc(v.market_position) + '</span>';
+      }
+      html += '</div>';
       html += '</div>';
 
       // Grade
@@ -801,8 +1016,10 @@
     html += '<div class="modal-header">';
     html += '<div class="monogram">' + esc(v.monogram) + '</div>';
     html += '<div><div class="vendor-name">' + esc(v.name) + '</div>';
-    html += '<div class="modal-meta">' + esc(v.sector.toUpperCase()) + ' &bull; ' + esc(v.serial);
-    if (v.market_position) html += ' &bull; ' + esc(v.market_position);
+    html += '<div class="modal-meta">' + esc(v.sector.toUpperCase());
+    if (v.tier) html += ' &bull; <span class="tier-badge tier-' + v.tier + '" style="position:static">' + v.tier + '</span>';
+    if (v.market_position) html += ' &bull; <span class="market-tag market-' + v.market_position + '" style="position:static">' + esc(v.market_position) + '</span>';
+    html += ' &bull; ' + esc(v.serial);
     html += '</div></div>';
     html += '</div>';
 
@@ -812,6 +1029,20 @@
     html += '<div><div class="grade-label">WR Security Grade</div>';
     html += '<div class="grade-score" style="font-size:1.4rem;">' + v.score + ' / 100</div></div>';
     html += '</div>';
+
+    // RRR Rating
+    if (v.rrr_react != null && v.rrr_respond != null && v.rrr_resilient != null) {
+      html += '<div class="rrr-strip">';
+      html += '<span class="rrr-title">RRR Rating</span>';
+      html += '<div class="rrr-cell"><span class="rrr-dim">React</span> <span class="rrr-grade" style="color:' + gradeColor(v.rrr_react) + '">' + v.rrr_react + '</span></div>';
+      html += '<span class="rrr-sep">|</span>';
+      html += '<div class="rrr-cell"><span class="rrr-dim">Respond</span> <span class="rrr-grade" style="color:' + gradeColor(v.rrr_respond) + '">' + v.rrr_respond + '</span></div>';
+      html += '<span class="rrr-sep">|</span>';
+      html += '<div class="rrr-cell"><span class="rrr-dim">Resilient</span> <span class="rrr-grade" style="color:' + gradeColor(v.rrr_resilient) + '">' + v.rrr_resilient + '</span></div>';
+      html += '</div>';
+    } else {
+      html += '<div class="rrr-na">No RRR rating available for this vendor.</div>';
+    }
 
     // WR Take
     if (v.wr_take) {
@@ -903,6 +1134,29 @@
 
   document.getElementById('sortSelect').addEventListener('change', function () {
     activeSort = this.value;
+    renderCards();
+  });
+
+  /* ── CISO Alert Mode ──────────────────────────────── */
+  function applyCisoUI() {
+    var btn = document.getElementById('cisoToggle');
+    var banner = document.getElementById('cisoBanner');
+    if (cisoMode) {
+      btn.classList.add('active');
+      banner.classList.add('visible');
+      document.body.classList.add('ciso-mode');
+    } else {
+      btn.classList.remove('active');
+      banner.classList.remove('visible');
+      document.body.classList.remove('ciso-mode');
+    }
+  }
+  applyCisoUI();
+
+  document.getElementById('cisoToggle').addEventListener('click', function () {
+    cisoMode = !cisoMode;
+    sessionStorage.setItem('cisoMode', cisoMode ? 'true' : 'false');
+    applyCisoUI();
     renderCards();
   });
 
