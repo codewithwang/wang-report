@@ -100,22 +100,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px 14px;
+    padding: 4px 10px;
     border-right: 1px solid #333;
-    min-width: 80px;
+    flex: 1;
+    min-width: 0;
 }
 .td-gauge:last-child { border-right: none; }
 a.td-link { text-decoration: none; color: inherit; }
 a.td-link:hover { background: #1a1a1a; }
 .td-wrti {
-    padding: 4px 20px;
-    min-width: 120px;
+    padding: 4px 14px;
+    flex: 1.3;
 }
 .td-divider {
-    width: 2px;
+    width: 1px;
     height: 40px;
-    background: #cc0000;
-    margin: 0 4px;
+    background: #333;
+    margin: 0 2px;
+    flex: 0 0 1px;
 }
 .td-label {
     font-family: Arial, Helvetica, sans-serif;
