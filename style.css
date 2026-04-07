@@ -83,6 +83,59 @@ body {
     background: #f8f8f2;
     border-left: 2px solid #cc0000;
 }
+/* Geopolitical narrative threads */
+.geo-threads {
+    max-width: 820px;
+    margin: 16px auto 24px auto;
+    padding: 0 16px;
+}
+.geo-thread {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.geo-thread:last-child { border-bottom: none; }
+.thread-title {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #000;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #cc0000;
+    text-transform: uppercase;
+}
+.thread-para {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+}
+.thread-sources {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #888;
+    margin-top: 8px;
+}
+.thread-source {
+    color: #cc0000;
+    text-decoration: none;
+}
+.thread-source:hover { text-decoration: underline; }
+.grid-divider {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #999;
+    margin: 10px 0;
+    padding: 8px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
 
 /* Hero headline — THE top story */
 .hero-headline {
