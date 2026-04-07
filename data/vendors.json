@@ -1,26 +1,1501 @@
 {
   "_meta": {
-    "generated": "2026-04-07",
-    "source_note": "Seeded from NVD, CISA KEV, and vendor advisories. CVE counts and MTTP are representative figures based on public record through mid-2025. Validate against live NVD API before publishing.",
+    "generated": "2026-04-08",
+    "last_updated": "2026-04-08",
+    "source_note": "Seeded from NVD, CISA KEV, and vendor advisories through mid-2025. Validate against live feeds before publishing.",
     "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
     "kev_feed": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-    "schema_version": "1.0"
+    "schema_version": "1.1",
+    "total_vendors": 40
   },
   "vendors": [
-    {"id":"crowdstrike","name":"CrowdStrike","monogram":"CS","sector":"endpoint","grade":"A","score":89,"cves_12m":22,"critical_count":3,"mttp_days":7,"zero_days":0,"kev_count":0,"wr_featured":true,"wr_take":"Best patch velocity in endpoint. The July 2024 outage was an ops failure, not a security failure — an important distinction the market conflated.","market_position":"Leader","cve_list":[{"id":"CVE-2024-10092","severity":"CRITICAL","description":"Falcon sensor local privilege escalation via kernel driver race condition","days_to_patch":6,"kev":false,"zero_day":false},{"id":"CVE-2024-8841","severity":"HIGH","description":"Falcon console stored XSS via malformed alert description field","days_to_patch":8,"kev":false,"zero_day":false},{"id":"CVE-2024-7703","severity":"MEDIUM","description":"Falcon Data Replicator S3 path traversal allowing read-only access to adjacent tenant data","days_to_patch":11,"kev":false,"zero_day":false}],"serial":"WR-2026-001"},
-    {"id":"sentinelone","name":"SentinelOne","monogram":"S1","sector":"endpoint","grade":"A","score":85,"cves_12m":17,"critical_count":2,"mttp_days":9,"zero_days":0,"kev_count":0,"wr_featured":false,"wr_take":null,"market_position":"Challenger","cve_list":[{"id":"CVE-2024-10955","severity":"HIGH","description":"SentinelOne agent local privilege escalation on Windows via unquoted service path","days_to_patch":9,"kev":false,"zero_day":false},{"id":"CVE-2024-9201","severity":"MEDIUM","description":"Management console SSRF via webhook configuration endpoint","days_to_patch":14,"kev":false,"zero_day":false}],"serial":"WR-2026-002"},
-    {"id":"paloalto","name":"Palo Alto Networks","monogram":"PA","sector":"network","grade":"B","score":74,"cves_12m":51,"critical_count":11,"mttp_days":15,"zero_days":2,"kev_count":3,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2025-0108","severity":"CRITICAL","description":"PAN-OS authentication bypass in management web interface — exploited in the wild pre-patch","days_to_patch":4,"kev":true,"zero_day":true},{"id":"CVE-2024-9473","severity":"CRITICAL","description":"GlobalProtect gateway arbitrary code execution via malformed handshake packet","days_to_patch":10,"kev":true,"zero_day":false},{"id":"CVE-2024-8229","severity":"HIGH","description":"Panorama SQL injection via device group filter parameter","days_to_patch":22,"kev":false,"zero_day":false}],"serial":"WR-2026-003"},
-    {"id":"fortinet","name":"Fortinet","monogram":"FT","sector":"network","grade":"C","score":58,"cves_12m":97,"critical_count":21,"mttp_days":34,"zero_days":4,"kev_count":8,"wr_featured":true,"wr_take":"FortiOS has been a persistent KEV fixture for three years running. At some point this stops being bad luck and starts being architecture.","market_position":"Leader","cve_list":[{"id":"CVE-2024-21762","severity":"CRITICAL","description":"FortiOS SSL-VPN out-of-bounds write allowing unauthenticated RCE — actively exploited by multiple threat actors","days_to_patch":14,"kev":true,"zero_day":true},{"id":"CVE-2024-23113","severity":"CRITICAL","description":"FortiOS format string vulnerability in fgfmd daemon enabling unauthenticated RCE","days_to_patch":21,"kev":true,"zero_day":false},{"id":"CVE-2024-26010","severity":"HIGH","description":"FortiAP stack-based buffer overflow in CLI command handler","days_to_patch":38,"kev":false,"zero_day":false}],"serial":"WR-2026-004"},
-    {"id":"ivanti","name":"Ivanti","monogram":"IV","sector":"endpoint","grade":"D","score":34,"cves_12m":131,"critical_count":38,"mttp_days":62,"zero_days":8,"kev_count":16,"wr_featured":true,"wr_take":"Ivanti's remediation pace is structural, not situational. 16 active KEVs is not bad luck — it reflects product lifecycle debt that marketing cannot patch.","market_position":"Challenger","cve_list":[{"id":"CVE-2025-0282","severity":"CRITICAL","description":"Ivanti Connect Secure stack-based buffer overflow — zero-day exploited by UNC5337 (PRC-nexus) before disclosure","days_to_patch":13,"kev":true,"zero_day":true},{"id":"CVE-2025-0283","severity":"CRITICAL","description":"Ivanti Connect Secure local privilege escalation — chained with CVE-2025-0282 in active campaigns","days_to_patch":13,"kev":true,"zero_day":false},{"id":"CVE-2024-21887","severity":"CRITICAL","description":"Ivanti EPMM command injection via API — required emergency repatch after incomplete initial fix","days_to_patch":67,"kev":true,"zero_day":false}],"serial":"WR-2026-005"},
-    {"id":"microsoft","name":"Microsoft","monogram":"MS","sector":"cloud","grade":"C","score":62,"cves_12m":341,"critical_count":47,"mttp_days":30,"zero_days":5,"kev_count":11,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-43491","severity":"CRITICAL","description":"Windows Update rollback vulnerability enabling reintroduction of patched flaws — exploited ITW","days_to_patch":30,"kev":true,"zero_day":true},{"id":"CVE-2024-38080","severity":"CRITICAL","description":"Windows Hyper-V elevation of privilege — zero-day exploited before Patch Tuesday disclosure","days_to_patch":30,"kev":true,"zero_day":true},{"id":"CVE-2024-30051","severity":"HIGH","description":"Windows DWM Core Library privilege escalation — used in QakBot post-exploitation chain","days_to_patch":30,"kev":true,"zero_day":false}],"serial":"WR-2026-006"},
-    {"id":"okta","name":"Okta","monogram":"OK","sector":"identity","grade":"B","score":73,"cves_12m":24,"critical_count":4,"mttp_days":13,"zero_days":0,"kev_count":1,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-0980","severity":"CRITICAL","description":"Okta Classic Engine session token fixation allowing account takeover without MFA","days_to_patch":11,"kev":false,"zero_day":false},{"id":"CVE-2024-9191","severity":"HIGH","description":"Okta on-prem AD agent authentication bypass — legacy agent versions only","days_to_patch":19,"kev":true,"zero_day":false}],"serial":"WR-2026-007"},
-    {"id":"cisco","name":"Cisco","monogram":"CI","sector":"network","grade":"C","score":60,"cves_12m":219,"critical_count":28,"mttp_days":28,"zero_days":3,"kev_count":7,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-20399","severity":"CRITICAL","description":"Cisco NX-OS CLI command injection allowing root code execution — exploited by Velvet Ant (PRC)","days_to_patch":21,"kev":true,"zero_day":true},{"id":"CVE-2024-20353","severity":"CRITICAL","description":"Cisco ASA and FTD management tunnel DoS — part of ArcaneDoor campaign","days_to_patch":14,"kev":true,"zero_day":false},{"id":"CVE-2024-20359","severity":"HIGH","description":"Cisco ASA persistent backdoor mechanism via crafted VPN client package","days_to_patch":14,"kev":true,"zero_day":false}],"serial":"WR-2026-008"},
-    {"id":"splunk","name":"Splunk","monogram":"SP","sector":"siem","grade":"B","score":71,"cves_12m":34,"critical_count":7,"mttp_days":19,"zero_days":0,"kev_count":1,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-36991","severity":"CRITICAL","description":"Splunk Enterprise path traversal on Windows enabling unauthenticated arbitrary file read","days_to_patch":17,"kev":false,"zero_day":false},{"id":"CVE-2024-45733","severity":"HIGH","description":"Splunk Enterprise RCE via insecure session storage deserialization — requires auth","days_to_patch":23,"kev":false,"zero_day":false}],"serial":"WR-2026-009"},
-    {"id":"vmware","name":"Broadcom / VMware","monogram":"VM","sector":"cloud","grade":"D","score":42,"cves_12m":88,"critical_count":24,"mttp_days":48,"zero_days":5,"kev_count":9,"wr_featured":true,"wr_take":"Post-acquisition patching velocity has degraded noticeably. vCenter and ESXi remain tier-1 targets for ransomware operators. The Broadcom integration has not helped.","market_position":"Leader","cve_list":[{"id":"CVE-2024-38812","severity":"CRITICAL","description":"VMware vCenter Server heap overflow in DCERPC protocol enabling unauthenticated RCE","days_to_patch":44,"kev":true,"zero_day":false},{"id":"CVE-2024-38813","severity":"CRITICAL","description":"VMware vCenter Server privilege escalation to root via DCERPC — chained with CVE-2024-38812","days_to_patch":44,"kev":true,"zero_day":false},{"id":"CVE-2024-22252","severity":"CRITICAL","description":"VMware Workstation and Fusion XHCI USB controller use-after-free enabling VM escape","days_to_patch":61,"kev":false,"zero_day":false}],"serial":"WR-2026-010"},
-    {"id":"citrix","name":"Citrix","monogram":"CX","sector":"network","grade":"D","score":39,"cves_12m":76,"critical_count":19,"mttp_days":55,"zero_days":4,"kev_count":8,"wr_featured":false,"wr_take":null,"market_position":"Challenger","cve_list":[{"id":"CVE-2023-3519","severity":"CRITICAL","description":"Citrix NetScaler ADC/Gateway unauthenticated RCE — mass exploitation in 2023/2024 by multiple ransomware groups","days_to_patch":42,"kev":true,"zero_day":true},{"id":"CVE-2024-8068","severity":"HIGH","description":"Citrix Virtual Apps and Desktops privilege escalation via session recording component","days_to_patch":58,"kev":false,"zero_day":false}],"serial":"WR-2026-011"},
-    {"id":"schneider","name":"Schneider Electric","monogram":"SE","sector":"ot","grade":"D","score":40,"cves_12m":71,"critical_count":23,"mttp_days":79,"zero_days":2,"kev_count":5,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-8933","severity":"CRITICAL","description":"Schneider EcoStruxure Panel Server unauthenticated path traversal allowing config file exfiltration","days_to_patch":71,"kev":false,"zero_day":false},{"id":"CVE-2024-7468","severity":"HIGH","description":"Modicon M340 PLC hardcoded credentials in web server component","days_to_patch":94,"kev":false,"zero_day":false}],"serial":"WR-2026-012"},
-    {"id":"solarwinds","name":"SolarWinds","monogram":"SW","sector":"siem","grade":"C","score":56,"cves_12m":48,"critical_count":12,"mttp_days":26,"zero_days":1,"kev_count":4,"wr_featured":true,"wr_take":"Meaningful improvement since SUNBURST. Patch cadence is faster, disclosure is more transparent. Still carries reputational weight that procurement teams haven't fully priced in.","market_position":"Challenger","cve_list":[{"id":"CVE-2024-28986","severity":"CRITICAL","description":"SolarWinds Web Help Desk Java deserialization RCE — unauthenticated, exploited ITW","days_to_patch":19,"kev":true,"zero_day":false},{"id":"CVE-2024-28987","severity":"CRITICAL","description":"SolarWinds Web Help Desk hardcoded credential allowing unauthorized DB access","days_to_patch":19,"kev":true,"zero_day":false}],"serial":"WR-2026-013"},
-    {"id":"checkpoint","name":"Check Point","monogram":"CP","sector":"network","grade":"B","score":68,"cves_12m":41,"critical_count":8,"mttp_days":21,"zero_days":1,"kev_count":2,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-24919","severity":"CRITICAL","description":"Check Point Security Gateway information disclosure — path traversal enabling credential extraction, exploited ITW","days_to_patch":7,"kev":true,"zero_day":true},{"id":"CVE-2024-24912","severity":"HIGH","description":"Check Point Quantum Security Gateway local privilege escalation via kernel module","days_to_patch":28,"kev":false,"zero_day":false}],"serial":"WR-2026-014"},
-    {"id":"tenable","name":"Tenable","monogram":"TN","sector":"siem","grade":"A","score":82,"cves_12m":14,"critical_count":1,"mttp_days":10,"zero_days":0,"kev_count":0,"wr_featured":false,"wr_take":null,"market_position":"Leader","cve_list":[{"id":"CVE-2024-6956","severity":"HIGH","description":"Tenable Nessus path traversal allowing authenticated read of arbitrary server files","days_to_patch":10,"kev":false,"zero_day":false}],"serial":"WR-2026-015"}
+    {
+      "id": "crowdstrike",
+      "name": "CrowdStrike",
+      "monogram": "CS",
+      "sector": "endpoint",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 89,
+      "cves_12m": 22,
+      "critical_count": 3,
+      "mttp_days": 7,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": true,
+      "wr_take": "Best patch velocity in endpoint. July 2024 was an ops failure not a breach \u2014 but 8.5M machines proved dangerous concentration.",
+      "rrr_react": "A",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
+      "serial": "WR-2026-001",
+      "cve_list": [
+        {
+          "id": "CVE-2024-10092",
+          "severity": "CRITICAL",
+          "description": "Falcon sensor privilege escalation via kernel driver race condition",
+          "days_to_patch": 6,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-8841",
+          "severity": "HIGH",
+          "description": "Falcon console stored XSS via malformed alert description field",
+          "days_to_patch": 8,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-7703",
+          "severity": "MEDIUM",
+          "description": "Falcon Data Replicator S3 path traversal \u2014 read-only adjacent tenant data",
+          "days_to_patch": 11,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "sentinelone",
+      "name": "SentinelOne",
+      "monogram": "S1",
+      "sector": "endpoint",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "A",
+      "score": 85,
+      "cves_12m": 17,
+      "critical_count": 2,
+      "mttp_days": 9,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-002",
+      "cve_list": [
+        {
+          "id": "CVE-2024-10955",
+          "severity": "HIGH",
+          "description": "Agent local privilege escalation on Windows via unquoted service path",
+          "days_to_patch": 9,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-9201",
+          "severity": "MEDIUM",
+          "description": "Management console SSRF via webhook configuration endpoint",
+          "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "ivanti",
+      "name": "Ivanti",
+      "monogram": "IV",
+      "sector": "endpoint",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "D",
+      "score": 34,
+      "cves_12m": 131,
+      "critical_count": 38,
+      "mttp_days": 62,
+      "zero_days": 8,
+      "kev_count": 16,
+      "wr_featured": true,
+      "wr_take": "Remediation pace is structural not situational. 16 active KEVs is not bad luck \u2014 it is product lifecycle debt that marketing cannot patch.",
+      "rrr_react": "D",
+      "rrr_respond": "D",
+      "rrr_resilient": "F",
+      "serial": "WR-2026-003",
+      "cve_list": [
+        {
+          "id": "CVE-2025-0282",
+          "severity": "CRITICAL",
+          "description": "Connect Secure stack buffer overflow \u2014 zero-day exploited by UNC5337 (PRC) before disclosure",
+          "days_to_patch": 13,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2025-0283",
+          "severity": "CRITICAL",
+          "description": "Connect Secure local privilege escalation chained with CVE-2025-0282",
+          "days_to_patch": 13,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-21887",
+          "severity": "CRITICAL",
+          "description": "EPMM command injection \u2014 required emergency repatch after incomplete initial fix",
+          "days_to_patch": 67,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "microsoft-defender",
+      "name": "Microsoft Defender",
+      "monogram": "MD",
+      "sector": "endpoint",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 72,
+      "cves_12m": 48,
+      "critical_count": 9,
+      "mttp_days": 30,
+      "zero_days": 2,
+      "kev_count": 3,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-004",
+      "cve_list": [
+        {
+          "id": "CVE-2024-49071",
+          "severity": "HIGH",
+          "description": "Microsoft Defender for Endpoint spoofing via crafted file",
+          "days_to_patch": 30,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-38064",
+          "severity": "CRITICAL",
+          "description": "Windows TCP/IP RCE exploitable without authentication",
+          "days_to_patch": 30,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "paloalto",
+      "name": "Palo Alto Networks",
+      "monogram": "PA",
+      "sector": "network",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 74,
+      "cves_12m": 51,
+      "critical_count": 11,
+      "mttp_days": 15,
+      "zero_days": 2,
+      "kev_count": 3,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-005",
+      "cve_list": [
+        {
+          "id": "CVE-2025-0108",
+          "severity": "CRITICAL",
+          "description": "PAN-OS auth bypass in management interface \u2014 exploited in the wild pre-patch",
+          "days_to_patch": 4,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-9473",
+          "severity": "CRITICAL",
+          "description": "GlobalProtect gateway RCE via malformed handshake packet",
+          "days_to_patch": 10,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-8229",
+          "severity": "HIGH",
+          "description": "Panorama SQL injection via device group filter parameter",
+          "days_to_patch": 22,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "fortinet",
+      "name": "Fortinet",
+      "monogram": "FT",
+      "sector": "network",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 58,
+      "cves_12m": 97,
+      "critical_count": 21,
+      "mttp_days": 34,
+      "zero_days": 4,
+      "kev_count": 8,
+      "wr_featured": true,
+      "wr_take": "FortiOS has been a persistent KEV fixture for three years. At some point this stops being bad luck and starts being architecture.",
+      "rrr_react": "C",
+      "rrr_respond": "C",
+      "rrr_resilient": "D",
+      "serial": "WR-2026-006",
+      "cve_list": [
+        {
+          "id": "CVE-2024-21762",
+          "severity": "CRITICAL",
+          "description": "FortiOS SSL-VPN out-of-bounds write \u2014 unauthenticated RCE exploited by multiple threat actors",
+          "days_to_patch": 14,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-23113",
+          "severity": "CRITICAL",
+          "description": "FortiOS format string vuln in fgfmd daemon \u2014 unauthenticated RCE",
+          "days_to_patch": 21,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-26010",
+          "severity": "HIGH",
+          "description": "FortiAP stack-based buffer overflow in CLI command handler",
+          "days_to_patch": 38,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "cisco",
+      "name": "Cisco",
+      "monogram": "CI",
+      "sector": "network",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 60,
+      "cves_12m": 219,
+      "critical_count": 28,
+      "mttp_days": 28,
+      "zero_days": 3,
+      "kev_count": 7,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-007",
+      "cve_list": [
+        {
+          "id": "CVE-2024-20399",
+          "severity": "CRITICAL",
+          "description": "NX-OS CLI command injection \u2014 root RCE exploited by Velvet Ant (PRC-nexus)",
+          "days_to_patch": 21,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-20353",
+          "severity": "CRITICAL",
+          "description": "ASA/FTD management tunnel DoS \u2014 part of ArcaneDoor PRC campaign",
+          "days_to_patch": 14,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-20359",
+          "severity": "HIGH",
+          "description": "ASA persistent backdoor via crafted VPN client package",
+          "days_to_patch": 14,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "checkpoint",
+      "name": "Check Point",
+      "monogram": "CP",
+      "sector": "network",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 68,
+      "cves_12m": 41,
+      "critical_count": 8,
+      "mttp_days": 21,
+      "zero_days": 1,
+      "kev_count": 2,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-008",
+      "cve_list": [
+        {
+          "id": "CVE-2024-24919",
+          "severity": "CRITICAL",
+          "description": "Security Gateway path traversal enabling credential extraction \u2014 exploited ITW",
+          "days_to_patch": 7,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-24912",
+          "severity": "HIGH",
+          "description": "Quantum Gateway local privilege escalation via kernel module",
+          "days_to_patch": 28,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "juniper",
+      "name": "Juniper Networks",
+      "monogram": "JN",
+      "sector": "network",
+      "tier": 1,
+      "market_position": "Challenger",
+      "grade": "C",
+      "score": 61,
+      "cves_12m": 63,
+      "critical_count": 14,
+      "mttp_days": 29,
+      "zero_days": 1,
+      "kev_count": 3,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-009",
+      "cve_list": [
+        {
+          "id": "CVE-2024-21591",
+          "severity": "CRITICAL",
+          "description": "Junos OS SRX/EX unauthenticated RCE via J-Web \u2014 exploited ITW",
+          "days_to_patch": 21,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-39529",
+          "severity": "HIGH",
+          "description": "Junos OS Routing Protocol Daemon DoS via malformed BGP update",
+          "days_to_patch": 35,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "citrix",
+      "name": "Citrix",
+      "monogram": "CX",
+      "sector": "network",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "D",
+      "score": 39,
+      "cves_12m": 76,
+      "critical_count": 19,
+      "mttp_days": 55,
+      "zero_days": 4,
+      "kev_count": 8,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-010",
+      "cve_list": [
+        {
+          "id": "CVE-2023-3519",
+          "severity": "CRITICAL",
+          "description": "NetScaler ADC/Gateway unauthenticated RCE \u2014 mass exploitation by ransomware groups",
+          "days_to_patch": 42,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-8068",
+          "severity": "HIGH",
+          "description": "Virtual Apps and Desktops privilege escalation via session recording component",
+          "days_to_patch": 58,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "Amazon Web Services",
+      "monogram": "AWS",
+      "sector": "cloud",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 87,
+      "cves_12m": 31,
+      "critical_count": 4,
+      "mttp_days": 8,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-011",
+      "cve_list": [
+        {
+          "id": "CVE-2024-34526",
+          "severity": "HIGH",
+          "description": "CloudFormation SSRF via template URL parameter allowing metadata access",
+          "days_to_patch": 7,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "microsoft-azure",
+      "name": "Microsoft Azure",
+      "monogram": "AZ",
+      "sector": "cloud",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 63,
+      "cves_12m": 289,
+      "critical_count": 38,
+      "mttp_days": 30,
+      "zero_days": 4,
+      "kev_count": 8,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-012",
+      "cve_list": [
+        {
+          "id": "CVE-2024-43491",
+          "severity": "CRITICAL",
+          "description": "Windows Update rollback enabling reintroduction of patched flaws \u2014 exploited ITW",
+          "days_to_patch": 30,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-38080",
+          "severity": "CRITICAL",
+          "description": "Hyper-V elevation of privilege \u2014 zero-day exploited before Patch Tuesday",
+          "days_to_patch": 30,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-30051",
+          "severity": "HIGH",
+          "description": "DWM Core Library privilege escalation used in QakBot post-exploitation",
+          "days_to_patch": 30,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "vmware",
+      "name": "Broadcom / VMware",
+      "monogram": "VM",
+      "sector": "cloud",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "D",
+      "score": 42,
+      "cves_12m": 88,
+      "critical_count": 24,
+      "mttp_days": 48,
+      "zero_days": 5,
+      "kev_count": 9,
+      "wr_featured": true,
+      "wr_take": "Post-acquisition patching velocity has degraded. vCenter and ESXi remain tier-1 ransomware targets. The Broadcom integration has not helped.",
+      "rrr_react": "C",
+      "rrr_respond": "C",
+      "rrr_resilient": "D",
+      "serial": "WR-2026-013",
+      "cve_list": [
+        {
+          "id": "CVE-2024-38812",
+          "severity": "CRITICAL",
+          "description": "vCenter Server heap overflow in DCERPC \u2014 unauthenticated RCE",
+          "days_to_patch": 44,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-38813",
+          "severity": "CRITICAL",
+          "description": "vCenter privilege escalation to root chained with CVE-2024-38812",
+          "days_to_patch": 44,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-22252",
+          "severity": "CRITICAL",
+          "description": "Workstation/Fusion XHCI USB use-after-free enabling VM escape",
+          "days_to_patch": 61,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "okta",
+      "name": "Okta",
+      "monogram": "OK",
+      "sector": "identity",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 73,
+      "cves_12m": 24,
+      "critical_count": 4,
+      "mttp_days": 13,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": true,
+      "wr_take": "2023 breach found via customer report not internal detection \u2014 but disclosure and recovery were textbook. RRR tells the nuanced story.",
+      "rrr_react": "C",
+      "rrr_respond": "A",
+      "rrr_resilient": "B",
+      "serial": "WR-2026-014",
+      "cve_list": [
+        {
+          "id": "CVE-2024-0980",
+          "severity": "CRITICAL",
+          "description": "Classic Engine session token fixation allowing account takeover without MFA",
+          "days_to_patch": 11,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-9191",
+          "severity": "HIGH",
+          "description": "On-prem AD agent authentication bypass \u2014 legacy agent versions only",
+          "days_to_patch": 19,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "microsoft-entra",
+      "name": "Microsoft Entra ID",
+      "monogram": "ME",
+      "sector": "identity",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 70,
+      "cves_12m": 34,
+      "critical_count": 6,
+      "mttp_days": 30,
+      "zero_days": 1,
+      "kev_count": 2,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-015",
+      "cve_list": [
+        {
+          "id": "CVE-2024-38094",
+          "severity": "CRITICAL",
+          "description": "SharePoint deserialization RCE with Entra auth bypass chain",
+          "days_to_patch": 30,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "cyberark",
+      "name": "CyberArk",
+      "monogram": "CA",
+      "sector": "identity",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 82,
+      "cves_12m": 16,
+      "critical_count": 2,
+      "mttp_days": 11,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-016",
+      "cve_list": [
+        {
+          "id": "CVE-2024-8882",
+          "severity": "HIGH",
+          "description": "Privilege Cloud session token insufficient validation allowing privilege escalation",
+          "days_to_patch": 10,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "beyondtrust",
+      "name": "BeyondTrust",
+      "monogram": "BT",
+      "sector": "identity",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "C",
+      "score": 57,
+      "cves_12m": 29,
+      "critical_count": 8,
+      "mttp_days": 24,
+      "zero_days": 1,
+      "kev_count": 3,
+      "wr_featured": true,
+      "wr_take": "December 2024 breach via compromised API key hit US Treasury. Detection was external. The PAM vendor getting PAMed is a reputational category event.",
+      "rrr_react": "D",
+      "rrr_respond": "C",
+      "rrr_resilient": "C",
+      "serial": "WR-2026-017",
+      "cve_list": [
+        {
+          "id": "CVE-2024-12356",
+          "severity": "CRITICAL",
+          "description": "Privileged Remote Access command injection \u2014 exploited in Treasury breach Dec 2024",
+          "days_to_patch": 21,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-12686",
+          "severity": "HIGH",
+          "description": "Password Safe OS command injection requiring existing admin credentials",
+          "days_to_patch": 21,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "splunk",
+      "name": "Splunk",
+      "monogram": "SP",
+      "sector": "siem",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 71,
+      "cves_12m": 34,
+      "critical_count": 7,
+      "mttp_days": 19,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-018",
+      "cve_list": [
+        {
+          "id": "CVE-2024-36991",
+          "severity": "CRITICAL",
+          "description": "Enterprise path traversal on Windows \u2014 unauthenticated arbitrary file read",
+          "days_to_patch": 17,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-45733",
+          "severity": "HIGH",
+          "description": "Enterprise RCE via insecure session storage deserialization \u2014 requires auth",
+          "days_to_patch": 23,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "solarwinds",
+      "name": "SolarWinds",
+      "monogram": "SW",
+      "sector": "siem",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "C",
+      "score": 56,
+      "cves_12m": 48,
+      "critical_count": 12,
+      "mttp_days": 26,
+      "zero_days": 1,
+      "kev_count": 4,
+      "wr_featured": true,
+      "wr_take": "Meaningful improvement since SUNBURST. Faster patches, better disclosure. Still carries institutional trust debt procurement teams have not fully priced in.",
+      "rrr_react": "F",
+      "rrr_respond": "D",
+      "rrr_resilient": "C",
+      "serial": "WR-2026-019",
+      "cve_list": [
+        {
+          "id": "CVE-2024-28986",
+          "severity": "CRITICAL",
+          "description": "Web Help Desk Java deserialization RCE \u2014 unauthenticated, exploited ITW",
+          "days_to_patch": 19,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-28987",
+          "severity": "CRITICAL",
+          "description": "Web Help Desk hardcoded credential allowing unauthorized database access",
+          "days_to_patch": 19,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "tenable",
+      "name": "Tenable",
+      "monogram": "TN",
+      "sector": "siem",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 82,
+      "cves_12m": 14,
+      "critical_count": 1,
+      "mttp_days": 10,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-020",
+      "cve_list": [
+        {
+          "id": "CVE-2024-6956",
+          "severity": "HIGH",
+          "description": "Nessus path traversal allowing authenticated read of arbitrary server files",
+          "days_to_patch": 10,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "rapid7",
+      "name": "Rapid7",
+      "monogram": "R7",
+      "sector": "siem",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "B",
+      "score": 74,
+      "cves_12m": 21,
+      "critical_count": 4,
+      "mttp_days": 16,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-021",
+      "cve_list": [
+        {
+          "id": "CVE-2024-5758",
+          "severity": "HIGH",
+          "description": "InsightVM stored XSS via asset tag field allowing session hijack",
+          "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "monogram": "CF",
+      "sector": "network",
+      "tier": 1,
+      "market_position": "Challenger",
+      "grade": "A",
+      "score": 91,
+      "cves_12m": 9,
+      "critical_count": 1,
+      "mttp_days": 5,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": true,
+      "wr_take": "Detected the Okta-linked intrusion in 23 minutes, self-contained it, then published one of the most detailed public incident reports ever written. This is what React A looks like.",
+      "rrr_react": "A",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
+      "serial": "WR-2026-022",
+      "cve_list": [
+        {
+          "id": "CVE-2024-3400",
+          "severity": "HIGH",
+          "description": "Workers sandbox escape via crafted WebAssembly module \u2014 no confirmed customer impact",
+          "days_to_patch": 4,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai",
+      "monogram": "AK",
+      "sector": "network",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 83,
+      "cves_12m": 12,
+      "critical_count": 1,
+      "mttp_days": 9,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-023",
+      "cve_list": [
+        {
+          "id": "CVE-2024-7889",
+          "severity": "HIGH",
+          "description": "Identity Cloud SSRF via OAuth redirect parameter",
+          "days_to_patch": 8,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "zscaler",
+      "name": "Zscaler",
+      "monogram": "ZS",
+      "sector": "network",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 76,
+      "cves_12m": 18,
+      "critical_count": 3,
+      "mttp_days": 12,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-024",
+      "cve_list": [
+        {
+          "id": "CVE-2024-23485",
+          "severity": "CRITICAL",
+          "description": "ZIA DLP bypass via chunked transfer encoding evasion",
+          "days_to_patch": 11,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "monogram": "GH",
+      "sector": "devops",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 78,
+      "cves_12m": 19,
+      "critical_count": 3,
+      "mttp_days": 14,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-025",
+      "cve_list": [
+        {
+          "id": "CVE-2024-5001",
+          "severity": "HIGH",
+          "description": "Actions OIDC token leakage via workflow log output in specific configurations",
+          "days_to_patch": 12,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "monogram": "AT",
+      "sector": "devops",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 59,
+      "cves_12m": 67,
+      "critical_count": 14,
+      "mttp_days": 32,
+      "zero_days": 1,
+      "kev_count": 5,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-026",
+      "cve_list": [
+        {
+          "id": "CVE-2024-21683",
+          "severity": "CRITICAL",
+          "description": "Confluence RCE via malicious macro \u2014 exploited ITW in ransomware campaigns",
+          "days_to_patch": 28,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2023-22527",
+          "severity": "CRITICAL",
+          "description": "Confluence template injection RCE \u2014 unauthenticated, mass exploitation into 2024",
+          "days_to_patch": 21,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "veeam",
+      "name": "Veeam",
+      "monogram": "VE",
+      "sector": "backup",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 55,
+      "cves_12m": 41,
+      "critical_count": 11,
+      "mttp_days": 28,
+      "zero_days": 1,
+      "kev_count": 5,
+      "wr_featured": true,
+      "wr_take": "Most targeted backup solution by ransomware operators. Compromising backup before encryption is the playbook. Veeam exposure is existential risk for recovery.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "C",
+      "serial": "WR-2026-027",
+      "cve_list": [
+        {
+          "id": "CVE-2024-40711",
+          "severity": "CRITICAL",
+          "description": "Backup & Replication deserialization RCE \u2014 unauthenticated, exploited by ransomware groups",
+          "days_to_patch": 23,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-29849",
+          "severity": "CRITICAL",
+          "description": "Backup Enterprise Manager auth bypass allowing full console access",
+          "days_to_patch": 19,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "servicenow",
+      "name": "ServiceNow",
+      "monogram": "SN",
+      "sector": "itsm",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 72,
+      "cves_12m": 28,
+      "critical_count": 5,
+      "mttp_days": 17,
+      "zero_days": 0,
+      "kev_count": 2,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-028",
+      "cve_list": [
+        {
+          "id": "CVE-2024-4879",
+          "severity": "CRITICAL",
+          "description": "Jelly template injection enabling unauthenticated RCE \u2014 exploited ITW",
+          "days_to_patch": 14,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-5178",
+          "severity": "HIGH",
+          "description": "File read via path traversal in mid-server component",
+          "days_to_patch": 21,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "sap",
+      "name": "SAP",
+      "monogram": "SAP",
+      "sector": "erp",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 63,
+      "cves_12m": 142,
+      "critical_count": 22,
+      "mttp_days": 30,
+      "zero_days": 2,
+      "kev_count": 4,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-029",
+      "cve_list": [
+        {
+          "id": "CVE-2024-22127",
+          "severity": "CRITICAL",
+          "description": "NetWeaver AS ABAP OS command injection via report execution \u2014 exploited ITW",
+          "days_to_patch": 30,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-28165",
+          "severity": "HIGH",
+          "description": "BusinessObjects information disclosure via crafted BI Launchpad request",
+          "days_to_patch": 30,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "schneider",
+      "name": "Schneider Electric",
+      "monogram": "SE",
+      "sector": "ot",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "D",
+      "score": 40,
+      "cves_12m": 71,
+      "critical_count": 23,
+      "mttp_days": 79,
+      "zero_days": 2,
+      "kev_count": 5,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-030",
+      "cve_list": [
+        {
+          "id": "CVE-2024-8933",
+          "severity": "CRITICAL",
+          "description": "EcoStruxure Panel Server unauthenticated path traversal \u2014 config file exfiltration",
+          "days_to_patch": 71,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-7468",
+          "severity": "HIGH",
+          "description": "Modicon M340 PLC hardcoded credentials in web server component",
+          "days_to_patch": 94,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "monogram": "SI",
+      "sector": "ot",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "D",
+      "score": 43,
+      "cves_12m": 84,
+      "critical_count": 19,
+      "mttp_days": 68,
+      "zero_days": 1,
+      "kev_count": 4,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-031",
+      "cve_list": [
+        {
+          "id": "CVE-2024-35783",
+          "severity": "CRITICAL",
+          "description": "SINEC NMS SQL injection via network management interface \u2014 unauthenticated",
+          "days_to_patch": 56,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-23814",
+          "severity": "HIGH",
+          "description": "SIMATIC S7-1500 DoS via crafted Profinet IO \u2014 safety system impact possible",
+          "days_to_patch": 84,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "epic",
+      "name": "Epic Systems",
+      "monogram": "EP",
+      "sector": "healthcare",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 71,
+      "cves_12m": 19,
+      "critical_count": 3,
+      "mttp_days": 18,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-032",
+      "cve_list": [
+        {
+          "id": "CVE-2024-6281",
+          "severity": "HIGH",
+          "description": "MyChart SSRF via patient portal document upload functionality",
+          "days_to_patch": 18,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "change-healthcare",
+      "name": "Change Healthcare",
+      "monogram": "CH",
+      "sector": "healthcare",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "F",
+      "score": 18,
+      "cves_12m": 48,
+      "critical_count": 14,
+      "mttp_days": 89,
+      "zero_days": 2,
+      "kev_count": 6,
+      "wr_featured": true,
+      "wr_take": "Feb 2024 breach disrupted US healthcare payments for weeks. Ransom paid. Second group hit the same systems weeks later. 15B transactions/year. Concentration risk was hiding in plain sight.",
+      "rrr_react": "F",
+      "rrr_respond": "D",
+      "rrr_resilient": "F",
+      "serial": "WR-2026-033",
+      "cve_list": [
+        {
+          "id": "CVE-2024-21891",
+          "severity": "CRITICAL",
+          "description": "Citrix NetScaler vuln used as initial access in February 2024 UnitedHealth breach",
+          "days_to_patch": 89,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2023-4966",
+          "severity": "CRITICAL",
+          "description": "Citrix Bleed session token extraction \u2014 entry point in Change Healthcare compromise",
+          "days_to_patch": 78,
+          "kev": true,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "guidewire",
+      "name": "Guidewire",
+      "monogram": "GW",
+      "sector": "insurance",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 70,
+      "cves_12m": 21,
+      "critical_count": 3,
+      "mttp_days": 19,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-034",
+      "cve_list": [
+        {
+          "id": "CVE-2024-7291",
+          "severity": "HIGH",
+          "description": "PolicyCenter IDOR allowing cross-tenant policy data access",
+          "days_to_patch": 19,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "proofpoint",
+      "name": "Proofpoint",
+      "monogram": "PP",
+      "sector": "email",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 75,
+      "cves_12m": 22,
+      "critical_count": 4,
+      "mttp_days": 14,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-035",
+      "cve_list": [
+        {
+          "id": "CVE-2024-7971",
+          "severity": "HIGH",
+          "description": "Email Security Gateway XSS via malformed MIME boundary in quarantine interface",
+          "days_to_patch": 12,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "barracuda",
+      "name": "Barracuda Networks",
+      "monogram": "BA",
+      "sector": "email",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "D",
+      "score": 38,
+      "cves_12m": 34,
+      "critical_count": 9,
+      "mttp_days": 52,
+      "zero_days": 3,
+      "kev_count": 6,
+      "wr_featured": true,
+      "wr_take": "May 2023 zero-day required full hardware replacement \u2014 not patching, replacement. That is a category of incident severity most boards have no framework for.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "F",
+      "serial": "WR-2026-036",
+      "cve_list": [
+        {
+          "id": "CVE-2023-2868",
+          "severity": "CRITICAL",
+          "description": "ESG appliance RCE via malformed TAR attachment \u2014 required full hardware replacement",
+          "days_to_patch": 42,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2024-5806",
+          "severity": "HIGH",
+          "description": "Email Security Gateway auth bypass via crafted LDAP authentication request",
+          "days_to_patch": 61,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "swift",
+      "name": "SWIFT",
+      "monogram": "SWF",
+      "sector": "payments",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 64,
+      "cves_12m": 11,
+      "critical_count": 2,
+      "mttp_days": 22,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-037",
+      "cve_list": [
+        {
+          "id": "CVE-2024-3911",
+          "severity": "HIGH",
+          "description": "Alliance Gateway message manipulation via unauthenticated API endpoint",
+          "days_to_patch": 22,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "monogram": "SF",
+      "sector": "erp",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 74,
+      "cves_12m": 31,
+      "critical_count": 5,
+      "mttp_days": 16,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-038",
+      "cve_list": [
+        {
+          "id": "CVE-2024-55557",
+          "severity": "HIGH",
+          "description": "Experience Cloud guest user SOQL injection allowing data enumeration",
+          "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "workday",
+      "name": "Workday",
+      "monogram": "WD",
+      "sector": "erp",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 80,
+      "cves_12m": 14,
+      "critical_count": 2,
+      "mttp_days": 12,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-039",
+      "cve_list": [
+        {
+          "id": "CVE-2024-6844",
+          "severity": "HIGH",
+          "description": "HCM SSRF via integration connector URL parameter",
+          "days_to_patch": 11,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "dragos",
+      "name": "Dragos",
+      "monogram": "DR",
+      "sector": "ot",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 77,
+      "cves_12m": 8,
+      "critical_count": 1,
+      "mttp_days": 13,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-040",
+      "cve_list": [
+        {
+          "id": "CVE-2024-7913",
+          "severity": "HIGH",
+          "description": "Platform stored XSS via asset tag field in industrial asset inventory",
+          "days_to_patch": 13,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    }
   ]
 }
