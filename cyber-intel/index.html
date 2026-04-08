@@ -184,6 +184,23 @@ a:hover{text-decoration:underline}
 .legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#666}
 .legend-swatch{width:12px;height:8px;border-radius:1px}
 
+.vendor-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
+}
+.vendor-logo-sm {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
+}
+
 @media(max-width:600px){
   .card-grid{grid-template-columns:repeat(auto-fill,240px)}
   .filter-bar{gap:4px}
@@ -238,12 +255,61 @@ a:hover{text-decoration:underline}
     </div>
     <div>THE WANG REPORT &middot; Vendor Security Scorecard &middot; Schema 1.1</div>
     <div style="margin-top:4px"><a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a></div>
+    <div style="margin-top:8px;font-size:9px;color:#555;max-width:600px;margin-left:auto;margin-right:auto">CVE data provided by the National Vulnerability Database (NVD) at NIST. This product uses the NVD API but is not endorsed or certified by the NVD.</div>
   </div>
 </div>
 
 <script>
 (function(){
 'use strict';
+
+var VENDOR_DOMAINS = {
+  'crowdstrike': 'crowdstrike.com',
+  'sentinelone': 'sentinelone.com',
+  'ivanti': 'ivanti.com',
+  'microsoft-defender': 'microsoft.com',
+  'paloalto': 'paloaltonetworks.com',
+  'fortinet': 'fortinet.com',
+  'cisco': 'cisco.com',
+  'checkpoint': 'checkpoint.com',
+  'juniper': 'juniper.net',
+  'citrix': 'citrix.com',
+  'aws': 'aws.amazon.com',
+  'microsoft-azure': 'azure.microsoft.com',
+  'vmware': 'vmware.com',
+  'okta': 'okta.com',
+  'microsoft-entra': 'microsoft.com',
+  'cyberark': 'cyberark.com',
+  'beyondtrust': 'beyondtrust.com',
+  'splunk': 'splunk.com',
+  'solarwinds': 'solarwinds.com',
+  'tenable': 'tenable.com',
+  'rapid7': 'rapid7.com',
+  'cloudflare': 'cloudflare.com',
+  'akamai': 'akamai.com',
+  'zscaler': 'zscaler.com',
+  'github': 'github.com',
+  'atlassian': 'atlassian.com',
+  'veeam': 'veeam.com',
+  'servicenow': 'servicenow.com',
+  'sap': 'sap.com',
+  'schneider': 'se.com',
+  'siemens': 'siemens.com',
+  'epic': 'epic.com',
+  'change-healthcare': 'changehealthcare.com',
+  'guidewire': 'guidewire.com',
+  'proofpoint': 'proofpoint.com',
+  'barracuda': 'barracuda.com',
+  'swift': 'swift.com',
+  'salesforce': 'salesforce.com',
+  'workday': 'workday.com',
+  'dragos': 'dragos.com'
+};
+
+function vendorLogoUrl(id) {
+  var domain = VENDOR_DOMAINS[id];
+  return domain ? 'https://cdn.brandfetch.io/' + domain + '?c=1idNdlTeSDMQHtssvSY' : '';
+}
 
 var SECTOR_ART = {
   endpoint: {bg:'linear-gradient(160deg,#0d1a2e,#1a3a5a)',mono:'#60aaff'},
@@ -355,8 +421,14 @@ function buildCard(v) {
   html += '<div class="card-banner"><span>CYBER INTEL &middot; WANG REPORT</span><span>' + esc(v.serial) + '</span></div>';
 
   // 2. Art zone
+  var logoUrl = vendorLogoUrl(v.id);
   html += '<div class="card-art" style="background:' + art.bg + '">';
-  html += '<span class="card-monogram" style="color:' + art.mono + '">' + esc(v.monogram) + '</span>';
+  if (logoUrl) {
+    html += '<img src="' + logoUrl + '" alt="" class="vendor-logo" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">';
+    html += '<span class="card-monogram" style="color:' + art.mono + ';display:none">' + esc(v.monogram) + '</span>';
+  } else {
+    html += '<span class="card-monogram" style="color:' + art.mono + '">' + esc(v.monogram) + '</span>';
+  }
   html += '<span class="grade-seal grade-' + v.grade + '">' + v.grade + '</span>';
   html += '</div>';
 
@@ -429,7 +501,15 @@ function buildBackFace(v) {
   html += '<div class="mtg-title"><span class="mtg-name">' + esc(v.name) + '</span><div class="mana-cost">' + manaHtml + '</div></div>';
 
   // Art zone — smaller
-  html += '<div class="mtg-art" style="background:' + art.bg + '"><span class="big-mono" style="color:' + art.mono + '">' + esc(v.monogram) + '</span></div>';
+  var backLogoUrl = vendorLogoUrl(v.id);
+  html += '<div class="mtg-art" style="background:' + art.bg + '">';
+  if (backLogoUrl) {
+    html += '<img src="' + backLogoUrl + '" alt="" class="vendor-logo-sm" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">';
+    html += '<span class="big-mono" style="color:' + art.mono + ';display:none">' + esc(v.monogram) + '</span>';
+  } else {
+    html += '<span class="big-mono" style="color:' + art.mono + '">' + esc(v.monogram) + '</span>';
+  }
+  html += '</div>';
 
   // Type line
   html += '<div class="mtg-type"><span>Legendary Artifact &mdash; ' + esc(sectorLabel) + ' Security</span><span class="rarity-gem rarity-' + rarity + '"></span></div>';
