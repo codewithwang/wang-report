@@ -32,6 +32,11 @@ a:hover{text-decoration:underline}
 .ciso-banner.show{display:block}
 
 /* FILTER BAR */
+.scorecard-intro{max-width:800px;margin:0 auto 24px;padding:16px 20px;background:#111118;border:1px solid #2a2a4a;border-radius:6px;font-family:Georgia,serif;font-size:12px;line-height:1.7;color:#9090a0}
+.scorecard-intro p{margin:0 0 8px}
+.scorecard-intro p:last-child{margin-bottom:0}
+.scorecard-intro strong{color:#c9a84c}
+.scorecard-intro em{color:#aaa}
 .filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:20px;padding:10px;background:#111;border:1px solid #1a1a1a;border-radius:4px}
 .sector-pill{font-family:Impact,sans-serif;font-size:11px;letter-spacing:0.5px;padding:4px 10px;border:1px solid #333;background:#1a1a1a;color:#888;cursor:pointer;border-radius:2px;transition:all .15s}
 .sector-pill:hover{border-color:#666;color:#ccc}
@@ -153,10 +158,13 @@ a:hover{text-decoration:underline}
 .mtg-textbox .flavor{font-style:italic;color:#8a7a40;border-top:1px solid #2a2008;padding-top:4px;margin-top:4px;font-size:8px}
 .mtg-textbox .cve-link{display:block;margin-top:4px;font-size:8px;color:#6aaaee;font-style:normal;text-decoration:none}
 .mtg-textbox .cve-link:hover{text-decoration:underline}
+.cve-mini{max-height:60px;overflow-y:auto;padding:2px 8px;background:#0a0a0f;border-top:1px solid #2a2a4a}
+.cve-mini a{font-family:monospace;text-decoration:none}
+.cve-mini a:hover{text-decoration:underline}
 
 /* RRR STRIP */
-.rrr-strip{display:flex;gap:6px;padding:4px 8px;background:#12100a;border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:9px;color:#888}
-.rrr-pip{display:inline-block;width:12px;height:12px;border-radius:50%;text-align:center;line-height:12px;font-size:8px;margin-right:1px;border:1px solid rgba(255,255,255,.1)}
+.rrr-strip{display:flex;gap:6px;padding:5px 8px;background:#12100a;border-top:1px solid #3a2a0a;font-family:Impact,sans-serif;font-size:11px;color:#e0e0e0;justify-content:space-between}
+.rrr-pip{display:inline-block;width:16px;height:16px;border-radius:50%;text-align:center;line-height:16px;font-size:10px;font-weight:700;margin-right:2px;border:1px solid rgba(255,255,255,.2)}
 .rrr-A{background:#1a3a1a;color:#8acc5a}
 .rrr-B{background:#1a2a3a;color:#6aaaee}
 .rrr-C{background:#3a2a0a;color:#eaaa3a}
@@ -204,6 +212,13 @@ a:hover{text-decoration:underline}
       <button class="ciso-toggle" id="cisoBtn">CISO ALERT MODE</button>
     </div>
     <div class="ciso-banner" id="cisoBanner">CISO ALERT MODE ACTIVE</div>
+  </div>
+
+  <div class="scorecard-intro">
+    <p><strong>How to read these cards.</strong> Each vendor is a collectible card — <em>Marvel card</em> on the front for quick scanning, <em>Magic card</em> on the back for deep detail. Click any card to flip it.</p>
+    <p><strong>Front (Marvel):</strong> The top shows the vendor monogram and security grade (A-F). Five horizontal bars rate patch velocity, disclosure quality, resilience, CVE posture, and concentration risk. The facts strip shows raw numbers. WR Featured vendors (gold border, holographic shimmer) include a one-sentence practitioner take — the editorial moat.</p>
+    <p><strong>Back (Magic):</strong> MTG-inspired detail card. Mana cost encodes deployment complexity. The text box shows key stats as "abilities." The RRR strip — <em>React, Respond, Resilient</em> — rates incident behavior, not just vulnerability counts. This is what separates a CVE tracker from a risk publication.</p>
+    <p><strong>Scoring:</strong> Grade is computed from Mean Time to Patch (30%), CISA KEV count (25%), zero-days (20%), critical CVE ratio (15%), and trend (10%). A &ge; 85, B &ge; 70, C &ge; 55, D &ge; 40, F &lt; 40. Data sourced from NVD and CISA KEV feeds, updated daily via automated pipeline. Editorial ratings are manual — assigned by Harry Wang after real incidents.</p>
   </div>
 
   <div class="filter-bar" id="filterBar">
@@ -427,15 +442,22 @@ function buildBackFace(v) {
   if (v.wr_take) {
     html += '<div class="flavor">' + esc(v.wr_take) + '</div>';
   }
-  // View CVEs link instead of CVE table
-  html += '<a class="cve-link" href="https://nvd.nist.gov/vuln/search/results?query=' + encodeURIComponent(v.name) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">View CVEs &rarr;</a>';
+  // CVE list — show actual CVEs from data
+  if (v.cve_list && v.cve_list.length > 0) {
+    html += '<div class="cve-mini">';
+    v.cve_list.forEach(function(c) {
+      var sc = c.severity === 'CRITICAL' ? '#ee4444' : c.severity === 'HIGH' ? '#ee8822' : '#eecc22';
+      html += '<a href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:' + sc + ';font-size:9px;display:block;margin:1px 0">' + esc(c.id) + (c.kev ? ' KEV' : '') + (c.zero_day ? ' 0D' : '') + '</a>';
+    });
+    html += '</div>';
+  }
   html += '</div>';
 
   // RRR strip
   html += '<div class="rrr-strip">';
-  html += '<span>Re: ' + rrrGrade(v.rrr_react) + '</span>';
-  html += '<span>Rs: ' + rrrGrade(v.rrr_respond) + '</span>';
-  html += '<span>Rl: ' + rrrGrade(v.rrr_resilient) + '</span>';
+  html += '<span>React: ' + rrrGrade(v.rrr_react) + '</span>';
+  html += '<span>Respond: ' + rrrGrade(v.rrr_respond) + '</span>';
+  html += '<span>Resilient: ' + rrrGrade(v.rrr_resilient) + '</span>';
   html += '</div>';
 
   // Bottom bar
