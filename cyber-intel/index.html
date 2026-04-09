@@ -224,6 +224,28 @@ a:hover{text-decoration:underline}
 }
 .worst-of-label { font-size:8px; color:#888; text-align:center; margin-top:4px; }
 
+/* CARD WRAP — wraps card-scene + optional view-modules button */
+.card-wrap { display: flex; flex-direction: column; align-items: center; width: 240px; }
+
+/* VIEW MODULES BUTTON */
+.view-modules-btn {
+  display: block;
+  width: 100%;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-top: none;
+  color: #c9a84c;
+  font-size: 9px;
+  font-family: sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 0;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0 0 14px 14px;
+}
+.view-modules-btn:hover { background: #2a2a3e; }
+
 /* PACK EXPAND */
 .pack-expand {
   display: none;
@@ -234,20 +256,7 @@ a:hover{text-decoration:underline}
   padding: 16px;
   margin: -8px 0 12px;
 }
-.pack-expand.open { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.pack-expand .module-card {
-  width: 200px;
-  background: #16161e;
-  border: 1px solid #3a3a4a;
-  border-radius: 10px;
-  padding: 12px;
-  font-family: Georgia, serif;
-}
-.module-card .mod-name { font-size: 11px; font-weight: 700; color: #e8d880; margin-bottom: 4px; }
-.module-card .mod-mono { font-size: 36px; font-weight: 700; text-align: center; margin: 8px 0; }
-.module-card .mod-stat { font-size: 9px; color: #aaa; margin: 2px 0; display: flex; justify-content: space-between; }
-.module-card .mod-stat-val { font-weight: 700; }
-.module-card .mod-grade { font-size: 18px; font-weight: 700; text-align: center; margin-top: 8px; }
+.pack-expand.open { display: grid; grid-template-columns: repeat(auto-fill, 240px); gap: 16px; justify-content: center; }
 </style>
 </head>
 <body>
@@ -450,13 +459,44 @@ function esc(s) {
   return d.innerHTML;
 }
 
+function moduleToVendor(module, parent) {
+  return {
+    id: module.id,
+    name: module.name,
+    monogram: module.monogram,
+    sector: parent.sector,
+    tier: parent.tier,
+    market_position: parent.market_position,
+    grade: module.grade,
+    score: module.score,
+    cves_12m: module.cves_12m,
+    critical_count: module.critical_count,
+    mttp_days: module.mttp_days,
+    zero_days: module.zero_days,
+    kev_count: module.kev_count,
+    wr_featured: false,
+    wr_take: null,
+    rrr_react: null,
+    rrr_respond: null,
+    rrr_resilient: null,
+    serial: parent.serial + '-' + module.id.split('-').pop(),
+    cve_list: module.cve_list || [],
+    modules: null
+  };
+}
+
 function buildCard(v) {
   var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
   var stats = calcStats(v);
   var featured = v.wr_featured;
+  var isPack = v.modules && v.modules.length > 0;
+
+  // -- Wrap pack cards in card-wrap --
+  var html = '';
+  if (isPack) html += '<div class="card-wrap">';
 
   // -- Card scene wrapper --
-  var html = '<div class="card-scene" tabindex="0" data-id="' + v.id + '">';
+  html += '<div class="card-scene" tabindex="0" data-id="' + v.id + '">';
   html += '<div class="card-inner">';
 
   // === FRONT FACE (Marvel) ===
@@ -531,6 +571,12 @@ function buildCard(v) {
 
   html += '</div>'; // end card-inner
   html += '</div>'; // end card-scene
+
+  // Add view-modules button for pack cards
+  if (isPack) {
+    html += '<button class="view-modules-btn" data-pack="' + v.id + '" data-count="' + v.modules.length + '">View ' + v.modules.length + ' modules &#9660;</button>';
+    html += '</div>'; // end card-wrap
+  }
   return html;
 }
 
@@ -650,8 +696,11 @@ function render() {
     grid.innerHTML = vendors.map(function(v) {
       var cardHtml = buildCard(v);
       if (v.modules && v.modules.length > 0) {
-        var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
-        cardHtml += '<div class="pack-expand" id="pack-' + v.id + '">' + buildModuleCards(v.modules, art) + '</div>';
+        var moduleCardsHtml = v.modules.map(function(m) {
+          var virt = moduleToVendor(m, v);
+          return buildCard(virt);
+        }).join('');
+        cardHtml += '<div class="pack-expand" id="pack-' + v.id + '">' + moduleCardsHtml + '</div>';
       }
       return cardHtml;
     }).join('');
@@ -660,55 +709,60 @@ function render() {
 }
 
 function togglePack(vendorId) {
+  // Close other packs (accordion) and reset their buttons
   document.querySelectorAll('.pack-expand.open').forEach(function(el) {
-    if (el.id !== 'pack-' + vendorId) el.classList.remove('open');
+    if (el.id !== 'pack-' + vendorId) {
+      el.classList.remove('open');
+      var otherId = el.id.replace('pack-', '');
+      var otherBtn = document.querySelector('.view-modules-btn[data-pack="' + otherId + '"]');
+      if (otherBtn) {
+        var count = otherBtn.getAttribute('data-count') || '';
+        otherBtn.innerHTML = 'View ' + count + ' modules &#9660;';
+      }
+    }
   });
   var panel = document.getElementById('pack-' + vendorId);
-  if (panel) panel.classList.toggle('open');
-}
-
-function buildModuleCards(modules, sectorArt) {
-  return modules.map(function(m) {
-    var gradeClass = 'grade-' + m.grade;
-    return '<div class="module-card">' +
-      '<div class="mod-name">' + esc(m.name) + '</div>' +
-      '<div class="mod-mono" style="color:' + sectorArt.mono + '">' + esc(m.monogram) + '</div>' +
-      '<div class="mod-stat"><span>CVEs (12m)</span><span class="mod-stat-val">' + m.cves_12m + '</span></div>' +
-      '<div class="mod-stat"><span>Critical</span><span class="mod-stat-val">' + m.critical_count + '</span></div>' +
-      '<div class="mod-stat"><span>MTTP</span><span class="mod-stat-val">' + m.mttp_days + 'd</span></div>' +
-      '<div class="mod-stat"><span>KEV</span><span class="mod-stat-val">' + m.kev_count + '</span></div>' +
-      '<div class="mod-stat"><span>Zero-day</span><span class="mod-stat-val">' + m.zero_days + '</span></div>' +
-      '<div class="mod-grade ' + gradeClass + '">' + m.score + ' / ' + m.grade + '</div>' +
-      '</div>';
-  }).join('');
+  if (panel) {
+    panel.classList.toggle('open');
+    var btn = document.querySelector('.view-modules-btn[data-pack="' + vendorId + '"]');
+    if (btn) {
+      var count = btn.getAttribute('data-count') || '';
+      if (panel.classList.contains('open')) {
+        btn.innerHTML = 'Hide ' + count + ' modules &#9650;';
+      } else {
+        btn.innerHTML = 'View ' + count + ' modules &#9660;';
+      }
+    }
+  }
 }
 
 function bindCards() {
+  // All card-scenes flip on click (including pack parents)
   var scenes = document.querySelectorAll('.card-scene');
   for (var i = 0; i < scenes.length; i++) {
     (function(scene){
-      var vendorId = scene.getAttribute('data-id');
-      var isPack = !!document.getElementById('pack-' + vendorId);
       scene.addEventListener('click', function(e){
-        // Don't flip if clicking a link
         if (e.target.tagName === 'A') return;
-        if (isPack) {
-          togglePack(vendorId);
-        } else {
-          scene.classList.toggle('flipped');
-        }
+        scene.classList.toggle('flipped');
       });
       scene.addEventListener('keydown', function(e){
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          if (isPack) {
-            togglePack(vendorId);
-          } else {
-            scene.classList.toggle('flipped');
-          }
+          scene.classList.toggle('flipped');
         }
       });
     })(scenes[i]);
+  }
+
+  // View-modules buttons toggle pack expansion (stopPropagation prevents flip)
+  var btns = document.querySelectorAll('.view-modules-btn');
+  for (var j = 0; j < btns.length; j++) {
+    (function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        togglePack(btn.getAttribute('data-pack'));
+      });
+    })(btns[j]);
   }
 }
 
