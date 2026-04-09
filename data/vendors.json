@@ -1,12 +1,12 @@
 {
   "_meta": {
     "generated": "2026-04-08",
-    "last_updated": "2026-04-08",
+    "last_updated": "2026-04-09",
     "source_note": "Seeded from NVD, CISA KEV, and vendor advisories through mid-2025. Validate against live feeds before publishing.",
     "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
     "kev_feed": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
     "schema_version": "1.1",
-    "total_vendors": 40
+    "total_vendors": 47
   },
   "vendors": [
     {
@@ -1496,6 +1496,264 @@
           "zero_day": false
         }
       ]
+    },
+    {
+      "id": "sailpoint",
+      "name": "SailPoint",
+      "monogram": "SP",
+      "sector": "identity",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 71,
+      "cves_12m": 3,
+      "critical_count": 1,
+      "mttp_days": 14,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-041",
+      "cve_list": [
+        {
+          "id": "CVE-2024-10905",
+          "severity": "CRITICAL",
+          "description": "IdentityIQ improper access control \u2014 HTTP access to protected static content",
+          "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2025-10280",
+          "severity": "HIGH",
+          "description": "IdentityIQ incorrect content type XSS",
+          "days_to_patch": 21,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "saviynt",
+      "name": "Saviynt",
+      "monogram": "SV",
+      "sector": "identity",
+      "tier": 2,
+      "market_position": "Challenger",
+      "grade": "C",
+      "score": 58,
+      "cves_12m": 3,
+      "critical_count": 0,
+      "mttp_days": 30,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-042",
+      "cve_list": [
+        {
+          "id": "CVE-2025-3837",
+          "severity": "MEDIUM",
+          "description": "Improper input validation in EOL OVA Connect component",
+          "days_to_patch": 30,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "commvault",
+      "name": "Commvault",
+      "monogram": "CV",
+      "sector": "backup",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "C",
+      "score": 48,
+      "cves_12m": 4,
+      "critical_count": 3,
+      "mttp_days": 3,
+      "zero_days": 1,
+      "kev_count": 2,
+      "wr_featured": true,
+      "wr_take": "Commvault patched CVE-2025-34028 (CVSS 10) in 3 days. But active KEV exploitation and a nation-state breach via CVE-2025-3928 suggest detection lagged behind the patch velocity.",
+      "rrr_react": "C",
+      "rrr_respond": "C",
+      "rrr_resilient": "B",
+      "serial": "WR-2026-043",
+      "cve_list": [
+        {
+          "id": "CVE-2025-34028",
+          "severity": "CRITICAL",
+          "description": "Command Center path traversal RCE \u2014 pre-auth remote code execution via ZIP upload",
+          "days_to_patch": 3,
+          "kev": true,
+          "zero_day": true
+        },
+        {
+          "id": "CVE-2025-3928",
+          "severity": "CRITICAL",
+          "description": "Web Server vuln exploited by nation-state for Azure environment breach March 2025",
+          "days_to_patch": 5,
+          "kev": true,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2025-57791",
+          "severity": "CRITICAL",
+          "description": "CommServe argument injection \u2014 unauthenticated RCE via qlogin manipulation",
+          "days_to_patch": 7,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "wiz",
+      "name": "Wiz",
+      "monogram": "WZ",
+      "sector": "cloud",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 82,
+      "cves_12m": 2,
+      "critical_count": 0,
+      "mttp_days": 14,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-044",
+      "cve_list": [
+        {
+          "id": "CVE-2025-56562",
+          "severity": "HIGH",
+          "description": "Wiz platform security vulnerability",
+          "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "google-cloud-security",
+      "name": "Google Cloud Security",
+      "monogram": "GC",
+      "sector": "siem",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 85,
+      "cves_12m": 3,
+      "critical_count": 0,
+      "mttp_days": 7,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-045",
+      "cve_list": [
+        {
+          "id": "CVE-2026-2441",
+          "severity": "HIGH",
+          "description": "Google Cloud security infrastructure vulnerability",
+          "days_to_patch": 7,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "netskope",
+      "name": "Netskope",
+      "monogram": "NS",
+      "sector": "network",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 74,
+      "cves_12m": 4,
+      "critical_count": 0,
+      "mttp_days": 30,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-047",
+      "cve_list": [
+        {
+          "id": "CVE-2024-7401",
+          "severity": "HIGH",
+          "description": "Netskope Client static token auth allowing unauthorized enrollment and impersonation",
+          "days_to_patch": 30,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2024-7402",
+          "severity": "HIGH",
+          "description": "Netskope Client config tampering via MITM",
+          "days_to_patch": 45,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "ping-identity",
+      "name": "Ping Identity",
+      "monogram": "PI",
+      "sector": "identity",
+      "tier": 1,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 68,
+      "cves_12m": 3,
+      "critical_count": 1,
+      "mttp_days": 21,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": null,
+      "rrr_react": null,
+      "rrr_respond": null,
+      "rrr_resilient": null,
+      "serial": "WR-2026-048",
+      "cve_list": [
+        {
+          "id": "CVE-2025-20059",
+          "severity": "CRITICAL",
+          "description": "PingAM Java Policy Agent path traversal \u2014 file manipulation and data exfiltration without user interaction",
+          "days_to_patch": 21,
+          "kev": false,
+          "zero_day": false
+        },
+        {
+          "id": "CVE-2025-22854",
+          "severity": "MEDIUM",
+          "description": "PingFederate Google Adapter thread exhaustion via non-200 responses",
+          "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
     }
-  ]
+  ],
+  "last_updated": "2026-04-08"
 }
