@@ -86,57 +86,111 @@ body {
 /* Tension Dashboard */
 .tension-dashboard {
     background: #111;
-    display: flex;
-    align-items: center;
-    padding: 6px 0;
     max-width: 98%;
     margin: 8px auto;
     border: 1px solid #2a2a2a;
+    padding: 0;
+}
+
+/* WRTI Hero Section */
+.td-wrti-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 12px 10px;
+    border-bottom: 1px solid #222;
+}
+.td-wrti-hero .td-label {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.td-wrti-score {
+    font-family: 'Courier New', monospace;
+    font-size: 42px !important;
+    font-weight: bold;
+    line-height: 1;
+}
+.td-wrti-hero .td-sub {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    color: #555;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Sub-indicators row */
+.td-sub-row {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid #222;
 }
 .td-gauge {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px 6px;
+    justify-content: center;
+    padding: 8px 4px;
     flex: 1;
     min-width: 0;
+    border-right: 1px solid #1a1a1a;
 }
-a.td-link { text-decoration: none; color: inherit; }
+.td-gauge:last-child { border-right: none; }
+a.td-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; min-width: 0; padding: 8px 4px; border-right: 1px solid #1a1a1a; }
+a.td-link:last-child { border-right: none; }
 a.td-link:hover { background: #1a1a1a; }
-.td-divider { display: none; }
 .td-label {
     font-family: Arial, sans-serif;
     font-size: 8px;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 0.08em;
     color: #555;
     text-transform: uppercase;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     white-space: nowrap;
 }
 .td-value {
     font-family: 'Courier New', monospace;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     color: #ccc;
     line-height: 1.2;
 }
-.td-wrti .td-value, .td-wrti-num { font-size: 15px; }
 .td-sub {
     font-family: Arial, sans-serif;
     font-size: 8px;
     color: #555;
-    margin-top: 1px;
+    margin-top: 2px;
     white-space: nowrap;
 }
+.td-divider { display: none; }
 .td-arc { margin-bottom: 2px; }
+
+/* Blurb section */
+.td-blurb {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+    padding: 8px 16px 10px;
+    text-align: center;
+    font-style: italic;
+    border-top: none;
+}
+.td-blurb:empty { display: none; }
+
+/* Color codes */
 .td-color-green { color: #00cc66 !important; }
 .td-color-amber { color: #ffaa00 !important; }
 .td-color-red { color: #ff3333 !important; }
 .td-color-darkred { color: #cc0000 !important; }
 .td-color-blue { color: #4488ff !important; }
-.td-wrti-score { font-size: 28px !important; font-weight: bold; }
-.td-wrti .td-label { font-size: 7px; letter-spacing: 0.15em; }
 
 /* Tension dashboard mobile — replaced by comprehensive responsive rules at end of file */
 
@@ -580,12 +634,18 @@ a.td-link:hover { background: #1a1a1a; }
     .thread-para { font-size: 15px; }
     .geo-threads { padding: 0 8px; }
 
-    /* Tension dashboard — clean 3×2 grid */
-    .tension-dashboard { flex-wrap: wrap; padding: 4px; }
-    .td-gauge { flex: 0 0 33.33%; padding: 6px 2px; }
-    .td-label { font-size: 9px; }
+    /* Tension dashboard — mobile */
+    .td-wrti-hero { padding: 10px 8px 8px; }
+    .td-wrti-score { font-size: 36px !important; }
+    .td-wrti-hero .td-label { font-size: 8px; letter-spacing: 0.15em; }
+    .td-wrti-hero .td-sub { font-size: 9px; }
+    .td-sub-row { flex-wrap: wrap; }
+    a.td-link, .td-gauge { flex: 0 0 33.33%; padding: 6px 2px; border-right: none; border-bottom: 1px solid #1a1a1a; }
+    a.td-link:nth-child(3) { border-right: none; }
+    .td-label { font-size: 7px; }
     .td-value { font-size: 14px; }
-    .td-sub { font-size: 9px; }
+    .td-sub { font-size: 8px; }
+    .td-blurb { font-size: 11px; padding: 6px 10px 8px; }
 
     /* Companies page specifics */
     .client-tag { font-size: 10px; }
