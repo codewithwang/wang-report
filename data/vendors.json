@@ -54,6 +54,50 @@
           "kev": false,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "cs-falcon",
+          "name": "Falcon EDR",
+          "monogram": "FE",
+          "cves_12m": 10,
+          "critical_count": 2,
+          "mttp_days": 7,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 89,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:crowdstrike:falcon:*",
+          "cve_list": []
+        },
+        {
+          "id": "cs-logscale",
+          "name": "LogScale SIEM",
+          "monogram": "LS",
+          "cves_12m": 3,
+          "critical_count": 0,
+          "mttp_days": 7,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:crowdstrike:logscale:*",
+          "cve_list": []
+        },
+        {
+          "id": "cs-identity",
+          "name": "Identity Protection",
+          "monogram": "IP",
+          "cves_12m": 2,
+          "critical_count": 0,
+          "mttp_days": 7,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:crowdstrike:identity_protection:*",
+          "cve_list": []
+        }
       ]
     },
     {
@@ -179,6 +223,50 @@
           "kev": true,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "md-endpoint",
+          "name": "Defender Endpoint",
+          "monogram": "DE",
+          "cves_12m": 9,
+          "critical_count": 2,
+          "mttp_days": 30,
+          "zero_days": 1,
+          "kev_count": 1,
+          "score": 64,
+          "grade": "C",
+          "cpe_prefix": "cpe:2.3:a:microsoft:defender_for_endpoint:*",
+          "cve_list": []
+        },
+        {
+          "id": "md-cloud",
+          "name": "Defender for Cloud",
+          "monogram": "DC",
+          "cves_12m": 4,
+          "critical_count": 0,
+          "mttp_days": 7,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:microsoft:defender_for_cloud:*",
+          "cve_list": []
+        },
+        {
+          "id": "md-sentinel",
+          "name": "Sentinel SIEM",
+          "monogram": "SN",
+          "cves_12m": 3,
+          "critical_count": 0,
+          "mttp_days": 3,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:microsoft:sentinel:*",
+          "cve_list": []
+        }
       ]
     },
     {
@@ -225,6 +313,50 @@
           "days_to_patch": 22,
           "kev": false,
           "zero_day": false
+        }
+      ],
+      "modules": [
+        {
+          "id": "pa-panos",
+          "name": "PAN-OS Firewall",
+          "monogram": "PO",
+          "cves_12m": 22,
+          "critical_count": 8,
+          "mttp_days": 90,
+          "zero_days": 2,
+          "kev_count": 3,
+          "score": 35,
+          "grade": "F",
+          "cpe_prefix": "cpe:2.3:o:paloaltonetworks:pan-os:*",
+          "cve_list": []
+        },
+        {
+          "id": "pa-prisma",
+          "name": "Prisma Cloud",
+          "monogram": "PC",
+          "cves_12m": 5,
+          "critical_count": 0,
+          "mttp_days": 3,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:paloaltonetworks:prisma_cloud:*",
+          "cve_list": []
+        },
+        {
+          "id": "pa-cortex",
+          "name": "Cortex XDR",
+          "monogram": "CX",
+          "cves_12m": 4,
+          "critical_count": 0,
+          "mttp_days": 7,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:paloaltonetworks:cortex_xdr_agent:*",
+          "cve_list": []
         }
       ]
     },
@@ -273,6 +405,36 @@
           "kev": false,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "ft-fortigate",
+          "name": "FortiGate NGFW",
+          "monogram": "FG",
+          "cves_12m": 25,
+          "critical_count": 15,
+          "mttp_days": 21,
+          "zero_days": 3,
+          "kev_count": 3,
+          "score": 46,
+          "grade": "D",
+          "cpe_prefix": "cpe:2.3:o:fortinet:fortios:*",
+          "cve_list": []
+        },
+        {
+          "id": "ft-forticlient",
+          "name": "FortiClient",
+          "monogram": "FC",
+          "cves_12m": 8,
+          "critical_count": 1,
+          "mttp_days": 14,
+          "zero_days": 0,
+          "kev_count": 1,
+          "score": 78,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:fortinet:forticlient:*",
+          "cve_list": []
+        }
       ]
     },
     {
@@ -319,6 +481,50 @@
           "days_to_patch": 14,
           "kev": true,
           "zero_day": false
+        }
+      ],
+      "modules": [
+        {
+          "id": "ci-asa",
+          "name": "ASA Firewall",
+          "monogram": "AS",
+          "cves_12m": 18,
+          "critical_count": 8,
+          "mttp_days": 28,
+          "zero_days": 2,
+          "kev_count": 2,
+          "score": 52,
+          "grade": "F",
+          "cpe_prefix": "cpe:2.3:a:cisco:adaptive_security_appliance_software:*",
+          "cve_list": []
+        },
+        {
+          "id": "ci-anyconnect",
+          "name": "Secure Client",
+          "monogram": "SC",
+          "cves_12m": 6,
+          "critical_count": 0,
+          "mttp_days": 14,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 89,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:cisco:anyconnect_secure_mobility_client:*",
+          "cve_list": []
+        },
+        {
+          "id": "ci-email",
+          "name": "Email Gateway",
+          "monogram": "EG",
+          "cves_12m": 5,
+          "critical_count": 1,
+          "mttp_days": 14,
+          "zero_days": 0,
+          "kev_count": 1,
+          "score": 76,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:cisco:email_security_appliance:*",
+          "cve_list": []
         }
       ]
     },
@@ -562,6 +768,50 @@
           "kev": false,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "vm-cb",
+          "name": "Carbon Black",
+          "monogram": "CB",
+          "cves_12m": 5,
+          "critical_count": 0,
+          "mttp_days": 10,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 89,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:broadcom:carbon_black:*",
+          "cve_list": []
+        },
+        {
+          "id": "vm-nsx",
+          "name": "NSX Segmentation",
+          "monogram": "NX",
+          "cves_12m": 4,
+          "critical_count": 0,
+          "mttp_days": 14,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 89,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:broadcom:vmware_nsx:*",
+          "cve_list": []
+        },
+        {
+          "id": "vm-esxi",
+          "name": "vSphere/ESXi",
+          "monogram": "EX",
+          "cves_12m": 12,
+          "critical_count": 5,
+          "mttp_days": 10,
+          "zero_days": 2,
+          "kev_count": 1,
+          "score": 59,
+          "grade": "C",
+          "cpe_prefix": "cpe:2.3:o:vmware:esxi:*",
+          "cve_list": []
+        }
       ]
     },
     {
@@ -662,6 +912,50 @@
           "days_to_patch": 10,
           "kev": false,
           "zero_day": false
+        }
+      ],
+      "modules": [
+        {
+          "id": "ca-vault",
+          "name": "PAM Vault",
+          "monogram": "PV",
+          "cves_12m": 4,
+          "critical_count": 0,
+          "mttp_days": 45,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 76,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:cyberark:vault:*",
+          "cve_list": []
+        },
+        {
+          "id": "ca-conjur",
+          "name": "Conjur Secrets",
+          "monogram": "CJ",
+          "cves_12m": 2,
+          "critical_count": 0,
+          "mttp_days": 10,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 89,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:cyberark:conjur:*",
+          "cve_list": []
+        },
+        {
+          "id": "ca-pcloud",
+          "name": "Privilege Cloud",
+          "monogram": "PL",
+          "cves_12m": 2,
+          "critical_count": 0,
+          "mttp_days": 3,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:cyberark:privilege_cloud:*",
+          "cve_list": []
         }
       ]
     },
@@ -842,6 +1136,36 @@
           "kev": false,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "r7-ivm",
+          "name": "InsightVM",
+          "monogram": "IV",
+          "cves_12m": 3,
+          "critical_count": 0,
+          "mttp_days": 7,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:rapid7:insightvm:*",
+          "cve_list": []
+        },
+        {
+          "id": "r7-msf",
+          "name": "Metasploit",
+          "monogram": "MS",
+          "cves_12m": 6,
+          "critical_count": 1,
+          "mttp_days": 14,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 84,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:rapid7:metasploit:*",
+          "cve_list": []
+        }
       ]
     },
     {
@@ -903,6 +1227,36 @@
           "days_to_patch": 8,
           "kev": false,
           "zero_day": false
+        }
+      ],
+      "modules": [
+        {
+          "id": "ak-waf",
+          "name": "App & API Protector",
+          "monogram": "AP",
+          "cves_12m": 4,
+          "critical_count": 0,
+          "mttp_days": 3,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 95,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:akamai:app_and_api_protector:*",
+          "cve_list": []
+        },
+        {
+          "id": "ak-gc",
+          "name": "Guardicore",
+          "monogram": "GC",
+          "cves_12m": 2,
+          "critical_count": 0,
+          "mttp_days": 14,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 89,
+          "grade": "A",
+          "cpe_prefix": "cpe:2.3:a:akamai:guardicore_segmentation:*",
+          "cve_list": []
         }
       ]
     },
@@ -1161,6 +1515,50 @@
           "kev": false,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "se-auto",
+          "name": "EcoStruxure Automation",
+          "monogram": "EA",
+          "cves_12m": 4,
+          "critical_count": 2,
+          "mttp_days": 60,
+          "zero_days": 1,
+          "kev_count": 2,
+          "score": 48,
+          "grade": "D",
+          "cpe_prefix": "cpe:2.3:a:schneider-electric:ecostruxure_control_expert:*",
+          "cve_list": []
+        },
+        {
+          "id": "se-it",
+          "name": "Data Center Expert",
+          "monogram": "IT",
+          "cves_12m": 4,
+          "critical_count": 1,
+          "mttp_days": 25,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 76,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:schneider-electric:data_center_expert:*",
+          "cve_list": []
+        },
+        {
+          "id": "se-power",
+          "name": "Power Management",
+          "monogram": "PM",
+          "cves_12m": 3,
+          "critical_count": 0,
+          "mttp_days": 21,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 83,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:schneider-electric:ecostruxure_power_commission:*",
+          "cve_list": []
+        }
       ]
     },
     {
@@ -1199,6 +1597,50 @@
           "days_to_patch": 84,
           "kev": false,
           "zero_day": false
+        }
+      ],
+      "modules": [
+        {
+          "id": "si-plc",
+          "name": "SIMATIC PLC",
+          "monogram": "PL",
+          "cves_12m": 12,
+          "critical_count": 5,
+          "mttp_days": 120,
+          "zero_days": 1,
+          "kev_count": 2,
+          "score": 43,
+          "grade": "D",
+          "cpe_prefix": "cpe:2.3:a:siemens:simatic_s7_1500:*",
+          "cve_list": []
+        },
+        {
+          "id": "si-wincc",
+          "name": "WinCC SCADA",
+          "monogram": "WC",
+          "cves_12m": 8,
+          "critical_count": 3,
+          "mttp_days": 60,
+          "zero_days": 0,
+          "kev_count": 2,
+          "score": 57,
+          "grade": "C",
+          "cpe_prefix": "cpe:2.3:a:siemens:simatic_wincc:*",
+          "cve_list": []
+        },
+        {
+          "id": "si-tia",
+          "name": "TIA Portal",
+          "monogram": "TP",
+          "cves_12m": 4,
+          "critical_count": 0,
+          "mttp_days": 30,
+          "zero_days": 0,
+          "kev_count": 0,
+          "score": 83,
+          "grade": "B",
+          "cpe_prefix": "cpe:2.3:a:siemens:tia_portal:*",
+          "cve_list": []
         }
       ]
     },

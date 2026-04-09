@@ -206,6 +206,48 @@ a:hover{text-decoration:underline}
   .filter-bar{gap:4px}
   .sector-pill{font-size:10px;padding:3px 6px}
 }
+
+/* PACK BADGE */
+.pack-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(201,168,76,0.8);
+  color: #0d0d14;
+  font-size: 8px;
+  font-weight: 700;
+  font-family: sans-serif;
+  padding: 2px 6px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  z-index: 15;
+}
+.worst-of-label { font-size:8px; color:#888; text-align:center; margin-top:4px; }
+
+/* PACK EXPAND */
+.pack-expand {
+  display: none;
+  grid-column: 1 / -1;
+  background: rgba(201,168,76,0.05);
+  border: 1px solid #2a2a1a;
+  border-radius: 8px;
+  padding: 16px;
+  margin: -8px 0 12px;
+}
+.pack-expand.open { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.pack-expand .module-card {
+  width: 200px;
+  background: #16161e;
+  border: 1px solid #3a3a4a;
+  border-radius: 10px;
+  padding: 12px;
+  font-family: Georgia, serif;
+}
+.module-card .mod-name { font-size: 11px; font-weight: 700; color: #e8d880; margin-bottom: 4px; }
+.module-card .mod-mono { font-size: 36px; font-weight: 700; text-align: center; margin: 8px 0; }
+.module-card .mod-stat { font-size: 9px; color: #aaa; margin: 2px 0; display: flex; justify-content: space-between; }
+.module-card .mod-stat-val { font-weight: 700; }
+.module-card .mod-grade { font-size: 18px; font-weight: 700; text-align: center; margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -423,6 +465,9 @@ function buildCard(v) {
     html += '<div class="wr-badge"><span>WR FEATURED</span></div>';
     html += '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>';
   }
+  if (v.modules && v.modules.length > 0) {
+    html += '<div class="pack-badge">' + v.modules.length + ' modules</div>';
+  }
 
   // 1. Top ribbon
   html += '<div class="card-banner"><span>CYBER INTEL &middot; WANG REPORT</span><span>' + esc(v.serial) + '</span></div>';
@@ -448,6 +493,9 @@ function buildCard(v) {
   for (var i = 0; i < stats.length; i++) {
     var s = stats[i];
     html += '<div class="stat-row"><span class="stat-label">' + s.label + '</span><div class="stat-bar-bg"><div class="stat-bar-fill ' + barColor(s.val) + '" style="width:' + s.val + '%"></div></div></div>';
+  }
+  if (v.modules && v.modules.length > 0) {
+    html += '<div class="worst-of-label">Score: worst of ' + v.modules.length + ' modules</div>';
   }
   html += '</div>';
 
@@ -599,24 +647,65 @@ function render() {
   if (vendors.length === 0) {
     grid.innerHTML = '<div class="empty-state">No vendors match this filter</div>';
   } else {
-    grid.innerHTML = vendors.map(buildCard).join('');
+    grid.innerHTML = vendors.map(function(v) {
+      var cardHtml = buildCard(v);
+      if (v.modules && v.modules.length > 0) {
+        var art = SECTOR_ART[v.sector] || SECTOR_ART.endpoint;
+        cardHtml += '<div class="pack-expand" id="pack-' + v.id + '">' + buildModuleCards(v.modules, art) + '</div>';
+      }
+      return cardHtml;
+    }).join('');
   }
   bindCards();
+}
+
+function togglePack(vendorId) {
+  document.querySelectorAll('.pack-expand.open').forEach(function(el) {
+    if (el.id !== 'pack-' + vendorId) el.classList.remove('open');
+  });
+  var panel = document.getElementById('pack-' + vendorId);
+  if (panel) panel.classList.toggle('open');
+}
+
+function buildModuleCards(modules, sectorArt) {
+  return modules.map(function(m) {
+    var gradeClass = 'grade-' + m.grade;
+    return '<div class="module-card">' +
+      '<div class="mod-name">' + esc(m.name) + '</div>' +
+      '<div class="mod-mono" style="color:' + sectorArt.mono + '">' + esc(m.monogram) + '</div>' +
+      '<div class="mod-stat"><span>CVEs (12m)</span><span class="mod-stat-val">' + m.cves_12m + '</span></div>' +
+      '<div class="mod-stat"><span>Critical</span><span class="mod-stat-val">' + m.critical_count + '</span></div>' +
+      '<div class="mod-stat"><span>MTTP</span><span class="mod-stat-val">' + m.mttp_days + 'd</span></div>' +
+      '<div class="mod-stat"><span>KEV</span><span class="mod-stat-val">' + m.kev_count + '</span></div>' +
+      '<div class="mod-stat"><span>Zero-day</span><span class="mod-stat-val">' + m.zero_days + '</span></div>' +
+      '<div class="mod-grade ' + gradeClass + '">' + m.score + ' / ' + m.grade + '</div>' +
+      '</div>';
+  }).join('');
 }
 
 function bindCards() {
   var scenes = document.querySelectorAll('.card-scene');
   for (var i = 0; i < scenes.length; i++) {
     (function(scene){
+      var vendorId = scene.getAttribute('data-id');
+      var isPack = !!document.getElementById('pack-' + vendorId);
       scene.addEventListener('click', function(e){
         // Don't flip if clicking a link
         if (e.target.tagName === 'A') return;
-        scene.classList.toggle('flipped');
+        if (isPack) {
+          togglePack(vendorId);
+        } else {
+          scene.classList.toggle('flipped');
+        }
       });
       scene.addEventListener('keydown', function(e){
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          scene.classList.toggle('flipped');
+          if (isPack) {
+            togglePack(vendorId);
+          } else {
+            scene.classList.toggle('flipped');
+          }
         }
       });
     })(scenes[i]);
