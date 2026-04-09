@@ -161,7 +161,7 @@ a:hover{text-decoration:underline}
 .mtg-textbox .flavor{font-style:italic;color:#8a7a40;border-top:1px solid #2a2008;padding-top:3px;margin-top:3px;font-size:8px}
 .mtg-textbox .cve-link{display:block;margin-top:4px;font-size:8px;color:#6aaaee;font-style:normal;text-decoration:none}
 .mtg-textbox .cve-link:hover{text-decoration:underline}
-.cve-mini{max-height:36px;overflow-y:auto;padding:2px 8px;background:#0a0a0f;border-top:1px solid #2a2a4a}
+.cve-mini{max-height:32px;overflow-y:auto;padding:2px 8px;background:#0a0a0f;border-top:1px solid #2a2a4a;flex-shrink:0}
 .cve-mini a{font-family:monospace;text-decoration:none}
 .cve-mini a:hover{text-decoration:underline}
 
@@ -609,16 +609,7 @@ function buildBackFace(v) {
   // Title bar
   html += '<div class="mtg-title"><span class="mtg-name">' + esc(v.name) + '</span><div class="mana-cost">' + manaHtml + '</div></div>';
 
-  // Art zone — smaller
-  var backLogoUrl = vendorLogoUrl(v.id, v.parentId);
-  html += '<div class="mtg-art" style="background:' + art.bg + '">';
-  if (backLogoUrl) {
-    html += '<img src="' + backLogoUrl + '" alt="" class="vendor-logo-sm" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">';
-    html += '<span class="big-mono" style="color:' + art.mono + ';display:none">' + esc(v.monogram) + '</span>';
-  } else {
-    html += '<span class="big-mono" style="color:' + art.mono + '">' + esc(v.monogram) + '</span>';
-  }
-  html += '</div>';
+  // Type line (no art zone on back — saves 46px for content)
 
   // Type line
   html += '<div class="mtg-type"><span>Legendary Artifact &mdash; ' + esc(sectorLabel) + ' Security</span><span class="rarity-gem rarity-' + rarity + '"></span></div>';
@@ -631,16 +622,17 @@ function buildBackFace(v) {
   if (v.wr_take) {
     html += '<div class="flavor">' + esc(v.wr_take) + '</div>';
   }
-  // CVE list — show actual CVEs from data
+  html += '</div>'; // end textbox
+
+  // CVE list — OUTSIDE textbox so it doesn't fight flex
   if (v.cve_list && v.cve_list.length > 0) {
     html += '<div class="cve-mini">';
-    v.cve_list.forEach(function(c) {
+    v.cve_list.slice(0, 3).forEach(function(c) {
       var sc = c.severity === 'CRITICAL' ? '#ee4444' : c.severity === 'HIGH' ? '#ee8822' : '#eecc22';
-      html += '<a href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:' + sc + ';font-size:9px;display:block;margin:1px 0">' + esc(c.id) + (c.kev ? ' KEV' : '') + (c.zero_day ? ' 0D' : '') + '</a>';
+      html += '<a href="https://nvd.nist.gov/vuln/detail/' + esc(c.id) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:' + sc + ';font-size:8px;display:block;margin:1px 0">' + esc(c.id) + (c.kev ? ' KEV' : '') + (c.zero_day ? ' 0D' : '') + '</a>';
     });
     html += '</div>';
   }
-  html += '</div>';
 
   // RRR strip
   html += '<div class="rrr-strip">';
