@@ -202,20 +202,57 @@ a:hover{text-decoration:underline}
 .clear-btn:hover{border-color:#aa3333;color:#cc5555}
 
 /* CATALOG STRIP */
-.cat-strip { display:flex; gap:5px; align-items:center; padding:4px 10px 6px; }
+.cat-strip { display:flex; gap:6px; align-items:center; padding:4px 10px 6px; flex-wrap:wrap; }
 .cat-dot {
-  width:9px; height:9px; border-radius:50%;
-  cursor:pointer; transition:transform .15s;
-  flex-shrink:0;
+  display:inline-block; border-radius:50%; box-sizing:border-box;
+  position:relative; cursor:help; transition:transform .12s; flex-shrink:0;
 }
-.cat-dot:hover { transform:scale(1.4); }
-.cat-dot.required { border:2px solid currentColor; }
-.cat-dot.optional { border:1.5px solid currentColor; background:transparent !important; }
-.cat-dot.cov-full { background:#5acc5a; color:#5acc5a; }
-.cat-dot.cov-partial { background:#eaaa3a; color:#eaaa3a; }
-.cat-dot.cov-none { background:transparent; color:#444; border-color:#444; }
-.cat-dot.cov-unknown { background:#333; color:#555; border-color:#555; }
+.cat-dot:hover { transform:scale(1.5); z-index:2; }
+.cat-dot.required { width:10px; height:10px; border-width:2px; border-style:solid; }
+.cat-dot.optional { width:7px; height:7px; border-width:1px; border-style:solid; }
+.cat-dot.cov-full    { background:#5acc5a; border-color:#5acc5a; }
+.cat-dot.cov-partial { background:#eaaa3a; border-color:#eaaa3a; }
+.cat-dot.required.cov-none,
+.cat-dot.required.cov-unknown { background:transparent; border-color:#e04a4a; }
+.cat-dot.required.cov-none::after {
+  content:"!"; position:absolute; inset:0;
+  font:700 7px/10px system-ui; color:#e04a4a; text-align:center;
+}
+.cat-dot.optional.cov-none,
+.cat-dot.optional.cov-unknown { background:transparent; border-style:dashed; border-color:#555; }
+.cat-dot.validated { box-shadow:0 0 0 2px #5acc5a; }
 .cat-no-data { font-size:9px; color:#444; letter-spacing:1px; padding:4px 10px 6px; }
+
+/* TOOLTIP */
+#catTooltip {
+  position:fixed; z-index:9999; pointer-events:none;
+  background:#1a1a1a; color:#eee; border:1px solid #333;
+  padding:8px 11px; border-radius:6px; font:12px/1.5 system-ui;
+  max-width:240px; box-shadow:0 4px 14px rgba(0,0,0,.5);
+  white-space:nowrap;
+}
+#catTooltip .ctt-name { font-weight:600; font-size:13px; margin-bottom:2px; }
+#catTooltip .ctt-badge { font-size:10px; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; }
+#catTooltip .ctt-req { background:#e04a4a22; color:#e04a4a; }
+#catTooltip .ctt-opt { background:#55555522; color:#888; }
+#catTooltip .ctt-divider { border:none; border-top:1px solid #333; margin:5px 0; }
+#catTooltip .ctt-row { font-size:11px; color:#aaa; }
+#catTooltip .ctt-vendor { color:#c9a84c; }
+#catTooltip .ctt-full { color:#5acc5a; }
+#catTooltip .ctt-partial { color:#eaaa3a; }
+#catTooltip .ctt-none { color:#666; }
+
+/* VALIDATION */
+.sb-valcaps { margin-top:8px; border-top:1px solid #222; padding-top:6px; }
+.sb-valcap-row { display:flex; align-items:center; gap:6px; padding:3px 0; cursor:pointer; }
+.sb-valcap-row:hover { background:#111; border-radius:3px; }
+.sb-valcap-check { width:14px; height:14px; border:1.5px solid #444; border-radius:3px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.sb-valcap-check.confirmed { border-color:#5acc5a; background:#5acc5a22; color:#5acc5a; font-size:10px; }
+.sb-valcap-check.denied { border-color:#e04a4a; background:#e04a4a22; color:#e04a4a; font-size:10px; }
+.sb-valcap-label { font-size:10px; color:#aaa; flex:1; }
+.sb-valcap-ailevel { font-size:9px; color:#555; }
+.sb-val-header { font-size:9px; color:#666; letter-spacing:1px; margin-bottom:4px; }
+.card-verified-badge { position:absolute; top:52px; right:8px; background:#5acc5a22; border:1px solid #5acc5a; color:#5acc5a; font-size:8px; padding:1px 5px; border-radius:3px; letter-spacing:1px; }
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;overflow-y:auto}
@@ -442,6 +479,7 @@ let DATA = { vendors: [], capabilities: [], modules: [] };
 let vendorMap   = {}; // vendor_id -> vendor obj
 let moduleMap   = {}; // module_id -> module obj
 let capMap      = {}; // cap_id -> cap obj
+let CAT_TIP_INDEX = {}; // capId -> { subCapId -> tooltip info }
 
 /* ── PILLAR LOOKUP HELPERS ── */
 function buildPillarLookups() {
@@ -866,6 +904,72 @@ function computeStackScore() {
   };
 }
 
+/* ── VALIDATION HELPERS ── */
+const VAL_KEY = 'wr_validations_v1';
+
+function loadValidations() {
+  try { return JSON.parse(localStorage.getItem(VAL_KEY)) || { version:1, validations:{} }; }
+  catch { return { version:1, validations:{} }; }
+}
+
+function saveValidations(v) {
+  try { localStorage.setItem(VAL_KEY, JSON.stringify(v)); } catch {}
+}
+
+function isValidated(capId, moduleId, subCapId) {
+  const v = loadValidations();
+  return !!(v.validations?.default?.[capId]?.[moduleId]?.[subCapId]);
+}
+
+function getValidationStatus(capId, moduleId, subCapId) {
+  const v = loadValidations();
+  return v.validations?.default?.[capId]?.[moduleId]?.[subCapId] || null;
+}
+
+function toggleValidation(capId, moduleId, subCapId, aiLevel) {
+  const v = loadValidations();
+  if (!v.validations.default) v.validations.default = {};
+  if (!v.validations.default[capId]) v.validations.default[capId] = {};
+  if (!v.validations.default[capId][moduleId]) v.validations.default[capId][moduleId] = {};
+  const existing = v.validations.default[capId][moduleId][subCapId];
+  if (existing) {
+    delete v.validations.default[capId][moduleId][subCapId];
+  } else {
+    v.validations.default[capId][moduleId][subCapId] = {
+      status: 'confirmed', overrideLevel: aiLevel,
+      confirmedAt: new Date().toISOString(), note: ''
+    };
+  }
+  saveValidations(v);
+}
+
+function buildValCapsHTML(cap, mod) {
+  const subCaps = cap.sub_capabilities;
+  if (!subCaps || !subCaps.length) return '';
+  const levelVal = { full:1.0, partial:0.5, none:0.0 };
+  const rows = subCaps
+    .filter(sc => {
+      const level = mod?.coverage?.[cap.id]?.sub_caps?.[sc.id] ?? 'none';
+      return (levelVal[level] ?? 0) > 0;
+    })
+    .map(sc => {
+      const level = mod?.coverage?.[cap.id]?.sub_caps?.[sc.id] ?? 'none';
+      const confirmed = isValidated(cap.id, mod.module_id, sc.id);
+      const checkCls = confirmed ? 'confirmed' : '';
+      const checkMark = confirmed ? '&#10003;' : '';
+      return '<div class="sb-valcap-row" data-cap="' + esc(cap.id) + '" data-mod="' + esc(mod.module_id) + '" data-sc="' + esc(sc.id) + '" data-level="' + esc(level) + '">' +
+        '<div class="sb-valcap-check ' + checkCls + '">' + checkMark + '</div>' +
+        '<span class="sb-valcap-label">' + esc(sc.name) + '</span>' +
+        '<span class="sb-valcap-ailevel">AI: ' + level + '</span>' +
+      '</div>';
+    });
+  if (!rows.length) return '';
+  return '<div class="sb-valcaps">' +
+    '<div class="sb-val-header">VERIFY COVERAGE</div>' +
+    rows.join('') +
+  '</div>';
+}
+
 /* ── COVERAGE PILL HELPERS ── */
 function covPillClass(score) {
   if (score >= 0.8) return 'cov-green';
@@ -873,36 +977,43 @@ function covPillClass(score) {
   return 'cov-red';
 }
 
+function covPillData(cap, vendorEntries) {
+  const subCaps = cap.sub_capabilities;
+  if (!subCaps || !subCaps.length) {
+    const covered = vendorEntries.length > 0;
+    return { n: covered ? 1 : 0, m: 1, optCovered: 0, optTotal: 0, noData: true };
+  }
+  const detail = computeSlotCoverageDetailed(cap.id, vendorEntries, cap);
+  const required = detail.perSubCap.filter(sc => sc.required);
+  const optional = detail.perSubCap.filter(sc => !sc.required);
+  const n = required.filter(sc => sc.combined >= 1.0).length;
+  const m = required.length;
+  const optCovered = optional.filter(sc => sc.combined > 0).length;
+  const optTotal = optional.length;
+  return { n, m, optCovered, optTotal, noData: false };
+}
+
 function covPillHTML(capId) {
   const cap = capMap[capId];
   if (!cap) return '';
-  const subCaps = cap.sub_capabilities;
   const entries = getSlotEntries(capId);
+  const { n, m, optCovered, optTotal, noData } = covPillData(cap, entries);
 
-  if (!subCaps || subCaps.length === 0) {
-    // No sub-cap data — show ? indicator linking to catalog
-    return '<a href="catalog/#' + esc(capId) + '" class="cov-pill cov-grey" target="_blank" title="View in catalog">? &#9656;</a>';
+  let label, cls;
+  if (noData) {
+    label = '?';
+    cls = 'cov-pill cov-grey';
+  } else if (m === 0) {
+    label = optCovered > 0 ? '&#10003;' : '&middot;';
+    cls = 'cov-pill ' + (optCovered > 0 ? 'cov-green' : 'cov-grey');
+  } else {
+    label = n + '/' + m;
+    const pct = m > 0 ? n / m : 0;
+    cls = 'cov-pill ' + (pct >= 0.8 ? 'cov-green' : pct >= 0.5 ? 'cov-amber' : 'cov-red');
   }
-  if (entries.length === 0) {
-    return '<a href="catalog/#' + esc(capId) + '" class="cov-pill cov-grey" target="_blank" title="View in catalog">0/' + subCaps.length + ' &#9656;</a>';
-  }
-
-  // Count how many sub-caps are fully covered (combined >= 1.0)
-  let covCount = 0;
-  subCaps.forEach(sc => {
-    let combined = 0;
-    entries.forEach(entry => {
-      const mod   = moduleMap[entry.module_id];
-      const level = mod && mod.coverage && mod.coverage[capId] && mod.coverage[capId].sub_caps
-        ? (mod.coverage[capId].sub_caps[sc.id] || 'none') : 'none';
-      combined = Math.min(1.0, combined + (LEVEL_VAL[level] || 0));
-    });
-    if (combined >= 1.0) covCount++;
-  });
-
-  const score = subCaps.length > 0 ? covCount / subCaps.length : 0;
-  const cls   = covPillClass(score);
-  return '<a href="catalog/#' + esc(capId) + '" class="cov-pill ' + cls + '" target="_blank" title="View in catalog">' + covCount + '/' + subCaps.length + ' &#9656;</a>';
+  const tipText = noData ? 'No sub-capability data yet' :
+    n + '/' + m + ' required fully covered \xb7 ' + optCovered + '/' + optTotal + ' optional covered';
+  return '<a href="catalog/#' + esc(capId) + '" class="' + cls + '" title="' + esc(tipText) + '" target="_blank">' + label + ' &#9656;</a>';
 }
 
 /* ── CATALOG STRIP ── */
@@ -912,14 +1023,24 @@ function renderCatalogStrip(cap, vendorEntries) {
     return '<div class="cat-no-data">&middot; &middot; &middot;</div>';
   }
   const detail = computeSlotCoverageDetailed(cap.id, vendorEntries, cap);
+
+  // Build tooltip index for this cap
+  if (!CAT_TIP_INDEX[cap.id]) CAT_TIP_INDEX[cap.id] = {};
+  detail.perSubCap.forEach(sc => {
+    CAT_TIP_INDEX[cap.id][sc.id] = {
+      name: sc.name,
+      required: sc.required,
+      covLevel: sc.covLevel,
+      contributors: sc.contributors,
+      typicalTools: sc.typical_tools || []
+    };
+  });
+
   const dots = detail.perSubCap.map(sc => {
     const req = sc.required ? 'required' : 'optional';
     const covCls = 'cov-' + sc.covLevel;
-    const contribStr = sc.contributors.length
-      ? ' (' + sc.contributors.map(c => c.module_id).join(', ') + ')'
-      : ' \u2014 not covered';
-    const label = esc(sc.name) + ': ' + sc.covLevel + contribStr;
-    return '<span class="cat-dot ' + req + ' ' + covCls + '" title="' + label + '" aria-label="' + label + '"></span>';
+    const validated = vendorEntries.some(entry => isValidated(cap.id, entry.module_id, sc.id));
+    return '<span class="cat-dot ' + req + ' ' + covCls + (validated ? ' validated' : '') + '" data-subcap="' + esc(sc.id) + '" data-capid="' + esc(cap.id) + '"></span>';
   }).join('');
   return '<div class="cat-strip">' + dots + '</div>';
 }
@@ -1022,6 +1143,10 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
   const aiGradeSealClass = aiGradeLetter ? 'grade-' + aiGradeLetter : 'grade-unknown';
   const aiGradeSealLabel = aiGradeLetter || '?';
 
+  const hasValidation = (cap.sub_capabilities || []).some(sc =>
+    isValidated(cap.id, mod.module_id, sc.id)
+  );
+
   const scene = document.createElement('div');
   scene.className = 'slot-scene' + (compact ? ' compact' : '');
 
@@ -1041,6 +1166,7 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
       ) +
       '<div class="sf-grade-seal ' + aiGradeSealClass + '">' + aiGradeSealLabel + '</div>' +
       (featured ? '<div class="wr-badge"><span>WR PICK</span></div>' : '') +
+      (hasValidation ? '<div class="card-verified-badge">VERIFIED</div>' : '') +
     '</div>' +
     '<div class="sf-nameplate">' +
       '<div class="sf-vname">' + esc(mod.module_name) + '</div>' +
@@ -1084,6 +1210,8 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
     '</div>';
   }).join('');
 
+  const valCapsHTML = buildValCapsHTML(cap, mod);
+
   back.innerHTML =
     '<div class="sb-title">' +
       '<div class="sb-title-name">' + esc(mod.module_name) + '</div>' +
@@ -1094,6 +1222,7 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
       '<div class="sb-ai-toggle">&#9662; AI-Era Detail</div>' +
       '<div class="sb-ai-rows">' + aiSubHTML + '</div>' +
     '</div>' +
+    (valCapsHTML ? '<div class="sb-valcaps-wrap" style="padding:0 8px 4px">' + valCapsHTML + '</div>' : '') +
     '<div class="sb-remove" data-cap="' + esc(cap.id) + '" data-idx="' + entryIdx + '">REMOVE FROM STACK</div>';
 
   back.querySelector('.sb-ai-toggle').addEventListener('click', (e) => {
@@ -1101,18 +1230,30 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
     back.querySelector('.sb-ai-rows').classList.toggle('open');
   });
 
-  back.querySelector('.sb-remove').addEventListener('click', (e) => {
+  back.addEventListener('click', (e) => {
     e.stopPropagation();
-    const idx = parseInt(e.currentTarget.dataset.idx, 10);
-    const cid = e.currentTarget.dataset.cap;
-    const arr = getSlotEntries(cid);
-    arr.splice(idx, 1);
-    if (arr.length === 0) {
-      delete state.stack[cid];
-    } else {
-      state.stack[cid] = arr;
+
+    const valRow = e.target.closest('.sb-valcap-row');
+    if (valRow) {
+      const { cap: capId, mod: modId, sc: scId, level } = valRow.dataset;
+      toggleValidation(capId, modId, scId, level);
+      renderSlotGrid();
+      return;
     }
-    render();
+
+    const removeBtn = e.target.closest('.sb-remove');
+    if (removeBtn) {
+      const idx = parseInt(removeBtn.dataset.idx, 10);
+      const cid = removeBtn.dataset.cap;
+      const arr = getSlotEntries(cid);
+      arr.splice(idx, 1);
+      if (arr.length === 0) {
+        delete state.stack[cid];
+      } else {
+        state.stack[cid] = arr;
+      }
+      render();
+    }
   });
 
   inner.appendChild(front);
@@ -1589,6 +1730,66 @@ document.getElementById('shareCopyBtn').addEventListener('click', () => {
 });
 
 /* ── INIT ── */
+// Tooltip element
+const catTip = document.createElement('div');
+catTip.id = 'catTooltip';
+catTip.hidden = true;
+document.body.appendChild(catTip);
+
+// Tooltip show
+document.addEventListener('mouseover', e => {
+  const dot = e.target.closest('.cat-dot');
+  if (!dot) { catTip.hidden = true; return; }
+  const capId = dot.dataset.capid;
+  const subCapId = dot.dataset.subcap;
+  const info = CAT_TIP_INDEX[capId]?.[subCapId];
+  if (!info) { catTip.hidden = true; return; }
+
+  const badgeCls = info.required ? 'ctt-req' : 'ctt-opt';
+  const badgeTxt = info.required ? 'REQUIRED' : 'OPTIONAL';
+  let html = `<div class="ctt-name">${esc(info.name)}<span class="ctt-badge ${badgeCls}">${badgeTxt}</span></div>`;
+
+  if (info.covLevel === 'none') {
+    html += `<div class="ctt-row ctt-none">Not covered</div>`;
+    if (info.typicalTools.length) {
+      html += `<hr class="ctt-divider"><div class="ctt-row">Typical: <span class="ctt-vendor">${info.typicalTools.slice(0,3).join(', ')}</span></div>`;
+    }
+  } else {
+    html += `<div class="ctt-row ctt-${info.covLevel === 'full' ? 'full' : 'partial'}">${info.covLevel === 'full' ? 'Fully covered' : 'Partially covered'}</div>`;
+    if (info.contributors.length) {
+      html += '<hr class="ctt-divider">';
+      info.contributors.forEach(c => {
+        const mod = moduleMap[c.module_id];
+        const name = mod ? mod.module_name : c.module_id;
+        html += `<div class="ctt-row"><span class="ctt-vendor">${esc(name)}</span> <span class="ctt-${c.level}">${c.level}</span></div>`;
+      });
+    }
+  }
+  catTip.innerHTML = html;
+  catTip.hidden = false;
+
+  const r = dot.getBoundingClientRect();
+  let left = r.left + window.scrollX;
+  let top = r.bottom + window.scrollY + 6;
+  const tipW = 220;
+  if (left + tipW > window.innerWidth) left = window.innerWidth - tipW - 8;
+  catTip.style.left = left + 'px';
+  catTip.style.top = top + 'px';
+});
+
+document.addEventListener('mouseout', e => {
+  if (!e.target.closest('.cat-dot')) return;
+  if (!e.relatedTarget?.closest('.cat-dot')) catTip.hidden = true;
+});
+
+// Mobile tap
+document.addEventListener('touchstart', e => {
+  const dot = e.target.closest('.cat-dot');
+  if (!dot) { catTip.hidden = true; return; }
+  e.preventDefault();
+  dot.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+}, { passive: false });
+
 loadAll();
 
 })();
