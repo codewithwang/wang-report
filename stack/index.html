@@ -354,6 +354,46 @@ a:hover{text-decoration:underline}
 /* SECTION LABEL ABOVE GRID */
 .mode-info{font-family:Impact,sans-serif;font-size:10px;color:#555;letter-spacing:0.5px;margin-bottom:12px}
 
+/* ── VIEW TABS ── */
+.view-tabs{display:flex;gap:0;margin-bottom:16px;border-bottom:1px solid #1a1a2a}
+.vtab{font-family:Impact,'Arial Narrow',sans-serif;font-size:12px;letter-spacing:1.5px;padding:8px 18px;background:none;border:none;border-bottom:2px solid transparent;color:#555;cursor:pointer;transition:all .15s;text-transform:uppercase;margin-bottom:-1px}
+.vtab:hover:not(.vtab-disabled){color:#aaa}
+.vtab.vtab-active{color:#c9a84c;border-bottom-color:#c9a84c}
+.vtab.vtab-disabled{color:#2a2a3a;cursor:default}
+.vtab.vtab-disabled::after{content:' soon';font-size:8px;color:#2a2a3a}
+
+/* ── CONTROLS VIEW ── */
+.ctrl-header{text-align:center;margin-bottom:12px}
+.ctrl-title{font-family:Impact,'Arial Narrow',sans-serif;font-size:15px;color:#c9a84c;letter-spacing:2px}
+.ctrl-subtitle{font-size:10px;color:#555;margin-top:4px}
+.ctrl-legend{display:flex;gap:16px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.ctrl-legend-item{display:flex;align-items:center;gap:6px;font-size:9px;color:#777;font-family:Impact,'Arial Narrow',sans-serif;letter-spacing:0.5px}
+.ctrl-legend-swatch{width:10px;height:10px;border-radius:2px;border:1px solid;flex-shrink:0}
+.ctrl-legend-swatch.full{background:#0f2a0f;border-color:#2a5a2a}
+.ctrl-legend-swatch.partial{background:#2a1f08;border-color:#5a3a10}
+.ctrl-legend-swatch.gap{background:#2a0a0a;border-color:#5a1a1a}
+.ctrl-legend-swatch.unmapped{background:#141418;border-color:#222}
+.ctrl-summary{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.ctrl-summary-stat{text-align:center;font-family:Impact,'Arial Narrow',sans-serif}
+.ctrl-summary-num{font-size:24px;color:#c9a84c;display:block}
+.ctrl-summary-lbl{font-size:8px;color:#555;letter-spacing:0.5px;text-transform:uppercase}
+.ctrl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:start}
+@media(max-width:1100px){.ctrl-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.ctrl-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:450px){.ctrl-grid{grid-template-columns:1fr}}
+.ctrl-fn{border-radius:6px;overflow:hidden;border:1px solid #1a1a2a}
+.ctrl-fn-hdr{padding:7px 10px;font-family:Impact,'Arial Narrow',sans-serif;font-size:11px;letter-spacing:1.5px;text-align:center;border-bottom:2px solid}
+.ctrl-fn-body{padding:8px;display:flex;flex-direction:column;gap:8px}
+.ctrl-cat-lbl{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:0.5px;padding:0 2px;margin-bottom:3px;border-bottom:1px solid #1a1a2a}
+.ctrl-sub-chip{border-radius:3px;padding:4px 7px;margin-bottom:3px;cursor:help;transition:opacity .15s;border:1px solid}
+.ctrl-sub-chip:hover{opacity:.8}
+.ctrl-sub-id{font-family:Impact,'Arial Narrow',sans-serif;font-size:9px;letter-spacing:0.5px;display:block}
+.ctrl-sub-name{font-size:8px;line-height:1.3;opacity:.85}
+.csc-full{background:#0f2a0f;border-color:#2a5a2a;color:#6acc6a}
+.csc-partial{background:#2a1f08;border-color:#5a3a10;color:#c9a84c}
+.csc-gap{background:#2a0a0a;border-color:#5a1a1a;color:#cc5a5a}
+.csc-unmapped{background:#141418;border-color:#1a1a2a;color:#3a3a4a}
+
 /* PRINT */
 @media print {
   .nav-bar,.modal-overlay,.score-panel .share-bar,.score-panel .clear-btn,.slot-card,.toggle-row{display:none!important}
@@ -403,6 +443,16 @@ a:hover{text-decoration:underline}
     </div>
   </div>
 
+  <!-- VIEW TABS -->
+  <div class="view-tabs">
+    <button class="vtab vtab-active" data-tab="tools">TOOLS</button>
+    <button class="vtab" data-tab="controls">CONTROLS</button>
+    <button class="vtab vtab-disabled">OUTCOMES</button>
+    <button class="vtab vtab-disabled">EXPOSURES</button>
+  </div>
+
+  <!-- TOOLS VIEW -->
+  <div id="viewTools">
   <div class="main-layout">
     <div>
       <div class="mode-info" id="modeInfo"></div>
@@ -448,9 +498,27 @@ a:hover{text-decoration:underline}
       <button class="clear-btn" id="clearBtn">CLEAR STACK</button>
     </div>
   </div>
+  </div><!-- /viewTools -->
+
+  <!-- CONTROLS VIEW -->
+  <div id="viewControls" style="display:none">
+    <div class="ctrl-header">
+      <div class="ctrl-title">NIST CSF 1.1 &mdash; FRAMEWORK MAPPING</div>
+      <div class="ctrl-subtitle">Coverage projected from your current stack &middot; Hover subcategories for details &middot; <a href="../stack/catalog/" style="font-size:9px">Full Catalog &rarr;</a></div>
+    </div>
+    <div class="ctrl-summary" id="ctrlSummary"></div>
+    <div class="ctrl-legend">
+      <div class="ctrl-legend-item"><div class="ctrl-legend-swatch full"></div>COVERED</div>
+      <div class="ctrl-legend-item"><div class="ctrl-legend-swatch partial"></div>PARTIAL</div>
+      <div class="ctrl-legend-item"><div class="ctrl-legend-swatch gap"></div>GAP</div>
+      <div class="ctrl-legend-item"><div class="ctrl-legend-swatch unmapped"></div>NOT MAPPED</div>
+    </div>
+    <div class="ctrl-grid" id="ctrlGrid"><div style="color:#555;padding:20px;text-align:center;grid-column:1/-1">Loading framework data…</div></div>
+    <div style="text-align:center;margin-top:16px;font-size:9px;color:#444">NIST CSF 1.1 &middot; Subcategories limited to those with taxonomy mappings &middot; AI-authored mappings, not legal compliance advice</div>
+  </div>
 
   <div class="page-footer">
-    <div>THE WANG REPORT &middot; Security Stack Assessment &middot; Track B V2</div>
+    <div>THE WANG REPORT &middot; Security Stack Assessment &middot; Track B V2.1</div>
     <div style="margin-top:4px"><a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a> | <a href="../cyber-intel/index.html">Vendor Scorecard</a></div>
     <div style="margin-top:4px;font-size:9px;color:#555" id="footerMeta"></div>
   </div>
@@ -534,6 +602,8 @@ let vendorMap   = {}; // vendor_id -> vendor obj
 let moduleMap   = {}; // module_id -> module obj
 let capMap      = {}; // cap_id -> cap obj
 let CAT_TIP_INDEX = {}; // capId -> { subCapId -> tooltip info }
+let FRAMEWORKS = null;  // loaded from frameworks.json
+let activeView = 'tools'; // 'tools' | 'controls'
 
 /* ── PILLAR LOOKUP HELPERS ── */
 function buildPillarLookups() {
@@ -548,12 +618,14 @@ function buildPillarLookups() {
 /* ── DATA LOAD ── */
 async function loadAll() {
   try {
-    const [vr, cr, vcr, pr] = await Promise.all([
+    const [vr, cr, vcr, pr, fr] = await Promise.all([
       fetch('../data/vendors.json').then(r => r.json()),
       fetch('../data/capabilities.json').then(r => r.json()),
       fetch('../data/vendor-capabilities.json').then(r => r.json()),
       fetch('../data/pillars.json').then(r => r.json()).catch(() => null),
+      fetch('../data/frameworks.json').then(r => r.json()).catch(() => null),
     ]);
+    if (fr) FRAMEWORKS = fr;
     DATA.vendors      = vr.vendors || [];
     DATA.capabilities = cr.capabilities || [];
     DATA.modules      = vcr.modules || [];
@@ -1863,6 +1935,125 @@ document.getElementById('shareCopyBtn').addEventListener('click', () => {
     document.execCommand('copy');
   });
 });
+
+/* ── VIEW TAB SWITCHING ── */
+document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    if (tab === activeView) return;
+    activeView = tab;
+    document.querySelectorAll('.vtab').forEach(b => b.classList.toggle('vtab-active', b === btn));
+    document.getElementById('viewTools').style.display = tab === 'tools' ? '' : 'none';
+    document.getElementById('viewControls').style.display = tab === 'controls' ? '' : 'none';
+    if (tab === 'controls') renderControlsTab();
+  });
+});
+
+/* ── CONTROLS VIEW FUNCTIONS ── */
+function projectControls() {
+  if (!FRAMEWORKS) return null;
+  // Build sub-cap coverage index: 'capId.subCapId' → score 0–1
+  const subCapScore = {};
+  Object.entries(state.stack).forEach(([capId, entries]) => {
+    if (!entries || entries.length === 0) return;
+    const capDef = capMap[capId];
+    if (!capDef || !capDef.sub_capabilities) return;
+    for (const sc of capDef.sub_capabilities) {
+      let combined = 0;
+      for (const entry of entries) {
+        const mod = moduleMap[entry.module_id];
+        const raw = mod?.coverage?.[capId]?.sub_caps?.[sc.id] ?? 'none';
+        const val = LEVEL_VAL[raw] ?? 0;
+        combined = Math.min(1.0, combined + val);
+      }
+      subCapScore[capId + '.' + sc.id] = combined;
+    }
+  });
+
+  // Deep-clone frameworks, annotate each subcategory
+  const fw = JSON.parse(JSON.stringify(FRAMEWORKS.nist_csf));
+  fw.functions.forEach(fn => {
+    fn.categories.forEach(cat => {
+      cat.subcategories.forEach(sub => {
+        const expected = sub.expected_sub_caps || [];
+        if (expected.length === 0) {
+          sub.covClass = 'csc-unmapped';
+          sub.covScore = null;
+          sub.covDetail = [];
+          return;
+        }
+        const scores = expected.map(key => ({ key, score: subCapScore[key] ?? 0 }));
+        const avg = scores.reduce((s, d) => s + d.score, 0) / scores.length;
+        sub.covClass = avg >= 0.75 ? 'csc-full' : avg >= 0.15 ? 'csc-partial' : 'csc-gap';
+        sub.covScore = avg;
+        sub.covDetail = scores;
+      });
+    });
+  });
+  return fw;
+}
+
+function buildCtrlTip(sub) {
+  if (!sub.covDetail || sub.covDetail.length === 0) return 'No taxonomy mapping for this subcategory';
+  const lines = sub.covDetail.map(d => {
+    const pct = Math.round(d.score * 100);
+    const icon = d.score >= 1.0 ? '✓' : d.score > 0 ? '~' : '✗';
+    const [capId, scId] = d.key.split('.');
+    const capName = capMap[capId]?.name || capId;
+    const scName = capMap[capId]?.sub_capabilities?.find(s => s.id === scId)?.name || scId;
+    return `${icon} ${capName}: ${scName} (${pct}%)`;
+  });
+  return lines.join('\n');
+}
+
+function renderControlsTab() {
+  const grid = document.getElementById('ctrlGrid');
+  const summary = document.getElementById('ctrlSummary');
+  if (!FRAMEWORKS) {
+    grid.innerHTML = '<div style="color:#555;padding:20px;text-align:center;grid-column:1/-1">Framework data not available.</div>';
+    return;
+  }
+  const fw = projectControls();
+  // Tally coverage
+  let full = 0, partial = 0, gap = 0, unmapped = 0;
+  fw.functions.forEach(fn => fn.categories.forEach(cat => cat.subcategories.forEach(sub => {
+    if (sub.covClass === 'csc-full') full++;
+    else if (sub.covClass === 'csc-partial') partial++;
+    else if (sub.covClass === 'csc-gap') gap++;
+    else unmapped++;
+  })));
+  const total = full + partial + gap + unmapped;
+
+  summary.innerHTML = `
+    <div class="ctrl-summary-stat"><span class="ctrl-summary-num" style="color:#6acc6a">${full}</span><span class="ctrl-summary-lbl">Covered</span></div>
+    <div class="ctrl-summary-stat"><span class="ctrl-summary-num" style="color:#c9a84c">${partial}</span><span class="ctrl-summary-lbl">Partial</span></div>
+    <div class="ctrl-summary-stat"><span class="ctrl-summary-num" style="color:#cc5a5a">${gap}</span><span class="ctrl-summary-lbl">Gaps</span></div>
+    <div class="ctrl-summary-stat"><span class="ctrl-summary-num" style="color:#444">${unmapped}</span><span class="ctrl-summary-lbl">Not Mapped</span></div>
+    <div class="ctrl-summary-stat"><span class="ctrl-summary-num">${total}</span><span class="ctrl-summary-lbl">Subcategories</span></div>`;
+
+  let html = '';
+  fw.functions.forEach(fn => {
+    const col = fn.color || '#888';
+    html += `<div class="ctrl-fn">
+      <div class="ctrl-fn-hdr" style="background:${col}18;border-bottom-color:${col};color:${col}">${fn.id} &mdash; ${fn.name.toUpperCase()}</div>
+      <div class="ctrl-fn-body">`;
+    fn.categories.forEach(cat => {
+      html += `<div>
+        <div class="ctrl-cat-lbl">${cat.name}</div>`;
+      cat.subcategories.forEach(sub => {
+        const tip = buildCtrlTip(sub).replace(/"/g, '&quot;').replace(/\n/g, '&#10;');
+        const pct = sub.covScore != null ? ' ' + Math.round(sub.covScore * 100) + '%' : '';
+        html += `<div class="ctrl-sub-chip ${sub.covClass}" title="${tip}">
+          <span class="ctrl-sub-id">${sub.id}${pct}</span>
+          <span class="ctrl-sub-name">${sub.name}</span>
+        </div>`;
+      });
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  grid.innerHTML = html;
+}
 
 /* ── INIT ── */
 // Tooltip element
