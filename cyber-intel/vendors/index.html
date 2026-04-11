@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendor Profiles — Cyber Intel — The Wang Report</title>
+<meta name="description" content="Alphabetical directory of every vendor profile in the Wang Report cyber intel scorecard. 49 vendors, one detailed profile each.">
+<link rel="canonical" href="https://wangreport.com/cyber-intel/vendors/">
+<meta name="robots" content="index, follow">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:#0d0d14;color:#ccc;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.5}
+body{background:#0d0d14;min-height:100vh}
+a{color:#c9a84c;text-decoration:none}
+a:hover{text-decoration:underline}
+
+.nav-bar{text-align:center;padding:10px 12px;background:#111;border-bottom:1px solid #333;font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;letter-spacing:1px}
+.nav-bar a{color:#888;margin:0 6px}
+.nav-bar a:hover,.nav-bar a.nav-active{color:#c9a84c}
+
+.wrap{max-width:1200px;margin:0 auto;padding:16px 18px 48px}
+
+.breadcrumb{font-family:Impact,'Arial Narrow',sans-serif;font-size:11px;letter-spacing:1px;color:#666;margin-bottom:20px;text-transform:uppercase}
+.breadcrumb a{color:#666}
+.breadcrumb a:hover{color:#c9a84c}
+.breadcrumb .sep{margin:0 6px;color:#333}
+
+/* Masthead */
+.masthead{display:flex;gap:28px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #222}
+.masthead-tile{width:200px;flex-shrink:0}
+.masthead-art{width:200px;height:200px;display:flex;align-items:center;justify-content:center;border-radius:8px;position:relative;border:1px solid #2a2a4a}
+.masthead-art img{max-width:130px;max-height:70px;opacity:.95}
+.masthead-art .mono{font-family:Impact,sans-serif;font-size:80px;letter-spacing:3px;opacity:.9}
+.masthead-serial{margin-top:10px;font-size:10px;color:#444;font-family:Impact,sans-serif;letter-spacing:1px;text-transform:uppercase;text-align:center}
+.masthead-body{flex:1;min-width:0}
+.masthead-body h1{font-family:Impact,'Arial Narrow',sans-serif;font-size:42px;color:#c9a84c;letter-spacing:1px;margin:0 0 4px;text-transform:uppercase;line-height:1.05}
+.masthead-sub{font-family:Georgia,serif;font-style:italic;font-size:12px;color:#9090a0;margin-bottom:18px;text-transform:uppercase;letter-spacing:0.5px}
+.masthead-stats{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.grade-seal-lg{width:96px;height:96px;border-radius:50%;border:3px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:48px;font-weight:bold;flex-shrink:0}
+.grade-A{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
+.grade-B{background:#1a2a3a;border-color:#3a6aaa;color:#6aaaee}
+.grade-C{background:#3a2a0a;border-color:#aa7a1a;color:#eaaa3a}
+.grade-D{background:#3a1a0a;border-color:#aa4a1a;color:#ee7a3a}
+.grade-F{background:#3a0a0a;border-color:#aa1a1a;color:#ee3a3a}
+
+.big-stat{display:flex;flex-direction:column;align-items:flex-start}
+.big-stat .num{font-family:Impact,sans-serif;font-size:36px;color:#c9a84c;line-height:1;letter-spacing:1px}
+.big-stat .lbl{font-family:Impact,sans-serif;font-size:10px;color:#888;letter-spacing:0.5px;text-transform:uppercase;margin-top:4px}
+
+.chip-row{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:Impact,sans-serif;font-size:10px;letter-spacing:1px;padding:4px 10px;border-radius:2px;text-transform:uppercase}
+.chip-kev-active{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
+.chip-kev-clear{background:#1a3a1a;color:#5a9a3a;border:1px solid #3a6a3a}
+.chip-zero{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
+.chip-wr{background:#1a1208;color:#c9a84c;border:1px solid #c9a84c}
+.chip-pack{background:#1a1208;color:#c9a84c;border:1px solid #c9a84c}
+
+/* Section headings */
+.section{margin:32px 0}
+.section h2{font-family:Impact,'Arial Narrow',sans-serif;font-size:22px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid #c9a84c;margin-bottom:18px}
+.section .tagline{font-family:Georgia,serif;font-style:italic;font-size:12px;color:#9090a0;margin-top:-12px;margin-bottom:18px}
+
+/* WR Take */
+.wrtake{background:#1a1208;border:1px solid #c9a84c;border-radius:6px;padding:28px 32px;position:relative}
+.wrtake .prefix{font-size:11px;color:#888;margin-bottom:10px;font-style:italic}
+.wrtake .quote{font-family:Georgia,serif;font-style:italic;font-size:22px;line-height:1.5;color:#e8d48a}
+.wrtake .quote::before{content:'“';font-size:48px;color:#c9a84c;line-height:0;margin-right:4px;vertical-align:-14px}
+.wrtake .byline{margin-top:14px;text-align:right;font-family:Impact,sans-serif;font-size:11px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase}
+
+/* Dimension table */
+.dim-row{display:grid;grid-template-columns:180px 60px 120px 1fr 60px;gap:12px;align-items:center;padding:14px 16px;background:#111118;border:1px solid #2a2a4a;border-radius:4px;margin-bottom:6px}
+.dim-name{font-family:Impact,sans-serif;font-size:13px;color:#c9a84c;text-transform:uppercase;letter-spacing:0.5px}
+.dim-weight{font-size:10px;color:#888}
+.dim-raw{font-family:Impact,sans-serif;font-size:18px;color:#fff;letter-spacing:0.5px}
+.dim-bar-wrap{background:#0d0d14;height:10px;border-radius:2px;overflow:hidden;border:1px solid #2a2a4a}
+.dim-bar{height:100%;border-radius:1px}
+.dim-sub{font-family:Impact,sans-serif;font-size:18px;text-align:right}
+.dim-verdict{grid-column:1 / -1;padding-top:6px;font-family:Georgia,serif;font-style:italic;font-size:12px;color:#9090a0}
+
+.formula{margin-top:14px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:11px;color:#666;padding:8px 12px;background:#0a0a0e;border:1px dashed #222;border-radius:3px;overflow-x:auto;white-space:nowrap}
+
+/* RRR panel */
+.rrr-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rrr-col{background:#111118;border:1px solid #2a2a4a;border-radius:4px;padding:18px}
+.rrr-col .dim{font-family:Impact,sans-serif;font-size:13px;color:#c9a84c;letter-spacing:0.5px;text-transform:uppercase}
+.rrr-col .grade{font-family:Impact,sans-serif;font-size:28px;float:right;line-height:1}
+.rrr-A{color:#8acc5a}
+.rrr-B{color:#6aaaee}
+.rrr-C{color:#eaaa3a}
+.rrr-D{color:#ee7a3a}
+.rrr-F{color:#ee3a3a}
+.rrr-col .explain{margin-top:10px;font-family:Georgia,serif;font-style:italic;font-size:11px;color:#777;line-height:1.5}
+.rrr-col .verdict{margin-top:10px;font-size:12px;color:#aaa;line-height:1.5}
+.rrr-empty{padding:14px 18px;background:#111118;border:1px dashed #2a2a4a;border-radius:4px;font-style:italic;color:#777;font-size:12px}
+
+/* Modules */
+.module-strip{display:grid;grid-template-columns:56px 1fr 60px 120px 120px 60px;gap:12px;align-items:center;background:#111118;border:1px solid #2a2a4a;border-radius:4px;padding:12px 14px;margin-bottom:6px}
+.mod-mono{width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:20px;letter-spacing:1px}
+.mod-name{font-family:Impact,sans-serif;font-size:14px;color:#ddd;letter-spacing:0.5px;text-transform:uppercase}
+.mod-cpe{font-family:'SF Mono',Menlo,monospace;font-size:10px;color:#555;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mod-grade{width:48px;height:48px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:22px;font-weight:bold;justify-self:center}
+.mod-facts{font-size:11px;color:#999;font-family:Georgia,serif}
+.mod-score{font-family:Impact,sans-serif;font-size:24px;text-align:right}
+.pack-commentary{margin-top:10px;font-family:Georgia,serif;font-style:italic;font-size:12px;color:#777}
+
+/* CVE Table */
+.filter-pills{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.filter-pill{font-family:Impact,sans-serif;font-size:11px;letter-spacing:0.5px;padding:4px 10px;border:1px solid #333;background:#1a1a1a;color:#888;border-radius:2px;cursor:pointer;text-transform:uppercase}
+.filter-pill.active{border-color:#c9a84c;color:#c9a84c;background:#1a1808}
+.cve-table{width:100%;border-collapse:collapse;background:#0d0d14}
+.cve-table th{font-family:Impact,sans-serif;font-size:11px;color:#c9a84c;text-transform:uppercase;letter-spacing:0.5px;background:#111118;padding:10px 12px;text-align:left;border-bottom:1px solid #2a2a4a}
+.cve-table td{padding:12px;border-bottom:1px solid #1a1a1a;vertical-align:top}
+.cve-id{font-family:'SF Mono',Menlo,monospace;font-size:12px;white-space:nowrap}
+.sev-pill{display:inline-block;font-family:Impact,sans-serif;font-size:9px;padding:3px 7px;border-radius:2px;color:#fff;letter-spacing:0.5px;text-transform:uppercase}
+.sev-CRITICAL{background:#aa1a1a}
+.sev-HIGH{background:#aa7a1a}
+.sev-MEDIUM{background:#3a6aaa}
+.sev-LOW{background:#555}
+.cve-desc{font-family:Georgia,serif;font-size:13px;color:#ccc;max-width:460px}
+.cve-days{font-family:Impact,sans-serif;font-size:14px;font-weight:bold;text-align:center}
+.cve-badges{white-space:nowrap}
+.badge{display:inline-block;font-family:Impact,sans-serif;font-size:9px;padding:3px 6px;border-radius:2px;margin-right:4px;letter-spacing:0.5px;text-transform:uppercase}
+.badge-kev{background:#3a0a0a;color:#ee3a3a;border:1px solid #aa1a1a}
+.badge-zero{background:#1a1208;color:#c9a84c;border:1px solid #c9a84c}
+.cve-note{padding:12px;background:#0a0a0e;border:1px dashed #2a2a4a;font-family:Georgia,serif;font-style:italic;color:#777;font-size:12px;margin-top:8px}
+.cve-empty{padding:24px;text-align:center;font-family:Georgia,serif;font-style:italic;color:#777;background:#111118;border:1px dashed #2a2a4a;border-radius:4px}
+
+/* Mobile cards for CVE */
+.cve-cards{display:none}
+.cve-card{background:#111118;border:1px solid #2a2a4a;border-radius:4px;padding:12px;margin-bottom:8px}
+.cve-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.cve-card-desc{font-family:Georgia,serif;font-size:13px;color:#ccc;line-height:1.4;margin-bottom:8px}
+.cve-card-meta{display:flex;justify-content:space-between;font-size:11px;color:#888}
+
+/* Sources */
+.sources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.source-link{display:block;padding:14px;background:#1a1a2e;border:1px solid #2a2a4a;border-radius:4px;transition:border-color .15s}
+.source-link:hover{border-color:#c9a84c;text-decoration:none}
+.source-link .title{font-family:Impact,sans-serif;font-size:12px;color:#c9a84c;letter-spacing:0.5px;text-transform:uppercase}
+.source-link .url{font-family:'SF Mono',Menlo,monospace;font-size:10px;color:#555;margin-top:4px;word-break:break-all}
+.disclaimer{margin-top:14px;font-family:Georgia,serif;font-style:italic;font-size:11px;color:#555;line-height:1.5}
+
+/* Related */
+.related-rail{margin-bottom:22px}
+.related-rail h3{font-family:Impact,sans-serif;font-size:14px;color:#c9a84c;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+.related-cards{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px}
+.mini-card{flex-shrink:0;width:160px;background:#111;border:1px solid #2a2a4a;border-radius:6px;overflow:hidden;text-decoration:none!important;color:inherit}
+.mini-card:hover{border-color:#c9a84c}
+.mini-art{height:70px;display:flex;align-items:center;justify-content:center;position:relative}
+.mini-art .mono{font-family:Impact,sans-serif;font-size:40px;opacity:.85}
+.mini-art .seal{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:12px;font-weight:bold}
+.mini-name{padding:6px 8px;background:#fff;color:#111;font-family:Impact,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-score{padding:4px 8px;font-family:Impact,sans-serif;font-size:11px;color:#c9a84c;background:#1a1a2e;border-top:1px solid #2a2a4a;text-align:center;letter-spacing:0.5px}
+
+/* Footer */
+.page-footer{margin-top:48px;padding-top:20px;border-top:1px solid #222;font-family:Georgia,serif;font-size:11px;color:#555;line-height:1.6}
+.page-footer .meta-line{font-size:10px;color:#444;margin-bottom:8px}
+.page-footer a{color:#888}
+.page-footer a:hover{color:#c9a84c}
+
+/* Vendors directory listing */
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.dir-row{display:flex;align-items:center;gap:12px;padding:12px;background:#111118;border:1px solid #2a2a4a;border-radius:4px;text-decoration:none!important;color:inherit}
+.dir-row:hover{border-color:#c9a84c}
+.dir-seal{width:36px;height:36px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:16px;font-weight:bold;flex-shrink:0}
+.dir-name{font-family:Impact,sans-serif;font-size:14px;color:#c9a84c;letter-spacing:0.5px;text-transform:uppercase;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dir-sector{font-size:10px;color:#666;font-family:Georgia,serif;font-style:italic}
+
+/* Methodology page */
+.method-body{max-width:760px}
+.method-body h2{margin-top:28px}
+.method-body h3{font-family:Impact,sans-serif;font-size:15px;color:#c9a84c;letter-spacing:0.5px;text-transform:uppercase;margin:20px 0 8px}
+.method-body p{margin-bottom:12px;line-height:1.7}
+.method-body ul{margin:10px 0 14px 22px}
+.method-body li{margin-bottom:6px;line-height:1.6}
+.method-body code{font-family:'SF Mono',Menlo,monospace;font-size:12px;color:#c9a84c;background:#111118;padding:1px 5px;border-radius:2px}
+.method-body table{width:100%;border-collapse:collapse;margin:14px 0;background:#111118;border:1px solid #2a2a4a}
+.method-body th{background:#1a1a2e;color:#c9a84c;font-family:Impact,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:8px 10px;text-align:left;border-bottom:1px solid #2a2a4a}
+.method-body td{padding:8px 10px;border-bottom:1px solid #1a1a1a;font-size:13px}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .masthead{flex-direction:column;gap:20px}
+  .masthead-tile{width:100%}
+  .masthead-art{width:180px;height:180px;margin:0 auto}
+  .masthead-body h1{font-size:32px}
+  .masthead-stats{gap:16px}
+  .dim-row{grid-template-columns:1fr 50px;grid-auto-flow:row}
+  .dim-name{grid-column:1}
+  .dim-weight{grid-column:2;text-align:right}
+  .dim-raw{grid-column:1 / -1}
+  .dim-bar-wrap{grid-column:1}
+  .dim-sub{grid-column:2}
+  .rrr-wrap{grid-template-columns:1fr}
+  .module-strip{grid-template-columns:48px 1fr 48px;grid-auto-flow:row;gap:8px}
+  .mod-name{grid-column:2}
+  .mod-grade{grid-column:3;grid-row:1/3}
+  .mod-facts,.mod-score{grid-column:1 / -1;text-align:left;font-size:12px}
+  .cve-table{display:none}
+  .cve-cards{display:block}
+  .related-cards{scroll-snap-type:x mandatory}
+  .mini-card{scroll-snap-align:start}
+}
+</style>
+</head>
+<body>
+<nav class="nav-bar">
+<a href="/">MAIN</a> |
+<a href="/geopolitical.html">GEOPOLITICAL</a> |
+<a href="/companies.html">COMPANY WATCH</a> |
+<a href="/hk-local.html">HK LOCAL</a> |
+<a href="/cyber-intel/" class="nav-active">CYBER INTEL</a> |
+<a href="/sports.html">SPORTS</a> |
+<a href="/health.html">HEALTH</a>
+</nav>
+<main class="wrap">
+<nav class="breadcrumb">
+<a href="/cyber-intel/">Cyber Intel</a><span class="sep">›</span><a href="/cyber-intel/">Vendor Scorecard</a><span class="sep">›</span>ALL PROFILES
+</nav>
+<header style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #222">
+  <h1 style="font-family:Impact,sans-serif;font-size:32px;color:#c9a84c;letter-spacing:2px;text-transform:uppercase">Vendor Profiles</h1>
+  <p style="font-style:italic;color:#9090a0;margin-top:4px">49 vendors. One profile per vendor. Alphabetical.</p>
+  <p style="font-size:12px;color:#666;margin-top:6px">Prefer the visual grid? <a href="/cyber-intel/">Return to the scorecard.</a></p>
+</header>
+<div class="dir-grid"><a class="dir-row" href="/cyber-intel/vendors/akamai/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Akamai</div>
+      <div class="dir-sector">Network · Tier 1 · Score 83</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/aws/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Amazon Web Services</div>
+      <div class="dir-sector">Cloud · Tier 1 · Score 87</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/atlassian/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Atlassian</div>
+      <div class="dir-sector">DevOps · Tier 3 · Score 59</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/barracuda/">
+    <div class="dir-seal grade-D">D</div>
+    <div>
+      <div class="dir-name">Barracuda Networks</div>
+      <div class="dir-sector">Email · Tier 3 · Score 38</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/beyondtrust/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">BeyondTrust</div>
+      <div class="dir-sector">Identity · Tier 3 · Score 57</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/vmware/">
+    <div class="dir-seal grade-D">D</div>
+    <div>
+      <div class="dir-name">Broadcom / VMware</div>
+      <div class="dir-sector">Cloud · Tier 1 · Score 42</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/change-healthcare/">
+    <div class="dir-seal grade-F">F</div>
+    <div>
+      <div class="dir-name">Change Healthcare</div>
+      <div class="dir-sector">Healthcare · Tier 2 · Score 18</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/checkpoint/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Check Point</div>
+      <div class="dir-sector">Network · Tier 3 · Score 68</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/cisco/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Cisco</div>
+      <div class="dir-sector">Network · Tier 1 · Score 60</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/citrix/">
+    <div class="dir-seal grade-D">D</div>
+    <div>
+      <div class="dir-name">Citrix</div>
+      <div class="dir-sector">Network · Tier 3 · Score 39</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/cloudflare/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Cloudflare</div>
+      <div class="dir-sector">Network · Tier 1 · Score 91</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/commvault/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Commvault</div>
+      <div class="dir-sector">Backup · Tier 1 · Score 48</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/crowdstrike/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">CrowdStrike</div>
+      <div class="dir-sector">Endpoint · Tier 3 · Score 89</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/cyberark/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">CyberArk</div>
+      <div class="dir-sector">Identity · Tier 3 · Score 82</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/dragos/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Dragos</div>
+      <div class="dir-sector">OT/ICS · Tier 3 · Score 77</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/epic/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Epic Systems</div>
+      <div class="dir-sector">Healthcare · Tier 2 · Score 71</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/fortinet/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Fortinet</div>
+      <div class="dir-sector">Network · Tier 3 · Score 58</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/github/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">GitHub</div>
+      <div class="dir-sector">DevOps · Tier 1 · Score 78</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/google-cloud-security/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Google Cloud Security</div>
+      <div class="dir-sector">SIEM · Tier 1 · Score 85</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/guidewire/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Guidewire</div>
+      <div class="dir-sector">Insurance · Tier 2 · Score 70</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/ivanti/">
+    <div class="dir-seal grade-D">D</div>
+    <div>
+      <div class="dir-name">Ivanti</div>
+      <div class="dir-sector">Endpoint · Tier 3 · Score 34</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/juniper/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Juniper Networks</div>
+      <div class="dir-sector">Network · Tier 1 · Score 61</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/microsoft-azure/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Microsoft Azure</div>
+      <div class="dir-sector">Cloud · Tier 1 · Score 63</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/microsoft-defender/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Microsoft Defender</div>
+      <div class="dir-sector">Endpoint · Tier 1 · Score 72</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/microsoft-entra/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Microsoft Entra ID</div>
+      <div class="dir-sector">Identity · Tier 1 · Score 70</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/netskope/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Netskope</div>
+      <div class="dir-sector">Network · Tier 2 · Score 74</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/okta/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Okta</div>
+      <div class="dir-sector">Identity · Tier 3 · Score 73</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/paloalto/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Palo Alto Networks</div>
+      <div class="dir-sector">Network · Tier 3 · Score 74</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/ping-identity/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Ping Identity</div>
+      <div class="dir-sector">Identity · Tier 1 · Score 68</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/proofpoint/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Proofpoint</div>
+      <div class="dir-sector">Email · Tier 3 · Score 75</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/rapid7/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Rapid7</div>
+      <div class="dir-sector">SIEM · Tier 3 · Score 74</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/sailpoint/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">SailPoint</div>
+      <div class="dir-sector">Identity · Tier 1 · Score 71</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/salesforce/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Salesforce</div>
+      <div class="dir-sector">ERP · Tier 3 · Score 74</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/sap/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">SAP</div>
+      <div class="dir-sector">ERP · Tier 2 · Score 63</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/saviynt/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Saviynt</div>
+      <div class="dir-sector">Identity · Tier 2 · Score 58</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/schneider/">
+    <div class="dir-seal grade-D">D</div>
+    <div>
+      <div class="dir-name">Schneider Electric</div>
+      <div class="dir-sector">OT/ICS · Tier 2 · Score 40</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/sentinelone/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">SentinelOne</div>
+      <div class="dir-sector">Endpoint · Tier 3 · Score 85</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/servicenow/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">ServiceNow</div>
+      <div class="dir-sector">ITSM · Tier 3 · Score 72</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/siemens/">
+    <div class="dir-seal grade-D">D</div>
+    <div>
+      <div class="dir-name">Siemens</div>
+      <div class="dir-sector">OT/ICS · Tier 2 · Score 43</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/solarwinds/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">SolarWinds</div>
+      <div class="dir-sector">SIEM · Tier 3 · Score 56</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/splunk/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Splunk</div>
+      <div class="dir-sector">SIEM · Tier 3 · Score 71</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/swift/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">SWIFT</div>
+      <div class="dir-sector">Payments · Tier 2 · Score 64</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/tenable/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Tenable</div>
+      <div class="dir-sector">SIEM · Tier 3 · Score 82</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/vanta/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Vanta</div>
+      <div class="dir-sector">ITSM · Tier 2 · Score 78</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/veeam/">
+    <div class="dir-seal grade-C">C</div>
+    <div>
+      <div class="dir-name">Veeam</div>
+      <div class="dir-sector">Backup · Tier 3 · Score 55</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/watchtowr/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">WatchTowr</div>
+      <div class="dir-sector">Network · Tier 3 · Score 92</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/wiz/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Wiz</div>
+      <div class="dir-sector">Cloud · Tier 2 · Score 82</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/workday/">
+    <div class="dir-seal grade-A">A</div>
+    <div>
+      <div class="dir-name">Workday</div>
+      <div class="dir-sector">ERP · Tier 3 · Score 80</div>
+    </div>
+  </a>
+<a class="dir-row" href="/cyber-intel/vendors/zscaler/">
+    <div class="dir-seal grade-B">B</div>
+    <div>
+      <div class="dir-name">Zscaler</div>
+      <div class="dir-sector">Network · Tier 3 · Score 76</div>
+    </div>
+  </a></div>
+<footer class="page-footer">
+<div class="meta-line">Last updated: 2026-04-11  ·  Data generated: 2026-04-08  ·  Serial: WR-INDEX</div>
+<p>CVE data provided by the National Vulnerability Database (NVD) at NIST. This product uses the NVD API but is not endorsed or certified by the NVD. CISA KEV catalog data sourced from the Cybersecurity &amp; Infrastructure Security Agency.</p>
+<p style="margin-top:8px"><a href="/cyber-intel/">← Back to Vendor Scorecard</a> · <a href="/cyber-intel/methodology/">Scoring methodology</a> · <a href="/cyber-intel/vendors/">All vendor profiles</a> · <a href="/">The Wang Report</a></p>
+</footer>
+</main>
+</body>
+</html>
