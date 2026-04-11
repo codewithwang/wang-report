@@ -603,7 +603,8 @@ let moduleMap   = {}; // module_id -> module obj
 let capMap      = {}; // cap_id -> cap obj
 let CAT_TIP_INDEX = {}; // capId -> { subCapId -> tooltip info }
 let FRAMEWORKS = null;  // loaded from frameworks.json
-let activeView = 'tools'; // 'tools' | 'controls'
+let OUTCOMES_DATA = null; // loaded from outcomes.json
+let activeView = 'tools'; // 'tools' | 'controls' | 'outcomes'
 
 /* ── PILLAR LOOKUP HELPERS ── */
 function buildPillarLookups() {
@@ -618,14 +619,16 @@ function buildPillarLookups() {
 /* ── DATA LOAD ── */
 async function loadAll() {
   try {
-    const [vr, cr, vcr, pr, fr] = await Promise.all([
+    const [vr, cr, vcr, pr, fr, or_] = await Promise.all([
       fetch('../data/vendors.json').then(r => r.json()),
       fetch('../data/capabilities.json').then(r => r.json()),
       fetch('../data/vendor-capabilities.json').then(r => r.json()),
       fetch('../data/pillars.json').then(r => r.json()).catch(() => null),
       fetch('../data/frameworks.json').then(r => r.json()).catch(() => null),
+      fetch('../data/outcomes.json').then(r => r.json()).catch(() => null),
     ]);
     if (fr) FRAMEWORKS = fr;
+    if (or_) OUTCOMES_DATA = or_;
     DATA.vendors      = vr.vendors || [];
     DATA.capabilities = cr.capabilities || [];
     DATA.modules      = vcr.modules || [];
@@ -1949,44 +1952,53 @@ document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
   });
 });
 
-/* ── CONTROLS VIEW FUNCTIONS ── */
-function projectControls() {
-  if (!FRAMEWORKS) return null;
-  // Build sub-cap coverage index: 'capId.subCapId' → score 0–1
-  const subCapScore = {};
+/* ── SHARED SUB-CAP SCORE INDEX (used by both Controls + Outcomes) ── */
+function buildSubCapIndex() {
+  // Returns: { 'capId.subCapId': { score: 0-1, contributors: [{vendor_id, module_id, level}] } }
+  const idx = {};
   Object.entries(state.stack).forEach(([capId, entries]) => {
     if (!entries || entries.length === 0) return;
     const capDef = capMap[capId];
     if (!capDef || !capDef.sub_capabilities) return;
     for (const sc of capDef.sub_capabilities) {
       let combined = 0;
+      const contributors = [];
       for (const entry of entries) {
         const mod = moduleMap[entry.module_id];
         const raw = mod?.coverage?.[capId]?.sub_caps?.[sc.id] ?? 'none';
         const val = LEVEL_VAL[raw] ?? 0;
-        combined = Math.min(1.0, combined + val);
+        if (val > 0) {
+          combined = Math.min(1.0, combined + val);
+          contributors.push({ vendor_id: entry.vendor_id, module_id: entry.module_id, level: raw });
+        }
       }
-      subCapScore[capId + '.' + sc.id] = combined;
+      idx[capId + '.' + sc.id] = { score: combined, contributors };
     }
   });
+  return idx;
+}
 
-  // Deep-clone frameworks, annotate each subcategory
+/* ── CONTROLS VIEW FUNCTIONS ── */
+function projectControls() {
+  if (!FRAMEWORKS) return null;
+  const subCapIdx = buildSubCapIndex();
+
   const fw = JSON.parse(JSON.stringify(FRAMEWORKS.nist_csf));
   fw.functions.forEach(fn => {
     fn.categories.forEach(cat => {
       cat.subcategories.forEach(sub => {
         const expected = sub.expected_sub_caps || [];
         if (expected.length === 0) {
-          sub.covClass = 'csc-unmapped';
-          sub.covScore = null;
-          sub.covDetail = [];
-          return;
+          sub.covClass = 'csc-unmapped'; sub.covScore = null; sub.covDetail = []; return;
         }
-        const scores = expected.map(key => ({ key, score: subCapScore[key] ?? 0 }));
-        const avg = scores.reduce((s, d) => s + d.score, 0) / scores.length;
+        const detail = expected.map(key => {
+          const c = subCapIdx[key] || { score: 0, contributors: [] };
+          return { key, score: c.score, contributors: c.contributors };
+        });
+        const avg = detail.reduce((s, d) => s + d.score, 0) / detail.length;
         sub.covClass = avg >= 0.75 ? 'csc-full' : avg >= 0.15 ? 'csc-partial' : 'csc-gap';
         sub.covScore = avg;
-        sub.covDetail = scores;
+        sub.covDetail = detail;
       });
     });
   });
@@ -1996,12 +2008,20 @@ function projectControls() {
 function buildCtrlTip(sub) {
   if (!sub.covDetail || sub.covDetail.length === 0) return 'No taxonomy mapping for this subcategory';
   const lines = sub.covDetail.map(d => {
-    const pct = Math.round(d.score * 100);
     const icon = d.score >= 1.0 ? '✓' : d.score > 0 ? '~' : '✗';
     const [capId, scId] = d.key.split('.');
-    const capName = capMap[capId]?.name || capId;
     const scName = capMap[capId]?.sub_capabilities?.find(s => s.id === scId)?.name || scId;
-    return `${icon} ${capName}: ${scName} (${pct}%)`;
+    let vendorStr = '';
+    if (d.contributors && d.contributors.length > 0) {
+      const names = d.contributors.map(c => {
+        const vn = vendorMap[c.vendor_id]?.name || c.vendor_id;
+        const mod = moduleMap[c.module_id];
+        const mn = mod ? mod.module_name : c.module_id;
+        return vn !== mn.split(' ')[0] ? `${vn} (${mn})` : mn;
+      });
+      vendorStr = '\n   → ' + names.join(', ');
+    }
+    return `${icon} ${scName}${vendorStr}`;
   });
   return lines.join('\n');
 }
