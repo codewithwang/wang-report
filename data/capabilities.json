@@ -5,14 +5,29 @@
       "name": "Identity / SSO",
       "description": "Authentication, SSO, directory",
       "criticality": {"startup": 5, "smb": 5, "enterprise": 5},
-      "modes": {"startup": true, "smb": true, "enterprise": true}
+      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "sub_capabilities": [
+        { "id": "sso",       "name": "Single Sign-On",        "weight": 1.5, "required": true  },
+        { "id": "mfa",       "name": "MFA / Passwordless",    "weight": 1.5, "required": true  },
+        { "id": "directory", "name": "Directory / SCIM",      "weight": 1.0, "required": false },
+        { "id": "lifecycle", "name": "Lifecycle Management",  "weight": 0.8, "required": false },
+        { "id": "risk_auth", "name": "Adaptive / Risk Auth",  "weight": 1.0, "required": false }
+      ]
     },
     {
       "id": "endpoint",
       "name": "Endpoint Protection",
       "description": "EDR/EPP for workstations and servers",
       "criticality": {"startup": 5, "smb": 5, "enterprise": 5},
-      "modes": {"startup": true, "smb": true, "enterprise": true}
+      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "sub_capabilities": [
+        { "id": "edr",          "name": "EDR / Threat Detection",    "weight": 1.5, "required": true  },
+        { "id": "epp",          "name": "Prevention / EPP",          "weight": 1.0, "required": true  },
+        { "id": "threat_intel", "name": "Threat Intelligence",       "weight": 0.8, "required": false },
+        { "id": "device_ctrl",  "name": "Device Control",            "weight": 0.6, "required": false },
+        { "id": "server_prot",  "name": "Server / Linux Protection", "weight": 1.0, "required": false },
+        { "id": "response",     "name": "Automated Response",        "weight": 0.8, "required": false }
+      ]
     },
     {
       "id": "email_security",
@@ -61,14 +76,29 @@
       "name": "SIEM / MDR",
       "description": "Threat detection, alert triage, managed response",
       "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
-      "modes": {"startup": false, "smb": true, "enterprise": true}
+      "modes": {"startup": false, "smb": true, "enterprise": true},
+      "sub_capabilities": [
+        { "id": "log_ingest",    "name": "Log Ingestion / SIEM",   "weight": 1.2, "required": true  },
+        { "id": "detection",     "name": "Detection & Correlation", "weight": 1.5, "required": true  },
+        { "id": "soar",          "name": "SOAR / Automation",       "weight": 1.0, "required": false },
+        { "id": "mdr",           "name": "Managed Detection (MDR)", "weight": 1.2, "required": false },
+        { "id": "threat_hunt",   "name": "Threat Hunting",          "weight": 0.8, "required": false },
+        { "id": "compliance_rpt","name": "Compliance Reporting",    "weight": 0.6, "required": false }
+      ]
     },
     {
       "id": "network_firewall",
       "name": "Network Firewall / NGFW",
       "description": "Perimeter defence, IPS/IDS, traffic inspection",
       "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
-      "modes": {"startup": false, "smb": true, "enterprise": true}
+      "modes": {"startup": false, "smb": true, "enterprise": true},
+      "sub_capabilities": [
+        { "id": "ngfw",        "name": "NGFW / Stateful Inspection", "weight": 1.5, "required": true  },
+        { "id": "ips",         "name": "IPS / IDS",                  "weight": 1.2, "required": true  },
+        { "id": "url_filter",  "name": "URL Filtering",              "weight": 0.8, "required": false },
+        { "id": "ssl_inspect", "name": "SSL Inspection",             "weight": 1.0, "required": false },
+        { "id": "segmentation","name": "Microsegmentation",          "weight": 0.7, "required": false }
+      ]
     },
     {
       "id": "cnapp",
@@ -96,7 +126,15 @@
       "name": "SASE / ZTNA",
       "description": "Zero-trust network access, cloud-delivered security service edge",
       "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
-      "modes": {"startup": false, "smb": false, "enterprise": true}
+      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "sub_capabilities": [
+        { "id": "ztna",      "name": "Zero-Trust Network Access", "weight": 1.5, "required": true  },
+        { "id": "swg",       "name": "Secure Web Gateway",        "weight": 1.2, "required": true  },
+        { "id": "casb",      "name": "CASB",                      "weight": 1.0, "required": false },
+        { "id": "fwaas",     "name": "FWaaS",                     "weight": 0.8, "required": false },
+        { "id": "dlp",       "name": "DLP / Data Inspection",     "weight": 0.7, "required": false },
+        { "id": "sd_wan",    "name": "SD-WAN",                    "weight": 0.5, "required": false }
+      ]
     },
     {
       "id": "data_security",

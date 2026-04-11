@@ -40,6 +40,20 @@ a:hover{text-decoration:underline}
 /* SLOT GRID */
 .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:20px}
 
+/* SLOT CELL — wraps the slot header + card stack + add tile */
+.slot-cell{display:flex;flex-direction:column;gap:6px}
+
+/* SLOT HEADER ROW */
+.slot-header{display:flex;align-items:center;justify-content:space-between;padding:0 2px}
+.slot-header-name{font-family:Impact,'Arial Narrow',sans-serif;font-size:11px;color:#888;letter-spacing:0.8px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+
+/* COVERAGE PILL */
+.cov-pill{font-family:Impact,sans-serif;font-size:9px;letter-spacing:0.5px;padding:2px 6px;border-radius:10px;border:1px solid;flex-shrink:0;margin-left:4px;white-space:nowrap}
+.cov-green{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
+.cov-amber{background:#3a2a0a;border-color:#aa7a1a;color:#eaaa3a}
+.cov-red{background:#3a0a0a;border-color:#aa1a1a;color:#ee3a3a}
+.cov-grey{background:#1a1a1a;border-color:#333;color:#666}
+
 /* SLOT CARD — empty */
 .slot-card{width:100%;min-height:220px;border:2px dashed #2a2a4a;border-radius:10px;background:#0e0e18;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;padding:16px;text-align:center;position:relative}
 .slot-card:hover{border-color:#c9a84c44;background:#111120}
@@ -49,8 +63,16 @@ a:hover{text-decoration:underline}
 .slot-fill-label{font-family:Impact,sans-serif;font-size:9px;letter-spacing:1.5px;color:#333;text-transform:uppercase;border:1px dashed #2a2a4a;padding:3px 8px;border-radius:2px}
 .slot-card:hover .slot-fill-label{color:#c9a84c88;border-color:#c9a84c44}
 
+/* ADD TILE */
+.add-tile{width:100%;padding:8px;border:1px dashed #2a2a4a;border-radius:6px;background:#0a0a12;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:border-color .2s,background .2s;font-family:Impact,sans-serif;font-size:9px;letter-spacing:1px;color:#444;text-transform:uppercase}
+.add-tile:hover{border-color:#c9a84c44;color:#c9a84c88;background:#111120}
+.add-tile-icon{font-size:14px;line-height:1;color:#555}
+.add-tile:hover .add-tile-icon{color:#c9a84c88}
+
 /* SLOT CARD — filled (flip card) */
-.slot-scene{width:100%;min-height:220px;perspective:800px;cursor:pointer}
+.slot-scene{width:100%;perspective:800px;cursor:pointer}
+.slot-scene.compact .slot-inner{min-height:180px}
+.slot-scene.compact .slot-face{min-height:180px}
 .slot-inner{width:100%;min-height:220px;position:relative;transform-style:preserve-3d;transition:transform .35s cubic-bezier(.4,0,.2,1)}
 .slot-scene.flipped .slot-inner{transform:rotateY(180deg)}
 .slot-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;overflow:hidden;min-height:220px}
@@ -69,8 +91,11 @@ a:hover{text-decoration:underline}
 /* FRONT FACE PARTS */
 .sf-banner{background:linear-gradient(90deg,#0a1030,#14204a);padding:4px 8px;font-family:Impact,sans-serif;font-size:8px;color:#7a8aaa;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c;flex-shrink:0}
 .sf-art{height:80px;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.slot-scene.compact .sf-art{height:60px}
 .sf-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:44px;letter-spacing:2px;opacity:.85}
+.slot-scene.compact .sf-monogram{font-size:32px}
 .sf-grade-seal{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:18px;font-weight:bold}
+.slot-scene.compact .sf-grade-seal{width:32px;height:32px;font-size:13px}
 .grade-unknown{background:#1a1a1a;border-color:#444;color:#666}
 .grade-A{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
 .grade-B{background:#1a2a3a;border-color:#3a6aaa;color:#6aaaee}
@@ -132,6 +157,13 @@ a:hover{text-decoration:underline}
 .coverage-bar-fill{height:100%;background:linear-gradient(90deg,#2a7a2a,#4aaa4a);border-radius:3px;transition:width .4s}
 .coverage-text{font-size:10px;color:#888;text-align:right}
 
+/* Stack coverage sub-metric */
+.stack-cov-row{display:flex;align-items:center;gap:6px;margin-top:6px}
+.stack-cov-label{font-family:Impact,sans-serif;font-size:8px;color:#666;flex-shrink:0;text-transform:uppercase;letter-spacing:0.5px}
+.stack-cov-bar-bg{flex:1;height:6px;background:#1a1a2a;border-radius:2px;overflow:hidden}
+.stack-cov-bar-fill{height:100%;border-radius:2px;transition:width .4s}
+.stack-cov-val{font-family:Impact,sans-serif;font-size:8px;color:#888;width:32px;text-align:right;flex-shrink:0}
+
 /* Concentration warning */
 .conc-warning{background:#2a0a0a;border:1px solid #5a1a1a;border-radius:3px;padding:6px 8px;font-size:9px;color:#cc5555;line-height:1.4;display:none}
 .conc-warning.show{display:block}
@@ -182,17 +214,32 @@ a:hover{text-decoration:underline}
 .modal-search:focus{border-color:#c9a84c}
 .modal-search::placeholder{color:#444}
 .picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-.picker-card{background:#0e0e18;border:1px solid #2a2a4a;border-radius:6px;padding:12px;cursor:pointer;transition:all .15s}
+.picker-card{background:#0e0e18;border:1px solid #2a2a4a;border-radius:6px;padding:12px;cursor:pointer;transition:all .15s;position:relative}
 .picker-card:hover{border-color:#c9a84c;background:#1a1808}
 .picker-card.wr-featured{border-color:#c9a84c33}
 .picker-card.wr-featured:hover{border-color:#c9a84c}
+.picker-card.in-slot{border-color:#3a6a3a;background:#0e180e}
+.picker-card.in-slot:hover{border-color:#5a9a5a}
 .pc-module-name{font-family:Impact,sans-serif;font-size:12px;color:#ddd;letter-spacing:0.5px;margin-bottom:2px}
 .pc-vendor-name{font-size:9px;color:#888;margin-bottom:4px}
 .pc-sector{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
 .pc-ai-grade{display:inline-block;font-family:Impact,sans-serif;font-size:8px;padding:2px 6px;border-radius:2px;letter-spacing:0.5px}
 .pc-caps{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
 .pc-cap-tag{font-size:7px;color:#7a8aaa;border:1px solid #2a2a4a;padding:1px 4px;border-radius:1px;letter-spacing:0.3px}
+.pc-in-slot-badge{font-family:Impact,sans-serif;font-size:7px;color:#5a9a5a;letter-spacing:0.5px;margin-top:4px}
+.pc-remove-btn{display:inline-block;margin-top:4px;font-family:Impact,sans-serif;font-size:7px;color:#883a3a;letter-spacing:0.5px;cursor:pointer;border:1px solid #3a1a1a;padding:1px 5px;border-radius:2px;background:#1a0808}
+.pc-remove-btn:hover{color:#ee3a3a;border-color:#aa3a3a}
 .modal-empty{text-align:center;padding:40px;color:#555;font-style:italic}
+
+/* SUB-CAP CHIPS in picker */
+.sc-chips{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;padding-top:5px;border-top:1px solid #1a1a2a}
+.sc-chip{font-family:Impact,sans-serif;font-size:7px;padding:1px 5px;border-radius:2px;letter-spacing:0.3px;cursor:default}
+.sc-chip-full{background:#1a3a1a;border:1px solid #3a6a3a;color:#7acc7a}
+.sc-chip-partial{background:#3a2a0a;border:1px solid #7a5a1a;color:#caa060}
+.sc-chip-none{background:#1a1a1a;border:1px solid #333;color:#555}
+
+/* AI disclaimer note in picker footer */
+.modal-ai-note{font-size:8px;color:#444;font-style:italic;margin-top:12px;padding-top:8px;border-top:1px solid #1a1a2a;line-height:1.4;text-align:center}
 
 /* FOOTER */
 .page-footer{text-align:center;padding:20px 12px;border-top:1px solid #222;margin-top:30px;font-size:10px;color:#444}
@@ -276,6 +323,11 @@ a:hover{text-decoration:underline}
         <div class="sp-section-title">COVERAGE</div>
         <div class="coverage-bar-bg"><div class="coverage-bar-fill" id="coverageBar" style="width:0%"></div></div>
         <div class="coverage-text" id="coverageText">0 / 0 slots filled</div>
+        <div class="stack-cov-row" id="stackCovRow" style="display:none">
+          <span class="stack-cov-label">Sub-cap</span>
+          <div class="stack-cov-bar-bg"><div class="stack-cov-bar-fill" id="stackCovBar" style="width:0%"></div></div>
+          <span class="stack-cov-val" id="stackCovVal">0%</span>
+        </div>
         <div class="conc-warning" id="concWarning"></div>
       </div>
       <div class="sp-section">
@@ -298,7 +350,7 @@ a:hover{text-decoration:underline}
   </div>
 
   <div class="page-footer">
-    <div>THE WANG REPORT &middot; Security Stack Assessment &middot; Track B V1</div>
+    <div>THE WANG REPORT &middot; Security Stack Assessment &middot; Track B V2</div>
     <div style="margin-top:4px"><a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a> | <a href="../cyber-intel/index.html">Vendor Scorecard</a></div>
     <div style="margin-top:4px;font-size:9px;color:#555" id="footerMeta"></div>
   </div>
@@ -317,6 +369,7 @@ a:hover{text-decoration:underline}
     <div class="modal-body">
       <input type="text" class="modal-search" id="modalSearch" placeholder="Search vendors or modules..." autocomplete="off">
       <div class="picker-grid" id="pickerGrid"></div>
+      <div class="modal-ai-note" id="modalAiNote" style="display:none">Sub-capability mapping is AI-assisted. Wang Report uses AI insights at scale; accuracy improves with community review.</div>
     </div>
   </div>
 </div>
@@ -326,8 +379,6 @@ a:hover{text-decoration:underline}
 'use strict';
 
 /* ── CONSTANTS ── */
-// LENSES and ACTIVE_PILLARS are built from pillars.json at load time.
-// Fallback values are used if pillars.json fails to load.
 let LENSES = {
   ciso:    { posture:20, resilience:15, ai_era:10, cve_risk:15, name:'CISO' },
   startup: { posture:25, resilience:10, ai_era:10, cve_risk:10, name:'STARTUP' },
@@ -342,6 +393,8 @@ let ACTIVE_PILLARS = [
 ];
 
 const GRADE_NUM = { A:100, B:80, C:60, D:40, F:20 };
+const LEVEL_VAL = { full:1.0, partial:0.5, none:0.0 };
+const MAX_VENDORS_PER_SLOT = 5;
 
 function gradeToNum(g) {
   if (!g || g === 'NA' || g === 'null') return null;
@@ -357,19 +410,21 @@ function numToGrade(n) {
   return 'F';
 }
 
-// PILLAR_COLORS and PILLAR_LABELS derived from ACTIVE_PILLARS at load time (see buildPillarLookups)
 let PILLAR_COLORS = {};
 let PILLAR_LABELS = {};
 
 /* ── STATE ── */
+// state.stack[capId] = [{ vendor_id, module_id }, ...] (array, multi-vendor)
 let state = {
   mode: 'smb',
   lens: 'ciso',
-  stack: {}, // capId -> { vendor_id, module_id }
+  stack: {},
 };
 
 let DATA = { vendors: [], capabilities: [], modules: [] };
-let vendorMap = {}; // vendor_id -> vendor obj
+let vendorMap   = {}; // vendor_id -> vendor obj
+let moduleMap   = {}; // module_id -> module obj
+let capMap      = {}; // cap_id -> cap obj
 
 /* ── PILLAR LOOKUP HELPERS ── */
 function buildPillarLookups() {
@@ -390,13 +445,14 @@ async function loadAll() {
       fetch('../data/vendor-capabilities.json').then(r => r.json()),
       fetch('../data/pillars.json').then(r => r.json()).catch(() => null),
     ]);
-    DATA.vendors = vr.vendors || [];
+    DATA.vendors      = vr.vendors || [];
     DATA.capabilities = cr.capabilities || [];
-    DATA.modules = vcr.modules || [];
-    DATA.meta = vr._meta || {};
+    DATA.modules      = vcr.modules || [];
+    DATA.meta         = vr._meta || {};
     DATA.vendors.forEach(v => { vendorMap[v.id] = v; });
+    DATA.modules.forEach(m => { moduleMap[m.module_id] = m; });
+    DATA.capabilities.forEach(c => { capMap[c.id] = c; });
 
-    // Build ACTIVE_PILLARS and LENSES from pillars.json (fallback to defaults on failure)
     if (pr && Array.isArray(pr.pillars)) {
       ACTIVE_PILLARS = pr.pillars.filter(p => p.enabled);
       const newLenses = {};
@@ -411,13 +467,12 @@ async function loadAll() {
     }
     buildPillarLookups();
 
-    // Update slot counts in UI
     const modeSlots = { startup: 0, smb: 0, enterprise: 0 };
     DATA.capabilities.forEach(c => {
       ['startup','smb','enterprise'].forEach(m => { if (c.modes[m]) modeSlots[m]++; });
     });
     document.getElementById('ml-startup').textContent = modeSlots.startup;
-    document.getElementById('ml-smb').textContent = modeSlots.smb;
+    document.getElementById('ml-smb').textContent     = modeSlots.smb;
     document.getElementById('ml-enterprise').textContent = modeSlots.enterprise;
 
     if (DATA.meta.last_updated) {
@@ -434,8 +489,21 @@ async function loadAll() {
 
 /* ── STATE PERSISTENCE ── */
 function saveState() {
-  try { localStorage.setItem('wr_stack_v1', JSON.stringify(state)); } catch(e){}
+  try { localStorage.setItem('wr_stack_v2', JSON.stringify(state)); } catch(e){}
   updateHashURL();
+}
+
+function migrateV1toV2(v1) {
+  // v1 shape: { mode, lens, stack: { capId: { vendor_id, module_id } } }
+  const v2 = { mode: v1.mode || 'smb', lens: v1.lens || 'ciso', stack: {} };
+  if (v1.stack) {
+    Object.entries(v1.stack).forEach(([capId, slot]) => {
+      if (slot && slot.vendor_id && slot.module_id) {
+        v2.stack[capId] = [{ vendor_id: slot.vendor_id, module_id: slot.module_id }];
+      }
+    });
+  }
+  return v2;
 }
 
 function restoreState() {
@@ -444,13 +512,34 @@ function restoreState() {
     const parsed = parseHash(location.hash.slice(1));
     if (parsed) { state = parsed; applyStateToToggles(); return; }
   }
-  // 2. Try localStorage
+  // 2. Try wr_stack_v2
   try {
-    const saved = localStorage.getItem('wr_stack_v1');
-    if (saved) {
-      const parsed = JSON.parse(saved);
+    const saved2 = localStorage.getItem('wr_stack_v2');
+    if (saved2) {
+      const parsed = JSON.parse(saved2);
       if (parsed && parsed.mode && parsed.lens) {
         state = parsed;
+        // Normalize: ensure all stack entries are arrays
+        Object.keys(state.stack).forEach(cid => {
+          if (!Array.isArray(state.stack[cid])) {
+            const s = state.stack[cid];
+            state.stack[cid] = (s && s.vendor_id) ? [s] : [];
+          }
+        });
+        applyStateToToggles();
+        return;
+      }
+    }
+  } catch(e){}
+  // 3. Migrate wr_stack_v1 if present
+  try {
+    const saved1 = localStorage.getItem('wr_stack_v1');
+    if (saved1) {
+      const parsed = JSON.parse(saved1);
+      if (parsed && parsed.mode) {
+        state = migrateV1toV2(parsed);
+        localStorage.setItem('wr_stack_v2', JSON.stringify(state));
+        localStorage.removeItem('wr_stack_v1');
         applyStateToToggles();
         return;
       }
@@ -458,31 +547,65 @@ function restoreState() {
   } catch(e){}
 }
 
+/* ── HASH URL ENCODING (v2) ──
+   Format: m=smb&l=ciso&s=endpoint:crowdstrike+sentinelone;email_security:proofpoint
+   Slots separated by ;
+   Within a slot: capId:moduleId1+moduleId2+...
+   Backward compat: if s= contains , but no ;, treat as v1 (single vendor, comma-separated slots)
+*/
 function parseHash(hash) {
   try {
     const params = {};
     hash.split('&').forEach(part => {
-      const [k,v] = part.split('=');
-      if (k && v) params[decodeURIComponent(k)] = decodeURIComponent(v);
+      const eq = part.indexOf('=');
+      if (eq > 0) {
+        const k = decodeURIComponent(part.slice(0, eq));
+        const v = decodeURIComponent(part.slice(eq + 1));
+        params[k] = v;
+      }
     });
     const result = { mode: params.m || 'smb', lens: params.l || 'ciso', stack: {} };
     if (params.s) {
-      params.s.split(',').forEach(pair => {
-        const [cap, mid] = pair.split(':');
-        if (cap && mid) {
-          // Find module
-          const mod = DATA.modules.find(m => m.module_id === mid);
-          if (mod) result.stack[cap] = { vendor_id: mod.vendor_id, module_id: mid };
-        }
-      });
+      const s = params.s;
+      // Backward compat: v1 used comma as slot separator with single vendor
+      if (s.includes(',') && !s.includes(';')) {
+        // v1 format: cap:mid,cap:mid
+        s.split(',').forEach(pair => {
+          const [cap, mid] = pair.split(':');
+          if (cap && mid) {
+            const mod = moduleMap[mid];
+            if (mod) result.stack[cap] = [{ vendor_id: mod.vendor_id, module_id: mid }];
+          }
+        });
+      } else {
+        // v2 format: cap:mid1+mid2;cap:mid
+        s.split(';').forEach(slotStr => {
+          const colon = slotStr.indexOf(':');
+          if (colon < 0) return;
+          const cap = slotStr.slice(0, colon);
+          const mids = slotStr.slice(colon + 1).split('+').filter(Boolean);
+          const entries = [];
+          mids.forEach(mid => {
+            const mod = moduleMap[mid];
+            if (mod) entries.push({ vendor_id: mod.vendor_id, module_id: mid });
+          });
+          if (entries.length > 0) result.stack[cap] = entries;
+        });
+      }
     }
     return result;
   } catch(e) { return null; }
 }
 
 function updateHashURL() {
-  const stackPairs = Object.entries(state.stack).map(([cap, slot]) => cap + ':' + slot.module_id).join(',');
-  const hash = 'm=' + state.mode + '&l=' + state.lens + (stackPairs ? '&s=' + stackPairs : '');
+  const stackParts = [];
+  Object.entries(state.stack).forEach(([cap, entries]) => {
+    if (!entries || entries.length === 0) return;
+    const mids = entries.map(e => e.module_id).join('+');
+    stackParts.push(cap + ':' + mids);
+  });
+  const sParam = stackParts.join(';');
+  const hash = 'm=' + state.mode + '&l=' + state.lens + (sParam ? '&s=' + sParam : '');
   history.replaceState(null, '', '#' + hash);
   const shareInput = document.getElementById('shareInput');
   if (shareInput) shareInput.value = location.href;
@@ -495,25 +618,68 @@ function applyStateToToggles() {
   if (lensEl) lensEl.checked = true;
 }
 
+/* ── SLOT HELPERS ── */
+function getSlotEntries(capId) {
+  const s = state.stack[capId];
+  if (!s || !Array.isArray(s)) return [];
+  return s;
+}
+
+function slotIsEmpty(capId) {
+  return getSlotEntries(capId).length === 0;
+}
+
+/* ── SUB-CAP COVERAGE ── */
+function computeSlotCoverage(capId, vendorEntries, capDef) {
+  const subCaps = capDef.sub_capabilities;
+
+  if (!subCaps || subCaps.length === 0) {
+    return { score: vendorEntries.length > 0 ? 1.0 : 0.0, gaps: [], criticalGaps: [], subCapCount: 0 };
+  }
+
+  let weightedCovSum = 0;
+  let weightSum = 0;
+  const gaps = [];
+  const criticalGaps = [];
+
+  for (const sc of subCaps) {
+    let combined = 0;
+    for (const entry of vendorEntries) {
+      const mod = moduleMap[entry.module_id];
+      const level = mod && mod.coverage && mod.coverage[capId] && mod.coverage[capId].sub_caps
+        ? (mod.coverage[capId].sub_caps[sc.id] || 'none')
+        : 'none';
+      combined = Math.min(1.0, combined + (LEVEL_VAL[level] || 0));
+    }
+    const w = sc.weight || 1.0;
+    weightedCovSum += combined * w;
+    weightSum += w;
+
+    if (combined < 1.0) {
+      gaps.push(sc.id);
+      if (sc.required) criticalGaps.push(sc.id);
+    }
+  }
+
+  return {
+    score:        weightSum > 0 ? weightedCovSum / weightSum : 0,
+    gaps,
+    criticalGaps,
+    subCapCount:  subCaps.length,
+  };
+}
+
 /* ── SCORING ENGINE ── */
 const PILLAR_SCORERS = {
-  postureScore(vendor) {
-    return gradeToNum(vendor.grade);
-  },
-  resilienceScore(vendor) {
-    // Uses same posture data for now — will be replaced when blast_radius pipeline lands
-    return gradeToNum(vendor.grade);
-  },
-  aiEraScore(vendor) {
-    return gradeToNum(vendor.ai_era_grade && vendor.ai_era_grade.grade);
-  },
+  postureScore(vendor) { return gradeToNum(vendor.grade); },
+  resilienceScore(vendor) { return gradeToNum(vendor.grade); },
+  aiEraScore(vendor) { return gradeToNum(vendor.ai_era_grade && vendor.ai_era_grade.grade); },
   cveRiskScore(vendor) {
-    const cves = vendor.cves_12m ?? null;
+    const cves     = vendor.cves_12m     ?? null;
     const critical = vendor.critical_count ?? null;
-    const kev = vendor.kev_count ?? null;
-    const zeros = vendor.zero_days ?? null;
-    const mttp = vendor.mttp_days ?? null;
-    // If no CVE data at all, return null
+    const kev      = vendor.kev_count    ?? null;
+    const zeros    = vendor.zero_days    ?? null;
+    const mttp     = vendor.mttp_days    ?? null;
     if (cves === null && critical === null) return null;
     let raw = 100;
     raw -= Math.min(40, (critical || 0) * 8);
@@ -523,12 +689,8 @@ const PILLAR_SCORERS = {
     raw -= Math.min(10, Math.max(0, ((cves || 0) - 20) * 0.3));
     return Math.max(0, Math.min(100, Math.round(raw)));
   },
-  blastRadiusScore(vendor) {
-    return gradeToNum(vendor.blast_radius_grade);
-  },
-  capabilityScore(vendor) {
-    return gradeToNum(vendor.capability_grade);
-  },
+  blastRadiusScore(vendor) { return gradeToNum(vendor.blast_radius_grade); },
+  capabilityScore(vendor)  { return gradeToNum(vendor.capability_grade); },
   regulatoryScore() { return null; },
   geoScore() { return null; },
 };
@@ -546,8 +708,8 @@ function vendorComposite(scores, lens) {
   const lensWeights = LENSES[lens] || LENSES['ciso'];
   let total = 0, weightSum = 0;
   ACTIVE_PILLARS.forEach(p => {
-    const score = scores[p.id];
-    const weight = lensWeights[p.id] ?? 0;
+    const score  = scores[p.id];
+    const weight = lensWeights[p.id] || 0;
     if (score !== null && score !== undefined && weight > 0) {
       total += score * weight;
       weightSum += weight;
@@ -556,63 +718,111 @@ function vendorComposite(scores, lens) {
   return weightSum > 0 ? Math.round(total / weightSum) : null;
 }
 
+// Compute mean pillar scores across multiple vendors in a slot (equal weight per vendor)
+function slotPillarScores(entries) {
+  if (!entries || entries.length === 0) return null;
+  const totals = {};
+  const counts = {};
+  ACTIVE_PILLARS.forEach(p => { totals[p.id] = 0; counts[p.id] = 0; });
+  entries.forEach(entry => {
+    const vendor = vendorMap[entry.vendor_id];
+    if (!vendor) return;
+    const ps = getPillarScores(vendor);
+    ACTIVE_PILLARS.forEach(p => {
+      if (ps[p.id] !== null && ps[p.id] !== undefined) {
+        totals[p.id] += ps[p.id];
+        counts[p.id]++;
+      }
+    });
+  });
+  const avg = {};
+  ACTIVE_PILLARS.forEach(p => {
+    avg[p.id] = counts[p.id] > 0 ? totals[p.id] / counts[p.id] : null;
+  });
+  return avg;
+}
+
 function computeStackScore() {
   const mode = state.mode;
   const lens = state.lens;
   const caps = DATA.capabilities.filter(c => c.modes[mode]);
   const totalSlots = caps.length;
-  const filledSlots = Object.keys(state.stack).filter(cid => {
-    const slot = state.stack[cid];
-    return slot && caps.find(c => c.id === cid);
-  });
-  const filledCount = filledSlots.length;
+  const filledCapIds = caps
+    .map(c => c.id)
+    .filter(cid => !slotIsEmpty(cid));
+  const filledCount = filledCapIds.length;
   const coveragePct = totalSlots > 0 ? filledCount / totalSlots : 0;
 
-  // Per-slot scores
+  // Per-slot scores + sub-cap coverage
   let slotScoreSum = 0;
-  filledSlots.forEach(cid => {
-    const cap = caps.find(c => c.id === cid);
+  let covScoreSum  = 0;
+  let covSlotCount = 0;
+  const slotCoverages = {}; // capId -> coverage result
+
+  filledCapIds.forEach(cid => {
+    const cap     = capMap[cid];
     if (!cap) return;
-    const slot = state.stack[cid];
-    const vendor = vendorMap[slot.vendor_id];
-    if (!vendor) return;
-    const crit = cap.criticality[mode] || 0;
-    const vc = vendorComposite(getPillarScores(vendor), lens);
-    if (vc !== null) {
-      slotScoreSum += vc * (crit / 5);
+    const entries = getSlotEntries(cid);
+    const crit    = cap.criticality[mode] || 0;
+
+    // Slot-level pillar composite (mean across vendors)
+    const ps = slotPillarScores(entries);
+    if (ps) {
+      const vc = vendorComposite(ps, lens);
+      if (vc !== null) slotScoreSum += vc * (crit / 5);
+    }
+
+    // Sub-cap coverage
+    const covResult = computeSlotCoverage(cid, entries, cap);
+    slotCoverages[cid] = covResult;
+    if (cap.sub_capabilities && cap.sub_capabilities.length > 0) {
+      covScoreSum += covResult.score;
+      covSlotCount++;
     }
   });
 
   const base = totalSlots > 0 ? (slotScoreSum / totalSlots) * 100 : 0;
 
-  // Concentration penalty
+  // Concentration penalty: count how many distinct slots a vendor appears in
   const vendorSlotCounts = {};
-  filledSlots.forEach(cid => {
-    const vid = state.stack[cid].vendor_id;
-    vendorSlotCounts[vid] = (vendorSlotCounts[vid] || 0) + 1;
+  filledCapIds.forEach(cid => {
+    const entries = getSlotEntries(cid);
+    const seen = new Set();
+    entries.forEach(e => {
+      if (!seen.has(e.vendor_id)) {
+        seen.add(e.vendor_id);
+        vendorSlotCounts[e.vendor_id] = (vendorSlotCounts[e.vendor_id] || 0) + 1;
+      }
+    });
   });
-  const maxCount = Math.max(0, ...Object.values(vendorSlotCounts));
+  const maxCount = Object.values(vendorSlotCounts).length > 0
+    ? Math.max(...Object.values(vendorSlotCounts)) : 0;
   const concentrationPenalty = maxCount > 2 ? (maxCount - 2) * 15 : 0;
 
   const final = Math.max(0, Math.min(100, base * coveragePct - concentrationPenalty));
 
-  // Per-pillar breakdown (dynamic — driven by ACTIVE_PILLARS)
+  // Per-pillar breakdown
   const pillarTotals = {};
   const pillarCounts = {};
   ACTIVE_PILLARS.forEach(p => { pillarTotals[p.id] = 0; pillarCounts[p.id] = 0; });
-  filledSlots.forEach(cid => {
-    const slot = state.stack[cid];
-    const vendor = vendorMap[slot.vendor_id];
-    if (!vendor) return;
-    const ps = getPillarScores(vendor);
+  filledCapIds.forEach(cid => {
+    const entries = getSlotEntries(cid);
+    const ps = slotPillarScores(entries);
+    if (!ps) return;
     ACTIVE_PILLARS.forEach(p => {
-      if (ps[p.id] !== null && ps[p.id] !== undefined) { pillarTotals[p.id] += ps[p.id]; pillarCounts[p.id]++; }
+      if (ps[p.id] !== null && ps[p.id] !== undefined) {
+        pillarTotals[p.id] += ps[p.id];
+        pillarCounts[p.id]++;
+      }
     });
   });
   const pillarAvgs = {};
   ACTIVE_PILLARS.forEach(p => {
     pillarAvgs[p.id] = pillarCounts[p.id] > 0 ? pillarTotals[p.id] / pillarCounts[p.id] : null;
   });
+
+  // Weighted average sub-cap coverage across slots that have sub-cap data
+  const stackSubCapCoverage = covSlotCount > 0 ? covScoreSum / covSlotCount : null;
 
   return {
     score: Math.round(final),
@@ -624,16 +834,48 @@ function computeStackScore() {
     maxCount,
     concentrationPenalty,
     pillarAvgs,
+    slotCoverages,
+    stackSubCapCoverage,
   };
 }
 
-/* ── RENDER PILLAR BAR ── */
-function pillarBarHTML(score, pillar) {
-  if (score === null) return '<span class="pillar-grade-pill pill-NA">NA</span>';
-  const g = numToGrade(score);
-  const pct = score + '%';
-  const color = PILLAR_COLORS[pillar] || '#555';
-  return '<span class="pillar-grade-pill pill-' + g + '">' + g + '</span>';
+/* ── COVERAGE PILL HELPERS ── */
+function covPillClass(score) {
+  if (score >= 0.8) return 'cov-green';
+  if (score >= 0.5) return 'cov-amber';
+  return 'cov-red';
+}
+
+function covPillHTML(capId) {
+  const cap = capMap[capId];
+  if (!cap) return '';
+  const subCaps = cap.sub_capabilities;
+  const entries = getSlotEntries(capId);
+
+  if (!subCaps || subCaps.length === 0) {
+    // No sub-cap data — show ? indicator
+    return '<span class="cov-pill cov-grey">?</span>';
+  }
+  if (entries.length === 0) {
+    return '<span class="cov-pill cov-grey">0/' + subCaps.length + '</span>';
+  }
+
+  // Count how many sub-caps are fully covered (combined >= 1.0)
+  let covCount = 0;
+  subCaps.forEach(sc => {
+    let combined = 0;
+    entries.forEach(entry => {
+      const mod   = moduleMap[entry.module_id];
+      const level = mod && mod.coverage && mod.coverage[capId] && mod.coverage[capId].sub_caps
+        ? (mod.coverage[capId].sub_caps[sc.id] || 'none') : 'none';
+      combined = Math.min(1.0, combined + (LEVEL_VAL[level] || 0));
+    });
+    if (combined >= 1.0) covCount++;
+  });
+
+  const score = subCaps.length > 0 ? covCount / subCaps.length : 0;
+  const cls   = covPillClass(score);
+  return '<span class="cov-pill ' + cls + '">' + covCount + '/' + subCaps.length + '</span>';
 }
 
 /* ── RENDER SLOT GRID ── */
@@ -655,15 +897,45 @@ function renderSlotGrid() {
   grid.innerHTML = '';
 
   const modeLabel = {startup:'Startup (7 slots)',smb:'SMB (10 slots)',enterprise:'Enterprise (14 slots)'}[state.mode];
-  document.getElementById('modeInfo').textContent = modeLabel + ' · Click an empty slot to fill it · Click a filled card to see details or remove';
+  document.getElementById('modeInfo').textContent = modeLabel + ' · Click empty slot to fill · Multiple vendors per slot supported';
 
   caps.forEach(cap => {
-    const filled = state.stack[cap.id];
-    if (filled) {
-      grid.appendChild(renderFilledSlot(cap, filled));
+    const cell = document.createElement('div');
+    cell.className = 'slot-cell';
+
+    const entries = getSlotEntries(cap.id);
+    const hasEntries = entries.length > 0;
+
+    // Header row (always shown when there are entries)
+    if (hasEntries) {
+      const header = document.createElement('div');
+      header.className = 'slot-header';
+      header.innerHTML =
+        '<span class="slot-header-name">' + esc(cap.name) + '</span>' +
+        covPillHTML(cap.id);
+      cell.appendChild(header);
+
+      // Render each vendor as a flip card (compact if >1)
+      const compact = entries.length > 1;
+      entries.forEach((entry, idx) => {
+        const scene = renderFilledCard(cap, entry, compact, idx);
+        cell.appendChild(scene);
+      });
     } else {
-      grid.appendChild(renderEmptySlot(cap));
+      // Empty slot — single big card
+      cell.appendChild(renderEmptySlot(cap));
     }
+
+    // "+Add" tile (shown when slot has vendors but under limit)
+    if (hasEntries && entries.length < MAX_VENDORS_PER_SLOT) {
+      const addTile = document.createElement('div');
+      addTile.className = 'add-tile';
+      addTile.innerHTML = '<span class="add-tile-icon">+</span><span>ADD VENDOR</span>';
+      addTile.addEventListener('click', () => openPicker(cap));
+      cell.appendChild(addTile);
+    }
+
+    grid.appendChild(cell);
   });
 }
 
@@ -678,7 +950,8 @@ function critBar(crit) {
 function renderEmptySlot(cap) {
   const div = document.createElement('div');
   div.className = 'slot-card';
-  div.innerHTML = '<div class="slot-cap-name">' + esc(cap.name) + '</div>' +
+  div.innerHTML =
+    '<div class="slot-cap-name">' + esc(cap.name) + '</div>' +
     '<div class="slot-cap-desc">' + esc(cap.description) + '</div>' +
     '<div class="slot-crit">' + critBar(cap.criticality[state.mode]) + '</div>' +
     '<div class="slot-fill-label">CLICK TO FILL</div>';
@@ -686,21 +959,20 @@ function renderEmptySlot(cap) {
   return div;
 }
 
-function renderFilledSlot(cap, slotData) {
-  const vendor = vendorMap[slotData.vendor_id];
-  const mod = DATA.modules.find(m => m.module_id === slotData.module_id);
-  if (!vendor || !mod) return renderEmptySlot(cap);
+function renderFilledCard(cap, entry, compact, entryIdx) {
+  const vendor = vendorMap[entry.vendor_id];
+  const mod    = moduleMap[entry.module_id];
+  if (!vendor || !mod) return document.createElement('div'); // defensive
 
   const pillarScores = getPillarScores(vendor);
-  const featured = vendor.wr_featured;
-  const overallGrade = vendor.grade || 'NA';
-  const aiEraData = vendor.ai_era_grade;
-  const aiGradeLetter = aiEraData && aiEraData.grade ? aiEraData.grade : null;
+  const featured     = vendor.wr_featured;
+  const aiEraData    = vendor.ai_era_grade;
+  const aiGradeLetter  = aiEraData && aiEraData.grade ? aiEraData.grade : null;
   const aiGradeSealClass = aiGradeLetter ? 'grade-' + aiGradeLetter : 'grade-unknown';
   const aiGradeSealLabel = aiGradeLetter || '?';
 
   const scene = document.createElement('div');
-  scene.className = 'slot-scene';
+  scene.className = 'slot-scene' + (compact ? ' compact' : '');
 
   const inner = document.createElement('div');
   inner.className = 'slot-inner';
@@ -720,7 +992,7 @@ function renderFilledSlot(cap, slotData) {
       '<div class="sf-vsector">' + esc(vendor.name) + ' &middot; ' + esc(vendor.sector || '') + '</div>' +
       '<div class="sf-slotlabel">' + esc(cap.name) + '</div>' +
     '</div>' +
-    (featured && vendor.wr_take ? '<div class="sf-take">' + esc(vendor.wr_take) + '</div>' : '') +
+    (!compact && featured && vendor.wr_take ? '<div class="sf-take">' + esc(vendor.wr_take) + '</div>' : '') +
     (featured ? '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>' : '');
 
   // BACK
@@ -738,34 +1010,36 @@ function renderFilledSlot(cap, slotData) {
   }).join('');
 
   const aiSubScoreDefs = [
-    {key:'autonomy',   label:'Autonomous Ops'},
-    {key:'velocity',   label:'Deployment Speed'},
-    {key:'surface',    label:'Attack Surface'},
-    {key:'own_ai',     label:'Own AI Risk'},
-    {key:'adversarial',label:'Adversarial Prep'}
+    {key:'autonomy',    label:'Autonomous Ops'},
+    {key:'velocity',    label:'Deployment Speed'},
+    {key:'surface',     label:'Attack Surface'},
+    {key:'own_ai',      label:'Own AI Risk'},
+    {key:'adversarial', label:'Adversarial Prep'}
   ];
   const aiSubs = aiEraData && aiEraData.sub_scores ? aiEraData.sub_scores : {};
   const aiSubHTML = aiSubScoreDefs.map(def => {
-    const raw = aiSubs[def.key];
+    const raw  = aiSubs[def.key];
     const isNA = raw === 'NA' || raw === undefined || raw === null;
-    const val = isNA ? 0 : Number(raw);
-    const pct = isNA ? 0 : Math.round((val / 20) * 100);
-    const display = isNA ? 'N/A' : String(val);
+    const val  = isNA ? 0 : Number(raw);
+    const pct  = isNA ? 0 : Math.round((val / 20) * 100);
     return '<div class="ai-sub-row">' +
       '<div class="ai-sub-label">' + def.label + '</div>' +
       '<div class="ai-sub-bar-bg"><div class="ai-sub-bar-fill" style="width:' + pct + '%"></div></div>' +
-      '<div class="ai-sub-val">' + display + '</div>' +
+      '<div class="ai-sub-val">' + (isNA ? 'N/A' : String(val)) + '</div>' +
     '</div>';
   }).join('');
 
   back.innerHTML =
-    '<div class="sb-title"><div class="sb-title-name">' + esc(mod.module_name) + '</div><div class="sb-title-slot">Slot: ' + esc(cap.name) + '</div></div>' +
+    '<div class="sb-title">' +
+      '<div class="sb-title-name">' + esc(mod.module_name) + '</div>' +
+      '<div class="sb-title-slot">Slot: ' + esc(cap.name) + '</div>' +
+    '</div>' +
     '<div class="sb-pillars">' + pillarsHTML + '</div>' +
     '<div class="sb-ai-detail">' +
       '<div class="sb-ai-toggle">&#9662; AI-Era Detail</div>' +
       '<div class="sb-ai-rows">' + aiSubHTML + '</div>' +
     '</div>' +
-    '<div class="sb-remove" data-cap="' + esc(cap.id) + '">REMOVE FROM STACK</div>';
+    '<div class="sb-remove" data-cap="' + esc(cap.id) + '" data-idx="' + entryIdx + '">REMOVE FROM STACK</div>';
 
   back.querySelector('.sb-ai-toggle').addEventListener('click', (e) => {
     e.stopPropagation();
@@ -774,7 +1048,15 @@ function renderFilledSlot(cap, slotData) {
 
   back.querySelector('.sb-remove').addEventListener('click', (e) => {
     e.stopPropagation();
-    delete state.stack[cap.id];
+    const idx = parseInt(e.currentTarget.dataset.idx, 10);
+    const cid = e.currentTarget.dataset.cap;
+    const arr = getSlotEntries(cid);
+    arr.splice(idx, 1);
+    if (arr.length === 0) {
+      delete state.stack[cid];
+    } else {
+      state.stack[cid] = arr;
+    }
     render();
   });
 
@@ -790,9 +1072,8 @@ function renderFilledSlot(cap, slotData) {
 }
 
 function monogramColor(vendor) {
-  const grade = vendor.grade;
   const colors = {A:'#8acc5a',B:'#6aaaee',C:'#eaaa3a',D:'#ee7a3a',F:'#ee3a3a'};
-  return colors[grade] || '#aaa';
+  return colors[vendor.grade] || '#aaa';
 }
 
 /* ── SCORE PANEL ── */
@@ -807,14 +1088,27 @@ function renderScorePanel() {
   } else {
     spScore.textContent = result.score;
     spGrade.textContent = result.grade;
-    spGrade.className = 'sp-grade-letter grade-' + result.grade;
+    spGrade.className   = 'sp-grade-letter grade-' + result.grade;
     spGrade.style.display = '';
   }
 
-  // Coverage bar
   const pct = Math.round(result.coveragePct * 100);
   document.getElementById('coverageBar').style.width = pct + '%';
-  document.getElementById('coverageText').textContent = result.filledCount + ' / ' + result.totalSlots + ' slots filled (' + pct + '%)';
+  document.getElementById('coverageText').textContent =
+    result.filledCount + ' / ' + result.totalSlots + ' slots filled (' + pct + '%)';
+
+  // Stack sub-cap coverage metric
+  const covRow = document.getElementById('stackCovRow');
+  if (result.stackSubCapCoverage !== null && result.filledCount > 0) {
+    const covPct = Math.round(result.stackSubCapCoverage * 100);
+    const fillColor = covPct >= 80 ? '#4aaa4a' : covPct >= 50 ? '#aa7a1a' : '#aa3a3a';
+    document.getElementById('stackCovBar').style.width  = covPct + '%';
+    document.getElementById('stackCovBar').style.background = fillColor;
+    document.getElementById('stackCovVal').textContent  = covPct + '%';
+    covRow.style.display = '';
+  } else {
+    covRow.style.display = 'none';
+  }
 
   // Concentration warning
   const warn = document.getElementById('concWarning');
@@ -827,10 +1121,10 @@ function renderScorePanel() {
     warn.classList.remove('show');
   }
 
-  // Pillar breakdown (dynamic — driven by ACTIVE_PILLARS)
+  // Pillar breakdown
   const pb = document.getElementById('pillarBreakdown');
   pb.innerHTML = ACTIVE_PILLARS.map(p => {
-    const v = result.pillarAvgs[p.id];
+    const v   = result.pillarAvgs[p.id];
     const pct = v !== null && v !== undefined ? Math.round(v) : 0;
     const label = v !== null && v !== undefined ? numToGrade(v) : 'NA';
     return '<div class="pillar-breakdown-row">' +
@@ -840,10 +1134,8 @@ function renderScorePanel() {
     '</div>';
   }).join('');
 
-  // Radar chart
   renderRadar(result);
 
-  // Share URL
   const shareInput = document.getElementById('shareInput');
   if (shareInput) shareInput.value = location.href;
 }
@@ -852,10 +1144,9 @@ function renderScorePanel() {
 function renderRadar(result) {
   const wrap = document.getElementById('radarWrap');
   const W = 240, H = 220, cx = 120, cy = 110, R = 85;
-  // Build axes dynamically from ACTIVE_PILLARS + Coverage axis
   const axes = ACTIVE_PILLARS.map(p => ({
     label: p.label,
-    val: result.pillarAvgs[p.id] !== undefined ? result.pillarAvgs[p.id] : null,
+    val:   result.pillarAvgs[p.id] !== undefined ? result.pillarAvgs[p.id] : null,
     color: p.color,
   }));
   axes.push({ label: 'Coverage', val: result.coveragePct !== null ? result.coveragePct * 100 : null, color: '#c9a84c' });
@@ -868,7 +1159,6 @@ function renderRadar(result) {
     return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
   }
 
-  // Grid lines
   let gridLines = '';
   [0.2,0.4,0.6,0.8,1.0].forEach(frac => {
     const pts = [];
@@ -876,31 +1166,28 @@ function renderRadar(result) {
     gridLines += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="#2a2a4a" stroke-width="0.8"/>';
   });
 
-  // Axis lines
   let axisLines = '';
   for (let i = 0; i < n; i++) {
     const p = polarPt(i, R);
     axisLines += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '" stroke="#2a2a4a" stroke-width="0.8"/>';
   }
 
-  // Data polygon
   const dataPoints = axes.map((ax, i) => {
     const v = ax.val !== null ? Math.min(100, Math.max(0, ax.val)) : 0;
     return polarPt(i, R * (v / 100));
   });
   const polyPts = dataPoints.map(p => p.x + ',' + p.y).join(' ');
 
-  // Labels
   let labels = '';
   axes.forEach((ax, i) => {
     const p = polarPt(i, R + 16);
     const anchor = p.x < cx - 2 ? 'end' : p.x > cx + 2 ? 'start' : 'middle';
     const valStr = ax.val !== null ? Math.round(ax.val) + '' : 'NA';
-    labels += '<text x="' + p.x + '" y="' + (p.y + 3) + '" text-anchor="' + anchor + '" font-family="Impact,sans-serif" font-size="7.5" fill="#888" letter-spacing="0.5">' +
+    labels += '<text x="' + p.x + '" y="' + (p.y + 3) + '" text-anchor="' + anchor +
+      '" font-family="Impact,sans-serif" font-size="7.5" fill="#888" letter-spacing="0.5">' +
       ax.label.toUpperCase() + ' ' + valStr + '</text>';
   });
 
-  // Dots on polygon vertices
   let dots = '';
   dataPoints.forEach(p => {
     dots += '<circle cx="' + p.x + '" cy="' + p.y + '" r="2.5" fill="#c9a84c" opacity="0.8"/>';
@@ -909,8 +1196,7 @@ function renderRadar(result) {
   wrap.innerHTML = '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' +
     gridLines + axisLines +
     '<polygon points="' + polyPts + '" fill="rgba(201,168,76,0.18)" stroke="#c9a84c" stroke-width="1.5"/>' +
-    dots + labels +
-    '</svg>';
+    dots + labels + '</svg>';
 }
 
 /* ── RECOMMENDATIONS ── */
@@ -920,38 +1206,40 @@ function renderRecommendations() {
   const caps = getActiveCaps();
   const body = document.getElementById('recoBody');
 
-  // Find top 3 empty slots by criticality
-  const emptyCaps = caps.filter(c => !state.stack[c.id])
+  const emptyCaps = caps
+    .filter(c => slotIsEmpty(c.id))
     .sort((a,b) => (b.criticality[mode] || 0) - (a.criticality[mode] || 0))
     .slice(0, 3);
 
-  // Find filled vendors with D/F on Resilience or Blast Radius
   const reviewItems = [];
   caps.forEach(cap => {
-    const slot = state.stack[cap.id];
-    if (!slot) return;
-    const vendor = vendorMap[slot.vendor_id];
-    if (!vendor) return;
-    const ps = getPillarScores(vendor);
-    const resG = ps.resilience !== null ? numToGrade(ps.resilience) : 'NA';
-    if (resG === 'D' || resG === 'F') {
-      reviewItems.push({ vendor, cap, pillar: 'Resilience', grade: resG });
-    }
+    if (slotIsEmpty(cap.id)) return;
+    const entries = getSlotEntries(cap.id);
+    entries.forEach(entry => {
+      const vendor = vendorMap[entry.vendor_id];
+      if (!vendor) return;
+      const ps  = getPillarScores(vendor);
+      const resG = ps.resilience !== null ? numToGrade(ps.resilience) : 'NA';
+      if (resG === 'D' || resG === 'F') {
+        reviewItems.push({ vendor, cap, pillar: 'Resilience', grade: resG });
+      }
+    });
   });
-
-  let html = '';
 
   if (emptyCaps.length === 0 && reviewItems.length === 0) {
     body.innerHTML = '<div class="reco-empty">Stack is fully covered. Review regularly as grades update.</div>';
     return;
   }
 
+  let html = '';
+
   if (emptyCaps.length > 0) {
     emptyCaps.forEach(cap => {
-      // Get top 2 suggested vendors for this cap
-      const candidates = DATA.modules
+      // Already-selected vendor IDs in this slot
+      const currentVids = new Set(getSlotEntries(cap.id).map(e => e.vendor_id));
+      const candidates  = DATA.modules
         .filter(m => m.capabilities.includes(cap.id) && m.modes[mode])
-        .filter(m => !Object.values(state.stack).some(s => s.vendor_id === m.vendor_id))
+        .filter(m => !currentVids.has(m.vendor_id))
         .map(m => {
           const v = vendorMap[m.vendor_id];
           if (!v) return null;
@@ -962,7 +1250,6 @@ function renderRecommendations() {
         .sort((a,b) => b.score - a.score)
         .slice(0, 2);
 
-      // Find wr_take from a featured vendor in candidates, or first available
       let take = null;
       const featCand = candidates.find(c => c.v.wr_featured && c.v.wr_take);
       if (featCand) take = featCand.v.wr_take;
@@ -993,13 +1280,16 @@ function renderRecommendations() {
 
   body.innerHTML = html;
 
-  // Wire up reco vendor buttons (quick-fill)
   body.querySelectorAll('.reco-vendor-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const capId = btn.dataset.cap;
-      const mid = btn.dataset.mid;
-      const vid = btn.dataset.vid;
-      state.stack[capId] = { vendor_id: vid, module_id: mid };
+      const mid   = btn.dataset.mid;
+      const vid   = btn.dataset.vid;
+      if (!state.stack[capId]) state.stack[capId] = [];
+      // Don't add duplicate module
+      if (!state.stack[capId].find(e => e.module_id === mid)) {
+        state.stack[capId].push({ vendor_id: vid, module_id: mid });
+      }
       render();
     });
   });
@@ -1010,7 +1300,7 @@ let pickerCapId = null;
 
 function openPicker(cap) {
   pickerCapId = cap.id;
-  document.getElementById('modalTitle').textContent = 'SELECT: ' + cap.name.toUpperCase();
+  document.getElementById('modalTitle').textContent    = 'SELECT: ' + cap.name.toUpperCase();
   document.getElementById('modalSubtitle').textContent = cap.description + ' · ' + state.mode.toUpperCase() + ' MODE';
   document.getElementById('modalSearch').value = '';
   renderPickerGrid('');
@@ -1023,13 +1313,38 @@ function closePicker() {
   pickerCapId = null;
 }
 
-function renderPickerGrid(search) {
-  const grid = document.getElementById('pickerGrid');
-  const capId = pickerCapId;
-  const mode = state.mode;
-  const lc = search.toLowerCase();
+function subCapChipsHTML(mod, capId) {
+  const cap     = capMap[capId];
+  if (!cap || !cap.sub_capabilities || cap.sub_capabilities.length === 0) return '';
+  const subCaps = cap.sub_capabilities;
+  const covData = mod && mod.coverage && mod.coverage[capId] && mod.coverage[capId].sub_caps
+    ? mod.coverage[capId].sub_caps : null;
 
-  // Get modules that cover this capability and mode
+  if (!covData) return ''; // module has no coverage data for this cap
+
+  const chips = subCaps.map(sc => {
+    const level = covData[sc.id] || 'none';
+    const cls   = level === 'full' ? 'sc-chip-full' : level === 'partial' ? 'sc-chip-partial' : 'sc-chip-none';
+    return '<span class="sc-chip ' + cls + '" data-ai="true" title="' + esc(sc.name) + ': ' + level + '">' + esc(sc.name) + '</span>';
+  }).join('');
+
+  return '<div class="sc-chips">' + chips + '</div>';
+}
+
+function renderPickerGrid(search) {
+  const grid  = document.getElementById('pickerGrid');
+  const capId = pickerCapId;
+  const mode  = state.mode;
+  const lc    = search.toLowerCase();
+  const cap   = capMap[capId];
+
+  const currentEntries  = getSlotEntries(capId);
+  const currentModuleIds = new Set(currentEntries.map(e => e.module_id));
+  const hasSubCaps = cap && cap.sub_capabilities && cap.sub_capabilities.length > 0;
+
+  // Show AI note if sub-caps exist
+  document.getElementById('modalAiNote').style.display = hasSubCaps ? '' : 'none';
+
   const candidates = DATA.modules.filter(m => {
     if (!m.capabilities.includes(capId)) return false;
     if (!m.modes[mode]) return false;
@@ -1037,15 +1352,18 @@ function renderPickerGrid(search) {
       const v = vendorMap[m.vendor_id];
       return m.module_name.toLowerCase().includes(lc) ||
         (v && v.name.toLowerCase().includes(lc)) ||
-        (v && (v.sector||'').toLowerCase().includes(lc));
+        (v && (v.sector || '').toLowerCase().includes(lc));
     }
     return true;
   }).sort((a,b) => {
+    // Already-in-slot modules: sorted to bottom
+    const aIn = currentModuleIds.has(a.module_id) ? 1 : 0;
+    const bIn = currentModuleIds.has(b.module_id) ? 1 : 0;
+    if (aIn !== bIn) return aIn - bIn;
     const va = vendorMap[a.vendor_id];
     const vb = vendorMap[b.vendor_id];
-    // Featured first, then by lens composite
-    const featA = (va && va.wr_featured) ? 1 : 0;
-    const featB = (vb && vb.wr_featured) ? 1 : 0;
+    const featA = va && va.wr_featured ? 1 : 0;
+    const featB = vb && vb.wr_featured ? 1 : 0;
     if (featA !== featB) return featB - featA;
     const sa = va ? (vendorComposite(getPillarScores(va), state.lens) || 0) : 0;
     const sb = vb ? (vendorComposite(getPillarScores(vb), state.lens) || 0) : 0;
@@ -1058,13 +1376,19 @@ function renderPickerGrid(search) {
   }
 
   grid.innerHTML = candidates.map(m => {
-    const v = vendorMap[m.vendor_id];
+    const v      = vendorMap[m.vendor_id];
     if (!v) return '';
-    const aiGrade = v.ai_era_grade && v.ai_era_grade.grade || 'NA';
-    const aiClass = 'pill-' + aiGrade;
+    const inSlot    = currentModuleIds.has(m.module_id);
+    const aiGrade   = v.ai_era_grade && v.ai_era_grade.grade || 'NA';
+    const aiClass   = 'pill-' + aiGrade;
     const overallGrade = v.grade || 'NA';
-    const caps = m.capabilities.filter(Boolean);
-    return '<div class="picker-card' + (v.wr_featured ? ' wr-featured' : '') + '" data-mid="' + esc(m.module_id) + '" data-vid="' + esc(v.id) + '">' +
+    const caps      = m.capabilities.filter(Boolean);
+    const chipsHTML = subCapChipsHTML(m, capId);
+
+    return '<div class="picker-card' +
+      (v.wr_featured ? ' wr-featured' : '') +
+      (inSlot ? ' in-slot' : '') + '"' +
+      ' data-mid="' + esc(m.module_id) + '" data-vid="' + esc(v.id) + '" data-in-slot="' + (inSlot ? '1' : '0') + '">' +
       '<div class="pc-module-name">' + esc(m.module_name) + '</div>' +
       '<div class="pc-vendor-name">' + esc(v.name) + '</div>' +
       '<div class="pc-sector">' + esc(v.sector || '') + ' &middot; ' + esc(v.market_position || '') + '</div>' +
@@ -1073,19 +1397,53 @@ function renderPickerGrid(search) {
         '<span class="pc-ai-grade ' + aiClass + '" title="AI-Era grade">AI ' + aiGrade + '</span>' +
       '</div>' +
       '<div class="pc-caps">' + caps.map(c => '<span class="pc-cap-tag">' + esc(c) + '</span>').join('') + '</div>' +
+      chipsHTML +
+      (inSlot ? '<div class="pc-in-slot-badge">&#10003; IN STACK</div>' +
+                '<span class="pc-remove-btn" data-mid="' + esc(m.module_id) + '">REMOVE</span>' : '') +
     '</div>';
   }).join('');
 
-  // Wire click
+  // Wire click: add or remove
   grid.querySelectorAll('.picker-card').forEach(card => {
-    card.addEventListener('click', () => {
+    const inSlot = card.dataset.inSlot === '1';
+
+    // Remove button (only on in-slot cards)
+    const removeBtn = card.querySelector('.pc-remove-btn');
+    if (removeBtn) {
+      removeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const mid = removeBtn.dataset.mid;
+        if (pickerCapId) {
+          const arr = getSlotEntries(pickerCapId);
+          const idx = arr.findIndex(en => en.module_id === mid);
+          if (idx >= 0) arr.splice(idx, 1);
+          if (arr.length === 0) {
+            delete state.stack[pickerCapId];
+          } else {
+            state.stack[pickerCapId] = arr;
+          }
+          render();
+          renderPickerGrid(document.getElementById('modalSearch').value.trim());
+        }
+      });
+    }
+
+    card.addEventListener('click', (e) => {
+      if (e.target.classList.contains('pc-remove-btn')) return; // handled above
+      if (inSlot) return; // clicking an in-slot card does nothing (use remove btn)
       const mid = card.dataset.mid;
       const vid = card.dataset.vid;
       if (pickerCapId) {
-        state.stack[pickerCapId] = { vendor_id: vid, module_id: mid };
-        render();
+        if (!state.stack[pickerCapId]) state.stack[pickerCapId] = [];
+        // Don't add duplicate
+        if (!state.stack[pickerCapId].find(en => en.module_id === mid)) {
+          if (state.stack[pickerCapId].length < MAX_VENDORS_PER_SLOT) {
+            state.stack[pickerCapId].push({ vendor_id: vid, module_id: mid });
+            render();
+            renderPickerGrid(document.getElementById('modalSearch').value.trim());
+          }
+        }
       }
-      closePicker();
     });
   });
 }
@@ -1105,7 +1463,6 @@ function esc(s) {
 document.querySelectorAll('input[name=mode]').forEach(el => {
   el.addEventListener('change', () => {
     state.mode = el.value;
-    // Clear slots that are not valid for the new mode
     const newCaps = DATA.capabilities.filter(c => c.modes[state.mode]);
     const validCapIds = new Set(newCaps.map(c => c.id));
     Object.keys(state.stack).forEach(cid => {
