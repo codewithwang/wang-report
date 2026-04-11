@@ -5,7 +5,7 @@
     "source_note": "Seeded from NVD, CISA KEV, and vendor advisories through mid-2025. Validate against live feeds before publishing.",
     "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
     "kev_feed": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-    "schema_version": "1.1",
+    "schema_version": "1.2",
     "total_vendors": 49
   },
   "vendors": [
@@ -24,7 +24,7 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": true,
-      "wr_take": "Best patch velocity in endpoint. July 2024 was an ops failure not a breach \u2014 but 8.5M machines proved dangerous concentration.",
+      "wr_take": "Best patch velocity in endpoint. July 2024 was an ops failure not a breach — but 8.5M machines proved dangerous concentration.",
       "rrr_react": "A",
       "rrr_respond": "B",
       "rrr_resilient": "B",
@@ -49,7 +49,7 @@
         {
           "id": "CVE-2024-7703",
           "severity": "MEDIUM",
-          "description": "Falcon Data Replicator S3 path traversal \u2014 read-only adjacent tenant data",
+          "description": "Falcon Data Replicator S3 path traversal — read-only adjacent tenant data",
           "days_to_patch": 11,
           "kev": false,
           "zero_day": false
@@ -98,7 +98,42 @@
           "cpe_prefix": "cpe:2.3:a:crowdstrike:identity_protection:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": 5,
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.crowdstrike.com/platform/charlotte-ai/"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.crowdstrike.com/blog/crowdstrike-machine-learning-virustotal/"
+          ],
+          "own_ai": [
+            "https://www.crowdstrike.com/platform/charlotte-ai/",
+            "https://www.crowdstrike.com/tech-hub/data-protection/ai-powered-classifications-for-unstructured-cloud-data/"
+          ],
+          "adversarial": [
+            "https://www.crowdstrike.com/blog/crowdstrike-machine-learning-virustotal/"
+          ]
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "47f692e10ecc1d0c",
+        "source_count": 3,
+        "reasoning": "CrowdStrike demonstrates published AI usage (Charlotte AI agentic analyst, language models for data classification) but provides insufficient technical detail on autonomous remediation capabilities, zero evidence of AI workload defense, and no disclosure of AI governance, guardrails, or adversarial AI readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "sentinelone",
@@ -137,7 +172,44 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "D",
+        "sub_scores": {
+          "autonomy": 10,
+          "velocity": 10,
+          "surface": 15,
+          "own_ai": 5,
+          "adversarial": 10
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.sentinelone.com/blog/securing-the-supply-chain-how-sentinelones-ai-edr-stops-the-axios-attack-autonomously/",
+            "https://www.sentinelone.com/blog/how-sentinelones-ai-edr-autonomously-discovered-and-stopped-anthropics-claude-from-executing-a-zero-day-supply-chain-attack-globally/"
+          ],
+          "velocity": [
+            "https://www.sentinelone.com/blog/securing-the-supply-chain-how-sentinelones-ai-edr-stops-the-axios-attack-autonomously/"
+          ],
+          "surface": [
+            "https://www.sentinelone.com/blog/how-sentinelones-ai-edr-autonomously-discovered-and-stopped-anthropics-claude-from-executing-a-zero-day-supply-chain-attack-globally/"
+          ],
+          "own_ai": [
+            "https://www.sentinelone.com/blog/securing-the-supply-chain-how-sentinelones-ai-edr-stops-the-axios-attack-autonomously/"
+          ],
+          "adversarial": [
+            "https://www.sentinelone.com/blog/how-sentinelones-ai-edr-autonomously-discovered-and-stopped-anthropics-claude-from-executing-a-zero-day-supply-chain-attack-globally/"
+          ]
+        },
+        "confidence": 0.55,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "44a1ca4b7de36625",
+        "source_count": 3,
+        "reasoning": "SentinelOne demonstrates autonomous response capabilities and some AI-era awareness via claims of defending against AI model-based supply chain attacks, but evidence is limited to self-published marketing claims without independent validation, velocity benchmarks, or transparency on internal AI controls.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "ivanti",
@@ -154,7 +226,7 @@
       "zero_days": 8,
       "kev_count": 16,
       "wr_featured": true,
-      "wr_take": "Remediation pace is structural not situational. 16 active KEVs is not bad luck \u2014 it is product lifecycle debt that marketing cannot patch.",
+      "wr_take": "Remediation pace is structural not situational. 16 active KEVs is not bad luck — it is product lifecycle debt that marketing cannot patch.",
       "rrr_react": "D",
       "rrr_respond": "D",
       "rrr_resilient": "F",
@@ -163,7 +235,7 @@
         {
           "id": "CVE-2025-0282",
           "severity": "CRITICAL",
-          "description": "Connect Secure stack buffer overflow \u2014 zero-day exploited by UNC5337 (PRC) before disclosure",
+          "description": "Connect Secure stack buffer overflow — zero-day exploited by UNC5337 (PRC) before disclosure",
           "days_to_patch": 13,
           "kev": true,
           "zero_day": true
@@ -179,12 +251,43 @@
         {
           "id": "CVE-2024-21887",
           "severity": "CRITICAL",
-          "description": "EPMM command injection \u2014 required emergency repatch after incomplete initial fix",
+          "description": "EPMM command injection — required emergency repatch after incomplete initial fix",
           "days_to_patch": 67,
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 10,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.ivanti.com/blog/agentic-ai-for-it-not-all-agents-are-created-equal",
+            "https://www.ivanti.com/blog/autonomous-endpoint-management-eliminates-patch-silos"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.ivanti.com/blog/how-ai-automation-improve-endpoint-visibility"
+          ],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "daec950e036b7345",
+        "source_count": 3,
+        "reasoning": "Ivanti demonstrates scoped autonomy in endpoint management through self-healing workflows and autonomous patching capabilities, but lacks published velocity benchmarks, evidence of AI workload defense coverage, internal AI governance practices, and adversarial AI readiness posture.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "microsoft-defender",
@@ -267,7 +370,31 @@
           "cpe_prefix": "cpe:2.3:a:microsoft:sentinel:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.microsoft.com/en-us/security/business/ai-machine-learning/microsoft-security-copilot"
+          ]
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-002",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "9016c6e627b534d8",
+        "source_count": 1,
+        "reasoning": "Single marketing-focused source mentions 'AI agents in security' and 'automation at machine speed' but provides no technical specifications for scope, controls, or AI attack surface capabilities; insufficient evidence to substantiate higher autonomy scores or any broader AI readiness claims.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "paloalto",
@@ -293,7 +420,7 @@
         {
           "id": "CVE-2025-0108",
           "severity": "CRITICAL",
-          "description": "PAN-OS auth bypass in management interface \u2014 exploited in the wild pre-patch",
+          "description": "PAN-OS auth bypass in management interface — exploited in the wild pre-patch",
           "days_to_patch": 4,
           "kev": true,
           "zero_day": true
@@ -358,7 +485,39 @@
           "cpe_prefix": "cpe:2.3:a:paloaltonetworks:cortex_xdr_agent:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 10,
+          "velocity": "NA",
+          "surface": 5,
+          "own_ai": "NA",
+          "adversarial": 5
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.paloaltonetworks.com/company/press/2022/palo-alto-networks-introduces-pan-os-10-2-nebula--the-industry-s-first-inline-deep-learning-protection-for-network-security-to-help-stop-sophisticated-attacks-as-they-happen"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-announces-intent-to-acquire-koi-to-secure-the-agentic-endpoint"
+          ],
+          "own_ai": [],
+          "adversarial": [
+            "https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-announces-intent-to-acquire-koi-to-secure-the-agentic-endpoint"
+          ]
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-003",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "eb55723649811b1b",
+        "source_count": 4,
+        "reasoning": "Palo Alto demonstrates scoped automation (inline deep learning protection in Nebula) and strategic awareness of agentic security gaps through the Koi acquisition announcement, but the evidence bundle consists entirely of marketing material and acquisition announcements lacking technical specificity, published benchmarks, third-party validation, or details on internal AI governance.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "fortinet",
@@ -384,7 +543,7 @@
         {
           "id": "CVE-2024-21762",
           "severity": "CRITICAL",
-          "description": "FortiOS SSL-VPN out-of-bounds write \u2014 unauthenticated RCE exploited by multiple threat actors",
+          "description": "FortiOS SSL-VPN out-of-bounds write — unauthenticated RCE exploited by multiple threat actors",
           "days_to_patch": 14,
           "kev": true,
           "zero_day": true
@@ -392,7 +551,7 @@
         {
           "id": "CVE-2024-23113",
           "severity": "CRITICAL",
-          "description": "FortiOS format string vuln in fgfmd daemon \u2014 unauthenticated RCE",
+          "description": "FortiOS format string vuln in fgfmd daemon — unauthenticated RCE",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": false
@@ -435,7 +594,35 @@
           "cpe_prefix": "cpe:2.3:a:fortinet:forticlient:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.fortinet.com/products/fortiAI"
+          ],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.25,
+        "model_run": "haiku-2026-04-11-004",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "942ea287ae71abee",
+        "source_count": 1,
+        "reasoning": "FortiAI claims to automate security operations, but single evidence source uses only vague marketing language without published benchmarks, specific threat coverage, or vendor AI posture details needed to score across four dimensions.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "cisco",
@@ -452,7 +639,7 @@
       "zero_days": 3,
       "kev_count": 7,
       "wr_featured": false,
-      "wr_take": "October 2024 DevHub breach exposed GitHub tokens and hardcoded credentials. Investigation showed misconfiguration not attack \u2014 but that is the definition of detection lag.",
+      "wr_take": "October 2024 DevHub breach exposed GitHub tokens and hardcoded credentials. Investigation showed misconfiguration not attack — but that is the definition of detection lag.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "B",
@@ -461,7 +648,7 @@
         {
           "id": "CVE-2024-20399",
           "severity": "CRITICAL",
-          "description": "NX-OS CLI command injection \u2014 root RCE exploited by Velvet Ant (PRC-nexus)",
+          "description": "NX-OS CLI command injection — root RCE exploited by Velvet Ant (PRC-nexus)",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": true
@@ -469,7 +656,7 @@
         {
           "id": "CVE-2024-20353",
           "severity": "CRITICAL",
-          "description": "ASA/FTD management tunnel DoS \u2014 part of ArcaneDoor PRC campaign",
+          "description": "ASA/FTD management tunnel DoS — part of ArcaneDoor PRC campaign",
           "days_to_patch": 14,
           "kev": true,
           "zero_day": false
@@ -526,7 +713,37 @@
           "cpe_prefix": "cpe:2.3:a:cisco:email_security_appliance:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://blogs.cisco.com/security/cisco-ai-defense"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://blogs.cisco.com/security/cisco-ai-defense"
+          ],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.15,
+        "model_run": "haiku-2026-04-11-005",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "f21875b6d194f4a5",
+        "source_count": 1,
+        "reasoning": "Single blog post excerpt provides only high-level product positioning ('understand and mitigate risk') without specific technical features, benchmarks, or vendor practices needed to assess AI-Era Readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "checkpoint",
@@ -552,7 +769,7 @@
         {
           "id": "CVE-2024-24919",
           "severity": "CRITICAL",
-          "description": "Security Gateway path traversal enabling credential extraction \u2014 exploited ITW",
+          "description": "Security Gateway path traversal enabling credential extraction — exploited ITW",
           "days_to_patch": 7,
           "kev": true,
           "zero_day": true
@@ -565,7 +782,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-006",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected for Check Point's AI-Era Readiness posture; all dimensions scored NA per rubric protocol.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "juniper",
@@ -591,7 +834,7 @@
         {
           "id": "CVE-2024-21591",
           "severity": "CRITICAL",
-          "description": "Junos OS SRX/EX unauthenticated RCE via J-Web \u2014 exploited ITW",
+          "description": "Junos OS SRX/EX unauthenticated RCE via J-Web — exploited ITW",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": false
@@ -604,7 +847,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-007",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; no public documentation, blog posts, or product materials found to assess any dimension.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "citrix",
@@ -630,7 +899,7 @@
         {
           "id": "CVE-2023-3519",
           "severity": "CRITICAL",
-          "description": "NetScaler ADC/Gateway unauthenticated RCE \u2014 mass exploitation by ransomware groups",
+          "description": "NetScaler ADC/Gateway unauthenticated RCE — mass exploitation by ransomware groups",
           "days_to_patch": 42,
           "kev": true,
           "zero_day": true
@@ -643,7 +912,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-008",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; no public documentation found to assess Citrix's AI-era readiness across any dimension.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "aws",
@@ -674,7 +969,38 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://aws.amazon.com/about-aws/whats-new/2026/04/workspaces-advisor-ai-troubleshooting/",
+            "https://aws.amazon.com/about-aws/whats-new/2026/03/opensearch-agentic-ai-log-analytics-observability/"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://aws.amazon.com/about-aws/whats-new/2026/04/workspaces-advisor-ai-troubleshooting/"
+          ],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.2,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "060865be924130a3",
+        "source_count": 2,
+        "reasoning": "AWS claims agentic AI capabilities in WorkSpaces and OpenSearch, but evidence is limited to marketing titles without substantive product details—no benchmarks, AI attack surface coverage, own-AI governance, or adversarial readiness data provided.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "microsoft-azure",
@@ -700,7 +1026,7 @@
         {
           "id": "CVE-2024-43491",
           "severity": "CRITICAL",
-          "description": "Windows Update rollback enabling reintroduction of patched flaws \u2014 exploited ITW",
+          "description": "Windows Update rollback enabling reintroduction of patched flaws — exploited ITW",
           "days_to_patch": 30,
           "kev": true,
           "zero_day": true
@@ -708,7 +1034,7 @@
         {
           "id": "CVE-2024-38080",
           "severity": "CRITICAL",
-          "description": "Hyper-V elevation of privilege \u2014 zero-day exploited before Patch Tuesday",
+          "description": "Hyper-V elevation of privilege — zero-day exploited before Patch Tuesday",
           "days_to_patch": 30,
           "kev": true,
           "zero_day": true
@@ -721,7 +1047,41 @@
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": 0,
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [
+            "https://azure.microsoft.com/en-us/products/ai-services/ai-anomaly-detector"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://azure.microsoft.com/en-us/products/ai-services/ai-anomaly-detector"
+          ],
+          "own_ai": [
+            "https://azure.microsoft.com/en-us/products/ai-services/ai-anomaly-detector"
+          ],
+          "adversarial": [
+            "https://azure.microsoft.com/en-us/products/ai-services/ai-anomaly-detector"
+          ]
+        },
+        "confidence": 0.25,
+        "model_run": "haiku-2026-04-11-009",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "8bb8657724803d86",
+        "source_count": 1,
+        "reasoning": "Azure's AI Anomaly Detector is a general-purpose time-series detection service with no evidence of autonomous remediation, security-focused AI workload defense, published internal AI controls, or adversarial AI readiness; single marketing page provides insufficient detail for scoring velocity.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "vmware",
@@ -747,7 +1107,7 @@
         {
           "id": "CVE-2024-38812",
           "severity": "CRITICAL",
-          "description": "vCenter Server heap overflow in DCERPC \u2014 unauthenticated RCE",
+          "description": "vCenter Server heap overflow in DCERPC — unauthenticated RCE",
           "days_to_patch": 44,
           "kev": true,
           "zero_day": false
@@ -812,7 +1172,33 @@
           "cpe_prefix": "cpe:2.3:o:vmware:esxi:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-010",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence found for any dimension; all scored NA per rubric guidelines (do not guess).",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "okta",
@@ -829,7 +1215,7 @@
       "zero_days": 0,
       "kev_count": 1,
       "wr_featured": true,
-      "wr_take": "2023 breach found via customer report not internal detection \u2014 but disclosure and recovery were textbook. RRR tells the nuanced story.",
+      "wr_take": "2023 breach found via customer report not internal detection — but disclosure and recovery were textbook. RRR tells the nuanced story.",
       "rrr_react": "C",
       "rrr_respond": "A",
       "rrr_resilient": "B",
@@ -846,12 +1232,38 @@
         {
           "id": "CVE-2024-9191",
           "severity": "HIGH",
-          "description": "On-prem AD agent authentication bypass \u2014 legacy agent versions only",
+          "description": "On-prem AD agent authentication bypass — legacy agent versions only",
           "days_to_patch": 19,
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.2,
+        "model_run": "haiku-2026-04-11-011",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "13e9f1a56fd33777",
+        "source_count": 1,
+        "reasoning": "Single evidence source contains only podcast title and navigation text; lacks substantive product claims, technical features, published benchmarks, policies, or audit evidence required to assess any AI-Era Readiness dimension.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "microsoft-entra",
@@ -882,7 +1294,33 @@
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-012",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; cannot score without product documentation, benchmarks, or published security claims.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "cyberark",
@@ -957,7 +1395,33 @@
           "cpe_prefix": "cpe:2.3:a:cyberark:privilege_cloud:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-013",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; cannot score without product documentation, public benchmarks, or feature disclosures.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "beyondtrust",
@@ -983,7 +1447,7 @@
         {
           "id": "CVE-2024-12356",
           "severity": "CRITICAL",
-          "description": "Privileged Remote Access command injection \u2014 exploited in Treasury breach Dec 2024",
+          "description": "Privileged Remote Access command injection — exploited in Treasury breach Dec 2024",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": true
@@ -996,7 +1460,33 @@
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-014",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence collected for BeyondTrust; insufficient documentation to assess AI-Era Readiness across any dimension.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "splunk",
@@ -1022,7 +1512,7 @@
         {
           "id": "CVE-2024-36991",
           "severity": "CRITICAL",
-          "description": "Enterprise path traversal on Windows \u2014 unauthenticated arbitrary file read",
+          "description": "Enterprise path traversal on Windows — unauthenticated arbitrary file read",
           "days_to_patch": 17,
           "kev": false,
           "zero_day": false
@@ -1030,12 +1520,38 @@
         {
           "id": "CVE-2024-45733",
           "severity": "HIGH",
-          "description": "Enterprise RCE via insecure session storage deserialization \u2014 requires auth",
+          "description": "Enterprise RCE via insecure session storage deserialization — requires auth",
           "days_to_patch": 23,
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-015",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; cannot score any dimension without public documentation, product feature details, or published benchmarks.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "solarwinds",
@@ -1061,7 +1577,7 @@
         {
           "id": "CVE-2024-28986",
           "severity": "CRITICAL",
-          "description": "Web Help Desk Java deserialization RCE \u2014 unauthenticated, exploited ITW",
+          "description": "Web Help Desk Java deserialization RCE — unauthenticated, exploited ITW",
           "days_to_patch": 19,
           "kev": true,
           "zero_day": false
@@ -1074,7 +1590,33 @@
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.05,
+        "model_run": "haiku-2026-04-11-016",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "3dcc5942d3d21e1c",
+        "source_count": 4,
+        "reasoning": "Evidence bundle contains only generic blog posts about AI trends in tech and social media with zero substantive information about SolarWinds product capabilities, autonomous remediation, attack surface coverage, internal AI governance, or adversarial defense research.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "tenable",
@@ -1105,7 +1647,43 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 10,
+          "velocity": 5,
+          "surface": 10,
+          "own_ai": 5,
+          "adversarial": 10
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.tenable.com/blog/crushing-axios-supply-chain-threat-tenable-hexa-ai-agentic-ai-use-cases"
+          ],
+          "velocity": [
+            "https://www.tenable.com/blog/crushing-axios-supply-chain-threat-tenable-hexa-ai-agentic-ai-use-cases"
+          ],
+          "surface": [
+            "https://www.tenable.com/blog/uncover-prompt-injection-insider-threats-model-refusal-detection"
+          ],
+          "own_ai": [
+            "https://www.tenable.com/blog/security-for-ai-guide-managing-vibe-coding-risks-ai-in-software-development"
+          ],
+          "adversarial": [
+            "https://www.tenable.com/blog/uncover-prompt-injection-insider-threats-model-refusal-detection"
+          ]
+        },
+        "confidence": 0.6,
+        "model_run": "haiku-2026-04-11-017",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4a368f8799d73d1e",
+        "source_count": 4,
+        "reasoning": "Tenable demonstrates scoped autonomous capabilities (Hexa AI configures scans for supply chain threats in minutes) and prompt injection detection on AI model endpoints, but lacks evidence of broad autonomous remediation, sub-minute detection velocity, comprehensive AI workload defense beyond prompt injection, published internal AI governance, or adversarial research on agentic attackers.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "rapid7",
@@ -1166,7 +1744,42 @@
           "cpe_prefix": "cpe:2.3:a:rapid7:metasploit:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": 5,
+          "own_ai": 5,
+          "adversarial": 5
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.rapid7.com/blog/post/it-2026-ai-powered-mdr-ceo-corey-thomas-cisos/"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.rapid7.com/blog/post/tr-measuring-ai-security-mcp-exposure/"
+          ],
+          "own_ai": [
+            "https://www.rapid7.com/blog/post/it-2026-ai-powered-mdr-ceo-corey-thomas-cisos/",
+            "https://www.rapid7.com/blog/post/ai-claude-code-security-market-reaction-security-leaders/"
+          ],
+          "adversarial": [
+            "https://www.rapid7.com/blog/post/tr-measuring-ai-security-mcp-exposure/"
+          ]
+        },
+        "confidence": 0.4,
+        "model_run": "haiku-2026-04-11-018",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "7ce6109bc561ba31",
+        "source_count": 5,
+        "reasoning": "Rapid7 acknowledges AI in security operations and conducts research on AI security risks (MCP, prompt injection), but the evidence is primarily blog content and thought leadership without specific product feature claims, published benchmarks, or third-party verification.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "cloudflare",
@@ -1192,12 +1805,46 @@
         {
           "id": "CVE-2024-3400",
           "severity": "HIGH",
-          "description": "Workers sandbox escape via crafted WebAssembly module \u2014 no confirmed customer impact",
+          "description": "Workers sandbox escape via crafted WebAssembly module — no confirmed customer impact",
           "days_to_patch": 4,
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": 0,
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [
+            "https://blog.cloudflare.com/ai-gateway-is-generally-available/"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://blog.cloudflare.com/ai-gateway-is-generally-available/"
+          ],
+          "own_ai": [
+            "https://blog.cloudflare.com/ai-gateway-is-generally-available/"
+          ],
+          "adversarial": [
+            "https://blog.cloudflare.com/ai-gateway-is-generally-available/"
+          ]
+        },
+        "confidence": 0.25,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "34b7678c40327556",
+        "source_count": 1,
+        "reasoning": "Single blog announcement provides no visibility into autonomy features, security response latency, AI-workload defense coverage, internal AI controls, or adversarial-attack readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "akamai",
@@ -1258,7 +1905,42 @@
           "cpe_prefix": "cpe:2.3:a:akamai:guardicore_segmentation:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 5,
+          "own_ai": 5,
+          "adversarial": 5
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.akamai.com/blog/security/2026/mar/machine-learning-operations-yesterday-today-tomorrow"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.akamai.com/blog/security/2026/apr/protecting-publishing-real-cost-ai-bots"
+          ],
+          "own_ai": [
+            "https://www.akamai.com/blog/security/2026/apr/ai-powered-vulnerability-discovery-strengthens-security",
+            "https://www.akamai.com/blog/security/2026/mar/machine-learning-operations-yesterday-today-tomorrow"
+          ],
+          "adversarial": [
+            "https://www.akamai.com/blog/security/2026/apr/protecting-publishing-real-cost-ai-bots"
+          ]
+        },
+        "confidence": 0.4,
+        "model_run": "haiku-2026-04-11-019",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "b07ba279f4527e33",
+        "source_count": 4,
+        "reasoning": "Akamai demonstrates foundational awareness of AI-era threats (AI bot activity, vulnerable LLM deployments) and employs ML-powered detection, but evidence lacks autonomous remediation capabilities, published response-time benchmarks, comprehensive AI workload defense (model endpoints, training data protection), formal AI governance disclosure, or research demonstrating proactive adversarial readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "zscaler",
@@ -1289,7 +1971,41 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": 0,
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.zscaler.com/press/zscaler-accelerate-innovation-ai-powered-security-operations-acquisition-red-canary"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.zscaler.com/press/zscaler-2026-ai-threat-report-83-year-over-year-surge-ai-activity-creates-growing-oversight"
+          ],
+          "own_ai": [
+            "https://www.zscaler.com/press/new-zscaler-ai-security-report-reveals-over-3000-surge-enterprise-use-ai-ml-tools"
+          ],
+          "adversarial": [
+            "https://www.zscaler.com/press/new-zscaler-ai-security-report-reveals-over-3000-surge-enterprise-use-ai-ml-tools"
+          ]
+        },
+        "confidence": 0.3,
+        "model_run": "haiku-2026-04-11-020",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "b63e8b2c3a2b0a6e",
+        "source_count": 4,
+        "reasoning": "Evidence bundle consists of press releases announcing market trends and one acquisition announcement; contains no specific product feature details, technical documentation, or customer capability claims needed to assess Zscaler's autonomous remediation, AI workload defense, own-AI controls, or adversarial AI capabilities.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "github",
@@ -1306,7 +2022,7 @@
       "zero_days": 0,
       "kev_count": 1,
       "wr_featured": true,
-      "wr_take": "March 2025 tj-actions/changed-files compromise affected 23,000 repositories and leaked CI/CD secrets. The GitHub ecosystem is now a trusted supply chain vector \u2014 assume any public action can turn.",
+      "wr_take": "March 2025 tj-actions/changed-files compromise affected 23,000 repositories and leaked CI/CD secrets. The GitHub ecosystem is now a trusted supply chain vector — assume any public action can turn.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "C",
@@ -1320,7 +2036,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-021",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; cannot assess vendor against AI-Era Readiness rubric without source material.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "atlassian",
@@ -1346,7 +2088,7 @@
         {
           "id": "CVE-2024-21683",
           "severity": "CRITICAL",
-          "description": "Confluence RCE via malicious macro \u2014 exploited ITW in ransomware campaigns",
+          "description": "Confluence RCE via malicious macro — exploited ITW in ransomware campaigns",
           "days_to_patch": 28,
           "kev": true,
           "zero_day": false
@@ -1354,7 +2096,7 @@
         {
           "id": "CVE-2023-22527",
           "severity": "CRITICAL",
-          "description": "Confluence template injection RCE \u2014 unauthenticated, mass exploitation into 2024",
+          "description": "Confluence template injection RCE — unauthenticated, mass exploitation into 2024",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": false
@@ -1408,7 +2150,7 @@
             {
               "id": "CVE-2023-22527",
               "severity": "CRITICAL",
-              "description": "Template injection / OGNL expression injection \u2014 unauthenticated RCE",
+              "description": "Template injection / OGNL expression injection — unauthenticated RCE",
               "days_to_patch": 50,
               "kev": true,
               "zero_day": true
@@ -1447,7 +2189,7 @@
             {
               "id": "CVE-2022-36804",
               "severity": "CRITICAL",
-              "description": "Command injection in multiple API endpoints \u2014 arbitrary code execution",
+              "description": "Command injection in multiple API endpoints — arbitrary code execution",
               "days_to_patch": 21,
               "kev": true,
               "zero_day": false
@@ -1462,7 +2204,33 @@
             }
           ]
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-022",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected for Atlassian's AI-era readiness posture; all dimensions scored NA per rubric rules requiring zero guess on absent evidence.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "veeam",
@@ -1488,7 +2256,7 @@
         {
           "id": "CVE-2024-40711",
           "severity": "CRITICAL",
-          "description": "Backup & Replication deserialization RCE \u2014 unauthenticated, exploited by ransomware groups",
+          "description": "Backup & Replication deserialization RCE — unauthenticated, exploited by ransomware groups",
           "days_to_patch": 23,
           "kev": true,
           "zero_day": false
@@ -1501,7 +2269,39 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": "NA",
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.veeam.com/blog/veeam-ransomware-detection-service.html"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.veeam.com/blog/veeam-ransomware-detection-service.html"
+          ],
+          "own_ai": [],
+          "adversarial": [
+            "https://www.veeam.com/blog/veeam-ransomware-detection-service.html"
+          ]
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-023",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "872019adbab2540c",
+        "source_count": 1,
+        "reasoning": "Veeam's ML-based Ransomware Detection Service is a traditional threat-detection product with no demonstrated AI-era readiness: alert-only posture, no published latency benchmarks, no AI workload defense, no internal AI governance disclosure, and no defense against AI-assisted attackers.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "servicenow",
@@ -1518,7 +2318,7 @@
       "zero_days": 0,
       "kev_count": 2,
       "wr_featured": false,
-      "wr_take": "CVE-2025-12420 (BodySnatcher) allowed unauthenticated user impersonation bypassing MFA via virtual agents. No wild exploitation reported, but the semantic definition of vulnerability \u2014 reachable without permission \u2014 was the failure.",
+      "wr_take": "CVE-2025-12420 (BodySnatcher) allowed unauthenticated user impersonation bypassing MFA via virtual agents. No wild exploitation reported, but the semantic definition of vulnerability — reachable without permission — was the failure.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "C",
@@ -1527,7 +2327,7 @@
         {
           "id": "CVE-2024-4879",
           "severity": "CRITICAL",
-          "description": "Jelly template injection enabling unauthenticated RCE \u2014 exploited ITW",
+          "description": "Jelly template injection enabling unauthenticated RCE — exploited ITW",
           "days_to_patch": 14,
           "kev": true,
           "zero_day": false
@@ -1540,7 +2340,41 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": 15,
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.servicenow.com/workflow/news/yokohama-ai-connected-data-workflows.html"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.servicenow.com/workflow/news/leader-gartner-mq-ai-applications.html"
+          ],
+          "own_ai": [
+            "https://www.servicenow.com/workflow/news/iso-certification-ai-management-system.html"
+          ],
+          "adversarial": [
+            "https://www.servicenow.com/workflow/news/knowledge-registration-put-ai-work.html"
+          ]
+        },
+        "confidence": 0.4,
+        "model_run": "haiku-2026-04-11-024",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "68df6f9d5c3450d1",
+        "source_count": 5,
+        "reasoning": "ServiceNow demonstrates third-party audited AI management (ISO 42001 certification), but evidence provides only vague marketing claims on automation autonomy, contains zero indicators of AI attack surface defense capabilities, and no published data on adversarial AI readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "sap",
@@ -1566,7 +2400,7 @@
         {
           "id": "CVE-2024-22127",
           "severity": "CRITICAL",
-          "description": "NetWeaver AS ABAP OS command injection via report execution \u2014 exploited ITW",
+          "description": "NetWeaver AS ABAP OS command injection via report execution — exploited ITW",
           "days_to_patch": 30,
           "kev": true,
           "zero_day": false
@@ -1579,7 +2413,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 1,
+        "model_run": "haiku-2026-04-11-025",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4d96f8354599350a",
+        "source_count": 3,
+        "reasoning": "Evidence bundle contains only general business AI impact content (talent productivity, customer case studies, partnership announcements) with zero information on security products, autonomous remediation, detection velocity, AI attack defenses, own-AI governance, or adversarial readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "schneider",
@@ -1605,7 +2465,7 @@
         {
           "id": "CVE-2024-8933",
           "severity": "CRITICAL",
-          "description": "EcoStruxure Panel Server unauthenticated path traversal \u2014 config file exfiltration",
+          "description": "EcoStruxure Panel Server unauthenticated path traversal — config file exfiltration",
           "days_to_patch": 71,
           "kev": false,
           "zero_day": false
@@ -1662,7 +2522,33 @@
           "cpe_prefix": "cpe:2.3:a:schneider-electric:ecostruxure_power_commission:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-026",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence collected; cannot score any dimension without product documentation, published benchmarks, or vendor communications.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "siemens",
@@ -1679,7 +2565,7 @@
       "zero_days": 1,
       "kev_count": 4,
       "wr_featured": true,
-      "wr_take": "April 2024 BlackBasta breach exposed 800GB. Multiple ICS products carry critical unpatched flaws \u2014 operational systems cannot be patched on a web-scale schedule.",
+      "wr_take": "April 2024 BlackBasta breach exposed 800GB. Multiple ICS products carry critical unpatched flaws — operational systems cannot be patched on a web-scale schedule.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "C",
@@ -1688,7 +2574,7 @@
         {
           "id": "CVE-2024-35783",
           "severity": "CRITICAL",
-          "description": "SINEC NMS SQL injection via network management interface \u2014 unauthenticated",
+          "description": "SINEC NMS SQL injection via network management interface — unauthenticated",
           "days_to_patch": 56,
           "kev": false,
           "zero_day": false
@@ -1696,7 +2582,7 @@
         {
           "id": "CVE-2024-23814",
           "severity": "HIGH",
-          "description": "SIMATIC S7-1500 DoS via crafted Profinet IO \u2014 safety system impact possible",
+          "description": "SIMATIC S7-1500 DoS via crafted Profinet IO — safety system impact possible",
           "days_to_patch": 84,
           "kev": false,
           "zero_day": false
@@ -1745,7 +2631,33 @@
           "cpe_prefix": "cpe:2.3:a:siemens:tia_portal:*",
           "cve_list": []
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-027",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence available — no blogs, press releases, or technical documentation collected to assess Siemens' AI-Era Readiness across any dimension.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "epic",
@@ -1776,7 +2688,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-028",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence found for Epic Systems' AI-era security capabilities; all dimensions scored NA pending evidence collection.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "change-healthcare",
@@ -1810,12 +2748,38 @@
         {
           "id": "CVE-2023-4966",
           "severity": "CRITICAL",
-          "description": "Citrix Bleed session token extraction \u2014 entry point in Change Healthcare compromise",
+          "description": "Citrix Bleed session token extraction — entry point in Change Healthcare compromise",
           "days_to_patch": 78,
           "kev": true,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-029",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence collected; unable to assess AI-Era Readiness dimensions.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "guidewire",
@@ -1846,7 +2810,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.1,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "704633326d39ac8b",
+        "source_count": 4,
+        "reasoning": "Guidewire is an enterprise insurance software vendor (PolicyCenter, ClaimCenter, BillingCenter) with internal AI for underwriting and claims, not a security product; evidence bundle contains blog post excerpts insufficient to assess any AI-Era Readiness dimension—zero evidence of autonomous threat response, detection latency, AI attack surface defense, AI governance/guardrails/disclosures, or adversarial AI readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "proofpoint",
@@ -1877,7 +2867,35 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": 5
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": [
+            "https://www.proofpoint.com/us/newsroom/news/how-ai-agents-are-redefining-insider-risk-threat-model"
+          ]
+        },
+        "confidence": 0.15,
+        "model_run": "haiku-2026-04-11-030",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "cc120edcb3dba2cd",
+        "source_count": 3,
+        "reasoning": "Minimal vendor-published product detail in evidence bundle; only substantive content is thought leadership acknowledging agentic threat patterns in insider risk domain.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "barracuda",
@@ -1894,7 +2912,7 @@
       "zero_days": 3,
       "kev_count": 6,
       "wr_featured": true,
-      "wr_take": "May 2023 zero-day required full hardware replacement \u2014 not patching, replacement. That is a category of incident severity most boards have no framework for.",
+      "wr_take": "May 2023 zero-day required full hardware replacement — not patching, replacement. That is a category of incident severity most boards have no framework for.",
       "rrr_react": "B",
       "rrr_respond": "B",
       "rrr_resilient": "F",
@@ -1903,7 +2921,7 @@
         {
           "id": "CVE-2023-2868",
           "severity": "CRITICAL",
-          "description": "ESG appliance RCE via malformed TAR attachment \u2014 required full hardware replacement",
+          "description": "ESG appliance RCE via malformed TAR attachment — required full hardware replacement",
           "days_to_patch": 42,
           "kev": true,
           "zero_day": true
@@ -1916,7 +2934,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-031",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; no public documentation found to assess Barracuda Networks against AI-Era Readiness dimensions.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "swift",
@@ -1947,7 +2991,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-032",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; cannot assess AI-Era Readiness without public documentation, product features, or published benchmarks.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "salesforce",
@@ -1978,7 +3048,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-033",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "6d22aa994a280cc1",
+        "source_count": 3,
+        "reasoning": "The evidence bundle consists of marketing materials about Salesforce's CRM products (Agentforce Grid), workforce initiatives, and general AI guidance—none of which address security operations, threat response, AI attack surface coverage, internal governance of AI systems, or adversarial AI readiness. Insufficient evidence exists to score any dimension of the security-focused AI-era readiness rubric.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "workday",
@@ -2009,7 +3105,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-034",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; no public sources found to assess Workday's AI-era readiness across any dimension.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "dragos",
@@ -2040,7 +3162,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-035",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected for this vendor; all dimensions scored NA per rubric guidelines.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "sailpoint",
@@ -2066,7 +3214,7 @@
         {
           "id": "CVE-2024-10905",
           "severity": "CRITICAL",
-          "description": "IdentityIQ improper access control \u2014 HTTP access to protected static content",
+          "description": "IdentityIQ improper access control — HTTP access to protected static content",
           "days_to_patch": 14,
           "kev": false,
           "zero_day": false
@@ -2079,7 +3227,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-036",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected for SailPoint; public documentation on AI-era readiness posture not found. All dimensions scored NA per scoring rules.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "saviynt",
@@ -2110,7 +3284,40 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 5,
+          "own_ai": 0,
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://saviynt.com/blog/ai-agent-posture-management-visibility-control"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://saviynt.com/blog/ai-agent-posture-management-visibility-control"
+          ],
+          "own_ai": [
+            "https://saviynt.com/blog/the-roadmap-for-ai-powered-iam-transformation",
+            "https://saviynt.com/blog/transforming-identity-security-with-aws-in-an-ai-driven-world"
+          ],
+          "adversarial": []
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-037",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "60e8954e6d425285",
+        "source_count": 4,
+        "reasoning": "Saviynt demonstrates an IAM-centric stance on AI agent security through posture management and visibility frameworks, but evidence is limited to blog excerpts lacking product documentation. No evidence of autonomous remediation, detection-to-containment benchmarks, model endpoint protection, published AI governance policies, or adversarial defenses.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "commvault",
@@ -2136,7 +3343,7 @@
         {
           "id": "CVE-2025-34028",
           "severity": "CRITICAL",
-          "description": "Command Center path traversal RCE \u2014 pre-auth remote code execution via ZIP upload",
+          "description": "Command Center path traversal RCE — pre-auth remote code execution via ZIP upload",
           "days_to_patch": 3,
           "kev": true,
           "zero_day": true
@@ -2152,12 +3359,40 @@
         {
           "id": "CVE-2025-57791",
           "severity": "CRITICAL",
-          "description": "CommServe argument injection \u2014 unauthenticated RCE via qlogin manipulation",
+          "description": "CommServe argument injection — unauthenticated RCE via qlogin manipulation",
           "days_to_patch": 7,
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": 5,
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [
+            "https://www.commvault.com/events/google-cloud-next-2026"
+          ],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4eefc9ff16401759",
+        "source_count": 3,
+        "reasoning": "Evidence limited to vague reference to protecting AI workloads; no specific product features, autonomous capabilities, velocity benchmarks, internal AI controls, or adversarial readiness demonstrated across dimensions.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "wiz",
@@ -2188,7 +3423,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-038",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No public evidence collected; all dimensions unscoreable without documentation, product claims, or benchmarks.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "google-cloud-security",
@@ -2219,7 +3480,37 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": 5,
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://cloud.google.com/security/ai"
+          ],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [
+            "https://cloud.google.com/security/ai"
+          ],
+          "adversarial": []
+        },
+        "confidence": 0.15,
+        "model_run": "haiku-2026-04-11-039",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "a5cc7bac6816b9c3",
+        "source_count": 2,
+        "reasoning": "Google Cloud Security's public materials mention AI-powered capabilities, Gemini integration, task automation, and 'responsible AI' language, but lack substantive evidence on autonomous decision-making scope, published threat detection latency, AI workload defense, internal AI governance details, or adversarial AI readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "netskope",
@@ -2258,7 +3549,35 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": 0,
+          "surface": 5,
+          "own_ai": 0,
+          "adversarial": 0
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [
+            "https://www.netskope.com/blog/4-security-considerations-as-ai-use-expands-across-teams"
+          ],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0.25,
+        "model_run": "haiku-2026-04-11-001",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "8d083bf25d5efb10",
+        "source_count": 3,
+        "reasoning": "Netskope's blog posts acknowledge AI security as a topic (governance, visibility, agentic AI) but the excerpts contain only thematic positioning without substantive product feature claims; evidence insufficient to score autonomy, velocity, own-ai posture, or adversarial readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "ping-identity",
@@ -2284,7 +3603,7 @@
         {
           "id": "CVE-2025-20059",
           "severity": "CRITICAL",
-          "description": "PingAM Java Policy Agent path traversal \u2014 file manipulation and data exfiltration without user interaction",
+          "description": "PingAM Java Policy Agent path traversal — file manipulation and data exfiltration without user interaction",
           "days_to_patch": 21,
           "kev": false,
           "zero_day": false
@@ -2297,7 +3616,40 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 0,
+          "velocity": "NA",
+          "surface": 0,
+          "own_ai": 5,
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://www.pingidentity.com/en/company/ping-newsroom/forgerock-archives/news/forgerock-expands-its-use-ai-introduction-autonomous-access.html"
+          ],
+          "velocity": [],
+          "surface": [
+            "https://www.pingidentity.com/en/company/ping-newsroom/forgerock-archives/news/forgerock-autonomous-identity-ushers-new-era-ai-driven-identity-governance.html"
+          ],
+          "own_ai": [
+            "https://www.pingidentity.com/en/company/ping-newsroom/forgerock-archives/news/forgerock-expands-its-use-ai-introduction-autonomous-access.html",
+            "https://www.pingidentity.com/en/company/ping-newsroom/forgerock-archives/news/forgerock-autonomous-identity-ushers-new-era-ai-driven-identity-governance.html"
+          ],
+          "adversarial": []
+        },
+        "confidence": 0.15,
+        "model_run": "haiku-2026-04-11-040",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "0d8d13148ddcdf7d",
+        "source_count": 3,
+        "reasoning": "Evidence is marketing-only with no technical depth; ForgeRock is an identity governance platform using AI internally, not a security product defending AI attack surfaces; no specifics on automation scope, latency, adversarial AI readiness, or customer-facing AI guardrails.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "watchtowr",
@@ -2314,12 +3666,44 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": true,
-      "wr_take": "The team that finds the flaws everyone else missed. WatchTowr Labs has redefined what 'responsibly disclosed' means \u2014 Citrix Bleed, Fortinet zero-days, Ivanti EPMM. They don't build walls; they hunt the holes.",
+      "wr_take": "The team that finds the flaws everyone else missed. WatchTowr Labs has redefined what 'responsibly disclosed' means — Citrix Bleed, Fortinet zero-days, Ivanti EPMM. They don't build walls; they hunt the holes.",
       "rrr_react": "A",
       "rrr_respond": "A",
       "rrr_resilient": "A",
       "serial": "WR-2026-049",
-      "cve_list": []
+      "cve_list": [],
+      "ai_era_grade": {
+        "grade": "F",
+        "sub_scores": {
+          "autonomy": 5,
+          "velocity": 10,
+          "surface": "NA",
+          "own_ai": 5,
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [
+            "https://watchtowr.com/resources/new-ai-driven-rapid-reaction-capability/"
+          ],
+          "velocity": [
+            "https://watchtowr.com/resources/new-ai-driven-rapid-reaction-capability/"
+          ],
+          "surface": [],
+          "own_ai": [
+            "https://watchtowr.com/resources/new-ai-driven-rapid-reaction-capability/"
+          ],
+          "adversarial": []
+        },
+        "confidence": 0.35,
+        "model_run": "haiku-2026-04-11-041",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "adf70b9a51c26f9a",
+        "source_count": 1,
+        "reasoning": "Single brief blog excerpt with only velocity claim (hours→minutes) being specific and measurable; autonomy and own-AI inferred from vague 'AI-driven rapid reaction' language without product feature details; zero evidence for AI surface coverage or adversarial readiness.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     },
     {
       "id": "vanta",
@@ -2336,7 +3720,7 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": true,
-      "wr_take": "Market leader in compliance automation. The March 2025 cross-customer data exposure \u2014 caused by a product code change, not an attacker \u2014 was the reminder that compliance platforms are still humans with keyboards. Affected ~4% of customers.",
+      "wr_take": "Market leader in compliance automation. The March 2025 cross-customer data exposure — caused by a product code change, not an attacker — was the reminder that compliance platforms are still humans with keyboards. Affected ~4% of customers.",
       "rrr_react": "B",
       "rrr_respond": "B",
       "rrr_resilient": "B",
@@ -2350,7 +3734,33 @@
           "kev": false,
           "zero_day": false
         }
-      ]
+      ],
+      "ai_era_grade": {
+        "grade": "NA",
+        "sub_scores": {
+          "autonomy": "NA",
+          "velocity": "NA",
+          "surface": "NA",
+          "own_ai": "NA",
+          "adversarial": "NA"
+        },
+        "citations": {
+          "autonomy": [],
+          "velocity": [],
+          "surface": [],
+          "own_ai": [],
+          "adversarial": []
+        },
+        "confidence": 0,
+        "model_run": "haiku-2026-04-11-042",
+        "model": "claude-haiku-4-5-20251001",
+        "rubric_version": "1.0",
+        "evidence_hash": "4f53cda18c2baa0c",
+        "source_count": 0,
+        "reasoning": "No evidence collected; all dimensions scored NA per rubric requirement to avoid speculation without supporting documentation.",
+        "reviewed_by": "auto",
+        "generated": "2026-04-11"
+      }
     }
   ],
   "last_updated": "2026-04-08"
