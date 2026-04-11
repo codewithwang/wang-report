@@ -201,6 +201,22 @@ a:hover{text-decoration:underline}
 .clear-btn{width:100%;margin-top:12px;padding:6px;background:#0e0e18;border:1px solid #2a2a4a;color:#666;font-family:Impact,sans-serif;font-size:9px;letter-spacing:1px;cursor:pointer;border-radius:3px;text-transform:uppercase}
 .clear-btn:hover{border-color:#aa3333;color:#cc5555}
 
+/* CATALOG STRIP */
+.cat-strip { display:flex; gap:5px; align-items:center; padding:4px 10px 6px; }
+.cat-dot {
+  width:9px; height:9px; border-radius:50%;
+  cursor:pointer; transition:transform .15s;
+  flex-shrink:0;
+}
+.cat-dot:hover { transform:scale(1.4); }
+.cat-dot.required { border:2px solid currentColor; }
+.cat-dot.optional { border:1.5px solid currentColor; background:transparent !important; }
+.cat-dot.cov-full { background:#5acc5a; color:#5acc5a; }
+.cat-dot.cov-partial { background:#eaaa3a; color:#eaaa3a; }
+.cat-dot.cov-none { background:transparent; color:#444; border-color:#444; }
+.cat-dot.cov-unknown { background:#333; color:#555; border-color:#555; }
+.cat-no-data { font-size:9px; color:#444; letter-spacing:1px; padding:4px 10px 6px; }
+
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;overflow-y:auto}
 .modal-overlay.open{display:block}
@@ -631,42 +647,52 @@ function slotIsEmpty(capId) {
 }
 
 /* ── SUB-CAP COVERAGE ── */
-function computeSlotCoverage(capId, vendorEntries, capDef) {
+function computeSlotCoverageDetailed(capId, vendorEntries, capDef) {
   const subCaps = capDef.sub_capabilities;
 
+  // No sub-cap data: all-or-nothing fallback
   if (!subCaps || subCaps.length === 0) {
-    return { score: vendorEntries.length > 0 ? 1.0 : 0.0, gaps: [], criticalGaps: [], subCapCount: 0 };
+    const hasCoverage = vendorEntries.length > 0;
+    return {
+      score: hasCoverage ? 1.0 : 0.0,
+      gaps: [], criticalGaps: [],
+      subCapCount: 0,
+      perSubCap: []  // empty = no catalog data for this slot
+    };
   }
 
-  let weightedCovSum = 0;
-  let weightSum = 0;
-  const gaps = [];
-  const criticalGaps = [];
+  let weightedCovSum = 0, weightSum = 0;
+  const gaps = [], criticalGaps = [];
+  const perSubCap = [];
 
   for (const sc of subCaps) {
     let combined = 0;
+    const contributors = [];
     for (const entry of vendorEntries) {
       const mod = moduleMap[entry.module_id];
       const level = mod && mod.coverage && mod.coverage[capId] && mod.coverage[capId].sub_caps
         ? (mod.coverage[capId].sub_caps[sc.id] || 'none')
         : 'none';
-      combined = Math.min(1.0, combined + (LEVEL_VAL[level] || 0));
+      const val = LEVEL_VAL[level] ?? 0;
+      combined = Math.min(1.0, combined + val);
+      if (val > 0) contributors.push({ module_id: entry.module_id, vendor_id: entry.vendor_id, level });
     }
-    const w = sc.weight || 1.0;
+    const w = sc.weight ?? 1.0;
     weightedCovSum += combined * w;
     weightSum += w;
-
+    const covLevel = combined >= 1.0 ? 'full' : combined > 0 ? 'partial' : 'none';
     if (combined < 1.0) {
       gaps.push(sc.id);
       if (sc.required) criticalGaps.push(sc.id);
     }
+    perSubCap.push({ ...sc, combined, covLevel, contributors });
   }
 
   return {
-    score:        weightSum > 0 ? weightedCovSum / weightSum : 0,
-    gaps,
-    criticalGaps,
-    subCapCount:  subCaps.length,
+    score: weightSum > 0 ? weightedCovSum / weightSum : 0,
+    gaps, criticalGaps,
+    subCapCount: subCaps.length,
+    perSubCap
   };
 }
 
@@ -774,7 +800,7 @@ function computeStackScore() {
     }
 
     // Sub-cap coverage
-    const covResult = computeSlotCoverage(cid, entries, cap);
+    const covResult = computeSlotCoverageDetailed(cid, entries, cap);
     slotCoverages[cid] = covResult;
     if (cap.sub_capabilities && cap.sub_capabilities.length > 0) {
       covScoreSum += covResult.score;
@@ -854,11 +880,11 @@ function covPillHTML(capId) {
   const entries = getSlotEntries(capId);
 
   if (!subCaps || subCaps.length === 0) {
-    // No sub-cap data — show ? indicator
-    return '<span class="cov-pill cov-grey">?</span>';
+    // No sub-cap data — show ? indicator linking to catalog
+    return '<a href="catalog/#' + esc(capId) + '" class="cov-pill cov-grey" target="_blank" title="View in catalog">? &#9656;</a>';
   }
   if (entries.length === 0) {
-    return '<span class="cov-pill cov-grey">0/' + subCaps.length + '</span>';
+    return '<a href="catalog/#' + esc(capId) + '" class="cov-pill cov-grey" target="_blank" title="View in catalog">0/' + subCaps.length + ' &#9656;</a>';
   }
 
   // Count how many sub-caps are fully covered (combined >= 1.0)
@@ -876,7 +902,26 @@ function covPillHTML(capId) {
 
   const score = subCaps.length > 0 ? covCount / subCaps.length : 0;
   const cls   = covPillClass(score);
-  return '<span class="cov-pill ' + cls + '">' + covCount + '/' + subCaps.length + '</span>';
+  return '<a href="catalog/#' + esc(capId) + '" class="cov-pill ' + cls + '" target="_blank" title="View in catalog">' + covCount + '/' + subCaps.length + ' &#9656;</a>';
+}
+
+/* ── CATALOG STRIP ── */
+function renderCatalogStrip(cap, vendorEntries) {
+  const subCaps = cap.sub_capabilities;
+  if (!subCaps || subCaps.length === 0) {
+    return '<div class="cat-no-data">&middot; &middot; &middot;</div>';
+  }
+  const detail = computeSlotCoverageDetailed(cap.id, vendorEntries, cap);
+  const dots = detail.perSubCap.map(sc => {
+    const req = sc.required ? 'required' : 'optional';
+    const covCls = 'cov-' + sc.covLevel;
+    const contribStr = sc.contributors.length
+      ? ' (' + sc.contributors.map(c => c.module_id).join(', ') + ')'
+      : ' \u2014 not covered';
+    const label = esc(sc.name) + ': ' + sc.covLevel + contribStr;
+    return '<span class="cat-dot ' + req + ' ' + covCls + '" title="' + label + '" aria-label="' + label + '"></span>';
+  }).join('');
+  return '<div class="cat-strip">' + dots + '</div>';
 }
 
 /* ── RENDER SLOT GRID ── */
@@ -915,6 +960,11 @@ function renderSlotGrid() {
         '<span class="slot-header-name">' + esc(cap.name) + '</span>' +
         covPillHTML(cap.id);
       cell.appendChild(header);
+
+      // Catalog strip — sub-cap coverage dots
+      const stripEl = document.createElement('div');
+      stripEl.innerHTML = renderCatalogStrip(cap, entries);
+      cell.appendChild(stripEl.firstChild);
 
       // Render each vendor as a flip card (compact if >1)
       const compact = entries.length > 1;
