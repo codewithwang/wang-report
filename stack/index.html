@@ -326,12 +326,20 @@ a:hover{text-decoration:underline}
 'use strict';
 
 /* ── CONSTANTS ── */
-const LENSES = {
-  ciso:    { posture:20, resilience:30, blast_radius:25, capability:15, ai_era:10, name:'CISO' },
-  startup: { posture:25, resilience:15, blast_radius:0,  capability:25, ai_era:10, accessibility:25, name:'STARTUP' },
-  board:   { posture:10, resilience:15, blast_radius:25, capability:0,  ai_era:20, concentration:30, name:'BOARD' },
-  analyst: { posture:20, resilience:20, blast_radius:20, capability:20, ai_era:20, name:'ANALYST' },
+// LENSES and ACTIVE_PILLARS are built from pillars.json at load time.
+// Fallback values are used if pillars.json fails to load.
+let LENSES = {
+  ciso:    { posture:20, resilience:15, ai_era:10, cve_risk:15, name:'CISO' },
+  startup: { posture:25, resilience:10, ai_era:10, cve_risk:10, name:'STARTUP' },
+  board:   { posture:10, resilience:20, ai_era:20, cve_risk:15, name:'BOARD' },
+  analyst: { posture:20, resilience:15, ai_era:20, cve_risk:20, name:'ANALYST' },
 };
+let ACTIVE_PILLARS = [
+  { id:'posture',    label:'Posture',    color:'#3a8aaa', score_fn:'postureScore' },
+  { id:'resilience', label:'Resilience', color:'#2a7a5a', score_fn:'resilienceScore' },
+  { id:'ai_era',     label:'AI-Era',     color:'#aa3a8a', score_fn:'aiEraScore' },
+  { id:'cve_risk',   label:'CVE Risk',   color:'#aa5533', score_fn:'cveRiskScore' },
+];
 
 const GRADE_NUM = { A:100, B:80, C:60, D:40, F:20 };
 
@@ -349,8 +357,9 @@ function numToGrade(n) {
   return 'F';
 }
 
-const PILLAR_COLORS = { posture:'#3a8aaa', resilience:'#3aaa6a', blast_radius:'#aa6a3a', capability:'#6a3aaa', ai_era:'#aa3a8a' };
-const PILLAR_LABELS = { posture:'Posture', resilience:'Resilience', blast_radius:'Blast Radius', capability:'Capability', ai_era:'AI-Era' };
+// PILLAR_COLORS and PILLAR_LABELS derived from ACTIVE_PILLARS at load time (see buildPillarLookups)
+let PILLAR_COLORS = {};
+let PILLAR_LABELS = {};
 
 /* ── STATE ── */
 let state = {
@@ -362,19 +371,45 @@ let state = {
 let DATA = { vendors: [], capabilities: [], modules: [] };
 let vendorMap = {}; // vendor_id -> vendor obj
 
+/* ── PILLAR LOOKUP HELPERS ── */
+function buildPillarLookups() {
+  PILLAR_COLORS = {};
+  PILLAR_LABELS = {};
+  ACTIVE_PILLARS.forEach(p => {
+    PILLAR_COLORS[p.id] = p.color;
+    PILLAR_LABELS[p.id] = p.label;
+  });
+}
+
 /* ── DATA LOAD ── */
 async function loadAll() {
   try {
-    const [vr, cr, vcr] = await Promise.all([
+    const [vr, cr, vcr, pr] = await Promise.all([
       fetch('../data/vendors.json').then(r => r.json()),
       fetch('../data/capabilities.json').then(r => r.json()),
       fetch('../data/vendor-capabilities.json').then(r => r.json()),
+      fetch('../data/pillars.json').then(r => r.json()).catch(() => null),
     ]);
     DATA.vendors = vr.vendors || [];
     DATA.capabilities = cr.capabilities || [];
     DATA.modules = vcr.modules || [];
     DATA.meta = vr._meta || {};
     DATA.vendors.forEach(v => { vendorMap[v.id] = v; });
+
+    // Build ACTIVE_PILLARS and LENSES from pillars.json (fallback to defaults on failure)
+    if (pr && Array.isArray(pr.pillars)) {
+      ACTIVE_PILLARS = pr.pillars.filter(p => p.enabled);
+      const newLenses = {};
+      pr.pillars.forEach(p => {
+        if (!p.lens_weights) return;
+        Object.entries(p.lens_weights).forEach(([lens, w]) => {
+          if (!newLenses[lens]) newLenses[lens] = { name: lens.charAt(0).toUpperCase() + lens.slice(1) };
+          newLenses[lens][p.id] = w;
+        });
+      });
+      if (Object.keys(newLenses).length > 0) LENSES = newLenses;
+    }
+    buildPillarLookups();
 
     // Update slot counts in UI
     const modeSlots = { startup: 0, smb: 0, enterprise: 0 };
@@ -461,42 +496,64 @@ function applyStateToToggles() {
 }
 
 /* ── SCORING ENGINE ── */
-function getPillarScores(vendor) {
+const PILLAR_SCORERS = {
+  postureScore(vendor) {
+    return gradeToNum(vendor.grade);
+  },
+  resilienceScore(vendor) {
+    // Uses same posture data for now — will be replaced when blast_radius pipeline lands
+    return gradeToNum(vendor.grade);
+  },
+  aiEraScore(vendor) {
+    return gradeToNum(vendor.ai_era_grade && vendor.ai_era_grade.grade);
+  },
+  cveRiskScore(vendor) {
+    const cves = vendor.cves_12m ?? null;
+    const critical = vendor.critical_count ?? null;
+    const kev = vendor.kev_count ?? null;
+    const zeros = vendor.zero_days ?? null;
+    const mttp = vendor.mttp_days ?? null;
+    // If no CVE data at all, return null
+    if (cves === null && critical === null) return null;
+    let raw = 100;
+    raw -= Math.min(40, (critical || 0) * 8);
+    raw -= Math.min(20, (kev || 0) * 10);
+    raw -= Math.min(15, (zeros || 0) * 15);
+    if (mttp !== null) raw -= Math.max(0, (mttp - 14) * 0.8);
+    raw -= Math.min(10, Math.max(0, ((cves || 0) - 20) * 0.3));
+    return Math.max(0, Math.min(100, Math.round(raw)));
+  },
+  blastRadiusScore(vendor) {
+    return gradeToNum(vendor.blast_radius_grade);
+  },
+  capabilityScore(vendor) {
+    return gradeToNum(vendor.capability_grade);
+  },
+  regulatoryScore() { return null; },
+  geoScore() { return null; },
+};
+
+function getPillarScores(vendor, module) {
   const scores = {};
-
-  // Posture
-  scores.posture = gradeToNum(vendor.grade);
-
-  // Resilience: avg of rrr_react, rrr_respond, rrr_resilient
-  const rrrVals = [vendor.rrr_react, vendor.rrr_respond, vendor.rrr_resilient]
-    .map(gradeToNum).filter(v => v !== null);
-  scores.resilience = rrrVals.length ? rrrVals.reduce((a,b) => a+b, 0) / rrrVals.length : null;
-
-  // Blast radius: NA for all
-  scores.blast_radius = null;
-
-  // Capability: NA for all
-  scores.capability = null;
-
-  // AI-Era
-  scores.ai_era = gradeToNum(vendor.ai_era_grade && vendor.ai_era_grade.grade);
-
+  ACTIVE_PILLARS.forEach(pillar => {
+    const fn = PILLAR_SCORERS[pillar.score_fn];
+    scores[pillar.id] = fn ? fn(vendor, module) : null;
+  });
   return scores;
 }
 
-function vendorComposite(vendor, lens) {
-  const scores = getPillarScores(vendor);
-  const weights = LENSES[lens];
-  let weightedSum = 0, totalWeight = 0;
-  ['posture','resilience','blast_radius','capability','ai_era'].forEach(pillar => {
-    const w = weights[pillar] || 0;
-    const s = scores[pillar];
-    if (w > 0 && s !== null) {
-      weightedSum += s * w;
-      totalWeight += w;
+function vendorComposite(scores, lens) {
+  const lensWeights = LENSES[lens] || LENSES['ciso'];
+  let total = 0, weightSum = 0;
+  ACTIVE_PILLARS.forEach(p => {
+    const score = scores[p.id];
+    const weight = lensWeights[p.id] ?? 0;
+    if (score !== null && score !== undefined && weight > 0) {
+      total += score * weight;
+      weightSum += weight;
     }
   });
-  return totalWeight > 0 ? weightedSum / totalWeight : null;
+  return weightSum > 0 ? Math.round(total / weightSum) : null;
 }
 
 function computeStackScore() {
@@ -520,7 +577,7 @@ function computeStackScore() {
     const vendor = vendorMap[slot.vendor_id];
     if (!vendor) return;
     const crit = cap.criticality[mode] || 0;
-    const vc = vendorComposite(vendor, lens);
+    const vc = vendorComposite(getPillarScores(vendor), lens);
     if (vc !== null) {
       slotScoreSum += vc * (crit / 5);
     }
@@ -539,21 +596,22 @@ function computeStackScore() {
 
   const final = Math.max(0, Math.min(100, base * coveragePct - concentrationPenalty));
 
-  // Per-pillar breakdown
-  const pillarTotals = { posture:0, resilience:0, blast_radius:0, capability:0, ai_era:0 };
-  const pillarCounts = { posture:0, resilience:0, blast_radius:0, capability:0, ai_era:0 };
+  // Per-pillar breakdown (dynamic — driven by ACTIVE_PILLARS)
+  const pillarTotals = {};
+  const pillarCounts = {};
+  ACTIVE_PILLARS.forEach(p => { pillarTotals[p.id] = 0; pillarCounts[p.id] = 0; });
   filledSlots.forEach(cid => {
     const slot = state.stack[cid];
     const vendor = vendorMap[slot.vendor_id];
     if (!vendor) return;
     const ps = getPillarScores(vendor);
-    Object.keys(pillarTotals).forEach(p => {
-      if (ps[p] !== null) { pillarTotals[p] += ps[p]; pillarCounts[p]++; }
+    ACTIVE_PILLARS.forEach(p => {
+      if (ps[p.id] !== null && ps[p.id] !== undefined) { pillarTotals[p.id] += ps[p.id]; pillarCounts[p.id]++; }
     });
   });
   const pillarAvgs = {};
-  Object.keys(pillarTotals).forEach(p => {
-    pillarAvgs[p] = pillarCounts[p] > 0 ? pillarTotals[p] / pillarCounts[p] : null;
+  ACTIVE_PILLARS.forEach(p => {
+    pillarAvgs[p.id] = pillarCounts[p.id] > 0 ? pillarTotals[p.id] / pillarCounts[p.id] : null;
   });
 
   return {
@@ -668,13 +726,13 @@ function renderFilledSlot(cap, slotData) {
   // BACK
   const back = document.createElement('div');
   back.className = 'slot-face slot-back-face';
-  const pillarsHTML = ['posture','resilience','blast_radius','capability','ai_era'].map(p => {
-    const s = pillarScores[p];
-    const g = s !== null ? numToGrade(s) : 'NA';
-    const pct = s !== null ? s : 0;
+  const pillarsHTML = ACTIVE_PILLARS.map(p => {
+    const score = pillarScores[p.id];
+    const g = score !== null && score !== undefined ? numToGrade(score) : 'NA';
+    const barWidth = score !== null && score !== undefined ? score : 0;
     return '<div class="pillar-row">' +
-      '<div class="pillar-label">' + PILLAR_LABELS[p] + '</div>' +
-      '<div class="pillar-bar-bg"><div class="pillar-bar-fill" style="width:' + pct + '%;background:' + PILLAR_COLORS[p] + '"></div></div>' +
+      '<div class="pillar-label">' + p.label + '</div>' +
+      '<div class="pillar-bar-bg"><div class="pillar-bar-fill" style="width:' + barWidth + '%;background:' + p.color + '"></div></div>' +
       '<div class="pillar-grade-pill pill-' + g + '">' + g + '</div>' +
     '</div>';
   }).join('');
@@ -769,15 +827,15 @@ function renderScorePanel() {
     warn.classList.remove('show');
   }
 
-  // Pillar breakdown
+  // Pillar breakdown (dynamic — driven by ACTIVE_PILLARS)
   const pb = document.getElementById('pillarBreakdown');
-  pb.innerHTML = ['posture','resilience','blast_radius','capability','ai_era'].map(p => {
-    const v = result.pillarAvgs[p];
-    const pct = v !== null ? Math.round(v) : 0;
-    const label = v !== null ? numToGrade(v) : 'NA';
+  pb.innerHTML = ACTIVE_PILLARS.map(p => {
+    const v = result.pillarAvgs[p.id];
+    const pct = v !== null && v !== undefined ? Math.round(v) : 0;
+    const label = v !== null && v !== undefined ? numToGrade(v) : 'NA';
     return '<div class="pillar-breakdown-row">' +
-      '<div class="pbd-label">' + PILLAR_LABELS[p] + '</div>' +
-      '<div class="pbd-bar-bg"><div class="pbd-bar-fill" style="width:' + pct + '%;background:' + PILLAR_COLORS[p] + '"></div></div>' +
+      '<div class="pbd-label">' + p.label + '</div>' +
+      '<div class="pbd-bar-bg"><div class="pbd-bar-fill" style="width:' + pct + '%;background:' + p.color + '"></div></div>' +
       '<div class="pbd-val">' + label + '</div>' +
     '</div>';
   }).join('');
@@ -794,14 +852,13 @@ function renderScorePanel() {
 function renderRadar(result) {
   const wrap = document.getElementById('radarWrap');
   const W = 240, H = 220, cx = 120, cy = 110, R = 85;
-  const axes = [
-    { label: 'Posture', val: result.pillarAvgs.posture },
-    { label: 'Resilience', val: result.pillarAvgs.resilience },
-    { label: 'Blast Radius', val: result.pillarAvgs.blast_radius },
-    { label: 'Capability', val: result.pillarAvgs.capability },
-    { label: 'AI-Era', val: result.pillarAvgs.ai_era },
-    { label: 'Coverage', val: result.coveragePct !== null ? result.coveragePct * 100 : null },
-  ];
+  // Build axes dynamically from ACTIVE_PILLARS + Coverage axis
+  const axes = ACTIVE_PILLARS.map(p => ({
+    label: p.label,
+    val: result.pillarAvgs[p.id] !== undefined ? result.pillarAvgs[p.id] : null,
+    color: p.color,
+  }));
+  axes.push({ label: 'Coverage', val: result.coveragePct !== null ? result.coveragePct * 100 : null, color: '#c9a84c' });
   const n = axes.length;
   const angleStep = (2 * Math.PI) / n;
   const startAngle = -Math.PI / 2;
@@ -898,7 +955,7 @@ function renderRecommendations() {
         .map(m => {
           const v = vendorMap[m.vendor_id];
           if (!v) return null;
-          const vc = vendorComposite(v, lens);
+          const vc = vendorComposite(getPillarScores(v), lens);
           return { m, v, score: vc !== null ? vc : 0 };
         })
         .filter(Boolean)
@@ -990,8 +1047,8 @@ function renderPickerGrid(search) {
     const featA = (va && va.wr_featured) ? 1 : 0;
     const featB = (vb && vb.wr_featured) ? 1 : 0;
     if (featA !== featB) return featB - featA;
-    const sa = va ? (vendorComposite(va, state.lens) || 0) : 0;
-    const sb = vb ? (vendorComposite(vb, state.lens) || 0) : 0;
+    const sa = va ? (vendorComposite(getPillarScores(va), state.lens) || 0) : 0;
+    const sb = vb ? (vendorComposite(getPillarScores(vb), state.lens) || 0) : 0;
     return sb - sa;
   });
 
