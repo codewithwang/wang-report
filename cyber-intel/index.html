@@ -290,6 +290,7 @@ a:hover{text-decoration:underline}
     <p><strong>Front side:</strong> The monogram and security grade (A through F) are at the top. Five horizontal bars rate patch velocity, disclosure quality, resilience, CVE posture, and concentration risk. The facts strip shows raw numbers. Cards with a gold border and holographic shimmer are <em>WR Featured</em> — these include a one-sentence practitioner editorial take.</p>
     <p><strong>Back side:</strong> The detailed view shows the vendor's risk profile as card "abilities." The symbols in the top-right encode deployment complexity — more symbols mean a larger attack surface. The gem next to the type line indicates tier (gold = universal infrastructure, silver = sector-critical, dark = category leader). The colored pips at the bottom rate incident behavior: <em>React</em> (did they detect it first?), <em>Respond</em> (how did they handle disclosure?), <em>Resilient</em> (how fast did customers recover?).</p>
     <p><strong>Scoring:</strong> Grades are computed from Mean Time to Patch (30%), CISA KEV count (25%), zero-day exploits (20%), critical CVE ratio (15%), and trend (10%). Data sourced daily from the National Vulnerability Database and CISA KEV feeds. Editorial ratings (React, Respond, Resilient) are assigned manually by wangreport.com after real incidents — no algorithm produces these.</p>
+    <p><strong>Mana symbols (top-right of back):</strong> The colored circles encode deployment complexity and sector personality, MTG-style. The COUNT (2-5 pips) reflects tier — Tier 1 universal infrastructure gets 4 pips, Tier 3 category leaders get 2. High-risk vendors (grade D or F) get one extra pip. The COLOR encodes sector character: <strong style="color:#88aaff">U</strong> blue = intelligence/trust (endpoint, identity, email), <strong style="color:#88dd88">G</strong> green = resilience/perimeter (network, devops, itsm), <strong style="color:#eeeeaa">W</strong> white = scale/governance (cloud, ERP, payments, healthcare, insurance), <strong style="color:#cc88cc">B</strong> black = visibility/secrets (siem), <strong style="color:#ff8866">R</strong> red = physical danger (OT/ICS). So AWS shows four W's (cloud, Tier 1) and SentinelOne shows two U's (endpoint, Tier 3).</p>
     <p><strong>CISO Alert Mode:</strong> Press this button to filter the view to only vendors with active CISA Known Exploited Vulnerabilities or recent zero-day exploits. Use it when you need to see which vendors in your stack have active threats right now.</p>
     <p><strong>Vendor packs:</strong> Some vendors have multiple distinct products with separate security profiles. Look for the "N modules" badge — click "View modules" below the card to see individual product cards, each with their own grade. The parent card shows the worst-of score across all modules.</p>
   </div>
@@ -367,7 +368,9 @@ var VENDOR_DOMAINS = {
   'wiz': 'wiz.io',
   'google-cloud-security': 'chronicle.security',
   'netskope': 'netskope.com',
-  'ping-identity': 'pingidentity.com'
+  'ping-identity': 'pingidentity.com',
+  'watchtowr': 'watchtowr.com',
+  'vanta': 'vanta.com'
 };
 
 function vendorLogoUrl(id, parentId) {

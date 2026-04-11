@@ -1,12 +1,12 @@
 {
   "_meta": {
     "generated": "2026-04-08",
-    "last_updated": "2026-04-09",
+    "last_updated": "2026-04-11",
     "source_note": "Seeded from NVD, CISA KEV, and vendor advisories through mid-2025. Validate against live feeds before publishing.",
     "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
     "kev_feed": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
     "schema_version": "1.1",
-    "total_vendors": 47
+    "total_vendors": 49
   },
   "vendors": [
     {
@@ -200,11 +200,11 @@
       "mttp_days": 30,
       "zero_days": 2,
       "kev_count": 3,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "January 2024 Midnight Blizzard breach: password spray on a legacy test tenant, found by incident response not alerting. Security team email accessed for over a month.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
       "serial": "WR-2026-004",
       "cve_list": [
         {
@@ -284,10 +284,10 @@
       "zero_days": 2,
       "kev_count": 3,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "CVE-2024-3400 was actively exploited before public disclosure, suggesting detection lagged threat actor activity. Patch cadence and transparency improved, but reactive posture on zero-days remains exposed.",
+      "rrr_react": "D",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
       "serial": "WR-2026-005",
       "cve_list": [
         {
@@ -452,10 +452,10 @@
       "zero_days": 3,
       "kev_count": 7,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "October 2024 DevHub breach exposed GitHub tokens and hardcoded credentials. Investigation showed misconfiguration not attack \u2014 but that is the definition of detection lag.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
       "serial": "WR-2026-007",
       "cve_list": [
         {
@@ -543,10 +543,10 @@
       "zero_days": 1,
       "kev_count": 2,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "October 2024 incident handled with minimal public detail. The choice to limit scope of disclosure is itself a data point.",
+      "rrr_react": "D",
+      "rrr_respond": "D",
+      "rrr_resilient": "C",
       "serial": "WR-2026-008",
       "cve_list": [
         {
@@ -581,11 +581,11 @@
       "mttp_days": 29,
       "zero_days": 1,
       "kev_count": 3,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "Five critical RCE flaws disclosed together in early 2024, then a vendor communication error came to light when WatchTowr highlighted the messaging gap. Structural disclosure process issue, not transient.",
+      "rrr_react": "C",
+      "rrr_respond": "C",
+      "rrr_resilient": "B",
       "serial": "WR-2026-009",
       "cve_list": [
         {
@@ -620,11 +620,11 @@
       "mttp_days": 55,
       "zero_days": 4,
       "kev_count": 8,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "CitrixBleed was exploited in the wild since August 2023 before the October patch. Customers are still managing fallout two years later.",
+      "rrr_react": "D",
+      "rrr_respond": "C",
+      "rrr_resilient": "D",
       "serial": "WR-2026-010",
       "cve_list": [
         {
@@ -690,11 +690,11 @@
       "mttp_days": 30,
       "zero_days": 4,
       "kev_count": 8,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "Storm-0558 used a 2021 signing key to forge auth tokens in July 2023. Disclosure was clear; the CSRB report on key lifecycle governance was less so.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
       "serial": "WR-2026-012",
       "cve_list": [
         {
@@ -868,10 +868,10 @@
       "zero_days": 1,
       "kev_count": 2,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "CVE-2025-55241 reported July 14, patched July 23, no wild exploitation. Cross-tenant admin takeover potential treated with textbook urgency and transparency.",
+      "rrr_react": "A",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
       "serial": "WR-2026-015",
       "cve_list": [
         {
@@ -1091,10 +1091,10 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "September 2025 Salesforce breach exposed support ticket subject lines only. Core vulnerability assessment platform never touched. Isolation worked.",
+      "rrr_react": "A",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
       "serial": "WR-2026-020",
       "cve_list": [
         {
@@ -1214,10 +1214,10 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "2025 Salesforce breach was limited to third-party support ticket data with automatic deletion after 120 days. Design won by default.",
+      "rrr_react": "A",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
       "serial": "WR-2026-023",
       "cve_list": [
         {
@@ -1275,10 +1275,10 @@
       "zero_days": 0,
       "kev_count": 1,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "August 2025 Salesloft Drift supply chain breach accessed Zscaler Salesforce data via stolen OAuth tokens. Fast revocation, fast notification. Third-party integrations are the real perimeter now.",
+      "rrr_react": "B",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
       "serial": "WR-2026-024",
       "cve_list": [
         {
@@ -1305,11 +1305,11 @@
       "mttp_days": 14,
       "zero_days": 0,
       "kev_count": 1,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "March 2025 tj-actions/changed-files compromise affected 23,000 repositories and leaked CI/CD secrets. The GitHub ecosystem is now a trusted supply chain vector \u2014 assume any public action can turn.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "C",
       "serial": "WR-2026-025",
       "cve_list": [
         {
@@ -1337,10 +1337,10 @@
       "zero_days": 1,
       "kev_count": 5,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "CVE-2023-22527 in Confluence prompted exploitation attempts within days. October 2023 data breach details remain vague.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
       "serial": "WR-2026-026",
       "cve_list": [
         {
@@ -1359,6 +1359,109 @@
           "kev": true,
           "zero_day": false
         }
+      ],
+      "modules": [
+        {
+          "id": "atl-jira",
+          "name": "Jira",
+          "monogram": "JR",
+          "cves_12m": 12,
+          "critical_count": 0,
+          "mttp_days": 21,
+          "zero_days": 0,
+          "kev_count": 1,
+          "score": 68,
+          "grade": "C",
+          "cpe_prefix": "cpe:2.3:a:atlassian:jira:*",
+          "cve_list": [
+            {
+              "id": "CVE-2024-21685",
+              "severity": "HIGH",
+              "description": "Information disclosure in Jira Core Data Center",
+              "days_to_patch": 28,
+              "kev": false,
+              "zero_day": false
+            },
+            {
+              "id": "CVE-2025-22157",
+              "severity": "HIGH",
+              "description": "Privilege escalation in Jira Core Data Center and Jira Service Management",
+              "days_to_patch": 19,
+              "kev": false,
+              "zero_day": false
+            }
+          ]
+        },
+        {
+          "id": "atl-confluence",
+          "name": "Confluence",
+          "monogram": "CF",
+          "cves_12m": 18,
+          "critical_count": 4,
+          "mttp_days": 25,
+          "zero_days": 1,
+          "kev_count": 3,
+          "score": 42,
+          "grade": "D",
+          "cpe_prefix": "cpe:2.3:a:atlassian:confluence:*",
+          "cve_list": [
+            {
+              "id": "CVE-2023-22527",
+              "severity": "CRITICAL",
+              "description": "Template injection / OGNL expression injection \u2014 unauthenticated RCE",
+              "days_to_patch": 50,
+              "kev": true,
+              "zero_day": true
+            },
+            {
+              "id": "CVE-2023-22515",
+              "severity": "CRITICAL",
+              "description": "Broken access control allowing creation of unauthorized admin accounts",
+              "days_to_patch": 35,
+              "kev": true,
+              "zero_day": true
+            },
+            {
+              "id": "CVE-2024-21683",
+              "severity": "HIGH",
+              "description": "Authenticated arbitrary code execution; PoC public",
+              "days_to_patch": 22,
+              "kev": false,
+              "zero_day": false
+            }
+          ]
+        },
+        {
+          "id": "atl-bitbucket",
+          "name": "Bitbucket",
+          "monogram": "BB",
+          "cves_12m": 11,
+          "critical_count": 1,
+          "mttp_days": 28,
+          "zero_days": 0,
+          "kev_count": 1,
+          "score": 56,
+          "grade": "C",
+          "cpe_prefix": "cpe:2.3:a:atlassian:bitbucket:*",
+          "cve_list": [
+            {
+              "id": "CVE-2022-36804",
+              "severity": "CRITICAL",
+              "description": "Command injection in multiple API endpoints \u2014 arbitrary code execution",
+              "days_to_patch": 21,
+              "kev": true,
+              "zero_day": false
+            },
+            {
+              "id": "CVE-2024-38819",
+              "severity": "HIGH",
+              "description": "Path traversal in Bitbucket Data Center and Server",
+              "days_to_patch": 24,
+              "kev": false,
+              "zero_day": false
+            }
+          ]
+        }
       ]
     },
     {
@@ -1376,10 +1479,10 @@
       "zero_days": 1,
       "kev_count": 5,
       "wr_featured": true,
-      "wr_take": "Most targeted backup solution by ransomware operators. Compromising backup before encryption is the playbook. Veeam exposure is existential risk for recovery.",
-      "rrr_react": "B",
+      "wr_take": "CVE-2024-40711 in active ransomware attacks a year after disclosure. When vulnerability velocity exceeds patch velocity, the backup system becomes the attack surface.",
+      "rrr_react": "C",
       "rrr_respond": "B",
-      "rrr_resilient": "C",
+      "rrr_resilient": "D",
       "serial": "WR-2026-027",
       "cve_list": [
         {
@@ -1415,10 +1518,10 @@
       "zero_days": 0,
       "kev_count": 2,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "CVE-2025-12420 (BodySnatcher) allowed unauthenticated user impersonation bypassing MFA via virtual agents. No wild exploitation reported, but the semantic definition of vulnerability \u2014 reachable without permission \u2014 was the failure.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "C",
       "serial": "WR-2026-028",
       "cve_list": [
         {
@@ -1453,11 +1556,11 @@
       "mttp_days": 30,
       "zero_days": 2,
       "kev_count": 4,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "CVE-2025-31324 exploited in the wild since 2023 before the April 2025 emergency patch. Recovery timelines stretched into months for affected manufacturers.",
+      "rrr_react": "D",
+      "rrr_respond": "B",
+      "rrr_resilient": "C",
       "serial": "WR-2026-029",
       "cve_list": [
         {
@@ -1492,11 +1595,11 @@
       "mttp_days": 79,
       "zero_days": 2,
       "kev_count": 5,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "Three incidents in 18 months. Ransomware targeting the same division repeatedly looks more like a structural pattern than bad luck.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "D",
       "serial": "WR-2026-030",
       "cve_list": [
         {
@@ -1575,11 +1678,11 @@
       "mttp_days": 68,
       "zero_days": 1,
       "kev_count": 4,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "April 2024 BlackBasta breach exposed 800GB. Multiple ICS products carry critical unpatched flaws \u2014 operational systems cannot be patched on a web-scale schedule.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "C",
       "serial": "WR-2026-031",
       "cve_list": [
         {
@@ -1760,10 +1863,10 @@
       "zero_days": 0,
       "kev_count": 1,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "EchoSpoofing (Jan-June 2024) exploited misconfigured permissions to send 14 million phishing emails per day using Proofpoint's own service. The protection tool became the vector.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
       "serial": "WR-2026-035",
       "cve_list": [
         {
@@ -1860,11 +1963,11 @@
       "mttp_days": 16,
       "zero_days": 0,
       "kev_count": 1,
-      "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_featured": true,
+      "wr_take": "2025 saw two waves: UNC6040 social engineering compromised 91 organizations via Data Loader spoofing, then Drift OAuth tokens hit 700+ orgs. Salesforce is now a trust boundary the product alone cannot secure.",
+      "rrr_react": "C",
+      "rrr_respond": "B",
+      "rrr_resilient": "C",
       "serial": "WR-2026-038",
       "cve_list": [
         {
@@ -1892,10 +1995,10 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "August 2025 social engineering attack on internal CRM and Drift OAuth exposure. Fast disclosure, clear customer guidance, no customer tenant access.",
+      "rrr_react": "B",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
       "serial": "WR-2026-039",
       "cve_list": [
         {
@@ -1923,10 +2026,10 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": false,
-      "wr_take": null,
-      "rrr_react": null,
-      "rrr_respond": null,
-      "rrr_resilient": null,
+      "wr_take": "May 2023 extortion attempt and November 2023 AlphV claim both failed to penetrate core systems. Layered controls held. Incident response architecture works.",
+      "rrr_react": "A",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
       "serial": "WR-2026-040",
       "cve_list": [
         {
@@ -2191,6 +2294,59 @@
           "severity": "MEDIUM",
           "description": "PingFederate Google Adapter thread exhaustion via non-200 responses",
           "days_to_patch": 14,
+          "kev": false,
+          "zero_day": false
+        }
+      ]
+    },
+    {
+      "id": "watchtowr",
+      "name": "WatchTowr",
+      "monogram": "WT",
+      "sector": "network",
+      "tier": 3,
+      "market_position": "Challenger",
+      "grade": "A",
+      "score": 92,
+      "cves_12m": 0,
+      "critical_count": 0,
+      "mttp_days": 7,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": true,
+      "wr_take": "The team that finds the flaws everyone else missed. WatchTowr Labs has redefined what 'responsibly disclosed' means \u2014 Citrix Bleed, Fortinet zero-days, Ivanti EPMM. They don't build walls; they hunt the holes.",
+      "rrr_react": "A",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
+      "serial": "WR-2026-049",
+      "cve_list": []
+    },
+    {
+      "id": "vanta",
+      "name": "Vanta",
+      "monogram": "VT",
+      "sector": "itsm",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 78,
+      "cves_12m": 1,
+      "critical_count": 0,
+      "mttp_days": 9,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": true,
+      "wr_take": "Market leader in compliance automation. The March 2025 cross-customer data exposure \u2014 caused by a product code change, not an attacker \u2014 was the reminder that compliance platforms are still humans with keyboards. Affected ~4% of customers.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
+      "serial": "WR-2026-050",
+      "cve_list": [
+        {
+          "id": "VANTA-2025-03",
+          "severity": "HIGH",
+          "description": "Cross-customer data exposure: code change allowed sensitive employee data and MFA settings to bleed across customer accounts",
+          "days_to_patch": 9,
           "kev": false,
           "zero_day": false
         }
