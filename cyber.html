@@ -96,7 +96,7 @@ function doRefresh() {
   var btn = document.querySelector('.refresh-btn');
   btn.textContent = 'REFRESHING...';
   btn.disabled = true;
-  fetch('#').then(function(r) { return r.json(); }).then(function() {
+  fetch('/api/cyber/refresh').then(function(r) { return r.json(); }).then(function() {
     setTimeout(function() { location.reload(); }, 3000);
   }).catch(function() {
     btn.textContent = 'ERROR';
