@@ -295,6 +295,52 @@ a:hover{text-decoration:underline}
 /* AI disclaimer note in picker footer */
 .modal-ai-note{font-size:8px;color:#444;font-style:italic;margin-top:12px;padding-top:8px;border-top:1px solid #1a1a2a;line-height:1.4;text-align:center}
 
+/* Vendor accordion row */
+.pc-vendor-row { border-bottom: 1px solid #1a1a1a; cursor: pointer; }
+.pc-vendor-header { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #0f0f0f; transition: background .15s; }
+.pc-vendor-header:hover { background: #141414; }
+.pc-vendor-caret { color: #555; font-size: 11px; transition: transform .2s; width: 14px; flex-shrink: 0; }
+.pc-vendor-row.expanded .pc-vendor-caret { transform: rotate(90deg); color: #c9a84c; }
+.pc-vendor-logo-sm { width: 24px; height: 24px; object-fit: contain; border-radius: 3px; flex-shrink: 0; }
+.pc-vendor-badges { display: flex; gap: 5px; align-items: center; flex-shrink: 0; }
+.pc-mod-count { font-size: 10px; color: #666; background: #1a1a1a; padding: 1px 6px; border-radius: 10px; }
+.pc-in-stack-count { font-size: 10px; color: #c9a84c; background: #c9a84c22; padding: 1px 6px; border-radius: 10px; }
+.pc-modules-list { display: none; }
+.pc-vendor-row.expanded .pc-modules-list { display: block; }
+/* Single-module vendors always expanded, no caret */
+.pc-vendor-row.single-module .pc-vendor-caret { visibility: hidden; }
+.pc-vendor-row.single-module .pc-modules-list { display: block; }
+
+/* Module row inside vendor */
+.pc-module-row { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 38px; border-top: 1px solid #111; cursor: pointer; transition: background .12s; }
+.pc-module-row:hover { background: #111; }
+.pc-module-row.in-slot { background: #0d1a0d; cursor: default; }
+.pc-module-row.hidden { display: none; }
+.pc-module-info { flex: 1; min-width: 0; }
+.pc-module-name { font-size: 12px; color: #ccc; }
+.pc-module-notes { font-size: 11px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px; margin-top: 1px; }
+.pc-module-tags { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+.pc-mod-in-slot { font-size: 10px; color: #5acc5a; background: #5acc5a22; padding: 1px 6px; border-radius: 10px; }
+.pc-mod-remove { font-size: 10px; color: #e04a4a; background: #e04a4a22; border: none; padding: 2px 7px; border-radius: 3px; cursor: pointer; }
+
+/* Deployment chips */
+.dep-chip { font-size: 9px; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px; font-weight: 600; }
+.dep-chip.dep-saas  { background: #1a2a3a; color: #6aaaee; border: 1px solid #2a4a6a; }
+.dep-chip.dep-onprem { background: #2a2010; color: #ddaa60; border: 1px solid #4a3a20; }
+.dep-chip.dep-hybrid { background: #2a1a3a; color: #aa88ff; border: 1px solid #4a3060; }
+.dep-chip.dep-both  { background: #1a1a1a; color: #888; border: 1px solid #333; }
+
+/* Tier chip */
+.tier-chip { font-size: 9px; color: #555; }
+.tier-chip.tier-addon { color: #888; }
+.tier-chip.tier-managed { color: #aa88ff; }
+.tier-chip.tier-enterprise { color: #c9a84c; }
+
+/* Deployment filter bar */
+.pc-dep-filter { display: flex; gap: 6px; padding: 6px 14px; border-bottom: 1px solid #1a1a1a; }
+.pc-dep-btn { font-size: 10px; padding: 3px 10px; border-radius: 12px; border: 1px solid #333; background: transparent; color: #888; cursor: pointer; transition: all .15s; letter-spacing: 0.5px; }
+.pc-dep-btn.active { background: #c9a84c22; border-color: #c9a84c; color: #c9a84c; }
+
 /* FOOTER */
 .page-footer{text-align:center;padding:20px 12px;border-top:1px solid #222;margin-top:30px;font-size:10px;color:#444}
 .page-footer a{color:#666;margin:0 6px}
@@ -420,10 +466,18 @@ a:hover{text-decoration:underline}
       </div>
       <button class="modal-close" id="modalClose">CLOSE</button>
     </div>
-    <div class="modal-body">
-      <input type="text" class="modal-search" id="modalSearch" placeholder="Search vendors or modules..." autocomplete="off">
-      <div class="picker-grid" id="pickerGrid"></div>
-      <div class="modal-ai-note" id="modalAiNote" style="display:none">Sub-capability mapping is AI-assisted. Wang Report uses AI insights at scale; accuracy improves with community review.</div>
+    <div class="modal-body" style="padding:0">
+      <div style="padding:16px 20px 10px">
+        <input type="text" class="modal-search" id="modalSearch" placeholder="Search vendors or modules..." autocomplete="off" style="margin-bottom:0">
+      </div>
+      <div class="pc-dep-filter" id="pickerDepFilter">
+        <button class="pc-dep-btn active" data-dep="all">All</button>
+        <button class="pc-dep-btn" data-dep="saas">&#9729; SaaS</button>
+        <button class="pc-dep-btn" data-dep="on_prem">&#127970; On-Prem</button>
+        <button class="pc-dep-btn" data-dep="hybrid">&#9889; Hybrid</button>
+      </div>
+      <div id="pickerGrid" style="max-height:55vh;overflow-y:auto"></div>
+      <div class="modal-ai-note" id="modalAiNote" style="display:none;padding:0 20px 12px">Sub-capability mapping is AI-assisted. Wang Report uses AI insights at scale; accuracy improves with community review.</div>
     </div>
   </div>
 </div>
@@ -1171,7 +1225,7 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
     '<div class="sf-nameplate">' +
       '<div class="sf-vname">' + esc(mod.module_name) + '</div>' +
       '<div class="sf-vsector">' + esc(vendor.name) + ' &middot; ' + esc(vendor.sector || '') + '</div>' +
-      '<div class="sf-slotlabel">' + esc(cap.name) + '</div>' +
+      '<div class="sf-slotlabel">' + esc(cap.name) + (mod.deployment ? ' &nbsp;' + depChipHTML(mod.deployment) : '') + '</div>' +
     '</div>' +
     (!compact && featured && vendor.wr_take ? '<div class="sf-take">' + esc(vendor.wr_take) + '</div>' : '') +
     (featured ? '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>' : '');
@@ -1517,12 +1571,18 @@ function renderRecommendations() {
 
 /* ── PICKER MODAL ── */
 let pickerCapId = null;
+let pickerDeploymentFilter = 'all';
+let pickerExpandedVendors = new Set();
 
 function openPicker(cap) {
   pickerCapId = cap.id;
+  pickerDeploymentFilter = 'all';
+  pickerExpandedVendors = new Set();
   document.getElementById('modalTitle').textContent    = 'SELECT: ' + cap.name.toUpperCase();
   document.getElementById('modalSubtitle').textContent = cap.description + ' · ' + state.mode.toUpperCase() + ' MODE';
   document.getElementById('modalSearch').value = '';
+  // Reset dep filter buttons
+  document.querySelectorAll('.pc-dep-btn').forEach(b => b.classList.toggle('active', b.dataset.dep === 'all'));
   renderPickerGrid('');
   document.getElementById('pickerModal').classList.add('open');
   document.getElementById('modalSearch').focus();
@@ -1551,111 +1611,174 @@ function subCapChipsHTML(mod, capId) {
   return '<div class="sc-chips">' + chips + '</div>';
 }
 
+function depChipHTML(deployment) {
+  if (!deployment || deployment === 'both') return '<span class="dep-chip dep-both">Both</span>';
+  const labels = { saas:'SaaS', on_prem:'On-Prem', hybrid:'Hybrid' };
+  const cls    = { saas:'dep-saas', on_prem:'dep-onprem', hybrid:'dep-hybrid' };
+  return '<span class="dep-chip ' + (cls[deployment] || '') + '">' + (labels[deployment] || deployment) + '</span>';
+}
+
+function tierChipHTML(tier) {
+  if (!tier || tier === 'standard' || tier === 'base') return '';
+  const cls = { 'add-on':'tier-addon', 'managed':'tier-managed', 'enterprise':'tier-enterprise' };
+  return '<span class="tier-chip ' + (cls[tier] || '') + '">' + esc(tier) + '</span>';
+}
+
 function renderPickerGrid(search) {
   const grid  = document.getElementById('pickerGrid');
   const capId = pickerCapId;
   const mode  = state.mode;
-  const lc    = search.toLowerCase();
   const cap   = capMap[capId];
+  const sq    = search.toLowerCase().trim();
 
-  const currentEntries  = getSlotEntries(capId);
-  const currentModuleIds = new Set(currentEntries.map(e => e.module_id));
+  const currentEntries   = getSlotEntries(capId);
+  const currentSlotIds   = new Set(currentEntries.map(e => e.module_id));
   const hasSubCaps = cap && cap.sub_capabilities && cap.sub_capabilities.length > 0;
 
   // Show AI note if sub-caps exist
   document.getElementById('modalAiNote').style.display = hasSubCaps ? '' : 'none';
 
-  const candidates = DATA.modules.filter(m => {
-    if (!m.capabilities.includes(capId)) return false;
-    if (!m.modes[mode]) return false;
-    if (lc) {
-      const v = vendorMap[m.vendor_id];
-      return m.module_name.toLowerCase().includes(lc) ||
-        (v && v.name.toLowerCase().includes(lc)) ||
-        (v && (v.sector || '').toLowerCase().includes(lc));
-    }
-    return true;
-  }).sort((a,b) => {
-    // Already-in-slot modules: sorted to bottom
-    const aIn = currentModuleIds.has(a.module_id) ? 1 : 0;
-    const bIn = currentModuleIds.has(b.module_id) ? 1 : 0;
-    if (aIn !== bIn) return aIn - bIn;
-    const va = vendorMap[a.vendor_id];
-    const vb = vendorMap[b.vendor_id];
+  // All candidate modules for this cap + mode
+  const allModules = DATA.modules.filter(m =>
+    m.capabilities.includes(capId) && m.modes[mode]
+  );
+
+  // Apply deployment filter
+  const depFiltered = allModules.filter(m => {
+    if (pickerDeploymentFilter === 'all') return true;
+    if (!m.deployment || m.deployment === 'both') return true;
+    return m.deployment === pickerDeploymentFilter;
+  });
+
+  // Determine unique vendor order: featured first, then by grade
+  const gradeOrder = {'A':6,'B':5,'C':4,'D':3,'F':2,'NA':1};
+  const vendorOrder = [...new Set(depFiltered.map(m => m.vendor_id))].sort((a, b) => {
+    const va = vendorMap[a], vb = vendorMap[b];
     const featA = va && va.wr_featured ? 1 : 0;
     const featB = vb && vb.wr_featured ? 1 : 0;
     if (featA !== featB) return featB - featA;
-    const sa = va ? (vendorComposite(getPillarScores(va), state.lens) || 0) : 0;
-    const sb = vb ? (vendorComposite(getPillarScores(vb), state.lens) || 0) : 0;
-    return sb - sa;
+    return (gradeOrder[vb && vb.grade] || 0) - (gradeOrder[va && va.grade] || 0);
   });
 
-  if (candidates.length === 0) {
-    grid.innerHTML = '<div class="modal-empty">No vendors found for this capability in ' + mode + ' mode.</div>';
+  let html = '';
+  for (const vid of vendorOrder) {
+    const vendor     = vendorMap[vid] || {};
+    const vendorMods = depFiltered.filter(m => m.vendor_id === vid);
+
+    // Search filter
+    const vendorNameMatch = !sq || (vendor.name || '').toLowerCase().includes(sq);
+    const matchingMods = vendorMods.filter(m =>
+      !sq || vendorNameMatch ||
+      m.module_name.toLowerCase().includes(sq) ||
+      (m.notes || '').toLowerCase().includes(sq)
+    );
+    if (matchingMods.length === 0) continue;
+
+    const isSingle      = vendorMods.length === 1;
+    const inStackCount  = vendorMods.filter(m => currentSlotIds.has(m.module_id)).length;
+    const autoExpand    = isSingle || inStackCount > 0 || sq.length > 0;
+    const isExpanded    = autoExpand || pickerExpandedVendors.has(vid);
+
+    // Vendor logo
+    const logoUrl  = vendorLogoUrl(vid);
+    const logoHTML = logoUrl
+      ? '<img src="' + logoUrl + '" class="pc-vendor-logo-sm" alt="" onerror="this.style.display=\'none\'">'
+      : '';
+
+    // Grade pills
+    const vendorGrade = vendor.grade || '';
+    const aiGrade     = vendor.ai_era_grade && vendor.ai_era_grade.grade || '';
+    const gradeHTML   = vendorGrade ? '<span class="pillar-grade-pill pill-' + vendorGrade + '">' + vendorGrade + '</span>' : '';
+    const aiGradeHTML = aiGrade     ? '<span class="pillar-grade-pill pill-' + aiGrade + '" style="font-size:9px">AI ' + aiGrade + '</span>' : '';
+
+    const modCountBadge  = '<span class="pc-mod-count">' + vendorMods.length + ' module' + (vendorMods.length > 1 ? 's' : '') + '</span>';
+    const inStackBadge   = inStackCount > 0 ? '<span class="pc-in-stack-count">' + inStackCount + ' in stack</span>' : '';
+
+    html += '<div class="pc-vendor-row' + (isExpanded ? ' expanded' : '') + (isSingle ? ' single-module' : '') + '" data-vid="' + esc(vid) + '">' +
+      '<div class="pc-vendor-header">' +
+        '<span class="pc-vendor-caret">&#9658;</span>' +
+        logoHTML +
+        '<span class="pc-vendor-name">' + esc(vendor.name || vid) + '</span>' +
+        '<span class="pc-vendor-badges">' + gradeHTML + aiGradeHTML + modCountBadge + inStackBadge + '</span>' +
+      '</div>' +
+      '<div class="pc-modules-list">';
+
+    for (const mod of vendorMods) {
+      const isHidden = sq && !matchingMods.includes(mod);
+      const isInSlot = currentSlotIds.has(mod.module_id);
+      const rowCls   = ['pc-module-row', isInSlot ? 'in-slot' : '', isHidden ? 'hidden' : ''].filter(Boolean).join(' ');
+      const notesHTML  = mod.notes ? '<div class="pc-module-notes">' + esc(mod.notes) + '</div>' : '';
+      const actionHTML = isInSlot
+        ? '<span class="pc-mod-in-slot">&#10003; Added</span><button class="pc-mod-remove" data-mid="' + esc(mod.module_id) + '">Remove</button>'
+        : '';
+
+      html += '<div class="' + rowCls + '" data-mid="' + esc(mod.module_id) + '" data-vid="' + esc(vid) + '">' +
+        '<div class="pc-module-info">' +
+          '<div class="pc-module-name">' + esc(mod.module_name) + '</div>' +
+          notesHTML +
+        '</div>' +
+        '<div class="pc-module-tags">' +
+          depChipHTML(mod.deployment) +
+          tierChipHTML(mod.tier) +
+          actionHTML +
+        '</div>' +
+      '</div>';
+    }
+
+    html += '</div></div>';
+  }
+
+  if (!html) {
+    grid.innerHTML = '<div style="padding:20px;color:#555;text-align:center">No modules match this filter</div>';
     return;
   }
 
-  grid.innerHTML = candidates.map(m => {
-    const v      = vendorMap[m.vendor_id];
-    if (!v) return '';
-    const inSlot    = currentModuleIds.has(m.module_id);
-    const aiGrade   = v.ai_era_grade && v.ai_era_grade.grade || 'NA';
-    const aiClass   = 'pill-' + aiGrade;
-    const overallGrade = v.grade || 'NA';
-    const caps      = m.capabilities.filter(Boolean);
-    const chipsHTML = subCapChipsHTML(m, capId);
+  grid.innerHTML = html;
 
-    return '<div class="picker-card' +
-      (v.wr_featured ? ' wr-featured' : '') +
-      (inSlot ? ' in-slot' : '') + '"' +
-      ' data-mid="' + esc(m.module_id) + '" data-vid="' + esc(v.id) + '" data-in-slot="' + (inSlot ? '1' : '0') + '">' +
-      '<div class="pc-module-name">' + esc(m.module_name) + '</div>' +
-      '<div class="pc-vendor-name">' + esc(v.name) + '</div>' +
-      '<div class="pc-sector">' + esc(v.sector || '') + ' &middot; ' + esc(v.market_position || '') + '</div>' +
-      '<div>' +
-        '<span class="pillar-grade-pill pill-' + overallGrade + '" title="Posture grade">' + overallGrade + '</span> ' +
-        '<span class="pc-ai-grade ' + aiClass + '" title="AI-Era grade">AI ' + aiGrade + '</span>' +
-      '</div>' +
-      '<div class="pc-caps">' + caps.map(c => '<span class="pc-cap-tag">' + esc(c) + '</span>').join('') + '</div>' +
-      chipsHTML +
-      (inSlot ? '<div class="pc-in-slot-badge">&#10003; IN STACK</div>' +
-                '<span class="pc-remove-btn" data-mid="' + esc(m.module_id) + '">REMOVE</span>' : '') +
-    '</div>';
-  }).join('');
+  // Wire vendor header clicks (toggle expand)
+  grid.querySelectorAll('.pc-vendor-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const row = header.closest('.pc-vendor-row');
+      const vid = row.dataset.vid;
+      if (row.classList.contains('single-module')) return;
+      if (row.classList.contains('expanded')) {
+        row.classList.remove('expanded');
+        pickerExpandedVendors.delete(vid);
+      } else {
+        row.classList.add('expanded');
+        pickerExpandedVendors.add(vid);
+      }
+    });
+  });
 
-  // Wire click: add or remove
-  grid.querySelectorAll('.picker-card').forEach(card => {
-    const inSlot = card.dataset.inSlot === '1';
-
-    // Remove button (only on in-slot cards)
-    const removeBtn = card.querySelector('.pc-remove-btn');
-    if (removeBtn) {
-      removeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const mid = removeBtn.dataset.mid;
-        if (pickerCapId) {
-          const arr = getSlotEntries(pickerCapId);
-          const idx = arr.findIndex(en => en.module_id === mid);
-          if (idx >= 0) arr.splice(idx, 1);
-          if (arr.length === 0) {
-            delete state.stack[pickerCapId];
-          } else {
-            state.stack[pickerCapId] = arr;
-          }
-          render();
-          renderPickerGrid(document.getElementById('modalSearch').value.trim());
+  // Wire remove buttons
+  grid.querySelectorAll('.pc-mod-remove').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const mid = btn.dataset.mid;
+      if (pickerCapId) {
+        const arr = getSlotEntries(pickerCapId);
+        const idx = arr.findIndex(en => en.module_id === mid);
+        if (idx >= 0) arr.splice(idx, 1);
+        if (arr.length === 0) {
+          delete state.stack[pickerCapId];
+        } else {
+          state.stack[pickerCapId] = arr;
         }
-      });
-    }
+        render();
+        renderPickerGrid(document.getElementById('modalSearch').value.trim());
+      }
+    });
+  });
 
-    card.addEventListener('click', (e) => {
-      if (e.target.classList.contains('pc-remove-btn')) return; // handled above
-      if (inSlot) return; // clicking an in-slot card does nothing (use remove btn)
-      const mid = card.dataset.mid;
-      const vid = card.dataset.vid;
+  // Wire module row clicks (add to slot)
+  grid.querySelectorAll('.pc-module-row:not(.in-slot)').forEach(row => {
+    row.addEventListener('click', (e) => {
+      if (e.target.classList.contains('pc-mod-remove')) return;
+      const mid = row.dataset.mid;
+      const vid = row.dataset.vid;
       if (pickerCapId) {
         if (!state.stack[pickerCapId]) state.stack[pickerCapId] = [];
-        // Don't add duplicate
         if (!state.stack[pickerCapId].find(en => en.module_id === mid)) {
           if (state.stack[pickerCapId].length < MAX_VENDORS_PER_SLOT) {
             state.stack[pickerCapId].push({ vendor_id: vid, module_id: mid });
@@ -1705,6 +1828,13 @@ document.getElementById('pickerModal').addEventListener('click', e => {
 });
 document.getElementById('modalSearch').addEventListener('input', e => {
   renderPickerGrid(e.target.value.trim());
+});
+document.getElementById('pickerDepFilter').addEventListener('click', e => {
+  const btn = e.target.closest('.pc-dep-btn');
+  if (!btn) return;
+  pickerDeploymentFilter = btn.dataset.dep;
+  document.querySelectorAll('.pc-dep-btn').forEach(b => b.classList.toggle('active', b === btn));
+  renderPickerGrid(document.getElementById('modalSearch').value.trim());
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closePicker();
