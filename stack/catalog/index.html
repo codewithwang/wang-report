@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capability Catalog — THE WANG REPORT</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:#0a0a0a;color:#e0e0e0;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.5}
+body{background:#0a0a0a;min-height:100vh}
+a{color:#c9a84c;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+.nav-bar{text-align:center;padding:10px 12px;background:#111;border-bottom:1px solid #333;font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;letter-spacing:1px;position:sticky;top:0;z-index:200}
+.nav-bar a{color:#888;margin:0 6px;text-decoration:none}
+.nav-bar a:hover,.nav-bar a.nav-active{color:#c9a84c}
+.nav-title{color:#c9a84c;font-size:15px;letter-spacing:2px;margin-right:12px}
+
+/* WRAPPER */
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 60px}
+
+/* AI DISCLAIMER */
+.ai-disclaimer{background:#1a1400;border:1px solid #c9a84c44;border-radius:4px;padding:10px 16px;font-size:11px;color:#888;font-style:italic;line-height:1.5;margin:16px 0}
+.ai-disclaimer strong{color:#c9a84c;font-style:normal}
+
+/* DOMAIN NAV */
+.domain-nav{position:sticky;top:44px;z-index:100;background:#111;border-bottom:1px solid #222;padding:8px 0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#333 #111}
+.domain-nav::-webkit-scrollbar{height:4px}
+.domain-nav::-webkit-scrollbar-track{background:#111}
+.domain-nav::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
+.domain-nav-inner{display:inline-flex;gap:6px;padding:0 16px}
+.domain-chip{display:inline-block;font-family:Impact,'Arial Narrow',sans-serif;font-size:10px;letter-spacing:0.8px;padding:4px 10px;border:1px solid #2a2a2a;border-radius:12px;cursor:pointer;color:#666;background:#0a0a0a;transition:all .15s;text-transform:uppercase;white-space:nowrap}
+.domain-chip:hover{border-color:#c9a84c55;color:#c9a84c;background:#1a1400}
+.domain-chip.active{border-color:#c9a84c;color:#c9a84c;background:#1a1400}
+
+/* DOMAIN SECTION */
+.domain-section{border-top:1px solid #c9a84c33;padding:28px 0 20px;scroll-margin-top:100px}
+.domain-section:first-of-type{border-top:none}
+
+.domain-header{margin-bottom:16px}
+.domain-title-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.domain-name{font-family:Impact,'Arial Narrow',sans-serif;font-size:22px;color:#c9a84c;letter-spacing:2px;text-transform:uppercase}
+.domain-subcap-count{font-family:Impact,sans-serif;font-size:10px;color:#555;letter-spacing:1px;flex-shrink:0}
+.domain-intro{font-size:12px;color:#777;font-style:italic;line-height:1.5;margin-bottom:8px}
+.domain-meta{font-size:10px;color:#555;display:flex;gap:16px;flex-wrap:wrap}
+.domain-applies span{color:#888}
+.domain-criticality{display:flex;align-items:center;gap:4px}
+.crit-dots{display:inline-flex;gap:2px}
+.crit-dot{width:8px;height:8px;border-radius:1px}
+.crit-dot.on{background:#c9a84c}
+.crit-dot.off{background:#222}
+
+/* SUB-CAP PLACEHOLDER */
+.subcap-placeholder{font-size:11px;color:#444;font-style:italic;padding:16px 0;border-top:1px solid #1a1a1a;margin-top:8px}
+
+/* SUB-CAP GROUPS */
+.subcap-group-label{font-family:Impact,'Arial Narrow',sans-serif;font-size:9px;letter-spacing:2px;color:#555;text-transform:uppercase;margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid #1a1a1a}
+
+/* SUB-CAP ITEM */
+.subcap-item{display:flex;gap:10px;margin-bottom:14px;padding:10px 12px;background:#0d0d0d;border-radius:4px;border-left:2px solid transparent}
+.subcap-item.required{border-left-color:#c9a84c55}
+.subcap-item.optional{border-left-color:#2a2a2a}
+
+.subcap-bullet{font-size:14px;line-height:1.4;flex-shrink:0;margin-top:1px}
+.subcap-bullet.required-bullet{color:#c9a84c}
+.subcap-bullet.optional-bullet{color:#444}
+
+.subcap-body{flex:1;min-width:0}
+.subcap-name-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.subcap-name{font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;color:#ddd;letter-spacing:0.5px}
+.subcap-weight{font-family:Impact,sans-serif;font-size:9px;color:#555;letter-spacing:0.5px;flex-shrink:0}
+.subcap-rationale{font-size:11px;color:#888;font-style:italic;line-height:1.5;margin-bottom:5px}
+.subcap-framework{font-size:10px;color:#555;margin-bottom:5px;letter-spacing:0.2px}
+.subcap-framework strong{color:#666;font-style:normal}
+
+/* TOOLS / COVERAGE */
+.subcap-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px;align-items:center}
+.tools-label{font-family:Impact,sans-serif;font-size:9px;color:#555;letter-spacing:0.5px;text-transform:uppercase;flex-shrink:0}
+.vendor-badge{font-family:Impact,sans-serif;font-size:9px;letter-spacing:0.3px;padding:2px 7px;border:1px solid #2a2a4a;background:#0e0e18;color:#aaa;border-radius:2px}
+.vendor-badge.covered-full{border-color:#3a6a3a;background:#0e180e;color:#7acc7a}
+.vendor-badge.covered-partial{border-color:#7a5a1a;background:#1a1208;color:#caa060}
+
+/* STACK COVERAGE STATUS */
+.subcap-coverage{margin-top:6px;padding:5px 8px;border-radius:3px;font-family:Impact,sans-serif;font-size:10px;letter-spacing:0.5px;display:inline-block}
+.cov-status-full{background:#1a3a1a;border:1px solid #3a6a3a;color:#7acc7a}
+.cov-status-partial{background:#3a2a0a;border:1px solid #7a5a1a;color:#caa060}
+.cov-status-gap{background:#3a0a0a;border:1px solid #6a1a1a;color:#ee5555}
+.cov-status-gap-optional{background:#1a1a1a;border:1px solid #333;color:#666}
+.cov-status-none{background:#1a1a1a;border:1px solid #333;color:#555}
+
+/* DOMAIN FOOTER */
+.domain-footer{margin-top:16px;padding:10px 12px;background:#0d0d0d;border-radius:4px;font-size:11px;color:#666;border:1px solid #1a1a1a}
+.domain-footer-row{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+.domain-footer-row:last-child{margin-bottom:0}
+.df-label{font-family:Impact,sans-serif;font-size:9px;color:#555;letter-spacing:0.5px;text-transform:uppercase;flex-shrink:0}
+.df-value{color:#777}
+.gap-tag{display:inline-block;font-family:Impact,sans-serif;font-size:9px;padding:1px 6px;border-radius:2px;margin:1px 3px 1px 0}
+.gap-tag.critical{background:#3a0a0a;border:1px solid #6a1a1a;color:#ee5555}
+.gap-tag.minor{background:#1a1a1a;border:1px solid #2a2a2a;color:#666}
+.overlap-tag{display:inline-block;font-family:Impact,sans-serif;font-size:9px;padding:1px 6px;border-radius:2px;margin:1px 3px 1px 0;background:#1a1808;border:1px solid #3a3010;color:#c9a84c88}
+
+/* PAGE FOOTER */
+.page-footer{text-align:center;padding:20px 12px;border-top:1px solid #1a1a1a;margin-top:30px;font-size:10px;color:#444;font-family:Impact,'Arial Narrow',sans-serif;letter-spacing:0.8px}
+
+/* LOADING / ERROR */
+.loading-msg{text-align:center;padding:60px 20px;color:#555;font-style:italic}
+
+/* PRINT */
+@media print {
+  .nav-bar,.domain-nav{display:none!important}
+  .wrap{max-width:100%;padding:0 20px}
+  .domain-section{page-break-before:always;border-top:2px solid #ccc!important}
+  body,html{background:#fff!important;color:#000!important}
+  .domain-name{color:#000!important}
+  .subcap-item{background:#f9f9f9!important;border-left-color:#ccc!important}
+  .subcap-name{color:#000!important}
+  .subcap-rationale,.subcap-framework{color:#333!important}
+  .ai-disclaimer{background:#f5f5f5!important;border-color:#ccc!important;color:#555!important}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .domain-title-row{flex-direction:column;gap:4px}
+  .subcap-name-row{flex-direction:column;gap:2px}
+  .domain-meta{flex-direction:column;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+  <span class="nav-title">WANG REPORT</span>
+  <a href="../index.html">STACK ASSESSMENT</a> |
+  <a href="../../index.html">MAIN</a> |
+  <a href="../../cyber-intel/index.html">CYBER INTEL</a>
+  <span style="color:#c9a84c;margin-left:12px;font-size:11px;letter-spacing:1.5px">/ CAPABILITY CATALOG</span>
+</div>
+
+<div class="domain-nav" id="domainNav">
+  <div class="domain-nav-inner" id="domainNavInner">
+    <!-- chips injected by JS -->
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="ai-disclaimer">
+    <strong>AI-Authored:</strong> This catalog is AI-authored. Wang Report uses AI insights at scale to provide coverage analysis; verify sub-capability mappings against vendor documentation before procurement decisions.
+  </div>
+
+  <div id="catalogBody">
+    <div class="loading-msg">Loading capability catalog&hellip;</div>
+  </div>
+
+  <div class="page-footer">
+    Catalog v2 &middot; Wang Report &middot; Powered by AI analysis
+  </div>
+</div>
+
+<script src="../shared.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ── UTILS ── */
+function esc(s) {
+  if (!s) return '';
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+function critDots(criticality) {
+  const maxCrit = Math.max(
+    criticality.startup || 0,
+    criticality.smb || 0,
+    criticality.enterprise || 0
+  );
+  let html = '<span class="crit-dots">';
+  for (let i = 0; i < 5; i++) {
+    html += '<span class="crit-dot ' + (i < maxCrit ? 'on' : 'off') + '"></span>';
+  }
+  html += '</span>';
+  return html;
+}
+
+function appliesToStr(modes) {
+  const parts = [];
+  if (modes.startup) parts.push('Startup');
+  if (modes.smb) parts.push('SMB');
+  if (modes.enterprise) parts.push('Enterprise');
+  return parts.join(' &middot; ') || 'N/A';
+}
+
+/* ── STACK HELPERS ── */
+// Returns { capId: [{ vendor_id, module_id }, ...] }
+function getStackEntries() {
+  const stored = loadStackFromStorage();
+  const stack = stored.stack || {};
+  // Normalize: ensure arrays
+  const normalized = {};
+  Object.entries(stack).forEach(([cid, val]) => {
+    if (Array.isArray(val)) normalized[cid] = val;
+    else if (val && val.vendor_id) normalized[cid] = [val];
+  });
+  return normalized;
+}
+
+/* ── COVERAGE STATUS FOR A SUB-CAP ── */
+// Returns { status: 'full'|'partial'|'none', contributors: [{vendor_id, module_id, level}] }
+function subCapStackStatus(capId, scId, stackEntries) {
+  const entries = stackEntries[capId] || [];
+  if (entries.length === 0) return { status: 'none', contributors: [] };
+
+  let combined = 0;
+  const contributors = [];
+  for (const entry of entries) {
+    const mod = MODULE_MAP[entry.module_id];
+    if (!mod || !mod.coverage || !mod.coverage[capId] || !mod.coverage[capId].sub_caps) continue;
+    const levelStr = mod.coverage[capId].sub_caps[scId] || 'none';
+    const val = LEVEL_VAL[levelStr] ?? 0;
+    combined = Math.min(1.0, combined + val);
+    if (val > 0) {
+      const vendor = VENDOR_MAP[entry.vendor_id];
+      contributors.push({ vendor_id: entry.vendor_id, module_id: entry.module_id, level: levelStr, vendor_name: vendor ? vendor.name : entry.vendor_id });
+    }
+  }
+
+  const status = combined >= 1.0 ? 'full' : combined > 0 ? 'partial' : 'none';
+  return { status, contributors };
+}
+
+/* ── RENDER TOOLS / COVERAGE ── */
+// Returns HTML for the "Example tools" or "Covered by" row
+function renderToolsRow(sc, capId, stackEntries) {
+  const entries = stackEntries[capId] || [];
+  const hasStack = entries.length > 0;
+
+  if (hasStack) {
+    // Show stack coverage
+    const { status, contributors } = subCapStackStatus(capId, sc.id, stackEntries);
+    if (status === 'full' || status === 'partial') {
+      const cls = status === 'full' ? 'covered-full' : 'covered-partial';
+      const badgesHtml = contributors.map(c =>
+        '<span class="vendor-badge ' + cls + '" title="' + esc(c.level) + '">' + esc(c.vendor_name) + ' (' + esc(c.level) + ')</span>'
+      ).join('');
+      return '<div class="subcap-tools"><span class="tools-label">Covered by:</span> ' + badgesHtml + '</div>';
+    } else {
+      // Not covered — red if required
+      const statusCls = sc.required ? 'cov-status-gap' : 'cov-status-gap-optional';
+      const label = sc.required ? 'NOT COVERED (required)' : 'Not covered';
+      return '<div class="subcap-tools"><span class="subcap-coverage ' + statusCls + '">' + label + '</span></div>';
+    }
+  }
+
+  // No stack data — fall back to typical_tools if available
+  if (sc.typical_tools && sc.typical_tools.length > 0) {
+    const badgesHtml = sc.typical_tools.map(t =>
+      '<span class="vendor-badge">' + esc(t) + '</span>'
+    ).join('');
+    return '<div class="subcap-tools"><span class="tools-label">Example tools:</span> ' + badgesHtml + '</div>';
+  }
+
+  return '';
+}
+
+/* ── RENDER COVERAGE STATUS BADGE ── */
+function renderCoverageStatusBadge(sc, capId, stackEntries) {
+  const entries = stackEntries[capId] || [];
+  if (entries.length === 0) return '';
+
+  const { status } = subCapStackStatus(capId, sc.id, stackEntries);
+  if (status === 'full') {
+    return '<span class="subcap-coverage cov-status-full">&#10003; COVERED</span>';
+  }
+  if (status === 'partial') {
+    return '<span class="subcap-coverage cov-status-partial">&#9651; PARTIAL</span>';
+  }
+  if (sc.required) {
+    return '<span class="subcap-coverage cov-status-gap">&#9888; GAP</span>';
+  }
+  return '<span class="subcap-coverage cov-status-gap-optional">&#9711; NOT COVERED</span>';
+}
+
+/* ── RENDER A SINGLE SUB-CAP ── */
+function renderSubCap(sc, capId, stackEntries) {
+  const isRequired = sc.required;
+  const bullet = isRequired ? '&#9679;' : '&#9675;';
+  const bulletClass = isRequired ? 'required-bullet' : 'optional-bullet';
+  const itemClass = isRequired ? 'required' : 'optional';
+
+  let html = '<div class="subcap-item ' + itemClass + '">';
+  html += '<div class="subcap-bullet ' + bulletClass + '">' + bullet + '</div>';
+  html += '<div class="subcap-body">';
+
+  // Name row
+  html += '<div class="subcap-name-row">';
+  html += '<span class="subcap-name">' + esc(sc.name) + '</span>';
+  html += '<span class="subcap-weight">weight ' + (sc.weight || 1.0).toFixed(1) + '</span>';
+  html += '</div>';
+
+  // Rationale
+  if (sc.rationale) {
+    html += '<div class="subcap-rationale">' + esc(sc.rationale) + '</div>';
+  }
+
+  // Framework refs
+  if (sc.framework_refs) {
+    const refs = [];
+    if (sc.framework_refs.nist) refs.push('NIST ' + esc(sc.framework_refs.nist));
+    if (sc.framework_refs.cis) refs.push('CIS ' + esc(sc.framework_refs.cis));
+    if (sc.framework_refs.iso) refs.push('ISO ' + esc(sc.framework_refs.iso));
+    if (refs.length > 0) {
+      html += '<div class="subcap-framework"><strong>Framework:</strong> ' + refs.join(' &middot; ') + '</div>';
+    }
+  }
+
+  // Tools / coverage
+  html += renderToolsRow(sc, capId, stackEntries);
+
+  // Coverage badge (only if stack has data for this cap)
+  const stackEntriesForCap = stackEntries[capId] || [];
+  if (stackEntriesForCap.length > 0) {
+    html += renderCoverageStatusBadge(sc, capId, stackEntries);
+  }
+
+  html += '</div>'; // subcap-body
+  html += '</div>'; // subcap-item
+  return html;
+}
+
+/* ── COMPUTE DOMAIN FOOTER DATA ── */
+function computeDomainFooter(cap, stackEntries) {
+  const entries = stackEntries[cap.id] || [];
+  const subCaps = cap.sub_capabilities || [];
+
+  const gaps = [];
+  const criticalGaps = [];
+  const overlaps = [];
+
+  if (entries.length > 0 && subCaps.length > 0) {
+    subCaps.forEach(sc => {
+      const { status } = subCapStackStatus(cap.id, sc.id, stackEntries);
+      if (status !== 'full') {
+        gaps.push({ id: sc.id, name: sc.name, required: sc.required });
+        if (sc.required) criticalGaps.push(sc.name);
+      }
+    });
+
+    // Detect overlaps: multiple vendors covering the same sub-cap
+    subCaps.forEach(sc => {
+      const coveredBy = [];
+      entries.forEach(entry => {
+        const mod = MODULE_MAP[entry.module_id];
+        if (!mod || !mod.coverage || !mod.coverage[cap.id] || !mod.coverage[cap.id].sub_caps) return;
+        const level = mod.coverage[cap.id].sub_caps[sc.id] || 'none';
+        if (level !== 'none') {
+          const vendor = VENDOR_MAP[entry.vendor_id];
+          coveredBy.push(vendor ? vendor.name : entry.vendor_id);
+        }
+      });
+      if (coveredBy.length > 1) {
+        overlaps.push(sc.name + ' (' + coveredBy.join(', ') + ')');
+      }
+    });
+  }
+
+  return { gaps, criticalGaps, overlaps };
+}
+
+/* ── RENDER DOMAIN SECTION ── */
+function renderDomainSection(cap, stackEntries) {
+  const subCaps = cap.sub_capabilities || [];
+  const hasSubCaps = subCaps.length > 0;
+
+  const maxCrit = Math.max(
+    cap.criticality.startup || 0,
+    cap.criticality.smb || 0,
+    cap.criticality.enterprise || 0
+  );
+
+  let html = '<section class="domain-section" id="' + esc(cap.id) + '">';
+
+  // Header
+  html += '<div class="domain-header">';
+  html += '<div class="domain-title-row">';
+  html += '<span class="domain-name">' + esc(cap.name) + '</span>';
+  html += '<span class="domain-subcap-count">' + (hasSubCaps ? subCaps.length + ' sub-capabilities' : 'no sub-cap data') + '</span>';
+  html += '</div>';
+
+  if (cap.catalog_intro) {
+    html += '<div class="domain-intro">' + esc(cap.catalog_intro) + '</div>';
+  } else if (cap.description) {
+    html += '<div class="domain-intro">' + esc(cap.description) + '</div>';
+  }
+
+  html += '<div class="domain-meta">';
+  html += '<div class="domain-applies"><span>Applies to:</span> ' + appliesToStr(cap.modes) + '</div>';
+  html += '<div class="domain-criticality">Criticality: ' + critDots(cap.criticality) + ' ' + maxCrit + '/5</div>';
+  html += '</div>';
+  html += '</div>'; // domain-header
+
+  // Sub-caps or placeholder
+  if (!hasSubCaps) {
+    html += '<div class="subcap-placeholder">Sub-capability catalog for this domain coming soon.</div>';
+  } else {
+    const required = subCaps.filter(sc => sc.required);
+    const optional = subCaps.filter(sc => !sc.required);
+
+    if (required.length > 0) {
+      html += '<div class="subcap-group-label">Required</div>';
+      required.forEach(sc => {
+        html += renderSubCap(sc, cap.id, stackEntries);
+      });
+    }
+
+    if (optional.length > 0) {
+      html += '<div class="subcap-group-label">Optional</div>';
+      optional.forEach(sc => {
+        html += renderSubCap(sc, cap.id, stackEntries);
+      });
+    }
+
+    // Domain footer: gaps + overlaps
+    const { gaps, criticalGaps, overlaps } = computeDomainFooter(cap, stackEntries);
+    const stackEntriesForCap = stackEntries[cap.id] || [];
+
+    if (stackEntriesForCap.length > 0) {
+      html += '<div class="domain-footer">';
+
+      if (overlaps.length > 0) {
+        html += '<div class="domain-footer-row">';
+        html += '<span class="df-label">Overlaps:</span>';
+        html += '<span class="df-value">' + overlaps.map(o => '<span class="overlap-tag">' + esc(o) + '</span>').join('') + '</span>';
+        html += '</div>';
+      } else {
+        html += '<div class="domain-footer-row"><span class="df-label">Overlaps:</span><span class="df-value" style="color:#444">None detected</span></div>';
+      }
+
+      if (gaps.length > 0) {
+        html += '<div class="domain-footer-row">';
+        html += '<span class="df-label">Gaps:</span>';
+        html += '<span class="df-value">';
+        gaps.forEach(g => {
+          const cls = g.required ? 'critical' : 'minor';
+          html += '<span class="gap-tag ' + cls + '">' + esc(g.name) + '</span>';
+        });
+        html += '</span>';
+        html += '</div>';
+      } else {
+        html += '<div class="domain-footer-row"><span class="df-label">Gaps:</span><span class="df-value" style="color:#7acc7a">None — fully covered</span></div>';
+      }
+
+      html += '</div>'; // domain-footer
+    }
+  }
+
+  html += '</section>';
+  return html;
+}
+
+/* ── RENDER DOMAIN NAV CHIPS ── */
+function renderDomainNav(caps) {
+  const inner = document.getElementById('domainNavInner');
+  inner.innerHTML = caps.map(cap =>
+    '<span class="domain-chip" data-target="' + esc(cap.id) + '">' + esc(cap.name) + '</span>'
+  ).join('');
+
+  inner.querySelectorAll('.domain-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const el = document.getElementById(chip.dataset.target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+/* ── INTERSECTION OBSERVER: highlight active domain chip ── */
+function setupIntersectionObserver(caps) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        document.querySelectorAll('.domain-chip').forEach(chip => {
+          if (chip.dataset.target === id) {
+            chip.classList.add('active');
+            // Scroll chip into view in the nav bar
+            chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } else {
+            chip.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  caps.forEach(cap => {
+    const el = document.getElementById(cap.id);
+    if (el) observer.observe(el);
+  });
+}
+
+/* ── HASH NAVIGATION ── */
+function handleHashNav() {
+  const hash = location.hash.slice(1);
+  if (!hash) return;
+  const el = document.getElementById(hash);
+  if (el) {
+    // Small delay to allow page to render
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+  }
+}
+
+/* ── MAIN INIT ── */
+async function init() {
+  try {
+    const { caps } = await loadSharedData('../../data');
+    const stackEntries = getStackEntries();
+
+    // Render nav chips
+    renderDomainNav(caps);
+
+    // Render catalog body
+    const body = document.getElementById('catalogBody');
+    body.innerHTML = caps.map(cap => renderDomainSection(cap, stackEntries)).join('');
+
+    // Setup intersection observer for sticky nav highlighting
+    setupIntersectionObserver(caps);
+
+    // Handle hash navigation
+    handleHashNav();
+
+  } catch(e) {
+    console.error('Catalog load failed', e);
+    document.getElementById('catalogBody').innerHTML =
+      '<div class="loading-msg">Failed to load catalog data. ' + esc(String(e)) + '</div>';
+  }
+}
+
+init();
+
+})();
+</script>
+</body>
+</html>
