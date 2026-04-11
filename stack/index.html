@@ -93,6 +93,7 @@ a:hover{text-decoration:underline}
 .sf-art{height:80px;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
 .slot-scene.compact .sf-art{height:60px}
 .sf-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:44px;letter-spacing:2px;opacity:.85}
+.sf-logo{max-height:52px;max-width:120px;object-fit:contain;filter:brightness(1.1)}
 .slot-scene.compact .sf-monogram{font-size:32px}
 .sf-grade-seal{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:18px;font-weight:bold}
 .slot-scene.compact .sf-grade-seal{width:32px;height:32px;font-size:13px}
@@ -983,7 +984,11 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
   front.innerHTML =
     '<div class="sf-banner"><span>' + esc(cap.name.toUpperCase()) + '</span><span>' + esc(vendor.sector || '') + '</span></div>' +
     '<div class="sf-art">' +
-      '<span class="sf-monogram" style="color:' + monogramColor(vendor) + '">' + esc(vendor.monogram || '??') + '</span>' +
+      (vendorLogoUrl(vendor.id) ?
+        '<img src="' + vendorLogoUrl(vendor.id) + '" class="sf-logo" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">' +
+        '<span class="sf-monogram" style="color:' + monogramColor(vendor) + ';display:none">' + esc(vendor.monogram || '??') + '</span>' :
+        '<span class="sf-monogram" style="color:' + monogramColor(vendor) + '">' + esc(vendor.monogram || '??') + '</span>'
+      ) +
       '<div class="sf-grade-seal ' + aiGradeSealClass + '">' + aiGradeSealLabel + '</div>' +
       (featured ? '<div class="wr-badge"><span>WR PICK</span></div>' : '') +
     '</div>' +
@@ -1074,6 +1079,30 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
 function monogramColor(vendor) {
   const colors = {A:'#8acc5a',B:'#6aaaee',C:'#eaaa3a',D:'#ee7a3a',F:'#ee3a3a'};
   return colors[vendor.grade] || '#aaa';
+}
+
+const VENDOR_DOMAINS = {
+  'crowdstrike':'crowdstrike.com','sentinelone':'sentinelone.com','ivanti':'ivanti.com',
+  'microsoft-defender':'microsoft.com','paloalto':'paloaltonetworks.com','fortinet':'fortinet.com',
+  'cisco':'cisco.com','checkpoint':'checkpoint.com','juniper':'juniper.net','citrix':'citrix.com',
+  'aws':'aws.amazon.com','microsoft-azure':'azure.microsoft.com','vmware':'vmware.com',
+  'okta':'okta.com','microsoft-entra':'microsoft.com','cyberark':'cyberark.com',
+  'beyondtrust':'beyondtrust.com','splunk':'splunk.com','solarwinds':'solarwinds.com',
+  'tenable':'tenable.com','rapid7':'rapid7.com','cloudflare':'cloudflare.com',
+  'akamai':'akamai.com','zscaler':'zscaler.com','github':'github.com','atlassian':'atlassian.com',
+  'veeam':'veeam.com','servicenow':'servicenow.com','sap':'sap.com','schneider':'se.com',
+  'siemens':'siemens.com','epic':'epic.com','change-healthcare':'changehealthcare.com',
+  'guidewire':'guidewire.com','proofpoint':'proofpoint.com','barracuda':'barracuda.com',
+  'swift':'swift.com','salesforce':'salesforce.com','workday':'workday.com','dragos':'dragos.com',
+  'sailpoint':'sailpoint.com','saviynt':'saviynt.com','commvault':'commvault.com','wiz':'wiz.io',
+  'google-cloud-security':'chronicle.security','netskope':'netskope.com',
+  'ping-identity':'pingidentity.com','watchtowr':'watchtowr.com','vanta':'vanta.com'
+};
+
+function vendorLogoUrl(vendorId) {
+  const domain = VENDOR_DOMAINS[vendorId];
+  if (!domain) return '';
+  return 'https://cdn.brandfetch.io/' + domain + '?c=1idNdlTeSDMQHtssvSY';
 }
 
 /* ── SCORE PANEL ── */
