@@ -1285,10 +1285,9 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
   });
 
   back.addEventListener('click', (e) => {
-    e.stopPropagation();
-
     const valRow = e.target.closest('.sb-valcap-row');
     if (valRow) {
+      e.stopPropagation();
       const { cap: capId, mod: modId, sc: scId, level } = valRow.dataset;
       toggleValidation(capId, modId, scId, level);
       renderSlotGrid();
@@ -1297,6 +1296,7 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
 
     const removeBtn = e.target.closest('.sb-remove');
     if (removeBtn) {
+      e.stopPropagation();
       const idx = parseInt(removeBtn.dataset.idx, 10);
       const cid = removeBtn.dataset.cap;
       const arr = getSlotEntries(cid);
@@ -1307,7 +1307,11 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
         state.stack[cid] = arr;
       }
       render();
+      return;
     }
+
+    // No interactive element was clicked — let the event bubble up to the
+    // scene click handler so clicking anywhere on the back face flips back.
   });
 
   inner.appendChild(front);
@@ -1676,7 +1680,8 @@ function renderPickerGrid(search) {
 
     const isSingle      = vendorMods.length === 1;
     const inStackCount  = vendorMods.filter(m => currentSlotIds.has(m.module_id)).length;
-    const autoExpand    = isSingle || inStackCount > 0 || sq.length > 0;
+    // Expand all rows when picker first opens (no search); collapse non-matching rows when searching.
+    const autoExpand    = sq.length === 0 || isSingle || inStackCount > 0;
     const isExpanded    = autoExpand || pickerExpandedVendors.has(vid);
 
     // Vendor logo
