@@ -1,327 +1,2420 @@
 {
   "modules": [
     {
-      "vendor_id": "crowdstrike", "module_id": "crowdstrike", "module_name": "CrowdStrike Falcon",
-      "capabilities": ["endpoint", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Falcon platform — EDR, XDR, and MDR. Core enterprise endpoint.",
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike",
+      "module_name": "CrowdStrike Falcon",
+      "capabilities": [
+        "endpoint",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Falcon platform — EDR, XDR, and MDR. Core enterprise endpoint.",
       "coverage": {
-        "endpoint": { "sub_caps": { "edr": "full", "epp": "full", "threat_intel": "full", "device_ctrl": "partial", "server_prot": "full", "response": "full" } },
-        "siem_mdr":  { "sub_caps": { "log_ingest": "partial", "detection": "full", "soar": "partial", "mdr": "full", "threat_hunt": "full", "compliance_rpt": "partial" } }
+        "endpoint": {
+          "sub_caps": {
+            "edr": "full",
+            "epp": "full",
+            "threat_intel": "full",
+            "device_ctrl": "partial",
+            "server_prot": "full",
+            "response": "full"
+          }
+        },
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "partial",
+            "detection": "full",
+            "soar": "partial",
+            "mdr": "full",
+            "threat_hunt": "full",
+            "compliance_rpt": "partial"
+          }
+        }
       }
     },
     {
-      "vendor_id": "sentinelone", "module_id": "sentinelone", "module_name": "SentinelOne Singularity",
-      "capabilities": ["endpoint", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Singularity Complete EDR with full threat hunting.",
+      "vendor_id": "sentinelone",
+      "module_id": "sentinelone",
+      "module_name": "SentinelOne Singularity",
+      "capabilities": [
+        "endpoint",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Singularity Complete EDR with full threat hunting.",
       "coverage": {
-        "endpoint": { "sub_caps": { "edr": "full", "epp": "full", "threat_intel": "partial", "device_ctrl": "full", "server_prot": "full", "response": "full" } },
-        "siem_mdr":  { "sub_caps": { "log_ingest": "partial", "detection": "full", "soar": "full", "mdr": "full", "threat_hunt": "full", "compliance_rpt": "partial" } }
+        "endpoint": {
+          "sub_caps": {
+            "edr": "full",
+            "epp": "full",
+            "threat_intel": "partial",
+            "device_ctrl": "full",
+            "server_prot": "full",
+            "response": "full"
+          }
+        },
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "partial",
+            "detection": "full",
+            "soar": "full",
+            "mdr": "full",
+            "threat_hunt": "full",
+            "compliance_rpt": "partial"
+          }
+        }
       }
     },
     {
-      "vendor_id": "ivanti", "module_id": "ivanti-neurons", "module_name": "Ivanti Neurons Endpoint",
-      "capabilities": ["endpoint", "vuln_mgmt"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Unified endpoint security and vulnerability management.",
+      "vendor_id": "ivanti",
+      "module_id": "ivanti-neurons",
+      "module_name": "Ivanti Neurons Endpoint",
+      "capabilities": [
+        "endpoint",
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Unified endpoint security and vulnerability management.",
       "coverage": {
-        "endpoint": { "sub_caps": { "edr": "partial", "epp": "partial", "threat_intel": "none", "device_ctrl": "full", "server_prot": "partial", "response": "none" } }
-      }
-    },
-    {"vendor_id": "ivanti", "module_id": "ivanti-mdm", "module_name": "Ivanti Neurons MDM", "capabilities": ["mdm"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Neurons MDM — policy enforcement and UEM."},
-    {
-      "vendor_id": "microsoft-defender", "module_id": "microsoft-defender", "module_name": "Microsoft Defender XDR",
-      "capabilities": ["endpoint", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "suite", "notes": "Defender XDR — unified endpoint, identity, and email detection.",
-      "coverage": {
-        "endpoint": { "sub_caps": { "edr": "full", "epp": "full", "threat_intel": "full", "device_ctrl": "partial", "server_prot": "full", "response": "partial" } },
-        "siem_mdr":  { "sub_caps": { "log_ingest": "full", "detection": "full", "soar": "full", "mdr": "partial", "threat_hunt": "partial", "compliance_rpt": "full" } }
-      }
-    },
-    {
-      "vendor_id": "paloalto", "module_id": "paloalto-ngfw", "module_name": "Palo Alto NGFW / Panorama",
-      "capabilities": ["network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "on_prem", "tier": "standard", "notes": "Hardware/VM NGFW with Panorama central management.",
-      "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "full", "ips": "full", "url_filter": "full", "ssl_inspect": "full", "segmentation": "full" } }
-      }
-    },
-    {
-      "vendor_id": "paloalto", "module_id": "paloalto-prisma-access", "module_name": "Prisma Access (SASE)",
-      "capabilities": ["sase_ztna"], "modes": {"startup": false, "smb": false, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Cloud-delivered SASE — ZTNA, SWG, FWaaS.",
-      "coverage": {
-        "sase_ztna": { "sub_caps": { "ztna": "full", "swg": "full", "casb": "full", "fwaas": "full", "dlp": "full", "sd_wan": "partial" } }
-      }
-    },
-    {"vendor_id": "paloalto", "module_id": "paloalto-prisma-cloud", "module_name": "Prisma Cloud (CNAPP)", "capabilities": ["cnapp", "data_security"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "CNAPP — CSPM, CWPP, code-to-cloud pipeline security."},
-    {
-      "vendor_id": "fortinet", "module_id": "fortinet-ngfw", "module_name": "FortiGate NGFW",
-      "capabilities": ["network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "on_prem", "tier": "standard", "notes": "FortiGate NGFW with integrated IPS and SD-WAN.",
-      "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "full", "ips": "full", "url_filter": "full", "ssl_inspect": "full", "segmentation": "partial" } }
+        "endpoint": {
+          "sub_caps": {
+            "edr": "partial",
+            "epp": "partial",
+            "threat_intel": "none",
+            "device_ctrl": "full",
+            "server_prot": "partial",
+            "response": "none"
+          }
+        }
       }
     },
     {
-      "vendor_id": "fortinet", "module_id": "fortinet-sase", "module_name": "FortiSASE",
-      "capabilities": ["sase_ztna"], "modes": {"startup": false, "smb": false, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "FortiSASE — cloud-delivered ZTNA, SWG, CASB.",
+      "vendor_id": "ivanti",
+      "module_id": "ivanti-mdm",
+      "module_name": "Ivanti Neurons MDM",
+      "capabilities": [
+        "mdm"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Neurons MDM — policy enforcement and UEM."
+    },
+    {
+      "vendor_id": "microsoft-defender",
+      "module_id": "microsoft-defender",
+      "module_name": "Microsoft Defender XDR",
+      "capabilities": [
+        "endpoint",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "suite",
+      "notes": "Defender XDR — unified endpoint, identity, and email detection.",
       "coverage": {
-        "sase_ztna": { "sub_caps": { "ztna": "full", "swg": "full", "casb": "partial", "fwaas": "full", "dlp": "partial", "sd_wan": "full" } }
+        "endpoint": {
+          "sub_caps": {
+            "edr": "full",
+            "epp": "full",
+            "threat_intel": "full",
+            "device_ctrl": "partial",
+            "server_prot": "full",
+            "response": "partial"
+          }
+        },
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "full",
+            "detection": "full",
+            "soar": "full",
+            "mdr": "partial",
+            "threat_hunt": "partial",
+            "compliance_rpt": "full"
+          }
+        }
       }
     },
     {
-      "vendor_id": "cisco", "module_id": "cisco-firewall", "module_name": "Cisco Secure Firewall (formerly Firepower)",
-      "capabilities": ["network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "both", "tier": "standard", "notes": "Cisco Secure Firewall — NGFW, IPS, and application control. Available as appliance or cloud VM.",
+      "vendor_id": "paloalto",
+      "module_id": "paloalto-ngfw",
+      "module_name": "Palo Alto NGFW / Panorama",
+      "capabilities": [
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Hardware/VM NGFW with Panorama central management.",
       "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "full", "ips": "full", "url_filter": "full", "ssl_inspect": "full", "segmentation": "partial" } }
-      }
-    },
-    {"vendor_id": "cisco", "module_id": "cisco-email", "module_name": "Cisco Secure Email", "capabilities": ["email_security"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Cisco Secure Email — anti-phishing, malware filtering."},
-    {"vendor_id": "cisco", "module_id": "cisco-xdr", "module_name": "Cisco XDR", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Cisco XDR — cross-domain threat detection and response."},
-    {
-      "vendor_id": "checkpoint", "module_id": "checkpoint-ngfw", "module_name": "Check Point NGFW",
-      "capabilities": ["network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "on_prem", "tier": "standard", "notes": "Quantum NGFW — perimeter firewall and IPS.",
-      "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "full", "ips": "full", "url_filter": "full", "ssl_inspect": "full", "segmentation": "partial" } }
-      }
-    },
-    {"vendor_id": "checkpoint", "module_id": "checkpoint-cloudguard", "module_name": "CloudGuard (CNAPP)", "capabilities": ["cnapp"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "CloudGuard — CNAPP for multi-cloud environments."},
-    {
-      "vendor_id": "juniper", "module_id": "juniper", "module_name": "Juniper Networks",
-      "capabilities": ["network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "on_prem", "tier": "standard", "notes": "Juniper SRX NGFW (now part of HPE, acquisition closed July 2025). AI-driven policy enforcement.",
-      "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "full", "ips": "full", "url_filter": "partial", "ssl_inspect": "partial", "segmentation": "partial" } }
-      }
-    },
-    {
-      "vendor_id": "citrix", "module_id": "citrix", "module_name": "Citrix Secure Access",
-      "capabilities": ["sase_ztna"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Citrix Secure Private Access — ZTNA for internal apps.",
-      "coverage": {
-        "sase_ztna": { "sub_caps": { "ztna": "full", "swg": "partial", "casb": "none", "fwaas": "none", "dlp": "none", "sd_wan": "none" } }
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "full",
+            "ips": "full",
+            "url_filter": "full",
+            "ssl_inspect": "full",
+            "segmentation": "full"
+          }
+        }
       }
     },
     {
-      "vendor_id": "cloudflare", "module_id": "cloudflare", "module_name": "Cloudflare One (SASE)",
-      "capabilities": ["sase_ztna", "network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Cloudflare One — SSE with ZTNA, SWG, and FWaaS.",
+      "vendor_id": "paloalto",
+      "module_id": "paloalto-prisma-access",
+      "module_name": "Prisma Access (SASE)",
+      "capabilities": [
+        "sase_ztna"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cloud-delivered SASE — ZTNA, SWG, FWaaS.",
       "coverage": {
-        "sase_ztna":       { "sub_caps": { "ztna": "full", "swg": "full", "casb": "partial", "fwaas": "full", "dlp": "partial", "sd_wan": "none" } },
-        "network_firewall": { "sub_caps": { "ngfw": "partial", "ips": "partial", "url_filter": "full", "ssl_inspect": "full", "segmentation": "none" } }
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "full",
+            "casb": "full",
+            "fwaas": "full",
+            "dlp": "full",
+            "sd_wan": "partial"
+          }
+        }
       }
     },
     {
-      "vendor_id": "akamai", "module_id": "akamai", "module_name": "Akamai Edge / Guardicore",
-      "capabilities": ["network_firewall", "sase_ztna"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Akamai Edge + Guardicore — CDN security and microsegmentation.",
+      "vendor_id": "paloalto",
+      "module_id": "paloalto-prisma-cloud",
+      "module_name": "Prisma Cloud (CNAPP)",
+      "capabilities": [
+        "cnapp",
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "CNAPP — CSPM, CWPP, code-to-cloud pipeline security."
+    },
+    {
+      "vendor_id": "fortinet",
+      "module_id": "fortinet-ngfw",
+      "module_name": "FortiGate NGFW",
+      "capabilities": [
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "FortiGate NGFW with integrated IPS and SD-WAN.",
       "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "partial", "ips": "partial", "url_filter": "full", "ssl_inspect": "full", "segmentation": "none" } },
-        "sase_ztna":        { "sub_caps": { "ztna": "full", "swg": "full", "casb": "partial", "fwaas": "partial", "dlp": "none", "sd_wan": "none" } }
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "full",
+            "ips": "full",
+            "url_filter": "full",
+            "ssl_inspect": "full",
+            "segmentation": "partial"
+          }
+        }
       }
     },
     {
-      "vendor_id": "zscaler", "module_id": "zscaler", "module_name": "Zscaler ZIA / ZPA",
-      "capabilities": ["sase_ztna"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "ZIA + ZPA — cloud-native secure web gateway and ZTNA.",
+      "vendor_id": "fortinet",
+      "module_id": "fortinet-sase",
+      "module_name": "FortiSASE",
+      "capabilities": [
+        "sase_ztna"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "FortiSASE — cloud-delivered ZTNA, SWG, CASB.",
       "coverage": {
-        "sase_ztna": { "sub_caps": { "ztna": "full", "swg": "full", "casb": "full", "fwaas": "full", "dlp": "full", "sd_wan": "none" } }
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "full",
+            "casb": "partial",
+            "fwaas": "full",
+            "dlp": "partial",
+            "sd_wan": "full"
+          }
+        }
       }
     },
     {
-      "vendor_id": "netskope", "module_id": "netskope", "module_name": "Netskope SASE",
-      "capabilities": ["sase_ztna", "data_security"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Netskope One SSE — CASB, SWG, ZTNA, DLP on NewEdge.",
+      "vendor_id": "cisco",
+      "module_id": "cisco-firewall",
+      "module_name": "Cisco Secure Firewall (formerly Firepower)",
+      "capabilities": [
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Cisco Secure Firewall — NGFW, IPS, and application control. Available as appliance or cloud VM.",
       "coverage": {
-        "sase_ztna": { "sub_caps": { "ztna": "full", "swg": "full", "casb": "full", "fwaas": "partial", "dlp": "full", "sd_wan": "none" } }
-      }
-    },
-    {"vendor_id": "watchtowr", "module_id": "watchtowr", "module_name": "WatchTowr Platform", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Continuous attack surface management and pentest platform."},
-    {"vendor_id": "aws", "module_id": "aws-security", "module_name": "AWS Security Hub / GuardDuty", "capabilities": ["cloud", "cnapp"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "AWS Security Hub + GuardDuty — cloud posture and threat detection."},
-    {"vendor_id": "aws", "module_id": "aws-backup", "module_name": "AWS Backup", "capabilities": ["backup"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "AWS Backup — policy-based backup across AWS services."},
-    {"vendor_id": "microsoft-azure", "module_id": "microsoft-azure", "module_name": "Microsoft Azure Security", "capabilities": ["cloud", "cnapp"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Azure Security Center and Defender for Cloud — CSPM and CWPP."},
-    {
-      "vendor_id": "vmware", "module_id": "vmware-carbon-black", "module_name": "Broadcom Carbon Black Cloud",
-      "capabilities": ["endpoint"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Formerly VMware Carbon Black; now Broadcom Enterprise Security. Behavioral EDR for enterprise endpoints.",
-      "coverage": {
-        "endpoint": { "sub_caps": { "edr": "full", "epp": "partial", "threat_intel": "partial", "device_ctrl": "partial", "server_prot": "full", "response": "partial" } }
-      }
-    },
-    {"vendor_id": "vmware", "module_id": "vmware-aria", "module_name": "VMware Aria (cloud mgmt)", "capabilities": ["cloud"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "VMware Aria Cloud Management (now under Broadcom ownership). Cloud cost and infrastructure management."},
-    {"vendor_id": "wiz", "module_id": "wiz", "module_name": "Wiz CNAPP", "capabilities": ["cnapp", "data_security"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Wiz CNAPP — agentless cloud security posture and data protection."},
-    {
-      "vendor_id": "google-cloud-security", "module_id": "google-chronicle", "module_name": "Google Chronicle (SIEM)",
-      "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Google Chronicle — cloud-native SIEM with petabyte-scale ingestion.",
-      "coverage": {
-        "siem_mdr": { "sub_caps": { "log_ingest": "full", "detection": "full", "soar": "partial", "mdr": "partial", "threat_hunt": "full", "compliance_rpt": "partial" } }
-      }
-    },
-    {"vendor_id": "google-cloud-security", "module_id": "google-cnapp", "module_name": "Google Cloud Security Command Center", "capabilities": ["cnapp"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Security Command Center — CSPM and threat detection for GCP."},
-    {
-      "vendor_id": "okta", "module_id": "okta", "module_name": "Okta Workforce Identity",
-      "capabilities": ["identity_sso"], "modes": {"startup": true, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Okta Workforce Identity — SSO, MFA, and lifecycle management.",
-      "coverage": {
-        "identity_sso": { "sub_caps": { "sso": "full", "mfa": "full", "directory": "full", "lifecycle": "full", "risk_auth": "full" } }
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "full",
+            "ips": "full",
+            "url_filter": "full",
+            "ssl_inspect": "full",
+            "segmentation": "partial"
+          }
+        }
       }
     },
     {
-      "vendor_id": "microsoft-entra", "module_id": "microsoft-entra", "module_name": "Microsoft Entra ID",
-      "capabilities": ["identity_sso", "iga"], "modes": {"startup": true, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "Microsoft Entra ID — cloud identity, SSO, conditional access, and identity governance (Entra ID Governance add-on).",
-      "coverage": {
-        "identity_sso": { "sub_caps": { "sso": "full", "mfa": "full", "directory": "full", "lifecycle": "full", "risk_auth": "full" } }
-      }
-    },
-    {"vendor_id": "cyberark", "module_id": "cyberark-pam", "module_name": "CyberArk PAM", "capabilities": ["pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "CyberArk PAM Self-Hosted — privileged vault and session recording.", "coverage": { "pam": { "sub_caps": { "privileged_vault": "full", "session_recording": "full", "jit_access": "partial", "password_rotation": "full", "mfa_escalation": "full" } } }},
-    {
-      "vendor_id": "cyberark", "module_id": "cyberark-identity", "module_name": "CyberArk Identity Security",
-      "capabilities": ["identity_sso", "iga"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "CyberArk Identity — SSO, MFA, and access governance.",
-      "coverage": {
-        "identity_sso": { "sub_caps": { "sso": "full", "mfa": "full", "directory": "partial", "lifecycle": "partial", "risk_auth": "partial" } }
-      }
-    },
-    {"vendor_id": "beyondtrust", "module_id": "beyondtrust", "module_name": "BeyondTrust PAM", "capabilities": ["pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "BeyondTrust PAM — privileged access and session management."},
-    {"vendor_id": "sailpoint", "module_id": "sailpoint", "module_name": "SailPoint Identity Security Cloud", "capabilities": ["iga"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "SaaS IGA — access certifications, lifecycle management, access requests.", "coverage": { "iga": { "sub_caps": { "access_certification": "full", "provisioning": "full", "role_management": "full", "segregation_of_duties": "full", "audit_trail": "full" } } }},
-    {"vendor_id": "saviynt", "module_id": "saviynt", "module_name": "Saviynt ISPM", "capabilities": ["iga", "pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Saviynt ISPM — identity governance and cloud PAM."},
-    {
-      "vendor_id": "ping-identity", "module_id": "ping-identity", "module_name": "Ping Identity Platform",
-      "capabilities": ["identity_sso", "iga"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "both", "tier": "standard", "notes": "Ping Identity Platform (includes ForgeRock; merged Aug 2023). SSO, MFA, CIAM, and IGA via PingOne Advanced Identity Cloud.",
-      "coverage": {
-        "identity_sso": { "sub_caps": { "sso": "full", "mfa": "full", "directory": "full", "lifecycle": "full", "risk_auth": "partial" } }
-      }
+      "vendor_id": "cisco",
+      "module_id": "cisco-email",
+      "module_name": "Cisco Secure Email",
+      "capabilities": [
+        "email_security"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Cisco Secure Email — anti-phishing, malware filtering."
     },
     {
-      "vendor_id": "splunk", "module_id": "splunk", "module_name": "Splunk SIEM / SOAR",
-      "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "both", "tier": "standard", "notes": "Splunk Enterprise Security — SIEM with advanced threat detection.",
+      "vendor_id": "cisco",
+      "module_id": "cisco-xdr",
+      "module_name": "Cisco XDR",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cisco XDR — cross-domain threat detection and response."
+    },
+    {
+      "vendor_id": "checkpoint",
+      "module_id": "checkpoint-ngfw",
+      "module_name": "Check Point NGFW",
+      "capabilities": [
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Quantum NGFW — perimeter firewall and IPS.",
       "coverage": {
-        "siem_mdr": { "sub_caps": { "log_ingest": "full", "detection": "full", "soar": "full", "mdr": "none", "threat_hunt": "partial", "compliance_rpt": "full" } }
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "full",
+            "ips": "full",
+            "url_filter": "full",
+            "ssl_inspect": "full",
+            "segmentation": "partial"
+          }
+        }
       }
     },
     {
-      "vendor_id": "solarwinds", "module_id": "solarwinds", "module_name": "SolarWinds Platform",
-      "capabilities": ["vuln_mgmt", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "both", "tier": "standard", "notes": "SolarWinds Platform — IT monitoring and log management.",
-      "coverage": {
-        "siem_mdr": { "sub_caps": { "log_ingest": "full", "detection": "partial", "soar": "none", "mdr": "none", "threat_hunt": "none", "compliance_rpt": "full" } }
-      }
+      "vendor_id": "checkpoint",
+      "module_id": "checkpoint-cloudguard",
+      "module_name": "CloudGuard (CNAPP)",
+      "capabilities": [
+        "cnapp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "CloudGuard — CNAPP for multi-cloud environments."
     },
-    {"vendor_id": "tenable", "module_id": "tenable", "module_name": "Tenable One", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Tenable One — unified exposure management across all assets."},
     {
-      "vendor_id": "rapid7", "module_id": "rapid7", "module_name": "Rapid7 InsightVM / InsightIDR",
-      "capabilities": ["vuln_mgmt", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "saas", "tier": "standard", "notes": "InsightVM + InsightIDR — vulnerability management and SIEM/MDR.",
+      "vendor_id": "juniper",
+      "module_id": "juniper",
+      "module_name": "Juniper Networks",
+      "capabilities": [
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Juniper SRX NGFW (now part of HPE, acquisition closed July 2025). AI-driven policy enforcement.",
       "coverage": {
-        "siem_mdr": { "sub_caps": { "log_ingest": "full", "detection": "full", "soar": "partial", "mdr": "full", "threat_hunt": "full", "compliance_rpt": "partial" } }
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "full",
+            "ips": "full",
+            "url_filter": "partial",
+            "ssl_inspect": "partial",
+            "segmentation": "partial"
+          }
+        }
       }
     },
-    {"vendor_id": "proofpoint", "module_id": "proofpoint", "module_name": "Proofpoint Email Security", "capabilities": ["email_security"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Proofpoint Email Security — anti-phishing and BEC protection."},
-    {"vendor_id": "barracuda", "module_id": "barracuda-email", "module_name": "Barracuda Email Protection", "capabilities": ["email_security"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Barracuda Email Protection — gateway and cloud email security."},
     {
-      "vendor_id": "barracuda", "module_id": "barracuda-network", "module_name": "Barracuda Network Security",
-      "capabilities": ["network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true},
-      "deployment": "on_prem", "tier": "standard", "notes": "Barracuda Network Security — NGFW and web filtering.",
+      "vendor_id": "citrix",
+      "module_id": "citrix",
+      "module_name": "Citrix Secure Access",
+      "capabilities": [
+        "sase_ztna"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Citrix Secure Private Access — ZTNA for internal apps.",
       "coverage": {
-        "network_firewall": { "sub_caps": { "ngfw": "full", "ips": "full", "url_filter": "full", "ssl_inspect": "partial", "segmentation": "none" } }
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "partial",
+            "casb": "none",
+            "fwaas": "none",
+            "dlp": "none",
+            "sd_wan": "none"
+          }
+        }
       }
     },
-    {"vendor_id": "veeam", "module_id": "veeam", "module_name": "Veeam Data Platform", "capabilities": ["backup"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "Veeam Data Platform — backup and recovery for VMs and cloud."},
-    {"vendor_id": "commvault", "module_id": "commvault", "module_name": "Commvault Cloud", "capabilities": ["backup", "data_security"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Commvault Cloud — unified data protection and cyber resilience."},
-    {"vendor_id": "github", "module_id": "github-advanced-security", "module_name": "GitHub Advanced Security", "capabilities": ["devsec"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "GitHub Advanced Security — SAST, SCA, and secrets scanning."},
-    {"vendor_id": "atlassian", "module_id": "atlassian", "module_name": "Atlassian (Jira/Confluence)", "capabilities": ["devsec"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Atlassian (Jira/Confluence) — DevSecOps workflow and audit trails."},
-    {"vendor_id": "servicenow", "module_id": "servicenow-secops", "module_name": "ServiceNow SecOps", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "ServiceNow SecOps — security incident and vulnerability response."},
-    {"vendor_id": "vanta", "module_id": "vanta", "module_name": "Vanta GRC / Trust Platform", "capabilities": [], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Vanta — automated compliance monitoring (SOC 2, ISO 27001, HIPAA). GRC platform; not a security capability tool."},
-    {"vendor_id": "schneider", "module_id": "schneider", "module_name": "Schneider Electric OT", "capabilities": ["ot_ics"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "Schneider Electric OT Security — ICS asset protection."},
-    {"vendor_id": "siemens", "module_id": "siemens", "module_name": "Siemens OT Security", "capabilities": ["ot_ics"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "Siemens OT Security — industrial cybersecurity and SCADA protection."},
-    {"vendor_id": "dragos", "module_id": "dragos", "module_name": "Dragos OT Platform", "capabilities": ["ot_ics"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "Dragos Platform — OT threat detection and incident response."},
-
-    {"vendor_id": "okta", "module_id": "okta-ciam", "module_name": "Okta Customer Identity (CIAM)", "capabilities": ["identity_sso"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Customer-facing auth and registration for B2C/B2B apps."},
-    {"vendor_id": "okta", "module_id": "okta-iga", "module_name": "Okta Identity Governance", "capabilities": ["iga"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Access certifications, lifecycle automation, access requests."},
-    {"vendor_id": "okta", "module_id": "okta-pam", "module_name": "Okta Privileged Access", "capabilities": ["pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Just-in-time privileged access to servers and infrastructure."},
-    {"vendor_id": "okta", "module_id": "okta-device-trust", "module_name": "Okta Device Trust", "capabilities": ["identity_sso", "mdm"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Device posture as a condition of SSO access; integrates with MDM."},
-
-    {"vendor_id": "cyberark", "module_id": "cyberark-privilege-cloud", "module_name": "CyberArk Privilege Cloud (SaaS)", "capabilities": ["pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "SaaS PAM — same core capabilities as self-hosted; uses SRS for credential rotation and PSM-as-a-Service for session recording.", "coverage": { "pam": { "sub_caps": { "privileged_vault": "full", "session_recording": "full", "jit_access": "full", "password_rotation": "full", "mfa_escalation": "full" } } }},
-    {"vendor_id": "cyberark", "module_id": "cyberark-epm", "module_name": "CyberArk Endpoint Privilege Manager", "capabilities": ["endpoint", "pam"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Least-privilege enforcement on Windows/Mac endpoints (PEDM)."},
-    {"vendor_id": "cyberark", "module_id": "cyberark-secrets-manager", "module_name": "CyberArk Secrets Manager", "capabilities": ["devsec", "pam"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Secrets management for DevOps pipelines and machine identities."},
-
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-prevent", "module_name": "Falcon Prevent (NGAV)", "capabilities": ["endpoint"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "base", "notes": "AI-powered next-gen antivirus — entry-level endpoint prevention."},
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-insight", "module_name": "Falcon Insight XDR", "capabilities": ["endpoint", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Full EDR/XDR with cross-domain detection and investigation."},
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-cloud", "module_name": "Falcon Cloud Security (CNAPP)", "capabilities": ["cnapp", "cloud"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "CNAPP covering CSPM, CWPP, and CIEM for cloud workloads."},
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-identity", "module_name": "Falcon Next-Gen Identity Security", "capabilities": ["identity_sso", "pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "ITDR and privileged access for human, non-human, and AI agent identities. AD and Entra ID protection."},
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-exposure", "module_name": "Falcon Exposure Management", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "External attack surface management and asset discovery."},
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-siem", "module_name": "Falcon Next-Gen SIEM", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Standalone cloud SIEM product; FedRAMP authorized."},
-    {"vendor_id": "crowdstrike", "module_id": "crowdstrike-falcon-complete", "module_name": "Falcon Complete MDR", "capabilities": ["siem_mdr", "endpoint"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "managed", "notes": "24/7 managed detection and response with human analyst coverage."},
-
-    {"vendor_id": "microsoft-defender", "module_id": "ms-defender-office365", "module_name": "Defender for Office 365", "capabilities": ["email_security"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Email threat protection — anti-phishing, safe links, BEC defense."},
-    {"vendor_id": "microsoft-defender", "module_id": "ms-defender-cloud", "module_name": "Defender for Cloud (CNAPP)", "capabilities": ["cnapp", "cloud"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "CSPM and CWPP for Azure, AWS, and GCP workloads."},
-    {"vendor_id": "microsoft-defender", "module_id": "ms-sentinel", "module_name": "Microsoft Sentinel", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Cloud-native SIEM/SOAR on Azure — separate from Defender XDR."},
-    {"vendor_id": "microsoft-defender", "module_id": "ms-purview", "module_name": "Microsoft Purview", "capabilities": ["data_security"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "DLP, data classification, insider risk, and information protection."},
-    {"vendor_id": "microsoft-defender", "module_id": "ms-intune", "module_name": "Microsoft Intune", "capabilities": ["mdm"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "MDM/MAM for Windows, iOS, Android, macOS."},
-
-    {"vendor_id": "sentinelone", "module_id": "s1-singularity-core", "module_name": "Singularity Core (NGAV)", "capabilities": ["endpoint"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "base", "notes": "Static AI and behavioral detection — entry-level endpoint."},
-    {"vendor_id": "sentinelone", "module_id": "s1-singularity-cloud", "module_name": "Singularity Cloud Workload Security", "capabilities": ["cnapp", "endpoint"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Agent-based CWPP for VMs, containers, and Kubernetes."},
-    {"vendor_id": "sentinelone", "module_id": "s1-singularity-identity", "module_name": "Singularity Identity (ITDR)", "capabilities": ["identity_sso"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Identity threat detection — AD deception and credential risk."},
-    {"vendor_id": "sentinelone", "module_id": "s1-data-lake", "module_name": "Singularity Data Lake", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Third-party log ingestion for SIEM-style analytics and hunting."},
-    {"vendor_id": "sentinelone", "module_id": "s1-ranger", "module_name": "Singularity Ranger (ASM)", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Network discovery and agentless device fingerprinting."},
-
-    {"vendor_id": "paloalto", "module_id": "paloalto-cortex-xdr", "module_name": "Cortex XDR", "capabilities": ["endpoint", "siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "EDR/XDR with network, cloud, and endpoint telemetry correlation."},
-    {"vendor_id": "paloalto", "module_id": "paloalto-cortex-xsiam", "module_name": "Cortex XSIAM", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "enterprise", "notes": "AI-native SOC platform — SIEM, SOAR, UEBA, and ASM unified."},
-    {"vendor_id": "paloalto", "module_id": "paloalto-cortex-xpanse", "module_name": "Cortex Xpanse (EASM)", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "External attack surface management — continuous internet exposure monitoring."},
-
-    {"vendor_id": "cisco", "module_id": "cisco-duo", "module_name": "Cisco Duo (MFA/ZTNA)", "capabilities": ["identity_sso"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "MFA, device trust, ZTNA, and SSO — top Cisco security product."},
-    {"vendor_id": "cisco", "module_id": "cisco-umbrella", "module_name": "Cisco Umbrella (DNS/SSE)", "capabilities": ["sase_ztna", "network_firewall"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "DNS-layer security, SWG, CASB, and ZTNA via Cisco SSE."},
-    {"vendor_id": "cisco", "module_id": "cisco-secure-endpoint", "module_name": "Cisco Secure Endpoint", "capabilities": ["endpoint"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Cisco EDR/EPP — formerly AMP for Endpoints."},
-
-    {"vendor_id": "sailpoint", "module_id": "sailpoint-identityiq", "module_name": "SailPoint IdentityIQ (On-Prem)", "capabilities": ["iga"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "On-premises IGA platform — separate SKU from IdentityNow SaaS.", "coverage": { "iga": { "sub_caps": { "access_certification": "full", "provisioning": "full", "role_management": "full", "segregation_of_duties": "full", "audit_trail": "full" } } }},
-    {"vendor_id": "sailpoint", "module_id": "sailpoint-non-employee", "module_name": "Non-Employee Risk Management", "capabilities": ["iga"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Governs contractor, partner, and vendor identities.", "coverage": { "iga": { "sub_caps": { "access_certification": "full", "provisioning": "full", "role_management": "partial", "segregation_of_duties": "none", "audit_trail": "full" } } }},
-
-    {"vendor_id": "fortinet", "module_id": "fortinet-edr", "module_name": "FortiEDR", "capabilities": ["endpoint"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Real-time EDR with pre- and post-infection endpoint protection."},
-    {"vendor_id": "fortinet", "module_id": "fortinet-siem", "module_name": "FortiSIEM", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "SIEM with multi-vendor correlation, log management, compliance."},
-    {"vendor_id": "fortinet", "module_id": "fortinet-soar", "module_name": "FortiSOAR", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Security orchestration and automation workbench."},
-    {"vendor_id": "fortinet", "module_id": "fortinet-cnapp", "module_name": "FortiCNAPP (Lacework)", "capabilities": ["cnapp", "cloud"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Cloud-native application protection — formerly Lacework."},
-
-    {"vendor_id": "checkpoint", "module_id": "checkpoint-harmony-endpoint", "module_name": "Harmony Endpoint", "capabilities": ["endpoint"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "AV, anti-phishing, encryption, sandboxing for endpoints."},
-    {"vendor_id": "checkpoint", "module_id": "checkpoint-harmony-email", "module_name": "Harmony Email & Collaboration", "capabilities": ["email_security"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Harmony Email & Collaboration — cloud email security and SaaS app protection."},
-    {"vendor_id": "checkpoint", "module_id": "checkpoint-horizon", "module_name": "Check Point Horizon (SecOps)", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "SOC platform with XDR and MDR powered by ThreatCloud AI."},
-
-    {"vendor_id": "rapid7", "module_id": "rapid7-insightvm", "module_name": "InsightVM (Vulnerability Management)", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Cloud-hosted vulnerability management and risk prioritisation."},
-    {"vendor_id": "rapid7", "module_id": "rapid7-insightidr", "module_name": "InsightIDR (SIEM/MDR)", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "SIEM and UEBA with integrated managed detection and response."},
-    {"vendor_id": "rapid7", "module_id": "rapid7-insightcloudsec", "module_name": "InsightCloudSec (CNAPP)", "capabilities": ["cnapp", "cloud"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "CNAPP for multi-cloud environments — CSPM and workload protection."},
-    {"vendor_id": "rapid7", "module_id": "rapid7-mdr", "module_name": "Managed Threat Complete (MDR)", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "managed", "notes": "Fully managed MDR with 24/7 analyst coverage on InsightIDR."},
-
-    {"vendor_id": "tenable", "module_id": "tenable-nessus", "module_name": "Tenable Nessus Professional", "capabilities": ["vuln_mgmt"], "modes": {"startup": true, "smb": true, "enterprise": false}, "deployment": "on_prem", "tier": "standard", "notes": "On-prem vulnerability scanner — practitioner and SMB tier."},
-    {"vendor_id": "tenable", "module_id": "tenable-security-center", "module_name": "Tenable Security Center", "capabilities": ["vuln_mgmt"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "On-premises VM platform for air-gapped and regulated environments."},
-    {"vendor_id": "tenable", "module_id": "tenable-ot", "module_name": "Tenable OT Security", "capabilities": ["ot_ics", "vuln_mgmt"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "on_prem", "tier": "standard", "notes": "OT/ICS vulnerability and asset visibility for industrial environments."},
-
-    {"vendor_id": "proofpoint", "module_id": "proofpoint-tap", "module_name": "Proofpoint TAP (Sandboxing)", "capabilities": ["email_security"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "add-on", "notes": "Advanced URL and attachment sandboxing with click-time protection."},
-    {"vendor_id": "proofpoint", "module_id": "proofpoint-dlp", "module_name": "Proofpoint Enterprise DLP", "capabilities": ["data_security"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Unified DLP + DSPM across email, cloud, and endpoint channels."},
-    {"vendor_id": "proofpoint", "module_id": "proofpoint-itm", "module_name": "Proofpoint Insider Threat Management", "capabilities": ["data_security"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "User activity monitoring and insider risk detection (ObserveIT)."},
-
-    {"vendor_id": "splunk", "module_id": "splunk-soar", "module_name": "Splunk SOAR", "capabilities": ["siem_mdr"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "SOAR with 300+ integrations — separate SKU from Splunk ES."},
-    {"vendor_id": "splunk", "module_id": "splunk-observability", "module_name": "Splunk Observability Cloud", "capabilities": ["cloud"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "APM, infrastructure monitoring, and log analytics for DevOps."},
-
-    {"vendor_id": "beyondtrust", "module_id": "beyondtrust-pra", "module_name": "BeyondTrust Privileged Remote Access", "capabilities": ["pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Zero-trust access for privileged users to on-prem and cloud systems."},
-    {"vendor_id": "beyondtrust", "module_id": "beyondtrust-epm", "module_name": "BeyondTrust Endpoint Privilege Management", "capabilities": ["endpoint", "pam"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Least-privilege enforcement on Windows/Mac endpoints."},
-
-    {"vendor_id": "commvault", "module_id": "commvault-metallic", "module_name": "Commvault Metallic (SaaS Backup)", "capabilities": ["backup"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Commvault Cloud SaaS — formerly Metallic; SaaS-native backup for M365, Salesforce, and endpoints."},
-
-    {"vendor_id": "veeam", "module_id": "veeam-data-cloud", "module_name": "Veeam Data Cloud (SaaS)", "capabilities": ["backup"], "modes": {"startup": true, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Veeam-hosted backup-as-a-service for M365 and Entra ID."},
-    {"vendor_id": "veeam", "module_id": "veeam-kasten", "module_name": "Veeam Kasten for Kubernetes", "capabilities": ["backup", "cloud"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Kubernetes-native backup and disaster recovery platform."},
-
-    {"vendor_id": "saviynt", "module_id": "saviynt-iga", "module_name": "Saviynt Identity Governance", "capabilities": ["iga"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Access certifications, provisioning, and role management."},
-    {"vendor_id": "saviynt", "module_id": "saviynt-cloud-pam", "module_name": "Saviynt Cloud PAM", "capabilities": ["pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "JIT privileged access for cloud and hybrid infrastructure."},
-
-    {"vendor_id": "cyberark", "module_id": "cyberark-machine-identity", "module_name": "CyberArk Machine Identity Security (Venafi)", "capabilities": ["devsec", "pam"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "TLS certificate lifecycle, enterprise PKI, workload identity, and secrets management. Formerly Venafi; acquired by CyberArk Oct 2024."},
-
-    {"vendor_id": "checkpoint", "module_id": "checkpoint-harmony-sase", "module_name": "Check Point Harmony SASE", "capabilities": ["sase_ztna"], "modes": {"startup": false, "smb": true, "enterprise": true}, "deployment": "saas", "tier": "standard", "notes": "Harmony SASE (formerly Harmony Connect) — SWG, CASB, ZTNA, and FWaaS in a cloud-delivered SSE platform."},
-
-    {"vendor_id": "cisco", "module_id": "cisco-ise", "module_name": "Cisco Identity Services Engine (ISE)", "capabilities": ["identity_sso", "network_firewall"], "modes": {"startup": false, "smb": false, "enterprise": true}, "deployment": "both", "tier": "standard", "notes": "Network access control (NAC), device posture enforcement, and microsegmentation policy. Primary NAC platform for enterprise networks."}
+    {
+      "vendor_id": "cloudflare",
+      "module_id": "cloudflare",
+      "module_name": "Cloudflare One (SASE)",
+      "capabilities": [
+        "sase_ztna",
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cloudflare One — SSE with ZTNA, SWG, and FWaaS.",
+      "coverage": {
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "full",
+            "casb": "partial",
+            "fwaas": "full",
+            "dlp": "partial",
+            "sd_wan": "none"
+          }
+        },
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "partial",
+            "ips": "partial",
+            "url_filter": "full",
+            "ssl_inspect": "full",
+            "segmentation": "none"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "akamai",
+      "module_id": "akamai",
+      "module_name": "Akamai Edge / Guardicore",
+      "capabilities": [
+        "network_firewall",
+        "sase_ztna"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Akamai Edge + Guardicore — CDN security and microsegmentation.",
+      "coverage": {
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "partial",
+            "ips": "partial",
+            "url_filter": "full",
+            "ssl_inspect": "full",
+            "segmentation": "none"
+          }
+        },
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "full",
+            "casb": "partial",
+            "fwaas": "partial",
+            "dlp": "none",
+            "sd_wan": "none"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "zscaler",
+      "module_id": "zscaler",
+      "module_name": "Zscaler ZIA / ZPA",
+      "capabilities": [
+        "sase_ztna"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "ZIA + ZPA — cloud-native secure web gateway and ZTNA.",
+      "coverage": {
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "full",
+            "casb": "full",
+            "fwaas": "full",
+            "dlp": "full",
+            "sd_wan": "none"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "netskope",
+      "module_id": "netskope",
+      "module_name": "Netskope SASE",
+      "capabilities": [
+        "sase_ztna",
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Netskope One SSE — CASB, SWG, ZTNA, DLP on NewEdge.",
+      "coverage": {
+        "sase_ztna": {
+          "sub_caps": {
+            "ztna": "full",
+            "swg": "full",
+            "casb": "full",
+            "fwaas": "partial",
+            "dlp": "full",
+            "sd_wan": "none"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "watchtowr",
+      "module_id": "watchtowr",
+      "module_name": "WatchTowr Platform",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Continuous attack surface management and pentest platform."
+    },
+    {
+      "vendor_id": "aws",
+      "module_id": "aws-security",
+      "module_name": "AWS Security Hub / GuardDuty",
+      "capabilities": [
+        "cloud",
+        "cnapp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "AWS Security Hub + GuardDuty — cloud posture and threat detection."
+    },
+    {
+      "vendor_id": "aws",
+      "module_id": "aws-backup",
+      "module_name": "AWS Backup",
+      "capabilities": [
+        "backup"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "AWS Backup — policy-based backup across AWS services."
+    },
+    {
+      "vendor_id": "microsoft-azure",
+      "module_id": "microsoft-azure",
+      "module_name": "Microsoft Azure Security",
+      "capabilities": [
+        "cloud",
+        "cnapp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Azure Security Center and Defender for Cloud — CSPM and CWPP."
+    },
+    {
+      "vendor_id": "vmware",
+      "module_id": "vmware-carbon-black",
+      "module_name": "Broadcom Carbon Black Cloud",
+      "capabilities": [
+        "endpoint"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Formerly VMware Carbon Black; now Broadcom Enterprise Security. Behavioral EDR for enterprise endpoints.",
+      "coverage": {
+        "endpoint": {
+          "sub_caps": {
+            "edr": "full",
+            "epp": "partial",
+            "threat_intel": "partial",
+            "device_ctrl": "partial",
+            "server_prot": "full",
+            "response": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "vmware",
+      "module_id": "vmware-aria",
+      "module_name": "VMware Aria (cloud mgmt)",
+      "capabilities": [
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "VMware Aria Cloud Management (now under Broadcom ownership). Cloud cost and infrastructure management."
+    },
+    {
+      "vendor_id": "wiz",
+      "module_id": "wiz",
+      "module_name": "Wiz CNAPP",
+      "capabilities": [
+        "cnapp",
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Wiz CNAPP — agentless cloud security posture and data protection.",
+      "coverage": {
+        "cnapp": {
+          "sub_caps": {
+            "cspm": "full",
+            "cwpp": "full",
+            "supply_chain": "partial",
+            "api_security": "full",
+            "secrets_detection": "full"
+          }
+        },
+        "data_security": {
+          "sub_caps": {
+            "data_discovery": "full",
+            "dspm": "full",
+            "dlp_enforcement": "partial",
+            "encryption": "none",
+            "insider_threat": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "google-cloud-security",
+      "module_id": "google-chronicle",
+      "module_name": "Google Chronicle (SIEM)",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Google Chronicle — cloud-native SIEM with petabyte-scale ingestion.",
+      "coverage": {
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "full",
+            "detection": "full",
+            "soar": "partial",
+            "mdr": "partial",
+            "threat_hunt": "full",
+            "compliance_rpt": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "google-cloud-security",
+      "module_id": "google-cnapp",
+      "module_name": "Google Cloud Security Command Center",
+      "capabilities": [
+        "cnapp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Security Command Center — CSPM and threat detection for GCP."
+    },
+    {
+      "vendor_id": "okta",
+      "module_id": "okta",
+      "module_name": "Okta Workforce Identity",
+      "capabilities": [
+        "identity_sso"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Okta Workforce Identity — SSO, MFA, and lifecycle management.",
+      "coverage": {
+        "identity_sso": {
+          "sub_caps": {
+            "sso": "full",
+            "mfa": "full",
+            "directory": "full",
+            "lifecycle": "full",
+            "risk_auth": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "microsoft-entra",
+      "module_id": "microsoft-entra",
+      "module_name": "Microsoft Entra ID",
+      "capabilities": [
+        "identity_sso",
+        "iga"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Microsoft Entra ID — cloud identity, SSO, conditional access, and identity governance (Entra ID Governance add-on).",
+      "coverage": {
+        "identity_sso": {
+          "sub_caps": {
+            "sso": "full",
+            "mfa": "full",
+            "directory": "full",
+            "lifecycle": "full",
+            "risk_auth": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "cyberark",
+      "module_id": "cyberark-pam",
+      "module_name": "CyberArk PAM",
+      "capabilities": [
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "CyberArk PAM Self-Hosted — privileged vault and session recording.",
+      "coverage": {
+        "pam": {
+          "sub_caps": {
+            "privileged_vault": "full",
+            "session_recording": "full",
+            "jit_access": "partial",
+            "password_rotation": "full",
+            "mfa_escalation": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "cyberark",
+      "module_id": "cyberark-identity",
+      "module_name": "CyberArk Identity Security",
+      "capabilities": [
+        "identity_sso",
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "CyberArk Identity — SSO, MFA, and access governance.",
+      "coverage": {
+        "identity_sso": {
+          "sub_caps": {
+            "sso": "full",
+            "mfa": "full",
+            "directory": "partial",
+            "lifecycle": "partial",
+            "risk_auth": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "beyondtrust",
+      "module_id": "beyondtrust",
+      "module_name": "BeyondTrust PAM",
+      "capabilities": [
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "BeyondTrust PAM — privileged access and session management.",
+      "coverage": {
+        "pam": {
+          "sub_caps": {
+            "privileged_vault": "full",
+            "session_recording": "full",
+            "jit_access": "full",
+            "password_rotation": "full",
+            "mfa_escalation": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "sailpoint",
+      "module_id": "sailpoint",
+      "module_name": "SailPoint Identity Security Cloud",
+      "capabilities": [
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "SaaS IGA — access certifications, lifecycle management, access requests.",
+      "coverage": {
+        "iga": {
+          "sub_caps": {
+            "access_certification": "full",
+            "provisioning": "full",
+            "role_management": "full",
+            "segregation_of_duties": "full",
+            "audit_trail": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "saviynt",
+      "module_id": "saviynt",
+      "module_name": "Saviynt ISPM",
+      "capabilities": [
+        "iga",
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Saviynt ISPM — identity governance and cloud PAM."
+    },
+    {
+      "vendor_id": "ping-identity",
+      "module_id": "ping-identity",
+      "module_name": "Ping Identity Platform",
+      "capabilities": [
+        "identity_sso",
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Ping Identity Platform (includes ForgeRock; merged Aug 2023). SSO, MFA, CIAM, and IGA via PingOne Advanced Identity Cloud.",
+      "coverage": {
+        "identity_sso": {
+          "sub_caps": {
+            "sso": "full",
+            "mfa": "full",
+            "directory": "full",
+            "lifecycle": "full",
+            "risk_auth": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "splunk",
+      "module_id": "splunk",
+      "module_name": "Splunk SIEM / SOAR",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Splunk Enterprise Security — SIEM with advanced threat detection.",
+      "coverage": {
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "full",
+            "detection": "full",
+            "soar": "full",
+            "mdr": "none",
+            "threat_hunt": "partial",
+            "compliance_rpt": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "solarwinds",
+      "module_id": "solarwinds",
+      "module_name": "SolarWinds Platform",
+      "capabilities": [
+        "vuln_mgmt",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "SolarWinds Platform — IT monitoring and log management.",
+      "coverage": {
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "full",
+            "detection": "partial",
+            "soar": "none",
+            "mdr": "none",
+            "threat_hunt": "none",
+            "compliance_rpt": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "tenable",
+      "module_id": "tenable",
+      "module_name": "Tenable One",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Tenable One — unified exposure management across all assets.",
+      "coverage": {
+        "vuln_mgmt": {
+          "sub_caps": {
+            "asset_discovery": "full",
+            "risk_prioritisation": "full",
+            "patch_tracking": "full",
+            "external_attack_surface": "partial",
+            "compliance_scanning": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "rapid7",
+      "module_id": "rapid7",
+      "module_name": "Rapid7 InsightVM / InsightIDR",
+      "capabilities": [
+        "vuln_mgmt",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "InsightVM + InsightIDR — vulnerability management and SIEM/MDR.",
+      "coverage": {
+        "vuln_mgmt": {
+          "sub_caps": {
+            "asset_discovery": "full",
+            "risk_prioritisation": "full",
+            "patch_tracking": "full",
+            "external_attack_surface": "partial",
+            "compliance_scanning": "full"
+          }
+        },
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "full",
+            "detection": "full",
+            "soar": "partial",
+            "mdr": "full",
+            "threat_hunt": "partial",
+            "compliance_rpt": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "proofpoint",
+      "module_id": "proofpoint",
+      "module_name": "Proofpoint Email Security",
+      "capabilities": [
+        "email_security"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Proofpoint Email Security — anti-phishing and BEC protection.",
+      "coverage": {
+        "email_security": {
+          "sub_caps": {
+            "anti_phishing": "full",
+            "malware_sandboxing": "full",
+            "dmarc_enforcement": "full",
+            "url_rewriting": "full",
+            "email_dlp": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "barracuda",
+      "module_id": "barracuda-email",
+      "module_name": "Barracuda Email Protection",
+      "capabilities": [
+        "email_security"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Barracuda Email Protection — gateway and cloud email security."
+    },
+    {
+      "vendor_id": "barracuda",
+      "module_id": "barracuda-network",
+      "module_name": "Barracuda Network Security",
+      "capabilities": [
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Barracuda Network Security — NGFW and web filtering.",
+      "coverage": {
+        "network_firewall": {
+          "sub_caps": {
+            "ngfw": "full",
+            "ips": "full",
+            "url_filter": "full",
+            "ssl_inspect": "partial",
+            "segmentation": "none"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "veeam",
+      "module_id": "veeam",
+      "module_name": "Veeam Data Platform",
+      "capabilities": [
+        "backup"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Veeam Data Platform — backup and recovery for VMs and cloud.",
+      "coverage": {
+        "backup": {
+          "sub_caps": {
+            "recovery_testing": "full",
+            "immutable_storage": "full",
+            "ransomware_detection": "full",
+            "cloud_backup": "full",
+            "granular_restore": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "commvault",
+      "module_id": "commvault",
+      "module_name": "Commvault Cloud",
+      "capabilities": [
+        "backup",
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Commvault Cloud — unified data protection and cyber resilience.",
+      "coverage": {
+        "backup": {
+          "sub_caps": {
+            "recovery_testing": "full",
+            "immutable_storage": "full",
+            "ransomware_detection": "full",
+            "cloud_backup": "full",
+            "granular_restore": "full"
+          }
+        },
+        "data_security": {
+          "sub_caps": {
+            "data_discovery": "partial",
+            "dlp_enforcement": "partial",
+            "encryption": "partial",
+            "dspm": "none",
+            "insider_threat": "none"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "github",
+      "module_id": "github-advanced-security",
+      "module_name": "GitHub Advanced Security",
+      "capabilities": [
+        "devsec"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "GitHub Advanced Security — SAST, SCA, and secrets scanning.",
+      "coverage": {
+        "devsec": {
+          "sub_caps": {
+            "sast": "full",
+            "sca": "full",
+            "secrets_scanning": "full",
+            "dast": "none",
+            "pipeline_security": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "atlassian",
+      "module_id": "atlassian",
+      "module_name": "Atlassian (Jira/Confluence)",
+      "capabilities": [
+        "devsec"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Atlassian (Jira/Confluence) — DevSecOps workflow and audit trails."
+    },
+    {
+      "vendor_id": "servicenow",
+      "module_id": "servicenow-secops",
+      "module_name": "ServiceNow SecOps",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "ServiceNow SecOps — security incident and vulnerability response."
+    },
+    {
+      "vendor_id": "vanta",
+      "module_id": "vanta",
+      "module_name": "Vanta GRC / Trust Platform",
+      "capabilities": [],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Vanta — automated compliance monitoring (SOC 2, ISO 27001, HIPAA). GRC platform; not a security capability tool."
+    },
+    {
+      "vendor_id": "schneider",
+      "module_id": "schneider",
+      "module_name": "Schneider Electric OT",
+      "capabilities": [
+        "ot_ics"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Schneider Electric OT Security — ICS asset protection."
+    },
+    {
+      "vendor_id": "siemens",
+      "module_id": "siemens",
+      "module_name": "Siemens OT Security",
+      "capabilities": [
+        "ot_ics"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Siemens OT Security — industrial cybersecurity and SCADA protection."
+    },
+    {
+      "vendor_id": "dragos",
+      "module_id": "dragos",
+      "module_name": "Dragos OT Platform",
+      "capabilities": [
+        "ot_ics"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "Dragos Platform — OT threat detection and incident response."
+    },
+    {
+      "vendor_id": "okta",
+      "module_id": "okta-ciam",
+      "module_name": "Okta Customer Identity (CIAM)",
+      "capabilities": [
+        "identity_sso"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Customer-facing auth and registration for B2C/B2B apps."
+    },
+    {
+      "vendor_id": "okta",
+      "module_id": "okta-iga",
+      "module_name": "Okta Identity Governance",
+      "capabilities": [
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Access certifications, lifecycle automation, access requests."
+    },
+    {
+      "vendor_id": "okta",
+      "module_id": "okta-pam",
+      "module_name": "Okta Privileged Access",
+      "capabilities": [
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Just-in-time privileged access to servers and infrastructure."
+    },
+    {
+      "vendor_id": "okta",
+      "module_id": "okta-device-trust",
+      "module_name": "Okta Device Trust",
+      "capabilities": [
+        "identity_sso",
+        "mdm"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Device posture as a condition of SSO access; integrates with MDM."
+    },
+    {
+      "vendor_id": "cyberark",
+      "module_id": "cyberark-privilege-cloud",
+      "module_name": "CyberArk Privilege Cloud (SaaS)",
+      "capabilities": [
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "SaaS PAM — same core capabilities as self-hosted; uses SRS for credential rotation and PSM-as-a-Service for session recording.",
+      "coverage": {
+        "pam": {
+          "sub_caps": {
+            "privileged_vault": "full",
+            "session_recording": "full",
+            "jit_access": "full",
+            "password_rotation": "full",
+            "mfa_escalation": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "cyberark",
+      "module_id": "cyberark-epm",
+      "module_name": "CyberArk Endpoint Privilege Manager",
+      "capabilities": [
+        "endpoint",
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Least-privilege enforcement on Windows/Mac endpoints (PEDM)."
+    },
+    {
+      "vendor_id": "cyberark",
+      "module_id": "cyberark-secrets-manager",
+      "module_name": "CyberArk Secrets Manager",
+      "capabilities": [
+        "devsec",
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Secrets management for DevOps pipelines and machine identities."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-prevent",
+      "module_name": "Falcon Prevent (NGAV)",
+      "capabilities": [
+        "endpoint"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "base",
+      "notes": "AI-powered next-gen antivirus — entry-level endpoint prevention."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-insight",
+      "module_name": "Falcon Insight XDR",
+      "capabilities": [
+        "endpoint",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Full EDR/XDR with cross-domain detection and investigation."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-cloud",
+      "module_name": "Falcon Cloud Security (CNAPP)",
+      "capabilities": [
+        "cnapp",
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "CNAPP covering CSPM, CWPP, and CIEM for cloud workloads."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-identity",
+      "module_name": "Falcon Next-Gen Identity Security",
+      "capabilities": [
+        "identity_sso",
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "ITDR and privileged access for human, non-human, and AI agent identities. AD and Entra ID protection."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-exposure",
+      "module_name": "Falcon Exposure Management",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "External attack surface management and asset discovery."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-siem",
+      "module_name": "Falcon Next-Gen SIEM",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Standalone cloud SIEM product; FedRAMP authorized."
+    },
+    {
+      "vendor_id": "crowdstrike",
+      "module_id": "crowdstrike-falcon-complete",
+      "module_name": "Falcon Complete MDR",
+      "capabilities": [
+        "siem_mdr",
+        "endpoint"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "managed",
+      "notes": "24/7 managed detection and response with human analyst coverage.",
+      "coverage": {
+        "siem_mdr": {
+          "sub_caps": {
+            "log_ingest": "full",
+            "detection": "full",
+            "soar": "partial",
+            "mdr": "full",
+            "threat_hunt": "full",
+            "compliance_rpt": "none"
+          }
+        },
+        "endpoint": {
+          "sub_caps": {
+            "edr": "full",
+            "epp": "full",
+            "threat_intel": "full",
+            "device_ctrl": "partial",
+            "server_prot": "full",
+            "response": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "microsoft-defender",
+      "module_id": "ms-defender-office365",
+      "module_name": "Defender for Office 365",
+      "capabilities": [
+        "email_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Email threat protection — anti-phishing, safe links, BEC defense.",
+      "coverage": {
+        "email_security": {
+          "sub_caps": {
+            "anti_phishing": "full",
+            "malware_sandboxing": "full",
+            "dmarc_enforcement": "partial",
+            "url_rewriting": "full",
+            "email_dlp": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "microsoft-defender",
+      "module_id": "ms-defender-cloud",
+      "module_name": "Defender for Cloud (CNAPP)",
+      "capabilities": [
+        "cnapp",
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "CSPM and CWPP for Azure, AWS, and GCP workloads."
+    },
+    {
+      "vendor_id": "microsoft-defender",
+      "module_id": "ms-sentinel",
+      "module_name": "Microsoft Sentinel",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cloud-native SIEM/SOAR on Azure — separate from Defender XDR."
+    },
+    {
+      "vendor_id": "microsoft-defender",
+      "module_id": "ms-purview",
+      "module_name": "Microsoft Purview",
+      "capabilities": [
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "DLP, data classification, insider risk, and information protection."
+    },
+    {
+      "vendor_id": "microsoft-defender",
+      "module_id": "ms-intune",
+      "module_name": "Microsoft Intune",
+      "capabilities": [
+        "mdm"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "MDM/MAM for Windows, iOS, Android, macOS."
+    },
+    {
+      "vendor_id": "sentinelone",
+      "module_id": "s1-singularity-core",
+      "module_name": "Singularity Core (NGAV)",
+      "capabilities": [
+        "endpoint"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "base",
+      "notes": "Static AI and behavioral detection — entry-level endpoint."
+    },
+    {
+      "vendor_id": "sentinelone",
+      "module_id": "s1-singularity-cloud",
+      "module_name": "Singularity Cloud Workload Security",
+      "capabilities": [
+        "cnapp",
+        "endpoint"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Agent-based CWPP for VMs, containers, and Kubernetes."
+    },
+    {
+      "vendor_id": "sentinelone",
+      "module_id": "s1-singularity-identity",
+      "module_name": "Singularity Identity (ITDR)",
+      "capabilities": [
+        "identity_sso"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Identity threat detection — AD deception and credential risk."
+    },
+    {
+      "vendor_id": "sentinelone",
+      "module_id": "s1-data-lake",
+      "module_name": "Singularity Data Lake",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Third-party log ingestion for SIEM-style analytics and hunting."
+    },
+    {
+      "vendor_id": "sentinelone",
+      "module_id": "s1-ranger",
+      "module_name": "Singularity Ranger (ASM)",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Network discovery and agentless device fingerprinting."
+    },
+    {
+      "vendor_id": "paloalto",
+      "module_id": "paloalto-cortex-xdr",
+      "module_name": "Cortex XDR",
+      "capabilities": [
+        "endpoint",
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "EDR/XDR with network, cloud, and endpoint telemetry correlation."
+    },
+    {
+      "vendor_id": "paloalto",
+      "module_id": "paloalto-cortex-xsiam",
+      "module_name": "Cortex XSIAM",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "enterprise",
+      "notes": "AI-native SOC platform — SIEM, SOAR, UEBA, and ASM unified."
+    },
+    {
+      "vendor_id": "paloalto",
+      "module_id": "paloalto-cortex-xpanse",
+      "module_name": "Cortex Xpanse (EASM)",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "External attack surface management — continuous internet exposure monitoring."
+    },
+    {
+      "vendor_id": "cisco",
+      "module_id": "cisco-duo",
+      "module_name": "Cisco Duo (MFA/ZTNA)",
+      "capabilities": [
+        "identity_sso"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "MFA, device trust, ZTNA, and SSO — top Cisco security product."
+    },
+    {
+      "vendor_id": "cisco",
+      "module_id": "cisco-umbrella",
+      "module_name": "Cisco Umbrella (DNS/SSE)",
+      "capabilities": [
+        "sase_ztna",
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "DNS-layer security, SWG, CASB, and ZTNA via Cisco SSE."
+    },
+    {
+      "vendor_id": "cisco",
+      "module_id": "cisco-secure-endpoint",
+      "module_name": "Cisco Secure Endpoint",
+      "capabilities": [
+        "endpoint"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cisco EDR/EPP — formerly AMP for Endpoints."
+    },
+    {
+      "vendor_id": "sailpoint",
+      "module_id": "sailpoint-identityiq",
+      "module_name": "SailPoint IdentityIQ (On-Prem)",
+      "capabilities": [
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "On-premises IGA platform — separate SKU from IdentityNow SaaS.",
+      "coverage": {
+        "iga": {
+          "sub_caps": {
+            "access_certification": "full",
+            "provisioning": "full",
+            "role_management": "full",
+            "segregation_of_duties": "full",
+            "audit_trail": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "sailpoint",
+      "module_id": "sailpoint-non-employee",
+      "module_name": "Non-Employee Risk Management",
+      "capabilities": [
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Governs contractor, partner, and vendor identities.",
+      "coverage": {
+        "iga": {
+          "sub_caps": {
+            "access_certification": "full",
+            "provisioning": "full",
+            "role_management": "partial",
+            "segregation_of_duties": "none",
+            "audit_trail": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "fortinet",
+      "module_id": "fortinet-edr",
+      "module_name": "FortiEDR",
+      "capabilities": [
+        "endpoint"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Real-time EDR with pre- and post-infection endpoint protection."
+    },
+    {
+      "vendor_id": "fortinet",
+      "module_id": "fortinet-siem",
+      "module_name": "FortiSIEM",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "SIEM with multi-vendor correlation, log management, compliance."
+    },
+    {
+      "vendor_id": "fortinet",
+      "module_id": "fortinet-soar",
+      "module_name": "FortiSOAR",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Security orchestration and automation workbench."
+    },
+    {
+      "vendor_id": "fortinet",
+      "module_id": "fortinet-cnapp",
+      "module_name": "FortiCNAPP (Lacework)",
+      "capabilities": [
+        "cnapp",
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cloud-native application protection — formerly Lacework."
+    },
+    {
+      "vendor_id": "checkpoint",
+      "module_id": "checkpoint-harmony-endpoint",
+      "module_name": "Harmony Endpoint",
+      "capabilities": [
+        "endpoint"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "AV, anti-phishing, encryption, sandboxing for endpoints."
+    },
+    {
+      "vendor_id": "checkpoint",
+      "module_id": "checkpoint-harmony-email",
+      "module_name": "Harmony Email & Collaboration",
+      "capabilities": [
+        "email_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Harmony Email & Collaboration — cloud email security and SaaS app protection."
+    },
+    {
+      "vendor_id": "checkpoint",
+      "module_id": "checkpoint-horizon",
+      "module_name": "Check Point Horizon (SecOps)",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "SOC platform with XDR and MDR powered by ThreatCloud AI."
+    },
+    {
+      "vendor_id": "rapid7",
+      "module_id": "rapid7-insightvm",
+      "module_name": "InsightVM (Vulnerability Management)",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Cloud-hosted vulnerability management and risk prioritisation."
+    },
+    {
+      "vendor_id": "rapid7",
+      "module_id": "rapid7-insightidr",
+      "module_name": "InsightIDR (SIEM/MDR)",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "SIEM and UEBA with integrated managed detection and response."
+    },
+    {
+      "vendor_id": "rapid7",
+      "module_id": "rapid7-insightcloudsec",
+      "module_name": "InsightCloudSec (CNAPP)",
+      "capabilities": [
+        "cnapp",
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "CNAPP for multi-cloud environments — CSPM and workload protection."
+    },
+    {
+      "vendor_id": "rapid7",
+      "module_id": "rapid7-mdr",
+      "module_name": "Managed Threat Complete (MDR)",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "managed",
+      "notes": "Fully managed MDR with 24/7 analyst coverage on InsightIDR."
+    },
+    {
+      "vendor_id": "tenable",
+      "module_id": "tenable-nessus",
+      "module_name": "Tenable Nessus Professional",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": false
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "On-prem vulnerability scanner — practitioner and SMB tier."
+    },
+    {
+      "vendor_id": "tenable",
+      "module_id": "tenable-security-center",
+      "module_name": "Tenable Security Center",
+      "capabilities": [
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "On-premises VM platform for air-gapped and regulated environments."
+    },
+    {
+      "vendor_id": "tenable",
+      "module_id": "tenable-ot",
+      "module_name": "Tenable OT Security",
+      "capabilities": [
+        "ot_ics",
+        "vuln_mgmt"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "on_prem",
+      "tier": "standard",
+      "notes": "OT/ICS vulnerability and asset visibility for industrial environments."
+    },
+    {
+      "vendor_id": "proofpoint",
+      "module_id": "proofpoint-tap",
+      "module_name": "Proofpoint TAP (Sandboxing)",
+      "capabilities": [
+        "email_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Advanced URL and attachment sandboxing with click-time protection."
+    },
+    {
+      "vendor_id": "proofpoint",
+      "module_id": "proofpoint-dlp",
+      "module_name": "Proofpoint Enterprise DLP",
+      "capabilities": [
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Unified DLP + DSPM across email, cloud, and endpoint channels."
+    },
+    {
+      "vendor_id": "proofpoint",
+      "module_id": "proofpoint-itm",
+      "module_name": "Proofpoint Insider Threat Management",
+      "capabilities": [
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "User activity monitoring and insider risk detection (ObserveIT)."
+    },
+    {
+      "vendor_id": "splunk",
+      "module_id": "splunk-soar",
+      "module_name": "Splunk SOAR",
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "SOAR with 300+ integrations — separate SKU from Splunk ES."
+    },
+    {
+      "vendor_id": "splunk",
+      "module_id": "splunk-observability",
+      "module_name": "Splunk Observability Cloud",
+      "capabilities": [
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "APM, infrastructure monitoring, and log analytics for DevOps."
+    },
+    {
+      "vendor_id": "beyondtrust",
+      "module_id": "beyondtrust-pra",
+      "module_name": "BeyondTrust Privileged Remote Access",
+      "capabilities": [
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Zero-trust access for privileged users to on-prem and cloud systems."
+    },
+    {
+      "vendor_id": "beyondtrust",
+      "module_id": "beyondtrust-epm",
+      "module_name": "BeyondTrust Endpoint Privilege Management",
+      "capabilities": [
+        "endpoint",
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Least-privilege enforcement on Windows/Mac endpoints."
+    },
+    {
+      "vendor_id": "commvault",
+      "module_id": "commvault-metallic",
+      "module_name": "Commvault Metallic (SaaS Backup)",
+      "capabilities": [
+        "backup"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Commvault Cloud SaaS — formerly Metallic; SaaS-native backup for M365, Salesforce, and endpoints."
+    },
+    {
+      "vendor_id": "veeam",
+      "module_id": "veeam-data-cloud",
+      "module_name": "Veeam Data Cloud (SaaS)",
+      "capabilities": [
+        "backup"
+      ],
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Veeam-hosted backup-as-a-service for M365 and Entra ID."
+    },
+    {
+      "vendor_id": "veeam",
+      "module_id": "veeam-kasten",
+      "module_name": "Veeam Kasten for Kubernetes",
+      "capabilities": [
+        "backup",
+        "cloud"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Kubernetes-native backup and disaster recovery platform."
+    },
+    {
+      "vendor_id": "saviynt",
+      "module_id": "saviynt-iga",
+      "module_name": "Saviynt Identity Governance",
+      "capabilities": [
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Access certifications, provisioning, and role management."
+    },
+    {
+      "vendor_id": "saviynt",
+      "module_id": "saviynt-cloud-pam",
+      "module_name": "Saviynt Cloud PAM",
+      "capabilities": [
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "JIT privileged access for cloud and hybrid infrastructure."
+    },
+    {
+      "vendor_id": "cyberark",
+      "module_id": "cyberark-machine-identity",
+      "module_name": "CyberArk Machine Identity Security (Venafi)",
+      "capabilities": [
+        "devsec",
+        "pam"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "TLS certificate lifecycle, enterprise PKI, workload identity, and secrets management. Formerly Venafi; acquired by CyberArk Oct 2024."
+    },
+    {
+      "vendor_id": "checkpoint",
+      "module_id": "checkpoint-harmony-sase",
+      "module_name": "Check Point Harmony SASE",
+      "capabilities": [
+        "sase_ztna"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Harmony SASE (formerly Harmony Connect) — SWG, CASB, ZTNA, and FWaaS in a cloud-delivered SSE platform."
+    },
+    {
+      "vendor_id": "cisco",
+      "module_id": "cisco-ise",
+      "module_name": "Cisco Identity Services Engine (ISE)",
+      "capabilities": [
+        "identity_sso",
+        "network_firewall"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "both",
+      "tier": "standard",
+      "notes": "Network access control (NAC), device posture enforcement, and microsegmentation policy. Primary NAC platform for enterprise networks."
+    }
   ]
 }

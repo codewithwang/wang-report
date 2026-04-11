@@ -394,6 +394,44 @@ a:hover{text-decoration:underline}
 .csc-gap{background:#2a0a0a;border-color:#5a1a1a;color:#cc5a5a}
 .csc-unmapped{background:#141418;border-color:#1a1a2a;color:#3a3a4a}
 
+/* ── OUTCOMES VIEW ── */
+.out-family-block{margin-bottom:24px}
+.out-family-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid #1a1a2a}
+.out-family-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.out-family-name{font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;letter-spacing:1.5px;color:#c9a84c;text-transform:uppercase}
+.out-family-desc{font-size:9px;color:#555}
+.out-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.out-card{border:1px solid #1a1a2a;border-radius:6px;background:#0e0e18;padding:14px;position:relative;transition:border-color .15s}
+.out-card:hover{border-color:#2a2a4a}
+.out-card.oc-achieved{border-color:#2a5a2a;background:#0a180a}
+.out-card.oc-partial{border-color:#5a3a10;background:#180e04}
+.out-card.oc-gap{border-color:#3a1414;background:#120808}
+.out-card.oc-stub{border-color:#2a1a4a;background:#0e0a1a;opacity:.8}
+.out-badge{display:inline-block;font-family:Impact,'Arial Narrow',sans-serif;font-size:8px;letter-spacing:1px;padding:2px 7px;border-radius:2px;margin-bottom:8px;border:1px solid}
+.out-badge.oc-achieved{background:#0f2a0f;border-color:#2a5a2a;color:#6acc6a}
+.out-badge.oc-partial{background:#2a1f08;border-color:#5a3a10;color:#c9a84c}
+.out-badge.oc-gap{background:#2a0a0a;border-color:#5a1a1a;color:#cc5a5a}
+.out-badge.oc-stub{background:#1a0a2a;border-color:#4a2a7a;color:#8a6acc}
+.out-name{font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;letter-spacing:0.8px;color:#ccc;margin-bottom:6px}
+.out-desc{font-size:9px;color:#666;line-height:1.5;margin-bottom:10px}
+.out-score-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.out-score-bar-bg{flex:1;height:4px;background:#1a1a2a;border-radius:2px;overflow:hidden}
+.out-score-bar-fill{height:100%;border-radius:2px;transition:width .3s}
+.out-score-pct{font-family:Impact,sans-serif;font-size:9px;color:#888;width:30px;text-align:right;flex-shrink:0}
+.out-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.out-tool-chip{display:flex;align-items:center;gap:4px;font-size:8px;padding:2px 7px;border-radius:3px;border:1px solid #2a2a4a;background:#111118;color:#888;white-space:nowrap}
+.out-tool-chip.oc-full{border-color:#2a5a2a;color:#6acc6a;background:#0a180a}
+.out-tool-chip.oc-part{border-color:#5a3a10;color:#c9a84c;background:#180e04}
+.out-tool-chip.oc-assumed{border-color:#2a2a4a;border-style:dashed;color:#8888aa;background:#0e0e18}
+.out-tool-chip.oc-assumed::after{content:' ~';font-size:7px;opacity:.7}
+.out-tool-logo{width:12px;height:12px;object-fit:contain;border-radius:2px}
+.out-nist{font-size:8px;color:#333;margin-top:8px}
+.out-nist span{color:#3a3a5a;margin-right:4px}
+.out-summary{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.out-summary-stat{text-align:center;font-family:Impact,'Arial Narrow',sans-serif}
+.out-summary-num{font-size:24px;display:block}
+.out-summary-lbl{font-size:8px;color:#555;letter-spacing:0.5px;text-transform:uppercase}
+
 /* PRINT */
 @media print {
   .nav-bar,.modal-overlay,.score-panel .share-bar,.score-panel .clear-btn,.slot-card,.toggle-row{display:none!important}
@@ -447,7 +485,7 @@ a:hover{text-decoration:underline}
   <div class="view-tabs">
     <button class="vtab vtab-active" data-tab="tools">TOOLS</button>
     <button class="vtab" data-tab="controls">CONTROLS</button>
-    <button class="vtab vtab-disabled">OUTCOMES</button>
+    <button class="vtab" data-tab="outcomes">OUTCOMES</button>
     <button class="vtab vtab-disabled">EXPOSURES</button>
   </div>
 
@@ -515,6 +553,17 @@ a:hover{text-decoration:underline}
     </div>
     <div class="ctrl-grid" id="ctrlGrid"><div style="color:#555;padding:20px;text-align:center;grid-column:1/-1">Loading framework data…</div></div>
     <div style="text-align:center;margin-top:16px;font-size:9px;color:#444">NIST CSF 1.1 &middot; Subcategories limited to those with taxonomy mappings &middot; AI-authored mappings, not legal compliance advice</div>
+  </div>
+
+  <!-- OUTCOMES VIEW -->
+  <div id="viewOutcomes" style="display:none">
+    <div class="ctrl-header">
+      <div class="ctrl-title">SECURITY PROGRAM OUTCOMES</div>
+      <div class="ctrl-subtitle">What your stack enables — not just what tools you have &middot; AI-authored rules, not certification advice</div>
+    </div>
+    <div class="out-summary" id="outSummary"></div>
+    <div id="outBody"></div>
+    <div style="text-align:center;margin-top:16px;font-size:9px;color:#444">15 outcomes across 5 program families &middot; Rules derived from NIST CSF 1.1 subcategory mappings &middot; Scores reflect stack configuration, not vendor claims</div>
   </div>
 
   <div class="page-footer">
@@ -1940,21 +1989,26 @@ document.getElementById('shareCopyBtn').addEventListener('click', () => {
 });
 
 /* ── VIEW TAB SWITCHING ── */
+const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes' };
 document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
   btn.addEventListener('click', () => {
     const tab = btn.dataset.tab;
     if (tab === activeView) return;
     activeView = tab;
     document.querySelectorAll('.vtab').forEach(b => b.classList.toggle('vtab-active', b === btn));
-    document.getElementById('viewTools').style.display = tab === 'tools' ? '' : 'none';
-    document.getElementById('viewControls').style.display = tab === 'controls' ? '' : 'none';
+    Object.entries(VIEW_PANELS).forEach(([id, elId]) => {
+      const el = document.getElementById(elId);
+      if (el) el.style.display = id === tab ? '' : 'none';
+    });
     if (tab === 'controls') renderControlsTab();
+    if (tab === 'outcomes') renderOutcomesTab();
   });
 });
 
 /* ── SHARED SUB-CAP SCORE INDEX (used by both Controls + Outcomes) ── */
 function buildSubCapIndex() {
   // Returns: { 'capId.subCapId': { score: 0-1, contributors: [{vendor_id, module_id, level}] } }
+  // Level: 'full' | 'partial' | 'assumed' (tool claims capability but no granular data)
   const idx = {};
   Object.entries(state.stack).forEach(([capId, entries]) => {
     if (!entries || entries.length === 0) return;
@@ -1965,11 +2019,23 @@ function buildSubCapIndex() {
       const contributors = [];
       for (const entry of entries) {
         const mod = moduleMap[entry.module_id];
-        const raw = mod?.coverage?.[capId]?.sub_caps?.[sc.id] ?? 'none';
-        const val = LEVEL_VAL[raw] ?? 0;
-        if (val > 0) {
-          combined = Math.min(1.0, combined + val);
-          contributors.push({ vendor_id: entry.vendor_id, module_id: entry.module_id, level: raw });
+        const hasCovBlock = mod?.coverage?.[capId];
+        if (hasCovBlock) {
+          // Granular validated coverage data
+          const raw = hasCovBlock.sub_caps?.[sc.id] ?? 'none';
+          const val = LEVEL_VAL[raw] ?? 0;
+          if (val > 0) {
+            combined = Math.min(1.0, combined + val);
+            contributors.push({ vendor_id: entry.vendor_id, module_id: entry.module_id, level: raw });
+          }
+        } else {
+          // Fallback: module declares this capability but has no granular sub-cap data.
+          // Grant 0.4 assumed credit for required sub-caps only.
+          const modCaps = mod?.capabilities || [];
+          if (modCaps.includes(capId) && sc.required) {
+            combined = Math.min(1.0, combined + 0.4);
+            contributors.push({ vendor_id: entry.vendor_id, module_id: entry.module_id, level: 'assumed' });
+          }
         }
       }
       idx[capId + '.' + sc.id] = { score: combined, contributors };
@@ -2017,7 +2083,8 @@ function buildCtrlTip(sub) {
         const vn = vendorMap[c.vendor_id]?.name || c.vendor_id;
         const mod = moduleMap[c.module_id];
         const mn = mod ? mod.module_name : c.module_id;
-        return vn !== mn.split(' ')[0] ? `${vn} (${mn})` : mn;
+        const label = vn !== mn.split(' ')[0] ? `${vn} (${mn})` : mn;
+        return c.level === 'assumed' ? label + ' [est.]' : label;
       });
       vendorStr = '\n   → ' + names.join(', ');
     }
@@ -2073,6 +2140,123 @@ function renderControlsTab() {
     html += `</div></div>`;
   });
   grid.innerHTML = html;
+}
+
+/* ── OUTCOMES VIEW FUNCTIONS ── */
+function evaluateOutcome(outcome, subCapIdx) {
+  if (outcome.stub) return { status: 'stub', score: 0, reqScore: 0, contScore: 0, contributors: [] };
+  const rules = outcome.rules || {};
+  const required = rules.required || [];
+  const contributing = rules.contributing || [];
+
+  // Required: must all have some coverage for outcome to be achievable
+  const reqScores = required.map(key => (subCapIdx[key]?.score || 0));
+  const reqAvg = required.length > 0 ? reqScores.reduce((a,b)=>a+b,0) / required.length : 0;
+
+  // Contributing: bonus coverage
+  const contScores = contributing.map(key => (subCapIdx[key]?.score || 0));
+  const contAvg = contributing.length > 0 ? contScores.reduce((a,b)=>a+b,0) / contributing.length : 0;
+
+  // Weighted composite
+  const score = required.length > 0 ? (reqAvg * 0.75 + contAvg * 0.25) : contAvg;
+  const threshold = rules.min_required_score || 0.6;
+  const status = score >= threshold ? 'achieved' : score >= 0.2 ? 'partial' : 'gap';
+
+  // Collect contributing vendors (deduplicated, sorted by contribution)
+  const seen = new Map(); // vendor_id → { name, logo, level }
+  [...required, ...contributing].forEach(key => {
+    const c = subCapIdx[key];
+    if (!c || c.score === 0) return;
+    c.contributors.forEach(contrib => {
+      if (!seen.has(contrib.vendor_id)) {
+        const v = vendorMap[contrib.vendor_id];
+        seen.set(contrib.vendor_id, { vendor_id: contrib.vendor_id, name: v?.name || contrib.vendor_id, level: contrib.level });
+      } else if (contrib.level === 'full') {
+        seen.get(contrib.vendor_id).level = 'full'; // upgrade if any module is full
+      }
+    });
+  });
+
+  return { status, score, reqScore: reqAvg, contScore: contAvg, contributors: [...seen.values()] };
+}
+
+function renderOutcomesTab() {
+  const body = document.getElementById('outBody');
+  const summary = document.getElementById('outSummary');
+  if (!OUTCOMES_DATA) {
+    body.innerHTML = '<div style="color:#555;padding:20px;text-align:center">Outcome data not available.</div>';
+    return;
+  }
+  const subCapIdx = buildSubCapIndex();
+  const families = OUTCOMES_DATA.families || [];
+  const outcomes = OUTCOMES_DATA.outcomes || [];
+
+  // Tally
+  let achieved = 0, partial = 0, gap = 0, stub = 0;
+  const evaluated = outcomes.map(o => {
+    const r = evaluateOutcome(o, subCapIdx);
+    if (r.status === 'achieved') achieved++;
+    else if (r.status === 'partial') partial++;
+    else if (r.status === 'stub') stub++;
+    else gap++;
+    return { ...o, _result: r };
+  });
+
+  summary.innerHTML = `
+    <div class="out-summary-stat"><span class="out-summary-num" style="color:#6acc6a">${achieved}</span><span class="out-summary-lbl">Achieved</span></div>
+    <div class="out-summary-stat"><span class="out-summary-num" style="color:#c9a84c">${partial}</span><span class="out-summary-lbl">Partial</span></div>
+    <div class="out-summary-stat"><span class="out-summary-num" style="color:#cc5a5a">${gap}</span><span class="out-summary-lbl">Gaps</span></div>
+    <div class="out-summary-stat"><span class="out-summary-num" style="color:#6a5a9a">${stub}</span><span class="out-summary-lbl">Not Yet Possible</span></div>`;
+
+  let html = '';
+  families.forEach(fam => {
+    const famOutcomes = evaluated.filter(o => o.family === fam.id);
+    if (famOutcomes.length === 0) return;
+    html += `<div class="out-family-block">
+      <div class="out-family-hdr">
+        <div class="out-family-dot" style="background:${fam.color}"></div>
+        <div class="out-family-name">${fam.name}</div>
+        <div class="out-family-desc">${fam.description}</div>
+      </div>
+      <div class="out-cards">`;
+    famOutcomes.forEach(o => {
+      const r = o._result;
+      const statusLabel = { achieved: 'ACHIEVED', partial: 'PARTIAL', gap: 'GAP', stub: 'NOT YET POSSIBLE' }[r.status] || r.status.toUpperCase();
+      const barColor = { achieved: '#5acc5a', partial: '#c9a84c', gap: '#cc5a5a', stub: '#6a5a9a' }[r.status] || '#888';
+      const pct = Math.round(r.score * 100);
+
+      // Contributing tool chips
+      let toolHtml = '';
+      if (r.contributors && r.contributors.length > 0) {
+        r.contributors.forEach(c => {
+          const chipClass = c.level === 'full' ? 'oc-full' : c.level === 'assumed' ? 'oc-assumed' : 'oc-part';
+          const dom = VENDOR_DOMAINS[c.vendor_id];
+          const logoHtml = dom ? `<img class="out-tool-logo" src="https://cdn.brandfetch.io/${dom}?c=1idNdlTeSDMQHtssvSY" onerror="this.style.display='none'" loading="lazy">` : '';
+          const tip = c.level === 'assumed' ? `title="Coverage estimated — ${c.name} claims this capability but sub-feature data not yet validated"` : '';
+          toolHtml += `<div class="out-tool-chip ${chipClass}" ${tip}>${logoHtml}${c.name}</div>`;
+        });
+      } else if (r.status !== 'stub') {
+        toolHtml = `<div style="font-size:8px;color:#444;font-style:italic">No tools in stack cover this outcome</div>`;
+      }
+
+      // NIST refs
+      const nistHtml = (o.nist_refs || []).map(n => `<span>${n}</span>`).join('');
+
+      html += `<div class="out-card oc-${r.status}">
+        <div class="out-badge oc-${r.status}">${statusLabel}</div>
+        <div class="out-name">${o.name}</div>
+        <div class="out-desc">${o.description}</div>
+        ${r.status !== 'stub' ? `<div class="out-score-row">
+          <div class="out-score-bar-bg"><div class="out-score-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+          <div class="out-score-pct">${pct}%</div>
+        </div>` : ''}
+        <div class="out-tools">${toolHtml}</div>
+        ${nistHtml ? `<div class="out-nist">NIST CSF: ${nistHtml}</div>` : ''}
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  body.innerHTML = html;
 }
 
 /* ── INIT ── */

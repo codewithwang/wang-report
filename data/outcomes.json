@@ -1,0 +1,196 @@
+{
+  "_meta": {
+    "note": "AI-authored outcome rules. Outcomes represent security program capabilities that emerge from combining multiple tools — not single-vendor claims. Hover cards show which stack modules contribute.",
+    "version": "1.0"
+  },
+  "families": [
+    { "id": "identify",  "name": "Identify",  "color": "#5a7fc4", "description": "Know your assets, exposures, and risk posture" },
+    { "id": "protect",   "name": "Protect",   "color": "#4a9a5a", "description": "Enforce controls that reduce attack surface" },
+    { "id": "detect",    "name": "Detect",    "color": "#c9a84c", "description": "Find threats and anomalies before they escalate" },
+    { "id": "respond",   "name": "Respond",   "color": "#e04a4a", "description": "Contain incidents and recover with minimal impact" },
+    { "id": "program",   "name": "Program",   "color": "#9a6acc", "description": "Cross-cutting program capabilities and emerging requirements" }
+  ],
+  "outcomes": [
+    {
+      "id": "asset_risk_inventory",
+      "name": "Continuous Asset Risk Inventory",
+      "family": "identify",
+      "description": "All assets — on-prem, cloud, SaaS, external — are continuously discovered, classified, and risk-scored. The security team has a live, prioritised view of the attack surface.",
+      "nist_refs": ["ID.AM-1", "ID.AM-4", "ID.RA-1"],
+      "rules": {
+        "required": ["vuln_mgmt.asset_discovery", "vuln_mgmt.risk_prioritisation"],
+        "contributing": ["vuln_mgmt.external_attack_surface", "cnapp.api_security", "cloud.cspm", "cnapp.cspm"],
+        "min_required_score": 0.6
+      }
+    },
+    {
+      "id": "vulnerability_risk_reduction",
+      "name": "Vulnerability Risk Reduction",
+      "family": "identify",
+      "description": "Vulnerabilities are discovered, risk-ranked, and remediated before attackers exploit them. Patch SLAs are enforced and deviation tracked.",
+      "nist_refs": ["ID.RA-1", "RS.MI-3", "PR.IP-1"],
+      "rules": {
+        "required": ["vuln_mgmt.risk_prioritisation", "vuln_mgmt.patch_tracking"],
+        "contributing": ["vuln_mgmt.asset_discovery", "vuln_mgmt.compliance_scanning", "devsec.sca", "vuln_mgmt.external_attack_surface"],
+        "min_required_score": 0.6
+      }
+    },
+    {
+      "id": "zero_trust_network_access",
+      "name": "Zero Trust Network Access",
+      "family": "protect",
+      "description": "No implicit trust for any user, device, or location. Every access request is verified against identity, device posture, and risk signals before a minimal-privilege session is granted.",
+      "nist_refs": ["PR.AC-3", "PR.AC-5", "PR.AC-7"],
+      "rules": {
+        "required": ["sase_ztna.ztna", "identity_sso.mfa"],
+        "contributing": ["sase_ztna.swg", "sase_ztna.casb", "sase_ztna.fwaas", "identity_sso.risk_auth", "pam.jit_access", "mdm.compliance_policy"],
+        "min_required_score": 0.65
+      }
+    },
+    {
+      "id": "privileged_account_lifecycle",
+      "name": "Privileged Account Lifecycle",
+      "family": "protect",
+      "description": "Privileged credentials are vaulted, rotated automatically, and dispensed just-in-time. All privileged sessions are recorded. Lateral movement via standing privilege is eliminated.",
+      "nist_refs": ["PR.AC-1", "PR.AC-4", "PR.PT-1"],
+      "rules": {
+        "required": ["pam.privileged_vault", "pam.jit_access", "identity_sso.mfa"],
+        "contributing": ["pam.session_recording", "pam.password_rotation", "pam.mfa_escalation", "iga.access_certification", "iga.segregation_of_duties"],
+        "min_required_score": 0.65
+      }
+    },
+    {
+      "id": "iga_access_certification",
+      "name": "IGA Access Certification",
+      "family": "protect",
+      "description": "User entitlements are continuously reviewed and certified by business owners. Orphaned accounts, excessive permissions, and SoD violations are surfaced and remediated on a scheduled cadence.",
+      "nist_refs": ["PR.AC-1", "PR.AC-4", "PR.PT-1"],
+      "rules": {
+        "required": ["iga.access_certification", "iga.provisioning"],
+        "contributing": ["iga.role_management", "iga.segregation_of_duties", "iga.audit_trail", "identity_sso.lifecycle", "pam.session_recording"],
+        "min_required_score": 0.65
+      }
+    },
+    {
+      "id": "email_threat_defense",
+      "name": "Email-Borne Threat Defense",
+      "family": "protect",
+      "description": "Phishing, BEC, and malware delivered via email are blocked before reaching users. Domain authentication (DMARC/SPF/DKIM) prevents spoofing. Suspicious URLs are rewritten and sandboxed.",
+      "nist_refs": ["PR.AT-2", "PR.DS-2", "DE.CM-4"],
+      "rules": {
+        "required": ["email_security.anti_phishing", "email_security.malware_sandboxing"],
+        "contributing": ["email_security.dmarc_enforcement", "email_security.url_rewriting", "email_security.email_dlp", "siem_mdr.detection"],
+        "min_required_score": 0.65
+      }
+    },
+    {
+      "id": "data_loss_prevention",
+      "name": "Data Loss Prevention",
+      "family": "protect",
+      "description": "Sensitive data — PII, IP, financial records — is discovered, classified, and protected from exfiltration via email, web, cloud sync, and removable media. Insider threat activity is monitored.",
+      "nist_refs": ["PR.DS-5", "ID.AM-5", "DE.CM-3"],
+      "rules": {
+        "required": ["data_security.dlp_enforcement"],
+        "contributing": ["sase_ztna.dlp", "sase_ztna.casb", "email_security.email_dlp", "data_security.data_discovery", "data_security.dspm", "data_security.insider_threat", "data_security.encryption"],
+        "min_required_score": 0.55
+      }
+    },
+    {
+      "id": "continuous_controls_monitoring",
+      "name": "Continuous Controls Monitoring",
+      "family": "detect",
+      "description": "Security controls are continuously validated against policy baselines. Deviations are automatically detected, logged, and routed for remediation — not discovered during annual audits.",
+      "nist_refs": ["DE.CM-7", "PR.PT-1", "PR.IP-1"],
+      "rules": {
+        "required": ["siem_mdr.log_ingest", "siem_mdr.compliance_rpt"],
+        "contributing": ["cloud.cspm", "cnapp.cspm", "vuln_mgmt.compliance_scanning", "pam.session_recording", "iga.audit_trail", "siem_mdr.detection"],
+        "min_required_score": 0.6
+      }
+    },
+    {
+      "id": "cloud_security_posture",
+      "name": "Cloud Security Posture Management",
+      "family": "detect",
+      "description": "Cloud infrastructure misconfigurations, over-permissioned IAM roles, exposed storage buckets, and unpatched workloads are continuously detected across IaaS, PaaS, and container environments.",
+      "nist_refs": ["DE.CM-7", "ID.AM-2", "DE.CM-1"],
+      "rules": {
+        "required": ["cnapp.cspm", "cnapp.cwpp"],
+        "contributing": ["cloud.cspm", "cloud.workload_protection", "cnapp.supply_chain", "cnapp.api_security", "cloud.identity_entitlements", "cnapp.secrets_detection"],
+        "min_required_score": 0.6
+      }
+    },
+    {
+      "id": "endpoint_detection_response",
+      "name": "Endpoint Detection & Response",
+      "family": "detect",
+      "description": "Malicious behaviour on endpoints is detected using behavioural telemetry — not just signatures. Threats are automatically contained, investigated, and remediated with full attack-chain visibility.",
+      "nist_refs": ["DE.CM-4", "RS.MI-1", "ID.RA-2"],
+      "rules": {
+        "required": ["endpoint.edr", "endpoint.response"],
+        "contributing": ["endpoint.epp", "endpoint.server_prot", "endpoint.threat_intel", "endpoint.device_ctrl", "siem_mdr.detection"],
+        "min_required_score": 0.7
+      }
+    },
+    {
+      "id": "managed_detection_response",
+      "name": "Managed Detection & Response",
+      "family": "respond",
+      "description": "24/7 human-led threat hunting, alert triage, and incident response — extending the in-house SOC. MDR analysts investigate, contain, and provide post-incident reports with actionable recommendations.",
+      "nist_refs": ["RS.CO-1", "RS.AN-1", "DE.DP-4"],
+      "rules": {
+        "required": ["siem_mdr.mdr", "siem_mdr.detection"],
+        "contributing": ["siem_mdr.soar", "siem_mdr.threat_hunt", "endpoint.response", "siem_mdr.log_ingest"],
+        "min_required_score": 0.65
+      }
+    },
+    {
+      "id": "credential_compromise_response",
+      "name": "Credential Compromise Response",
+      "family": "respond",
+      "description": "When credentials are stolen or breached, the security stack detects the event, invalidates sessions, forces rotation, and limits blast radius — all within minutes, not days.",
+      "nist_refs": ["PR.AC-7", "RS.MI-1", "ID.RA-2"],
+      "rules": {
+        "required": ["identity_sso.mfa", "identity_sso.risk_auth", "siem_mdr.detection"],
+        "contributing": ["pam.privileged_vault", "pam.jit_access", "pam.password_rotation", "password_manager.breach_monitoring", "endpoint.response"],
+        "min_required_score": 0.6
+      }
+    },
+    {
+      "id": "ransomware_resilience",
+      "name": "Ransomware Resilience",
+      "family": "respond",
+      "description": "The organisation can detect a ransomware intrusion early, contain it, and recover to a known-good state from immutable backups — limiting business disruption to hours, not weeks.",
+      "nist_refs": ["RC.RP-1", "DE.CM-3", "PR.IP-4"],
+      "rules": {
+        "required": ["backup.immutable_storage", "backup.ransomware_detection", "endpoint.edr"],
+        "contributing": ["backup.recovery_testing", "backup.cloud_backup", "backup.granular_restore", "endpoint.response", "siem_mdr.detection", "network_firewall.segmentation"],
+        "min_required_score": 0.65
+      }
+    },
+    {
+      "id": "devsecops_pipeline_security",
+      "name": "DevSecOps Pipeline Security",
+      "family": "program",
+      "description": "Security is integrated into the CI/CD pipeline — secrets are never committed, dependencies are scanned for CVEs, and code is analysed for vulnerabilities before reaching production.",
+      "nist_refs": ["PR.IP-2", "ID.RA-1", "DE.CM-8"],
+      "rules": {
+        "required": ["devsec.secrets_scanning", "devsec.sast"],
+        "contributing": ["devsec.sca", "devsec.dast", "devsec.pipeline_security", "cnapp.supply_chain", "cnapp.secrets_detection"],
+        "min_required_score": 0.6
+      }
+    },
+    {
+      "id": "agentic_ai_governance",
+      "name": "Agentic AI Governance",
+      "family": "program",
+      "stub": true,
+      "description": "AI agents with tool-use capabilities introduce novel risks: credential access, prompt injection, and autonomous lateral movement. No current stack tool addresses model-level access controls, tool-use auditing, or agent identity governance. This outcome is not yet achievable with today's vendor landscape.",
+      "nist_refs": ["PR.AC-1", "PR.PT-1", "DE.CM-3"],
+      "rules": {
+        "required": [],
+        "contributing": [],
+        "min_required_score": 1.0
+      }
+    }
+  ]
+}
