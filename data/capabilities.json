@@ -1,0 +1,123 @@
+{
+  "capabilities": [
+    {
+      "id": "identity_sso",
+      "name": "Identity / SSO",
+      "description": "Authentication, SSO, directory",
+      "criticality": {"startup": 5, "smb": 5, "enterprise": 5},
+      "modes": {"startup": true, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "endpoint",
+      "name": "Endpoint Protection",
+      "description": "EDR/EPP for workstations and servers",
+      "criticality": {"startup": 5, "smb": 5, "enterprise": 5},
+      "modes": {"startup": true, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "email_security",
+      "name": "Email Security",
+      "description": "Phishing, BEC, malware filtering",
+      "criticality": {"startup": 4, "smb": 4, "enterprise": 4},
+      "modes": {"startup": true, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "backup",
+      "name": "Backup / DR",
+      "description": "Data backup, recovery, ransomware resilience",
+      "criticality": {"startup": 4, "smb": 4, "enterprise": 4},
+      "modes": {"startup": true, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "mdm",
+      "name": "MDM / UEM",
+      "description": "Mobile/device management and policy enforcement",
+      "criticality": {"startup": 3, "smb": 3, "enterprise": 3},
+      "modes": {"startup": true, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "password_manager",
+      "name": "Password Manager",
+      "description": "Enterprise credential vault and sharing",
+      "criticality": {"startup": 3, "smb": 3, "enterprise": 3},
+      "modes": {"startup": true, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud Security",
+      "description": "Cloud workload protection, IaaS/SaaS security posture",
+      "criticality": {"startup": 3, "smb": 4, "enterprise": 0},
+      "modes": {"startup": true, "smb": true, "enterprise": false}
+    },
+    {
+      "id": "vuln_mgmt",
+      "name": "Vulnerability Management",
+      "description": "Asset scanning, risk prioritisation, patch tracking",
+      "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
+      "modes": {"startup": false, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "siem_mdr",
+      "name": "SIEM / MDR",
+      "description": "Threat detection, alert triage, managed response",
+      "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
+      "modes": {"startup": false, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "network_firewall",
+      "name": "Network Firewall / NGFW",
+      "description": "Perimeter defence, IPS/IDS, traffic inspection",
+      "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
+      "modes": {"startup": false, "smb": true, "enterprise": true}
+    },
+    {
+      "id": "cnapp",
+      "name": "CNAPP",
+      "description": "Cloud-native app protection — workload, container, pipeline, CSPM",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    },
+    {
+      "id": "pam",
+      "name": "PAM",
+      "description": "Privileged access management, session recording, just-in-time",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 5},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    },
+    {
+      "id": "iga",
+      "name": "IGA",
+      "description": "Identity governance, provisioning, access certification",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    },
+    {
+      "id": "sase_ztna",
+      "name": "SASE / ZTNA",
+      "description": "Zero-trust network access, cloud-delivered security service edge",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    },
+    {
+      "id": "data_security",
+      "name": "Data Security / DLP",
+      "description": "Data loss prevention, DSPM, classification, insider threat",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 3},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    },
+    {
+      "id": "ot_ics",
+      "name": "OT / ICS Security",
+      "description": "Operational technology, industrial control system monitoring",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 0},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    },
+    {
+      "id": "devsec",
+      "name": "DevOps / AppSec",
+      "description": "SAST, DAST, SCA, secrets scanning, pipeline security",
+      "criticality": {"startup": 0, "smb": 0, "enterprise": 0},
+      "modes": {"startup": false, "smb": false, "enterprise": true}
+    }
+  ]
+}

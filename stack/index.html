@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Stack Assessment — THE WANG REPORT</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:#0a0a12;color:#ccc;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.4}
+body{background:#0a0a12;min-height:100vh}
+a{color:#c9a84c;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+.nav-bar{text-align:center;padding:10px 12px;background:#111;border-bottom:1px solid #333;font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;letter-spacing:1px}
+.nav-bar a{color:#888;margin:0 6px;text-decoration:none}
+.nav-bar a:hover,.nav-bar a.nav-active{color:#c9a84c}
+
+/* WRAPPER */
+.wrap{max-width:1300px;margin:0 auto;padding:16px 12px 40px}
+
+/* HEADER */
+.page-header{text-align:center;margin-bottom:20px;border-bottom:1px solid #222;padding-bottom:16px}
+.page-header h1{font-family:Impact,'Arial Narrow',sans-serif;font-size:32px;color:#c9a84c;letter-spacing:2px;margin-bottom:8px}
+.page-header .sub{font-size:11px;color:#555}
+
+/* TOGGLE BARS */
+.toggle-row{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:10px}
+.toggle-group{display:flex;gap:0;border:1px solid #2a2a4a;border-radius:3px;overflow:hidden}
+.toggle-group label{font-family:Impact,'Arial Narrow',sans-serif;font-size:11px;letter-spacing:1px;padding:5px 12px;cursor:pointer;background:#111118;color:#666;border-right:1px solid #2a2a4a;transition:all .15s;user-select:none}
+.toggle-group label:last-child{border-right:none}
+.toggle-group input[type=radio]{display:none}
+.toggle-group input[type=radio]:checked + label{background:#1a1808;color:#c9a84c;border-color:#2a2a4a}
+.toggle-group label:hover{color:#aaa;background:#161622}
+
+/* LAYOUT */
+.main-layout{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+@media(max-width:900px){.main-layout{grid-template-columns:1fr}}
+
+/* SLOT GRID */
+.slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:20px}
+
+/* SLOT CARD — empty */
+.slot-card{width:100%;min-height:220px;border:2px dashed #2a2a4a;border-radius:10px;background:#0e0e18;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;padding:16px;text-align:center;position:relative}
+.slot-card:hover{border-color:#c9a84c44;background:#111120}
+.slot-cap-name{font-family:Impact,'Arial Narrow',sans-serif;font-size:13px;color:#c9a84c;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase}
+.slot-cap-desc{font-size:9px;color:#555;line-height:1.3;margin-bottom:10px}
+.slot-crit{font-family:Impact,sans-serif;font-size:9px;color:#444;letter-spacing:0.5px;margin-bottom:8px}
+.slot-fill-label{font-family:Impact,sans-serif;font-size:9px;letter-spacing:1.5px;color:#333;text-transform:uppercase;border:1px dashed #2a2a4a;padding:3px 8px;border-radius:2px}
+.slot-card:hover .slot-fill-label{color:#c9a84c88;border-color:#c9a84c44}
+
+/* SLOT CARD — filled (flip card) */
+.slot-scene{width:100%;min-height:220px;perspective:800px;cursor:pointer}
+.slot-inner{width:100%;min-height:220px;position:relative;transform-style:preserve-3d;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.slot-scene.flipped .slot-inner{transform:rotateY(180deg)}
+.slot-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;overflow:hidden;min-height:220px}
+.slot-front{border:1px solid #2a2a4a;background:#111118;display:flex;flex-direction:column}
+.slot-front.wr-featured{border-color:#c9a84c}
+.slot-back-face{transform:rotateY(180deg);border:1px solid #2a2a4a;background:#0e0a04;display:flex;flex-direction:column;justify-content:space-between}
+
+/* HOLO */
+.holo-wrap{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;z-index:4;border-radius:10px;overflow:hidden}
+.slot-front.wr-featured .holo-wrap{opacity:.3}
+.slot-scene:hover .slot-front.wr-featured .holo-wrap{opacity:.8}
+.holo-layer{position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,50,50,.12) 30%,rgba(255,165,0,.12) 38%,rgba(255,255,0,.1) 44%,rgba(0,255,0,.1) 50%,rgba(0,200,255,.12) 56%,rgba(100,100,255,.12) 62%,rgba(200,50,255,.1) 70%,transparent 80%);background-size:200% 200%;animation:holoShift 3s ease infinite;mix-blend-mode:screen}
+.holo-lines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px);animation:holoShift 5s linear infinite reverse}
+@keyframes holoShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+
+/* FRONT FACE PARTS */
+.sf-banner{background:linear-gradient(90deg,#0a1030,#14204a);padding:4px 8px;font-family:Impact,sans-serif;font-size:8px;color:#7a8aaa;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c;flex-shrink:0}
+.sf-art{height:80px;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.sf-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:44px;letter-spacing:2px;opacity:.85}
+.sf-grade-seal{position:absolute;top:8px;left:8px;width:28px;height:28px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:12px}
+.grade-A{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
+.grade-B{background:#1a2a3a;border-color:#3a6aaa;color:#6aaaee}
+.grade-C{background:#3a2a0a;border-color:#aa7a1a;color:#eaaa3a}
+.grade-D{background:#3a1a0a;border-color:#aa4a1a;color:#ee7a3a}
+.grade-F{background:#3a0a0a;border-color:#aa1a1a;color:#ee3a3a}
+.grade-NA{background:#1a1a1a;border-color:#444;color:#666}
+.sf-nameplate{background:#fff;padding:5px 8px;border-top:1px solid #ddd;flex-shrink:0}
+.sf-vname{font-family:Impact,sans-serif;font-size:12px;text-transform:uppercase;color:#111;letter-spacing:0.8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sf-vsector{font-size:8px;color:#777;text-transform:uppercase;letter-spacing:0.5px}
+.sf-slotlabel{font-size:7px;color:#c9a84c;text-transform:uppercase;letter-spacing:0.5px}
+.sf-take{padding:6px 8px;background:#0d0d12;font-size:8px;font-style:italic;color:#7a6a3a;line-height:1.3;flex:1;overflow:hidden}
+
+/* BACK FACE PARTS */
+.sb-title{padding:6px 8px;border-bottom:1px solid #3a2a0a;background:linear-gradient(90deg,#1a1208,#2a2010)}
+.sb-title-name{font-family:Impact,sans-serif;font-size:11px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase}
+.sb-title-slot{font-size:8px;color:#7a6a3a}
+.sb-pillars{padding:8px;flex:1}
+.pillar-row{display:flex;align-items:center;margin-bottom:6px;gap:4px}
+.pillar-label{font-family:Impact,sans-serif;font-size:8px;color:#888;width:68px;flex-shrink:0;text-transform:uppercase;letter-spacing:0.3px}
+.pillar-bar-bg{flex:1;height:8px;background:#1a1a2e;border-radius:2px;overflow:hidden}
+.pillar-bar-fill{height:100%;border-radius:2px;transition:width .4s}
+.pillar-grade-pill{font-family:Impact,sans-serif;font-size:8px;width:22px;text-align:center;padding:1px 2px;border-radius:2px;flex-shrink:0}
+.pill-A{background:#2a7a2a;color:#8acc5a}
+.pill-B{background:#1a5a8a;color:#6aaaee}
+.pill-C{background:#7a6a1a;color:#eaaa3a}
+.pill-D{background:#8a4a1a;color:#ee7a3a}
+.pill-F{background:#7a1a1a;color:#ee3a3a}
+.pill-NA{background:#333;color:#666}
+.sb-remove{margin:6px;padding:4px;background:#1a0a0a;border:1px solid #3a1a1a;border-radius:3px;font-family:Impact,sans-serif;font-size:8px;color:#883a3a;text-align:center;cursor:pointer;letter-spacing:1px}
+.sb-remove:hover{background:#2a0a0a;color:#ee3a3a}
+
+/* WR FEATURED BADGE */
+.wr-badge{position:absolute;top:0;right:0;z-index:5;width:60px;height:60px;overflow:hidden;pointer-events:none}
+.wr-badge span{display:block;position:absolute;top:8px;right:-18px;width:76px;text-align:center;font-family:Impact,sans-serif;font-size:7px;letter-spacing:0.5px;color:#1a1208;background:linear-gradient(90deg,#c9a84c,#e8d48a,#c9a84c);transform:rotate(45deg);padding:2px 0}
+
+/* SCORE PANEL */
+.score-panel{background:#111118;border:1px solid #2a2a4a;border-radius:8px;padding:20px;position:sticky;top:16px}
+.sp-headline{text-align:center;margin-bottom:16px}
+.sp-score-num{font-family:Impact,'Arial Narrow',sans-serif;font-size:64px;color:#c9a84c;line-height:1}
+.sp-grade-letter{font-family:Impact,'Arial Narrow',sans-serif;font-size:32px;margin-left:8px;vertical-align:middle}
+.sp-label{font-family:Impact,sans-serif;font-size:9px;color:#555;letter-spacing:1px;margin-top:2px}
+
+.sp-section{margin-bottom:16px}
+.sp-section-title{font-family:Impact,sans-serif;font-size:9px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;border-bottom:1px solid #1a1a2a;padding-bottom:4px}
+
+/* Coverage bar */
+.coverage-bar-bg{height:10px;background:#1a1a2a;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.coverage-bar-fill{height:100%;background:linear-gradient(90deg,#2a7a2a,#4aaa4a);border-radius:3px;transition:width .4s}
+.coverage-text{font-size:10px;color:#888;text-align:right}
+
+/* Concentration warning */
+.conc-warning{background:#2a0a0a;border:1px solid #5a1a1a;border-radius:3px;padding:6px 8px;font-size:9px;color:#cc5555;line-height:1.4;display:none}
+.conc-warning.show{display:block}
+
+/* Per-pillar breakdown */
+.pillar-breakdown-row{display:flex;align-items:center;margin-bottom:4px;gap:6px}
+.pbd-label{font-family:Impact,sans-serif;font-size:8px;color:#777;width:72px;flex-shrink:0;text-transform:uppercase}
+.pbd-bar-bg{flex:1;height:6px;background:#1a1a2a;border-radius:2px;overflow:hidden}
+.pbd-bar-fill{height:100%;border-radius:2px;background:#3a6aaa;transition:width .4s}
+.pbd-val{font-family:Impact,sans-serif;font-size:8px;color:#999;width:24px;text-align:right;flex-shrink:0}
+
+/* RADAR CHART */
+.radar-wrap{text-align:center;margin-bottom:16px}
+.radar-wrap svg{max-width:100%}
+
+/* RECOMMENDATIONS */
+.reco-section{background:#111118;border:1px solid #2a2a4a;border-radius:8px;padding:16px;margin-bottom:20px}
+.reco-section-title{font-family:Impact,sans-serif;font-size:11px;color:#c9a84c;letter-spacing:1px;margin-bottom:12px;border-bottom:1px solid #2a2a4a;padding-bottom:6px;text-transform:uppercase}
+.reco-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #1a1a2a}
+.reco-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.reco-cap{font-family:Impact,sans-serif;font-size:11px;color:#ee9933;letter-spacing:0.5px;margin-bottom:4px}
+.reco-take{font-size:9px;color:#666;font-style:italic;margin-bottom:6px;line-height:1.4}
+.reco-vendors{display:flex;flex-wrap:wrap;gap:6px}
+.reco-vendor-btn{font-family:Impact,sans-serif;font-size:9px;letter-spacing:0.5px;padding:3px 8px;border:1px solid #2a2a4a;background:#0e0e18;color:#aaa;cursor:pointer;border-radius:2px;transition:all .15s}
+.reco-vendor-btn:hover{border-color:#c9a84c;color:#c9a84c;background:#1a1808}
+.reco-review-item{margin-bottom:8px;padding:6px 8px;background:#1a0a0a;border:1px solid #3a1a1a;border-radius:3px}
+.reco-review-item .rv-name{font-family:Impact,sans-serif;font-size:10px;color:#cc5555;margin-bottom:2px}
+.reco-review-item .rv-take{font-size:8px;color:#7a5555;font-style:italic}
+
+/* EMPTY RECO */
+.reco-empty{font-size:10px;color:#555;font-style:italic;text-align:center;padding:16px}
+
+/* CLEAR BUTTON */
+.clear-btn{width:100%;margin-top:12px;padding:6px;background:#0e0e18;border:1px solid #2a2a4a;color:#666;font-family:Impact,sans-serif;font-size:9px;letter-spacing:1px;cursor:pointer;border-radius:3px;text-transform:uppercase}
+.clear-btn:hover{border-color:#aa3333;color:#cc5555}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;overflow-y:auto}
+.modal-overlay.open{display:block}
+.modal-box{max-width:820px;margin:40px auto;background:#111118;border:1px solid #2a2a4a;border-radius:8px;overflow:hidden}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #2a2a4a;background:#0e0e18}
+.modal-title{font-family:Impact,'Arial Narrow',sans-serif;font-size:18px;color:#c9a84c;letter-spacing:1px}
+.modal-subtitle{font-size:10px;color:#555;margin-top:2px}
+.modal-close{background:none;border:1px solid #2a2a4a;color:#888;font-family:Impact,sans-serif;font-size:13px;padding:4px 10px;cursor:pointer;border-radius:2px}
+.modal-close:hover{border-color:#cc3333;color:#cc3333}
+.modal-body{padding:20px;max-height:70vh;overflow-y:auto}
+.modal-search{width:100%;background:#0e0e18;border:1px solid #2a2a4a;color:#ccc;font-size:12px;font-family:Georgia,serif;padding:8px 12px;border-radius:3px;margin-bottom:16px;outline:none}
+.modal-search:focus{border-color:#c9a84c}
+.modal-search::placeholder{color:#444}
+.picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.picker-card{background:#0e0e18;border:1px solid #2a2a4a;border-radius:6px;padding:12px;cursor:pointer;transition:all .15s}
+.picker-card:hover{border-color:#c9a84c;background:#1a1808}
+.picker-card.wr-featured{border-color:#c9a84c33}
+.picker-card.wr-featured:hover{border-color:#c9a84c}
+.pc-module-name{font-family:Impact,sans-serif;font-size:12px;color:#ddd;letter-spacing:0.5px;margin-bottom:2px}
+.pc-vendor-name{font-size:9px;color:#888;margin-bottom:4px}
+.pc-sector{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.pc-ai-grade{display:inline-block;font-family:Impact,sans-serif;font-size:8px;padding:2px 6px;border-radius:2px;letter-spacing:0.5px}
+.pc-caps{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.pc-cap-tag{font-size:7px;color:#7a8aaa;border:1px solid #2a2a4a;padding:1px 4px;border-radius:1px;letter-spacing:0.3px}
+.modal-empty{text-align:center;padding:40px;color:#555;font-style:italic}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:20px 12px;border-top:1px solid #222;margin-top:30px;font-size:10px;color:#444}
+.page-footer a{color:#666;margin:0 6px}
+
+/* URL SHARE */
+.share-bar{display:flex;gap:8px;align-items:center;margin-top:12px}
+.share-input{flex:1;background:#0e0e18;border:1px solid #2a2a4a;color:#888;font-size:9px;font-family:monospace;padding:4px 8px;border-radius:2px}
+.share-copy-btn{font-family:Impact,sans-serif;font-size:9px;letter-spacing:0.5px;padding:4px 10px;border:1px solid #2a2a4a;background:#0e0e18;color:#888;cursor:pointer;border-radius:2px;white-space:nowrap}
+.share-copy-btn:hover{border-color:#c9a84c;color:#c9a84c}
+
+/* SECTION LABEL ABOVE GRID */
+.mode-info{font-family:Impact,sans-serif;font-size:10px;color:#555;letter-spacing:0.5px;margin-bottom:12px}
+
+/* PRINT */
+@media print {
+  .nav-bar,.modal-overlay,.score-panel .share-bar,.score-panel .clear-btn,.slot-card,.toggle-row{display:none!important}
+  .main-layout{grid-template-columns:1fr!important}
+  .reco-section{break-inside:avoid}
+  body,html{background:#fff!important;color:#000!important}
+  .score-panel{position:static!important;border:1px solid #ccc!important;background:#f9f9f9!important}
+  .sp-score-num{color:#000!important}
+  .sp-label,.sp-section-title,.pbd-label,.pillar-label,.reco-cap{color:#333!important}
+  .slot-scene .slot-inner{transform:none!important}
+  .slot-front{border:1px solid #ccc!important;background:#f9f9f9!important}
+  .sf-nameplate{background:#eee!important}
+  .sf-vname{color:#000!important}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+  <a href="../index.html">MAIN</a> |
+  <a href="../geopolitical.html">GEOPOLITICAL</a> |
+  <a href="../companies.html">COMPANY WATCH</a> |
+  <a href="../hk-local.html">HK LOCAL</a> |
+  <a href="../cyber-intel/index.html">CYBER INTEL</a> |
+  <a href="../sports.html">SPORTS</a> |
+  <a href="../health.html">HEALTH</a> |
+  <a href="../ai-focus.html">AI FOCUS</a> |
+  <a href="index.html" class="nav-active">STACK ASSESSMENT</a>
+</div>
+
+<div class="wrap">
+  <div class="page-header">
+    <h1>SECURITY STACK ASSESSMENT</h1>
+    <div class="sub">CYBER INTEL &middot; THE WANG REPORT &middot; Build your security stack and score it</div>
+    <div class="toggle-row">
+      <div class="toggle-group" id="modeToggle">
+        <input type="radio" name="mode" id="m-startup" value="startup"><label for="m-startup">STARTUP <span id="ml-startup">7</span></label>
+        <input type="radio" name="mode" id="m-smb" value="smb" checked><label for="m-smb">SMB <span id="ml-smb">10</span></label>
+        <input type="radio" name="mode" id="m-enterprise" value="enterprise"><label for="m-enterprise">ENTERPRISE <span id="ml-enterprise">16</span></label>
+      </div>
+      <div class="toggle-group" id="lensToggle">
+        <input type="radio" name="lens" id="l-ciso" value="ciso" checked><label for="l-ciso">CISO</label>
+        <input type="radio" name="lens" id="l-startup" value="startup"><label for="l-startup">STARTUP</label>
+        <input type="radio" name="lens" id="l-board" value="board"><label for="l-board">BOARD</label>
+        <input type="radio" name="lens" id="l-analyst" value="analyst"><label for="l-analyst">ANALYST</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <div>
+      <div class="mode-info" id="modeInfo"></div>
+      <div class="slot-grid" id="slotGrid"></div>
+      <div class="reco-section" id="recoSection">
+        <div class="reco-section-title">RECOMMENDED ACTIONS</div>
+        <div id="recoBody"><div class="reco-empty">Fill slots to see recommendations.</div></div>
+      </div>
+    </div>
+    <div class="score-panel">
+      <div class="sp-headline">
+        <div>
+          <span class="sp-score-num" id="spScore">—</span><span class="sp-grade-letter grade-NA" id="spGrade" style="display:none"></span>
+        </div>
+        <div class="sp-label">STACK COMPOSITE SCORE</div>
+      </div>
+      <div class="sp-section">
+        <div class="sp-section-title">COVERAGE</div>
+        <div class="coverage-bar-bg"><div class="coverage-bar-fill" id="coverageBar" style="width:0%"></div></div>
+        <div class="coverage-text" id="coverageText">0 / 0 slots filled</div>
+        <div class="conc-warning" id="concWarning"></div>
+      </div>
+      <div class="sp-section">
+        <div class="sp-section-title">PILLAR BREAKDOWN</div>
+        <div id="pillarBreakdown"></div>
+      </div>
+      <div class="sp-section">
+        <div class="sp-section-title">RADAR CHART</div>
+        <div class="radar-wrap" id="radarWrap"></div>
+      </div>
+      <div class="sp-section">
+        <div class="sp-section-title">SHARE STACK</div>
+        <div class="share-bar">
+          <input type="text" class="share-input" id="shareInput" readonly>
+          <button class="share-copy-btn" id="shareCopyBtn">COPY</button>
+        </div>
+      </div>
+      <button class="clear-btn" id="clearBtn">CLEAR STACK</button>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>THE WANG REPORT &middot; Security Stack Assessment &middot; Track B V1</div>
+    <div style="margin-top:4px"><a href="../about.html">About</a> | <a href="../privacy.html">Privacy</a> | <a href="../cyber-intel/index.html">Vendor Scorecard</a></div>
+    <div style="margin-top:4px;font-size:9px;color:#555" id="footerMeta"></div>
+  </div>
+</div>
+
+<!-- PICKER MODAL -->
+<div class="modal-overlay" id="pickerModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modalTitle">SELECT VENDOR</div>
+        <div class="modal-subtitle" id="modalSubtitle"></div>
+      </div>
+      <button class="modal-close" id="modalClose">CLOSE</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="modal-search" id="modalSearch" placeholder="Search vendors or modules..." autocomplete="off">
+      <div class="picker-grid" id="pickerGrid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ── CONSTANTS ── */
+const LENSES = {
+  ciso:    { posture:20, resilience:30, blast_radius:25, capability:15, ai_era:10, name:'CISO' },
+  startup: { posture:25, resilience:15, blast_radius:0,  capability:25, ai_era:10, accessibility:25, name:'STARTUP' },
+  board:   { posture:10, resilience:15, blast_radius:25, capability:0,  ai_era:20, concentration:30, name:'BOARD' },
+  analyst: { posture:20, resilience:20, blast_radius:20, capability:20, ai_era:20, name:'ANALYST' },
+};
+
+const GRADE_NUM = { A:100, B:80, C:60, D:40, F:20 };
+
+function gradeToNum(g) {
+  if (!g || g === 'NA' || g === 'null') return null;
+  return GRADE_NUM[g] || null;
+}
+
+function numToGrade(n) {
+  if (n === null || n === undefined || isNaN(n)) return 'NA';
+  if (n >= 90) return 'A';
+  if (n >= 75) return 'B';
+  if (n >= 60) return 'C';
+  if (n >= 45) return 'D';
+  return 'F';
+}
+
+const PILLAR_COLORS = { posture:'#3a8aaa', resilience:'#3aaa6a', blast_radius:'#aa6a3a', capability:'#6a3aaa', ai_era:'#aa3a8a' };
+const PILLAR_LABELS = { posture:'Posture', resilience:'Resilience', blast_radius:'Blast Radius', capability:'Capability', ai_era:'AI-Era' };
+
+/* ── STATE ── */
+let state = {
+  mode: 'smb',
+  lens: 'ciso',
+  stack: {}, // capId -> { vendor_id, module_id }
+};
+
+let DATA = { vendors: [], capabilities: [], modules: [] };
+let vendorMap = {}; // vendor_id -> vendor obj
+
+/* ── DATA LOAD ── */
+async function loadAll() {
+  try {
+    const [vr, cr, vcr] = await Promise.all([
+      fetch('../data/vendors.json').then(r => r.json()),
+      fetch('../data/capabilities.json').then(r => r.json()),
+      fetch('../data/vendor-capabilities.json').then(r => r.json()),
+    ]);
+    DATA.vendors = vr.vendors || [];
+    DATA.capabilities = cr.capabilities || [];
+    DATA.modules = vcr.modules || [];
+    DATA.meta = vr._meta || {};
+    DATA.vendors.forEach(v => { vendorMap[v.id] = v; });
+
+    // Update slot counts in UI
+    const modeSlots = { startup: 0, smb: 0, enterprise: 0 };
+    DATA.capabilities.forEach(c => {
+      ['startup','smb','enterprise'].forEach(m => { if (c.modes[m]) modeSlots[m]++; });
+    });
+    document.getElementById('ml-startup').textContent = modeSlots.startup;
+    document.getElementById('ml-smb').textContent = modeSlots.smb;
+    document.getElementById('ml-enterprise').textContent = modeSlots.enterprise;
+
+    if (DATA.meta.last_updated) {
+      document.getElementById('footerMeta').textContent =
+        'Vendor data as of ' + DATA.meta.last_updated + ' · Rubric v1.0 · Methodology: /about';
+    }
+
+    restoreState();
+    render();
+  } catch(e) {
+    console.error('Data load failed', e);
+  }
+}
+
+/* ── STATE PERSISTENCE ── */
+function saveState() {
+  try { localStorage.setItem('wr_stack_v1', JSON.stringify(state)); } catch(e){}
+  updateHashURL();
+}
+
+function restoreState() {
+  // 1. Try URL hash first
+  if (location.hash && location.hash.length > 1) {
+    const parsed = parseHash(location.hash.slice(1));
+    if (parsed) { state = parsed; applyStateToToggles(); return; }
+  }
+  // 2. Try localStorage
+  try {
+    const saved = localStorage.getItem('wr_stack_v1');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.mode && parsed.lens) {
+        state = parsed;
+        applyStateToToggles();
+        return;
+      }
+    }
+  } catch(e){}
+}
+
+function parseHash(hash) {
+  try {
+    const params = {};
+    hash.split('&').forEach(part => {
+      const [k,v] = part.split('=');
+      if (k && v) params[decodeURIComponent(k)] = decodeURIComponent(v);
+    });
+    const result = { mode: params.m || 'smb', lens: params.l || 'ciso', stack: {} };
+    if (params.s) {
+      params.s.split(',').forEach(pair => {
+        const [cap, mid] = pair.split(':');
+        if (cap && mid) {
+          // Find module
+          const mod = DATA.modules.find(m => m.module_id === mid);
+          if (mod) result.stack[cap] = { vendor_id: mod.vendor_id, module_id: mid };
+        }
+      });
+    }
+    return result;
+  } catch(e) { return null; }
+}
+
+function updateHashURL() {
+  const stackPairs = Object.entries(state.stack).map(([cap, slot]) => cap + ':' + slot.module_id).join(',');
+  const hash = 'm=' + state.mode + '&l=' + state.lens + (stackPairs ? '&s=' + stackPairs : '');
+  history.replaceState(null, '', '#' + hash);
+  const shareInput = document.getElementById('shareInput');
+  if (shareInput) shareInput.value = location.href;
+}
+
+function applyStateToToggles() {
+  const modeEl = document.querySelector('input[name=mode][value=' + state.mode + ']');
+  if (modeEl) modeEl.checked = true;
+  const lensEl = document.querySelector('input[name=lens][value=' + state.lens + ']');
+  if (lensEl) lensEl.checked = true;
+}
+
+/* ── SCORING ENGINE ── */
+function getPillarScores(vendor) {
+  const scores = {};
+
+  // Posture
+  scores.posture = gradeToNum(vendor.grade);
+
+  // Resilience: avg of rrr_react, rrr_respond, rrr_resilient
+  const rrrVals = [vendor.rrr_react, vendor.rrr_respond, vendor.rrr_resilient]
+    .map(gradeToNum).filter(v => v !== null);
+  scores.resilience = rrrVals.length ? rrrVals.reduce((a,b) => a+b, 0) / rrrVals.length : null;
+
+  // Blast radius: NA for all
+  scores.blast_radius = null;
+
+  // Capability: NA for all
+  scores.capability = null;
+
+  // AI-Era
+  scores.ai_era = gradeToNum(vendor.ai_era_grade && vendor.ai_era_grade.grade);
+
+  return scores;
+}
+
+function vendorComposite(vendor, lens) {
+  const scores = getPillarScores(vendor);
+  const weights = LENSES[lens];
+  let weightedSum = 0, totalWeight = 0;
+  ['posture','resilience','blast_radius','capability','ai_era'].forEach(pillar => {
+    const w = weights[pillar] || 0;
+    const s = scores[pillar];
+    if (w > 0 && s !== null) {
+      weightedSum += s * w;
+      totalWeight += w;
+    }
+  });
+  return totalWeight > 0 ? weightedSum / totalWeight : null;
+}
+
+function computeStackScore() {
+  const mode = state.mode;
+  const lens = state.lens;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+  const totalSlots = caps.length;
+  const filledSlots = Object.keys(state.stack).filter(cid => {
+    const slot = state.stack[cid];
+    return slot && caps.find(c => c.id === cid);
+  });
+  const filledCount = filledSlots.length;
+  const coveragePct = totalSlots > 0 ? filledCount / totalSlots : 0;
+
+  // Per-slot scores
+  let slotScoreSum = 0;
+  filledSlots.forEach(cid => {
+    const cap = caps.find(c => c.id === cid);
+    if (!cap) return;
+    const slot = state.stack[cid];
+    const vendor = vendorMap[slot.vendor_id];
+    if (!vendor) return;
+    const crit = cap.criticality[mode] || 0;
+    const vc = vendorComposite(vendor, lens);
+    if (vc !== null) {
+      slotScoreSum += vc * (crit / 5);
+    }
+  });
+
+  const base = totalSlots > 0 ? (slotScoreSum / totalSlots) * 100 : 0;
+
+  // Concentration penalty
+  const vendorSlotCounts = {};
+  filledSlots.forEach(cid => {
+    const vid = state.stack[cid].vendor_id;
+    vendorSlotCounts[vid] = (vendorSlotCounts[vid] || 0) + 1;
+  });
+  const maxCount = Math.max(0, ...Object.values(vendorSlotCounts));
+  const concentrationPenalty = maxCount > 2 ? (maxCount - 2) * 15 : 0;
+
+  const final = Math.max(0, Math.min(100, base * coveragePct - concentrationPenalty));
+
+  // Per-pillar breakdown
+  const pillarTotals = { posture:0, resilience:0, blast_radius:0, capability:0, ai_era:0 };
+  const pillarCounts = { posture:0, resilience:0, blast_radius:0, capability:0, ai_era:0 };
+  filledSlots.forEach(cid => {
+    const slot = state.stack[cid];
+    const vendor = vendorMap[slot.vendor_id];
+    if (!vendor) return;
+    const ps = getPillarScores(vendor);
+    Object.keys(pillarTotals).forEach(p => {
+      if (ps[p] !== null) { pillarTotals[p] += ps[p]; pillarCounts[p]++; }
+    });
+  });
+  const pillarAvgs = {};
+  Object.keys(pillarTotals).forEach(p => {
+    pillarAvgs[p] = pillarCounts[p] > 0 ? pillarTotals[p] / pillarCounts[p] : null;
+  });
+
+  return {
+    score: Math.round(final),
+    grade: filledCount === 0 ? 'NA' : numToGrade(final),
+    coveragePct,
+    filledCount,
+    totalSlots,
+    vendorSlotCounts,
+    maxCount,
+    concentrationPenalty,
+    pillarAvgs,
+  };
+}
+
+/* ── RENDER PILLAR BAR ── */
+function pillarBarHTML(score, pillar) {
+  if (score === null) return '<span class="pillar-grade-pill pill-NA">NA</span>';
+  const g = numToGrade(score);
+  const pct = score + '%';
+  const color = PILLAR_COLORS[pillar] || '#555';
+  return '<span class="pillar-grade-pill pill-' + g + '">' + g + '</span>';
+}
+
+/* ── RENDER SLOT GRID ── */
+function render() {
+  renderSlotGrid();
+  renderScorePanel();
+  renderRecommendations();
+  updateHashURL();
+  saveState();
+}
+
+function getActiveCaps() {
+  return DATA.capabilities.filter(c => c.modes[state.mode]);
+}
+
+function renderSlotGrid() {
+  const caps = getActiveCaps();
+  const grid = document.getElementById('slotGrid');
+  grid.innerHTML = '';
+
+  const modeLabel = {startup:'Startup (7 slots)',smb:'SMB (10 slots)',enterprise:'Enterprise (14 slots)'}[state.mode];
+  document.getElementById('modeInfo').textContent = modeLabel + ' · Click an empty slot to fill it · Click a filled card to see details or remove';
+
+  caps.forEach(cap => {
+    const filled = state.stack[cap.id];
+    if (filled) {
+      grid.appendChild(renderFilledSlot(cap, filled));
+    } else {
+      grid.appendChild(renderEmptySlot(cap));
+    }
+  });
+}
+
+function critBar(crit) {
+  const dots = [];
+  for (let i = 0; i < 5; i++) {
+    dots.push('<span style="color:' + (i < crit ? '#c9a84c' : '#222') + ';font-size:10px">&#9632;</span>');
+  }
+  return 'CRITICALITY ' + dots.join('');
+}
+
+function renderEmptySlot(cap) {
+  const div = document.createElement('div');
+  div.className = 'slot-card';
+  div.innerHTML = '<div class="slot-cap-name">' + esc(cap.name) + '</div>' +
+    '<div class="slot-cap-desc">' + esc(cap.description) + '</div>' +
+    '<div class="slot-crit">' + critBar(cap.criticality[state.mode]) + '</div>' +
+    '<div class="slot-fill-label">CLICK TO FILL</div>';
+  div.addEventListener('click', () => openPicker(cap));
+  return div;
+}
+
+function renderFilledSlot(cap, slotData) {
+  const vendor = vendorMap[slotData.vendor_id];
+  const mod = DATA.modules.find(m => m.module_id === slotData.module_id);
+  if (!vendor || !mod) return renderEmptySlot(cap);
+
+  const pillarScores = getPillarScores(vendor);
+  const featured = vendor.wr_featured;
+  const overallGrade = vendor.grade || 'NA';
+
+  const scene = document.createElement('div');
+  scene.className = 'slot-scene';
+
+  const inner = document.createElement('div');
+  inner.className = 'slot-inner';
+
+  // FRONT
+  const front = document.createElement('div');
+  front.className = 'slot-face slot-front' + (featured ? ' wr-featured' : '');
+  front.innerHTML =
+    '<div class="sf-banner"><span>' + esc(cap.name.toUpperCase()) + '</span><span>' + esc(vendor.sector || '') + '</span></div>' +
+    '<div class="sf-art">' +
+      '<span class="sf-monogram" style="color:' + monogramColor(vendor) + '">' + esc(vendor.monogram || '??') + '</span>' +
+      '<div class="sf-grade-seal grade-' + overallGrade + '">' + overallGrade + '</div>' +
+      (featured ? '<div class="wr-badge"><span>WR PICK</span></div>' : '') +
+    '</div>' +
+    '<div class="sf-nameplate">' +
+      '<div class="sf-vname">' + esc(mod.module_name) + '</div>' +
+      '<div class="sf-vsector">' + esc(vendor.name) + ' &middot; ' + esc(vendor.sector || '') + '</div>' +
+      '<div class="sf-slotlabel">' + esc(cap.name) + '</div>' +
+    '</div>' +
+    (featured && vendor.wr_take ? '<div class="sf-take">' + esc(vendor.wr_take) + '</div>' : '') +
+    (featured ? '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>' : '');
+
+  // BACK
+  const back = document.createElement('div');
+  back.className = 'slot-face slot-back-face';
+  const pillarsHTML = ['posture','resilience','blast_radius','capability','ai_era'].map(p => {
+    const s = pillarScores[p];
+    const g = s !== null ? numToGrade(s) : 'NA';
+    const pct = s !== null ? s : 0;
+    return '<div class="pillar-row">' +
+      '<div class="pillar-label">' + PILLAR_LABELS[p] + '</div>' +
+      '<div class="pillar-bar-bg"><div class="pillar-bar-fill" style="width:' + pct + '%;background:' + PILLAR_COLORS[p] + '"></div></div>' +
+      '<div class="pillar-grade-pill pill-' + g + '">' + g + '</div>' +
+    '</div>';
+  }).join('');
+
+  back.innerHTML =
+    '<div class="sb-title"><div class="sb-title-name">' + esc(mod.module_name) + '</div><div class="sb-title-slot">Slot: ' + esc(cap.name) + '</div></div>' +
+    '<div class="sb-pillars">' + pillarsHTML + '</div>' +
+    '<div class="sb-remove" data-cap="' + esc(cap.id) + '">REMOVE FROM STACK</div>';
+
+  back.querySelector('.sb-remove').addEventListener('click', (e) => {
+    e.stopPropagation();
+    delete state.stack[cap.id];
+    render();
+  });
+
+  inner.appendChild(front);
+  inner.appendChild(back);
+  scene.appendChild(inner);
+
+  scene.addEventListener('click', () => {
+    scene.classList.toggle('flipped');
+  });
+
+  return scene;
+}
+
+function monogramColor(vendor) {
+  const grade = vendor.grade;
+  const colors = {A:'#8acc5a',B:'#6aaaee',C:'#eaaa3a',D:'#ee7a3a',F:'#ee3a3a'};
+  return colors[grade] || '#aaa';
+}
+
+/* ── SCORE PANEL ── */
+function renderScorePanel() {
+  const result = computeStackScore();
+  const spScore = document.getElementById('spScore');
+  const spGrade = document.getElementById('spGrade');
+
+  if (result.filledCount === 0) {
+    spScore.textContent = '—';
+    spGrade.style.display = 'none';
+  } else {
+    spScore.textContent = result.score;
+    spGrade.textContent = result.grade;
+    spGrade.className = 'sp-grade-letter grade-' + result.grade;
+    spGrade.style.display = '';
+  }
+
+  // Coverage bar
+  const pct = Math.round(result.coveragePct * 100);
+  document.getElementById('coverageBar').style.width = pct + '%';
+  document.getElementById('coverageText').textContent = result.filledCount + ' / ' + result.totalSlots + ' slots filled (' + pct + '%)';
+
+  // Concentration warning
+  const warn = document.getElementById('concWarning');
+  if (result.maxCount > 2) {
+    const topVendor = Object.entries(result.vendorSlotCounts).sort((a,b)=>b[1]-a[1])[0];
+    const v = vendorMap[topVendor[0]];
+    warn.textContent = 'CONCENTRATION RISK: ' + (v ? v.name : topVendor[0]) + ' holds ' + topVendor[1] + ' slots. Penalty: −' + result.concentrationPenalty + ' pts.';
+    warn.classList.add('show');
+  } else {
+    warn.classList.remove('show');
+  }
+
+  // Pillar breakdown
+  const pb = document.getElementById('pillarBreakdown');
+  pb.innerHTML = ['posture','resilience','blast_radius','capability','ai_era'].map(p => {
+    const v = result.pillarAvgs[p];
+    const pct = v !== null ? Math.round(v) : 0;
+    const label = v !== null ? numToGrade(v) : 'NA';
+    return '<div class="pillar-breakdown-row">' +
+      '<div class="pbd-label">' + PILLAR_LABELS[p] + '</div>' +
+      '<div class="pbd-bar-bg"><div class="pbd-bar-fill" style="width:' + pct + '%;background:' + PILLAR_COLORS[p] + '"></div></div>' +
+      '<div class="pbd-val">' + label + '</div>' +
+    '</div>';
+  }).join('');
+
+  // Radar chart
+  renderRadar(result);
+
+  // Share URL
+  const shareInput = document.getElementById('shareInput');
+  if (shareInput) shareInput.value = location.href;
+}
+
+/* ── RADAR CHART ── */
+function renderRadar(result) {
+  const wrap = document.getElementById('radarWrap');
+  const W = 240, H = 220, cx = 120, cy = 110, R = 85;
+  const axes = [
+    { label: 'Posture', val: result.pillarAvgs.posture },
+    { label: 'Resilience', val: result.pillarAvgs.resilience },
+    { label: 'Blast Radius', val: result.pillarAvgs.blast_radius },
+    { label: 'Capability', val: result.pillarAvgs.capability },
+    { label: 'AI-Era', val: result.pillarAvgs.ai_era },
+    { label: 'Coverage', val: result.coveragePct !== null ? result.coveragePct * 100 : null },
+  ];
+  const n = axes.length;
+  const angleStep = (2 * Math.PI) / n;
+  const startAngle = -Math.PI / 2;
+
+  function polarPt(i, r) {
+    const a = startAngle + i * angleStep;
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+  }
+
+  // Grid lines
+  let gridLines = '';
+  [0.2,0.4,0.6,0.8,1.0].forEach(frac => {
+    const pts = [];
+    for (let i = 0; i < n; i++) { const p = polarPt(i, R * frac); pts.push(p.x + ',' + p.y); }
+    gridLines += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="#2a2a4a" stroke-width="0.8"/>';
+  });
+
+  // Axis lines
+  let axisLines = '';
+  for (let i = 0; i < n; i++) {
+    const p = polarPt(i, R);
+    axisLines += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '" stroke="#2a2a4a" stroke-width="0.8"/>';
+  }
+
+  // Data polygon
+  const dataPoints = axes.map((ax, i) => {
+    const v = ax.val !== null ? Math.min(100, Math.max(0, ax.val)) : 0;
+    return polarPt(i, R * (v / 100));
+  });
+  const polyPts = dataPoints.map(p => p.x + ',' + p.y).join(' ');
+
+  // Labels
+  let labels = '';
+  axes.forEach((ax, i) => {
+    const p = polarPt(i, R + 16);
+    const anchor = p.x < cx - 2 ? 'end' : p.x > cx + 2 ? 'start' : 'middle';
+    const valStr = ax.val !== null ? Math.round(ax.val) + '' : 'NA';
+    labels += '<text x="' + p.x + '" y="' + (p.y + 3) + '" text-anchor="' + anchor + '" font-family="Impact,sans-serif" font-size="7.5" fill="#888" letter-spacing="0.5">' +
+      ax.label.toUpperCase() + ' ' + valStr + '</text>';
+  });
+
+  // Dots on polygon vertices
+  let dots = '';
+  dataPoints.forEach(p => {
+    dots += '<circle cx="' + p.x + '" cy="' + p.y + '" r="2.5" fill="#c9a84c" opacity="0.8"/>';
+  });
+
+  wrap.innerHTML = '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' +
+    gridLines + axisLines +
+    '<polygon points="' + polyPts + '" fill="rgba(201,168,76,0.18)" stroke="#c9a84c" stroke-width="1.5"/>' +
+    dots + labels +
+    '</svg>';
+}
+
+/* ── RECOMMENDATIONS ── */
+function renderRecommendations() {
+  const mode = state.mode;
+  const lens = state.lens;
+  const caps = getActiveCaps();
+  const body = document.getElementById('recoBody');
+
+  // Find top 3 empty slots by criticality
+  const emptyCaps = caps.filter(c => !state.stack[c.id])
+    .sort((a,b) => (b.criticality[mode] || 0) - (a.criticality[mode] || 0))
+    .slice(0, 3);
+
+  // Find filled vendors with D/F on Resilience or Blast Radius
+  const reviewItems = [];
+  caps.forEach(cap => {
+    const slot = state.stack[cap.id];
+    if (!slot) return;
+    const vendor = vendorMap[slot.vendor_id];
+    if (!vendor) return;
+    const ps = getPillarScores(vendor);
+    const resG = ps.resilience !== null ? numToGrade(ps.resilience) : 'NA';
+    if (resG === 'D' || resG === 'F') {
+      reviewItems.push({ vendor, cap, pillar: 'Resilience', grade: resG });
+    }
+  });
+
+  let html = '';
+
+  if (emptyCaps.length === 0 && reviewItems.length === 0) {
+    body.innerHTML = '<div class="reco-empty">Stack is fully covered. Review regularly as grades update.</div>';
+    return;
+  }
+
+  if (emptyCaps.length > 0) {
+    emptyCaps.forEach(cap => {
+      // Get top 2 suggested vendors for this cap
+      const candidates = DATA.modules
+        .filter(m => m.capabilities.includes(cap.id) && m.modes[mode])
+        .filter(m => !Object.values(state.stack).some(s => s.vendor_id === m.vendor_id))
+        .map(m => {
+          const v = vendorMap[m.vendor_id];
+          if (!v) return null;
+          const vc = vendorComposite(v, lens);
+          return { m, v, score: vc !== null ? vc : 0 };
+        })
+        .filter(Boolean)
+        .sort((a,b) => b.score - a.score)
+        .slice(0, 2);
+
+      // Find wr_take from a featured vendor in candidates, or first available
+      let take = null;
+      const featCand = candidates.find(c => c.v.wr_featured && c.v.wr_take);
+      if (featCand) take = featCand.v.wr_take;
+
+      html += '<div class="reco-item">' +
+        '<div class="reco-cap">&#9651; OPEN: ' + esc(cap.name) + ' (crit ' + (cap.criticality[mode] || 0) + '/5)</div>' +
+        (take ? '<div class="reco-take">' + esc(take.substring(0, 120)) + (take.length > 120 ? '…' : '') + '</div>' : '') +
+        '<div class="reco-vendors">' +
+          candidates.map(c =>
+            '<button class="reco-vendor-btn" data-cap="' + esc(cap.id) + '" data-mid="' + esc(c.m.module_id) + '" data-vid="' + esc(c.v.id) + '">' +
+              esc(c.m.module_name) + ' (' + (c.score !== null ? numToGrade(c.score) : 'NA') + ')' +
+            '</button>'
+          ).join('') +
+        '</div></div>';
+    });
+  }
+
+  if (reviewItems.length > 0) {
+    html += '<div style="margin-top:10px;font-family:Impact,sans-serif;font-size:9px;color:#cc5555;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">REVIEW THESE POSITIONS</div>';
+    reviewItems.forEach(item => {
+      const take = item.vendor.wr_take || 'Review this vendor\'s resilience posture.';
+      html += '<div class="reco-review-item">' +
+        '<div class="rv-name">' + esc(item.vendor.name) + ' — ' + item.pillar + ' ' + item.grade + '</div>' +
+        '<div class="rv-take">' + esc(take.substring(0, 120)) + (take.length > 120 ? '…' : '') + '</div>' +
+      '</div>';
+    });
+  }
+
+  body.innerHTML = html;
+
+  // Wire up reco vendor buttons (quick-fill)
+  body.querySelectorAll('.reco-vendor-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const capId = btn.dataset.cap;
+      const mid = btn.dataset.mid;
+      const vid = btn.dataset.vid;
+      state.stack[capId] = { vendor_id: vid, module_id: mid };
+      render();
+    });
+  });
+}
+
+/* ── PICKER MODAL ── */
+let pickerCapId = null;
+
+function openPicker(cap) {
+  pickerCapId = cap.id;
+  document.getElementById('modalTitle').textContent = 'SELECT: ' + cap.name.toUpperCase();
+  document.getElementById('modalSubtitle').textContent = cap.description + ' · ' + state.mode.toUpperCase() + ' MODE';
+  document.getElementById('modalSearch').value = '';
+  renderPickerGrid('');
+  document.getElementById('pickerModal').classList.add('open');
+  document.getElementById('modalSearch').focus();
+}
+
+function closePicker() {
+  document.getElementById('pickerModal').classList.remove('open');
+  pickerCapId = null;
+}
+
+function renderPickerGrid(search) {
+  const grid = document.getElementById('pickerGrid');
+  const capId = pickerCapId;
+  const mode = state.mode;
+  const lc = search.toLowerCase();
+
+  // Get modules that cover this capability and mode
+  const candidates = DATA.modules.filter(m => {
+    if (!m.capabilities.includes(capId)) return false;
+    if (!m.modes[mode]) return false;
+    if (lc) {
+      const v = vendorMap[m.vendor_id];
+      return m.module_name.toLowerCase().includes(lc) ||
+        (v && v.name.toLowerCase().includes(lc)) ||
+        (v && (v.sector||'').toLowerCase().includes(lc));
+    }
+    return true;
+  }).sort((a,b) => {
+    const va = vendorMap[a.vendor_id];
+    const vb = vendorMap[b.vendor_id];
+    // Featured first, then by lens composite
+    const featA = (va && va.wr_featured) ? 1 : 0;
+    const featB = (vb && vb.wr_featured) ? 1 : 0;
+    if (featA !== featB) return featB - featA;
+    const sa = va ? (vendorComposite(va, state.lens) || 0) : 0;
+    const sb = vb ? (vendorComposite(vb, state.lens) || 0) : 0;
+    return sb - sa;
+  });
+
+  if (candidates.length === 0) {
+    grid.innerHTML = '<div class="modal-empty">No vendors found for this capability in ' + mode + ' mode.</div>';
+    return;
+  }
+
+  grid.innerHTML = candidates.map(m => {
+    const v = vendorMap[m.vendor_id];
+    if (!v) return '';
+    const aiGrade = v.ai_era_grade && v.ai_era_grade.grade || 'NA';
+    const aiClass = 'pill-' + aiGrade;
+    const overallGrade = v.grade || 'NA';
+    const caps = m.capabilities.filter(Boolean);
+    return '<div class="picker-card' + (v.wr_featured ? ' wr-featured' : '') + '" data-mid="' + esc(m.module_id) + '" data-vid="' + esc(v.id) + '">' +
+      '<div class="pc-module-name">' + esc(m.module_name) + '</div>' +
+      '<div class="pc-vendor-name">' + esc(v.name) + '</div>' +
+      '<div class="pc-sector">' + esc(v.sector || '') + ' &middot; ' + esc(v.market_position || '') + '</div>' +
+      '<div>' +
+        '<span class="pillar-grade-pill pill-' + overallGrade + '" title="Posture grade">' + overallGrade + '</span> ' +
+        '<span class="pc-ai-grade ' + aiClass + '" title="AI-Era grade">AI ' + aiGrade + '</span>' +
+      '</div>' +
+      '<div class="pc-caps">' + caps.map(c => '<span class="pc-cap-tag">' + esc(c) + '</span>').join('') + '</div>' +
+    '</div>';
+  }).join('');
+
+  // Wire click
+  grid.querySelectorAll('.picker-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const mid = card.dataset.mid;
+      const vid = card.dataset.vid;
+      if (pickerCapId) {
+        state.stack[pickerCapId] = { vendor_id: vid, module_id: mid };
+        render();
+      }
+      closePicker();
+    });
+  });
+}
+
+/* ── UTILS ── */
+function esc(s) {
+  if (!s) return '';
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+/* ── EVENTS ── */
+document.querySelectorAll('input[name=mode]').forEach(el => {
+  el.addEventListener('change', () => {
+    state.mode = el.value;
+    // Clear slots that are not valid for the new mode
+    const newCaps = DATA.capabilities.filter(c => c.modes[state.mode]);
+    const validCapIds = new Set(newCaps.map(c => c.id));
+    Object.keys(state.stack).forEach(cid => {
+      if (!validCapIds.has(cid)) delete state.stack[cid];
+    });
+    render();
+  });
+});
+
+document.querySelectorAll('input[name=lens]').forEach(el => {
+  el.addEventListener('change', () => {
+    state.lens = el.value;
+    render();
+  });
+});
+
+document.getElementById('modalClose').addEventListener('click', closePicker);
+document.getElementById('pickerModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closePicker();
+});
+document.getElementById('modalSearch').addEventListener('input', e => {
+  renderPickerGrid(e.target.value.trim());
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePicker();
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (confirm('Clear all slots and start over?')) {
+    state.stack = {};
+    render();
+  }
+});
+
+document.getElementById('shareCopyBtn').addEventListener('click', () => {
+  const input = document.getElementById('shareInput');
+  navigator.clipboard.writeText(input.value).then(() => {
+    const btn = document.getElementById('shareCopyBtn');
+    btn.textContent = 'COPIED!';
+    setTimeout(() => { btn.textContent = 'COPY'; }, 2000);
+  }).catch(() => {
+    input.select();
+    document.execCommand('copy');
+  });
+});
+
+/* ── INIT ── */
+loadAll();
+
+})();
+</script>
+</body>
+</html>
