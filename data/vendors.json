@@ -6,7 +6,7 @@
     "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
     "kev_feed": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
     "schema_version": "1.2",
-    "total_vendors": 49
+    "total_vendors": 52
   },
   "vendors": [
     {
@@ -24,7 +24,7 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": true,
-      "wr_take": "Best patch velocity in endpoint. July 2024 was an ops failure not a breach — but 8.5M machines proved dangerous concentration.",
+      "wr_take": "Best patch velocity in endpoint. July 2024 was an ops failure not a breach \u2014 but 8.5M machines proved dangerous concentration.",
       "rrr_react": "A",
       "rrr_respond": "B",
       "rrr_resilient": "B",
@@ -49,7 +49,7 @@
         {
           "id": "CVE-2024-7703",
           "severity": "MEDIUM",
-          "description": "Falcon Data Replicator S3 path traversal — read-only adjacent tenant data",
+          "description": "Falcon Data Replicator S3 path traversal \u2014 read-only adjacent tenant data",
           "days_to_patch": 11,
           "kev": false,
           "zero_day": false
@@ -226,7 +226,7 @@
       "zero_days": 8,
       "kev_count": 16,
       "wr_featured": true,
-      "wr_take": "Remediation pace is structural not situational. 16 active KEVs is not bad luck — it is product lifecycle debt that marketing cannot patch.",
+      "wr_take": "Remediation pace is structural not situational. 16 active KEVs is not bad luck \u2014 it is product lifecycle debt that marketing cannot patch.",
       "rrr_react": "D",
       "rrr_respond": "D",
       "rrr_resilient": "F",
@@ -235,7 +235,7 @@
         {
           "id": "CVE-2025-0282",
           "severity": "CRITICAL",
-          "description": "Connect Secure stack buffer overflow — zero-day exploited by UNC5337 (PRC) before disclosure",
+          "description": "Connect Secure stack buffer overflow \u2014 zero-day exploited by UNC5337 (PRC) before disclosure",
           "days_to_patch": 13,
           "kev": true,
           "zero_day": true
@@ -251,7 +251,7 @@
         {
           "id": "CVE-2024-21887",
           "severity": "CRITICAL",
-          "description": "EPMM command injection — required emergency repatch after incomplete initial fix",
+          "description": "EPMM command injection \u2014 required emergency repatch after incomplete initial fix",
           "days_to_patch": 67,
           "kev": true,
           "zero_day": false
@@ -420,7 +420,7 @@
         {
           "id": "CVE-2025-0108",
           "severity": "CRITICAL",
-          "description": "PAN-OS auth bypass in management interface — exploited in the wild pre-patch",
+          "description": "PAN-OS auth bypass in management interface \u2014 exploited in the wild pre-patch",
           "days_to_patch": 4,
           "kev": true,
           "zero_day": true
@@ -543,7 +543,7 @@
         {
           "id": "CVE-2024-21762",
           "severity": "CRITICAL",
-          "description": "FortiOS SSL-VPN out-of-bounds write — unauthenticated RCE exploited by multiple threat actors",
+          "description": "FortiOS SSL-VPN out-of-bounds write \u2014 unauthenticated RCE exploited by multiple threat actors",
           "days_to_patch": 14,
           "kev": true,
           "zero_day": true
@@ -551,7 +551,7 @@
         {
           "id": "CVE-2024-23113",
           "severity": "CRITICAL",
-          "description": "FortiOS format string vuln in fgfmd daemon — unauthenticated RCE",
+          "description": "FortiOS format string vuln in fgfmd daemon \u2014 unauthenticated RCE",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": false
@@ -639,7 +639,7 @@
       "zero_days": 3,
       "kev_count": 7,
       "wr_featured": false,
-      "wr_take": "October 2024 DevHub breach exposed GitHub tokens and hardcoded credentials. Investigation showed misconfiguration not attack — but that is the definition of detection lag.",
+      "wr_take": "October 2024 DevHub breach exposed GitHub tokens and hardcoded credentials. Investigation showed misconfiguration not attack \u2014 but that is the definition of detection lag.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "B",
@@ -648,7 +648,7 @@
         {
           "id": "CVE-2024-20399",
           "severity": "CRITICAL",
-          "description": "NX-OS CLI command injection — root RCE exploited by Velvet Ant (PRC-nexus)",
+          "description": "NX-OS CLI command injection \u2014 root RCE exploited by Velvet Ant (PRC-nexus)",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": true
@@ -656,7 +656,7 @@
         {
           "id": "CVE-2024-20353",
           "severity": "CRITICAL",
-          "description": "ASA/FTD management tunnel DoS — part of ArcaneDoor PRC campaign",
+          "description": "ASA/FTD management tunnel DoS \u2014 part of ArcaneDoor PRC campaign",
           "days_to_patch": 14,
           "kev": true,
           "zero_day": false
@@ -769,7 +769,7 @@
         {
           "id": "CVE-2024-24919",
           "severity": "CRITICAL",
-          "description": "Security Gateway path traversal enabling credential extraction — exploited ITW",
+          "description": "Security Gateway path traversal enabling credential extraction \u2014 exploited ITW",
           "days_to_patch": 7,
           "kev": true,
           "zero_day": true
@@ -834,7 +834,7 @@
         {
           "id": "CVE-2024-21591",
           "severity": "CRITICAL",
-          "description": "Junos OS SRX/EX unauthenticated RCE via J-Web — exploited ITW",
+          "description": "Junos OS SRX/EX unauthenticated RCE via J-Web \u2014 exploited ITW",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": false
@@ -899,7 +899,7 @@
         {
           "id": "CVE-2023-3519",
           "severity": "CRITICAL",
-          "description": "NetScaler ADC/Gateway unauthenticated RCE — mass exploitation by ransomware groups",
+          "description": "NetScaler ADC/Gateway unauthenticated RCE \u2014 mass exploitation by ransomware groups",
           "days_to_patch": 42,
           "kev": true,
           "zero_day": true
@@ -997,7 +997,7 @@
         "rubric_version": "1.0",
         "evidence_hash": "060865be924130a3",
         "source_count": 2,
-        "reasoning": "AWS claims agentic AI capabilities in WorkSpaces and OpenSearch, but evidence is limited to marketing titles without substantive product details—no benchmarks, AI attack surface coverage, own-AI governance, or adversarial readiness data provided.",
+        "reasoning": "AWS claims agentic AI capabilities in WorkSpaces and OpenSearch, but evidence is limited to marketing titles without substantive product details\u2014no benchmarks, AI attack surface coverage, own-AI governance, or adversarial readiness data provided.",
         "reviewed_by": "auto",
         "generated": "2026-04-11"
       }
@@ -1026,7 +1026,7 @@
         {
           "id": "CVE-2024-43491",
           "severity": "CRITICAL",
-          "description": "Windows Update rollback enabling reintroduction of patched flaws — exploited ITW",
+          "description": "Windows Update rollback enabling reintroduction of patched flaws \u2014 exploited ITW",
           "days_to_patch": 30,
           "kev": true,
           "zero_day": true
@@ -1034,7 +1034,7 @@
         {
           "id": "CVE-2024-38080",
           "severity": "CRITICAL",
-          "description": "Hyper-V elevation of privilege — zero-day exploited before Patch Tuesday",
+          "description": "Hyper-V elevation of privilege \u2014 zero-day exploited before Patch Tuesday",
           "days_to_patch": 30,
           "kev": true,
           "zero_day": true
@@ -1107,7 +1107,7 @@
         {
           "id": "CVE-2024-38812",
           "severity": "CRITICAL",
-          "description": "vCenter Server heap overflow in DCERPC — unauthenticated RCE",
+          "description": "vCenter Server heap overflow in DCERPC \u2014 unauthenticated RCE",
           "days_to_patch": 44,
           "kev": true,
           "zero_day": false
@@ -1215,7 +1215,7 @@
       "zero_days": 0,
       "kev_count": 1,
       "wr_featured": true,
-      "wr_take": "2023 breach found via customer report not internal detection — but disclosure and recovery were textbook. RRR tells the nuanced story.",
+      "wr_take": "2023 breach found via customer report not internal detection \u2014 but disclosure and recovery were textbook. RRR tells the nuanced story.",
       "rrr_react": "C",
       "rrr_respond": "A",
       "rrr_resilient": "B",
@@ -1232,7 +1232,7 @@
         {
           "id": "CVE-2024-9191",
           "severity": "HIGH",
-          "description": "On-prem AD agent authentication bypass — legacy agent versions only",
+          "description": "On-prem AD agent authentication bypass \u2014 legacy agent versions only",
           "days_to_patch": 19,
           "kev": true,
           "zero_day": false
@@ -1447,7 +1447,7 @@
         {
           "id": "CVE-2024-12356",
           "severity": "CRITICAL",
-          "description": "Privileged Remote Access command injection — exploited in Treasury breach Dec 2024",
+          "description": "Privileged Remote Access command injection \u2014 exploited in Treasury breach Dec 2024",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": true
@@ -1512,7 +1512,7 @@
         {
           "id": "CVE-2024-36991",
           "severity": "CRITICAL",
-          "description": "Enterprise path traversal on Windows — unauthenticated arbitrary file read",
+          "description": "Enterprise path traversal on Windows \u2014 unauthenticated arbitrary file read",
           "days_to_patch": 17,
           "kev": false,
           "zero_day": false
@@ -1520,7 +1520,7 @@
         {
           "id": "CVE-2024-45733",
           "severity": "HIGH",
-          "description": "Enterprise RCE via insecure session storage deserialization — requires auth",
+          "description": "Enterprise RCE via insecure session storage deserialization \u2014 requires auth",
           "days_to_patch": 23,
           "kev": false,
           "zero_day": false
@@ -1577,7 +1577,7 @@
         {
           "id": "CVE-2024-28986",
           "severity": "CRITICAL",
-          "description": "Web Help Desk Java deserialization RCE — unauthenticated, exploited ITW",
+          "description": "Web Help Desk Java deserialization RCE \u2014 unauthenticated, exploited ITW",
           "days_to_patch": 19,
           "kev": true,
           "zero_day": false
@@ -1805,7 +1805,7 @@
         {
           "id": "CVE-2024-3400",
           "severity": "HIGH",
-          "description": "Workers sandbox escape via crafted WebAssembly module — no confirmed customer impact",
+          "description": "Workers sandbox escape via crafted WebAssembly module \u2014 no confirmed customer impact",
           "days_to_patch": 4,
           "kev": false,
           "zero_day": false
@@ -2022,7 +2022,7 @@
       "zero_days": 0,
       "kev_count": 1,
       "wr_featured": true,
-      "wr_take": "March 2025 tj-actions/changed-files compromise affected 23,000 repositories and leaked CI/CD secrets. The GitHub ecosystem is now a trusted supply chain vector — assume any public action can turn.",
+      "wr_take": "March 2025 tj-actions/changed-files compromise affected 23,000 repositories and leaked CI/CD secrets. The GitHub ecosystem is now a trusted supply chain vector \u2014 assume any public action can turn.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "C",
@@ -2088,7 +2088,7 @@
         {
           "id": "CVE-2024-21683",
           "severity": "CRITICAL",
-          "description": "Confluence RCE via malicious macro — exploited ITW in ransomware campaigns",
+          "description": "Confluence RCE via malicious macro \u2014 exploited ITW in ransomware campaigns",
           "days_to_patch": 28,
           "kev": true,
           "zero_day": false
@@ -2096,7 +2096,7 @@
         {
           "id": "CVE-2023-22527",
           "severity": "CRITICAL",
-          "description": "Confluence template injection RCE — unauthenticated, mass exploitation into 2024",
+          "description": "Confluence template injection RCE \u2014 unauthenticated, mass exploitation into 2024",
           "days_to_patch": 21,
           "kev": true,
           "zero_day": false
@@ -2150,7 +2150,7 @@
             {
               "id": "CVE-2023-22527",
               "severity": "CRITICAL",
-              "description": "Template injection / OGNL expression injection — unauthenticated RCE",
+              "description": "Template injection / OGNL expression injection \u2014 unauthenticated RCE",
               "days_to_patch": 50,
               "kev": true,
               "zero_day": true
@@ -2189,7 +2189,7 @@
             {
               "id": "CVE-2022-36804",
               "severity": "CRITICAL",
-              "description": "Command injection in multiple API endpoints — arbitrary code execution",
+              "description": "Command injection in multiple API endpoints \u2014 arbitrary code execution",
               "days_to_patch": 21,
               "kev": true,
               "zero_day": false
@@ -2256,7 +2256,7 @@
         {
           "id": "CVE-2024-40711",
           "severity": "CRITICAL",
-          "description": "Backup & Replication deserialization RCE — unauthenticated, exploited by ransomware groups",
+          "description": "Backup & Replication deserialization RCE \u2014 unauthenticated, exploited by ransomware groups",
           "days_to_patch": 23,
           "kev": true,
           "zero_day": false
@@ -2318,7 +2318,7 @@
       "zero_days": 0,
       "kev_count": 2,
       "wr_featured": false,
-      "wr_take": "CVE-2025-12420 (BodySnatcher) allowed unauthenticated user impersonation bypassing MFA via virtual agents. No wild exploitation reported, but the semantic definition of vulnerability — reachable without permission — was the failure.",
+      "wr_take": "CVE-2025-12420 (BodySnatcher) allowed unauthenticated user impersonation bypassing MFA via virtual agents. No wild exploitation reported, but the semantic definition of vulnerability \u2014 reachable without permission \u2014 was the failure.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "C",
@@ -2327,7 +2327,7 @@
         {
           "id": "CVE-2024-4879",
           "severity": "CRITICAL",
-          "description": "Jelly template injection enabling unauthenticated RCE — exploited ITW",
+          "description": "Jelly template injection enabling unauthenticated RCE \u2014 exploited ITW",
           "days_to_patch": 14,
           "kev": true,
           "zero_day": false
@@ -2400,7 +2400,7 @@
         {
           "id": "CVE-2024-22127",
           "severity": "CRITICAL",
-          "description": "NetWeaver AS ABAP OS command injection via report execution — exploited ITW",
+          "description": "NetWeaver AS ABAP OS command injection via report execution \u2014 exploited ITW",
           "days_to_patch": 30,
           "kev": true,
           "zero_day": false
@@ -2465,7 +2465,7 @@
         {
           "id": "CVE-2024-8933",
           "severity": "CRITICAL",
-          "description": "EcoStruxure Panel Server unauthenticated path traversal — config file exfiltration",
+          "description": "EcoStruxure Panel Server unauthenticated path traversal \u2014 config file exfiltration",
           "days_to_patch": 71,
           "kev": false,
           "zero_day": false
@@ -2565,7 +2565,7 @@
       "zero_days": 1,
       "kev_count": 4,
       "wr_featured": true,
-      "wr_take": "April 2024 BlackBasta breach exposed 800GB. Multiple ICS products carry critical unpatched flaws — operational systems cannot be patched on a web-scale schedule.",
+      "wr_take": "April 2024 BlackBasta breach exposed 800GB. Multiple ICS products carry critical unpatched flaws \u2014 operational systems cannot be patched on a web-scale schedule.",
       "rrr_react": "C",
       "rrr_respond": "B",
       "rrr_resilient": "C",
@@ -2574,7 +2574,7 @@
         {
           "id": "CVE-2024-35783",
           "severity": "CRITICAL",
-          "description": "SINEC NMS SQL injection via network management interface — unauthenticated",
+          "description": "SINEC NMS SQL injection via network management interface \u2014 unauthenticated",
           "days_to_patch": 56,
           "kev": false,
           "zero_day": false
@@ -2582,7 +2582,7 @@
         {
           "id": "CVE-2024-23814",
           "severity": "HIGH",
-          "description": "SIMATIC S7-1500 DoS via crafted Profinet IO — safety system impact possible",
+          "description": "SIMATIC S7-1500 DoS via crafted Profinet IO \u2014 safety system impact possible",
           "days_to_patch": 84,
           "kev": false,
           "zero_day": false
@@ -2654,7 +2654,7 @@
         "rubric_version": "1.0",
         "evidence_hash": "4f53cda18c2baa0c",
         "source_count": 0,
-        "reasoning": "No public evidence available — no blogs, press releases, or technical documentation collected to assess Siemens' AI-Era Readiness across any dimension.",
+        "reasoning": "No public evidence available \u2014 no blogs, press releases, or technical documentation collected to assess Siemens' AI-Era Readiness across any dimension.",
         "reviewed_by": "auto",
         "generated": "2026-04-11"
       }
@@ -2748,7 +2748,7 @@
         {
           "id": "CVE-2023-4966",
           "severity": "CRITICAL",
-          "description": "Citrix Bleed session token extraction — entry point in Change Healthcare compromise",
+          "description": "Citrix Bleed session token extraction \u2014 entry point in Change Healthcare compromise",
           "days_to_patch": 78,
           "kev": true,
           "zero_day": false
@@ -2833,7 +2833,7 @@
         "rubric_version": "1.0",
         "evidence_hash": "704633326d39ac8b",
         "source_count": 4,
-        "reasoning": "Guidewire is an enterprise insurance software vendor (PolicyCenter, ClaimCenter, BillingCenter) with internal AI for underwriting and claims, not a security product; evidence bundle contains blog post excerpts insufficient to assess any AI-Era Readiness dimension—zero evidence of autonomous threat response, detection latency, AI attack surface defense, AI governance/guardrails/disclosures, or adversarial AI readiness.",
+        "reasoning": "Guidewire is an enterprise insurance software vendor (PolicyCenter, ClaimCenter, BillingCenter) with internal AI for underwriting and claims, not a security product; evidence bundle contains blog post excerpts insufficient to assess any AI-Era Readiness dimension\u2014zero evidence of autonomous threat response, detection latency, AI attack surface defense, AI governance/guardrails/disclosures, or adversarial AI readiness.",
         "reviewed_by": "auto",
         "generated": "2026-04-11"
       }
@@ -2912,7 +2912,7 @@
       "zero_days": 3,
       "kev_count": 6,
       "wr_featured": true,
-      "wr_take": "May 2023 zero-day required full hardware replacement — not patching, replacement. That is a category of incident severity most boards have no framework for.",
+      "wr_take": "May 2023 zero-day required full hardware replacement \u2014 not patching, replacement. That is a category of incident severity most boards have no framework for.",
       "rrr_react": "B",
       "rrr_respond": "B",
       "rrr_resilient": "F",
@@ -2921,7 +2921,7 @@
         {
           "id": "CVE-2023-2868",
           "severity": "CRITICAL",
-          "description": "ESG appliance RCE via malformed TAR attachment — required full hardware replacement",
+          "description": "ESG appliance RCE via malformed TAR attachment \u2014 required full hardware replacement",
           "days_to_patch": 42,
           "kev": true,
           "zero_day": true
@@ -3071,7 +3071,7 @@
         "rubric_version": "1.0",
         "evidence_hash": "6d22aa994a280cc1",
         "source_count": 3,
-        "reasoning": "The evidence bundle consists of marketing materials about Salesforce's CRM products (Agentforce Grid), workforce initiatives, and general AI guidance—none of which address security operations, threat response, AI attack surface coverage, internal governance of AI systems, or adversarial AI readiness. Insufficient evidence exists to score any dimension of the security-focused AI-era readiness rubric.",
+        "reasoning": "The evidence bundle consists of marketing materials about Salesforce's CRM products (Agentforce Grid), workforce initiatives, and general AI guidance\u2014none of which address security operations, threat response, AI attack surface coverage, internal governance of AI systems, or adversarial AI readiness. Insufficient evidence exists to score any dimension of the security-focused AI-era readiness rubric.",
         "reviewed_by": "auto",
         "generated": "2026-04-11"
       }
@@ -3214,7 +3214,7 @@
         {
           "id": "CVE-2024-10905",
           "severity": "CRITICAL",
-          "description": "IdentityIQ improper access control — HTTP access to protected static content",
+          "description": "IdentityIQ improper access control \u2014 HTTP access to protected static content",
           "days_to_patch": 14,
           "kev": false,
           "zero_day": false
@@ -3343,7 +3343,7 @@
         {
           "id": "CVE-2025-34028",
           "severity": "CRITICAL",
-          "description": "Command Center path traversal RCE — pre-auth remote code execution via ZIP upload",
+          "description": "Command Center path traversal RCE \u2014 pre-auth remote code execution via ZIP upload",
           "days_to_patch": 3,
           "kev": true,
           "zero_day": true
@@ -3359,7 +3359,7 @@
         {
           "id": "CVE-2025-57791",
           "severity": "CRITICAL",
-          "description": "CommServe argument injection — unauthenticated RCE via qlogin manipulation",
+          "description": "CommServe argument injection \u2014 unauthenticated RCE via qlogin manipulation",
           "days_to_patch": 7,
           "kev": false,
           "zero_day": false
@@ -3603,7 +3603,7 @@
         {
           "id": "CVE-2025-20059",
           "severity": "CRITICAL",
-          "description": "PingAM Java Policy Agent path traversal — file manipulation and data exfiltration without user interaction",
+          "description": "PingAM Java Policy Agent path traversal \u2014 file manipulation and data exfiltration without user interaction",
           "days_to_patch": 21,
           "kev": false,
           "zero_day": false
@@ -3666,7 +3666,7 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": true,
-      "wr_take": "The team that finds the flaws everyone else missed. WatchTowr Labs has redefined what 'responsibly disclosed' means — Citrix Bleed, Fortinet zero-days, Ivanti EPMM. They don't build walls; they hunt the holes.",
+      "wr_take": "The team that finds the flaws everyone else missed. WatchTowr Labs has redefined what 'responsibly disclosed' means \u2014 Citrix Bleed, Fortinet zero-days, Ivanti EPMM. They don't build walls; they hunt the holes.",
       "rrr_react": "A",
       "rrr_respond": "A",
       "rrr_resilient": "A",
@@ -3700,7 +3700,7 @@
         "rubric_version": "1.0",
         "evidence_hash": "adf70b9a51c26f9a",
         "source_count": 1,
-        "reasoning": "Single brief blog excerpt with only velocity claim (hours→minutes) being specific and measurable; autonomy and own-AI inferred from vague 'AI-driven rapid reaction' language without product feature details; zero evidence for AI surface coverage or adversarial readiness.",
+        "reasoning": "Single brief blog excerpt with only velocity claim (hours\u2192minutes) being specific and measurable; autonomy and own-AI inferred from vague 'AI-driven rapid reaction' language without product feature details; zero evidence for AI surface coverage or adversarial readiness.",
         "reviewed_by": "auto",
         "generated": "2026-04-11"
       }
@@ -3720,7 +3720,7 @@
       "zero_days": 0,
       "kev_count": 0,
       "wr_featured": true,
-      "wr_take": "Market leader in compliance automation. The March 2025 cross-customer data exposure — caused by a product code change, not an attacker — was the reminder that compliance platforms are still humans with keyboards. Affected ~4% of customers.",
+      "wr_take": "Market leader in compliance automation. The March 2025 cross-customer data exposure \u2014 caused by a product code change, not an attacker \u2014 was the reminder that compliance platforms are still humans with keyboards. Affected ~4% of customers.",
       "rrr_react": "B",
       "rrr_respond": "B",
       "rrr_resilient": "B",
@@ -3761,6 +3761,72 @@
         "reviewed_by": "auto",
         "generated": "2026-04-11"
       }
+    },
+    {
+      "id": "hashicorp",
+      "name": "HashiCorp (IBM)",
+      "monogram": "HC",
+      "sector": "nhi",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "A",
+      "score": 84,
+      "cves_12m": 4,
+      "critical_count": 0,
+      "mttp_days": 14,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": "De-facto standard for secrets management and infrastructure automation. IBM acquisition (2023) raises roadmap uncertainty but product quality remains high.",
+      "rrr_react": "B",
+      "rrr_respond": "A",
+      "rrr_resilient": "A",
+      "serial": "WR-2026-050",
+      "cve_list": []
+    },
+    {
+      "id": "securityscorecard",
+      "name": "SecurityScorecard",
+      "monogram": "SC",
+      "sector": "tprm",
+      "tier": 2,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 76,
+      "cves_12m": 0,
+      "critical_count": 0,
+      "mttp_days": 0,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": "Market-defining external risk scoring platform. Continuous monitoring of 12M+ companies makes it the benchmark for third-party risk programmes.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "A",
+      "serial": "WR-2026-051",
+      "cve_list": []
+    },
+    {
+      "id": "drata",
+      "name": "Drata",
+      "monogram": "DR",
+      "sector": "grc",
+      "tier": 2,
+      "market_position": "Challenger",
+      "grade": "B",
+      "score": 78,
+      "cves_12m": 0,
+      "critical_count": 0,
+      "mttp_days": 0,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": "Strong GRC automation with 100+ framework templates. Competes directly with Vanta on compliance automation velocity.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "B",
+      "serial": "WR-2026-052",
+      "cve_list": []
     }
   ],
   "last_updated": "2026-04-08"
