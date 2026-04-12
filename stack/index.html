@@ -6,8 +6,8 @@
 <title>Security Stack Assessment — THE WANG REPORT</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{background:#0a0a12;color:#ccc;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.4}
-body{background:#0a0a12;min-height:100vh}
+html{background:#0a0a12;color:#ccc;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.4;overflow-x:hidden}
+body{background:#0a0a12;min-height:100vh;overflow-x:hidden}
 a{color:#c9a84c;text-decoration:none}
 a:hover{text-decoration:underline}
 
@@ -38,7 +38,7 @@ a:hover{text-decoration:underline}
 @media(max-width:900px){.main-layout{grid-template-columns:1fr}}
 
 /* SLOT GRID */
-.slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:20px}
+.slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-bottom:20px}
 
 /* SLOT CELL — wraps the slot header + card stack + add tile */
 .slot-cell{display:flex;flex-direction:column;gap:6px}
@@ -387,10 +387,8 @@ a:hover{text-decoration:underline}
 .ctrl-summary-stat{text-align:center;font-family:Impact,'Arial Narrow',sans-serif}
 .ctrl-summary-num{font-size:24px;color:#c9a84c;display:block}
 .ctrl-summary-lbl{font-size:8px;color:#555;letter-spacing:0.5px;text-transform:uppercase}
-.ctrl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:start}
-@media(max-width:1100px){.ctrl-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.ctrl-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:450px){.ctrl-grid{grid-template-columns:1fr}}
+.ctrl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;align-items:start}
+@media(max-width:600px){.ctrl-grid{grid-template-columns:1fr}}
 .ctrl-fn{border-radius:6px;overflow:hidden;border:1px solid #1a1a2a}
 .ctrl-fn-hdr{padding:7px 10px;font-family:Impact,'Arial Narrow',sans-serif;font-size:11px;letter-spacing:1.5px;text-align:center;border-bottom:2px solid}
 .ctrl-fn-body{padding:8px;display:flex;flex-direction:column;gap:8px}
@@ -1723,11 +1721,13 @@ function openPicker(cap) {
   document.querySelectorAll('.pc-dep-btn').forEach(b => b.classList.toggle('active', b.dataset.dep === 'all'));
   renderPickerGrid('');
   document.getElementById('pickerModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
   document.getElementById('modalSearch').focus();
 }
 
 function closePicker() {
   document.getElementById('pickerModal').classList.remove('open');
+  document.body.style.overflow = '';
   pickerCapId = null;
 }
 
