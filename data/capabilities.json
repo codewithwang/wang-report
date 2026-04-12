@@ -3,10 +3,18 @@
     {
       "id": "identity_sso",
       "name": "Identity / SSO",
-      "catalog_intro": "The identity perimeter. Everything downstream — SaaS access, device trust, privileged escalation — depends on getting this layer right.",
+      "catalog_intro": "The identity perimeter. Everything downstream \u2014 SaaS access, device trust, privileged escalation \u2014 depends on getting this layer right.",
       "description": "Authentication, SSO, directory",
-      "criticality": {"startup": 5, "smb": 5, "enterprise": 5},
-      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 5,
+        "smb": 5,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "sso",
@@ -14,8 +22,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "One credential set unlocks all federated apps, reducing password reuse and shadow IT.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "6.7"},
-          "typical_tools": ["okta", "microsoft-entra", "ping-identity"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "6.7"
+          },
+          "typical_tools": [
+            "okta",
+            "microsoft-entra",
+            "ping-identity"
+          ]
         },
         {
           "id": "mfa",
@@ -23,8 +38,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "MFA blocks the majority of credential-based attacks; passwordless eliminates the phishable password entirely.",
-          "framework_refs": {"nist_csf": "PR.AC-7", "cis": "6.5"},
-          "typical_tools": ["okta", "microsoft-entra", "ping-identity"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-7",
+            "cis": "6.5"
+          },
+          "typical_tools": [
+            "okta",
+            "microsoft-entra",
+            "ping-identity"
+          ]
         },
         {
           "id": "directory",
@@ -32,8 +54,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Centralised directory with SCIM provisioning ensures accounts are created and removed consistently across all integrated systems.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "6.1"},
-          "typical_tools": ["okta", "microsoft-entra", "ping-identity"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "6.1"
+          },
+          "typical_tools": [
+            "okta",
+            "microsoft-entra",
+            "ping-identity"
+          ]
         },
         {
           "id": "lifecycle",
@@ -41,8 +70,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Automated joiner/mover/leaver workflows prevent stale accounts that provide persistent attacker footholds.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "6.2"},
-          "typical_tools": ["okta", "microsoft-entra", "sailpoint"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "6.2"
+          },
+          "typical_tools": [
+            "okta",
+            "microsoft-entra",
+            "sailpoint"
+          ]
         },
         {
           "id": "risk_auth",
@@ -50,8 +86,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Contextual risk signals (location, device, behaviour) step up authentication dynamically without degrading user experience.",
-          "framework_refs": {"nist_csf": "PR.AC-7", "cis": "6.8"},
-          "typical_tools": ["okta", "microsoft-entra", "ping-identity"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-7",
+            "cis": "6.8"
+          },
+          "typical_tools": [
+            "okta",
+            "microsoft-entra",
+            "ping-identity"
+          ]
         }
       ]
     },
@@ -60,8 +103,16 @@
       "name": "Endpoint Protection",
       "catalog_intro": "Your largest attack surface. Endpoints are the entry point for 70%+ of breaches; detection and prevention quality here directly determines dwell time.",
       "description": "EDR/EPP for workstations and servers",
-      "criticality": {"startup": 5, "smb": 5, "enterprise": 5},
-      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 5,
+        "smb": 5,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "edr",
@@ -69,8 +120,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Behavioural telemetry and detection rules identify attackers post-compromise before they can move laterally or exfiltrate.",
-          "framework_refs": {"nist_csf": "DE.CM-4", "cis": "10.1"},
-          "typical_tools": ["crowdstrike", "sentinelone", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-4",
+            "cis": "10.1"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone",
+            "microsoft-defender"
+          ]
         },
         {
           "id": "epp",
@@ -78,8 +136,15 @@
           "weight": 1.0,
           "required": true,
           "rationale": "Signature and ML-based prevention stops known malware and commodity threats before execution, reducing analyst noise.",
-          "framework_refs": {"nist_csf": "PR.DS-5", "cis": "10.2"},
-          "typical_tools": ["crowdstrike", "sentinelone", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-5",
+            "cis": "10.2"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone",
+            "microsoft-defender"
+          ]
         },
         {
           "id": "threat_intel",
@@ -87,8 +152,14 @@
           "weight": 0.8,
           "required": false,
           "rationale": "IOC and TTP feeds enriched against endpoint telemetry accelerate alert triage and proactive blocking.",
-          "framework_refs": {"nist_csf": "ID.RA-2", "cis": "17.1"},
-          "typical_tools": ["crowdstrike", "sentinelone"]
+          "framework_refs": {
+            "nist_csf": "ID.RA-2",
+            "cis": "17.1"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone"
+          ]
         },
         {
           "id": "device_ctrl",
@@ -96,8 +167,15 @@
           "weight": 0.6,
           "required": false,
           "rationale": "USB and removable media controls prevent data exfiltration and introduction of malicious media.",
-          "framework_refs": {"nist_csf": "PR.AC-3", "cis": "10.4"},
-          "typical_tools": ["crowdstrike", "sentinelone", "ivanti"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-3",
+            "cis": "10.4"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone",
+            "ivanti"
+          ]
         },
         {
           "id": "server_prot",
@@ -105,8 +183,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Servers and Linux workloads are high-value targets; EDR coverage must extend beyond Windows desktops.",
-          "framework_refs": {"nist_csf": "DE.CM-4", "cis": "10.6"},
-          "typical_tools": ["crowdstrike", "sentinelone", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-4",
+            "cis": "10.6"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone",
+            "microsoft-defender"
+          ]
         },
         {
           "id": "response",
@@ -114,8 +199,14 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Automated isolation and remediation actions reduce mean time to contain, limiting blast radius during an active incident.",
-          "framework_refs": {"nist_csf": "RS.MI-1", "cis": "17.6"},
-          "typical_tools": ["crowdstrike", "sentinelone"]
+          "framework_refs": {
+            "nist_csf": "RS.MI-1",
+            "cis": "17.6"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone"
+          ]
         }
       ]
     },
@@ -124,8 +215,16 @@
       "name": "Email Security",
       "catalog_intro": "The primary delivery vector for phishing, BEC, and ransomware. A first line of defence that must handle volume and sophistication simultaneously.",
       "description": "Phishing, BEC, malware filtering",
-      "criticality": {"startup": 4, "smb": 4, "enterprise": 4},
-      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 4,
+        "smb": 4,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "anti_phishing",
@@ -133,8 +232,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Impersonation detection and BEC pattern analysis stop the most costly attack vector before messages reach the inbox.",
-          "framework_refs": {"nist_csf": "PR.AT-2", "cis": "9.5"},
-          "typical_tools": ["proofpoint", "barracuda", "cisco", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "PR.AT-2",
+            "cis": "9.5"
+          },
+          "typical_tools": [
+            "proofpoint",
+            "barracuda",
+            "cisco",
+            "microsoft-defender"
+          ]
         },
         {
           "id": "malware_sandboxing",
@@ -142,8 +249,16 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Dynamic detonation of attachments and links in an isolated environment catches zero-day payloads that signature scanning misses.",
-          "framework_refs": {"nist_csf": "DE.CM-4", "cis": "9.2"},
-          "typical_tools": ["proofpoint", "barracuda", "cisco", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-4",
+            "cis": "9.2"
+          },
+          "typical_tools": [
+            "proofpoint",
+            "barracuda",
+            "cisco",
+            "microsoft-defender"
+          ]
         },
         {
           "id": "dmarc_enforcement",
@@ -151,8 +266,14 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Enforcing sender authentication standards prevents domain spoofing and reduces spoofed phishing delivered under your brand.",
-          "framework_refs": {"nist_csf": "PR.DS-2", "cis": "9.4"},
-          "typical_tools": ["proofpoint", "barracuda"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-2",
+            "cis": "9.4"
+          },
+          "typical_tools": [
+            "proofpoint",
+            "barracuda"
+          ]
         },
         {
           "id": "url_rewriting",
@@ -160,8 +281,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Rewriting links and rechecking them at click time catches late-stage phishing redirects that bypass initial scanning.",
-          "framework_refs": {"nist_csf": "PR.AT-2", "cis": "9.3"},
-          "typical_tools": ["proofpoint", "barracuda", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "PR.AT-2",
+            "cis": "9.3"
+          },
+          "typical_tools": [
+            "proofpoint",
+            "barracuda",
+            "microsoft-defender"
+          ]
         },
         {
           "id": "email_dlp",
@@ -169,8 +297,15 @@
           "weight": 0.7,
           "required": false,
           "rationale": "Outbound content inspection prevents sensitive data from leaving via email, covering both accidental leakage and insider threat.",
-          "framework_refs": {"nist_csf": "PR.DS-5", "cis": "9.6"},
-          "typical_tools": ["proofpoint", "barracuda", "microsoft-defender"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-5",
+            "cis": "9.6"
+          },
+          "typical_tools": [
+            "proofpoint",
+            "barracuda",
+            "microsoft-defender"
+          ]
         }
       ]
     },
@@ -179,8 +314,16 @@
       "name": "Backup / DR",
       "catalog_intro": "Your last resort when everything else fails. Backup integrity and recovery speed determine whether a ransomware event becomes a business continuity crisis.",
       "description": "Data backup, recovery, ransomware resilience",
-      "criticality": {"startup": 4, "smb": 4, "enterprise": 4},
-      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 4,
+        "smb": 4,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "recovery_testing",
@@ -188,8 +331,14 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Regular restore drills confirm backups are actually valid and that RTO targets are achievable under real incident conditions.",
-          "framework_refs": {"nist_csf": "RC.RP-1", "cis": "11.3"},
-          "typical_tools": ["veeam", "commvault"]
+          "framework_refs": {
+            "nist_csf": "RC.RP-1",
+            "cis": "11.3"
+          },
+          "typical_tools": [
+            "veeam",
+            "commvault"
+          ]
         },
         {
           "id": "immutable_storage",
@@ -197,8 +346,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Backup copies that cannot be encrypted or deleted by ransomware are the only reliable guarantee of recovery after an attack.",
-          "framework_refs": {"nist_csf": "PR.IP-4", "cis": "11.2"},
-          "typical_tools": ["veeam", "commvault", "aws", "azure-backup"]
+          "framework_refs": {
+            "nist_csf": "PR.IP-4",
+            "cis": "11.2"
+          },
+          "typical_tools": [
+            "veeam",
+            "commvault",
+            "aws",
+            "azure-backup"
+          ]
         },
         {
           "id": "ransomware_detection",
@@ -206,8 +363,14 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Anomaly detection on backup jobs flags unusual encryption activity early, potentially catching ransomware before full propagation.",
-          "framework_refs": {"nist_csf": "DE.CM-3", "cis": "11.4"},
-          "typical_tools": ["veeam", "commvault"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-3",
+            "cis": "11.4"
+          },
+          "typical_tools": [
+            "veeam",
+            "commvault"
+          ]
         },
         {
           "id": "cloud_backup",
@@ -215,8 +378,16 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Cloud-hosted data in M365, Google Workspace, and Salesforce is not automatically protected by the provider; explicit backup coverage is required.",
-          "framework_refs": {"nist_csf": "PR.IP-4", "cis": "11.1"},
-          "typical_tools": ["veeam", "commvault", "aws", "azure-backup"]
+          "framework_refs": {
+            "nist_csf": "PR.IP-4",
+            "cis": "11.1"
+          },
+          "typical_tools": [
+            "veeam",
+            "commvault",
+            "aws",
+            "azure-backup"
+          ]
         },
         {
           "id": "granular_restore",
@@ -224,18 +395,32 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Item-level restore for files, emails, and databases reduces recovery time and avoids the disruption of full system restoration.",
-          "framework_refs": {"nist_csf": "RC.RP-1", "cis": "11.5"},
-          "typical_tools": ["veeam", "commvault"]
+          "framework_refs": {
+            "nist_csf": "RC.RP-1",
+            "cis": "11.5"
+          },
+          "typical_tools": [
+            "veeam",
+            "commvault"
+          ]
         }
       ]
     },
     {
       "id": "mdm",
       "name": "MDM / UEM",
-      "catalog_intro": "Policy enforcement for the device fleet. Without MDM, you cannot verify device posture before granting access — the foundation of zero-trust on endpoints.",
+      "catalog_intro": "Policy enforcement for the device fleet. Without MDM, you cannot verify device posture before granting access \u2014 the foundation of zero-trust on endpoints.",
       "description": "Mobile/device management and policy enforcement",
-      "criticality": {"startup": 3, "smb": 3, "enterprise": 3},
-      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 3,
+        "smb": 3,
+        "enterprise": 3
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "device_enrollment",
@@ -243,8 +428,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Managed device enrollment ensures only known, policy-compliant devices can access corporate resources.",
-          "framework_refs": {"nist_csf": "PR.AC-3", "cis": "6.4"},
-          "typical_tools": ["ivanti", "microsoft-defender", "jamf", "vmware"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-3",
+            "cis": "6.4"
+          },
+          "typical_tools": [
+            "ivanti",
+            "microsoft-defender",
+            "jamf",
+            "vmware"
+          ]
         },
         {
           "id": "compliance_policy",
@@ -252,8 +445,16 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Enforcing encryption, OS patch level, and screen lock requirements on devices is the baseline for conditional access decisions.",
-          "framework_refs": {"nist_csf": "PR.AC-3", "cis": "4.1"},
-          "typical_tools": ["ivanti", "microsoft-defender", "jamf", "vmware"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-3",
+            "cis": "4.1"
+          },
+          "typical_tools": [
+            "ivanti",
+            "microsoft-defender",
+            "jamf",
+            "vmware"
+          ]
         },
         {
           "id": "remote_wipe",
@@ -261,8 +462,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Lost or stolen devices can be immediately locked or wiped to prevent data exposure without relying on the device holder.",
-          "framework_refs": {"nist_csf": "PR.DS-3", "cis": "6.4"},
-          "typical_tools": ["ivanti", "microsoft-defender", "jamf"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-3",
+            "cis": "6.4"
+          },
+          "typical_tools": [
+            "ivanti",
+            "microsoft-defender",
+            "jamf"
+          ]
         },
         {
           "id": "app_management",
@@ -270,8 +478,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Mobile application management controls which apps are permitted on devices and enforces data separation on BYOD endpoints.",
-          "framework_refs": {"nist_csf": "PR.AC-3", "cis": "2.6"},
-          "typical_tools": ["ivanti", "microsoft-defender", "vmware"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-3",
+            "cis": "2.6"
+          },
+          "typical_tools": [
+            "ivanti",
+            "microsoft-defender",
+            "vmware"
+          ]
         },
         {
           "id": "cert_management",
@@ -279,8 +494,15 @@
           "weight": 0.7,
           "required": false,
           "rationale": "Automated certificate and network profile provisioning removes friction from secure connectivity while preventing rogue device access.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "6.4"},
-          "typical_tools": ["ivanti", "microsoft-defender", "jamf"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "6.4"
+          },
+          "typical_tools": [
+            "ivanti",
+            "microsoft-defender",
+            "jamf"
+          ]
         }
       ]
     },
@@ -289,8 +511,16 @@
       "name": "Password Manager",
       "catalog_intro": "Credential hygiene at scale. Reduces password reuse, enables secure sharing, and provides an audit trail for credential access.",
       "description": "Enterprise credential vault and sharing",
-      "criticality": {"startup": 3, "smb": 3, "enterprise": 3},
-      "modes": {"startup": true, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 3,
+        "smb": 3,
+        "enterprise": 3
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "vault_storage",
@@ -298,8 +528,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "End-to-end encrypted credential storage eliminates password reuse and enables strong unique passwords across all accounts.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "5.3"},
-          "typical_tools": ["1password", "bitwarden", "hashicorp-vault", "delinea"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "5.3"
+          },
+          "typical_tools": [
+            "1password",
+            "bitwarden",
+            "hashicorp-vault",
+            "delinea"
+          ]
         },
         {
           "id": "secure_sharing",
@@ -307,8 +545,15 @@
           "weight": 1.0,
           "required": true,
           "rationale": "Controlled credential sharing prevents credentials from being transmitted over insecure channels like email or chat.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "5.4"},
-          "typical_tools": ["1password", "bitwarden", "delinea"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "5.4"
+          },
+          "typical_tools": [
+            "1password",
+            "bitwarden",
+            "delinea"
+          ]
         },
         {
           "id": "breach_monitoring",
@@ -316,8 +561,14 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Alerting on compromised credentials identified in data breaches enables rapid credential rotation before accounts are exploited.",
-          "framework_refs": {"nist_csf": "ID.RA-2", "cis": "5.5"},
-          "typical_tools": ["1password", "bitwarden"]
+          "framework_refs": {
+            "nist_csf": "ID.RA-2",
+            "cis": "5.5"
+          },
+          "typical_tools": [
+            "1password",
+            "bitwarden"
+          ]
         },
         {
           "id": "sso_integration",
@@ -325,8 +576,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Integration with IdP enables centralised authentication to the vault and enforces MFA without requiring separate vault credentials.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "6.7"},
-          "typical_tools": ["1password", "bitwarden", "hashicorp-vault"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "6.7"
+          },
+          "typical_tools": [
+            "1password",
+            "bitwarden",
+            "hashicorp-vault"
+          ]
         },
         {
           "id": "admin_audit",
@@ -334,8 +592,15 @@
           "weight": 0.7,
           "required": false,
           "rationale": "Audit logs of credential access and sharing events support forensic investigation and compliance reporting.",
-          "framework_refs": {"nist_csf": "PR.PT-1", "cis": "8.2"},
-          "typical_tools": ["1password", "bitwarden", "hashicorp-vault"]
+          "framework_refs": {
+            "nist_csf": "PR.PT-1",
+            "cis": "8.2"
+          },
+          "typical_tools": [
+            "1password",
+            "bitwarden",
+            "hashicorp-vault"
+          ]
         }
       ]
     },
@@ -344,8 +609,16 @@
       "name": "Cloud Security",
       "catalog_intro": "Visibility and control across cloud workloads. Cloud misconfigurations are the leading cause of cloud breaches; posture management closes that gap.",
       "description": "Cloud workload protection, IaaS/SaaS security posture",
-      "criticality": {"startup": 3, "smb": 4, "enterprise": 0},
-      "modes": {"startup": true, "smb": true, "enterprise": false},
+      "criticality": {
+        "startup": 3,
+        "smb": 4,
+        "enterprise": 0
+      },
+      "modes": {
+        "startup": true,
+        "smb": true,
+        "enterprise": false
+      },
       "sub_capabilities": [
         {
           "id": "cspm",
@@ -353,8 +626,17 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Continuous detection of cloud misconfigurations across IaaS closes the gap that accounts for the majority of cloud-origin breaches.",
-          "framework_refs": {"nist_csf": "DE.CM-7", "cis": "4.1"},
-          "typical_tools": ["wiz", "aws", "microsoft-azure", "google-cloud-security", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-7",
+            "cis": "4.1"
+          },
+          "typical_tools": [
+            "wiz",
+            "aws",
+            "microsoft-azure",
+            "google-cloud-security",
+            "paloalto"
+          ]
         },
         {
           "id": "workload_protection",
@@ -362,8 +644,16 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Runtime protection for VMs, containers, and serverless workloads detects threats that network-level controls cannot see.",
-          "framework_refs": {"nist_csf": "DE.CM-4", "cis": "12.2"},
-          "typical_tools": ["wiz", "paloalto", "microsoft-azure", "aws"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-4",
+            "cis": "12.2"
+          },
+          "typical_tools": [
+            "wiz",
+            "paloalto",
+            "microsoft-azure",
+            "aws"
+          ]
         },
         {
           "id": "identity_entitlements",
@@ -371,8 +661,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Cloud infrastructure entitlement management identifies over-privileged IAM roles and unused permissions that expand the blast radius of compromise.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "5.1"},
-          "typical_tools": ["wiz", "paloalto", "microsoft-azure"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "5.1"
+          },
+          "typical_tools": [
+            "wiz",
+            "paloalto",
+            "microsoft-azure"
+          ]
         },
         {
           "id": "network_monitoring",
@@ -380,8 +677,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "VPC flow log analysis and DNS monitoring detect lateral movement and data exfiltration within cloud environments.",
-          "framework_refs": {"nist_csf": "DE.CM-1", "cis": "12.6"},
-          "typical_tools": ["aws", "microsoft-azure", "google-cloud-security"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-1",
+            "cis": "12.6"
+          },
+          "typical_tools": [
+            "aws",
+            "microsoft-azure",
+            "google-cloud-security"
+          ]
         },
         {
           "id": "threat_detection",
@@ -389,18 +693,34 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Correlating cloud service API logs, identity events, and workload telemetry surfaces attacker behaviour invisible to traditional SIEM.",
-          "framework_refs": {"nist_csf": "DE.AE-2", "cis": "17.3"},
-          "typical_tools": ["wiz", "aws", "microsoft-azure", "google-cloud-security"]
+          "framework_refs": {
+            "nist_csf": "DE.AE-2",
+            "cis": "17.3"
+          },
+          "typical_tools": [
+            "wiz",
+            "aws",
+            "microsoft-azure",
+            "google-cloud-security"
+          ]
         }
       ]
     },
     {
       "id": "vuln_mgmt",
       "name": "Vulnerability Management",
-      "catalog_intro": "The risk prioritisation engine. Knowing what's exposed — and fixing the right things first — separates proactive from reactive security programs.",
+      "catalog_intro": "The risk prioritisation engine. Knowing what's exposed \u2014 and fixing the right things first \u2014 separates proactive from reactive security programs.",
       "description": "Asset scanning, risk prioritisation, patch tracking",
-      "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
-      "modes": {"startup": false, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 4,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "asset_discovery",
@@ -408,8 +728,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "You cannot protect what you cannot see; authenticated and unauthenticated scanning builds the asset inventory that drives all downstream prioritisation.",
-          "framework_refs": {"nist_csf": "ID.AM-1", "cis": "1.1"},
-          "typical_tools": ["tenable", "rapid7", "ivanti", "solarwinds"]
+          "framework_refs": {
+            "nist_csf": "ID.AM-1",
+            "cis": "1.1"
+          },
+          "typical_tools": [
+            "tenable",
+            "rapid7",
+            "ivanti",
+            "solarwinds"
+          ]
         },
         {
           "id": "risk_prioritisation",
@@ -417,8 +745,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "CVSS and exploit-probability scoring focus finite remediation resources on the vulnerabilities most likely to be weaponised.",
-          "framework_refs": {"nist_csf": "ID.RA-1", "cis": "7.1"},
-          "typical_tools": ["tenable", "rapid7", "watchtowr"]
+          "framework_refs": {
+            "nist_csf": "ID.RA-1",
+            "cis": "7.1"
+          },
+          "typical_tools": [
+            "tenable",
+            "rapid7",
+            "watchtowr"
+          ]
         },
         {
           "id": "patch_tracking",
@@ -426,8 +761,16 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Ticketing integration and SLA tracking ensure identified vulnerabilities are remediated within policy timelines and exceptions are documented.",
-          "framework_refs": {"nist_csf": "RS.MI-3", "cis": "7.4"},
-          "typical_tools": ["tenable", "rapid7", "ivanti", "servicenow"]
+          "framework_refs": {
+            "nist_csf": "RS.MI-3",
+            "cis": "7.4"
+          },
+          "typical_tools": [
+            "tenable",
+            "rapid7",
+            "ivanti",
+            "servicenow"
+          ]
         },
         {
           "id": "external_attack_surface",
@@ -435,8 +778,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Continuous monitoring of internet-facing assets from an attacker perspective identifies shadow IT and newly exposed services before they are exploited.",
-          "framework_refs": {"nist_csf": "ID.AM-4", "cis": "7.6"},
-          "typical_tools": ["watchtowr", "rapid7", "tenable"]
+          "framework_refs": {
+            "nist_csf": "ID.AM-4",
+            "cis": "7.6"
+          },
+          "typical_tools": [
+            "watchtowr",
+            "rapid7",
+            "tenable"
+          ]
         },
         {
           "id": "compliance_scanning",
@@ -444,8 +794,15 @@
           "weight": 0.7,
           "required": false,
           "rationale": "CIS Benchmark and DISA STIG scanning provides evidence of hardening posture required for regulatory audits and insurance questionnaires.",
-          "framework_refs": {"nist_csf": "PR.IP-1", "cis": "4.1"},
-          "typical_tools": ["tenable", "rapid7", "vanta"]
+          "framework_refs": {
+            "nist_csf": "PR.IP-1",
+            "cis": "4.1"
+          },
+          "typical_tools": [
+            "tenable",
+            "rapid7",
+            "vanta"
+          ]
         }
       ]
     },
@@ -454,8 +811,16 @@
       "name": "SIEM / MDR",
       "catalog_intro": "The detection and response nerve centre. Log everything, correlate what matters, escalate what's real, and respond before dwell time compounds.",
       "description": "Threat detection, alert triage, managed response",
-      "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
-      "modes": {"startup": false, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 4,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "log_ingest",
@@ -463,8 +828,15 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Centralised log aggregation from endpoints, network, identity, and cloud is the prerequisite for any detection and investigation capability.",
-          "framework_refs": {"nist_csf": "DE.CM-1", "cis": "8.1"},
-          "typical_tools": ["splunk", "solarwinds", "microsoft-azure"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-1",
+            "cis": "8.1"
+          },
+          "typical_tools": [
+            "splunk",
+            "solarwinds",
+            "microsoft-azure"
+          ]
         },
         {
           "id": "detection",
@@ -472,8 +844,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Cross-source correlation rules and ML-based anomaly detection identify attacker behaviours that individual source logs cannot reveal alone.",
-          "framework_refs": {"nist_csf": "DE.AE-2", "cis": "17.3"},
-          "typical_tools": ["splunk", "solarwinds", "crowdstrike"]
+          "framework_refs": {
+            "nist_csf": "DE.AE-2",
+            "cis": "17.3"
+          },
+          "typical_tools": [
+            "splunk",
+            "solarwinds",
+            "crowdstrike"
+          ]
         },
         {
           "id": "soar",
@@ -481,8 +860,14 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Playbook-driven automation for common alert types reduces analyst toil and mean time to respond for high-volume, low-complexity detections.",
-          "framework_refs": {"nist_csf": "RS.AN-1", "cis": "17.6"},
-          "typical_tools": ["splunk", "servicenow"]
+          "framework_refs": {
+            "nist_csf": "RS.AN-1",
+            "cis": "17.6"
+          },
+          "typical_tools": [
+            "splunk",
+            "servicenow"
+          ]
         },
         {
           "id": "mdr",
@@ -490,8 +875,15 @@
           "weight": 1.2,
           "required": false,
           "rationale": "24/7 expert analyst coverage fills the gap for organisations that cannot maintain a mature in-house SOC capability.",
-          "framework_refs": {"nist_csf": "RS.CO-1", "cis": "17.1"},
-          "typical_tools": ["crowdstrike", "sentinelone", "rapid7"]
+          "framework_refs": {
+            "nist_csf": "RS.CO-1",
+            "cis": "17.1"
+          },
+          "typical_tools": [
+            "crowdstrike",
+            "sentinelone",
+            "rapid7"
+          ]
         },
         {
           "id": "threat_hunt",
@@ -499,8 +891,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Proactive hypothesis-driven hunting surfaces attacker dwell that automated detections have not yet triggered on.",
-          "framework_refs": {"nist_csf": "DE.DP-4", "cis": "17.9"},
-          "typical_tools": ["splunk", "crowdstrike", "sentinelone"]
+          "framework_refs": {
+            "nist_csf": "DE.DP-4",
+            "cis": "17.9"
+          },
+          "typical_tools": [
+            "splunk",
+            "crowdstrike",
+            "sentinelone"
+          ]
         },
         {
           "id": "compliance_rpt",
@@ -508,8 +907,15 @@
           "weight": 0.6,
           "required": false,
           "rationale": "Pre-built compliance dashboards and report exports reduce the manual effort required for SOC 2, PCI, and HIPAA audit evidence packages.",
-          "framework_refs": {"nist_csf": "PR.PT-1", "cis": "8.3"},
-          "typical_tools": ["splunk", "solarwinds", "vanta"]
+          "framework_refs": {
+            "nist_csf": "PR.PT-1",
+            "cis": "8.3"
+          },
+          "typical_tools": [
+            "splunk",
+            "solarwinds",
+            "vanta"
+          ]
         }
       ]
     },
@@ -518,8 +924,16 @@
       "name": "Network Firewall / NGFW",
       "catalog_intro": "The perimeter and internal traffic control plane. Modern NGFWs combine stateful inspection, IPS, and application-layer visibility in one control point.",
       "description": "Perimeter defence, IPS/IDS, traffic inspection",
-      "criticality": {"startup": 0, "smb": 4, "enterprise": 5},
-      "modes": {"startup": false, "smb": true, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 4,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "ngfw",
@@ -527,8 +941,17 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Stateful packet inspection with application awareness is the baseline control for all inbound and outbound traffic at the perimeter.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "12.1"},
-          "typical_tools": ["paloalto", "fortinet", "cisco", "checkpoint", "juniper"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "12.1"
+          },
+          "typical_tools": [
+            "paloalto",
+            "fortinet",
+            "cisco",
+            "checkpoint",
+            "juniper"
+          ]
         },
         {
           "id": "ips",
@@ -536,8 +959,16 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Inline intrusion prevention signatures and anomaly detection block known exploits and flag suspicious traffic patterns at wire speed.",
-          "framework_refs": {"nist_csf": "DE.CM-1", "cis": "12.6"},
-          "typical_tools": ["paloalto", "fortinet", "cisco", "checkpoint"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-1",
+            "cis": "12.6"
+          },
+          "typical_tools": [
+            "paloalto",
+            "fortinet",
+            "cisco",
+            "checkpoint"
+          ]
         },
         {
           "id": "url_filter",
@@ -545,8 +976,16 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Category-based and reputation-based URL filtering blocks malicious and policy-violating destinations before connection is established.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "9.3"},
-          "typical_tools": ["paloalto", "fortinet", "cisco", "cloudflare"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "9.3"
+          },
+          "typical_tools": [
+            "paloalto",
+            "fortinet",
+            "cisco",
+            "cloudflare"
+          ]
         },
         {
           "id": "ssl_inspect",
@@ -554,8 +993,16 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Decrypting TLS traffic for inspection prevents attackers from hiding command-and-control and exfiltration in encrypted channels.",
-          "framework_refs": {"nist_csf": "DE.CM-1", "cis": "12.8"},
-          "typical_tools": ["paloalto", "fortinet", "checkpoint", "cisco"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-1",
+            "cis": "12.8"
+          },
+          "typical_tools": [
+            "paloalto",
+            "fortinet",
+            "checkpoint",
+            "cisco"
+          ]
         },
         {
           "id": "segmentation",
@@ -563,8 +1010,16 @@
           "weight": 0.7,
           "required": false,
           "rationale": "East-west traffic controls within the network limit lateral movement after an initial compromise, containing the blast radius.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "12.2"},
-          "typical_tools": ["paloalto", "fortinet", "cisco", "vmware"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "12.2"
+          },
+          "typical_tools": [
+            "paloalto",
+            "fortinet",
+            "cisco",
+            "vmware"
+          ]
         }
       ]
     },
@@ -572,9 +1027,17 @@
       "id": "cnapp",
       "name": "CNAPP",
       "catalog_intro": "Cloud-native application protection from code to cloud. Unifies CSPM, CWPP, and supply chain security for organisations running containerised or serverless workloads.",
-      "description": "Cloud-native app protection — workload, container, pipeline, CSPM",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "description": "Cloud-native app protection \u2014 workload, container, pipeline, CSPM",
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "cspm",
@@ -582,8 +1045,17 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Cloud security posture management detects misconfigurations across multi-cloud environments continuously, not just at point-in-time audit.",
-          "framework_refs": {"nist_csf": "DE.CM-7", "cis": "4.1"},
-          "typical_tools": ["wiz", "paloalto", "checkpoint", "google-cloud-security", "aws"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-7",
+            "cis": "4.1"
+          },
+          "typical_tools": [
+            "wiz",
+            "paloalto",
+            "checkpoint",
+            "google-cloud-security",
+            "aws"
+          ]
         },
         {
           "id": "cwpp",
@@ -591,8 +1063,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Runtime protection for containers and Kubernetes workloads detects abnormal process behaviour and prevents privilege escalation in cloud-native environments.",
-          "framework_refs": {"nist_csf": "DE.CM-4", "cis": "16.1"},
-          "typical_tools": ["wiz", "paloalto", "google-cloud-security", "aws"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-4",
+            "cis": "16.1"
+          },
+          "typical_tools": [
+            "wiz",
+            "paloalto",
+            "google-cloud-security",
+            "aws"
+          ]
         },
         {
           "id": "supply_chain",
@@ -600,8 +1080,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Scanning container images, IaC templates, and third-party dependencies in the CI pipeline prevents vulnerabilities from reaching production.",
-          "framework_refs": {"nist_csf": "PR.IP-2", "cis": "16.8"},
-          "typical_tools": ["wiz", "github", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "PR.IP-2",
+            "cis": "16.8"
+          },
+          "typical_tools": [
+            "wiz",
+            "github",
+            "paloalto"
+          ]
         },
         {
           "id": "api_security",
@@ -609,8 +1096,14 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Discovering and assessing API endpoints for authentication gaps and data exposure is increasingly critical as APIs become the primary integration surface.",
-          "framework_refs": {"nist_csf": "ID.AM-2", "cis": "16.13"},
-          "typical_tools": ["wiz", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "ID.AM-2",
+            "cis": "16.13"
+          },
+          "typical_tools": [
+            "wiz",
+            "paloalto"
+          ]
         },
         {
           "id": "secrets_detection",
@@ -618,8 +1111,14 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Detecting hardcoded credentials, API keys, and certificates in repositories and container images prevents trivial cloud account compromise.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "16.12"},
-          "typical_tools": ["wiz", "github"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "16.12"
+          },
+          "typical_tools": [
+            "wiz",
+            "github"
+          ]
         }
       ]
     },
@@ -628,8 +1127,16 @@
       "name": "PAM",
       "catalog_intro": "Privileged access is the crown jewels of your identity estate. Controlling, recording, and time-limiting privileged sessions is non-negotiable at enterprise scale.",
       "description": "Privileged access management, session recording, just-in-time",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 5},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "privileged_vault",
@@ -637,8 +1144,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Vaulting privileged credentials with automated check-out eliminates standing shared passwords and provides a complete audit trail of privileged access.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "5.4"},
-          "typical_tools": ["cyberark", "beyondtrust", "saviynt"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "5.4"
+          },
+          "typical_tools": [
+            "cyberark",
+            "beyondtrust",
+            "saviynt"
+          ]
         },
         {
           "id": "session_recording",
@@ -646,8 +1160,14 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Video and keystroke recording of privileged sessions enables forensic investigation and deters malicious insider activity.",
-          "framework_refs": {"nist_csf": "PR.PT-1", "cis": "8.5"},
-          "typical_tools": ["cyberark", "beyondtrust"]
+          "framework_refs": {
+            "nist_csf": "PR.PT-1",
+            "cis": "8.5"
+          },
+          "typical_tools": [
+            "cyberark",
+            "beyondtrust"
+          ]
         },
         {
           "id": "jit_access",
@@ -655,8 +1175,15 @@
           "weight": 1.2,
           "required": false,
           "rationale": "Eliminating standing privileged access and granting time-limited elevation on request reduces the window of exposure from compromised credentials.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "5.1"},
-          "typical_tools": ["cyberark", "beyondtrust", "saviynt"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "5.1"
+          },
+          "typical_tools": [
+            "cyberark",
+            "beyondtrust",
+            "saviynt"
+          ]
         },
         {
           "id": "password_rotation",
@@ -664,8 +1191,14 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Rotating privileged credentials on a schedule or after each use ensures compromised credentials have minimal useful lifetime.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "5.3"},
-          "typical_tools": ["cyberark", "beyondtrust"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "5.3"
+          },
+          "typical_tools": [
+            "cyberark",
+            "beyondtrust"
+          ]
         },
         {
           "id": "mfa_escalation",
@@ -673,8 +1206,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Requiring re-authentication with MFA at the point of privilege escalation adds a critical step-up control that thwarts lateral movement.",
-          "framework_refs": {"nist_csf": "PR.AC-7", "cis": "6.5"},
-          "typical_tools": ["cyberark", "beyondtrust", "okta"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-7",
+            "cis": "6.5"
+          },
+          "typical_tools": [
+            "cyberark",
+            "beyondtrust",
+            "okta"
+          ]
         }
       ]
     },
@@ -683,8 +1223,16 @@
       "name": "IGA",
       "catalog_intro": "The authoritative record of who has access to what and why. IGA closes the joiner/mover/leaver gap and enables access certification at audit time.",
       "description": "Identity governance, provisioning, access certification",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "access_certification",
@@ -692,8 +1240,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Periodic manager-led certification campaigns identify and revoke accumulated entitlements, satisfying SOX, SOC 2, and ISO 27001 audit requirements.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "6.2"},
-          "typical_tools": ["sailpoint", "saviynt", "microsoft-entra"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "6.2"
+          },
+          "typical_tools": [
+            "sailpoint",
+            "saviynt",
+            "microsoft-entra"
+          ]
         },
         {
           "id": "provisioning",
@@ -701,8 +1256,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Policy-driven automated provisioning and deprovisioning eliminates the manual process lag that leaves orphaned accounts exposed.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "6.1"},
-          "typical_tools": ["sailpoint", "saviynt", "microsoft-entra", "okta"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "6.1"
+          },
+          "typical_tools": [
+            "sailpoint",
+            "saviynt",
+            "microsoft-entra",
+            "okta"
+          ]
         },
         {
           "id": "role_management",
@@ -710,8 +1273,14 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Role-based access models map entitlements to business functions, making access requests, approvals, and reviews understandable to non-technical reviewers.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "6.3"},
-          "typical_tools": ["sailpoint", "saviynt"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "6.3"
+          },
+          "typical_tools": [
+            "sailpoint",
+            "saviynt"
+          ]
         },
         {
           "id": "segregation_of_duties",
@@ -719,8 +1288,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Automated SoD conflict detection prevents users from accumulating entitlements that, in combination, would enable fraud or compliance violations.",
-          "framework_refs": {"nist_csf": "PR.AC-4", "cis": "6.6"},
-          "typical_tools": ["sailpoint", "saviynt", "sap"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "6.6"
+          },
+          "typical_tools": [
+            "sailpoint",
+            "saviynt",
+            "sap"
+          ]
         },
         {
           "id": "audit_trail",
@@ -728,8 +1304,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Immutable audit logs of all provisioning events and certification decisions provide the evidence trail required by external auditors.",
-          "framework_refs": {"nist_csf": "PR.PT-1", "cis": "8.2"},
-          "typical_tools": ["sailpoint", "saviynt", "microsoft-entra"]
+          "framework_refs": {
+            "nist_csf": "PR.PT-1",
+            "cis": "8.2"
+          },
+          "typical_tools": [
+            "sailpoint",
+            "saviynt",
+            "microsoft-entra"
+          ]
         }
       ]
     },
@@ -738,8 +1321,16 @@
       "name": "SASE / ZTNA",
       "catalog_intro": "Zero-trust access for the distributed workforce. Replaces perimeter VPN with identity-aware, application-level access controls delivered from the cloud edge.",
       "description": "Zero-trust network access, cloud-delivered security service edge",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 4},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "ztna",
@@ -747,8 +1338,17 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Identity and device-aware application access eliminates implicit network trust granted by legacy VPN, reducing lateral movement risk.",
-          "framework_refs": {"nist_csf": "PR.AC-3", "cis": "12.7"},
-          "typical_tools": ["zscaler", "cloudflare", "paloalto", "cisco", "netskope"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-3",
+            "cis": "12.7"
+          },
+          "typical_tools": [
+            "zscaler",
+            "cloudflare",
+            "paloalto",
+            "cisco",
+            "netskope"
+          ]
         },
         {
           "id": "swg",
@@ -756,8 +1356,16 @@
           "weight": 1.2,
           "required": true,
           "rationale": "Cloud-delivered web proxy inspects all user internet traffic regardless of device location, closing the inspection gap created by remote work.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "9.3"},
-          "typical_tools": ["zscaler", "netskope", "cloudflare", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "9.3"
+          },
+          "typical_tools": [
+            "zscaler",
+            "netskope",
+            "cloudflare",
+            "paloalto"
+          ]
         },
         {
           "id": "casb",
@@ -765,8 +1373,16 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Cloud access security brokering provides visibility and control over sanctioned and unsanctioned SaaS usage, data sharing, and OAuth grants.",
-          "framework_refs": {"nist_csf": "PR.DS-5", "cis": "3.2"},
-          "typical_tools": ["netskope", "zscaler", "paloalto", "microsoft-azure"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-5",
+            "cis": "3.2"
+          },
+          "typical_tools": [
+            "netskope",
+            "zscaler",
+            "paloalto",
+            "microsoft-azure"
+          ]
         },
         {
           "id": "fwaas",
@@ -774,8 +1390,15 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Cloud-delivered firewall capability extends NGFW-class inspection to branch and remote users without backhauling traffic to a central data centre.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "12.1"},
-          "typical_tools": ["zscaler", "cloudflare", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "12.1"
+          },
+          "typical_tools": [
+            "zscaler",
+            "cloudflare",
+            "paloalto"
+          ]
         },
         {
           "id": "dlp",
@@ -783,8 +1406,15 @@
           "weight": 0.7,
           "required": false,
           "rationale": "Inline data loss prevention on cloud-routed traffic enforces data handling policies for remote users without requiring endpoint agent coverage.",
-          "framework_refs": {"nist_csf": "PR.DS-5", "cis": "3.4"},
-          "typical_tools": ["netskope", "zscaler", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-5",
+            "cis": "3.4"
+          },
+          "typical_tools": [
+            "netskope",
+            "zscaler",
+            "paloalto"
+          ]
         },
         {
           "id": "sd_wan",
@@ -792,8 +1422,16 @@
           "weight": 0.5,
           "required": false,
           "rationale": "Software-defined WAN integrated with SSE provides optimised, policy-aware routing for branch office traffic alongside security inspection.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "12.3"},
-          "typical_tools": ["cisco", "paloalto", "fortinet", "vmware"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "12.3"
+          },
+          "typical_tools": [
+            "cisco",
+            "paloalto",
+            "fortinet",
+            "vmware"
+          ]
         }
       ]
     },
@@ -802,8 +1440,16 @@
       "name": "Data Security / DLP",
       "catalog_intro": "Know where your sensitive data lives and ensure it doesn't leave without authorisation. DSPM and DLP together address both discovery and enforcement.",
       "description": "Data loss prevention, DSPM, classification, insider threat",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 3},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 3
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "data_discovery",
@@ -811,8 +1457,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Automated discovery and classification of sensitive data across structured and unstructured stores is a prerequisite for any meaningful data protection programme.",
-          "framework_refs": {"nist_csf": "ID.AM-5", "cis": "3.1"},
-          "typical_tools": ["netskope", "wiz", "commvault", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "ID.AM-5",
+            "cis": "3.1"
+          },
+          "typical_tools": [
+            "netskope",
+            "wiz",
+            "commvault",
+            "paloalto"
+          ]
         },
         {
           "id": "dlp_enforcement",
@@ -820,8 +1474,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Content-aware policy enforcement on email, endpoint, and cloud channels prevents sensitive data from leaving under both accidental and malicious conditions.",
-          "framework_refs": {"nist_csf": "PR.DS-5", "cis": "3.4"},
-          "typical_tools": ["netskope", "paloalto", "microsoft-azure"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-5",
+            "cis": "3.4"
+          },
+          "typical_tools": [
+            "netskope",
+            "paloalto",
+            "microsoft-azure"
+          ]
         },
         {
           "id": "encryption",
@@ -829,8 +1490,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Encryption of sensitive data at rest and in transit ensures that physical theft or interception does not result in data exposure.",
-          "framework_refs": {"nist_csf": "PR.DS-1", "cis": "3.10"},
-          "typical_tools": ["commvault", "microsoft-azure", "aws"]
+          "framework_refs": {
+            "nist_csf": "PR.DS-1",
+            "cis": "3.10"
+          },
+          "typical_tools": [
+            "commvault",
+            "microsoft-azure",
+            "aws"
+          ]
         },
         {
           "id": "dspm",
@@ -838,8 +1506,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Data security posture management extends classification and risk visibility to cloud object stores and databases where traditional DLP has no reach.",
-          "framework_refs": {"nist_csf": "ID.AM-5", "cis": "3.2"},
-          "typical_tools": ["wiz", "netskope", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "ID.AM-5",
+            "cis": "3.2"
+          },
+          "typical_tools": [
+            "wiz",
+            "netskope",
+            "paloalto"
+          ]
         },
         {
           "id": "insider_threat",
@@ -847,27 +1522,48 @@
           "weight": 0.8,
           "required": false,
           "rationale": "Behavioural analytics layered over DLP telemetry identifies unusual data access and exfiltration patterns that policy rules alone cannot catch.",
-          "framework_refs": {"nist_csf": "DE.CM-3", "cis": "8.11"},
-          "typical_tools": ["netskope", "paloalto"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-3",
+            "cis": "8.11"
+          },
+          "typical_tools": [
+            "netskope",
+            "paloalto"
+          ]
         }
       ]
     },
     {
       "id": "ot_ics",
       "name": "OT / ICS Security",
-      "catalog_intro": "Industrial and operational technology environments have different risk profiles — safety, availability, and legacy protocol constraints demand specialised tooling.",
+      "catalog_intro": "Industrial and operational technology environments have different risk profiles \u2014 safety, availability, and legacy protocol constraints demand specialised tooling.",
       "description": "Operational technology, industrial control system monitoring",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 0},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 0
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "asset_visibility",
           "name": "OT Asset Visibility",
           "weight": 1.5,
           "required": true,
-          "rationale": "Passive discovery of OT assets — PLCs, HMIs, RTUs — without disrupting live processes is the first step in any ICS security programme.",
-          "framework_refs": {"nist_csf": "ID.AM-1", "cis": "1.1"},
-          "typical_tools": ["dragos", "schneider", "siemens"]
+          "rationale": "Passive discovery of OT assets \u2014 PLCs, HMIs, RTUs \u2014 without disrupting live processes is the first step in any ICS security programme.",
+          "framework_refs": {
+            "nist_csf": "ID.AM-1",
+            "cis": "1.1"
+          },
+          "typical_tools": [
+            "dragos",
+            "schneider",
+            "siemens"
+          ]
         },
         {
           "id": "anomaly_detection",
@@ -875,8 +1571,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Baselining OT network behaviour and alerting on deviations identifies lateral movement and unauthorised command execution without active scanning.",
-          "framework_refs": {"nist_csf": "DE.CM-6", "cis": "12.1"},
-          "typical_tools": ["dragos", "schneider", "siemens"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-6",
+            "cis": "12.1"
+          },
+          "typical_tools": [
+            "dragos",
+            "schneider",
+            "siemens"
+          ]
         },
         {
           "id": "protocol_monitoring",
@@ -884,8 +1587,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Deep packet inspection of Modbus, DNP3, EtherNet/IP, and similar protocols provides command-level visibility that generic network tools lack.",
-          "framework_refs": {"nist_csf": "DE.CM-1", "cis": "12.4"},
-          "typical_tools": ["dragos", "schneider", "siemens"]
+          "framework_refs": {
+            "nist_csf": "DE.CM-1",
+            "cis": "12.4"
+          },
+          "typical_tools": [
+            "dragos",
+            "schneider",
+            "siemens"
+          ]
         },
         {
           "id": "segmentation",
@@ -893,8 +1603,15 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Enforced network boundaries between IT and OT zones limit the blast radius of an IT-side breach reaching process control networks.",
-          "framework_refs": {"nist_csf": "PR.AC-5", "cis": "12.2"},
-          "typical_tools": ["dragos", "paloalto", "fortinet"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "12.2"
+          },
+          "typical_tools": [
+            "dragos",
+            "paloalto",
+            "fortinet"
+          ]
         },
         {
           "id": "incident_response",
@@ -902,8 +1619,13 @@
           "weight": 0.8,
           "required": false,
           "rationale": "OT-aware IR playbooks that account for safety system impacts and operational continuity requirements are materially different from IT IR procedures.",
-          "framework_refs": {"nist_csf": "RS.RP-1", "cis": "17.1"},
-          "typical_tools": ["dragos"]
+          "framework_refs": {
+            "nist_csf": "RS.RP-1",
+            "cis": "17.1"
+          },
+          "typical_tools": [
+            "dragos"
+          ]
         }
       ]
     },
@@ -912,8 +1634,16 @@
       "name": "DevOps / AppSec",
       "catalog_intro": "Shift security left into the development pipeline. Finding vulnerabilities in code and dependencies before deployment is orders of magnitude cheaper than post-release.",
       "description": "SAST, DAST, SCA, secrets scanning, pipeline security",
-      "criticality": {"startup": 0, "smb": 0, "enterprise": 0},
-      "modes": {"startup": false, "smb": false, "enterprise": true},
+      "criticality": {
+        "startup": 0,
+        "smb": 0,
+        "enterprise": 0
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "sub_capabilities": [
         {
           "id": "sast",
@@ -921,8 +1651,16 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Static analysis of first-party code during development identifies injection flaws, logic errors, and insecure patterns before they reach production.",
-          "framework_refs": {"nist_csf": "PR.IP-2", "cis": "16.12"},
-          "typical_tools": ["github", "atlassian", "snyk", "semgrep"]
+          "framework_refs": {
+            "nist_csf": "PR.IP-2",
+            "cis": "16.12"
+          },
+          "typical_tools": [
+            "github",
+            "atlassian",
+            "snyk",
+            "semgrep"
+          ]
         },
         {
           "id": "sca",
@@ -930,8 +1668,15 @@
           "weight": 1.5,
           "required": true,
           "rationale": "Software composition analysis identifies vulnerable third-party libraries and licence risks across the full dependency tree.",
-          "framework_refs": {"nist_csf": "ID.RA-1", "cis": "16.10"},
-          "typical_tools": ["github", "snyk", "atlassian"]
+          "framework_refs": {
+            "nist_csf": "ID.RA-1",
+            "cis": "16.10"
+          },
+          "typical_tools": [
+            "github",
+            "snyk",
+            "atlassian"
+          ]
         },
         {
           "id": "secrets_scanning",
@@ -939,26 +1684,305 @@
           "weight": 1.0,
           "required": false,
           "rationale": "Automated detection of hardcoded API keys, tokens, and certificates in source code and git history prevents trivial credential compromise.",
-          "framework_refs": {"nist_csf": "PR.AC-1", "cis": "16.12"},
-          "typical_tools": ["github", "atlassian", "snyk"]
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "16.12"
+          },
+          "typical_tools": [
+            "github",
+            "atlassian",
+            "snyk"
+          ]
         },
         {
           "id": "dast",
           "name": "DAST / API Testing",
           "weight": 0.8,
           "required": false,
-          "rationale": "Dynamic testing against running applications finds runtime vulnerabilities — authentication issues, business logic flaws — that SAST cannot detect statically.",
-          "framework_refs": {"nist_csf": "DE.CM-8", "cis": "16.13"},
-          "typical_tools": ["rapid7", "snyk"]
+          "rationale": "Dynamic testing against running applications finds runtime vulnerabilities \u2014 authentication issues, business logic flaws \u2014 that SAST cannot detect statically.",
+          "framework_refs": {
+            "nist_csf": "DE.CM-8",
+            "cis": "16.13"
+          },
+          "typical_tools": [
+            "rapid7",
+            "snyk"
+          ]
         },
         {
           "id": "pipeline_security",
           "name": "Pipeline / CI Security",
           "weight": 0.8,
           "required": false,
-          "rationale": "Hardening CI/CD pipelines — build environment isolation, signed artefacts, approval gates — prevents supply chain attacks that compromise the delivery mechanism itself.",
-          "framework_refs": {"nist_csf": "PR.IP-2", "cis": "16.8"},
-          "typical_tools": ["github", "atlassian"]
+          "rationale": "Hardening CI/CD pipelines \u2014 build environment isolation, signed artefacts, approval gates \u2014 prevents supply chain attacks that compromise the delivery mechanism itself.",
+          "framework_refs": {
+            "nist_csf": "PR.IP-2",
+            "cis": "16.8"
+          },
+          "typical_tools": [
+            "github",
+            "atlassian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nhi",
+      "name": "Non-Human Identity",
+      "catalog_intro": "Service accounts, API keys, machine credentials, and certificates now outnumber human identities 10-to-1. This is the fastest-growing attack surface in modern enterprise environments.",
+      "description": "Machine identity, secrets, certificates",
+      "criticality": {
+        "startup": 3,
+        "smb": 4,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "service_account_governance",
+          "name": "Service Account Governance",
+          "weight": 1.5,
+          "required": true,
+          "rationale": "Unmanaged service accounts are persistent attacker footholds; governance enforces least-privilege and rotation.",
+          "framework_refs": {
+            "nist_csf": "PR.AC-4",
+            "cis": "5.4"
+          },
+          "typical_tools": [
+            "cyberark",
+            "hashicorp",
+            "sailpoint"
+          ]
+        },
+        {
+          "id": "api_key_management",
+          "name": "API Key & Secret Rotation",
+          "weight": 1.5,
+          "required": true,
+          "rationale": "Leaked API keys are a leading cloud breach vector; automated rotation eliminates long-lived credential risk.",
+          "framework_refs": {
+            "nist_csf": "PR.AC-1",
+            "cis": "4.1"
+          },
+          "typical_tools": [
+            "cyberark",
+            "hashicorp",
+            "aws"
+          ]
+        },
+        {
+          "id": "cert_lifecycle",
+          "name": "Certificate Lifecycle Management",
+          "weight": 1.3,
+          "required": true,
+          "rationale": "Expired certificates cause outages and leave services vulnerable; automated lifecycle management eliminates manual expiry risk.",
+          "framework_refs": {
+            "nist_csf": "PR.AC-5",
+            "cis": "16.14"
+          },
+          "typical_tools": [
+            "cyberark",
+            "hashicorp",
+            "venafi"
+          ]
+        },
+        {
+          "id": "workload_identity",
+          "name": "Workload Identity Federation",
+          "weight": 1.0,
+          "required": false,
+          "rationale": "SPIFFE/SPIRE and cloud workload identity allows services to authenticate without static credentials, eliminating the secrets sprawl problem.",
+          "framework_refs": {
+            "nist_csf": "PR.AC-7",
+            "cis": "6.9"
+          },
+          "typical_tools": [
+            "hashicorp",
+            "aws",
+            "google-cloud-security"
+          ]
+        },
+        {
+          "id": "secrets_injection",
+          "name": "Secrets Injection & Vaulting",
+          "weight": 1.0,
+          "required": false,
+          "rationale": "Runtime secrets injection via agent or sidecar ensures applications never store secrets at rest in code or config files.",
+          "framework_refs": {
+            "nist_csf": "PR.DS-1",
+            "cis": "3.11"
+          },
+          "typical_tools": [
+            "hashicorp",
+            "cyberark",
+            "aws"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grc",
+      "name": "Governance, Risk & Compliance",
+      "catalog_intro": "The control framework for your security program. GRC platforms convert point-in-time audits into continuous assurance \u2014 essential for SOC 2, ISO 27001, MAS TRM, and regulatory obligations.",
+      "description": "Policy, risk register, compliance automation",
+      "criticality": {
+        "startup": 3,
+        "smb": 4,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "policy_management",
+          "name": "Policy Management & Attestation",
+          "weight": 1.0,
+          "required": true,
+          "rationale": "Documented, attested policies are the contractual foundation of any compliance program and the first ask of every auditor.",
+          "framework_refs": {
+            "nist_csf": "PR.IP-1",
+            "cis": "1.1"
+          },
+          "typical_tools": [
+            "vanta",
+            "drata",
+            "servicenow"
+          ]
+        },
+        {
+          "id": "compliance_automation",
+          "name": "Compliance Automation",
+          "weight": 1.5,
+          "required": true,
+          "rationale": "Continuous automated evidence collection reduces audit prep from months to days and eliminates point-in-time compliance theatre.",
+          "framework_refs": {
+            "nist_csf": "PR.PT-1",
+            "cis": "1.1"
+          },
+          "typical_tools": [
+            "vanta",
+            "drata",
+            "secureframe"
+          ]
+        },
+        {
+          "id": "risk_register",
+          "name": "Risk Register & Treatment",
+          "weight": 1.3,
+          "required": true,
+          "rationale": "A quantified risk register enables business-language risk decisions and demonstrates to regulators that risk is managed, not ignored.",
+          "framework_refs": {
+            "nist_csf": "ID.RA-1",
+            "cis": "1.1"
+          },
+          "typical_tools": [
+            "vanta",
+            "servicenow",
+            "archer"
+          ]
+        },
+        {
+          "id": "audit_management",
+          "name": "Audit Management",
+          "weight": 0.8,
+          "required": false,
+          "rationale": "Structured audit workflows, finding tracking, and remediation evidence chains reduce audit cycle time and repeat findings.",
+          "framework_refs": {
+            "nist_csf": "PR.PT-1",
+            "cis": "1.1"
+          },
+          "typical_tools": [
+            "vanta",
+            "servicenow",
+            "drata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tprm",
+      "name": "Third-Party Risk Management",
+      "catalog_intro": "Over 60% of breaches have a third-party component. TPRM converts vendor security from a checkbox questionnaire into a continuous, risk-scored programme.",
+      "description": "Vendor risk scoring, questionnaires, supply chain",
+      "criticality": {
+        "startup": 2,
+        "smb": 3,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "vendor_risk_assessment",
+          "name": "Vendor Risk Questionnaire",
+          "weight": 1.3,
+          "required": true,
+          "rationale": "Standardised security questionnaires (CAIQ, SIG, custom) establish a baseline risk picture for every critical supplier.",
+          "framework_refs": {
+            "nist_csf": "ID.RA-2",
+            "cis": "15.1"
+          },
+          "typical_tools": [
+            "securityscorecard",
+            "vanta",
+            "bitsight"
+          ]
+        },
+        {
+          "id": "continuous_monitoring",
+          "name": "Continuous Vendor Monitoring",
+          "weight": 1.5,
+          "required": true,
+          "rationale": "Point-in-time questionnaires miss the 90% of the year between assessments; continuous external scoring detects deterioration in real time.",
+          "framework_refs": {
+            "nist_csf": "DE.CM-6",
+            "cis": "15.2"
+          },
+          "typical_tools": [
+            "securityscorecard",
+            "bitsight",
+            "upguard"
+          ]
+        },
+        {
+          "id": "contract_risk",
+          "name": "Contract & DPA Risk",
+          "weight": 0.8,
+          "required": false,
+          "rationale": "Data processing agreements and security annexes create contractual obligations that align vendor incentives with your security posture.",
+          "framework_refs": {
+            "nist_csf": "ID.AM-4",
+            "cis": "15.5"
+          },
+          "typical_tools": [
+            "vanta",
+            "oneTrust"
+          ]
+        },
+        {
+          "id": "fourth_party_risk",
+          "name": "Fourth-Party / Sub-processor Risk",
+          "weight": 0.7,
+          "required": false,
+          "rationale": "Supply chain attacks increasingly exploit sub-processors; mapping n-tier vendor relationships identifies concentration risk before it bites.",
+          "framework_refs": {
+            "nist_csf": "ID.AM-4",
+            "cis": "15.3"
+          },
+          "typical_tools": [
+            "securityscorecard",
+            "bitsight"
+          ]
         }
       ]
     }

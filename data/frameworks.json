@@ -15,22 +15,34 @@
               {
                 "id": "ID.AM-1",
                 "name": "Physical devices and systems inventoried",
-                "expected_sub_caps": ["vuln_mgmt.asset_discovery", "ot_ics.asset_visibility"]
+                "expected_sub_caps": [
+                  "vuln_mgmt.asset_discovery",
+                  "ot_ics.asset_visibility"
+                ]
               },
               {
                 "id": "ID.AM-2",
                 "name": "Software platforms and apps inventoried",
-                "expected_sub_caps": ["cnapp.api_security"]
+                "expected_sub_caps": [
+                  "cnapp.api_security"
+                ]
               },
               {
                 "id": "ID.AM-4",
                 "name": "External information systems catalogued",
-                "expected_sub_caps": ["vuln_mgmt.external_attack_surface"]
+                "expected_sub_caps": [
+                  "vuln_mgmt.external_attack_surface",
+                  "tprm.contract_risk",
+                  "tprm.fourth_party_risk"
+                ]
               },
               {
                 "id": "ID.AM-5",
                 "name": "Resources prioritized based on classification",
-                "expected_sub_caps": ["data_security.data_discovery", "data_security.dspm"]
+                "expected_sub_caps": [
+                  "data_security.data_discovery",
+                  "data_security.dspm"
+                ]
               }
             ]
           },
@@ -41,12 +53,20 @@
               {
                 "id": "ID.RA-1",
                 "name": "Asset vulnerabilities identified and documented",
-                "expected_sub_caps": ["vuln_mgmt.risk_prioritisation", "devsec.sca"]
+                "expected_sub_caps": [
+                  "vuln_mgmt.risk_prioritisation",
+                  "devsec.sca",
+                  "grc.risk_register"
+                ]
               },
               {
                 "id": "ID.RA-2",
                 "name": "Cyber threat intelligence received from info sharing",
-                "expected_sub_caps": ["endpoint.threat_intel", "password_manager.breach_monitoring"]
+                "expected_sub_caps": [
+                  "endpoint.threat_intel",
+                  "password_manager.breach_monitoring",
+                  "tprm.vendor_risk_assessment"
+                ]
               }
             ]
           }
@@ -64,27 +84,69 @@
               {
                 "id": "PR.AC-1",
                 "name": "Identities and credentials issued, managed, verified, revoked, audited",
-                "expected_sub_caps": ["identity_sso.sso", "identity_sso.directory", "password_manager.vault_storage", "password_manager.secure_sharing", "password_manager.sso_integration", "cnapp.secrets_detection", "pam.password_rotation", "iga.provisioning", "devsec.secrets_scanning"]
+                "expected_sub_caps": [
+                  "identity_sso.sso",
+                  "identity_sso.directory",
+                  "password_manager.vault_storage",
+                  "password_manager.secure_sharing",
+                  "password_manager.sso_integration",
+                  "cnapp.secrets_detection",
+                  "pam.password_rotation",
+                  "iga.provisioning",
+                  "devsec.secrets_scanning",
+                  "nhi.api_key_management",
+                  "nhi.service_account_governance"
+                ]
               },
               {
                 "id": "PR.AC-3",
                 "name": "Remote access managed",
-                "expected_sub_caps": ["endpoint.device_ctrl", "mdm.device_enrollment", "mdm.compliance_policy", "mdm.app_management", "sase_ztna.ztna"]
+                "expected_sub_caps": [
+                  "endpoint.device_ctrl",
+                  "mdm.device_enrollment",
+                  "mdm.compliance_policy",
+                  "mdm.app_management",
+                  "sase_ztna.ztna"
+                ]
               },
               {
                 "id": "PR.AC-4",
                 "name": "Access permissions and authorizations managed",
-                "expected_sub_caps": ["identity_sso.lifecycle", "cloud.identity_entitlements", "pam.privileged_vault", "pam.jit_access", "iga.access_certification", "iga.role_management", "iga.segregation_of_duties"]
+                "expected_sub_caps": [
+                  "identity_sso.lifecycle",
+                  "cloud.identity_entitlements",
+                  "pam.privileged_vault",
+                  "pam.jit_access",
+                  "iga.access_certification",
+                  "iga.role_management",
+                  "iga.segregation_of_duties",
+                  "nhi.service_account_governance"
+                ]
               },
               {
                 "id": "PR.AC-5",
                 "name": "Network integrity protected",
-                "expected_sub_caps": ["mdm.cert_management", "network_firewall.ngfw", "network_firewall.url_filter", "network_firewall.segmentation", "sase_ztna.swg", "sase_ztna.fwaas", "sase_ztna.sd_wan", "ot_ics.segmentation"]
+                "expected_sub_caps": [
+                  "mdm.cert_management",
+                  "network_firewall.ngfw",
+                  "network_firewall.url_filter",
+                  "network_firewall.segmentation",
+                  "sase_ztna.swg",
+                  "sase_ztna.fwaas",
+                  "sase_ztna.sd_wan",
+                  "ot_ics.segmentation",
+                  "nhi.cert_lifecycle"
+                ]
               },
               {
                 "id": "PR.AC-7",
                 "name": "Users, devices, and other assets authenticated",
-                "expected_sub_caps": ["identity_sso.mfa", "identity_sso.risk_auth", "pam.mfa_escalation"]
+                "expected_sub_caps": [
+                  "identity_sso.mfa",
+                  "identity_sso.risk_auth",
+                  "pam.mfa_escalation",
+                  "nhi.workload_identity"
+                ]
               }
             ]
           },
@@ -95,7 +157,10 @@
               {
                 "id": "PR.AT-2",
                 "name": "Privileged users understand roles and responsibilities",
-                "expected_sub_caps": ["email_security.anti_phishing", "email_security.url_rewriting"]
+                "expected_sub_caps": [
+                  "email_security.anti_phishing",
+                  "email_security.url_rewriting"
+                ]
               }
             ]
           },
@@ -106,22 +171,34 @@
               {
                 "id": "PR.DS-1",
                 "name": "Data-at-rest protected",
-                "expected_sub_caps": ["data_security.encryption"]
+                "expected_sub_caps": [
+                  "data_security.encryption"
+                ]
               },
               {
                 "id": "PR.DS-2",
                 "name": "Data-in-transit protected",
-                "expected_sub_caps": ["email_security.dmarc_enforcement"]
+                "expected_sub_caps": [
+                  "email_security.dmarc_enforcement"
+                ]
               },
               {
                 "id": "PR.DS-3",
                 "name": "Assets formally managed throughout removal and transfers",
-                "expected_sub_caps": ["mdm.remote_wipe"]
+                "expected_sub_caps": [
+                  "mdm.remote_wipe"
+                ]
               },
               {
                 "id": "PR.DS-5",
                 "name": "Protections against data leaks implemented",
-                "expected_sub_caps": ["endpoint.epp", "email_security.email_dlp", "sase_ztna.casb", "sase_ztna.dlp", "data_security.dlp_enforcement"]
+                "expected_sub_caps": [
+                  "endpoint.epp",
+                  "email_security.email_dlp",
+                  "sase_ztna.casb",
+                  "sase_ztna.dlp",
+                  "data_security.dlp_enforcement"
+                ]
               }
             ]
           },
@@ -132,17 +209,28 @@
               {
                 "id": "PR.IP-1",
                 "name": "Baseline configuration established and maintained",
-                "expected_sub_caps": ["vuln_mgmt.compliance_scanning"]
+                "expected_sub_caps": [
+                  "vuln_mgmt.compliance_scanning",
+                  "grc.policy_management",
+                  "grc.compliance_automation"
+                ]
               },
               {
                 "id": "PR.IP-2",
                 "name": "System development lifecycle implemented",
-                "expected_sub_caps": ["cnapp.supply_chain", "devsec.sast", "devsec.pipeline_security"]
+                "expected_sub_caps": [
+                  "cnapp.supply_chain",
+                  "devsec.sast",
+                  "devsec.pipeline_security"
+                ]
               },
               {
                 "id": "PR.IP-4",
                 "name": "Backups conducted, maintained, and tested",
-                "expected_sub_caps": ["backup.immutable_storage", "backup.cloud_backup"]
+                "expected_sub_caps": [
+                  "backup.immutable_storage",
+                  "backup.cloud_backup"
+                ]
               }
             ]
           },
@@ -153,7 +241,13 @@
               {
                 "id": "PR.PT-1",
                 "name": "Audit and log records determined, documented, reviewed",
-                "expected_sub_caps": ["password_manager.admin_audit", "siem_mdr.compliance_rpt", "pam.session_recording", "iga.audit_trail"]
+                "expected_sub_caps": [
+                  "password_manager.admin_audit",
+                  "siem_mdr.compliance_rpt",
+                  "pam.session_recording",
+                  "iga.audit_trail",
+                  "grc.audit_management"
+                ]
               }
             ]
           }
@@ -171,7 +265,10 @@
               {
                 "id": "DE.AE-2",
                 "name": "Detected events analyzed to understand attack targets",
-                "expected_sub_caps": ["cloud.threat_detection", "siem_mdr.detection"]
+                "expected_sub_caps": [
+                  "cloud.threat_detection",
+                  "siem_mdr.detection"
+                ]
               }
             ]
           },
@@ -182,32 +279,55 @@
               {
                 "id": "DE.CM-1",
                 "name": "Networks monitored to detect potential cybersecurity events",
-                "expected_sub_caps": ["cloud.network_monitoring", "siem_mdr.log_ingest", "network_firewall.ips", "network_firewall.ssl_inspect", "ot_ics.protocol_monitoring"]
+                "expected_sub_caps": [
+                  "cloud.network_monitoring",
+                  "siem_mdr.log_ingest",
+                  "network_firewall.ips",
+                  "network_firewall.ssl_inspect",
+                  "ot_ics.protocol_monitoring"
+                ]
               },
               {
                 "id": "DE.CM-3",
                 "name": "Personnel activity monitored to detect potential events",
-                "expected_sub_caps": ["backup.ransomware_detection", "data_security.insider_threat"]
+                "expected_sub_caps": [
+                  "backup.ransomware_detection",
+                  "data_security.insider_threat"
+                ]
               },
               {
                 "id": "DE.CM-4",
                 "name": "Malicious code detected",
-                "expected_sub_caps": ["endpoint.edr", "endpoint.server_prot", "email_security.malware_sandboxing", "cloud.workload_protection", "cnapp.cwpp"]
+                "expected_sub_caps": [
+                  "endpoint.edr",
+                  "endpoint.server_prot",
+                  "email_security.malware_sandboxing",
+                  "cloud.workload_protection",
+                  "cnapp.cwpp"
+                ]
               },
               {
                 "id": "DE.CM-6",
                 "name": "External service provider activity monitored",
-                "expected_sub_caps": ["ot_ics.anomaly_detection"]
+                "expected_sub_caps": [
+                  "ot_ics.anomaly_detection",
+                  "tprm.continuous_monitoring"
+                ]
               },
               {
                 "id": "DE.CM-7",
                 "name": "Monitoring for unauthorized personnel, connections, devices",
-                "expected_sub_caps": ["cloud.cspm", "cnapp.cspm"]
+                "expected_sub_caps": [
+                  "cloud.cspm",
+                  "cnapp.cspm"
+                ]
               },
               {
                 "id": "DE.CM-8",
                 "name": "Vulnerability scans performed",
-                "expected_sub_caps": ["devsec.dast"]
+                "expected_sub_caps": [
+                  "devsec.dast"
+                ]
               }
             ]
           },
@@ -218,7 +338,9 @@
               {
                 "id": "DE.DP-4",
                 "name": "Event detection information communicated to appropriate parties",
-                "expected_sub_caps": ["siem_mdr.threat_hunt"]
+                "expected_sub_caps": [
+                  "siem_mdr.threat_hunt"
+                ]
               }
             ]
           }
@@ -236,7 +358,9 @@
               {
                 "id": "RS.RP-1",
                 "name": "Response plan executed during or after incident",
-                "expected_sub_caps": ["ot_ics.incident_response"]
+                "expected_sub_caps": [
+                  "ot_ics.incident_response"
+                ]
               }
             ]
           },
@@ -247,7 +371,9 @@
               {
                 "id": "RS.CO-1",
                 "name": "Personnel know roles during incident response",
-                "expected_sub_caps": ["siem_mdr.mdr"]
+                "expected_sub_caps": [
+                  "siem_mdr.mdr"
+                ]
               }
             ]
           },
@@ -258,7 +384,9 @@
               {
                 "id": "RS.AN-1",
                 "name": "Notifications from detection systems investigated",
-                "expected_sub_caps": ["siem_mdr.soar"]
+                "expected_sub_caps": [
+                  "siem_mdr.soar"
+                ]
               }
             ]
           },
@@ -269,12 +397,16 @@
               {
                 "id": "RS.MI-1",
                 "name": "Incidents contained",
-                "expected_sub_caps": ["endpoint.response"]
+                "expected_sub_caps": [
+                  "endpoint.response"
+                ]
               },
               {
                 "id": "RS.MI-3",
                 "name": "Newly identified vulnerabilities mitigated or documented",
-                "expected_sub_caps": ["vuln_mgmt.patch_tracking"]
+                "expected_sub_caps": [
+                  "vuln_mgmt.patch_tracking"
+                ]
               }
             ]
           }
@@ -292,7 +424,10 @@
               {
                 "id": "RC.RP-1",
                 "name": "Recovery plan executed during or after cybersecurity incident",
-                "expected_sub_caps": ["backup.recovery_testing", "backup.granular_restore"]
+                "expected_sub_caps": [
+                  "backup.recovery_testing",
+                  "backup.granular_restore"
+                ]
               }
             ]
           }
