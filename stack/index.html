@@ -94,7 +94,8 @@ a:hover{text-decoration:underline}
 @keyframes holoShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
 
 /* FRONT FACE PARTS */
-.sf-banner{background:linear-gradient(90deg,#0a1030,#14204a);padding:4px 8px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#7a8aaa;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c;flex-shrink:0}
+.sf-banner{background:linear-gradient(90deg,#0a1030,#14204a);padding:4px 8px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#7a8aaa;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c;flex-shrink:0;white-space:nowrap;overflow:hidden;gap:6px}
+.sf-banner>span:first-child{overflow:hidden;text-overflow:ellipsis;min-width:0}
 .sf-art{height:80px;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
 .sf-monogram{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:44px;letter-spacing:2px;opacity:.85}
 .sf-logo{max-height:52px;max-width:120px;object-fit:contain;filter:brightness(1.1)}
