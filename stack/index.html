@@ -1625,7 +1625,7 @@ function renderRadar(result) {
     const anchor = p.x < cx - 2 ? 'end' : p.x > cx + 2 ? 'start' : 'middle';
     const valStr = ax.val !== null ? Math.round(ax.val) + '' : 'NA';
     labels += '<text x="' + p.x + '" y="' + (p.y + 3) + '" text-anchor="' + anchor +
-      '" font-family="Impact,sans-serif" font-size="7.5" fill="#888" letter-spacing="0.5">' +
+      '" font-family="Barlow Condensed, sans-serif" font-size="9" fill="#bbb" letter-spacing="0.5">' +
       ax.label.toUpperCase() + ' ' + valStr + '</text>';
   });
 
@@ -1709,7 +1709,7 @@ function renderRecommendations() {
   }
 
   if (reviewItems.length > 0) {
-    html += '<div style="margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;color:#cc5555;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">REVIEW THESE POSITIONS</div>';
+    html += '<div style="margin-top:10px;font-family:\'Barlow Condensed\',sans-serif;font-weight:600;font-size:12px;color:#cc5555;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">REVIEW THESE POSITIONS</div>';
     reviewItems.forEach(item => {
       const take = item.vendor.wr_take || 'Review this vendor\'s resilience posture.';
       html += '<div class="reco-review-item">' +
