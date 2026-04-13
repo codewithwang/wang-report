@@ -75,7 +75,6 @@ a:hover{text-decoration:underline}
 
 /* SLOT CARD — filled (flip card) */
 .slot-scene{width:100%;height:220px;perspective:800px;cursor:pointer}
-.slot-scene.compact{height:180px}
 .slot-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .35s cubic-bezier(.4,0,.2,1)}
 .slot-scene.flipped .slot-inner{transform:rotateY(180deg)}
 .slot-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;overflow:hidden}
@@ -94,12 +93,11 @@ a:hover{text-decoration:underline}
 /* FRONT FACE PARTS */
 .sf-banner{background:linear-gradient(90deg,#0a1030,#14204a);padding:4px 8px;font-family:Impact,sans-serif;font-size:8px;color:#7a8aaa;letter-spacing:1px;display:flex;justify-content:space-between;border-bottom:1px solid #c9a84c;flex-shrink:0}
 .sf-art{height:80px;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
-.slot-scene.compact .sf-art{height:60px}
 .sf-monogram{font-family:Impact,'Arial Narrow',sans-serif;font-size:44px;letter-spacing:2px;opacity:.85}
 .sf-logo{max-height:52px;max-width:120px;object-fit:contain;filter:brightness(1.1)}
-.slot-scene.compact .sf-monogram{font-size:32px}
 .sf-grade-seal{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:Impact,sans-serif;font-size:18px;font-weight:bold}
-.slot-scene.compact .sf-grade-seal{width:32px;height:32px;font-size:13px}
+.sf-remove-btn{position:absolute;bottom:0;left:0;right:0;padding:5px;background:rgba(20,2,2,.85);border-top:1px solid #3a1a1a;border-radius:0 0 9px 9px;font-family:Impact,sans-serif;font-size:11px;letter-spacing:1px;color:#e8e8e8;text-align:center;cursor:pointer;transition:background .15s,color .15s;z-index:6}
+.sf-remove-btn:hover{background:rgba(80,10,10,.98);color:#ffffff}
 .grade-unknown{background:#1a1a1a;border-color:#444;color:#666}
 .grade-A{background:#1a3a1a;border-color:#5a9a3a;color:#8acc5a}
 .grade-B{background:#1a2a3a;border-color:#3a6aaa;color:#6aaaee}
@@ -1378,7 +1376,19 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
       '<div class="sf-slotlabel">' + esc(cap.name) + (mod.deployment ? ' &nbsp;' + depChipHTML(mod.deployment) : '') + '</div>' +
     '</div>' +
     (!compact && featured && vendor.wr_take ? '<div class="sf-take">' + esc(vendor.wr_take) + '</div>' : '') +
-    (featured ? '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>' : '');
+    (featured ? '<div class="holo-wrap"><div class="holo-layer"></div><div class="holo-lines"></div></div>' : '') +
+    '<div class="sf-remove-btn">&#x2715; REMOVE</div>';
+
+  front.addEventListener('click', e => {
+    const btn = e.target.closest('.sf-remove-btn');
+    if (!btn) return;
+    e.stopPropagation();
+    const arr = getSlotEntries(cap.id);
+    arr.splice(entryIdx, 1);
+    if (arr.length === 0) delete state.stack[cap.id];
+    else state.stack[cap.id] = arr;
+    render();
+  });
 
   // BACK
   const back = document.createElement('div');
@@ -1752,7 +1762,6 @@ function openPicker(cap) {
   renderPickerGrid('');
   document.getElementById('pickerModal').classList.add('open');
   lockBodyScroll();
-  document.getElementById('modalSearch').focus();
 }
 
 function closePicker() {
