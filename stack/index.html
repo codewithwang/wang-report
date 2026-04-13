@@ -64,7 +64,7 @@ a:hover{text-decoration:underline}
 /* SLOT CARD — empty */
 .slot-card{width:100%;height:220px;border:2px dashed #2a2a4a;border-radius:10px;background:#0e0e18;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;padding:16px;text-align:center;position:relative}
 .slot-card:hover{border-color:#c9a84c44;background:#111120}
-.slot-cap-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;color:#c9a84c;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.slot-cap-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;color:#c9a84c;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%}
 .slot-cap-desc{font-size:12px;color:#aaa;line-height:1.3;margin-bottom:10px}
 .slot-crit{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;color:#aaa;letter-spacing:0.5px;margin-bottom:8px}
 .slot-fill-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;letter-spacing:1.5px;color:#999;text-transform:uppercase;border:1px dashed #2a2a4a;padding:3px 8px;border-radius:2px}
@@ -108,10 +108,10 @@ a:hover{text-decoration:underline}
 .grade-D{background:#3a1a0a;border-color:#aa4a1a;color:#ee7a3a}
 .grade-F{background:#3a0a0a;border-color:#aa1a1a;color:#ee3a3a}
 .grade-NA{background:#1a1a1a;border-color:#aaa;color:#bbb}
-.sf-nameplate{background:#fff;padding:5px 8px;border-top:1px solid #ddd;flex-shrink:0;height:58px;overflow:hidden}
-.sf-vname{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;color:#111;letter-spacing:0.8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sf-vsector{font-size:11px;color:#bbb;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sf-slotlabel{font-size:12px;color:#c9a84c;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sf-nameplate{background:#fff;padding:5px 8px;border-top:1px solid #ddd;flex-shrink:0;height:68px;overflow:hidden}
+.sf-vname{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;line-height:1.25;text-transform:uppercase;color:#111;letter-spacing:0.8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sf-vsector{font-size:11px;line-height:1.25;color:#bbb;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sf-slotlabel{font-size:12px;line-height:1.25;color:#c9a84c;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sf-take{padding:6px 8px;background:#0d0d12;font-size:11px;font-style:italic;color:#7a6a3a;line-height:1.3;flex:1;overflow:hidden}
 
 /* BACK FACE PARTS */
@@ -339,12 +339,12 @@ a:hover{text-decoration:underline}
 /* Module row inside vendor */
 .pc-module-row{display:flex;align-items:center;gap:8px;padding:8px 12px 8px 32px;border-top:1px solid #111;cursor:pointer;transition:background .12s;min-width:0;overflow:hidden}
 .pc-module-row:hover{background:#111}
-.pc-module-row.in-slot{background:rgba(201,168,76,0.12);cursor:default;border-left:3px solid rgba(201,168,76,0.55)}
+.pc-module-row.in-slot{background:rgba(201,168,76,0.22);cursor:default;border-left:3px solid #c9a84c}
 .pc-module-row.hidden{display:none}
 .pc-module-info{flex:1;min-width:0}
 .pc-module-name{font-size:12px;color:#ccc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pc-module-notes{font-size:12px;color:#aaa;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;margin-top:1px}
-.pc-module-tags{display:flex;gap:4px;align-items:center;flex-shrink:0;flex-wrap:nowrap;justify-content:flex-end;max-width:40%;overflow:hidden}
+.pc-module-tags{display:flex;gap:4px;align-items:center;flex-shrink:0;flex-wrap:nowrap;justify-content:flex-end;max-width:55%;overflow:hidden}
 .pc-mod-in-slot { font-size: 11px; color: #c9a84c; background: rgba(201,168,76,0.18); padding: 2px 8px; border-radius: 10px; font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:0.5px; }
 .pc-mod-remove { font-size: 11px; color: #ee4444; background: rgba(238,68,68,0.15); border: 1px solid rgba(238,68,68,0.35); padding: 2px 8px; border-radius: 3px; cursor: pointer; font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:0.5px; }
 
