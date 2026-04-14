@@ -824,14 +824,7 @@ a:hover{text-decoration:underline}
           <svg id="hexBoardSvg" class="hex-board-svg"
                viewBox="-320 -215 640 430"
                preserveAspectRatio="xMidYMid meet"
-               data-layer-threat="0">
-            <defs>
-              <filter id="hx-glow-soc" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-          </svg>
+               data-layer-threat="0"></svg>
         </div>
         <div class="hex-board-legend">
           <span class="hex-legend-dot" style="background:rgba(102,68,204,.6)"></span><span class="hex-legend-lbl">Identity</span>
@@ -840,7 +833,7 @@ a:hover{text-decoration:underline}
           <span class="hex-legend-dot" style="background:rgba(34,170,204,.6)"></span><span class="hex-legend-lbl">Data/Cloud</span>
           <span class="hex-legend-dot" style="background:rgba(201,168,76,.6)"></span><span class="hex-legend-lbl">SOC/Gov</span>
           <span class="hex-legend-line" style="background:#c9a84c"></span><span class="hex-legend-lbl">Trust</span>
-          <span class="hex-legend-line" style="background:#ef4444;border-top:2px dashed #ef4444;height:0;background:none"></span><span class="hex-legend-lbl">Gap</span>
+          <span class="hex-legend-lbl" style="color:#ef4444;letter-spacing:1px">- - -</span><span class="hex-legend-lbl">Gap</span>
         </div>
       </div>
       <!-- LIST VIEW (zone-grid fallback) -->
@@ -2899,14 +2892,7 @@ function renderHexBoard() {
   let svg = '';
 
   // Ocean background
-  svg += '<rect x="-320" y="-215" width="640" height="430" fill="#06080f" rx="3"/>';
-
-  // Subtle radial glow at center
-  svg += '<radialGradient id="hx-ocean-glow" cx="50%" cy="50%" r="50%">'
-       + '<stop offset="0%" stop-color="#0a1020" stop-opacity="1"/>'
-       + '<stop offset="100%" stop-color="#06080f" stop-opacity="1"/>'
-       + '</radialGradient>';
-  svg += '<rect x="-320" y="-215" width="640" height="430" fill="url(#hx-ocean-glow)"/>';
+  svg += '<rect x="-320" y="-215" width="640" height="430" fill="url(#hx-ocean-glow)" rx="3"/>';
 
   // Monitoring lines: SIEM → R1 ring (only if SIEM is filled)
   if (!slotIsEmpty('siem_mdr')) {
@@ -2943,9 +2929,11 @@ function renderHexBoard() {
   HEX_TILES.forEach(tile => { svg += buildHexTileSVG(tile, activeCaps); });
   svg += '</g>';
 
-  // Inject preserving the <defs> already in the SVG
-  const defs = svgEl.querySelector('defs');
-  svgEl.innerHTML = (defs ? defs.outerHTML : '') + svg;
+  // Inject with all SVG defs (filters + gradients)
+  svgEl.innerHTML = '<defs>'
+    + '<filter id="hx-glow-soc" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+    + '<radialGradient id="hx-ocean-glow" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#0c1020"/><stop offset="100%" stop-color="#060810"/></radialGradient>'
+    + '</defs>' + svg;
 
   // Wire hover card once
   if (!hexHoverWired) {
