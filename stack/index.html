@@ -45,10 +45,10 @@ a:hover{text-decoration:underline}
 
 /* SLOT GRID */
 .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-bottom:20px;align-items:start}
-@media(max-width:420px){.slot-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media(max-width:420px){.slot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 
 /* SLOT CELL — wraps the slot header + card stack + add tile */
-.slot-cell{display:flex;flex-direction:column;gap:6px}
+.slot-cell{display:flex;flex-direction:column;gap:6px;min-width:0}
 
 /* SLOT HEADER ROW */
 .slot-header{display:flex;align-items:center;justify-content:space-between;padding:0 2px}
