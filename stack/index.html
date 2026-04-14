@@ -547,6 +547,77 @@ a:hover{text-decoration:underline}
   .viz-zone-wide .viz-zone-slots{grid-template-columns:1fr}
 }
 
+/* ── HEX BOARD (VISUALIZE IT v2) ── */
+.viz-view-toggle{display:flex;gap:0;border:1px solid #2a2a4a;border-radius:3px;overflow:hidden}
+.viz-view-btn{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;padding:5px 14px;background:#111118;color:#bbb;border:none;cursor:pointer;transition:all .15s;text-transform:uppercase}
+.viz-view-btn:not(:last-child){border-right:1px solid #2a2a4a}
+.viz-view-btn.active{background:#1a1808;color:#c9a84c}
+.viz-view-btn:hover:not(.active){color:#ddd;background:#161622}
+.hex-layer-chips{display:flex;gap:4px;flex-wrap:wrap}
+.hex-layer-chip{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;letter-spacing:1px;padding:4px 10px;border:1px solid #2a2a4a;border-radius:2px;background:#0e0e18;color:#888;cursor:pointer;transition:all .15s;text-transform:uppercase;white-space:nowrap}
+.hex-layer-chip.active{background:#1a1000;color:#f59e0b;border-color:#f59e0b44}
+.hex-layer-chip:hover:not(.active){color:#bbb;background:#161622}
+.hex-board-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.hex-board-svg{width:100%;height:auto;display:block;min-width:340px}
+.hex-tile{cursor:pointer}
+.hex-tile.locked{opacity:.15;cursor:default;pointer-events:none}
+.hex-tile .hex-shape{transition:fill .2s,stroke .2s;stroke-width:1.5}
+.hex-tile:hover:not(.locked) .hex-shape{filter:brightness(1.35)}
+.hex-tile.filled.zone-soc .hex-shape{filter:drop-shadow(0 0 5px rgba(201,168,76,.35))}
+.hex-tile.filled.zone-identity .hex-shape{fill:rgba(102,68,204,.28);stroke:#7766cc}
+.hex-tile.filled.zone-perimeter .hex-shape{fill:rgba(204,85,34,.28);stroke:#cc6633}
+.hex-tile.filled.zone-workload .hex-shape{fill:rgba(34,170,68,.28);stroke:#22aa44}
+.hex-tile.filled.zone-data .hex-shape{fill:rgba(34,170,204,.28);stroke:#22aacc}
+.hex-tile.filled.zone-soc .hex-shape{fill:rgba(201,168,76,.32);stroke:#c9a84c}
+.hex-tile.empty.zone-identity .hex-shape{fill:#0a0a16;stroke:#4a3a8a;stroke-dasharray:6 4}
+.hex-tile.empty.zone-perimeter .hex-shape{fill:#0a0806;stroke:#7a3a2a;stroke-dasharray:6 4}
+.hex-tile.empty.zone-workload .hex-shape{fill:#060e08;stroke:#2a5a3a;stroke-dasharray:6 4}
+.hex-tile.empty.zone-data .hex-shape{fill:#060c0e;stroke:#2a5a6a;stroke-dasharray:6 4}
+.hex-tile.empty.zone-soc .hex-shape{fill:#0a0a04;stroke:#6a5a1a;stroke-dasharray:6 4}
+.hex-cap-label{font-family:'Barlow Condensed',sans-serif;font-size:7px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;text-anchor:middle;dominant-baseline:middle;pointer-events:none}
+.hex-tile.zone-identity .hex-cap-label{fill:#8877ee}
+.hex-tile.zone-perimeter .hex-cap-label{fill:#ee7744}
+.hex-tile.zone-workload .hex-cap-label{fill:#55cc66}
+.hex-tile.zone-data .hex-cap-label{fill:#44ccee}
+.hex-tile.zone-soc .hex-cap-label{fill:#c9a84c}
+.hex-tile.empty .hex-cap-label{fill-opacity:.45}
+.hex-crit-disc circle{fill:#1a1a20;stroke:#c9a84c;stroke-width:.8}
+.hex-crit-disc text{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;text-anchor:middle;dominant-baseline:middle;fill:#c9a84c}
+.hex-crit-high circle{fill:#2a1a00;stroke:#e8a000}
+.hex-crit-high text{fill:#e8a000}
+.hex-grade-bg{fill:#0a0a12;stroke-width:1}
+.hex-grade-text{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;text-anchor:middle;dominant-baseline:middle}
+.hx-gA .hex-grade-bg{fill:#1a3a1a;stroke:#22aa44}.hx-gA .hex-grade-text{fill:#4ade80}
+.hx-gB .hex-grade-bg{fill:#1a3a3a;stroke:#2dd4bf}.hx-gB .hex-grade-text{fill:#2dd4bf}
+.hx-gC .hex-grade-bg{fill:#2a1a00;stroke:#c9a84c}.hx-gC .hex-grade-text{fill:#c9a84c}
+.hx-gD .hex-grade-bg{fill:#2a1000;stroke:#f97316}.hx-gD .hex-grade-text{fill:#f97316}
+.hx-gF .hex-grade-bg{fill:#2a0000;stroke:#ef4444}.hx-gF .hex-grade-text{fill:#ef4444}
+.trust-edge{fill:none;pointer-events:none}
+.trust-edge.both-filled{stroke:#c9a84c;stroke-width:1.2;stroke-opacity:.45}
+.trust-edge.one-empty{stroke:#ef4444;stroke-width:1.2;stroke-dasharray:5 3;stroke-opacity:.4}
+.monitor-line{fill:none;stroke:#c9a84c;stroke-width:.8;stroke-opacity:.18;stroke-dasharray:3 8;animation:hex-dash-drift 20s linear infinite}
+@keyframes hex-dash-drift{to{stroke-dashoffset:-100}}
+@media(prefers-reduced-motion:reduce){.monitor-line{animation:none}}
+.threat-path{fill:none;stroke-width:2.5;stroke-opacity:0;pointer-events:none;transition:stroke-opacity .3s;stroke-linecap:round;stroke-linejoin:round}
+.hex-board-svg[data-layer-threat="1"] .threat-path{stroke-opacity:.35}
+.hex-hover-card{position:fixed;background:#0d0d1a;border:1px solid #2a2a5a;border-radius:8px;padding:12px 14px;width:220px;pointer-events:none;opacity:0;transition:opacity .12s;z-index:600;font-size:12px;box-shadow:0 6px 24px rgba(0,0,0,.7)}
+.hex-hover-card.visible{opacity:1;pointer-events:all}
+.hex-hc-zone{font-size:9px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.hex-hc-cap{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;color:#c9a84c;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.hex-hc-vendor{font-size:12px;color:#ddd;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.hex-hc-grade-row{font-size:11px;color:#aaa;margin-bottom:6px}
+.hex-hc-empty-msg{font-size:11px;color:#888;margin-bottom:8px;line-height:1.4}
+.hex-hc-actions{display:flex;gap:6px;flex-wrap:wrap}
+.hex-hc-btn{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;letter-spacing:.5px;padding:4px 10px;border-radius:2px;border:1px solid;cursor:pointer;background:transparent;transition:all .15s;pointer-events:all;text-transform:uppercase}
+.hex-hc-btn-assign{border-color:#c9a84c55;color:#c9a84c}
+.hex-hc-btn-assign:hover{background:rgba(201,168,76,.15)}
+.hex-hc-btn-remove{border-color:#ef444455;color:#ef4444}
+.hex-hc-btn-remove:hover{background:rgba(239,68,68,.1)}
+.hex-board-legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px;padding-top:8px;border-top:1px solid #1a1a2a;justify-content:center}
+.hex-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;display:inline-block}
+.hex-legend-lbl{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;letter-spacing:.8px;color:#888;text-transform:uppercase}
+.hex-legend-line{width:20px;height:2px;flex-shrink:0;display:inline-block;border-radius:1px}
+
 /* ── EXPOSURE TAB ── */
 .exp-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #1a1a2a}
 .exp-sei-num{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:72px;line-height:1;color:#c9a84c}
@@ -735,14 +806,54 @@ a:hover{text-decoration:underline}
     <div class="viz-board" id="vizBoard">
       <div class="viz-board-header">
         <div class="viz-board-title">SECURITY ARCHITECTURE MAP</div>
-        <div class="viz-board-subtitle">Your stack as a strategic board — filled zones vs open gaps &middot; <span id="vizModeLabel"></span></div>
+        <div class="viz-board-subtitle">Catan-style security topology &middot; <span id="vizModeLabel"></span></div>
       </div>
-      <div id="vizContent"></div>
-      <div class="viz-legend">
-        <div class="viz-legend-item"><div class="viz-legend-swatch" style="background:#1a1a2a;border:1.5px dashed #444"></div>EMPTY GAP</div>
-        <div class="viz-legend-item"><div class="viz-legend-swatch" style="background:#111118;border:1px solid #4a3a8a;box-shadow:0 0 4px rgba(100,80,220,.3)"></div>FILLED</div>
-        <div class="viz-legend-item"><div class="viz-grade-badge grade-A" style="width:14px;height:14px;font-size:9px">A</div>&nbsp;GRADE BADGE</div>
+      <!-- HEX / LIST toggle + layer chips -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+        <div class="viz-view-toggle">
+          <button class="viz-view-btn active" data-vmode="hex">&#9650; HEX</button>
+          <button class="viz-view-btn" data-vmode="list">&#9776; LIST</button>
+        </div>
+        <div class="hex-layer-chips">
+          <button class="hex-layer-chip" data-layer="threat">&#9888; THREATS</button>
+        </div>
       </div>
+      <!-- HEX BOARD VIEW -->
+      <div id="vizHexView">
+        <div class="hex-board-wrap">
+          <svg id="hexBoardSvg" class="hex-board-svg"
+               viewBox="-320 -215 640 430"
+               preserveAspectRatio="xMidYMid meet"
+               data-layer-threat="0">
+            <defs>
+              <filter id="hx-glow-soc" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div class="hex-board-legend">
+          <span class="hex-legend-dot" style="background:rgba(102,68,204,.6)"></span><span class="hex-legend-lbl">Identity</span>
+          <span class="hex-legend-dot" style="background:rgba(204,85,34,.6)"></span><span class="hex-legend-lbl">Perimeter</span>
+          <span class="hex-legend-dot" style="background:rgba(34,170,68,.6)"></span><span class="hex-legend-lbl">Workload</span>
+          <span class="hex-legend-dot" style="background:rgba(34,170,204,.6)"></span><span class="hex-legend-lbl">Data/Cloud</span>
+          <span class="hex-legend-dot" style="background:rgba(201,168,76,.6)"></span><span class="hex-legend-lbl">SOC/Gov</span>
+          <span class="hex-legend-line" style="background:#c9a84c"></span><span class="hex-legend-lbl">Trust</span>
+          <span class="hex-legend-line" style="background:#ef4444;border-top:2px dashed #ef4444;height:0;background:none"></span><span class="hex-legend-lbl">Gap</span>
+        </div>
+      </div>
+      <!-- LIST VIEW (zone-grid fallback) -->
+      <div id="vizListView" style="display:none">
+        <div id="vizContent"></div>
+        <div class="viz-legend">
+          <div class="viz-legend-item"><div class="viz-legend-swatch" style="background:#1a1a2a;border:1.5px dashed #444"></div>EMPTY GAP</div>
+          <div class="viz-legend-item"><div class="viz-legend-swatch" style="background:#111118;border:1px solid #4a3a8a;box-shadow:0 0 4px rgba(100,80,220,.3)"></div>FILLED</div>
+          <div class="viz-legend-item"><div class="viz-grade-badge grade-A" style="width:14px;height:14px;font-size:9px">A</div>&nbsp;GRADE BADGE</div>
+        </div>
+      </div>
+      <!-- Hover card (fixed, follows mouse) -->
+      <div id="hexHoverCard" class="hex-hover-card"></div>
     </div>
   </div>
 
@@ -2521,20 +2632,33 @@ const VIZ_ZONES = [
     id: 'soc',
     label: 'SOC ZONE',
     cls: 'zone-soc',
-    caps: ['siem_mdr', 'password_manager', 'devops_security', 'ot_security'],
+    caps: ['siem_mdr', 'password_manager', 'grc', 'tprm', 'devsec', 'nhi', 'ot_ics'],
     row: 'bot',
     wide: true,
   },
 ];
 
 function renderVizBoard() {
-  const mode = state.mode;
-  const activeCaps = new Set(DATA.capabilities.filter(c => c.modes[mode]).map(c => c.id));
-
-  // Update subtitle
   const modeLabels = { startup:'Startup Mode', smb:'SMB Mode', enterprise:'Enterprise Mode' };
   const modeEl = document.getElementById('vizModeLabel');
-  if (modeEl) modeEl.textContent = modeLabels[mode] || mode;
+  if (modeEl) modeEl.textContent = modeLabels[state.mode] || state.mode;
+
+  const vizMode = getVizMode();
+  document.querySelectorAll('.viz-view-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.vmode === vizMode);
+  });
+  const hexView  = document.getElementById('vizHexView');
+  const listView = document.getElementById('vizListView');
+  if (hexView)  hexView.style.display  = vizMode === 'hex'  ? '' : 'none';
+  if (listView) listView.style.display = vizMode === 'list' ? '' : 'none';
+
+  if (vizMode === 'hex') renderHexBoard();
+  else renderVizBoardList();
+}
+
+function renderVizBoardList() {
+  const mode = state.mode;
+  const activeCaps = new Set(DATA.capabilities.filter(c => c.modes[mode]).map(c => c.id));
 
   const content = document.getElementById('vizContent');
   if (!content) return;
@@ -2670,6 +2794,378 @@ function renderVizSlot(capId, zoneCls) {
     '<div class="viz-grade-badge ' + gradeCls + '">' + esc(displayGrade) + '</div>' +
   '</div>';
 }
+
+/* ── HEX BOARD IMPLEMENTATION ── */
+
+const HEX_S = 46; // hex half-width (SVG units)
+const HEX_SQRT3 = Math.sqrt(3);
+
+// All 20 capability tiles in axial coordinates (flat-top hex)
+// Crown = (0,0), R1 inner ring, R2 control plane, plus OT satellite
+const HEX_TILES = [
+  // R0 — crown
+  { q:0,  r:0,  capId:'siem_mdr',          zone:'zone-soc',       crit:10 },
+  // R1 — inner ring (trust zone)
+  { q:1,  r:-1, capId:'identity_sso',       zone:'zone-identity',  crit:10 },
+  { q:1,  r:0,  capId:'endpoint',           zone:'zone-workload',  crit:9  },
+  { q:0,  r:1,  capId:'data_security',      zone:'zone-data',      crit:8  },
+  { q:-1, r:1,  capId:'backup',             zone:'zone-data',      crit:9  },
+  { q:-1, r:0,  capId:'password_manager',   zone:'zone-identity',  crit:4  },
+  { q:0,  r:-1, capId:'mdm',                zone:'zone-workload',  crit:4  },
+  // R2 — control plane
+  { q:2,  r:-2, capId:'pam',                zone:'zone-identity',  crit:7  },
+  { q:2,  r:-1, capId:'iga',                zone:'zone-identity',  crit:5  },
+  { q:2,  r:0,  capId:'vuln_mgmt',          zone:'zone-workload',  crit:5  },
+  { q:1,  r:1,  capId:'nhi',                zone:'zone-identity',  crit:4  },
+  { q:0,  r:2,  capId:'devsec',             zone:'zone-data',      crit:4  },
+  { q:-1, r:2,  capId:'cnapp',              zone:'zone-data',      crit:5  },
+  { q:-2, r:2,  capId:'cloud',              zone:'zone-data',      crit:6  },
+  { q:-2, r:1,  capId:'grc',                zone:'zone-soc',       crit:3  },
+  { q:-2, r:0,  capId:'sase_ztna',          zone:'zone-perimeter', crit:6  },
+  { q:-1, r:-1, capId:'email_security',     zone:'zone-perimeter', crit:8  },
+  { q:0,  r:-2, capId:'network_firewall',   zone:'zone-perimeter', crit:7  },
+  { q:1,  r:-2, capId:'tprm',               zone:'zone-soc',       crit:3  },
+  // OT satellite — adjacent to cloud cluster, SW
+  { q:-2, r:3,  capId:'ot_ics',             zone:'zone-perimeter', crit:4  },
+];
+
+// Threat attack paths for THREATS overlay
+const HEX_THREAT_PATHS = [
+  { id:'phish',       color:'#f59e0b', label:'Phishing \u2192 Lateral',
+    path:['email_security','identity_sso','endpoint','data_security'] },
+  { id:'ransomware',  color:'#ef4444', label:'Ransomware',
+    path:['email_security','endpoint','backup','data_security'] },
+  { id:'supply',      color:'#a855f7', label:'Supply Chain',
+    path:['tprm','devsec','cloud','data_security'] },
+  { id:'cloud_breach',color:'#22d3ee', label:'Cloud Breach',
+    path:['cnapp','cloud','data_security'] },
+  { id:'insider',     color:'#fb923c', label:'Insider Abuse',
+    path:['identity_sso','pam','data_security'] },
+];
+
+// Convert axial (q,r) to SVG pixel center
+function axialToPixel(q, r) {
+  return {
+    x: parseFloat((HEX_S * 1.5 * q).toFixed(2)),
+    y: parseFloat((HEX_S * HEX_SQRT3 * (r + q / 2)).toFixed(2)),
+  };
+}
+
+// Flat-top hex polygon points string centered at (cx, cy)
+function hexPolyPoints(cx, cy) {
+  const S = HEX_S, h = +(S * HEX_SQRT3 / 2).toFixed(2);
+  return `${cx-S},${cy} ${cx-S/2},${+(cy-h).toFixed(2)} ${cx+S/2},${+(cy-h).toFixed(2)} ${cx+S},${cy} ${cx+S/2},${+(cy+h).toFixed(2)} ${cx-S/2},${+(cy+h).toFixed(2)}`;
+}
+
+// Persist HEX vs LIST view preference
+function getVizMode() {
+  try { return localStorage.getItem('wr_viz_mode') || 'hex'; } catch(e) { return 'hex'; }
+}
+function setVizMode(m) {
+  try { localStorage.setItem('wr_viz_mode', m); } catch(e) {}
+}
+
+// Remove first matching vendor from a cap slot (called from hover card)
+function hexRemoveVendor(capId, vendorId) {
+  const arr = getSlotEntries(capId);
+  const idx = arr.findIndex(e => e.vendor_id === vendorId);
+  if (idx < 0) return;
+  arr.splice(idx, 1);
+  if (arr.length === 0) delete state.stack[capId];
+  else state.stack[capId] = arr;
+  render();
+}
+
+// Open vendor picker by capId string
+function openPickerById(capId) {
+  const cap = capMap[capId];
+  if (cap) openPicker(cap);
+}
+
+// Main hex board renderer — builds SVG content and injects into #hexBoardSvg
+let hexHoverWired = false;
+
+function renderHexBoard() {
+  const svgEl = document.getElementById('hexBoardSvg');
+  if (!svgEl) return;
+
+  const mode = state.mode;
+  const activeCaps = new Set(DATA.capabilities.filter(c => c.modes[mode]).map(c => c.id));
+
+  // Build tile lookup by capId
+  const tileByCapId = {};
+  HEX_TILES.forEach(t => { if (t.capId) tileByCapId[t.capId] = t; });
+
+  let svg = '';
+
+  // Ocean background
+  svg += '<rect x="-320" y="-215" width="640" height="430" fill="#06080f" rx="3"/>';
+
+  // Subtle radial glow at center
+  svg += '<radialGradient id="hx-ocean-glow" cx="50%" cy="50%" r="50%">'
+       + '<stop offset="0%" stop-color="#0a1020" stop-opacity="1"/>'
+       + '<stop offset="100%" stop-color="#06080f" stop-opacity="1"/>'
+       + '</radialGradient>';
+  svg += '<rect x="-320" y="-215" width="640" height="430" fill="url(#hx-ocean-glow)"/>';
+
+  // Monitoring lines: SIEM → R1 ring (only if SIEM is filled)
+  if (!slotIsEmpty('siem_mdr')) {
+    const cp = axialToPixel(0, 0);
+    svg += '<g class="layer-monitoring">';
+    ['identity_sso','endpoint','data_security','backup','password_manager','mdm'].forEach(cid => {
+      const t = tileByCapId[cid];
+      if (!t) return;
+      const p = axialToPixel(t.q, t.r);
+      svg += `<line class="monitor-line" x1="${cp.x}" y1="${cp.y}" x2="${p.x}" y2="${p.y}"/>`;
+    });
+    svg += '</g>';
+  }
+
+  // Threat paths (toggled via data-layer-threat attribute)
+  svg += '<g class="layer-threats">';
+  HEX_THREAT_PATHS.forEach(threat => {
+    const pts = threat.path
+      .map(cid => tileByCapId[cid] ? axialToPixel(tileByCapId[cid].q, tileByCapId[cid].r) : null)
+      .filter(Boolean);
+    if (pts.length < 2) return;
+    const d = 'M ' + pts.map(p => `${p.x},${p.y}`).join(' L ');
+    svg += `<path class="threat-path" d="${d}" stroke="${threat.color}" data-threat="${threat.id}" title="${esc(threat.label)}"/>`;
+  });
+  svg += '</g>';
+
+  // Trust bond edges (between adjacent caps)
+  svg += '<g class="layer-edges">';
+  svg += buildHexTrustEdges(activeCaps);
+  svg += '</g>';
+
+  // Hex tile layer
+  svg += '<g class="layer-hexes">';
+  HEX_TILES.forEach(tile => { svg += buildHexTileSVG(tile, activeCaps); });
+  svg += '</g>';
+
+  // Inject preserving the <defs> already in the SVG
+  const defs = svgEl.querySelector('defs');
+  svgEl.innerHTML = (defs ? defs.outerHTML : '') + svg;
+
+  // Wire hover card once
+  if (!hexHoverWired) {
+    wireHexHover(svgEl);
+    hexHoverWired = true;
+  }
+
+  // Wire layer toggle chips
+  document.querySelectorAll('.hex-layer-chip').forEach(chip => {
+    chip.onclick = () => {
+      const layer = chip.dataset.layer;
+      const cur = svgEl.getAttribute('data-layer-' + layer) === '1';
+      svgEl.setAttribute('data-layer-' + layer, cur ? '0' : '1');
+      chip.classList.toggle('active', !cur);
+    };
+  });
+}
+
+// Build SVG for a single hex tile
+function buildHexTileSVG(tile, activeCaps) {
+  const p = axialToPixel(tile.q, tile.r);
+  const cx = p.x, cy = p.y;
+  const S = HEX_S, h = +(S * HEX_SQRT3 / 2).toFixed(2);
+
+  const cap = capMap[tile.capId];
+  const entries = cap ? getSlotEntries(tile.capId) : [];
+  const isFilled = entries.length > 0;
+  const isLocked = !activeCaps.has(tile.capId);
+  const stateClass = isLocked ? 'locked' : (isFilled ? 'filled' : 'empty');
+  const pts = hexPolyPoints(cx, cy);
+
+  let g = `<g class="hex-tile ${tile.zone} ${stateClass}" data-capid="${tile.capId}" tabindex="0" role="button" aria-label="${cap ? esc(cap.name) : tile.capId}">`;
+  g += `<polygon class="hex-shape" points="${pts}"/>`;
+
+  if (isLocked) {
+    g += `<text class="hex-cap-label" x="${cx}" y="${cy-4}" fill="#2a2a3a">ENTERPRISE</text>`;
+    g += `<text class="hex-cap-label" x="${cx}" y="${cy+8}" fill="#2a2a3a">TIER</text>`;
+    return g + '</g>';
+  }
+
+  // Catan criticality number disc (top of hex)
+  const crit = tile.crit || 3;
+  const critCls = crit >= 9 ? ' hex-crit-high' : '';
+  const discY = +(cy - h + 10).toFixed(2);
+  g += `<g class="hex-crit-disc${critCls}"><circle cx="${cx}" cy="${discY}" r="8"/><text x="${cx}" y="${+(discY+1).toFixed(2)}">${crit}</text></g>`;
+
+  if (!isFilled) {
+    // Empty tile
+    g += `<text x="${cx}" y="${+(cy+2).toFixed(2)}" text-anchor="middle" dominant-baseline="middle" font-size="14" fill="#2a2a4a" pointer-events="none">\u25C7</text>`;
+    const cname = cap ? cap.name.toUpperCase().substring(0, 13) : tile.capId.toUpperCase();
+    g += `<text class="hex-cap-label" x="${cx}" y="${+(cy+20).toFixed(2)}">${esc(cname)}</text>`;
+  } else {
+    // Filled tile
+    const firstEntry = entries[0];
+    const vendor = vendorMap[firstEntry.vendor_id];
+    if (!vendor) return g + '</g>';
+
+    const grade = vendor.grade || 'NA';
+    const aiGrade = vendor.ai_era_grade && vendor.ai_era_grade.grade ? vendor.ai_era_grade.grade : null;
+    const displayGrade = aiGrade || grade;
+
+    // Grade badge (NE corner)
+    const gbx = +(cx + S * 0.5 - 8).toFixed(2);
+    const gby = +(cy - h + 11).toFixed(2);
+    g += `<g class="hex-grade-badge hx-g${displayGrade}">`;
+    g += `<circle class="hex-grade-bg" cx="${gbx}" cy="${gby}" r="8"/>`;
+    g += `<text class="hex-grade-text" x="${gbx}" y="${+(gby+1).toFixed(2)}">${esc(displayGrade)}</text>`;
+    g += `</g>`;
+
+    // AI+ badge (NW corner, if ai grade is A or B)
+    if (aiGrade && (aiGrade === 'A' || aiGrade === 'B')) {
+      const abx = +(cx - S * 0.5 + 8).toFixed(2);
+      g += `<rect x="${+(abx-10).toFixed(2)}" y="${+(gby-4).toFixed(2)}" width="20" height="9" rx="4.5" fill="#1a1808" stroke="#c9a84c" stroke-width=".8"/>`;
+      g += `<text x="${abx}" y="${+(gby+1).toFixed(2)}" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow Condensed',sans-serif" font-size="6.5" font-weight="700" fill="#c9a84c" pointer-events="none">AI+</text>`;
+    }
+
+    // Vendor monogram circle (center)
+    const mColor = monogramColor(vendor);
+    const mono = vendor.monogram || '??';
+    g += `<circle cx="${cx}" cy="${+(cy-5).toFixed(2)}" r="15" fill="#0a0a12" stroke="${mColor}" stroke-width="1"/>`;
+    g += `<text x="${cx}" y="${+cy.toFixed(2)}" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow Condensed',sans-serif" font-size="12" font-weight="700" fill="${mColor}" pointer-events="none">${esc(mono)}</text>`;
+
+    // Vendor name (below circle)
+    const vname = vendor.name ? (vendor.name.length > 12 ? vendor.name.substring(0,12)+'\u2026' : vendor.name) : '';
+    g += `<text class="hex-cap-label" x="${cx}" y="${+(cy+18).toFixed(2)}">${esc(vname)}</text>`;
+
+    // Multi-vendor badge (lower-right)
+    if (entries.length > 1) {
+      const mbx = +(cx + S - 10).toFixed(2), mby = +(cy + h - 9).toFixed(2);
+      g += `<circle cx="${mbx}" cy="${mby}" r="7" fill="#1a1a2a" stroke="#555" stroke-width=".8"/>`;
+      g += `<text x="${mbx}" y="${+(mby+1).toFixed(2)}" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow Condensed',sans-serif" font-size="7" fill="#bbb" pointer-events="none">+${entries.length-1}</text>`;
+    }
+  }
+
+  return g + '</g>';
+}
+
+// Build trust bond edges between adjacent filled/empty cap tiles
+function buildHexTrustEdges(activeCaps) {
+  const tileMap = {};
+  HEX_TILES.forEach(t => { tileMap[`${t.q},${t.r}`] = t; });
+
+  const processed = new Set();
+  let html = '';
+  // Flat-top hex: 6 neighbor direction offsets
+  const dirs = [[1,-1],[1,0],[0,1],[-1,1],[-1,0],[0,-1]];
+
+  HEX_TILES.forEach(tile => {
+    const p1 = axialToPixel(tile.q, tile.r);
+    dirs.forEach(([dq, dr]) => {
+      const nKey = `${tile.q+dq},${tile.r+dr}`;
+      const nTile = tileMap[nKey];
+      if (!nTile) return;
+
+      const edgeKey = [tile.capId, nTile.capId].sort().join('|');
+      if (processed.has(edgeKey)) return;
+      processed.add(edgeKey);
+
+      const p2 = axialToPixel(nTile.q, nTile.r);
+      const t1Filled = activeCaps.has(tile.capId) && !slotIsEmpty(tile.capId);
+      const t2Filled = activeCaps.has(nTile.capId) && !slotIsEmpty(nTile.capId);
+      if (!t1Filled && !t2Filled) return;
+
+      // Draw bond between centers, shortened 35% from each end
+      const x1 = +(p1.x + (p2.x - p1.x) * 0.32).toFixed(2);
+      const y1 = +(p1.y + (p2.y - p1.y) * 0.32).toFixed(2);
+      const x2 = +(p1.x + (p2.x - p1.x) * 0.68).toFixed(2);
+      const y2 = +(p1.y + (p2.y - p1.y) * 0.68).toFixed(2);
+      const cls = (t1Filled && t2Filled) ? 'both-filled' : 'one-empty';
+      html += `<line class="trust-edge ${cls}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+    });
+  });
+  return html;
+}
+
+// Wire hover card and tap events on the hex SVG
+function wireHexHover(svgEl) {
+  const card = document.getElementById('hexHoverCard');
+  if (!card) return;
+
+  let hideTimer;
+
+  const showCard = (capId, evt) => {
+    clearTimeout(hideTimer);
+    const cap = capMap[capId];
+    if (!cap) return;
+
+    const entries = getSlotEntries(capId);
+    const isFilled = entries.length > 0;
+    let html = `<div class="hex-hc-zone">${esc(cap.name)}</div>`;
+
+    if (isFilled) {
+      const firstEntry = entries[0];
+      const vendor = vendorMap[firstEntry.vendor_id];
+      if (vendor) {
+        const grade = vendor.grade || 'NA';
+        const aiGrade = vendor.ai_era_grade && vendor.ai_era_grade.grade ? vendor.ai_era_grade.grade : null;
+        const displayGrade = aiGrade || grade;
+        html += `<div class="hex-hc-vendor"><span class="viz-grade-badge grade-${displayGrade}" style="display:inline-flex;width:16px;height:16px;font-size:9px;flex-shrink:0">${esc(displayGrade)}</span><span>${esc(vendor.name)}${entries.length > 1 ? ` <span style="color:#777">+${entries.length-1}</span>` : ''}</span></div>`;
+        if (aiGrade) html += `<div class="hex-hc-grade-row">AI-Era: <strong style="color:#c9a84c">${esc(aiGrade)}</strong></div>`;
+        html += `<div class="hex-hc-actions">`;
+        html += `<button class="hex-hc-btn hex-hc-btn-assign" onclick="openPickerById('${capId}');document.getElementById('hexHoverCard').classList.remove('visible')">&#8599; Edit</button>`;
+        html += `<button class="hex-hc-btn hex-hc-btn-remove" onclick="hexRemoveVendor('${capId}','${firstEntry.vendor_id}');document.getElementById('hexHoverCard').classList.remove('visible')">&#10005; Remove</button>`;
+        html += `</div>`;
+      }
+    } else {
+      html += `<div class="hex-hc-cap">\u25C7 UNCLAIMED</div>`;
+      if (cap.description) html += `<div class="hex-hc-empty-msg">${esc(cap.description)}</div>`;
+      html += `<div class="hex-hc-actions"><button class="hex-hc-btn hex-hc-btn-assign" onclick="openPickerById('${capId}');document.getElementById('hexHoverCard').classList.remove('visible')">+ Assign</button></div>`;
+    }
+
+    card.innerHTML = html;
+    card.classList.add('visible');
+    positionHexCard(card, evt);
+  };
+
+  const hideCard = () => { hideTimer = setTimeout(() => card.classList.remove('visible'), 250); };
+
+  svgEl.addEventListener('mouseover', e => {
+    const tile = e.target.closest('[data-capid]');
+    if (tile && !tile.classList.contains('locked')) showCard(tile.dataset.capid, e);
+  });
+  svgEl.addEventListener('mousemove', e => {
+    if (card.classList.contains('visible')) positionHexCard(card, e);
+  });
+  svgEl.addEventListener('mouseout', e => {
+    if (e.target.closest('[data-capid]')) hideCard();
+  });
+  card.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  card.addEventListener('mouseleave', hideCard);
+
+  // Mobile tap: show/hide on first/second tap
+  svgEl.addEventListener('click', e => {
+    const tile = e.target.closest('[data-capid]');
+    if (!tile || tile.classList.contains('locked')) { card.classList.remove('visible'); return; }
+    if (card.classList.contains('visible') && card._lastCap === tile.dataset.capid) {
+      card.classList.remove('visible'); return;
+    }
+    card._lastCap = tile.dataset.capid;
+    showCard(tile.dataset.capid, e);
+  });
+}
+
+function positionHexCard(card, e) {
+  const m = 14, cw = 224, ch = 130;
+  const vw = window.innerWidth, vh = window.innerHeight;
+  let left = e.clientX + m, top = e.clientY + m;
+  if (left + cw > vw - 8) left = e.clientX - cw - m;
+  if (top + ch > vh - 8) top = e.clientY - ch - m;
+  card.style.left = left + 'px';
+  card.style.top = top + 'px';
+}
+
+// Set up HEX / LIST toggle buttons (runs once at page load)
+document.querySelectorAll('.viz-view-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setVizMode(btn.dataset.vmode);
+    renderVizBoard();
+  });
+});
 
 /* ── WR-REF v1.0 EXPOSURE CALCULATIONS ── */
 
