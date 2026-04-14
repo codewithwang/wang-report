@@ -456,6 +456,97 @@ a:hover{text-decoration:underline}
 .out-summary-num{font-size:24px;display:block}
 .out-summary-lbl{font-size:11px;color:#aaa;letter-spacing:0.5px;text-transform:uppercase}
 
+/* ── VISUALIZE IT BOARD ── */
+.viz-board{padding:4px 0 24px;width:100%}
+.viz-board-header{text-align:center;margin-bottom:20px}
+.viz-board-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;color:#c9a84c;letter-spacing:2px}
+.viz-board-subtitle{font-size:12px;color:#aaa;margin-top:4px}
+
+.viz-zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.viz-zone-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.viz-zone-row.two-col{grid-template-columns:1fr 1fr}
+.viz-zone-row.one-col{grid-template-columns:1fr}
+
+.viz-zone{border-radius:8px;padding:10px;position:relative;overflow:hidden;border:1px solid}
+.viz-zone::before{content:'';position:absolute;inset:0;opacity:.06;border-radius:8px;pointer-events:none}
+.viz-zone-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid;opacity:.9}
+.viz-zone-slots{display:flex;flex-direction:column;gap:6px}
+
+/* Zone color themes */
+.viz-zone.zone-identity{border-color:#3a2a6a;background:rgba(30,20,80,.4)}
+.viz-zone.zone-identity::before{background:#6644cc}
+.viz-zone.zone-identity .viz-zone-label{color:#8877ee;border-bottom-color:#3a2a6a}
+.viz-zone.zone-perimeter{border-color:#6a2a1a;background:rgba(60,20,10,.4)}
+.viz-zone.zone-perimeter::before{background:#cc5522}
+.viz-zone.zone-perimeter .viz-zone-label{color:#ee7744;border-bottom-color:#6a2a1a}
+.viz-zone.zone-workload{border-color:#1a4a2a;background:rgba(10,40,15,.4)}
+.viz-zone.zone-workload::before{background:#22aa44}
+.viz-zone.zone-workload .viz-zone-label{color:#55cc66;border-bottom-color:#1a4a2a}
+.viz-zone.zone-data{border-color:#1a4a5a;background:rgba(10,40,60,.4)}
+.viz-zone.zone-data::before{background:#22aacc}
+.viz-zone.zone-data .viz-zone-label{color:#44ccee;border-bottom-color:#1a4a5a}
+.viz-zone.zone-soc{border-color:#4a3a0a;background:rgba(40,30,5,.4)}
+.viz-zone.zone-soc::before{background:#c9a84c}
+.viz-zone.zone-soc .viz-zone-label{color:#c9a84c;border-bottom-color:#4a3a0a}
+
+/* Slot on the board */
+.viz-slot{border-radius:5px;padding:5px 7px;min-height:38px;display:flex;align-items:center;gap:6px;transition:opacity .2s,transform .2s;position:relative}
+.viz-slot.empty{border:1.5px dashed;opacity:.55}
+.viz-slot.filled{border:1px solid;cursor:default}
+.viz-slot.filled:hover{transform:translateY(-1px)}
+
+/* Empty slot */
+.zone-identity .viz-slot.empty{border-color:#4a3a8a;background:#0e0a1c}
+.zone-perimeter .viz-slot.empty{border-color:#7a3a2a;background:#160a06}
+.zone-workload .viz-slot.empty{border-color:#2a5a3a;background:#081208}
+.zone-data .viz-slot.empty{border-color:#2a5a6a;background:#060e10}
+.zone-soc .viz-slot.empty{border-color:#5a4a1a;background:#100c02}
+.viz-slot-cap-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.zone-identity .viz-slot-cap-name{color:#7766cc}
+.zone-perimeter .viz-slot-cap-name{color:#cc6633}
+.zone-workload .viz-slot-cap-name{color:#44aa55}
+.zone-data .viz-slot-cap-name{color:#33aacc}
+.zone-soc .viz-slot-cap-name{color:#c9a84c}
+.viz-slot-gap-icon{font-size:12px;opacity:.5;flex-shrink:0}
+
+/* Filled vendor card */
+.viz-slot.filled{background:#111118}
+.zone-identity .viz-slot.filled{border-color:#4a3a8a;box-shadow:0 0 6px rgba(100,80,220,.25)}
+.zone-perimeter .viz-slot.filled{border-color:#7a4a2a;box-shadow:0 0 6px rgba(200,90,40,.25)}
+.zone-workload .viz-slot.filled{border-color:#2a6a3a;box-shadow:0 0 6px rgba(50,170,80,.25)}
+.zone-data .viz-slot.filled{border-color:#2a6a7a;box-shadow:0 0 6px rgba(50,170,200,.25)}
+.zone-soc .viz-slot.filled{border-color:#6a5a1a;box-shadow:0 0 6px rgba(201,168,76,.25)}
+
+.viz-vendor-logo-wrap{width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:4px;overflow:hidden;background:#0a0a12}
+.viz-vendor-logo{width:22px;height:22px;object-fit:contain}
+.viz-vendor-monogram{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.5px;line-height:1}
+.viz-vendor-info{flex:1;min-width:0;overflow:hidden}
+.viz-vendor-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.3px;color:#ddd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viz-vendor-module{font-size:10px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viz-slot-multi{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;color:#aaa;background:#1a1a2a;padding:1px 5px;border-radius:8px;letter-spacing:0.5px;flex-shrink:0}
+.viz-grade-badge{width:22px;height:22px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;flex-shrink:0}
+
+/* Zone row layout for wider zones */
+.viz-zone-wide .viz-zone-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:6px}
+
+/* Section headers */
+.viz-section-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#555;letter-spacing:2px;text-transform:uppercase;text-align:center;margin:4px 0 10px;display:flex;align-items:center;gap:8px}
+.viz-section-label::before,.viz-section-label::after{content:'';flex:1;height:1px;background:#1a1a2a}
+
+/* Legend */
+.viz-legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid #1a1a2a}
+.viz-legend-item{display:flex;align-items:center;gap:5px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#aaa;letter-spacing:0.5px}
+.viz-legend-swatch{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+
+/* Mobile: stack zones vertically */
+@media(max-width:900px){
+  .viz-zones,.viz-zone-row,.viz-zone-row.two-col{grid-template-columns:1fr}
+  .viz-zone-wide .viz-zone-slots{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+  .viz-zone-wide .viz-zone-slots{grid-template-columns:1fr}
+}
+
 /* PRINT */
 @media print {
   .nav-bar,.modal-overlay,.score-panel .share-bar,.score-panel .clear-btn,.slot-card,.toggle-row{display:none!important}
@@ -510,6 +601,7 @@ a:hover{text-decoration:underline}
     <button class="vtab vtab-active" data-tab="tools">TOOLS</button>
     <button class="vtab" data-tab="controls">CONTROLS</button>
     <button class="vtab" data-tab="outcomes">OUTCOMES</button>
+    <button class="vtab" data-tab="visualize">VISUALIZE IT</button>
     <button class="vtab vtab-disabled">EXPOSURES</button>
   </div>
 
@@ -588,6 +680,22 @@ a:hover{text-decoration:underline}
     <div class="out-summary" id="outSummary"></div>
     <div id="outBody"></div>
     <div style="text-align:center;margin-top:16px;font-size:12px;color:#aaa">51 outcomes across 5 program families &middot; Rules derived from NIST CSF 1.1 subcategory mappings &middot; Scores reflect stack configuration, not vendor claims &middot; AI-authored taxonomy (Opus 4.6)</div>
+  </div>
+
+  <!-- VISUALIZE IT VIEW -->
+  <div id="viewVisualize" style="display:none">
+    <div class="viz-board" id="vizBoard">
+      <div class="viz-board-header">
+        <div class="viz-board-title">SECURITY ARCHITECTURE MAP</div>
+        <div class="viz-board-subtitle">Your stack as a strategic board — filled zones vs open gaps &middot; <span id="vizModeLabel"></span></div>
+      </div>
+      <div id="vizContent"></div>
+      <div class="viz-legend">
+        <div class="viz-legend-item"><div class="viz-legend-swatch" style="background:#1a1a2a;border:1.5px dashed #444"></div>EMPTY GAP</div>
+        <div class="viz-legend-item"><div class="viz-legend-swatch" style="background:#111118;border:1px solid #4a3a8a;box-shadow:0 0 4px rgba(100,80,220,.3)"></div>FILLED</div>
+        <div class="viz-legend-item"><div class="viz-grade-badge grade-A" style="width:14px;height:14px;font-size:9px">A</div>&nbsp;GRADE BADGE</div>
+      </div>
+    </div>
   </div>
 
   <div class="page-footer">
@@ -1256,6 +1364,7 @@ function render() {
   renderSlotGrid();
   renderScorePanel();
   renderRecommendations();
+  if (activeView === 'visualize') renderVizBoard();
   updateHashURL();
   saveState();
 }
@@ -2042,7 +2151,7 @@ document.getElementById('shareCopyBtn').addEventListener('click', () => {
 });
 
 /* ── VIEW TAB SWITCHING ── */
-const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes' };
+const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes', visualize: 'viewVisualize' };
 document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
   btn.addEventListener('click', () => {
     const tab = btn.dataset.tab;
@@ -2055,6 +2164,7 @@ document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
     });
     if (tab === 'controls') renderControlsTab();
     if (tab === 'outcomes') renderOutcomesTab();
+    if (tab === 'visualize') renderVizBoard();
   });
 });
 
@@ -2310,6 +2420,194 @@ function renderOutcomesTab() {
     html += `</div></div>`;
   });
   body.innerHTML = html;
+}
+
+/* ── VISUALIZE IT BOARD ── */
+
+// Zone definitions: each zone has a label, theme class, and ordered list of capIds to show
+// We define all 16 caps; mode filtering applies at render time
+const VIZ_ZONES = [
+  {
+    id: 'identity',
+    label: 'IDENTITY ZONE',
+    cls: 'zone-identity',
+    caps: ['identity_sso', 'pam', 'iga'],
+    row: 'top',
+  },
+  {
+    id: 'perimeter',
+    label: 'PERIMETER ZONE',
+    cls: 'zone-perimeter',
+    caps: ['network_firewall', 'sase_ztna', 'email_security'],
+    row: 'top',
+  },
+  {
+    id: 'workload',
+    label: 'WORKLOAD ZONE',
+    cls: 'zone-workload',
+    caps: ['endpoint', 'mdm', 'vuln_mgmt'],
+    row: 'top',
+  },
+  {
+    id: 'data',
+    label: 'DATA ZONE',
+    cls: 'zone-data',
+    caps: ['data_security', 'backup', 'cloud', 'cnapp'],
+    row: 'mid',
+    wide: true,
+  },
+  {
+    id: 'soc',
+    label: 'SOC ZONE',
+    cls: 'zone-soc',
+    caps: ['siem_mdr', 'password_manager', 'devops_security', 'ot_security'],
+    row: 'bot',
+    wide: true,
+  },
+];
+
+function renderVizBoard() {
+  const mode = state.mode;
+  const activeCaps = new Set(DATA.capabilities.filter(c => c.modes[mode]).map(c => c.id));
+
+  // Update subtitle
+  const modeLabels = { startup:'Startup Mode', smb:'SMB Mode', enterprise:'Enterprise Mode' };
+  const modeEl = document.getElementById('vizModeLabel');
+  if (modeEl) modeEl.textContent = modeLabels[mode] || mode;
+
+  const content = document.getElementById('vizContent');
+  if (!content) return;
+
+  // Separate zones into rows
+  const topZones  = VIZ_ZONES.filter(z => z.row === 'top');
+  const midZones  = VIZ_ZONES.filter(z => z.row === 'mid');
+  const botZones  = VIZ_ZONES.filter(z => z.row === 'bot');
+
+  let html = '';
+
+  // Top row: 3 column grid
+  html += '<div class="viz-zones">';
+  topZones.forEach(zone => {
+    const zoneCaps = zone.caps.filter(cid => activeCaps.has(cid));
+    if (zoneCaps.length === 0) return;
+    html += renderVizZone(zone, zoneCaps);
+  });
+  html += '</div>';
+
+  // Mid row (Data zone) - full width
+  if (midZones.length > 0) {
+    const midHasCaps = midZones.some(z => z.caps.some(cid => activeCaps.has(cid)));
+    if (midHasCaps) {
+      html += '<div class="viz-section-label">DATA &amp; CLOUD PLANE</div>';
+      html += '<div class="viz-zone-row">';
+      midZones.forEach(zone => {
+        const zoneCaps = zone.caps.filter(cid => activeCaps.has(cid));
+        if (zoneCaps.length === 0) return;
+        html += renderVizZone(zone, zoneCaps);
+      });
+      html += '</div>';
+    }
+  }
+
+  // Bot row (SOC zone) - full width
+  if (botZones.length > 0) {
+    const botHasCaps = botZones.some(z => z.caps.some(cid => activeCaps.has(cid)));
+    if (botHasCaps) {
+      html += '<div class="viz-section-label">SOC &amp; OPERATIONS PLANE</div>';
+      html += '<div class="viz-zone-row">';
+      botZones.forEach(zone => {
+        const zoneCaps = zone.caps.filter(cid => activeCaps.has(cid));
+        if (zoneCaps.length === 0) return;
+        html += renderVizZone(zone, zoneCaps);
+      });
+      html += '</div>';
+    }
+  }
+
+  // Collect any active caps not covered by any zone definition
+  const allZoneCaps = new Set(VIZ_ZONES.flatMap(z => z.caps));
+  const orphanCaps = [...activeCaps].filter(cid => !allZoneCaps.has(cid));
+  if (orphanCaps.length > 0) {
+    const orphanZone = { id:'other', label:'OTHER', cls:'zone-soc', caps:orphanCaps, wide:true };
+    html += '<div class="viz-section-label">OTHER</div>';
+    html += '<div class="viz-zone-row">';
+    html += renderVizZone(orphanZone, orphanCaps);
+    html += '</div>';
+  }
+
+  content.innerHTML = html;
+}
+
+function renderVizZone(zone, zoneCaps) {
+  const wideClass = zone.wide ? ' viz-zone-wide' : '';
+  let html = '<div class="viz-zone ' + zone.cls + wideClass + '">';
+  html += '<div class="viz-zone-label">' + esc(zone.label) + '</div>';
+  html += '<div class="viz-zone-slots">';
+  zoneCaps.forEach(cid => {
+    html += renderVizSlot(cid, zone.cls);
+  });
+  html += '</div>';
+  html += '</div>';
+  return html;
+}
+
+function renderVizSlot(capId, zoneCls) {
+  const cap = capMap[capId];
+  if (!cap) return '';
+  const entries = getSlotEntries(capId);
+  const isFilled = entries.length > 0;
+
+  if (!isFilled) {
+    return '<div class="viz-slot empty ' + zoneCls + '">' +
+      '<span class="viz-slot-gap-icon">&#9651;</span>' +
+      '<span class="viz-slot-cap-name">' + esc(cap.name) + '</span>' +
+    '</div>';
+  }
+
+  // Filled: show first vendor prominently, then count badge if multiple
+  const firstEntry = entries[0];
+  const vendor = vendorMap[firstEntry.vendor_id];
+  const mod    = moduleMap[firstEntry.module_id];
+  if (!vendor) return '';
+
+  const grade = vendor.grade || 'NA';
+  const aiGrade = vendor.ai_era_grade && vendor.ai_era_grade.grade ? vendor.ai_era_grade.grade : null;
+  const displayGrade = aiGrade || grade;
+  const gradeCls = 'grade-' + (displayGrade === 'NA' ? 'NA' : displayGrade);
+
+  const logoUrl = vendorLogoUrl(vendor.id);
+  let logoHTML;
+  if (logoUrl) {
+    logoHTML = '<div class="viz-vendor-logo-wrap">' +
+      '<img src="' + logoUrl + '" class="viz-vendor-logo" alt="" ' +
+      'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+      '<span class="viz-vendor-monogram" style="display:none;color:' + monogramColor(vendor) + '">' +
+        esc(vendor.monogram || '??') +
+      '</span>' +
+    '</div>';
+  } else {
+    logoHTML = '<div class="viz-vendor-logo-wrap">' +
+      '<span class="viz-vendor-monogram" style="color:' + monogramColor(vendor) + '">' +
+        esc(vendor.monogram || '??') +
+      '</span>' +
+    '</div>';
+  }
+
+  const multiHTML = entries.length > 1
+    ? '<span class="viz-slot-multi">+' + (entries.length - 1) + '</span>'
+    : '';
+
+  const modName = mod ? mod.module_name : (vendor.name || firstEntry.vendor_id);
+
+  return '<div class="viz-slot filled ' + zoneCls + '" title="' + esc(cap.name) + ': ' + esc(vendor.name) + (entries.length > 1 ? ' +' + (entries.length-1) + ' more' : '') + '">' +
+    logoHTML +
+    '<div class="viz-vendor-info">' +
+      '<div class="viz-vendor-name">' + esc(vendor.name) + '</div>' +
+      '<div class="viz-vendor-module">' + esc(cap.name) + '</div>' +
+    '</div>' +
+    multiHTML +
+    '<div class="viz-grade-badge ' + gradeCls + '">' + esc(displayGrade) + '</div>' +
+  '</div>';
 }
 
 /* ── INIT ── */
