@@ -547,6 +547,41 @@ a:hover{text-decoration:underline}
   .viz-zone-wide .viz-zone-slots{grid-template-columns:1fr}
 }
 
+/* ── EXPOSURE TAB ── */
+.exp-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #1a1a2a}
+.exp-sei-num{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:72px;line-height:1;color:#c9a84c}
+.exp-sei-grade{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:36px;margin-left:8px;vertical-align:middle}
+.exp-sei-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;color:#aaa;letter-spacing:2px;margin-top:4px}
+.exp-sei-sub{font-size:11px;color:#666;margin-top:4px;font-style:italic}
+.exp-dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+@media(max-width:700px){.exp-dim-grid{grid-template-columns:1fr}}
+.exp-dim-card{background:#111118;border:1px solid #2a2a4a;border-radius:8px;padding:14px;position:relative;overflow:hidden}
+.exp-dim-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.exp-dim-id{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#888;letter-spacing:1px}
+.exp-dim-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;color:#ddd;letter-spacing:0.5px;flex:1;padding:0 8px}
+.exp-heat-badge{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;padding:3px 9px;border-radius:10px;flex-shrink:0}
+.exp-heat-low{background:#0f2a18;border:1px solid #22aa44;color:#22aa44}
+.exp-heat-medium{background:#2a2208;border:1px solid #c9a84c;color:#c9a84c}
+.exp-heat-high{background:#2a1508;border:1px solid #ee7722;color:#ee7722}
+.exp-heat-critical{background:#2a0808;border:1px solid #ee3333;color:#ee3333}
+.exp-dim-explain{font-size:12px;color:#aaa;line-height:1.5;margin-bottom:10px}
+.exp-dim-bar-bg{height:4px;background:#1a1a2a;border-radius:2px;overflow:hidden}
+.exp-dim-bar-fill{height:100%;border-radius:2px;transition:width .4s}
+.exp-dim-score{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#666;text-align:right;margin-top:3px}
+.exp-footer-note{font-size:11px;color:#555;font-style:italic;text-align:center;margin-top:16px;padding-top:12px;border-top:1px solid #1a1a2a}
+
+/* Exposure score in score panel */
+.exp-panel-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-top:1px solid #1a1a2a;margin-top:8px}
+.exp-panel-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#888;letter-spacing:0.5px;text-transform:uppercase}
+.exp-panel-val{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px}
+.exp-panel-grade{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;margin-left:4px}
+
+/* Slot exposure dot badges */
+.exp-slot-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;cursor:help;position:relative;margin-left:4px;vertical-align:middle}
+.exp-slot-dot.exp-critical{background:#ee3333;box-shadow:0 0 4px #ee333366}
+.exp-slot-dot.exp-high{background:#ee7722;box-shadow:0 0 4px #ee772266}
+.exp-slot-dot-wrap{display:flex;align-items:center;gap:2px;flex-shrink:0}
+
 /* PRINT */
 @media print {
   .nav-bar,.modal-overlay,.score-panel .share-bar,.score-panel .clear-btn,.slot-card,.toggle-row{display:none!important}
@@ -602,7 +637,7 @@ a:hover{text-decoration:underline}
     <button class="vtab" data-tab="controls">CONTROLS</button>
     <button class="vtab" data-tab="outcomes">OUTCOMES</button>
     <button class="vtab" data-tab="visualize">VISUALIZE IT</button>
-    <button class="vtab vtab-disabled">EXPOSURES</button>
+    <button class="vtab" data-tab="exposures">EXPOSURES</button>
   </div>
 
   <!-- TOOLS VIEW -->
@@ -647,6 +682,19 @@ a:hover{text-decoration:underline}
         <div class="share-bar">
           <input type="text" class="share-input" id="shareInput" readonly>
           <button class="share-copy-btn" id="shareCopyBtn">COPY</button>
+        </div>
+      </div>
+      <div class="sp-section" id="spExposureSection" style="display:none">
+        <div class="sp-section-title">EXPOSURE INDEX</div>
+        <div class="exp-panel-row">
+          <span class="exp-panel-label">EXPOSURE (4/10)</span>
+          <span>
+            <span class="exp-panel-val" id="spExpScore">—</span>
+            <span class="exp-panel-grade" id="spExpGrade"></span>
+          </span>
+        </div>
+        <div style="margin-top:4px;height:4px;background:#1a1a2a;border-radius:2px;overflow:hidden">
+          <div id="spExpBar" style="height:100%;border-radius:2px;width:0%;transition:width .4s"></div>
         </div>
       </div>
       <button class="clear-btn" id="clearBtn">CLEAR STACK</button>
@@ -696,6 +744,11 @@ a:hover{text-decoration:underline}
         <div class="viz-legend-item"><div class="viz-grade-badge grade-A" style="width:14px;height:14px;font-size:9px">A</div>&nbsp;GRADE BADGE</div>
       </div>
     </div>
+  </div>
+
+  <!-- EXPOSURES VIEW -->
+  <div id="viewExposures" style="display:none">
+    <div id="expContent"></div>
   </div>
 
   <div class="page-footer">
@@ -1362,9 +1415,11 @@ function renderCatalogStrip(cap, vendorEntries) {
 /* ── RENDER SLOT GRID ── */
 function render() {
   renderSlotGrid();
+  renderSlotExposureBadges();
   renderScorePanel();
   renderRecommendations();
   if (activeView === 'visualize') renderVizBoard();
+  if (activeView === 'exposures') renderExposureTab();
   updateHashURL();
   saveState();
 }
@@ -1384,6 +1439,7 @@ function renderSlotGrid() {
   caps.forEach(cap => {
     const cell = document.createElement('div');
     cell.className = 'slot-cell';
+    cell.dataset.capid = cap.id;
 
     const entries = getSlotEntries(cap.id);
     const hasEntries = entries.length > 0;
@@ -1689,6 +1745,10 @@ function renderScorePanel() {
 
   const shareInput = document.getElementById('shareInput');
   if (shareInput) shareInput.value = location.href;
+
+  // Update SEI row in score panel
+  const exp = calcExposures();
+  renderSEIPanel(exp);
 }
 
 /* ── RADAR CHART ── */
@@ -2151,7 +2211,7 @@ document.getElementById('shareCopyBtn').addEventListener('click', () => {
 });
 
 /* ── VIEW TAB SWITCHING ── */
-const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes', visualize: 'viewVisualize' };
+const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes', visualize: 'viewVisualize', exposures: 'viewExposures' };
 document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
   btn.addEventListener('click', () => {
     const tab = btn.dataset.tab;
@@ -2165,6 +2225,7 @@ document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
     if (tab === 'controls') renderControlsTab();
     if (tab === 'outcomes') renderOutcomesTab();
     if (tab === 'visualize') renderVizBoard();
+    if (tab === 'exposures') renderExposureTab();
   });
 });
 
@@ -2608,6 +2669,477 @@ function renderVizSlot(capId, zoneCls) {
     multiHTML +
     '<div class="viz-grade-badge ' + gradeCls + '">' + esc(displayGrade) + '</div>' +
   '</div>';
+}
+
+/* ── WR-REF v1.0 EXPOSURE CALCULATIONS ── */
+
+// Tier-3 (high-criticality) slot IDs
+const TIER3_SLOTS = new Set(['identity_sso','pam','iga','endpoint','siem_mdr','cloud','cnapp','email_security']);
+
+// Grade letter → numeric for exposure calculations
+function expGradeNum(g) {
+  const m = { A:5, B:4, C:3, D:2, F:1 };
+  return m[g] || 3; // unknown → 3 (C)
+}
+
+// RRR letter → numeric (A=4, B=3, C=2, D=1, F=0)
+function rrrNum(g) {
+  const m = { A:4, B:3, C:2, D:1, F:0 };
+  if (g === null || g === undefined || g === '') return null;
+  return m[String(g).toUpperCase()];
+}
+
+// SEI numeric from heat level
+const HEAT_NUMERIC = { Low:15, Medium:40, High:70, Critical:95 };
+
+function heatColor(level) {
+  return { Low:'#22aa44', Medium:'#c9a84c', High:'#ee7722', Critical:'#ee3333' }[level] || '#888';
+}
+
+function seiGrade(sei) {
+  if (sei <= 20) return 'A';
+  if (sei <= 35) return 'B';
+  if (sei <= 50) return 'C';
+  if (sei <= 70) return 'D';
+  return 'F';
+}
+
+// E5 — Posture Dispersion (Weakest Link)
+function calcE5() {
+  const mode = state.mode;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+  const filled = caps.filter(c => !slotIsEmpty(c.id));
+
+  if (filled.length === 0) {
+    return { level:'Medium', numeric:40, explanation:'No vendors in stack yet — posture dispersion cannot be assessed.' };
+  }
+
+  // Collect per-vendor data across all filled slots
+  const allVendors = [];
+  const tier3Grades = [];
+  let has_kev = false;
+  let has_zero_day = false;
+
+  filled.forEach(cap => {
+    const isTier3 = TIER3_SLOTS.has(cap.id);
+    const entries = getSlotEntries(cap.id);
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v) return;
+      const gradeN = expGradeNum(v.grade);
+      allVendors.push({ id: v.id, capId: cap.id, score: v.score || 0, gradeN, grade: v.grade || '?', kev: v.kev_count || 0, zero: v.zero_days || 0 });
+      if (isTier3) tier3Grades.push({ gradeN, grade: v.grade || '?', capId: cap.id, name: v.name });
+      if ((v.kev_count || 0) > 0) has_kev = true;
+      if ((v.zero_days || 0) > 0) has_zero_day = true;
+    });
+  });
+
+  const weakest_tier3 = tier3Grades.length > 0 ? Math.min(...tier3Grades.map(x => x.gradeN)) : 5;
+  const scores = allVendors.map(v => v.score).filter(s => s > 0);
+  const score_spread = scores.length >= 2 ? Math.max(...scores) - Math.min(...scores) : 0;
+
+  let level, explanation;
+  if (weakest_tier3 <= 1 || has_zero_day || score_spread > 22) {
+    level = 'Critical';
+    if (has_zero_day) explanation = 'At least one vendor in your stack has an active zero-day from the last 12 months.';
+    else if (weakest_tier3 <= 1) { const w = tier3Grades.find(x => x.gradeN === 1); explanation = (w ? w.name + ' in ' + w.capId : 'A Tier-3 vendor') + ' holds an F grade — the stack\'s weakest link is critically exposed.'; }
+    else explanation = 'Score spread across vendors exceeds 22 points — attackers will target the low end.';
+  } else if (weakest_tier3 === 2 || score_spread > 15 || has_kev) {
+    level = 'High';
+    if (has_kev) explanation = 'At least one vendor has a known exploited vulnerability (KEV) in the current catalog.';
+    else if (weakest_tier3 === 2) { const w = tier3Grades.find(x => x.gradeN === 2); explanation = (w ? w.name : 'A Tier-3 vendor') + ' is rated D — a high-criticality slot is underperforming.'; }
+    else explanation = 'Score spread of ' + Math.round(score_spread) + ' points across vendors creates exploitable weak links.';
+  } else if (weakest_tier3 === 3 || score_spread >= 8) {
+    level = 'Medium';
+    const w = tier3Grades.find(x => x.gradeN === 3);
+    if (weakest_tier3 === 3) explanation = (w ? w.name : 'A Tier-3 vendor') + ' is rated C — adequate but not strong for a high-criticality slot.';
+    else explanation = 'Score spread of ' + Math.round(score_spread) + ' points suggests quality inconsistency across the stack.';
+  } else {
+    level = 'Low';
+    explanation = 'All Tier-3 slots are rated B or better and score spread is within acceptable bounds.';
+  }
+
+  return { level, numeric: HEAT_NUMERIC[level], explanation,
+    _debug: { weakest_tier3, score_spread, has_kev, has_zero_day, tier3Grades } };
+}
+
+// E6 — AI-Era Readiness Gap
+function calcE6() {
+  const mode = state.mode;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+  const filled = caps.filter(c => !slotIsEmpty(c.id));
+
+  const adversarialScores = [];
+  const surfaceScores = [];
+  let tier3FGrade = false;
+
+  filled.forEach(cap => {
+    const isTier3 = TIER3_SLOTS.has(cap.id);
+    const entries = getSlotEntries(cap.id);
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v || !v.ai_era_grade || !v.ai_era_grade.sub_scores) return;
+      const subs = v.ai_era_grade.sub_scores;
+      const adv = subs.adversarial;
+      const surf = subs.surface;
+      if (adv !== 'NA' && adv !== null && adv !== undefined) adversarialScores.push(Number(adv) * 5);
+      if (surf !== 'NA' && surf !== null && surf !== undefined) surfaceScores.push(Number(surf) * 5);
+      if (isTier3 && v.ai_era_grade.grade === 'F') tier3FGrade = true;
+    });
+  });
+
+  // Insufficient data
+  if (adversarialScores.length < 2) {
+    return { level:'Medium', numeric:40, explanation:'Fewer than 2 vendors have AI-era sub-score data — readiness cannot be fully assessed.' };
+  }
+
+  const avg_adversarial = adversarialScores.reduce((a,b)=>a+b,0) / adversarialScores.length;
+  const max_surface = surfaceScores.length > 0 ? Math.max(...surfaceScores) : 0;
+
+  let level, explanation;
+  if (avg_adversarial < 30 || max_surface > 70 || tier3FGrade) {
+    level = 'Critical';
+    if (tier3FGrade) explanation = 'A Tier-3 vendor has an F grade for AI-era readiness — high-criticality slot is undefended against AI-powered attacks.';
+    else if (avg_adversarial < 30) explanation = 'Stack averages ' + Math.round(avg_adversarial) + '/100 on adversarial AI preparedness — severely under-equipped for AI-era attacks.';
+    else explanation = 'Max AI attack surface score is ' + Math.round(max_surface) + '/100 — the stack\'s own AI features create excessive exposure.';
+  } else if (avg_adversarial < 50 || max_surface > 50) {
+    level = 'High';
+    if (avg_adversarial < 50) explanation = 'Stack averages ' + Math.round(avg_adversarial) + '/100 on adversarial AI defense — below the threshold for reliable AI-era protection.';
+    else explanation = 'Max AI attack surface score of ' + Math.round(max_surface) + '/100 — significant own-AI exposure risk across the stack.';
+  } else if (avg_adversarial < 70 || max_surface > 30) {
+    level = 'Medium';
+    explanation = 'Adversarial AI average of ' + Math.round(avg_adversarial) + '/100 and surface score ' + Math.round(max_surface) + '/100 — adequate but room for improvement.';
+  } else {
+    level = 'Low';
+    explanation = 'Stack averages ' + Math.round(avg_adversarial) + '/100 on adversarial AI defense with controlled own-AI surface (' + Math.round(max_surface) + '/100).';
+  }
+
+  return { level, numeric: HEAT_NUMERIC[level], explanation,
+    _debug: { avg_adversarial, max_surface, tier3FGrade } };
+}
+
+// E7 — Operational Resilience (Recovery Path)
+function calcE7() {
+  const mode = state.mode;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+  const filled = caps.filter(c => !slotIsEmpty(c.id));
+
+  const reactScores = [], respondScores = [], resilientScores = [];
+  let tier3MissingRRR = false;
+
+  filled.forEach(cap => {
+    const isTier3 = TIER3_SLOTS.has(cap.id);
+    const entries = getSlotEntries(cap.id);
+    let slotHasRRR = false;
+
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v) return;
+      const r  = rrrNum(v.rrr_react);
+      const rr = rrrNum(v.rrr_respond);
+      const ri = rrrNum(v.rrr_resilient);
+      if (r  !== null) { reactScores.push(r); slotHasRRR = true; }
+      if (rr !== null) respondScores.push(rr);
+      if (ri !== null) resilientScores.push(ri);
+    });
+
+    if (isTier3 && !slotHasRRR) tier3MissingRRR = true;
+  });
+
+  if (reactScores.length < 2) {
+    return { level:'Medium', numeric:40, explanation:'Fewer than 2 vendors have RRR resilience data — recovery path cannot be fully assessed.' };
+  }
+
+  const react_floor    = Math.min(...reactScores);
+  const resilient_floor = resilientScores.length > 0 ? Math.min(...resilientScores) : null;
+
+  // Check Tier-3 below C on resilient
+  let tier3BelowCResilient = false;
+  filled.forEach(cap => {
+    if (!TIER3_SLOTS.has(cap.id)) return;
+    const entries = getSlotEntries(cap.id);
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v) return;
+      const ri = rrrNum(v.rrr_resilient);
+      if (ri !== null && ri < 2) tier3BelowCResilient = true; // < C means 0 or 1
+    });
+  });
+
+  let level, explanation;
+  if ((resilient_floor !== null && resilient_floor === 0) || tier3BelowCResilient) {
+    level = 'Critical';
+    if (tier3BelowCResilient) explanation = 'A Tier-3 vendor is rated below C on resilience — critical infrastructure cannot recover reliably from incidents.';
+    else explanation = 'At least one vendor has an F resilience grade — the stack cannot guarantee recovery from a major incident.';
+  } else if ((resilient_floor !== null && resilient_floor === 1) || react_floor === 1 || tier3MissingRRR) {
+    level = 'High';
+    if (tier3MissingRRR) explanation = 'At least one Tier-3 slot is missing RRR data — recovery path for a critical control is unknown.';
+    else if (resilient_floor === 1) explanation = 'Resilience floor is D — at least one vendor degrades poorly under sustained attack.';
+    else explanation = 'React floor is D — incident response capacity across the stack has a significant weak link.';
+  } else if ((resilient_floor !== null && resilient_floor === 2) || react_floor === 2) {
+    level = 'Medium';
+    explanation = 'Resilience or reaction floor at C — recovery capabilities are adequate but not robust across all positions.';
+  } else {
+    level = 'Low';
+    explanation = 'All measured vendors score B or better on resilience and reaction — the stack degrades gracefully.';
+  }
+
+  return { level, numeric: HEAT_NUMERIC[level], explanation,
+    _debug: { react_floor, resilient_floor, tier3MissingRRR, tier3BelowCResilient } };
+}
+
+// E8 — Coverage Gaps (Negative Space)
+function calcE8() {
+  const mode = state.mode;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+
+  const CRITICAL_SLOTS = ['identity_sso','email_security','endpoint','siem_mdr','backup'];
+
+  let weightedGapSum = 0, totalWeight = 0;
+  let missing_critical = 0;
+
+  caps.forEach(cap => {
+    const crit_weight = (cap.criticality && cap.criticality[mode]) || 1;
+    const is_filled = !slotIsEmpty(cap.id);
+    totalWeight += crit_weight;
+    if (!is_filled) weightedGapSum += crit_weight;
+  });
+
+  // Critical slot check (only count if in current mode)
+  const activeCaps = new Set(caps.map(c => c.id));
+  CRITICAL_SLOTS.forEach(cid => {
+    if (activeCaps.has(cid) && slotIsEmpty(cid)) missing_critical++;
+  });
+
+  const weighted_gap = totalWeight > 0 ? weightedGapSum / totalWeight : 0;
+  const gap_pct = Math.round(weighted_gap * 100);
+
+  let level, explanation;
+  if (weighted_gap > 0.35 || missing_critical >= 3) {
+    level = 'Critical';
+    if (missing_critical >= 3) explanation = missing_critical + ' of 5 critical slots (identity, email, endpoint, SIEM, backup) are empty — fundamental security layers are absent.';
+    else explanation = 'Weighted coverage gap is ' + gap_pct + '% — over a third of the stack\'s critical weight is unprotected.';
+  } else if (weighted_gap >= 0.20 || missing_critical === 2) {
+    level = 'High';
+    if (missing_critical === 2) explanation = '2 critical slots are empty — significant gaps in core coverage exist.';
+    else explanation = 'Weighted coverage gap of ' + gap_pct + '% — a substantial portion of critical capability weight is unfilled.';
+  } else if (weighted_gap >= 0.10 || missing_critical === 1) {
+    level = 'Medium';
+    if (missing_critical === 1) explanation = '1 critical security slot is empty — a key layer of the stack is missing.';
+    else explanation = 'Weighted coverage gap of ' + gap_pct + '% — minor gaps exist in the stack\'s coverage profile.';
+  } else {
+    level = 'Low';
+    explanation = 'Coverage gap is only ' + gap_pct + '% and all 5 critical slots are filled — the stack has minimal negative space.';
+  }
+
+  return { level, numeric: HEAT_NUMERIC[level], explanation,
+    _debug: { weighted_gap, gap_pct, missing_critical, CRITICAL_SLOTS } };
+}
+
+// Main calcExposures() — returns all 4 dimensions + SEI
+function calcExposures() {
+  const e5 = calcE5();
+  const e6 = calcE6();
+  const e7 = calcE7();
+  const e8 = calcE8();
+
+  const sei = Math.round((e5.numeric + e6.numeric + e7.numeric + e8.numeric) / 4);
+  const grade = seiGrade(sei);
+
+  return { e5, e6, e7, e8, sei, grade, phase: '4/10' };
+}
+
+/* ── PER-SLOT EXPOSURE CONTRIBUTION ── */
+function calcSlotExposureContrib(capId, exp) {
+  // Returns {level: 'critical'|'high'|null, reasons: []}
+  const entries = getSlotEntries(capId);
+  const isFilled = entries.length > 0;
+  const isTier3 = TIER3_SLOTS.has(capId);
+  const reasons = [];
+  let maxLevel = null;
+
+  if (isFilled) {
+    // E5 contribution: vendor has worst grade OR KEV/zero_day
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v) return;
+      if ((v.zero_days || 0) > 0) { reasons.push('E5: active zero-day'); maxLevel = 'critical'; }
+      else if ((v.kev_count || 0) > 0) { reasons.push('E5: KEV present'); if (maxLevel !== 'critical') maxLevel = 'high'; }
+      const gradeN = expGradeNum(v.grade);
+      if (isTier3 && gradeN <= 1) { reasons.push('E5: F-grade in Tier-3 slot'); maxLevel = 'critical'; }
+      else if (isTier3 && gradeN <= 2) { reasons.push('E5: D-grade in Tier-3 slot'); if (maxLevel !== 'critical') maxLevel = 'high'; }
+    });
+
+    // E6 contribution: worst adversarial or highest surface
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v || !v.ai_era_grade || !v.ai_era_grade.sub_scores) return;
+      const subs = v.ai_era_grade.sub_scores;
+      const adv  = subs.adversarial !== 'NA' && subs.adversarial !== null ? Number(subs.adversarial) * 5 : null;
+      const surf = subs.surface !== 'NA' && subs.surface !== null ? Number(subs.surface) * 5 : null;
+      if (adv !== null && adv < 30) { reasons.push('E6: critically low adversarial AI score (' + Math.round(adv) + '/100)'); maxLevel = 'critical'; }
+      else if (adv !== null && adv < 50) { reasons.push('E6: low adversarial AI score (' + Math.round(adv) + '/100)'); if (maxLevel !== 'critical') maxLevel = 'high'; }
+      if (surf !== null && surf > 70) { reasons.push('E6: high own-AI surface (' + Math.round(surf) + '/100)'); maxLevel = 'critical'; }
+      else if (surf !== null && surf > 50) { reasons.push('E6: elevated own-AI surface (' + Math.round(surf) + '/100)'); if (maxLevel !== 'critical') maxLevel = 'high'; }
+    });
+
+    // E7 contribution: vendor has lowest RRR floor
+    entries.forEach(entry => {
+      const v = vendorMap[entry.vendor_id];
+      if (!v) return;
+      const ri = rrrNum(v.rrr_resilient);
+      const r  = rrrNum(v.rrr_react);
+      if (ri === 0 || (isTier3 && ri !== null && ri < 2)) { reasons.push('E7: resilience grade F or below C in Tier-3'); maxLevel = 'critical'; }
+      else if (ri === 1) { reasons.push('E7: resilience grade D'); if (maxLevel !== 'critical') maxLevel = 'high'; }
+      if (r === 1 && maxLevel !== 'critical') { reasons.push('E7: react grade D'); maxLevel = 'high'; }
+    });
+  } else {
+    // E8 contribution: empty slot that is Tier-3 or critical
+    const CRITICAL_SLOTS_SET = new Set(['identity_sso','email_security','endpoint','siem_mdr','backup']);
+    if (CRITICAL_SLOTS_SET.has(capId)) {
+      reasons.push('E8: critical slot empty');
+      maxLevel = exp.e8.level === 'Critical' ? 'critical' : 'high';
+    } else if (isTier3) {
+      reasons.push('E8: Tier-3 slot empty');
+      if (maxLevel !== 'critical') maxLevel = 'high';
+    }
+  }
+
+  return { level: maxLevel, reasons };
+}
+
+/* ── RENDER EXPOSURES TAB ── */
+function renderExposureTab() {
+  const exp = calcExposures();
+  const content = document.getElementById('expContent');
+  if (!content) return;
+
+  const dims = [
+    { id:'E5', name:'Posture Dispersion', sub:'Weakest Link', data: exp.e5 },
+    { id:'E6', name:'AI-Era Readiness Gap', sub:'', data: exp.e6 },
+    { id:'E7', name:'Operational Resilience', sub:'Recovery Path', data: exp.e7 },
+    { id:'E8', name:'Coverage Gaps', sub:'Negative Space', data: exp.e8 },
+  ];
+
+  const gradeColor = { A:'#22aa44', B:'#6aaaee', C:'#c9a84c', D:'#ee7722', F:'#ee3333' };
+  const seiCol = gradeColor[exp.grade] || '#c9a84c';
+
+  let html = '';
+
+  // Header
+  html += '<div class="exp-header">';
+  html += '<div class="exp-sei-label">STACK EXPOSURE INDEX</div>';
+  html += '<div style="margin-top:8px">';
+  html += '<span class="exp-sei-num" style="color:' + seiCol + '">' + exp.sei + '</span>';
+  html += '<span class="exp-sei-grade" style="color:' + seiCol + '">' + exp.grade + '</span>';
+  html += '</div>';
+  html += '<div class="exp-sei-sub">(' + exp.phase + ' dimensions &mdash; Phase 1) &middot; lower is better</div>';
+  html += '<div style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;height:8px;background:#1a1a2a;border-radius:4px;overflow:hidden">';
+  html += '<div style="height:100%;width:' + exp.sei + '%;background:' + seiCol + ';border-radius:4px;transition:width .5s"></div>';
+  html += '</div>';
+  html += '</div>';
+
+  // 4-dimension grid
+  html += '<div class="exp-dim-grid">';
+  dims.forEach(dim => {
+    const lvl = dim.data.level;
+    const heatCls = 'exp-heat-' + lvl.toLowerCase();
+    const barColor = heatColor(lvl);
+    const barWidth = dim.data.numeric;
+
+    html += '<div class="exp-dim-card">';
+    html += '<div class="exp-dim-top">';
+    html += '<span class="exp-dim-id">' + dim.id + '</span>';
+    html += '<span class="exp-dim-name">' + esc(dim.name) + (dim.sub ? ' <span style="font-size:11px;color:#666;font-weight:400;">/ ' + esc(dim.sub) + '</span>' : '') + '</span>';
+    html += '<span class="exp-heat-badge ' + heatCls + '">' + lvl.toUpperCase() + '</span>';
+    html += '</div>';
+    html += '<div class="exp-dim-explain">' + esc(dim.data.explanation) + '</div>';
+    html += '<div class="exp-dim-bar-bg"><div class="exp-dim-bar-fill" style="width:' + barWidth + '%;background:' + barColor + '"></div></div>';
+    html += '<div class="exp-dim-score">Exposure score: ' + barWidth + '/100</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // Footer
+  html += '<div class="exp-footer-note">WR-REF v1.0 Phase 1. Dimensions E1&ndash;E4, E9&ndash;E10 require vendor enrichment data and ship in Phase 2.</div>';
+
+  content.innerHTML = html;
+
+  // Also update score panel SEI row
+  renderSEIPanel(exp);
+}
+
+/* ── RENDER SEI IN SCORE PANEL ── */
+function renderSEIPanel(exp) {
+  const sec = document.getElementById('spExposureSection');
+  const scoreEl = document.getElementById('spExpScore');
+  const gradeEl = document.getElementById('spExpGrade');
+  const barEl   = document.getElementById('spExpBar');
+  if (!sec || !scoreEl || !gradeEl || !barEl) return;
+
+  const filledCount = DATA.capabilities.filter(c => c.modes[state.mode] && !slotIsEmpty(c.id)).length;
+  if (filledCount === 0) {
+    sec.style.display = 'none';
+    return;
+  }
+
+  sec.style.display = '';
+  scoreEl.textContent = exp.sei;
+  gradeEl.textContent = exp.grade;
+
+  const gradeColor = { A:'#22aa44', B:'#6aaaee', C:'#c9a84c', D:'#ee7722', F:'#ee3333' };
+  const col = gradeColor[exp.grade] || '#c9a84c';
+  scoreEl.style.color = col;
+  gradeEl.style.color = col;
+  barEl.style.width   = exp.sei + '%';
+  barEl.style.background = col;
+}
+
+/* ── RENDER SLOT EXPOSURE BADGES ── */
+function renderSlotExposureBadges() {
+  // Called after renderSlotGrid builds the DOM.
+  // We post-process each .slot-header to add exposure dots.
+  const exp = calcExposures();
+  const mode = state.mode;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+
+  caps.forEach(cap => {
+    const contrib = calcSlotExposureContrib(cap.id, exp);
+    if (!contrib.level) return; // no badge needed
+
+    // Find the slot-cell for this cap in the grid using data-capid
+    const grid = document.getElementById('slotGrid');
+    if (!grid) return;
+    const cell = grid.querySelector('.slot-cell[data-capid="' + cap.id + '"]');
+    if (!cell) return;
+
+    const header = cell.querySelector('.slot-header');
+    if (!header) {
+      // Empty slot — add dot to .slot-card
+      const card = cell.querySelector('.slot-card');
+      if (!card) return;
+      addExpDot(card, contrib, true);
+      return;
+    }
+    addExpDot(header, contrib, false);
+  });
+}
+
+function addExpDot(parentEl, contrib, isEmptySlot) {
+  const dotCls = contrib.level === 'critical' ? 'exp-critical' : 'exp-high';
+  const tipText = contrib.reasons.join(' | ');
+  const dot = document.createElement('span');
+  dot.className = 'exp-slot-dot ' + dotCls;
+  dot.title = tipText;
+  if (isEmptySlot) {
+    // Position in top-right of the empty card
+    dot.style.cssText = 'position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;display:block;' +
+      (contrib.level === 'critical' ? 'background:#ee3333;box-shadow:0 0 4px #ee333366' : 'background:#ee7722;box-shadow:0 0 4px #ee772266');
+    parentEl.style.position = 'relative';
+    parentEl.appendChild(dot);
+  } else {
+    parentEl.appendChild(dot);
+  }
 }
 
 /* ── INIT ── */
