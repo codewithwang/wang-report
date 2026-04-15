@@ -6,7 +6,7 @@
     "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
     "kev_feed": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
     "schema_version": "1.2",
-    "total_vendors": 52
+    "total_vendors": 54
   },
   "vendors": [
     {
@@ -3827,7 +3827,51 @@
       "rrr_resilient": "B",
       "serial": "WR-2026-052",
       "cve_list": []
+    },
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "monogram": "IBM",
+      "sector": "enterprise-security",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 74,
+      "cves_12m": 41,
+      "critical_count": 6,
+      "mttp_days": 19,
+      "zero_days": 0,
+      "kev_count": 1,
+      "wr_featured": false,
+      "wr_take": "QRadar SIEM and Guardium data security are enterprise workhorses. AI investments in watsonx are ambitious but security tooling integration lags peers. Strong in regulated industries.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "A",
+      "serial": "WR-2026-053",
+      "cve_list": []
+    },
+    {
+      "id": "thales",
+      "name": "Thales",
+      "monogram": "THL",
+      "sector": "data-security",
+      "tier": 3,
+      "market_position": "Leader",
+      "grade": "B",
+      "score": 76,
+      "cves_12m": 8,
+      "critical_count": 1,
+      "mttp_days": 22,
+      "zero_days": 0,
+      "kev_count": 0,
+      "wr_featured": false,
+      "wr_take": "Luna HSMs dominate financial-sector key management. CipherTrust Data Security Platform covers encryption, tokenisation, and post-quantum key migration. NIST PQC algorithm support ahead of most peers.",
+      "rrr_react": "B",
+      "rrr_respond": "B",
+      "rrr_resilient": "A",
+      "serial": "WR-2026-054",
+      "cve_list": []
     }
   ],
-  "last_updated": "2026-04-08"
+  "last_updated": "2026-04-14"
 }
