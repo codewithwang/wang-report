@@ -488,6 +488,9 @@ a:hover{text-decoration:underline}
 .viz-zone.zone-soc{border-color:#4a3a0a;background:rgba(40,30,5,.4)}
 .viz-zone.zone-soc::before{background:#c9a84c}
 .viz-zone.zone-soc .viz-zone-label{color:#c9a84c;border-bottom-color:#4a3a0a}
+.viz-zone.zone-governance{border-color:#1a3a4a;background:rgba(10,30,45,.4)}
+.viz-zone.zone-governance::before{background:#4499bb}
+.viz-zone.zone-governance .viz-zone-label{color:#4499bb;border-bottom-color:#1a3a4a}
 
 /* Slot on the board */
 .viz-slot{border-radius:5px;padding:5px 7px;min-height:38px;display:flex;align-items:center;gap:6px;transition:opacity .2s,transform .2s;position:relative}
@@ -501,12 +504,14 @@ a:hover{text-decoration:underline}
 .zone-workload .viz-slot.empty{border-color:#2a5a3a;background:#081208}
 .zone-data .viz-slot.empty{border-color:#2a5a6a;background:#060e10}
 .zone-soc .viz-slot.empty{border-color:#5a4a1a;background:#100c02}
+.zone-governance .viz-slot.empty{border-color:#1a4a5a;background:#060c10}
 .viz-slot-cap-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .zone-identity .viz-slot-cap-name{color:#7766cc}
 .zone-perimeter .viz-slot-cap-name{color:#cc6633}
 .zone-workload .viz-slot-cap-name{color:#44aa55}
 .zone-data .viz-slot-cap-name{color:#33aacc}
 .zone-soc .viz-slot-cap-name{color:#c9a84c}
+.zone-governance .viz-slot-cap-name{color:#4499bb}
 .viz-slot-gap-icon{font-size:12px;opacity:.5;flex-shrink:0}
 
 /* Filled vendor card */
@@ -558,7 +563,7 @@ a:hover{text-decoration:underline}
 .hex-layer-chip.active{background:#1a1000;color:#f59e0b;border-color:#f59e0b44}
 .hex-layer-chip:hover:not(.active){color:#bbb;background:#161622}
 .hex-board-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.hex-board-svg{width:100%;height:auto;display:block;min-width:340px}
+.hex-board-svg{width:100%;height:auto;display:block;min-width:340px;max-height:78vh}
 .hex-tile{cursor:pointer}
 .hex-tile.locked{opacity:.15;cursor:default;pointer-events:none}
 .hex-tile .hex-shape{transition:fill .2s,stroke .2s;stroke-width:1.5}
@@ -574,12 +579,15 @@ a:hover{text-decoration:underline}
 .hex-tile.empty.zone-workload .hex-shape{fill:#060e08;stroke:#2a5a3a;stroke-dasharray:6 4}
 .hex-tile.empty.zone-data .hex-shape{fill:#060c0e;stroke:#2a5a6a;stroke-dasharray:6 4}
 .hex-tile.empty.zone-soc .hex-shape{fill:#0a0a04;stroke:#6a5a1a;stroke-dasharray:6 4}
+.hex-tile.filled.zone-governance .hex-shape{fill:rgba(68,153,187,.25);stroke:#4499bb}
+.hex-tile.empty.zone-governance .hex-shape{fill:#060c10;stroke:#1a4a5a;stroke-dasharray:6 4}
 .hex-cap-label{font-family:'Barlow Condensed',sans-serif;font-size:7px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;text-anchor:middle;dominant-baseline:middle;pointer-events:none}
 .hex-tile.zone-identity .hex-cap-label{fill:#8877ee}
 .hex-tile.zone-perimeter .hex-cap-label{fill:#ee7744}
 .hex-tile.zone-workload .hex-cap-label{fill:#55cc66}
 .hex-tile.zone-data .hex-cap-label{fill:#44ccee}
 .hex-tile.zone-soc .hex-cap-label{fill:#c9a84c}
+.hex-tile.zone-governance .hex-cap-label{fill:#4499bb}
 .hex-tile.empty .hex-cap-label{fill-opacity:.45}
 .hex-crit-disc circle{fill:#1a1a20;stroke:#c9a84c;stroke-width:.8}
 .hex-crit-disc text{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;text-anchor:middle;dominant-baseline:middle;fill:#c9a84c}
@@ -721,7 +729,7 @@ a:hover{text-decoration:underline}
       <div class="toggle-group" id="modeToggle">
         <input type="radio" name="mode" id="m-startup" value="startup"><label for="m-startup">STARTUP <span id="ml-startup">7</span></label>
         <input type="radio" name="mode" id="m-smb" value="smb" checked><label for="m-smb">SMB <span id="ml-smb">12</span></label>
-        <input type="radio" name="mode" id="m-enterprise" value="enterprise"><label for="m-enterprise">ENTERPRISE <span id="ml-enterprise">20</span></label>
+        <input type="radio" name="mode" id="m-enterprise" value="enterprise"><label for="m-enterprise">ENTERPRISE <span id="ml-enterprise">24</span></label>
       </div>
       <div class="toggle-group" id="lensToggle">
         <input type="radio" name="lens" id="l-ciso" value="ciso" checked><label for="l-ciso">CISO</label>
@@ -852,7 +860,7 @@ a:hover{text-decoration:underline}
       <div id="vizHexView">
         <div class="hex-board-wrap">
           <svg id="hexBoardSvg" class="hex-board-svg"
-               viewBox="-200 -300 550 600"
+               viewBox="-220 -340 640 600"
                preserveAspectRatio="xMidYMid meet"
                data-layer-threat="0"></svg>
         </div>
@@ -1573,7 +1581,7 @@ function renderSlotGrid() {
   const grid = document.getElementById('slotGrid');
   grid.innerHTML = '';
 
-  const modeLabel = {startup:'Startup (7 slots)',smb:'SMB (12 slots)',enterprise:'Enterprise (20 slots)'}[state.mode];
+  const modeLabel = {startup:'Startup (7 slots)',smb:'SMB (12 slots)',enterprise:'Enterprise (24 slots)'}[state.mode];
   document.getElementById('modeInfo').textContent = modeLabel + ' · Click empty slot to fill · Multiple vendors per slot supported';
 
   caps.forEach(cap => {
@@ -1742,17 +1750,8 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
       '<div class="sb-title-slot">Slot: ' + esc(cap.name) + '</div>' +
     '</div>' +
     '<div class="sb-pillars">' + pillarsHTML + '</div>' +
-    '<div class="sb-ai-detail">' +
-      '<div class="sb-ai-toggle">&#9662; AI-Era Detail</div>' +
-      '<div class="sb-ai-rows">' + aiSubHTML + '</div>' +
-    '</div>' +
     (valCapsHTML ? '<div class="sb-valcaps-wrap" style="padding:0 8px 4px">' + valCapsHTML + '</div>' : '') +
     '<div class="sb-remove" data-cap="' + esc(cap.id) + '" data-idx="' + entryIdx + '">REMOVE FROM STACK</div>';
-
-  back.querySelector('.sb-ai-toggle').addEventListener('click', (e) => {
-    e.stopPropagation();
-    back.querySelector('.sb-ai-rows').classList.toggle('open');
-  });
 
   back.addEventListener('click', (e) => {
     const valRow = e.target.closest('.sb-valcap-row');
@@ -2634,14 +2633,14 @@ const VIZ_ZONES = [
     id: 'identity',
     label: 'IDENTITY ZONE',
     cls: 'zone-identity',
-    caps: ['identity_sso', 'pam', 'iga'],
+    caps: ['identity_sso', 'pam', 'iga', 'nhi', 'password_manager'],
     row: 'top',
   },
   {
     id: 'perimeter',
     label: 'PERIMETER ZONE',
     cls: 'zone-perimeter',
-    caps: ['network_firewall', 'sase_ztna', 'email_security'],
+    caps: ['network_firewall', 'sase_ztna', 'email_security', 'cnapp', 'drp', 'ot_ics'],
     row: 'top',
   },
   {
@@ -2655,17 +2654,23 @@ const VIZ_ZONES = [
     id: 'data',
     label: 'DATA ZONE',
     cls: 'zone-data',
-    caps: ['data_security', 'backup', 'cloud', 'cnapp', 'post_quantum'],
+    caps: ['data_security', 'backup', 'cloud', 'devsec', 'post_quantum'],
     row: 'mid',
     wide: true,
   },
   {
     id: 'soc',
-    label: 'SOC ZONE',
+    label: 'SOC / OPERATIONS',
     cls: 'zone-soc',
-    caps: ['siem_mdr', 'password_manager', 'grc', 'tprm', 'devsec', 'nhi', 'ot_ics'],
+    caps: ['siem_mdr', 'itsm_cmdb', 'threat_intel_platform', 'observability_apm'],
     row: 'bot',
-    wide: true,
+  },
+  {
+    id: 'governance',
+    label: 'GOVERNANCE ZONE',
+    cls: 'zone-governance',
+    caps: ['grc', 'tprm'],
+    row: 'bot',
   },
 ];
 
@@ -2830,57 +2835,68 @@ function renderVizSlot(capId, zoneCls) {
 const HEX_S = 46; // hex half-width (SVG units)
 const HEX_SQRT3 = Math.sqrt(3);
 
-// All 21 capability tiles — logical enterprise architecture layout
+// All 25 capability tiles — logical enterprise architecture layout
 // Board reads TOP → BOTTOM: Perimeter (internet-facing) → Identity → Workload → Data → OT
-// SIEM at (2,-2) acts as watchtower monitoring entry points and identity tier
-// viewBox: -200 -300 550 600
+// SIEM at (2,-3) acts as watchtower. GRC/TPRM in governance cluster (right flank).
+// CyberArk (PAM) adjacent to SailPoint (IGA). Okta (identity_sso) near perimeter seam.
+// CNAPP at perimeter-top-left (cloud/perimeter boundary). Post-quantum near devsec.
+// Supplementary enterprise caps (q:4 right column) + DRP at external perimeter left.
+// viewBox: -220 -340 640 600
 const HEX_TILES = [
   // PERIMETER ZONE — top band, internet-facing
+  { q:-1, r:-3, capId:'cnapp',              zone:'zone-perimeter', crit:5  }, // cloud-native app protection at cloud/perimeter boundary
   { q:0,  r:-3, capId:'email_security',     zone:'zone-perimeter', crit:8  }, // primary attack vector, top-center
   { q:1,  r:-3, capId:'network_firewall',   zone:'zone-perimeter', crit:7  }, // inbound edge, top-right
-  { q:-1, r:-2, capId:'sase_ztna',          zone:'zone-perimeter', crit:6  }, // zero-trust edge, left
+  { q:-2, r:-2, capId:'drp',               zone:'zone-perimeter', crit:4  }, // external digital threat surface (left outer edge)
+  { q:-1, r:-2, capId:'sase_ztna',          zone:'zone-perimeter', crit:6  }, // zero-trust edge ingress
 
-  // SOC CLUSTER — top-right (watchtower monitoring identity+perimeter)
-  { q:2,  r:-2, capId:'siem_mdr',           zone:'zone-soc',       crit:10 }, // crown: monitors entry points
-  { q:3,  r:-2, capId:'tprm',               zone:'zone-soc',       crit:3  }, // supply chain, SOC cluster
-  { q:3,  r:-1, capId:'grc',                zone:'zone-soc',       crit:3  }, // governance, SOC cluster
+  // SOC WATCHTOWER — top-right (lone crown)
+  { q:2,  r:-3, capId:'siem_mdr',           zone:'zone-soc',       crit:10 }, // crown: monitors entry points
+
+  // GOVERNANCE CLUSTER — right flank (compliance & third-party risk)
+  { q:3,  r:-3, capId:'tprm',               zone:'zone-governance', crit:3 }, // supply chain risk, governance flank
+  { q:3,  r:-2, capId:'grc',                zone:'zone-governance', crit:3 }, // governance / compliance, not monitoring
 
   // IDENTITY ZONE — upper-middle (trust gateway)
-  { q:0,  r:-2, capId:'iga',                zone:'zone-identity',  crit:5  }, // identity governance
-  { q:1,  r:-2, capId:'identity_sso',       zone:'zone-identity',  crit:10 }, // core identity gate
-  { q:2,  r:-1, capId:'pam',                zone:'zone-identity',  crit:7  }, // privileged access
-  { q:-1, r:-1, capId:'nhi',                zone:'zone-identity',  crit:4  }, // non-human identity
-  { q:-2, r:-1, capId:'password_manager',   zone:'zone-identity',  crit:4  }, // credential vault
+  { q:-2, r:-1, capId:'password_manager',   zone:'zone-identity',  crit:4  }, // credential vault, outermost left
+  { q:-1, r:-1, capId:'nhi',                zone:'zone-identity',  crit:4  }, // non-human identity, left cluster
+  { q:0,  r:-1, capId:'iga',                zone:'zone-identity',  crit:5  }, // SailPoint: identity governance, deeper than Okta
+  { q:1,  r:-2, capId:'identity_sso',       zone:'zone-identity',  crit:10 }, // Okta: front-door, perimeter/identity seam
+  { q:1,  r:-1, capId:'pam',                zone:'zone-identity',  crit:7  }, // CyberArk: privileged access, adjacent to IGA
 
-  // WORKLOAD ZONE — middle (endpoint + dev security)
-  { q:0,  r:-1, capId:'mdm',                zone:'zone-workload',  crit:4  }, // mobile endpoint
-  { q:1,  r:-1, capId:'endpoint',           zone:'zone-workload',  crit:9  }, // core endpoint
-  { q:2,  r:0,  capId:'vuln_mgmt',          zone:'zone-workload',  crit:5  }, // vulnerability scanning
+  // WORKLOAD ZONE — middle
+  { q:2,  r:-2, capId:'vuln_mgmt',          zone:'zone-workload',  crit:5  }, // vulnerability scanning, fills right-center
+  { q:-1, r:0,  capId:'mdm',                zone:'zone-workload',  crit:4  }, // mobile endpoint, mid-left
+  { q:0,  r:0,  capId:'endpoint',           zone:'zone-workload',  crit:9  }, // core endpoint, board center
 
   // DATA ZONE — lower (data protection + cloud + crypto)
-  { q:-1, r:1,  capId:'backup',             zone:'zone-data',      crit:9  }, // resilience
-  { q:0,  r:1,  capId:'data_security',      zone:'zone-data',      crit:8  }, // core data
+  { q:-1, r:1,  capId:'backup',             zone:'zone-data',      crit:9  }, // resilience, lower-left
+  { q:0,  r:1,  capId:'data_security',      zone:'zone-data',      crit:8  }, // core data, lower-center
   { q:1,  r:1,  capId:'devsec',             zone:'zone-data',      crit:4  }, // dev pipeline security
-  { q:2,  r:1,  capId:'post_quantum',       zone:'zone-data',      crit:4  }, // crypto future
-  { q:0,  r:2,  capId:'cnapp',              zone:'zone-data',      crit:5  }, // cloud app protection
-  { q:1,  r:2,  capId:'cloud',              zone:'zone-data',      crit:6  }, // cloud workloads
+  { q:2,  r:1,  capId:'post_quantum',       zone:'zone-data',      crit:4  }, // crypto future, adjacent to devsec
+  { q:0,  r:2,  capId:'cloud',              zone:'zone-data',      crit:6  }, // cloud workloads, lower-center
 
   // OT SATELLITE — isolated bottom (air-gapped OT network)
   { q:-1, r:3,  capId:'ot_ics',             zone:'zone-perimeter', crit:4  },
+
+  // SUPPLEMENTARY ENTERPRISE CAPS — right column (enterprise-only)
+  { q:4,  r:-2, capId:'itsm_cmdb',          zone:'zone-soc',        crit:4 }, // ITSM/CMDB: asset of record, SOC operations enabler
+  { q:4,  r:-1, capId:'threat_intel_platform', zone:'zone-soc',     crit:4 }, // strategic threat intelligence
+  { q:4,  r:0,  capId:'observability_apm',  zone:'zone-soc',        crit:3 }, // operational resilience / APM
 ];
 
 // Threat attack paths — logical flows matching architectural layout (top→bottom)
 const HEX_THREAT_PATHS = [
   { id:'phish',       color:'#f59e0b', label:'Phishing \u2192 Lateral',
-    path:['email_security','identity_sso','endpoint','mdm','data_security'] },
+    path:['email_security','identity_sso','endpoint','data_security'] },
   { id:'ransomware',  color:'#ef4444', label:'Ransomware',
-    path:['email_security','endpoint','mdm','backup'] },
+    path:['email_security','endpoint','backup'] },
   { id:'supply',      color:'#a855f7', label:'Supply Chain',
     path:['tprm','pam','vuln_mgmt','devsec','data_security'] },
   { id:'cloud_breach',color:'#22d3ee', label:'Cloud Breach',
-    path:['cnapp','cloud','devsec','data_security'] },
+    path:['cnapp','identity_sso','devsec','data_security'] },
   { id:'insider',     color:'#fb923c', label:'Insider Abuse',
-    path:['identity_sso','endpoint','devsec','data_security'] },
+    path:['identity_sso','pam','endpoint','data_security'] },
 ];
 
 // Convert axial (q,r) to SVG pixel center
@@ -2939,15 +2955,15 @@ function renderHexBoard() {
   let svg = '';
 
   // Ocean background
-  svg += '<rect x="-200" y="-300" width="550" height="600" fill="url(#hx-ocean-glow)" rx="3"/>';
+  svg += '<rect x="-220" y="-340" width="640" height="600" fill="url(#hx-ocean-glow)" rx="3"/>';
 
-  // Monitoring lines: SIEM watchtower at (2,-2) → key entry points and identity tier
+  // Monitoring lines: SIEM watchtower at (2,-3) → key entry points and identity tier
   if (!slotIsEmpty('siem_mdr')) {
     const siemTile = tileByCapId['siem_mdr'];
     const cp = axialToPixel(siemTile.q, siemTile.r);
     svg += '<g class="layer-monitoring">';
-    // Direct hex neighbors of SIEM + extended monitoring reach to critical caps
-    ['identity_sso','pam','tprm','endpoint','network_firewall','email_security'].forEach(cid => {
+    // SIEM monitors: identity_sso (front door), pam (privileged), network_firewall, email_security, tprm, endpoint
+    ['identity_sso','pam','network_firewall','email_security','tprm','endpoint'].forEach(cid => {
       const t = tileByCapId[cid];
       if (!t) return;
       const p = axialToPixel(t.q, t.r);
@@ -3842,6 +3858,8 @@ function toggleExpTutorial(btn) {
   const open = panel.classList.toggle('open');
   btn.innerHTML = (open ? '&#9650;' : '&#9660;') + ' WR-REF EXPLAINED &mdash; METHODOLOGY &amp; FRAMEWORK';
 }
+// Expose outside IIFE so inline onclick in dynamic HTML can reach it
+window.toggleExpTutorial = toggleExpTutorial;
 
 /* ── RENDER SEI IN SCORE PANEL ── */
 function renderSEIPanel(exp) {

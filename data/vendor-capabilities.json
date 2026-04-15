@@ -2543,8 +2543,14 @@
       "deployment": "on-prem",
       "tier": 3,
       "notes": "Enterprise SIEM with UBA, network analytics, and SOAR integration. Available on-prem and as SaaS (QRadar on Cloud).",
-      "capabilities": ["siem_mdr"],
-      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "capabilities": [
+        "siem_mdr"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "coverage": {
         "siem_mdr": {
           "sub_caps": {
@@ -2564,8 +2570,14 @@
       "deployment": "on-prem",
       "tier": 3,
       "notes": "Data activity monitoring, DB vulnerability assessment, data compliance reporting. Strong in regulated industries.",
-      "capabilities": ["data_security"],
-      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "capabilities": [
+        "data_security"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "coverage": {
         "data_security": {
           "sub_caps": {
@@ -2584,8 +2596,15 @@
       "deployment": "saas",
       "tier": 2,
       "notes": "IAM/CIAM platform: MFA, SSO, identity governance, adaptive access.",
-      "capabilities": ["identity_sso", "iga"],
-      "modes": { "startup": false, "smb": true, "enterprise": true },
+      "capabilities": [
+        "identity_sso",
+        "iga"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
       "coverage": {
         "identity_sso": {
           "sub_caps": {
@@ -2611,8 +2630,14 @@
       "deployment": "on-prem",
       "tier": 3,
       "notes": "CRYSTALS-Kyber/Dilithium HSM support, crypto-agility discovery, integration with z/OS cryptographic services. Aligned to NIST PQC FIPS 203/204/205.",
-      "capabilities": ["post_quantum"],
-      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "capabilities": [
+        "post_quantum"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "coverage": {
         "post_quantum": {
           "sub_caps": {
@@ -2630,8 +2655,15 @@
       "deployment": "on-prem",
       "tier": 3,
       "notes": "Unified data security: encryption, tokenisation, key management, HSM (Luna), post-quantum key migration. NIST PQC FIPS 203/204/205 ready.",
-      "capabilities": ["data_security", "post_quantum"],
-      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "capabilities": [
+        "data_security",
+        "post_quantum"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "coverage": {
         "data_security": {
           "sub_caps": {
@@ -2657,8 +2689,14 @@
       "deployment": "on-prem",
       "tier": 3,
       "notes": "Hardware security module for key generation, storage, cryptographic operations. FIPS 140-3 Level 3. Market-leading in financial services, PKI, and payment processing.",
-      "capabilities": ["post_quantum"],
-      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "capabilities": [
+        "post_quantum"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
       "coverage": {
         "post_quantum": {
           "sub_caps": {
@@ -2695,6 +2733,275 @@
             "contract_risk": "full",
             "continuous_monitoring": "none",
             "fourth_party_risk": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "servicenow",
+      "module_id": "servicenow-itsm",
+      "module_name": "ServiceNow ITSM / CMDB",
+      "capabilities": [
+        "itsm_cmdb"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "ServiceNow ITSM \u2014 incident/change management, CMDB, and security-ITSM integration via SecOps connector.",
+      "coverage": {
+        "itsm_cmdb": {
+          "sub_caps": {
+            "cmdb_asset_inventory": "full",
+            "change_management": "full",
+            "incident_ticket": "full",
+            "vuln_workflow": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "atlassian",
+      "module_id": "atlassian-jira-itsm",
+      "module_name": "Jira Service Management",
+      "capabilities": [
+        "itsm_cmdb"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Jira Service Management \u2014 incident ticketing and lightweight CMDB; asset discovery requires integration with third-party tools.",
+      "coverage": {
+        "itsm_cmdb": {
+          "sub_caps": {
+            "cmdb_asset_inventory": "partial",
+            "change_management": "partial",
+            "incident_ticket": "full",
+            "vuln_workflow": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "recorded-future",
+      "module_id": "recorded-future-tip",
+      "module_name": "Recorded Future Intelligence Cloud",
+      "capabilities": [
+        "threat_intel_platform"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Recorded Future \u2014 AI-powered threat intelligence platform with actor tracking, IOC feeds, and SIEM/SOAR integrations.",
+      "coverage": {
+        "threat_intel_platform": {
+          "sub_caps": {
+            "intel_aggregation": "full",
+            "actor_tracking": "full",
+            "siem_soa_integration": "full",
+            "strategic_reporting": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "recorded-future",
+      "module_id": "recorded-future-drp",
+      "module_name": "Recorded Future Brand Intelligence",
+      "capabilities": [
+        "drp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "add-on",
+      "notes": "Recorded Future Brand Intelligence module \u2014 lookalike domain detection, social media impersonation, and dark web credential monitoring.",
+      "coverage": {
+        "drp": {
+          "sub_caps": {
+            "brand_monitoring": "full",
+            "dark_web_monitoring": "full",
+            "phishing_takedown": "partial",
+            "executive_protection": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "mandiant",
+      "module_id": "mandiant-advantage",
+      "module_name": "Mandiant Advantage TIP",
+      "capabilities": [
+        "threat_intel_platform"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Mandiant Advantage \u2014 actor intelligence, vulnerability intelligence, and digital threat monitoring powered by frontline IR data.",
+      "coverage": {
+        "threat_intel_platform": {
+          "sub_caps": {
+            "intel_aggregation": "full",
+            "actor_tracking": "full",
+            "siem_soa_integration": "full",
+            "strategic_reporting": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "flashpoint",
+      "module_id": "flashpoint-tip",
+      "module_name": "Flashpoint Intelligence Platform",
+      "capabilities": [
+        "threat_intel_platform",
+        "drp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Flashpoint \u2014 dark web and criminal forum intelligence; covers brand monitoring and fraud TI for financial services.",
+      "coverage": {
+        "threat_intel_platform": {
+          "sub_caps": {
+            "intel_aggregation": "full",
+            "actor_tracking": "partial",
+            "siem_soa_integration": "partial",
+            "strategic_reporting": "full"
+          }
+        },
+        "drp": {
+          "sub_caps": {
+            "brand_monitoring": "partial",
+            "dark_web_monitoring": "full",
+            "phishing_takedown": "none",
+            "executive_protection": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "dynatrace",
+      "module_id": "dynatrace-platform",
+      "module_name": "Dynatrace Observability Platform",
+      "capabilities": [
+        "observability_apm"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Dynatrace \u2014 full-stack APM, infrastructure monitoring, Davis AI anomaly detection, and AppSec module for runtime vulnerability detection.",
+      "coverage": {
+        "observability_apm": {
+          "sub_caps": {
+            "apm_tracing": "full",
+            "infra_monitoring": "full",
+            "anomaly_detection_apm": "full",
+            "resilience_metrics": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "datadog",
+      "module_id": "datadog-platform",
+      "module_name": "Datadog Observability & Security",
+      "capabilities": [
+        "observability_apm"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "Datadog \u2014 infrastructure monitoring, APM, and Cloud Security Management; also covers Cloud SIEM for cloud-native log analysis.",
+      "coverage": {
+        "observability_apm": {
+          "sub_caps": {
+            "apm_tracing": "full",
+            "infra_monitoring": "full",
+            "anomaly_detection_apm": "full",
+            "resilience_metrics": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "solarwinds",
+      "module_id": "solarwinds-observability",
+      "module_name": "SolarWinds Observability",
+      "capabilities": [
+        "observability_apm"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": true,
+        "enterprise": true
+      },
+      "deployment": "hybrid",
+      "tier": "standard",
+      "notes": "SolarWinds Observability \u2014 network performance monitoring (NPM) and server/application monitor (SAM). Legacy on-prem installed base still prevalent in APAC banks.",
+      "coverage": {
+        "observability_apm": {
+          "sub_caps": {
+            "apm_tracing": "partial",
+            "infra_monitoring": "full",
+            "anomaly_detection_apm": "partial",
+            "resilience_metrics": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "zerofox",
+      "module_id": "zerofox-drp",
+      "module_name": "ZeroFox Digital Risk Protection",
+      "capabilities": [
+        "drp"
+      ],
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "deployment": "saas",
+      "tier": "standard",
+      "notes": "ZeroFox \u2014 brand monitoring, phishing kit detection, automated takedown, social media impersonation, and executive digital footprint protection.",
+      "coverage": {
+        "drp": {
+          "sub_caps": {
+            "brand_monitoring": "full",
+            "dark_web_monitoring": "full",
+            "phishing_takedown": "full",
+            "executive_protection": "full"
           }
         }
       }

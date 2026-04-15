@@ -1985,8 +1985,8 @@
           ]
         }
       ]
-    }
-    ,{
+    },
+    {
       "id": "post_quantum",
       "name": "Post-Quantum Crypto",
       "catalog_intro": "The harvest-now-decrypt-later threat is already active. NIST PQC standards (FIPS 203/204/205) are finalised. Enterprises with long data-classification windows need to start migration planning now.",
@@ -2012,7 +2012,10 @@
             "nist_csf": "PR.DS-2",
             "cis": "3.11"
           },
-          "typical_tools": ["thales", "ibm"]
+          "typical_tools": [
+            "thales",
+            "ibm"
+          ]
         },
         {
           "id": "pqc_tls",
@@ -2024,7 +2027,9 @@
             "nist_csf": "PR.DS-5",
             "cis": "4.4"
           },
-          "typical_tools": ["thales"]
+          "typical_tools": [
+            "thales"
+          ]
         },
         {
           "id": "crypto_agility",
@@ -2036,7 +2041,178 @@
             "nist_csf": "ID.AM-5",
             "cis": "3.1"
           },
-          "typical_tools": ["ibm", "thales"]
+          "typical_tools": [
+            "ibm",
+            "thales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "itsm_cmdb",
+      "name": "ITSM / CMDB",
+      "catalog_intro": "The connective tissue of security operations. Without an authoritative CMDB, vulnerability findings have no owner, security tickets cannot route correctly, and incident response lacks the asset context needed to scope blast radius. ITSM workflows close the loop between detection and remediation \u2014 without them, patching SLAs exist only on paper. For APAC financial institutions under MAS TRM \u00a74.3 and HKMA operational resilience guidance, a well-maintained CMDB is an explicit audit requirement.",
+      "description": "IT service management, change control, and authoritative asset inventory",
+      "criticality": {
+        "startup": 0,
+        "smb": 2,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "cmdb_asset_inventory",
+          "name": "CMDB / Asset of Record",
+          "weight": 2.0,
+          "required": true
+        },
+        {
+          "id": "change_management",
+          "name": "Change Management / CAB",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "incident_ticket",
+          "name": "Security Incident Ticketing",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "vuln_workflow",
+          "name": "Vulnerability Remediation Workflow",
+          "weight": 1.2,
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "threat_intel_platform",
+      "name": "Threat Intelligence",
+      "catalog_intro": "The difference between reacting to yesterday's attack and preparing for tomorrow's. A standalone TIP aggregates finished intelligence from commercial, government, and open-source feeds, maps actor TTPs to your environment using MITRE ATT&CK, and produces actionable briefings for both the SOC and the board. For APAC financial institutions, dedicated TI infrastructure is the primary tool for tracking Lazarus Group, APT41, and regional criminal syndicates. IOC enrichment inside your SIEM or EDR is not a substitute \u2014 it lacks the actor-tracking and strategic analysis layer that separates intelligence from data.",
+      "description": "Strategic and operational threat intelligence aggregation, actor tracking, and TTP analysis",
+      "criticality": {
+        "startup": 0,
+        "smb": 2,
+        "enterprise": 5
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "intel_aggregation",
+          "name": "Multi-Source Intel Aggregation",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "actor_tracking",
+          "name": "Threat Actor / Campaign Tracking",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "siem_soa_integration",
+          "name": "SIEM / SOAR Integration",
+          "weight": 1.2,
+          "required": false
+        },
+        {
+          "id": "strategic_reporting",
+          "name": "Strategic / Executive Reporting",
+          "weight": 1.0,
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "observability_apm",
+      "name": "Observability / APM",
+      "catalog_intro": "Operational resilience is inseparable from security resilience. When a DDoS attack hits or ransomware begins encrypting shared drives, the first signal is almost always a performance anomaly \u2014 not a security alert. Application performance monitoring and distributed tracing give the SOC early warning of service degradation, help distinguish security events from operational failures, and provide the response metrics that HKMA and MAS now require from regulated institutions. CISOs who do not own this tooling still answer for it when regulators ask about operational resilience.",
+      "description": "Application performance monitoring, distributed tracing, and infrastructure telemetry",
+      "criticality": {
+        "startup": 0,
+        "smb": 2,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "apm_tracing",
+          "name": "Application Performance Monitoring / Tracing",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "infra_monitoring",
+          "name": "Infrastructure / Network Monitoring",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "anomaly_detection_apm",
+          "name": "Anomaly Detection / AI Ops",
+          "weight": 1.0,
+          "required": false
+        },
+        {
+          "id": "resilience_metrics",
+          "name": "Resilience / SLA Metrics",
+          "weight": 0.8,
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "drp",
+      "name": "Digital Risk Protection",
+      "catalog_intro": "The attacker doesn't need to breach your perimeter if they can impersonate your brand convincingly enough. Digital risk protection monitors the external threat surface \u2014 fake domains, spoofed mobile apps in Asian app stores, phishing kits mimicking your internet banking portal, executive impersonation on LinkedIn, and credential dumps on dark web forums. For APAC financial institutions, MAS TRM \u00a76.3 requires monitoring for technology risk events that originate outside the institution's own systems.",
+      "description": "External brand monitoring, dark web intelligence, and phishing/fraud takedown",
+      "criticality": {
+        "startup": 0,
+        "smb": 2,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "brand_monitoring",
+          "name": "Brand / Domain Monitoring",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "dark_web_monitoring",
+          "name": "Dark Web / Credential Monitoring",
+          "weight": 1.5,
+          "required": true
+        },
+        {
+          "id": "phishing_takedown",
+          "name": "Phishing / Fraud Takedown",
+          "weight": 1.2,
+          "required": false
+        },
+        {
+          "id": "executive_protection",
+          "name": "Executive Digital Footprint",
+          "weight": 0.8,
+          "required": false
         }
       ]
     }
