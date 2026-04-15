@@ -659,6 +659,17 @@ a:hover{text-decoration:underline}
 .exp-geo-low{background:#0f2a18;color:#22aa44;border:1px solid #22aa44}
 .exp-geo-medium{background:#1a1a0a;color:#c9a84c;border:1px solid #c9a84c}
 .exp-geo-high{background:#2a0808;color:#ee3333;border:1px solid #ee3333}
+/* Drill-down logic breakdown */
+.exp-drill-toggle{font-size:10px;color:#555;cursor:pointer;margin-top:8px;display:inline-block;letter-spacing:0.5px}
+.exp-drill-toggle:hover{color:#c9a84c}
+.exp-drill-panel{display:none;margin-top:8px;padding:8px 10px;background:#080810;border-radius:4px;border:1px solid #111118}
+.exp-drill-panel.open{display:block}
+.exp-drill-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:4px 0;border-bottom:1px solid #111118;font-size:11px}
+.exp-drill-row:last-child{border-bottom:none}
+.exp-drill-label{color:#888;flex:1}
+.exp-drill-val{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;white-space:nowrap}
+.exp-drill-threshold{font-size:10px;color:#444;margin-top:2px}
+.exp-dim-card{cursor:default}
 
 /* Exposure score in score panel */
 .exp-panel-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-top:1px solid #1a1a2a;margin-top:8px}
@@ -841,7 +852,7 @@ a:hover{text-decoration:underline}
       <div id="vizHexView">
         <div class="hex-board-wrap">
           <svg id="hexBoardSvg" class="hex-board-svg"
-               viewBox="-320 -215 640 430"
+               viewBox="-200 -300 550 600"
                preserveAspectRatio="xMidYMid meet"
                data-layer-threat="0"></svg>
         </div>
@@ -916,16 +927,16 @@ a:hover{text-decoration:underline}
 'use strict';
 
 /* ── CONSTANTS ── */
+// AI-Era removed from composite scoring — too immature to weight; lives in Exposures E6 instead
 let LENSES = {
-  ciso:    { posture:20, resilience:15, ai_era:10, cve_risk:15, name:'CISO' },
-  startup: { posture:25, resilience:10, ai_era:10, cve_risk:10, name:'STARTUP' },
-  board:   { posture:10, resilience:20, ai_era:20, cve_risk:15, name:'BOARD' },
-  analyst: { posture:20, resilience:15, ai_era:20, cve_risk:20, name:'ANALYST' },
+  ciso:    { posture:35, resilience:30, cve_risk:20, name:'CISO' },
+  startup: { posture:45, resilience:20, cve_risk:15, name:'STARTUP' },
+  board:   { posture:25, resilience:45, cve_risk:20, name:'BOARD' },
+  analyst: { posture:30, resilience:25, cve_risk:35, name:'ANALYST' },
 };
 let ACTIVE_PILLARS = [
   { id:'posture',    label:'Posture',    color:'#3a8aaa', score_fn:'postureScore' },
   { id:'resilience', label:'Resilience', color:'#2a7a5a', score_fn:'resilienceScore' },
-  { id:'ai_era',     label:'AI-Era',     color:'#aa3a8a', score_fn:'aiEraScore' },
   { id:'cve_risk',   label:'CVE Risk',   color:'#aa5533', score_fn:'cveRiskScore' },
 ];
 
@@ -1227,7 +1238,11 @@ function computeSlotCoverageDetailed(capId, vendorEntries, capDef) {
 /* ── SCORING ENGINE ── */
 const PILLAR_SCORERS = {
   postureScore(vendor) { return gradeToNum(vendor.grade); },
-  resilienceScore(vendor) { return gradeToNum(vendor.grade); },
+  resilienceScore(vendor) {
+    const vals = ['rrr_react','rrr_respond','rrr_resilient']
+      .map(k => gradeToNum(vendor[k])).filter(v => v !== null);
+    return vals.length > 0 ? Math.round(vals.reduce((s,v) => s+v, 0) / vals.length) : gradeToNum(vendor.grade);
+  },
   aiEraScore(vendor) { return gradeToNum(vendor.ai_era_grade && vendor.ai_era_grade.grade); },
   cveRiskScore(vendor) {
     const cves     = vendor.cves_12m     ?? null;
@@ -1634,8 +1649,9 @@ function renderFilledCard(cap, entry, compact, entryIdx) {
 
   const pillarScores = getPillarScores(vendor);
   const featured     = vendor.wr_featured;
-  const aiEraData    = vendor.ai_era_grade;
-  const aiGradeLetter  = aiEraData && aiEraData.grade ? aiEraData.grade : null;
+  const aiEraData    = vendor.ai_era_grade; // kept for back-face display only
+  // Card seal shows overall security grade (AI-Era moved to Exposures E6)
+  const aiGradeLetter  = vendor.grade || null;
   const aiGradeSealClass = aiGradeLetter ? 'grade-' + aiGradeLetter : 'grade-unknown';
   const aiGradeSealLabel = aiGradeLetter || '?';
 
@@ -2771,8 +2787,7 @@ function renderVizSlot(capId, zoneCls) {
   if (!vendor) return '';
 
   const grade = vendor.grade || 'NA';
-  const aiGrade = vendor.ai_era_grade && vendor.ai_era_grade.grade ? vendor.ai_era_grade.grade : null;
-  const displayGrade = aiGrade || grade;
+  const displayGrade = grade; // AI-Era moved to Exposures E6; show overall grade on tiles
   const gradeCls = 'grade-' + (displayGrade === 'NA' ? 'NA' : displayGrade);
 
   const logoUrl = vendorLogoUrl(vendor.id);
@@ -2815,49 +2830,57 @@ function renderVizSlot(capId, zoneCls) {
 const HEX_S = 46; // hex half-width (SVG units)
 const HEX_SQRT3 = Math.sqrt(3);
 
-// All 21 capability tiles in axial coordinates (flat-top hex)
-// Crown = (0,0), R1 inner ring, R2 control plane, plus OT satellite + PQC satellite
+// All 21 capability tiles — logical enterprise architecture layout
+// Board reads TOP → BOTTOM: Perimeter (internet-facing) → Identity → Workload → Data → OT
+// SIEM at (2,-2) acts as watchtower monitoring entry points and identity tier
+// viewBox: -200 -300 550 600
 const HEX_TILES = [
-  // R0 — crown
-  { q:0,  r:0,  capId:'siem_mdr',          zone:'zone-soc',       crit:10 },
-  // R1 — inner ring (trust zone)
-  { q:1,  r:-1, capId:'identity_sso',       zone:'zone-identity',  crit:10 },
-  { q:1,  r:0,  capId:'endpoint',           zone:'zone-workload',  crit:9  },
-  { q:0,  r:1,  capId:'data_security',      zone:'zone-data',      crit:8  },
-  { q:-1, r:1,  capId:'backup',             zone:'zone-data',      crit:9  },
-  { q:-1, r:0,  capId:'password_manager',   zone:'zone-identity',  crit:4  },
-  { q:0,  r:-1, capId:'mdm',                zone:'zone-workload',  crit:4  },
-  // R2 — control plane
-  { q:2,  r:-2, capId:'pam',                zone:'zone-identity',  crit:7  },
-  { q:2,  r:-1, capId:'iga',                zone:'zone-identity',  crit:5  },
-  { q:2,  r:0,  capId:'vuln_mgmt',          zone:'zone-workload',  crit:5  },
-  { q:1,  r:1,  capId:'nhi',                zone:'zone-identity',  crit:4  },
-  { q:0,  r:2,  capId:'devsec',             zone:'zone-data',      crit:4  },
-  { q:-1, r:2,  capId:'cnapp',              zone:'zone-data',      crit:5  },
-  { q:-2, r:2,  capId:'cloud',              zone:'zone-data',      crit:6  },
-  { q:-2, r:1,  capId:'grc',                zone:'zone-soc',       crit:3  },
-  { q:-2, r:0,  capId:'sase_ztna',          zone:'zone-perimeter', crit:6  },
-  { q:-1, r:-1, capId:'email_security',     zone:'zone-perimeter', crit:8  },
-  { q:0,  r:-2, capId:'network_firewall',   zone:'zone-perimeter', crit:7  },
-  { q:1,  r:-2, capId:'tprm',               zone:'zone-soc',       crit:3  },
-  // OT satellite — adjacent to cloud cluster, SW
-  { q:-2, r:3,  capId:'ot_ics',             zone:'zone-perimeter', crit:4  },
-  // PQC satellite — outer right, adjacent to iga + vuln_mgmt (enterprise deep-tech tier)
-  { q:3,  r:-1, capId:'post_quantum',       zone:'zone-data',      crit:4  },
+  // PERIMETER ZONE — top band, internet-facing
+  { q:0,  r:-3, capId:'email_security',     zone:'zone-perimeter', crit:8  }, // primary attack vector, top-center
+  { q:1,  r:-3, capId:'network_firewall',   zone:'zone-perimeter', crit:7  }, // inbound edge, top-right
+  { q:-1, r:-2, capId:'sase_ztna',          zone:'zone-perimeter', crit:6  }, // zero-trust edge, left
+
+  // SOC CLUSTER — top-right (watchtower monitoring identity+perimeter)
+  { q:2,  r:-2, capId:'siem_mdr',           zone:'zone-soc',       crit:10 }, // crown: monitors entry points
+  { q:3,  r:-2, capId:'tprm',               zone:'zone-soc',       crit:3  }, // supply chain, SOC cluster
+  { q:3,  r:-1, capId:'grc',                zone:'zone-soc',       crit:3  }, // governance, SOC cluster
+
+  // IDENTITY ZONE — upper-middle (trust gateway)
+  { q:0,  r:-2, capId:'iga',                zone:'zone-identity',  crit:5  }, // identity governance
+  { q:1,  r:-2, capId:'identity_sso',       zone:'zone-identity',  crit:10 }, // core identity gate
+  { q:2,  r:-1, capId:'pam',                zone:'zone-identity',  crit:7  }, // privileged access
+  { q:-1, r:-1, capId:'nhi',                zone:'zone-identity',  crit:4  }, // non-human identity
+  { q:-2, r:-1, capId:'password_manager',   zone:'zone-identity',  crit:4  }, // credential vault
+
+  // WORKLOAD ZONE — middle (endpoint + dev security)
+  { q:0,  r:-1, capId:'mdm',                zone:'zone-workload',  crit:4  }, // mobile endpoint
+  { q:1,  r:-1, capId:'endpoint',           zone:'zone-workload',  crit:9  }, // core endpoint
+  { q:2,  r:0,  capId:'vuln_mgmt',          zone:'zone-workload',  crit:5  }, // vulnerability scanning
+
+  // DATA ZONE — lower (data protection + cloud + crypto)
+  { q:-1, r:1,  capId:'backup',             zone:'zone-data',      crit:9  }, // resilience
+  { q:0,  r:1,  capId:'data_security',      zone:'zone-data',      crit:8  }, // core data
+  { q:1,  r:1,  capId:'devsec',             zone:'zone-data',      crit:4  }, // dev pipeline security
+  { q:2,  r:1,  capId:'post_quantum',       zone:'zone-data',      crit:4  }, // crypto future
+  { q:0,  r:2,  capId:'cnapp',              zone:'zone-data',      crit:5  }, // cloud app protection
+  { q:1,  r:2,  capId:'cloud',              zone:'zone-data',      crit:6  }, // cloud workloads
+
+  // OT SATELLITE — isolated bottom (air-gapped OT network)
+  { q:-1, r:3,  capId:'ot_ics',             zone:'zone-perimeter', crit:4  },
 ];
 
-// Threat attack paths for THREATS overlay
+// Threat attack paths — logical flows matching architectural layout (top→bottom)
 const HEX_THREAT_PATHS = [
   { id:'phish',       color:'#f59e0b', label:'Phishing \u2192 Lateral',
-    path:['email_security','identity_sso','endpoint','data_security'] },
+    path:['email_security','identity_sso','endpoint','mdm','data_security'] },
   { id:'ransomware',  color:'#ef4444', label:'Ransomware',
-    path:['email_security','endpoint','backup','data_security'] },
+    path:['email_security','endpoint','mdm','backup'] },
   { id:'supply',      color:'#a855f7', label:'Supply Chain',
-    path:['tprm','devsec','cloud','data_security'] },
+    path:['tprm','pam','vuln_mgmt','devsec','data_security'] },
   { id:'cloud_breach',color:'#22d3ee', label:'Cloud Breach',
-    path:['cnapp','cloud','data_security'] },
+    path:['cnapp','cloud','devsec','data_security'] },
   { id:'insider',     color:'#fb923c', label:'Insider Abuse',
-    path:['identity_sso','pam','data_security'] },
+    path:['identity_sso','endpoint','devsec','data_security'] },
 ];
 
 // Convert axial (q,r) to SVG pixel center
@@ -2916,13 +2939,15 @@ function renderHexBoard() {
   let svg = '';
 
   // Ocean background
-  svg += '<rect x="-320" y="-215" width="640" height="430" fill="url(#hx-ocean-glow)" rx="3"/>';
+  svg += '<rect x="-200" y="-300" width="550" height="600" fill="url(#hx-ocean-glow)" rx="3"/>';
 
-  // Monitoring lines: SIEM → R1 ring (only if SIEM is filled)
+  // Monitoring lines: SIEM watchtower at (2,-2) → key entry points and identity tier
   if (!slotIsEmpty('siem_mdr')) {
-    const cp = axialToPixel(0, 0);
+    const siemTile = tileByCapId['siem_mdr'];
+    const cp = axialToPixel(siemTile.q, siemTile.r);
     svg += '<g class="layer-monitoring">';
-    ['identity_sso','endpoint','data_security','backup','password_manager','mdm'].forEach(cid => {
+    // Direct hex neighbors of SIEM + extended monitoring reach to critical caps
+    ['identity_sso','pam','tprm','endpoint','network_firewall','email_security'].forEach(cid => {
       const t = tileByCapId[cid];
       if (!t) return;
       const p = axialToPixel(t.q, t.r);
@@ -3016,8 +3041,8 @@ function buildHexTileSVG(tile, activeCaps) {
     if (!vendor) return g + '</g>';
 
     const grade = vendor.grade || 'NA';
-    const aiGrade = vendor.ai_era_grade && vendor.ai_era_grade.grade ? vendor.ai_era_grade.grade : null;
-    const displayGrade = aiGrade || grade;
+    // Show overall security grade on hex tile (AI-Era moved to Exposures E6)
+    const displayGrade = grade;
 
     // Grade badge (NE corner)
     const gbx = +(cx + S * 0.5 - 8).toFixed(2);
@@ -3026,13 +3051,6 @@ function buildHexTileSVG(tile, activeCaps) {
     g += `<circle class="hex-grade-bg" cx="${gbx}" cy="${gby}" r="8"/>`;
     g += `<text class="hex-grade-text" x="${gbx}" y="${+(gby+1).toFixed(2)}">${esc(displayGrade)}</text>`;
     g += `</g>`;
-
-    // AI+ badge (NW corner, if ai grade is A or B)
-    if (aiGrade && (aiGrade === 'A' || aiGrade === 'B')) {
-      const abx = +(cx - S * 0.5 + 8).toFixed(2);
-      g += `<rect x="${+(abx-10).toFixed(2)}" y="${+(gby-4).toFixed(2)}" width="20" height="9" rx="4.5" fill="#1a1808" stroke="#c9a84c" stroke-width=".8"/>`;
-      g += `<text x="${abx}" y="${+(gby+1).toFixed(2)}" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow Condensed',sans-serif" font-size="6.5" font-weight="700" fill="#c9a84c" pointer-events="none">AI+</text>`;
-    }
 
     // Vendor monogram circle (center)
     const mColor = monogramColor(vendor);
@@ -3114,10 +3132,9 @@ function wireHexHover(svgEl) {
       const vendor = vendorMap[firstEntry.vendor_id];
       if (vendor) {
         const grade = vendor.grade || 'NA';
+        const displayGrade = grade; // AI-Era in Exposures E6; show overall grade here
         const aiGrade = vendor.ai_era_grade && vendor.ai_era_grade.grade ? vendor.ai_era_grade.grade : null;
-        const displayGrade = aiGrade || grade;
         html += `<div class="hex-hc-vendor"><span class="viz-grade-badge grade-${displayGrade}" style="display:inline-flex;width:16px;height:16px;font-size:9px;flex-shrink:0">${esc(displayGrade)}</span><span>${esc(vendor.name)}${entries.length > 1 ? ` <span style="color:#777">+${entries.length-1}</span>` : ''}</span></div>`;
-        if (aiGrade) html += `<div class="hex-hc-grade-row">AI-Era: <strong style="color:#c9a84c">${esc(aiGrade)}</strong></div>`;
         html += `<div class="hex-hc-actions">`;
         html += `<button class="hex-hc-btn hex-hc-btn-assign" onclick="openPickerById('${capId}');document.getElementById('hexHoverCard').classList.remove('visible')">&#8599; Edit</button>`;
         html += `<button class="hex-hc-btn hex-hc-btn-remove" onclick="hexRemoveVendor('${capId}','${firstEntry.vendor_id}');document.getElementById('hexHoverCard').classList.remove('visible')">&#10005; Remove</button>`;
@@ -3391,8 +3408,13 @@ function calcE7() {
     explanation = 'All measured vendors score B or better on resilience and reaction — the stack degrades gracefully.';
   }
 
+  const avg_react     = reactScores.length     > 0 ? reactScores.reduce((a,b)=>a+b)/reactScores.length : null;
+  const avg_respond   = respondScores.length   > 0 ? respondScores.reduce((a,b)=>a+b)/respondScores.length : null;
+  const avg_resilient = resilientScores.length > 0 ? resilientScores.reduce((a,b)=>a+b)/resilientScores.length : null;
+  const rrrFloorGrades = ['F','D','C','B','A'];
+  const rrrFloor = resilient_floor !== null ? rrrFloorGrades[resilient_floor] || '?' : 'N/A';
   return { level, numeric: HEAT_NUMERIC[level], explanation,
-    _debug: { react_floor, resilient_floor, tier3MissingRRR, tier3BelowCResilient } };
+    _debug: { react_floor, resilient_floor, tier3MissingRRR, tier3BelowCResilient, avg_react, avg_respond, avg_resilient, rrrFloor } };
 }
 
 // E8 — Coverage Gaps (Negative Space)
@@ -3439,8 +3461,11 @@ function calcE8() {
     explanation = 'Coverage gap is only ' + gap_pct + '% and all 5 critical slots are filled — the stack has minimal negative space.';
   }
 
+  const filledCount = caps.filter(c => !slotIsEmpty(c.id)).length;
+  const totalSlots  = caps.length;
+  const coverageRate = totalSlots > 0 ? filledCount / totalSlots : 0;
   return { level, numeric: HEAT_NUMERIC[level], explanation,
-    _debug: { weighted_gap, gap_pct, missing_critical, CRITICAL_SLOTS } };
+    _debug: { weighted_gap, gap_pct, missing_critical, filledCount, totalSlots, coverageRate, weightedGapFrac: weighted_gap } };
 }
 
 /* ── E-GEO: GEOPOLITICAL VENDOR EXPOSURE ── */
@@ -3605,6 +3630,70 @@ function calcSlotExposureContrib(capId, exp) {
   return { level: maxLevel, reasons };
 }
 
+/* ── DRILL-DOWN LOGIC BUILDER ── */
+function buildDrillRows(dimId, data) {
+  const d = data._debug;
+  if (!d) return [];
+  const rows = [];
+
+  const lvlColor = { Critical:'#ee3333', High:'#ee7722', Medium:'#c9a84c', Low:'#22aa44' };
+  const lc = lvlColor[data.level] || '#bbb';
+
+  if (dimId === 'E5') {
+    rows.push({ label:'Weakest Tier-3 grade', value: ['F','D','C','B','A'][5 - (d.weakest_tier3 || 5)] || 'N/A', color: lc,
+      threshold:'Tier-3 slots: identity_sso, pam, iga, endpoint, siem_mdr, cloud, cnapp, email_security' });
+    rows.push({ label:'Score spread (max − min)', value: Math.round(d.score_spread) + ' pts', color: d.score_spread > 22 ? '#ee3333' : d.score_spread > 15 ? '#ee7722' : '#bbb',
+      threshold:'Critical >22, High >15, Medium ≥8' });
+    rows.push({ label:'Known exploited vulnerability (KEV)', value: d.has_kev ? 'YES' : 'none', color: d.has_kev ? '#ee7722' : '#22aa44' });
+    rows.push({ label:'Active zero-day in stack', value: d.has_zero_day ? 'YES' : 'none', color: d.has_zero_day ? '#ee3333' : '#22aa44' });
+    if (d.tier3Grades && d.tier3Grades.length > 0) {
+      rows.push({ label:'Tier-3 vendors scored', value: d.tier3Grades.map(g => g.name.split(' ')[0] + ':' + g.grade).join(', ') });
+    }
+  }
+
+  if (dimId === 'E6') {
+    rows.push({ label:'Avg adversarial AI readiness', value: d.avg_adversarial !== undefined ? Math.round(d.avg_adversarial) + '/100' : 'N/A', color: lc,
+      threshold:'Critical <30, High <50, Medium <70' });
+    rows.push({ label:'Max own-AI attack surface', value: d.max_surface !== undefined ? Math.round(d.max_surface) + '/100' : 'N/A', color: d.max_surface > 70 ? '#ee3333' : d.max_surface > 50 ? '#ee7722' : '#bbb',
+      threshold:'Critical >70, High >50' });
+    rows.push({ label:'Tier-3 slot with AI F-grade', value: d.tier3FGrade ? 'YES' : 'none', color: d.tier3FGrade ? '#ee3333' : '#22aa44' });
+    rows.push({ label:'What this measures', value:'Resistance to AI-assisted attacks + own-AI exposure' });
+  }
+
+  if (dimId === 'E7') {
+    rows.push({ label:'Resilience floor (worst vendor)', value: d.rrrFloor || 'N/A', color: lc,
+      threshold:'Grade floor across all vendors — any F = Critical, D = High, C = Medium' });
+    rows.push({ label:'Avg react (detect & contain)', value: d.avg_react !== null && d.avg_react !== undefined ? ['F','D','C','B','A'][Math.round(d.avg_react)] || '?' : 'N/A' });
+    rows.push({ label:'Avg respond (scope & isolate)', value: d.avg_respond !== null && d.avg_respond !== undefined ? ['F','D','C','B','A'][Math.round(d.avg_respond)] || '?' : 'N/A' });
+    rows.push({ label:'Avg resilient (recover & harden)', value: d.avg_resilient !== null && d.avg_resilient !== undefined ? ['F','D','C','B','A'][Math.round(d.avg_resilient)] || '?' : 'N/A' });
+    rows.push({ label:'Tier-3 slot missing RRR data', value: d.tier3MissingRRR ? 'YES' : 'none', color: d.tier3MissingRRR ? '#ee7722' : '#22aa44' });
+  }
+
+  if (dimId === 'E8') {
+    rows.push({ label:'Coverage rate', value: d.coverageRate !== undefined ? Math.round(d.coverageRate * 100) + '%' : 'N/A', color: lc,
+      threshold:'Low >80%, Medium >60%, High >40%, Critical ≤40%' });
+    rows.push({ label:'Filled / Total active slots', value: (d.filledCount || 0) + ' / ' + (d.totalSlots || 0) });
+    rows.push({ label:'Missing critical slots', value: d.missingCritical || 0, color: (d.missingCritical || 0) > 0 ? '#ee3333' : '#22aa44',
+      threshold:'Critical slots: identity_sso, email_security, endpoint, siem_mdr, backup' });
+    rows.push({ label:'Weighted gap fraction', value: d.weightedGapFrac !== undefined ? Math.round(d.weightedGapFrac * 100) + '%' : 'N/A' });
+  }
+
+  if (dimId === 'E-GEO') {
+    rows.push({ label:'Restricted vendors in stack', value: data.restrictedPct > 0 ? (Math.round(data.restrictedPct * 100) + '%') : 'none', color: data.restrictedPct > 0 ? '#ee3333' : '#22aa44',
+      threshold:'Any restricted vendor = Critical' });
+    rows.push({ label:'Elevated geo-risk vendors', value: data.elevatedPct > 0 ? (Math.round(data.elevatedPct * 100) + '% weighted') : 'none', color: data.elevatedPct > 0.3 ? '#ee7722' : '#bbb',
+      threshold:'Israeli HQ or dual-use intelligence adjacency; >30% = High' });
+    rows.push({ label:'US CLOUD Act exposure', value: data.cloudactPct !== undefined ? Math.round(data.cloudactPct * 100) + '% weighted' : 'N/A', color: data.cloudactPct > 0.7 ? '#ee7722' : '#bbb',
+      threshold:'US vendors — data accessible to US authorities on subpoena; >70% = Medium' });
+    if (data.flaggedVendors && data.flaggedVendors.length > 0) {
+      const names = data.flaggedVendors.map(f => (vendorMap[f.vid]?.name || f.vid) + '(' + f.geo + ')').join(', ');
+      rows.push({ label:'Flagged vendors', value: names });
+    }
+  }
+
+  return rows;
+}
+
 /* ── RENDER EXPOSURES TAB ── */
 function renderExposureTab() {
   const exp = calcExposures();
@@ -3639,11 +3728,12 @@ function renderExposureTab() {
 
   // 4-dimension grid
   html += '<div class="exp-dim-grid">';
-  dims.forEach(dim => {
+  dims.forEach((dim, di) => {
     const lvl = dim.data.level;
     const heatCls = 'exp-heat-' + lvl.toLowerCase();
     const barColor = heatColor(lvl);
     const barWidth = dim.data.numeric;
+    const drillId = 'expDrill' + di;
 
     html += '<div class="exp-dim-card">';
     html += '<div class="exp-dim-top">';
@@ -3654,6 +3744,23 @@ function renderExposureTab() {
     html += '<div class="exp-dim-explain">' + esc(dim.data.explanation) + '</div>';
     html += '<div class="exp-dim-bar-bg"><div class="exp-dim-bar-fill" style="width:' + barWidth + '%;background:' + barColor + '"></div></div>';
     html += '<div class="exp-dim-score">Exposure score: ' + barWidth + '/100</div>';
+
+    // Drill-down: logic breakdown
+    const drillRows = buildDrillRows(dim.id, dim.data);
+    if (drillRows.length > 0) {
+      html += '<span class="exp-drill-toggle" onclick="this.nextElementSibling.classList.toggle(\'open\');this.textContent=this.nextElementSibling.classList.contains(\'open\')?\'▲ hide logic\':\'▼ how scored\'">&#9660; how scored</span>';
+      html += '<div class="exp-drill-panel" id="' + drillId + '">';
+      drillRows.forEach(row => {
+        html += '<div class="exp-drill-row">';
+        html += '<div><div class="exp-drill-label">' + esc(row.label) + '</div>';
+        if (row.threshold) html += '<div class="exp-drill-threshold">' + esc(row.threshold) + '</div></div>';
+        else html += '</div>';
+        html += '<div class="exp-drill-val" style="color:' + (row.color || '#bbb') + '">' + esc(String(row.value)) + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+
     html += '</div>';
   });
   html += '</div>';
