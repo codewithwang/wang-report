@@ -640,6 +640,25 @@ a:hover{text-decoration:underline}
 .exp-dim-bar-fill{height:100%;border-radius:2px;transition:width .4s}
 .exp-dim-score{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;color:#666;text-align:right;margin-top:3px}
 .exp-footer-note{font-size:11px;color:#555;font-style:italic;text-align:center;margin-top:16px;padding-top:12px;border-top:1px solid #1a1a2a}
+/* Tutorial / WR-REF Explainer */
+.exp-tutorial-toggle{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;color:#666;cursor:pointer;padding:10px 0;text-align:center;border-top:1px solid #1a1a2a;margin-top:8px;user-select:none}
+.exp-tutorial-toggle:hover{color:#c9a84c}
+.exp-tutorial-panel{display:none;background:#0b0b15;border:1px solid #1a1a2a;border-radius:8px;padding:20px;margin-top:8px;font-size:12px;color:#aaa;line-height:1.6}
+.exp-tutorial-panel.open{display:block}
+.exp-tut-h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:#c9a84c;letter-spacing:1px;margin:0 0 8px}
+.exp-tut-h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:#aaa;letter-spacing:1px;margin:16px 0 6px;border-top:1px solid #1a1a2a;padding-top:10px}
+.exp-tut-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:11px}
+.exp-tut-table th{text-align:left;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:0.5px;color:#888;padding:4px 8px 4px 0;border-bottom:1px solid #1a1a2a}
+.exp-tut-table td{padding:5px 8px 5px 0;border-bottom:1px solid #111118;color:#bbb;vertical-align:top}
+.exp-tut-table td:first-child{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;color:#c9a84c;white-space:nowrap}
+.exp-tut-pill{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.5px;padding:2px 7px;border-radius:8px;margin-left:6px}
+.exp-tut-pill.phase1{background:#0d1a0a;border:1px solid #22aa44;color:#22aa44}
+.exp-tut-pill.phase2{background:#1a1a0a;border:1px solid #555533;color:#888855}
+/* Geo dimension specific */
+.exp-geo-flag{font-size:10px;font-family:monospace;padding:1px 5px;border-radius:3px;margin-left:4px}
+.exp-geo-low{background:#0f2a18;color:#22aa44;border:1px solid #22aa44}
+.exp-geo-medium{background:#1a1a0a;color:#c9a84c;border:1px solid #c9a84c}
+.exp-geo-high{background:#2a0808;color:#ee3333;border:1px solid #ee3333}
 
 /* Exposure score in score panel */
 .exp-panel-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-top:1px solid #1a1a2a;margin-top:8px}
@@ -758,7 +777,7 @@ a:hover{text-decoration:underline}
       <div class="sp-section" id="spExposureSection" style="display:none">
         <div class="sp-section-title">EXPOSURE INDEX</div>
         <div class="exp-panel-row">
-          <span class="exp-panel-label">EXPOSURE (4/10)</span>
+          <span class="exp-panel-label">EXPOSURE (5/10)</span>
           <span>
             <span class="exp-panel-val" id="spExpScore">—</span>
             <span class="exp-panel-grade" id="spExpGrade"></span>
@@ -3424,17 +3443,107 @@ function calcE8() {
     _debug: { weighted_gap, gap_pct, missing_critical, CRITICAL_SLOTS } };
 }
 
-// Main calcExposures() — returns all 4 dimensions + SEI
+/* ── E-GEO: GEOPOLITICAL VENDOR EXPOSURE ── */
+// Hardcoded geopolitical risk profiles — updated as vendor landscape changes.
+// geo: 'standard' | 'cloudact' | 'elevated' | 'restricted'
+// 'standard'  = Western HQ, GDPR/FedRAMP compliant, no active bans, low risk
+// 'cloudact'  = US-listed SaaS/cloud with significant non-US data residency — relevant for
+//               APAC/EU regulated entities; US CLOUD Act means data accessible to US authorities
+// 'elevated'  = Intelligence-adjacent domicile, dual-use concerns, or partial state linkage
+// 'restricted'= Active government ban (CISA, NCSC, ASD advisory) or confirmed state ownership
+const GEO_PROFILES = {
+  'microsoft-entra':  { geo:'cloudact',  hq:'US', note:'US CLOUD Act: US authorities can compel access to M365/Azure data globally. Relevant for APAC/EU regulated entities.' },
+  'microsoft':        { geo:'cloudact',  hq:'US', note:'US CLOUD Act applies to all Azure data regardless of residency. Sovereign cloud options available (Azure Gov, EU Data Boundary).' },
+  'okta':             { geo:'cloudact',  hq:'US', note:'US CLOUD Act exposure. SSO data is identity-critical — cross-border access risk for non-US regulated deployments.' },
+  'google':           { geo:'cloudact',  hq:'US', note:'US CLOUD Act. GCP data accessible to US authorities; EU/APAC financial regulators may have objections.' },
+  'aws':              { geo:'cloudact',  hq:'US', note:'US CLOUD Act. S3/RDS data subpoenaable by US authorities; relevant for HKMA, MAS, ECB regulated entities.' },
+  'salesforce':       { geo:'cloudact',  hq:'US', note:'US CLOUD Act exposure for CRM/operational data stored in Salesforce cloud.' },
+  'servicenow':       { geo:'cloudact',  hq:'US', note:'US CLOUD Act exposure for ITSM/GRC data. CVE-2025-12420 BodySnatcher zero-auth bypass is also a concern.' },
+  'crowdstrike':      { geo:'cloudact',  hq:'US', note:'US CLOUD Act. Sensor telemetry and threat data transmit to US-based cloud; agent outage July 2024 was a concentration risk event.' },
+  'sentinelone':      { geo:'cloudact',  hq:'US', note:'US CLOUD Act. Endpoint telemetry stored in US cloud by default.' },
+  'check-point':      { geo:'elevated',  hq:'IL', note:'Israeli HQ. Unit 8200 alumni concentration in security industry. No active bans but intelligence apparatus proximity is a supply-chain concern for some regulated sectors.' },
+  'cyberark':         { geo:'elevated',  hq:'IL', note:'Israeli HQ, NASDAQ-listed, FedRAMP authorized. Intelligence-adjacent talent pool — considered acceptable risk for most Western deployments.' },
+  'claroty':          { geo:'elevated',  hq:'IL', note:'Israeli HQ, ICS/OT intelligence background. Some critical infrastructure regulators have additional review requirements.' },
+  'palo-alto':        { geo:'cloudact',  hq:'US', note:'US CLOUD Act. Prisma Cloud telemetry and XSOAR data stored in US.' },
+  'fortinet':         { geo:'standard',  hq:'US', note:'US-incorporated, Canadian origins. Low geopolitical risk for standard Western enterprise deployments.' },
+  'zscaler':          { geo:'cloudact',  hq:'US', note:'US CLOUD Act. All traffic proxied through US-headquartered cloud; data sovereignty relevant for regulated entities.' },
+  'thales':           { geo:'standard',  hq:'FR', note:'French defense-industrial conglomerate. NATO contractor, EU GDPR native. Low geo risk; French state has minority strategic interest but no security concern.' },
+  'ibm':              { geo:'cloudact',  hq:'US', note:'US CLOUD Act. IBM Cloud and QRadar on Cloud data accessible to US authorities; on-prem deployments not affected.' },
+};
+
+function calcEGeo() {
+  const mode = state.mode;
+  const caps = DATA.capabilities.filter(c => c.modes[mode]);
+  const filled = caps.filter(c => !slotIsEmpty(c.id));
+
+  if (filled.length === 0) {
+    return { level:'Low', numeric:10, explanation:'No vendors in stack — no geopolitical exposure measurable.', dimension:'E-GEO' };
+  }
+
+  // Collect all unique vendors in stack, weighted by slot criticality
+  let restrictedWeight = 0, elevatedWeight = 0, cloudactWeight = 0, totalWeight = 0;
+  const flaggedVendors = [];
+
+  filled.forEach(cap => {
+    const entries = getSlotEntries(cap.id);
+    const crit = cap.criticality[mode] || 1;
+    const seen = new Set();
+    entries.forEach(e => {
+      if (seen.has(e.vendor_id)) return;
+      seen.add(e.vendor_id);
+      const profile = GEO_PROFILES[e.vendor_id];
+      const geo = profile ? profile.geo : 'standard';
+      if (geo === 'restricted')  { restrictedWeight += crit; flaggedVendors.push({ vid: e.vendor_id, geo, cap: cap.id }); }
+      if (geo === 'elevated')    { elevatedWeight  += crit; flaggedVendors.push({ vid: e.vendor_id, geo, cap: cap.id }); }
+      if (geo === 'cloudact')    { cloudactWeight  += crit; }
+      totalWeight += crit;
+    });
+  });
+
+  const restrictedPct = totalWeight > 0 ? restrictedWeight / totalWeight : 0;
+  const elevatedPct   = totalWeight > 0 ? elevatedWeight  / totalWeight : 0;
+  const cloudactPct   = totalWeight > 0 ? cloudactWeight  / totalWeight : 0;
+
+  let level, numeric, explanation;
+
+  if (restrictedPct > 0) {
+    level = 'Critical'; numeric = 90;
+    const names = flaggedVendors.filter(f => f.geo === 'restricted').map(f => vendorMap[f.vid]?.name || f.vid);
+    explanation = 'RESTRICTED vendor(s) in stack: ' + names.join(', ') + '. Active government ban or confirmed state ownership — remove immediately.';
+  } else if (elevatedPct > 0.3) {
+    level = 'High'; numeric = 70;
+    explanation = Math.round(elevatedPct * 100) + '% of weighted stack uses intelligence-adjacent or elevated-risk vendors. Review for regulated-sector suitability.';
+  } else if (elevatedPct > 0 || cloudactPct > 0.7) {
+    level = 'Medium'; numeric = 40;
+    if (elevatedPct > 0) {
+      const names = flaggedVendors.filter(f => f.geo === 'elevated').map(f => vendorMap[f.vid]?.name || f.vid);
+      explanation = 'Elevated-risk vendor(s) present: ' + names.join(', ') + '. Consider data residency and regulatory disclosure requirements.';
+    } else {
+      explanation = Math.round(cloudactPct * 100) + '% of weighted stack is US CLOUD Act-exposed. For APAC/EU regulated entities, assess cross-border data access risk.';
+    }
+  } else if (cloudactPct > 0.3) {
+    level = 'Low'; numeric = 25;
+    explanation = Math.round(cloudactPct * 100) + '% of stack is US CLOUD Act-exposed. Low risk for most deployments; note for APAC/EU regulated-data contexts.';
+  } else {
+    level = 'Low'; numeric = 10;
+    explanation = 'Stack uses standard Western vendors with no active geo restrictions. Geopolitical exposure is low.';
+  }
+
+  return { level, numeric, explanation, dimension:'E-GEO', cloudactPct, elevatedPct, restrictedPct, flaggedVendors };
+}
+
+// Main calcExposures() — returns all 5 dimensions + SEI
 function calcExposures() {
   const e5 = calcE5();
   const e6 = calcE6();
   const e7 = calcE7();
   const e8 = calcE8();
+  const egeo = calcEGeo();
 
-  const sei = Math.round((e5.numeric + e6.numeric + e7.numeric + e8.numeric) / 4);
+  const sei = Math.round((e5.numeric + e6.numeric + e7.numeric + e8.numeric + egeo.numeric) / 5);
   const grade = seiGrade(sei);
 
-  return { e5, e6, e7, e8, sei, grade, phase: '4/10' };
+  return { e5, e6, e7, e8, egeo, sei, grade, phase: '5/10' };
 }
 
 /* ── PER-SLOT EXPOSURE CONTRIBUTION ── */
@@ -3507,6 +3616,7 @@ function renderExposureTab() {
     { id:'E6', name:'AI-Era Readiness Gap', sub:'', data: exp.e6 },
     { id:'E7', name:'Operational Resilience', sub:'Recovery Path', data: exp.e7 },
     { id:'E8', name:'Coverage Gaps', sub:'Negative Space', data: exp.e8 },
+    { id:'E-GEO', name:'Geopolitical Exposure', sub:'China–West Axis', data: exp.egeo },
   ];
 
   const gradeColor = { A:'#22aa44', B:'#6aaaee', C:'#c9a84c', D:'#ee7722', F:'#ee3333' };
@@ -3549,12 +3659,81 @@ function renderExposureTab() {
   html += '</div>';
 
   // Footer
-  html += '<div class="exp-footer-note">WR-REF v1.0 Phase 1. Dimensions E1&ndash;E4, E9&ndash;E10 require vendor enrichment data and ship in Phase 2.</div>';
+  html += '<div class="exp-footer-note">WR-REF v1.0 Phase 1 + E-GEO. Dimensions E1&ndash;E4, E9&ndash;E10 require vendor enrichment data and ship in Phase 2.</div>';
+
+  // Tutorial toggle
+  html += '<div class="exp-tutorial-toggle" onclick="toggleExpTutorial(this)">&#9660; WR-REF EXPLAINED &mdash; METHODOLOGY &amp; FRAMEWORK</div>';
+  html += '<div class="exp-tutorial-panel" id="expTutorialPanel">';
+  html += '<div class="exp-tut-h2">WR-REF v1.0 &mdash; Wang Report Risk Exposure Framework</div>';
+  html += '<p>WR-REF measures structural risk in a security stack: not individual vendor grades, but how the <em>combination</em> of vendors and gaps creates systemic exposure. A stack of B-grade vendors can have lower exposure than a C-grade vendor anchoring a critical slot.</p>';
+  html += '<p>The Stack Exposure Index (SEI) runs 0&ndash;100. <strong>Lower is better.</strong> A perfect stack scores 0 &mdash; no gaps, all top-grade, no geopolitical or AI-era risk. Most real enterprise stacks land 20&ndash;50.</p>';
+
+  html += '<div class="exp-tut-h3">GRADE SCALE</div>';
+  html += '<table class="exp-tut-table"><tr><th>Grade</th><th>SEI Range</th><th>Meaning</th></tr>';
+  const gradeRows = [
+    ['A','0&ndash;20','Low exposure — stack is well-configured with high-grade, complete coverage'],
+    ['B','21&ndash;35','Below-average exposure — some gaps or grade variance but no critical failures'],
+    ['C','36&ndash;50','Moderate exposure — notable gaps or a weakness in a Tier-3 slot'],
+    ['D','51&ndash;70','Elevated exposure — multiple critical gaps or a restricted/low-grade vendor in core position'],
+    ['F','71&ndash;100','High systemic exposure — immediate remediation required'],
+  ];
+  gradeRows.forEach(([g,r,m]) => { html += '<tr><td>' + g + '</td><td>' + r + '</td><td>' + m + '</td></tr>'; });
+  html += '</table>';
+
+  html += '<div class="exp-tut-h3">DIMENSIONS</div>';
+  html += '<table class="exp-tut-table"><tr><th>ID</th><th>Name</th><th>What It Measures</th><th>Status</th></tr>';
+  const dimRows = [
+    ['E1','Vendor Concentration (HHI)','Single-vendor over-exposure — Herfindahl–Hirschman Index across slots','phase2'],
+    ['E2','Jurisdictional Spread','Cross-border data flow risk, data residency alignment','phase2'],
+    ['E3','Ownership / State Linkage','Private equity, state-owned, or adversary-linked vendor ownership','phase2'],
+    ['E4','Monoculture / Runtime Homogeneity','Same OS, cloud, or agent across most of the stack','phase2'],
+    ['E5','Posture Dispersion','Weakest-link grade, KEV presence, score spread across filled slots','phase1'],
+    ['E6','AI-Era Readiness Gap','Adversarial AI resilience and AI surface exposure across vendors','phase1'],
+    ['E7','Operational Resilience','RRR floor across the stack (React, Respond, Resilient grades)','phase1'],
+    ['E8','Coverage Gaps','Weighted gap fraction, missing critical-slot count','phase1'],
+    ['E-GEO','Geopolitical Exposure','China&ndash;West axis: US CLOUD Act, intelligence-adjacent vendors, active bans','phase1'],
+    ['E9','Supply Chain Depth','Dependency chain risk — indirect vendor exposure via shared infrastructure','phase2'],
+    ['E10','Regulatory Surface','Active compliance obligations (MAS, HKMA, DORA, SOC2) vs. stack readiness','phase2'],
+  ];
+  dimRows.forEach(([id,name,desc,phase]) => {
+    const pill = phase === 'phase1'
+      ? '<span class="exp-tut-pill phase1">LIVE</span>'
+      : '<span class="exp-tut-pill phase2">PHASE 2</span>';
+    html += '<tr><td>' + id + '</td><td>' + name + pill + '</td><td>' + desc + '</td><td></td></tr>';
+  });
+  html += '</table>';
+
+  html += '<div class="exp-tut-h3">E-GEO: GEOPOLITICAL FRAMEWORK</div>';
+  html += '<p>The geopolitical axis runs from <strong>China-sphere</strong> (high state control, mandatory disclosure laws, CISA/NCSC restricted lists) to <strong>West-core</strong> (Five Eyes, EU GDPR, NATO contractor). Most enterprise stacks sit somewhere in between.</p>';
+  html += '<p>Four vendor geo tiers:</p>';
+  html += '<table class="exp-tut-table"><tr><th>Tier</th><th>Definition</th><th>Examples</th></tr>';
+  const geoRows = [
+    ['Standard','Western HQ, GDPR/FedRAMP compliant, no state ownership concerns','Palo Alto, Fortinet, Splunk, CrowdStrike (on-prem)'],
+    ['CLOUD Act','US-listed SaaS/cloud vendors — US CLOUD Act means data is accessible to US authorities on demand','Microsoft, AWS, Google, Okta, Zscaler, ServiceNow'],
+    ['Elevated','Intelligence-adjacent domicile, dual-use concerns, or partial state linkage. Not banned — but warrants additional due diligence','Check Point, CyberArk, Claroty (Israeli HQ)'],
+    ['Restricted','Active government ban (CISA BOD, NCSC, ASD advisory) or confirmed adversary-state ownership/control. Do not use in regulated environments','Kaspersky (banned CISA 2024), Hikvision (FCC restricted), Huawei (NDAA Section 889)'],
+  ];
+  geoRows.forEach(([t,d,e]) => { html += '<tr><td>' + t + '</td><td>' + d + '</td><td style="color:#777">' + e + '</td></tr>'; });
+  html += '</table>';
+  html += '<p style="margin-top:12px;font-size:11px;color:#666">For Hong Kong-based enterprises: US CLOUD Act exposure is relevant for HKMA and PBOC regulatory inquiries. Chinese-state-linked vendors face conflicting obligations under HK NSL and Western financial sanctions regimes.</p>';
+
+  html += '<div class="exp-tut-h3">SEI FORMULA (PHASE 1)</div>';
+  html += '<p style="font-family:monospace;background:#111118;padding:8px 12px;border-radius:4px;font-size:11px;border-left:3px solid #c9a84c">SEI = mean(E5, E6, E7, E8, E-GEO) &mdash; each dimension scores 0&ndash;100<br>Phase 2 will use weighted formula: E5(20%) + E6(15%) + E7(15%) + E8(25%) + E-GEO(10%) + E9(10%) + E10(5%)</p>';
+
+  html += '</div>'; // end tutorial panel
 
   content.innerHTML = html;
 
   // Also update score panel SEI row
   renderSEIPanel(exp);
+}
+
+/* ── TUTORIAL TOGGLE ── */
+function toggleExpTutorial(btn) {
+  const panel = document.getElementById('expTutorialPanel');
+  if (!panel) return;
+  const open = panel.classList.toggle('open');
+  btn.innerHTML = (open ? '&#9650;' : '&#9660;') + ' WR-REF EXPLAINED &mdash; METHODOLOGY &amp; FRAMEWORK';
 }
 
 /* ── RENDER SEI IN SCORE PANEL ── */
