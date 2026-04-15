@@ -690,8 +690,8 @@ a:hover{text-decoration:underline}
     <div class="toggle-row">
       <div class="toggle-group" id="modeToggle">
         <input type="radio" name="mode" id="m-startup" value="startup"><label for="m-startup">STARTUP <span id="ml-startup">7</span></label>
-        <input type="radio" name="mode" id="m-smb" value="smb" checked><label for="m-smb">SMB <span id="ml-smb">10</span></label>
-        <input type="radio" name="mode" id="m-enterprise" value="enterprise"><label for="m-enterprise">ENTERPRISE <span id="ml-enterprise">16</span></label>
+        <input type="radio" name="mode" id="m-smb" value="smb" checked><label for="m-smb">SMB <span id="ml-smb">12</span></label>
+        <input type="radio" name="mode" id="m-enterprise" value="enterprise"><label for="m-enterprise">ENTERPRISE <span id="ml-enterprise">20</span></label>
       </div>
       <div class="toggle-group" id="lensToggle">
         <input type="radio" name="lens" id="l-ciso" value="ciso" checked><label for="l-ciso">CISO</label>
@@ -1317,7 +1317,9 @@ function computeStackScore() {
     }
   });
 
-  const base = totalSlots > 0 ? (slotScoreSum / totalSlots) * 100 : 0;
+  // Normalise by the max possible weighted score (not totalSlots * 100, which ignores criticality weights)
+  const maxPossibleScore = caps.reduce((s, c) => s + 100 * ((c.criticality[mode] || 0) / 5), 0);
+  const base = maxPossibleScore > 0 ? (slotScoreSum / maxPossibleScore) * 100 : 0;
 
   // Concentration penalty: count how many distinct slots a vendor appears in
   const vendorSlotCounts = {};
@@ -1335,7 +1337,7 @@ function computeStackScore() {
     ? Math.max(...Object.values(vendorSlotCounts)) : 0;
   const concentrationPenalty = maxCount > 2 ? (maxCount - 2) * 15 : 0;
 
-  const final = Math.max(0, Math.min(100, base * coveragePct - concentrationPenalty));
+  const final = Math.max(0, Math.min(100, base - concentrationPenalty));
 
   // Per-pillar breakdown
   const pillarTotals = {};
@@ -1537,7 +1539,7 @@ function renderSlotGrid() {
   const grid = document.getElementById('slotGrid');
   grid.innerHTML = '';
 
-  const modeLabel = {startup:'Startup (7 slots)',smb:'SMB (10 slots)',enterprise:'Enterprise (14 slots)'}[state.mode];
+  const modeLabel = {startup:'Startup (7 slots)',smb:'SMB (12 slots)',enterprise:'Enterprise (20 slots)'}[state.mode];
   document.getElementById('modeInfo').textContent = modeLabel + ' · Click empty slot to fill · Multiple vendors per slot supported';
 
   caps.forEach(cap => {
@@ -1953,7 +1955,7 @@ function renderRecommendations() {
       // Already-selected vendor IDs in this slot
       const currentVids = new Set(getSlotEntries(cap.id).map(e => e.vendor_id));
       const candidates  = DATA.modules
-        .filter(m => m.capabilities.includes(cap.id) && m.modes[mode])
+        .filter(m => m.capabilities.includes(cap.id) && m.modes[mode] !== false)
         .filter(m => !currentVids.has(m.vendor_id))
         .map(m => {
           const v = vendorMap[m.vendor_id];
@@ -2093,8 +2095,9 @@ function renderPickerGrid(search) {
   document.getElementById('modalAiNote').style.display = hasSubCaps ? '' : 'none';
 
   // All candidate modules for this cap + mode
+  // modes:{} (empty object) means "all modes" — treat undefined as enabled, only exclude explicit false
   const allModules = DATA.modules.filter(m =>
-    m.capabilities.includes(capId) && m.modes[mode]
+    m.capabilities.includes(capId) && m.modes[mode] !== false
   );
 
   // Apply deployment filter
@@ -2617,7 +2620,7 @@ const VIZ_ZONES = [
     id: 'data',
     label: 'DATA ZONE',
     cls: 'zone-data',
-    caps: ['data_security', 'backup', 'cloud', 'cnapp'],
+    caps: ['data_security', 'backup', 'cloud', 'cnapp', 'post_quantum'],
     row: 'mid',
     wide: true,
   },
@@ -2793,8 +2796,8 @@ function renderVizSlot(capId, zoneCls) {
 const HEX_S = 46; // hex half-width (SVG units)
 const HEX_SQRT3 = Math.sqrt(3);
 
-// All 20 capability tiles in axial coordinates (flat-top hex)
-// Crown = (0,0), R1 inner ring, R2 control plane, plus OT satellite
+// All 21 capability tiles in axial coordinates (flat-top hex)
+// Crown = (0,0), R1 inner ring, R2 control plane, plus OT satellite + PQC satellite
 const HEX_TILES = [
   // R0 — crown
   { q:0,  r:0,  capId:'siem_mdr',          zone:'zone-soc',       crit:10 },
@@ -2820,6 +2823,8 @@ const HEX_TILES = [
   { q:1,  r:-2, capId:'tprm',               zone:'zone-soc',       crit:3  },
   // OT satellite — adjacent to cloud cluster, SW
   { q:-2, r:3,  capId:'ot_ics',             zone:'zone-perimeter', crit:4  },
+  // PQC satellite — outer right, adjacent to iga + vuln_mgmt (enterprise deep-tech tier)
+  { q:3,  r:-1, capId:'post_quantum',       zone:'zone-data',      crit:4  },
 ];
 
 // Threat attack paths for THREATS overlay
@@ -3116,9 +3121,8 @@ function wireHexHover(svgEl) {
     const tile = e.target.closest('[data-capid]');
     if (tile && !tile.classList.contains('locked')) showCard(tile.dataset.capid, e);
   });
-  svgEl.addEventListener('mousemove', e => {
-    if (card.classList.contains('visible')) positionHexCard(card, e);
-  });
+  // No mousemove tracking — card stays anchored where tile was first hovered
+  // so user can move cursor onto card to click Edit / Remove buttons
   svgEl.addEventListener('mouseout', e => {
     if (e.target.closest('[data-capid]')) hideCard();
   });

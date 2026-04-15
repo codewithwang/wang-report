@@ -1986,5 +1986,59 @@
         }
       ]
     }
+    ,{
+      "id": "post_quantum",
+      "name": "Post-Quantum Crypto",
+      "catalog_intro": "The harvest-now-decrypt-later threat is already active. NIST PQC standards (FIPS 203/204/205) are finalised. Enterprises with long data-classification windows need to start migration planning now.",
+      "description": "PQC key management, HSM, algorithm migration",
+      "criticality": {
+        "startup": 1,
+        "smb": 2,
+        "enterprise": 4
+      },
+      "modes": {
+        "startup": false,
+        "smb": false,
+        "enterprise": true
+      },
+      "sub_capabilities": [
+        {
+          "id": "pqc_key_mgmt",
+          "name": "PQC Key Management",
+          "weight": 2.0,
+          "required": true,
+          "rationale": "HSMs and KMS must support ML-KEM/ML-DSA to protect long-lived secrets against future quantum decryption.",
+          "framework_refs": {
+            "nist_csf": "PR.DS-2",
+            "cis": "3.11"
+          },
+          "typical_tools": ["thales", "ibm"]
+        },
+        {
+          "id": "pqc_tls",
+          "name": "PQC-Ready TLS",
+          "weight": 1.5,
+          "required": false,
+          "rationale": "Hybrid TLS (classical + PQC) protects data in transit against harvest-now attacks during the migration window.",
+          "framework_refs": {
+            "nist_csf": "PR.DS-5",
+            "cis": "4.4"
+          },
+          "typical_tools": ["thales"]
+        },
+        {
+          "id": "crypto_agility",
+          "name": "Crypto-Agility Assessment",
+          "weight": 1.0,
+          "required": false,
+          "rationale": "Inventory classical algorithms in use (RSA, ECC) and prioritise migration order based on data classification and key lifetime.",
+          "framework_refs": {
+            "nist_csf": "ID.AM-5",
+            "cis": "3.1"
+          },
+          "typical_tools": ["ibm", "thales"]
+        }
+      ]
+    }
   ]
 }

@@ -2537,6 +2537,139 @@
       }
     },
     {
+      "vendor_id": "ibm",
+      "module_id": "ibm-qradar",
+      "module_name": "IBM QRadar SIEM",
+      "deployment": "on-prem",
+      "tier": 3,
+      "notes": "Enterprise SIEM with UBA, network analytics, and SOAR integration. Available on-prem and as SaaS (QRadar on Cloud).",
+      "capabilities": ["siem_mdr"],
+      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "coverage": {
+        "siem_mdr": {
+          "sub_caps": {
+            "siem": "full",
+            "ueba": "full",
+            "soar": "partial",
+            "mdr": "none",
+            "threat_intel": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "ibm",
+      "module_id": "ibm-guardium",
+      "module_name": "IBM Guardium",
+      "deployment": "on-prem",
+      "tier": 3,
+      "notes": "Data activity monitoring, DB vulnerability assessment, data compliance reporting. Strong in regulated industries.",
+      "capabilities": ["data_security"],
+      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "coverage": {
+        "data_security": {
+          "sub_caps": {
+            "dlp": "partial",
+            "encryption": "partial",
+            "data_classification": "full",
+            "dam": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "ibm",
+      "module_id": "ibm-verify",
+      "module_name": "IBM Security Verify",
+      "deployment": "saas",
+      "tier": 2,
+      "notes": "IAM/CIAM platform: MFA, SSO, identity governance, adaptive access.",
+      "capabilities": ["identity_sso", "iga"],
+      "modes": { "startup": false, "smb": true, "enterprise": true },
+      "coverage": {
+        "identity_sso": {
+          "sub_caps": {
+            "sso": "full",
+            "mfa": "full",
+            "directory": "partial"
+          }
+        },
+        "iga": {
+          "sub_caps": {
+            "access_reviews": "full",
+            "provisioning": "full",
+            "role_mining": "partial",
+            "sod": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "ibm",
+      "module_id": "ibm-pqc",
+      "module_name": "IBM Quantum Safe",
+      "deployment": "on-prem",
+      "tier": 3,
+      "notes": "CRYSTALS-Kyber/Dilithium HSM support, crypto-agility discovery, integration with z/OS cryptographic services. Aligned to NIST PQC FIPS 203/204/205.",
+      "capabilities": ["post_quantum"],
+      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "coverage": {
+        "post_quantum": {
+          "sub_caps": {
+            "pqc_key_mgmt": "full",
+            "pqc_tls": "partial",
+            "crypto_agility": "full"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "thales",
+      "module_id": "thales-ciphertrust",
+      "module_name": "Thales CipherTrust Platform",
+      "deployment": "on-prem",
+      "tier": 3,
+      "notes": "Unified data security: encryption, tokenisation, key management, HSM (Luna), post-quantum key migration. NIST PQC FIPS 203/204/205 ready.",
+      "capabilities": ["data_security", "post_quantum"],
+      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "coverage": {
+        "data_security": {
+          "sub_caps": {
+            "encryption": "full",
+            "dlp": "none",
+            "data_classification": "partial",
+            "dam": "none"
+          }
+        },
+        "post_quantum": {
+          "sub_caps": {
+            "pqc_key_mgmt": "full",
+            "pqc_tls": "full",
+            "crypto_agility": "partial"
+          }
+        }
+      }
+    },
+    {
+      "vendor_id": "thales",
+      "module_id": "thales-luna-hsm",
+      "module_name": "Thales Luna HSM",
+      "deployment": "on-prem",
+      "tier": 3,
+      "notes": "Hardware security module for key generation, storage, cryptographic operations. FIPS 140-3 Level 3. Market-leading in financial services, PKI, and payment processing.",
+      "capabilities": ["post_quantum"],
+      "modes": { "startup": false, "smb": false, "enterprise": true },
+      "coverage": {
+        "post_quantum": {
+          "sub_caps": {
+            "pqc_key_mgmt": "full",
+            "pqc_tls": "partial",
+            "crypto_agility": "none"
+          }
+        }
+      }
+    },
+    {
       "vendor_id": "servicenow",
       "module_id": "servicenow-grc",
       "module_name": "ServiceNow GRC / IRM",
