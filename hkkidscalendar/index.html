@@ -10,42 +10,52 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#fdf6ee;--card:#ffffff;--primary:#ff6b6b;--secondary:#4ecdc4;
+  --bg:#fdf6ee;--card:#fff;--primary:#ff6b6b;--secondary:#4ecdc4;
   --accent:#ffe66d;--purple:#a78bfa;--pink:#f9a8d4;--blue:#7dd3fc;
-  --text:#2d3436;--muted:#636e72;--border:#e8e0d6;--radius:16px;
+  --text:#2d3436;--muted:#636e72;--border:#e8e0d6;--radius:14px;
 }
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-.header{text-align:center;padding:2.5rem 1rem 1.5rem;background:linear-gradient(135deg,#fff5f5,#f0fffe,#fffbeb);position:relative;overflow:hidden}
-.header::before{content:'';position:absolute;top:-40px;left:-40px;width:120px;height:120px;background:var(--accent);opacity:.3;border-radius:50%}
-.header::after{content:'';position:absolute;bottom:-30px;right:-20px;width:100px;height:100px;background:var(--pink);opacity:.25;border-radius:50%}
-.header h1{font-size:2.2rem;font-weight:800;color:var(--primary);position:relative;z-index:1}
-.header p{color:var(--muted);font-size:1rem;margin-top:.25rem;position:relative;z-index:1}
-.container{max-width:1200px;margin:0 auto;padding:0 1rem 3rem}
-.calendar-wrap{background:var(--card);border-radius:var(--radius);padding:1.25rem;margin:1.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.cal-nav button{background:none;border:2px solid var(--border);border-radius:10px;width:40px;height:40px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+/* ── App shell — full-viewport two-panel layout ──── */
+html,body{height:100%;overflow:hidden}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;display:flex;flex-direction:column}
+/* ── Compact top bar ──────────────────────────────── */
+.topbar{height:52px;flex-shrink:0;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.25rem;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tb-brand{display:flex;align-items:center;gap:.55rem;flex:1;min-width:0}
+.tb-emoji{font-size:1.4rem;line-height:1;flex-shrink:0}
+.tb-title{font-size:.95rem;font-weight:800;color:var(--primary);white-space:nowrap}
+.tb-sub{font-size:.68rem;color:var(--muted);white-space:nowrap;margin-left:.35rem}
+.tb-meta{flex-shrink:0;text-align:right;font-size:.68rem;color:var(--muted);line-height:1.5}
+.tb-meta a{color:var(--primary);text-decoration:none;font-weight:700}
+/* ── Two-panel grid ───────────────────────────────── */
+.app-shell{flex:1;display:grid;grid-template-columns:350px 1fr;overflow:hidden;min-height:0}
+.cal-panel{overflow-y:auto;padding:.875rem;border-right:1px solid var(--border);background:var(--bg);display:flex;flex-direction:column;gap:.75rem}
+.events-panel{overflow-y:auto;padding:.875rem 1.125rem;background:var(--bg)}
+/* ── Calendar ─────────────────────────────────────── */
+.calendar-wrap{background:var(--card);border-radius:var(--radius);padding:.875rem;box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.625rem}
+.cal-nav button{background:none;border:1.5px solid var(--border);border-radius:8px;width:32px;height:32px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
 .cal-nav button:hover{border-color:var(--primary);color:var(--primary)}
-.cal-nav h2{font-size:1.15rem;font-weight:700}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-.cal-day-label{font-size:.7rem;font-weight:600;color:var(--muted);padding:4px 0;text-transform:uppercase}
-.cal-day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.85rem;border-radius:10px;cursor:default;font-weight:500;transition:.15s}
+.cal-nav h2{font-size:.95rem;font-weight:700}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}
+.cal-day-label{font-size:.6rem;font-weight:600;color:var(--muted);padding:3px 0;text-transform:uppercase}
+.cal-day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.75rem;border-radius:7px;cursor:default;font-weight:500;transition:.12s}
 .cal-day.today{background:#fff3cd;font-weight:700}
 .cal-day.has-event{cursor:pointer;font-weight:700}
 .cal-day.has-event:hover{background:#ffeaea}
-.cal-day .dot-row{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
-.cal-day .dot{width:5px;height:5px;border-radius:50%}
+.cal-day .dot-row{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
+.cal-day .dot{width:4px;height:4px;border-radius:50%}
 .cal-day.selected{background:var(--primary);color:#fff}
-.cal-day.selected .dot{border:1px solid #fff}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0}
-.filter-btn{padding:6px 14px;border-radius:20px;border:2px solid var(--border);background:var(--card);font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
+.cal-day.selected .dot{border:1px solid rgba(255,255,255,.6)}
+/* ── Filters ──────────────────────────────────────── */
+.filters{display:flex;flex-wrap:wrap;gap:4px}
+.filter-btn{padding:3px 9px;border-radius:14px;border:1.5px solid var(--border);background:var(--card);font-size:.68rem;font-weight:600;cursor:pointer;transition:.15s;font-family:inherit;line-height:1.5}
 .filter-btn:hover{border-color:var(--secondary)}
 .filter-btn.active{background:var(--secondary);color:#fff;border-color:var(--secondary)}
-.event-list{display:flex;flex-direction:column;gap:1rem}
-.event-card{background:var(--card);border-radius:var(--radius);padding:1.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid var(--secondary);transition:transform .15s,box-shadow .15s}
-.event-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+/* ── Event cards ──────────────────────────────────── */
+.event-list{display:flex;flex-direction:column;gap:.625rem}
+.event-card{background:var(--card);border-radius:var(--radius);padding:.875rem 1rem;box-shadow:0 1px 5px rgba(0,0,0,.055);border-left:4px solid var(--secondary);transition:transform .12s,box-shadow .12s}
+.event-card:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.09)}
 .event-card[data-cat="Government Open Day"]{border-left-color:var(--primary)}
-.event-card[data-cat="Transport Experience"]{border-left-color:var(--accent)}
+.event-card[data-cat="Transport Experience"]{border-left-color:#f0b429}
 .event-card[data-cat="Arts & Culture"]{border-left-color:var(--purple)}
 .event-card[data-cat="Museum"]{border-left-color:var(--blue)}
 .event-card[data-cat="Baby & Toddler"]{border-left-color:var(--pink)}
@@ -53,73 +63,72 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .event-card[data-cat="Outdoor Playground"]{border-left-color:#6bcb77}
 .event-card[data-cat="Arts & Crafts"]{border-left-color:#e8a87c}
 .event-card[data-cat="Seasonal Event"]{border-left-color:#ff9a9e}
-.ev-header{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.5rem}
-.ev-emoji{font-size:2rem;line-height:1}
-.ev-title{font-size:1.1rem;font-weight:700}
-.ev-meta{display:flex;flex-wrap:wrap;gap:.5rem .75rem;margin:.5rem 0;font-size:.82rem;color:var(--muted)}
-.ev-meta span{display:flex;align-items:center;gap:4px}
-.ev-desc{font-size:.9rem;margin:.5rem 0;color:#444}
-.ev-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.65rem}
-.ev-tag{font-size:.72rem;padding:3px 10px;border-radius:12px;font-weight:600}
+.ev-past-label{font-size:.62rem;font-weight:700;letter-spacing:.8px;color:#c0c0c0;text-transform:uppercase;margin-bottom:3px}
+.ev-header{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.3rem}
+.ev-emoji{font-size:1.5rem;line-height:1;flex-shrink:0}
+.ev-title{font-size:.9rem;font-weight:700;line-height:1.3}
+.ev-meta{display:flex;flex-wrap:wrap;gap:.25rem .5rem;margin:.3rem 0;font-size:.73rem;color:var(--muted)}
+.ev-meta span{display:flex;align-items:center;gap:3px}
+.ev-desc{font-size:.8rem;margin:.3rem 0;color:#444;line-height:1.45}
+.ev-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:.4rem}
+.ev-tag{font-size:.64rem;padding:2px 7px;border-radius:9px;font-weight:600}
 .ev-tag.cost-free{background:#d1fae5;color:#065f46}
 .ev-tag.cost-paid{background:#fef3c7;color:#92400e}
 .ev-tag.cat{background:#ede9fe;color:#5b21b6}
-.ev-reg{font-size:.82rem;color:var(--muted);margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--border)}
-.no-events{text-align:center;padding:2rem;color:var(--muted);font-size:.95rem}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.82rem}
-.footer a{color:var(--primary);text-decoration:none;font-weight:600}
-@media(min-width:1024px){
-  .main-grid{display:grid;grid-template-columns:420px 1fr;gap:2rem;align-items:start}
-  .cal-panel{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow-y:auto}
-  .header{padding:1.5rem 1rem 1rem}
-  .header h1{font-size:1.6rem}
-  .cal-day{font-size:.75rem}
-  .filter-btn{padding:4px 10px;font-size:.72rem}
-}
-@media(max-width:500px){
-  .header h1{font-size:1.6rem}
-  .cal-day{font-size:.75rem}
-  .ev-emoji{font-size:1.5rem}
-  .ev-title{font-size:1rem}
+.ev-reg{font-size:.73rem;color:var(--muted);margin-top:.35rem;padding-top:.35rem;border-top:1px dashed var(--border)}
+.no-events{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.82rem}
+.always-on-divider{padding:1rem 0 .5rem;border-top:2px dashed var(--border);margin-top:1.25rem}
+.always-on-divider h2{font-size:.95rem;font-weight:800;color:var(--primary)}
+.always-on-divider p{font-size:.72rem;color:var(--muted);margin-top:2px}
+.panel-footer{text-align:center;padding:1rem;color:var(--muted);font-size:.7rem;border-top:1px solid var(--border);margin-top:1rem}
+.panel-footer a{color:var(--primary);text-decoration:none;font-weight:600}
+/* ── Mobile — single column, normal scroll ────────── */
+@media(max-width:820px){
+  html,body{height:auto;overflow:auto}
+  .app-shell{grid-template-columns:1fr;overflow:visible;min-height:0;height:auto}
+  .cal-panel{overflow:visible;border-right:none;border-bottom:1px solid var(--border);padding:.75rem}
+  .events-panel{overflow:visible;padding:.75rem}
+  .tb-sub{display:none}
+  .topbar{padding:0 1rem}
 }
 </style>
 </head>
 <body>
-<header class="header">
-  <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;position:relative;z-index:1">&#127758; wangreport.com presents</div>
-  <h1 style="font-family:'Comic Sans MS','Marker Felt','Inter',cursive">HK Kids Calendar &#127880;</h1>
-  <p>Hong Kong Kids Activities &amp; Open Days</p>
-  <div style="margin-top:10px;font-size:11px;color:var(--muted);position:relative;z-index:1">&#128338; Last refreshed: <strong id="refreshDate"></strong></div>
+<header class="topbar">
+  <div class="tb-brand">
+    <span class="tb-emoji">&#127880;</span>
+    <div class="tb-title">HK Kids Calendar</div>
+    <div class="tb-sub">Hong Kong Kids Activities &amp; Open Days</div>
+  </div>
+  <div class="tb-meta">
+    <div id="refreshDate"></div>
+    <div><a href="https://wangreport.com">wangreport.com</a></div>
+  </div>
 </header>
-<main class="container">
-  <div class="main-grid">
-  <div class="cal-panel">
-  <section class="calendar-wrap" aria-label="Event Calendar">
-    <nav class="cal-nav">
-      <button id="prevMonth" aria-label="Previous month">&#8249;</button>
-      <h2 id="calTitle"></h2>
-      <button id="nextMonth" aria-label="Next month">&#8250;</button>
-    </nav>
-    <div class="cal-grid" id="calGrid"></div>
-  </section>
-  <section class="filters" id="filters" aria-label="Filter events by category"></section>
-  </div>
+<div class="app-shell">
+  <aside class="cal-panel">
+    <section class="calendar-wrap" aria-label="Event Calendar">
+      <nav class="cal-nav">
+        <button id="prevMonth" aria-label="Previous month">&#8249;</button>
+        <h2 id="calTitle"></h2>
+        <button id="nextMonth" aria-label="Next month">&#8250;</button>
+      </nav>
+      <div class="cal-grid" id="calGrid"></div>
+    </section>
+    <section class="filters" id="filters" aria-label="Filter events"></section>
+  </aside>
   <div class="events-panel">
-  <section class="event-list" id="eventList" aria-label="Events"></section>
-  <div style="margin:40px 0 16px;padding-top:24px;border-top:2px dashed var(--border)">
-    <h2 style="font-size:1.3rem;font-weight:800;color:var(--primary)">Always On &mdash; Places to Go Anytime</h2>
-    <p style="font-size:.85rem;color:var(--muted);margin-top:4px">Museums, playgrounds, and play centres open year-round. Check websites for current hours.</p>
+    <section class="event-list" id="eventList" aria-label="Events"></section>
+    <div class="always-on-divider">
+      <h2>Always On &mdash; Places to Go Anytime</h2>
+      <p>Museums, playgrounds, and play centres open year-round. Check websites for current hours.</p>
+    </div>
+    <section class="event-list" id="alwaysOnList" aria-label="Always-on venues"></section>
+    <div class="panel-footer">
+      Events sourced from official government and venue websites. Always verify dates before attending. &middot; <a href="https://wangreport.com">WangReport.com</a>
+    </div>
   </div>
-  <section class="event-list" id="alwaysOnList" aria-label="Always-on venues"></section>
-  </div>
-  </div>
-</main>
-<footer class="footer">
-  <div style="font-size:16px;margin-bottom:8px">&#127880;&#127752;&#127912;</div>
-  <div><strong>WangReport's HK Kids Calendar</strong></div>
-  <div style="margin-top:4px">Curated by <a href="https://wangreport.com">WangReport.com</a></div>
-  <div style="margin-top:8px;font-size:11px;color:#aaa">Events are sourced from official government and venue websites. Always verify dates before attending.</div>
-</footer>
+</div>
 <script>
 var events=[{"emoji":"🐱","title":"WestK FunFest 2026","startDate":"2026-03-19","endDate":"2026-04-12","time":"Various","location":"West Kowloon Cultural District","description":"120+ programmes: giant 10m inflatable cat (purrs when touched!), puppet theatre, baby music, dance, outdoor arts, FunFest Market.","cost":"Free entry (50%+ free), some ticketed","registration":"Tickets via westk.hk.","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.westk.hk/en/events/westkfunfest"},{"emoji":"👶","title":"WestK FunFest: Bob Marley for Babies","startDate":"2026-03-19","endDate":"2026-04-12","time":"Check schedule","location":"West Kowloon Cultural District","description":"Multi-sensory musical experience for infants up to 36 months.","cost":"Ticketed","registration":"Via West Kowloon website.","category":"Baby & Toddler","ages":"0-3","url":"https://www.westk.hk/en/events/westkfunfest"},{"emoji":"🍦","title":"Central Yards Edible Art Fair","startDate":"2026-03-26","endDate":"2026-04-05","time":"10am – 10pm","location":"Central Harbourfront Event Space","description":"10 immersive art galleries paired with edible surprises. Interactive.","cost":"From HK$800 family (2A+2K). Under 2 free.","registration":"Tickets at edibleartfair.com.","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.edibleartfair.com/"},{"emoji":"✈️","title":"Government Flying Service Open Day","startDate":"2026-03-29","endDate":null,"time":"All day","location":"Government Flying Service, Kai Tak","description":"Helicopter displays, equipment demos, VR experiences, flight simulator, game booths.","cost":"Free","registration":"Ballot-based. Register via GFS website.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.gfs.gov.hk/"},{"emoji":"🥚","title":"Discovery Bay Easter Egg Hunt","startDate":"2026-04-03","endDate":"2026-04-04","time":"Check schedule","location":"Tai Pak Beach, Discovery Bay","description":"19th annual. Ages 3–10 hunt eggs for 50,000+ prizes. DB Plaza Inflatable Funland through Apr 6.","cost":"Check DB website","registration":"Via Discovery Bay website.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.discoverybay.com.hk/"},{"emoji":"🌿","title":"Kadoorie Farm: Family Forest Eggscape","startDate":"2026-04-03","endDate":"2026-04-07","time":"Opening hours (closed Apr 4)","location":"Kadoorie Farm, Tai Po","description":"Stamp hunt through farm grounds to restore a Magic Egg. Visit animals and farmland.","cost":"Farm admission applies","registration":"Check kfbg.org.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.kfbg.org/"},{"emoji":"🚀","title":"Noah's Ark: Dream Intern Easter","startDate":"2026-04-03","endDate":"2026-04-12","time":"Check schedule","location":"Noah's Ark, Ma Wan Park","description":"Job simulations: firefighting, spacecraft piloting. Giant Rocket Slides.","cost":"Park admission","registration":"Check noahsark.com.hk.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.noahsark.com.hk/"},{"emoji":"🏖️","title":"Gold Coast Easter Playground","startDate":"2026-04-03","endDate":"2026-04-06","time":"Check schedule","location":"Gold Coast, Tuen Mun","description":"50,000 sq ft Easter playground. Egg hunt, Giant Egg Roll, carnival games, workshops.","cost":"Check website","registration":"Via Gold Coast website.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.goldcoast.com.hk/"},{"emoji":"🔐","title":"Correctional Services Museum Open Day","startDate":"2026-04-11","endDate":null,"time":"All day","location":"Correctional Services Museum & Community Education Centre","description":"Museum tour, drill displays, equipment demos, working dog shows, VR experiences.","cost":"Free","registration":"Ballot-based. Register via CSD website.","category":"Government Open Day","ages":"6-12","url":"https://www.csd.gov.hk/"},{"emoji":"🚑","title":"Civil Aid Service HQ Open Day","startDate":"2026-04-11","endDate":null,"time":"All day","location":"Civil Aid Service Headquarters","description":"First aid demos, rescue drills, equipment displays, game booths.","cost":"Free","registration":"No tickets required — walk in.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.cas.gov.hk/"},{"emoji":"🚌","title":"KMB Depot Tour — Kowloon Bay (Apr 11)","startDate":"2026-04-11","endDate":null,"time":"10am, 12pm, or 2pm sessions","location":"KMB Kowloon Bay Depot, 9 Wang Kwong Rd","description":"Tour bus depot, bus wash, antique buses, maintenance education. Certificate & souvenirs. Cantonese.","cost":"HK$165 per person","registration":"Book at design1933.hk.","category":"Transport Experience","ages":"3-6 6-12","url":"https://www.design1933.hk/default/depot-tour.html"},{"emoji":"🎵","title":"WestK FunFest: Mushroom Fantasy","startDate":"2026-04-11","endDate":"2026-04-12","time":"Check schedule","location":"Xiqu Centre, West Kowloon","description":"Interactive theatrical performance.","cost":"Ticketed","registration":"Via West Kowloon website.","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.westk.hk/en/events/westkfunfest"},{"emoji":"👮","title":"\"Little Grape\" Police Park Open Day","startDate":"2026-04-12","endDate":null,"time":"All day","location":"Harcourt Garden, Admiralty (near Police HQ)","description":"Anti-scam themed park with police activities, game booths, photo ops. No tickets needed.","cost":"Free","registration":"No tickets required — walk in.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.police.gov.hk/"},{"emoji":"🔥","title":"Fire & Ambulance Services Academy Open Day","startDate":"2026-04-12","endDate":null,"time":"All day","location":"Fire & Ambulance Services Academy, Tseung Kwan O","description":"Flag-raising, fire & ambulance parade, live rescue demos, fire behaviour training, hazmat demo, fire dog show.","cost":"Free","registration":"Ballot-based. Register via HKFSD app. Max 4 tickets.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.hkfsd.gov.hk/eng/education/events/"},{"emoji":"🛂","title":"Immigration Service Open Day","startDate":"2026-04-18","endDate":null,"time":"All day","location":"Immigration Service Institute of Training & Development","description":"Behind-the-scenes training facility tour, drills, demos, equipment, game booths.","cost":"Free","registration":"Register Mar 23-30 via Immigration Dept website. Ballot-based.","category":"Government Open Day","ages":"6-12","url":"https://www.immd.gov.hk/"},{"emoji":"🎪","title":"Customs & Excise Department Open Day","startDate":"2026-04-18","endDate":null,"time":"All day","location":"HK Customs College, Tuen Mun","description":"National security exhibitions, carnival games, Dragon & Lion Dance, detector dogs, firearms display. Free shuttle buses from Tuen Mun & Tsuen Wan.","cost":"Free","registration":"Register Mar 30 – Apr 1. Ballot results Apr 10.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.customs.gov.hk/en/customs-announcement/whats-new/index_id_177.html"},{"emoji":"🚌","title":"KMB Depot Tour — Kowloon Bay (Apr 18)","startDate":"2026-04-18","endDate":null,"time":"10am, 12pm, or 2pm sessions","location":"KMB Kowloon Bay Depot, 9 Wang Kwong Rd","description":"Tour bus depot, bus wash, antique buses, maintenance education. Certificate & souvenirs. Cantonese.","cost":"HK$165 per person","registration":"Book at design1933.hk. All need tickets incl. infants.","category":"Transport Experience","ages":"3-6 6-12","url":"https://www.design1933.hk/default/depot-tour.html"},{"emoji":"🏥","title":"Auxiliary Medical Service HQ Open Day","startDate":"2026-04-19","endDate":null,"time":"All day","location":"Auxiliary Medical Service Headquarters","description":"First aid demos, ambulance displays, equipment, VR experiences, game booths.","cost":"Free","registration":"No tickets required — walk in.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.ams.gov.hk/"},{"emoji":"📚","title":"Hong Kong Reading Week 2026","startDate":"2026-04-20","endDate":"2026-04-26","time":"Various","location":"Public Libraries and community venues, Hong Kong (citywide)","description":"An annual citywide celebration encouraging children and families to discover the joy of reading, with storytelling sessions, reading challenges, and activities at public libraries across Hong Kong.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.hkpl.gov.hk/"},{"emoji":"🚌","title":"KMB Depot Tour — Sha Tin (Apr 25)","startDate":"2026-04-25","endDate":null,"time":"10am, 12pm, or 2pm sessions","location":"KMB Sha Tin Depot","description":"Tour bus depot, bus wash, antique buses, maintenance education. Certificate & souvenirs. Cantonese. Deep tour option at 2:30pm (HK$298).","cost":"HK$165 (standard) / HK$298 (deep tour)","registration":"Book at design1933.hk. Sells out fast.","category":"Transport Experience","ages":"3-6 6-12","url":"https://www.design1933.hk/default/depot-tour.html"},{"emoji":"🎩","title":"The Cat in the Hat","startDate":"2026-05-14","endDate":"2026-05-17","time":"2pm, 4:30pm or 5pm (varies by day)","location":"Rita Tong Liu Drama Theatre, Hong Kong Academy for Performing Arts, Wan Chai","description":"A 50-minute theatrical stage show based on the beloved Dr. Seuss classic. Children above age 3 may have the chance to meet the Cat in the Hat after the performance.","cost":"Check website","registration":"Book via URBTIX or HKAPA website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkapa.edu/"}];
 var alwaysOn=[{"emoji":"🧱","title":"LEGOLAND Discovery Centre","location":"K11 MUSEA, TST","description":"30,000 sq ft LEGO playground. 4D Studio, Kingdom Quest, Merlin's Apprentice. Ages 3–10.","cost":"From ~HK$240","ages":"3-6 6-12","url":"https://www.legolanddiscoverycentre.com/hong-kong/en/"},{"emoji":"🎈","title":"Kiztopia (5 Locations)","location":"Sha Tin, Wan Chai, TKO, AIRSIDE, Olympian City","description":"Award-winning edutainment. Up to 18 themed zones per location.","cost":"From HK$158/hr","ages":"0-3 3-6 6-12","url":"https://kiztopia.com.hk/"},{"emoji":"🎢","title":"EpicLand Kai Tak","location":"Kai Tak Sports Park","description":"14,000 sqft. Slides, ball pits, trampolines, mini-golf, laser tag.","cost":"Paid","ages":"0-3 3-6 6-12","url":"https://www.epiclandhk.com/"},{"emoji":"🚀","title":"Ryze Trampoline Park","location":"Quarry Bay","description":"Extreme jumping, foam pits, dodgeball, ninja courses. Ages 6+.","cost":"From ~HK$180/hr","ages":"6-12","url":"https://www.ryze.com.hk/"},{"emoji":"🦎","title":"Playfield 5 — Kai Tak","location":"Kai Tak Sports Park (MTR Exit D)","description":"Free outdoor playground. Ziplines, trampolines, water play, sand, climbing wall.","cost":"Free","ages":"3-6 6-12","url":"https://www.kaitaksportspark.com.hk/venue/17"},{"emoji":"🌳","title":"GO PARK Sai Sha","location":"Sai Kung","description":"Outdoor playgrounds, pool, cycling, sports courts.","cost":"Free","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/en/facilities/facilitieslist.html"},{"emoji":"🔬","title":"Hong Kong Science Museum","location":"TST East","description":"500+ interactive exhibits. 70%+ hands-on.","cost":"HK$20 (free students)","ages":"3-6 6-12","url":"https://hk.science.museum/"},{"emoji":"🌌","title":"Hong Kong Space Museum","location":"TST","description":"Dome planetarium. Astronomy exhibits. Omnimax & 3D films.","cost":"HK$10 (free students)","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/CE/Museum/Space/en/home/index.html"},{"emoji":"🚂","title":"Hong Kong Railway Museum","location":"Tai Po Market","description":"Free. Historic station, locomotives, coaches. Kids love the outdoor tracks.","cost":"Free","ages":"0-3 3-6 6-12","url":"https://hk.heritage.museum/en/web/hm/museums/railway.html"},{"emoji":"🎨","title":"HK Arts Centre — Kids Corner","location":"Wan Chai","description":"Ceramics, painting, performing arts. Ages 5+. Term-based.","cost":"Paid","ages":"6-12","url":"https://hkac.org.hk/en/kids_corner/"},{"emoji":"🏺","title":"Under The Stone — Kids Pottery","location":"Sai Ying Pun","description":"Weekend pottery for kids 6–12.","cost":"From ~HK$380","ages":"6-12","url":"https://www.klook.com/en-HK/activity/120210-kids-pottery-trial-class-under-the-stone-ceramics-workshop/"},{"emoji":"🧸","title":"Baumhaus Family Centre","location":"Multiple locations","description":"Music-based playgroup for babies & toddlers. Trial sessions.","cost":"Term-based","ages":"0-3","url":"https://www.bfriendbaumhaus.com/"}];
@@ -150,7 +159,7 @@ function renderCalendar(){
   }
   g.innerHTML=h;
   g.querySelectorAll(".has-event").forEach(function(el){
-    el.addEventListener("click",function(){selectedDay=parseInt(el.dataset.day);renderCalendar();renderEvents();var fc=document.querySelector(".event-card");if(fc)fc.scrollIntoView({behavior:"smooth",block:"start"})})
+    el.addEventListener("click",function(){selectedDay=parseInt(el.dataset.day);renderCalendar();renderEvents();var ep=document.querySelector(".events-panel");if(ep)ep.scrollTop=0;})
   })
 }
 
@@ -189,21 +198,21 @@ function renderEvents(){
   }).join("")
 }
 
-document.getElementById("refreshDate").textContent="16 April 2026 — 21 events · updated daily";
+document.getElementById("refreshDate").textContent="Updated 16 Apr 2026 · 21 events";
 
 function renderAlwaysOn(){
 var el=document.getElementById("alwaysOnList");
 var filtered=alwaysOn;
 if(activeAge!=="All")filtered=alwaysOn.filter(function(e){return e.ages&&e.ages.indexOf(activeAge)!==-1});
 el.innerHTML=filtered.map(function(e){
-return'<div style="background:var(--card);border-radius:var(--radius);padding:1rem 1.25rem;box-shadow:0 1px 8px rgba(0,0,0,.04);border-left:4px solid var(--secondary);display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">'
-+'<span style="font-size:1.5rem">'+e.emoji+'</span>'
-+'<div style="flex:1;min-width:200px"><strong style="font-size:.95rem">'+e.title+'</strong>'
-+'<div style="font-size:.8rem;color:var(--muted)">\uD83D\uDCCD '+e.location+' \u2022 '+e.cost+'</div>'
-+'<div style="font-size:.8rem;color:#555;margin-top:2px">'+e.description+'</div>'
-+(e.ages?'<div style="margin-top:4px">'+e.ages.split(" ").map(function(a){return'<span style="font-size:.65rem;padding:2px 6px;border-radius:8px;background:#f0f4ff;color:#3b5998;font-weight:600;margin-right:4px">'+(AGE_LABELS[a]||a)+'</span>'}).join("")+'</div>':'')
+return'<div style="background:var(--card);border-radius:var(--radius);padding:.75rem .875rem;box-shadow:0 1px 4px rgba(0,0,0,.05);border-left:4px solid var(--secondary);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">'
++'<span style="font-size:1.35rem;line-height:1;flex-shrink:0">'+e.emoji+'</span>'
++'<div style="flex:1;min-width:180px"><strong style="font-size:.82rem">'+e.title+'</strong>'
++'<div style="font-size:.72rem;color:var(--muted);margin-top:1px">\uD83D\uDCCD '+e.location+' \u2022 '+e.cost+'</div>'
++'<div style="font-size:.72rem;color:#555;margin-top:2px;line-height:1.4">'+e.description+'</div>'
++(e.ages?'<div style="margin-top:3px">'+e.ages.split(" ").map(function(a){return'<span style="font-size:.6rem;padding:1px 5px;border-radius:7px;background:#f0f4ff;color:#3b5998;font-weight:600;margin-right:3px">'+(AGE_LABELS[a]||a)+'</span>'}).join("")+'</div>':'')
 +'</div>'
-+'<a href="'+e.url+'" target="_blank" rel="noopener" style="font-size:.75rem;font-weight:700;color:var(--primary);text-decoration:none;white-space:nowrap">Visit \u2192</a>'
++'<a href="'+e.url+'" target="_blank" rel="noopener" style="font-size:.7rem;font-weight:700;color:var(--primary);text-decoration:none;white-space:nowrap;flex-shrink:0">Visit \u2192</a>'
 +'</div>'
 }).join("");
 }
