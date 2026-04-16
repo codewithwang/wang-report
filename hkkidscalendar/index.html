@@ -127,7 +127,7 @@ var alwaysOn=[{"emoji":"🧱","title":"LEGOLAND Discovery Centre","location":"K1
 var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 var DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 var CAT_COLORS={"Government Open Day":"#ff6b6b","Transport Experience":"#ffe66d","Arts & Culture":"#a78bfa","Museum":"#7dd3fc","Baby & Toddler":"#f9a8d4","Indoor Playground":"#4ecdc4","Outdoor Playground":"#6bcb77","Arts & Crafts":"#e8a87c","Seasonal Event":"#ff9a9e"};
-var curYear=2026,curMonth=3,activeFilter="All",selectedDay=null;
+var _now=new Date(),curYear=_now.getFullYear(),curMonth=_now.getMonth(),activeFilter="All",selectedDay=null;
 
 function pad(n){return n<10?"0"+n:""+n}
 function dateStr(y,m,d){return y+"-"+pad(m+1)+"-"+pad(d)}
@@ -164,7 +164,7 @@ w.querySelectorAll("[data-age]").forEach(function(b){b.addEventListener("click",
   w.querySelectorAll("[data-cat]").forEach(function(b){b.addEventListener("click",function(){activeFilter=b.dataset.cat;selectedDay=null;renderCalendar();renderFilters();renderEvents()})})
 }
 
-var todayIso=new Date().toISOString().slice(0,10);
+var _t=new Date();var todayIso=_t.getFullYear()+"-"+pad(_t.getMonth()+1)+"-"+pad(_t.getDate());
 function renderEvents(){
   var list=document.getElementById("eventList"),filtered=events.slice();
   if(selectedDay){var ds=dateStr(curYear,curMonth,selectedDay);filtered=events.filter(function(e){return e.endDate?ds>=e.startDate&&ds<=e.endDate:ds===e.startDate})}
@@ -208,8 +208,8 @@ return'<div style="background:var(--card);border-radius:var(--radius);padding:1r
 }).join("");
 }
 renderCalendar();renderFilters();renderEvents();renderAlwaysOn();
-document.getElementById("prevMonth").addEventListener("click",function(){curMonth--;if(curMonth<0){curMonth=11;curYear--}selectedDay=null;renderCalendar();renderEvents()});
-document.getElementById("nextMonth").addEventListener("click",function(){curMonth++;if(curMonth>11){curMonth=0;curYear++}selectedDay=null;renderCalendar();renderEvents()});
+document.getElementById("prevMonth").addEventListener("click",function(){curMonth--;if(curMonth<0){curMonth=11;curYear--}selectedDay=null;renderCalendar();renderFilters();renderEvents()});
+document.getElementById("nextMonth").addEventListener("click",function(){curMonth++;if(curMonth>11){curMonth=0;curYear++}selectedDay=null;renderCalendar();renderFilters();renderEvents()});
 </script>
 </body>
 </html>
