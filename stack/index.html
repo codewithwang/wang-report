@@ -705,44 +705,41 @@ a:hover{text-decoration:underline}
   .sf-nameplate{background:#eee!important}
   .sf-vname{color:#000!important}
 }
-/* ── MATRIX TAB ── */
-.mat-wrap{padding:12px 0 24px}
-.mat-scroll-wrap{overflow-x:auto;border:1px solid #1e1e2e;border-radius:6px;background:#0e0e18}
-.mat-table{border-collapse:collapse;min-width:100%;table-layout:auto}
-.mat-th{background:#12121e;color:#888;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;padding:10px 8px 8px;border-bottom:2px solid #1e1e2e;white-space:nowrap;vertical-align:bottom;text-align:center}
-.mat-th.mat-tech-col-hd{text-align:left;min-width:220px;max-width:260px;position:sticky;left:0;z-index:3;background:#12121e;box-shadow:1px 0 0 #1e1e2e}
-.mat-th.mat-cap-col-hd{width:72px;padding:6px 4px 8px}
-.mat-cap-hd-inner{display:flex;flex-direction:column;align-items:center;gap:5px}
-.mat-cap-nm{font-size:9px;max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#999;letter-spacing:0.8px}
-.mat-add-btn{background:none;border:1px solid #2a2a3a;color:#555;border-radius:3px;width:22px;height:22px;cursor:pointer;font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;transition:all .15s;font-family:'Barlow Condensed',sans-serif}
-.mat-add-btn:hover{border-color:#c9a84c;color:#c9a84c;background:#1a1500}
-.mat-td{border-bottom:1px solid #13131e;padding:5px 4px;vertical-align:middle;text-align:center;background:#0e0e18}
-.mat-td.mat-tech-td{text-align:left;background:#111118;position:sticky;left:0;z-index:2;padding:6px 8px;box-shadow:1px 0 0 #1e1e2e}
-.mat-row:hover .mat-td{background:#13131f}
-.mat-row:hover .mat-td.mat-tech-td{background:#14141f}
-.mat-tech-cell{display:flex;align-items:center;gap:8px;min-width:0}
-.mat-tech-info{flex:1;min-width:0}
-.mat-vname{font-size:13px;font-weight:600;color:#ddd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px}
-.mat-mname{font-size:11px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif}
-.mat-rm-btn{background:none;border:none;color:#2a2a3a;cursor:pointer;font-size:12px;padding:2px 5px;border-radius:3px;flex-shrink:0;transition:color .15s;line-height:1}
-.mat-rm-btn:hover{color:#ef4444;background:#1a0808}
-.mat-cb-lbl{display:flex;align-items:center;justify-content:center;cursor:pointer;width:100%;padding:2px 0}
-.mat-cb-lbl.mat-disabled{cursor:not-allowed;opacity:0.3}
-.mat-cb{position:absolute;opacity:0;width:0;height:0}
-.mat-cb-box{display:inline-block;width:18px;height:18px;border-radius:4px;border:2px solid #2a2a3a;background:transparent;transition:all .15s;position:relative;flex-shrink:0}
-.mat-cb-box.full{border-color:#3a5a3a}
-.mat-cb-box.partial{border-color:#5a4a1a}
-.mat-cb-box.checked{background:#1e3a1e;border-color:#4a9a4a}
-.mat-cb-box.checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#6acc6a;font-size:12px;font-weight:bold;line-height:1}
-.mat-cb-box.partial.checked{background:#3a2a0a;border-color:#c9a84c}
-.mat-cb-box.partial.checked::after{color:#c9a84c}
-.mat-no-cov-td{background:#0b0b14}
-.mat-in-stack-td{background:#0d160d}
-.mat-nodot{color:#252535;font-size:18px;line-height:1}
-.mat-empty{color:#444;text-align:center;padding:36px 20px;font-size:13px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;border-bottom:1px solid #13131e}
-.mat-empty strong{color:#666}
-.mat-legend{display:flex;gap:18px;margin-top:14px;font-size:11px;color:#555;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;flex-wrap:wrap;align-items:center}
-.mat-legend-item{display:flex;align-items:center;gap:6px}
+/* ── MATRIX TAB v2 ── */
+.mat-wrap{padding:12px 0 32px}
+.mat-domain-section{margin-bottom:16px;border:1px solid #1a1a2a;border-radius:6px;overflow:hidden}
+.mat-domain-hd{display:flex;align-items:center;justify-content:space-between;background:#10101a;padding:8px 14px;border-bottom:1px solid #1a1a2a}
+.mat-domain-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c}
+.mat-domain-add{background:none;border:1px solid #2a2a3a;color:#666;border-radius:3px;padding:2px 10px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all .15s}
+.mat-domain-add:hover{border-color:#c9a84c;color:#c9a84c;background:#1a1500}
+.mat-domain-empty{color:#333;font-size:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;padding:14px 16px;text-align:center}
+.mat-vendor-row{display:grid;grid-template-columns:28px 1fr 120px 44px 80px;align-items:center;padding:8px 14px;border-bottom:1px solid #14141e;background:#0e0e18;cursor:pointer;transition:background .1s;gap:10px}
+.mat-vendor-row:hover{background:#13131e}
+.mat-vendor-row:last-child{border-bottom:none}
+.mat-vendor-row.mat-expanded{background:#111120;border-bottom:none}
+.mat-expand-arrow{color:#444;font-size:13px;transition:transform .2s;user-select:none;text-align:center}
+.mat-vendor-row.mat-expanded .mat-expand-arrow{transform:rotate(90deg);color:#c9a84c}
+.mat-vendor-info{min-width:0}
+.mat-vname{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;color:#ddd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.3px}
+.mat-mname{font-size:11px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif}
+.mat-cov-bar-wrap{display:flex;align-items:center;gap:6px}
+.mat-cov-bar-bg{flex:1;height:4px;background:#1a1a2a;border-radius:2px;overflow:hidden}
+.mat-cov-bar-fill{height:100%;border-radius:2px;transition:width .3s;background:#4a9a4a}
+.mat-cov-bar-fill.low{background:#aa3a3a}
+.mat-cov-bar-fill.mid{background:#c9a84c}
+.mat-cov-pct{font-family:'Barlow Condensed',sans-serif;font-size:11px;color:#888;white-space:nowrap;min-width:28px;text-align:right}
+.mat-deploy{font-family:'Barlow Condensed',sans-serif;font-size:10px;color:#555;letter-spacing:0.8px;text-transform:uppercase;text-align:right}
+.mat-subcap-row{background:#0c0c18;border-bottom:1px solid #14141e;padding:10px 14px 12px 52px;display:flex;flex-wrap:wrap;gap:6px}
+.mat-subcap-row:last-child{border-bottom:none}
+.mat-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.5px;border:1px solid;cursor:default;transition:all .15s;user-select:none}
+.mat-pill.full{border-color:#3a6a3a;color:#7acc7a;background:#0d1a0d;cursor:pointer}
+.mat-pill.full:hover{border-color:#5a9a5a;background:#112011}
+.mat-pill.partial{border-color:#5a4820;color:#c9a84c;background:#18120a;cursor:pointer}
+.mat-pill.partial:hover{border-color:#8a6a30;background:#201808}
+.mat-pill.none{border-color:#222230;color:#333;background:transparent;cursor:default}
+.mat-pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.mat-legend{display:flex;gap:20px;margin-top:16px;font-size:11px;color:#555;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;flex-wrap:wrap;align-items:center}
+.mat-legend-item{display:flex;align-items:center;gap:7px}
 </style>
 </head>
 <body>
@@ -4040,124 +4037,143 @@ document.addEventListener('touchstart', e => {
   dot.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
 }, { passive: false });
 
-/* ── MATRIX TAB ── */
+/* ── MATRIX TAB v2 ── */
+const matExpanded = new Set(); // "capId::moduleId" keys
+
 function renderMatrixTab() {
   const el = document.getElementById('viewMatrix');
   if (!el) return;
-  const caps = getActiveCaps();
-  const rowMap = new Map();
-  Object.values(state.stack).forEach(entries => {
-    (entries || []).forEach(e => {
-      if (!rowMap.has(e.module_id)) rowMap.set(e.module_id, { vendor_id: e.vendor_id, module_id: e.module_id });
-    });
-  });
-  const rows = Array.from(rowMap.values());
-  function getCovLevel(module, capId) {
-    const cov = module && module.coverage && module.coverage[capId];
-    if (!cov) return null;
-    const vals = Object.values(cov.sub_caps || {});
-    if (!vals.length) return 'partial';
-    if (!vals.some(v => v === 'full' || v === 'partial')) return null;
-    return vals.every(v => v === 'full') ? 'full' : 'partial';
+
+  // All caps regardless of mode — a gap is a gap
+  const allCaps = DATA.capabilities;
+
+  // Compute single-vendor coverage % for a module at a capId
+  function vendorCovPct(capId, module) {
+    const cap = capMap[capId];
+    if (!cap) return 0;
+    const detail = computeSlotCoverageDetailed(capId, [{ vendor_id: module.vendor_id, module_id: module.module_id }], cap);
+    return Math.round(detail.score * 100);
   }
-  const scrollWrapOld = el.querySelector('.mat-scroll-wrap');
-  const savedScrollLeft = scrollWrapOld ? scrollWrapOld.scrollLeft : 0;
+
+  // Bar colour class by %
+  function barCls(pct) { return pct >= 70 ? '' : pct >= 40 ? 'mid' : 'low'; }
+
   let html = '<div class="mat-wrap">';
-  html += '<div class="mat-scroll-wrap"><table class="mat-table"><thead><tr>';
-  html += '<th class="mat-th mat-tech-col-hd">Technology</th>';
-  caps.forEach(cap => {
-    html += '<th class="mat-th mat-cap-col-hd" title="' + esc(cap.name) + '">'
-      + '<div class="mat-cap-hd-inner">'
-      + '<div class="mat-cap-nm">' + esc(cap.name) + '</div>'
-      + '<button class="mat-add-btn" data-capid="' + cap.id + '" title="Add tech for ' + esc(cap.name) + '">+</button>'
-      + '</div></th>';
-  });
-  html += '</tr></thead><tbody>';
-  if (rows.length === 0) {
-    html += '<tr><td class="mat-empty" colspan="' + (caps.length + 1) + '">'
-      + 'No technologies selected &mdash; click <strong>+</strong> in a domain column to add a technology to that slot.'
-      + '</td></tr>';
-  } else {
-    rows.forEach(function(row) {
-      const vendor = vendorMap[row.vendor_id];
-      const module = moduleMap[row.module_id];
-      if (!vendor || !module) return;
-      const grade = vendor.grade || 'NA';
-      html += '<tr class="mat-row">';
-      html += '<td class="mat-td mat-tech-td">'
-        + '<div class="mat-tech-cell">'
-        + '<span class="viz-grade-badge grade-' + grade + '" style="width:20px;height:20px;font-size:10px;flex-shrink:0">' + (grade === 'NA' ? '&mdash;' : grade) + '</span>'
-        + '<div class="mat-tech-info">'
-        + '<div class="mat-vname">' + esc(vendor.name) + '</div>'
-        + '<div class="mat-mname">' + esc(module.module_name) + '</div>'
-        + '</div>'
-        + '<button class="mat-rm-btn" data-mid="' + row.module_id + '" title="Remove from all slots">\u2715</button>'
-        + '</div></td>';
-      caps.forEach(function(cap) {
-        const covLevel = getCovLevel(module, cap.id);
-        const inStack = (state.stack[cap.id] || []).some(e => e.module_id === row.module_id);
-        const slotFull = !inStack && (state.stack[cap.id] || []).length >= MAX_VENDORS_PER_SLOT;
-        if (!covLevel) {
-          html += '<td class="mat-td mat-no-cov-td"><span class="mat-nodot">\u00b7</span></td>';
-        } else {
-          const boxCls = 'mat-cb-box ' + covLevel + (inStack ? ' checked' : '');
-          const titleAttr = inStack ? ('Remove from ' + esc(cap.name)) : (slotFull ? 'Slot full (5 max)' : ('Add to ' + esc(cap.name)));
-          html += '<td class="mat-td' + (inStack ? ' mat-in-stack-td' : '') + '">'
-            + '<label class="mat-cb-lbl' + (slotFull ? ' mat-disabled' : '') + '" title="' + titleAttr + '">'
-            + '<input type="checkbox" class="mat-cb"'
-            + ' data-capid="' + cap.id + '" data-vid="' + row.vendor_id + '" data-mid="' + row.module_id + '"'
-            + (inStack ? ' checked' : '') + (slotFull ? ' disabled' : '') + '>'
-            + '<span class="' + boxCls + '"></span>'
-            + '</label></td>';
+
+  allCaps.forEach(cap => {
+    const entries = state.stack[cap.id] || [];
+    html += '<div class="mat-domain-section">';
+
+    // Domain header
+    html += '<div class="mat-domain-hd">'
+      + '<span class="mat-domain-title">' + esc(cap.name) + '</span>'
+      + '<button class="mat-domain-add" data-capid="' + cap.id + '">+ Add tech</button>'
+      + '</div>';
+
+    if (entries.length === 0) {
+      html += '<div class="mat-domain-empty">No technology assigned &mdash; click + Add tech to fill this slot</div>';
+    } else {
+      entries.forEach(entry => {
+        const vendor = vendorMap[entry.vendor_id];
+        const module = moduleMap[entry.module_id];
+        if (!vendor || !module) return;
+
+        const grade  = vendor.grade || 'NA';
+        const pct    = vendorCovPct(cap.id, module);
+        const deploy = module.deployment || '';
+        const expKey = cap.id + '::' + entry.module_id;
+        const expanded = matExpanded.has(expKey);
+
+        // Vendor row
+        html += '<div class="mat-vendor-row' + (expanded ? ' mat-expanded' : '') + '"'
+          + ' data-expkey="' + expKey + '">'
+          + '<div class="mat-expand-arrow">&#9658;</div>'
+          + '<div class="mat-vendor-info">'
+          + '<div class="mat-vname">'
+          + '<span class="viz-grade-badge grade-' + grade + '" style="width:17px;height:17px;font-size:9px;display:inline-flex;margin-right:6px;vertical-align:middle">' + (grade === 'NA' ? '?' : grade) + '</span>'
+          + esc(vendor.name) + '</div>'
+          + '<div class="mat-mname">' + esc(module.module_name) + '</div>'
+          + '</div>'
+          + '<div class="mat-cov-bar-wrap">'
+          + '<div class="mat-cov-bar-bg"><div class="mat-cov-bar-fill ' + barCls(pct) + '" style="width:' + pct + '%"></div></div>'
+          + '<span class="mat-cov-pct">' + pct + '%</span>'
+          + '</div>'
+          + '<div class="mat-deploy">' + esc(deploy) + '</div>'
+          + '</div>';
+
+        // Expanded sub-cap strip
+        if (expanded) {
+          const subCaps = cap.sub_capabilities || [];
+          html += '<div class="mat-subcap-row">';
+          if (subCaps.length === 0) {
+            html += '<span style="color:#444;font-size:12px;font-family:\'Barlow Condensed\',sans-serif">No sub-capability data</span>';
+          } else {
+            subCaps.forEach(sc => {
+              const rawLevel = module.coverage && module.coverage[cap.id] && module.coverage[cap.id].sub_caps
+                ? (module.coverage[cap.id].sub_caps[sc.id] || 'none') : 'none';
+              const label = rawLevel === 'full' ? '\u2713' : rawLevel === 'partial' ? '\u007e' : '\u00b7';
+              const title = rawLevel === 'full' ? 'Full coverage \u2014 click to remove from stack'
+                : rawLevel === 'partial' ? 'Partial coverage \u2014 click to remove from stack'
+                : 'Not covered';
+              html += '<span class="mat-pill ' + rawLevel + '"'
+                + (rawLevel !== 'none' ? ' data-capid="' + cap.id + '" data-vid="' + entry.vendor_id + '" data-mid="' + entry.module_id + '" title="' + title + '"' : '')
+                + '><span class="mat-pill-dot"></span>' + esc(sc.name) + '</span>';
+            });
+          }
+          html += '</div>';
         }
       });
-      html += '</tr>';
-    });
-  }
-  html += '</tbody></table></div>';
+    }
+
+    html += '</div>'; // /mat-domain-section
+  });
+
+  // Legend
   html += '<div class="mat-legend">'
-    + '<div class="mat-legend-item"><span class="mat-cb-box full checked" style="display:inline-block"></span>In stack \u2014 full</div>'
-    + '<div class="mat-legend-item"><span class="mat-cb-box partial checked" style="display:inline-block"></span>In stack \u2014 partial</div>'
-    + '<div class="mat-legend-item"><span class="mat-cb-box full" style="display:inline-block"></span>Available</div>'
-    + '<div class="mat-legend-item"><span class="mat-nodot">\u00b7</span>Not supported</div>'
+    + '<div class="mat-legend-item"><span class="mat-pill full" style="pointer-events:none">\u2713 Full coverage</span></div>'
+    + '<div class="mat-legend-item"><span class="mat-pill partial" style="pointer-events:none">~ Partial</span></div>'
+    + '<div class="mat-legend-item"><span class="mat-pill none" style="pointer-events:none">\u00b7 Not covered</span></div>'
+    + '<span style="color:#333;font-size:11px;font-family:\'Barlow Condensed\',sans-serif">&nbsp;\u2014 click a covered pill to remove from stack</span>'
     + '</div>';
-  html += '</div>';
+
+  html += '</div>'; // /mat-wrap
   el.innerHTML = html;
-  const scrollWrap = el.querySelector('.mat-scroll-wrap');
-  if (scrollWrap && savedScrollLeft) scrollWrap.scrollLeft = savedScrollLeft;
-  el.querySelectorAll('.mat-add-btn').forEach(btn => {
+
+  // Expand/collapse vendor rows
+  el.querySelectorAll('.mat-vendor-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const key = row.dataset.expkey;
+      if (!key) return;
+      if (matExpanded.has(key)) matExpanded.delete(key);
+      else matExpanded.add(key);
+      renderMatrixTab();
+    });
+  });
+
+  // + Add tech per domain
+  el.querySelectorAll('.mat-domain-add').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
       const cap = capMap[btn.dataset.capid];
       if (cap) openPicker(cap);
     });
   });
-  el.querySelectorAll('.mat-cb').forEach(cb => {
-    cb.addEventListener('change', () => {
-      const capId = cb.dataset.capid, vid = cb.dataset.vid, mid = cb.dataset.mid;
-      if (cb.checked) {
-        if (!state.stack[capId]) state.stack[capId] = [];
-        if (!state.stack[capId].find(e => e.module_id === mid) && state.stack[capId].length < MAX_VENDORS_PER_SLOT)
-          state.stack[capId].push({ vendor_id: vid, module_id: mid });
-      } else {
-        if (state.stack[capId]) {
-          state.stack[capId] = state.stack[capId].filter(e => e.module_id !== mid);
-          if (!state.stack[capId].length) delete state.stack[capId];
-        }
+
+  // Sub-cap pill click → remove vendor from this domain slot
+  el.querySelectorAll('.mat-pill.full, .mat-pill.partial').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.stopPropagation();
+      const capId = pill.dataset.capid;
+      const mid   = pill.dataset.mid;
+      if (!capId || !mid) return;
+      if (state.stack[capId]) {
+        state.stack[capId] = state.stack[capId].filter(e => e.module_id !== mid);
+        if (!state.stack[capId].length) delete state.stack[capId];
       }
+      matExpanded.delete(capId + '::' + mid);
       renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
       saveState();
       renderMatrixTab();
-    });
-  });
-  el.querySelectorAll('.mat-rm-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const mid = btn.dataset.mid;
-      Object.keys(state.stack).forEach(capId => {
-        state.stack[capId] = (state.stack[capId] || []).filter(e => e.module_id !== mid);
-        if (!state.stack[capId].length) delete state.stack[capId];
-      });
-      render();
     });
   });
 }
