@@ -69,6 +69,24 @@ a:hover{text-decoration:none}
 .ao-desc{font-size:12px;color:#444;margin-top:2px;line-height:1.45}
 .ao-cost{font-family:var(--mono);font-size:11px;color:#555}
 
+/* ── mini calendar ── */
+.cal-wrap{font-family:var(--mono);font-size:12px;border:1px solid var(--border);display:inline-block;padding:8px 10px;margin-bottom:14px;background:#fffff8}
+.cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.cal-nav-btn{background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0 4px;font-size:13px}
+.cal-nav-btn:hover{color:#333}
+.cal-month-label{font-weight:bold;text-transform:uppercase;letter-spacing:1px;font-size:11px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,28px);gap:1px 0}
+.cal-dh{text-align:center;color:var(--meta);font-size:10px;padding:2px 0}
+.cal-cell{width:28px;height:22px;text-align:center;line-height:22px;cursor:default;color:var(--meta);font-size:11px}
+.cal-cell.has-events{color:var(--text);cursor:pointer;text-decoration:underline;font-weight:bold}
+.cal-cell.has-events:hover{color:var(--link)}
+.cal-cell.today{background:#1a1a1a;color:#fffff8}
+.cal-cell.today.has-events{background:#1a1a1a;color:#fffff8}
+.cal-cell.selected{background:var(--link);color:#fff}
+.cal-cell.selected.today{background:var(--link);color:#fff}
+.cal-clear{font-size:10px;color:var(--link);cursor:pointer;text-decoration:underline;text-align:right;margin-top:3px;display:none}
+.cal-clear.visible{display:block}
+
 /* ── footer ── */
 .footer{margin-top:32px;padding-top:10px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--meta)}
 .footer a{color:var(--meta)}
@@ -85,7 +103,7 @@ a:hover{text-decoration:none}
     </div>
     <div style="text-align:right">
       <div class="site-meta">Updated: Fri, 17 Apr 2026</div>
-      <div class="site-meta">12 events in the next 8 weeks</div>
+      <div class="site-meta">16 events in the next 8 weeks</div>
     </div>
   </div>
 </div>
@@ -102,6 +120,16 @@ a:hover{text-decoration:none}
   <button class="f-btn" data-cat="Sports">sports</button>
   <button class="f-btn" data-cat="Experiences">experiences</button>
   &nbsp;&nbsp;<button class="refresh-btn" onclick="doRefresh()">refresh</button>
+</div>
+
+<div class="cal-wrap" id="cal-widget">
+  <div class="cal-nav">
+    <button class="cal-nav-btn" id="cal-prev">&#9664;</button>
+    <span class="cal-month-label" id="cal-label"></span>
+    <button class="cal-nav-btn" id="cal-next">&#9654;</button>
+  </div>
+  <div class="cal-grid" id="cal-grid"></div>
+  <div class="cal-clear" id="cal-clear">&#215; show all dates</div>
 </div>
 
 <div id="count-line"></div>
@@ -122,7 +150,7 @@ a:hover{text-decoration:none}
 
 <script>
 (function(){
-const EVENTS    = [{"title":"TakeOut Comedy — Friday Night Stand-Up","startDate":"2026-04-17","endDate":null,"time":"8:00pm","location":"TakeOut Comedy Club, 34 Wyndham St, Central","description":"Weekly Friday night stand-up featuring local and visiting comics. English-language. Bar opens at 7:30pm.","cost":"HK$200","registration":"Book at takeoutcomedy.com","category":"Comedy","url":"https://takeoutcomedy.com/"},{"title":"Hong Kong Rugby Sevens","startDate":"2026-03-27","endDate":"2026-03-29","time":"All day (3 days)","location":"Hong Kong Stadium, Causeway Bay","description":"Annual international rugby tournament. The biggest party weekend of the HK sports calendar.","cost":"From HK$400","registration":"Tickets at hkrugby.com","category":"Sports","url":"https://www.hksevens.com/"},{"title":"Mannings BoostUP Fiesta","startDate":"2026-04-25","endDate":"2026-04-26","time":"All day","location":"West Kowloon Cultural District (WestK)","description":"A two-day wellness festival with 50 experts and 40+ experiences spanning pilates, sound healing, high-energy workouts, and health assessments including cardiovascular monitoring and body composition analysis. Equal parts self-improvement and social scene, with a curated wellness and beauty marketplace on-site.","cost":"From HK$200 (single day) / HK$360 (two-day pass) / HK$300 at door","registration":"Check website","category":"Fitness","url":null},{"title":"Language Exchange @ My Home Cafe","startDate":"2026-04-18","endDate":null,"time":"1:30pm","location":"My Home Cafe, Causeway Bay","description":"Weekly Saturday language exchange meetup in CWB. Good mix of locals and expats practising Cantonese, Mandarin, and English over coffee.","cost":"Drinks only","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Hong Kong Chill & Chat Night","startDate":"2026-04-18","endDate":null,"time":"7:30pm","location":"Hong Kong (venue via organiser)","description":"Casual Saturday social for locals and travellers to meet and chat. Relaxed format — just show up and talk.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"8am Free HIIT Workout at SYS Park","startDate":"2026-04-18","endDate":null,"time":"8:00am","location":"Sun Yat-sen Memorial Park, Sheung Wan","description":"Community HIIT session run by FitFam HK — free, outdoors, and open to all fitness levels. A solid way to start a Saturday before the city wakes up.","cost":"Free","registration":"Check website","category":"Fitness","url":"https://www.meetup.com"},{"title":"日落与学府 · English–Chinese Language Exchange","startDate":"2026-04-18","endDate":null,"time":"2:30pm","location":"Hong Kong (university district, venue via organiser)","description":"Bilingual language exchange organised by Discover Hong Kong — sunset setting near a campus area. Great for practising Chinese or English in a relaxed crowd.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Tea/Coffee Chill at Rooftop Terrace","startDate":"2026-04-19","endDate":null,"time":"2:30pm","location":"Rooftop terrace (venue via organiser)","description":"Casual Sunday afternoon chill with Friend to Friend hangout crew. Low-key social over drinks with a view.","cost":"Drinks only","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Star Road Language Exchange","startDate":"2026-04-19","endDate":null,"time":"5:00pm","location":"Star Road, Wan Chai","description":"Sunday evening language exchange on Star Road run by Star Road Entertainment. Multilingual crowd, social atmosphere.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Friend to Friend Hangout — Meet Foreigners & Locals","startDate":"2026-04-25","endDate":null,"time":"8:00pm","location":"Hong Kong (venue via organiser)","description":"Evening social for Hong Kongers who want to meet expats and foreigners. 1000+ member group with a strong track record of warm, easy-going events.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"港漂 × 香港本地人一起玩 (20–30s Mainland & HK Locals Hangout)","startDate":"2026-04-25","endDate":null,"time":"4:00pm","location":"Hong Kong (venue via organiser)","description":"Afternoon social mixing mainland newcomers with Hong Kong locals in their 20s–30s. Organised by Sociale Group with a perfect 5.0 rating.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Stress Awareness Fundraiser Hike to Mount Butler","startDate":"2026-04-26","endDate":null,"time":"10:00am","location":"Mount Butler, Eastern District","description":"Charity hike up Mount Butler tied to stress awareness — solid views and a good cause. Run by the well-rated Hike n' Trail Adventures crew.","cost":"Fundraiser contribution","registration":"Check website","category":"Fitness","url":"https://www.meetup.com"},{"title":"Pre-Holiday Networking Night @ Frank's Records","startDate":"2026-04-30","endDate":null,"time":"6:00pm","location":"Frank's Records, Hong Kong","description":"Professional networking night at a record store venue before the May Day break. Organised by The Buz Lead — a good excuse to mix business cards with vinyl.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"}];
+const EVENTS    = [{"title":"TakeOut Comedy — Friday Night Stand-Up","startDate":"2026-04-17","endDate":null,"time":"8:00pm","location":"TakeOut Comedy Club, 34 Wyndham St, Central","description":"Weekly Friday night stand-up featuring local and visiting comics. English-language. Bar opens at 7:30pm.","cost":"HK$200","registration":"Book at takeoutcomedy.com","category":"Comedy","url":"https://takeoutcomedy.com/"},{"title":"Hong Kong Rugby Sevens","startDate":"2026-03-27","endDate":"2026-03-29","time":"All day (3 days)","location":"Hong Kong Stadium, Causeway Bay","description":"Annual international rugby tournament. The biggest party weekend of the HK sports calendar.","cost":"From HK$400","registration":"Tickets at hkrugby.com","category":"Sports","url":"https://www.hksevens.com/"},{"title":"Mannings BoostUP Fiesta","startDate":"2026-04-25","endDate":"2026-04-26","time":"All day","location":"West Kowloon Cultural District (WestK)","description":"A two-day wellness festival with 50 experts and 40+ experiences spanning pilates, sound healing, high-energy workouts, and health assessments including cardiovascular monitoring and body composition analysis. Equal parts self-improvement and social scene, with a curated wellness and beauty marketplace on-site.","cost":"From HK$200 (single day) / HK$360 (two-day pass) / HK$300 at door","registration":"Check website","category":"Fitness","url":null},{"title":"Language Exchange @ My Home Cafe","startDate":"2026-04-18","endDate":null,"time":"1:30pm","location":"My Home Cafe, Causeway Bay","description":"Weekly Saturday language exchange meetup in CWB. Good mix of locals and expats practising Cantonese, Mandarin, and English over coffee.","cost":"Drinks only","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Hong Kong Chill & Chat Night","startDate":"2026-04-18","endDate":null,"time":"7:30pm","location":"Hong Kong (venue via organiser)","description":"Casual Saturday social for locals and travellers to meet and chat. Relaxed format — just show up and talk.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"8am Free HIIT Workout at SYS Park","startDate":"2026-04-18","endDate":null,"time":"8:00am","location":"Sun Yat-sen Memorial Park, Sheung Wan","description":"Community HIIT session run by FitFam HK — free, outdoors, and open to all fitness levels. A solid way to start a Saturday before the city wakes up.","cost":"Free","registration":"Check website","category":"Fitness","url":"https://www.meetup.com"},{"title":"日落与学府 · English–Chinese Language Exchange","startDate":"2026-04-18","endDate":null,"time":"2:30pm","location":"Hong Kong (university district, venue via organiser)","description":"Bilingual language exchange organised by Discover Hong Kong — sunset setting near a campus area. Great for practising Chinese or English in a relaxed crowd.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Tea/Coffee Chill at Rooftop Terrace","startDate":"2026-04-19","endDate":null,"time":"2:30pm","location":"Rooftop terrace (venue via organiser)","description":"Casual Sunday afternoon chill with Friend to Friend hangout crew. Low-key social over drinks with a view.","cost":"Drinks only","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Star Road Language Exchange","startDate":"2026-04-19","endDate":null,"time":"5:00pm","location":"Star Road, Wan Chai","description":"Sunday evening language exchange on Star Road run by Star Road Entertainment. Multilingual crowd, social atmosphere.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Friend to Friend Hangout — Meet Foreigners & Locals","startDate":"2026-04-25","endDate":null,"time":"8:00pm","location":"Hong Kong (venue via organiser)","description":"Evening social for Hong Kongers who want to meet expats and foreigners. 1000+ member group with a strong track record of warm, easy-going events.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"港漂 × 香港本地人一起玩 (20–30s Mainland & HK Locals Hangout)","startDate":"2026-04-25","endDate":null,"time":"4:00pm","location":"Hong Kong (venue via organiser)","description":"Afternoon social mixing mainland newcomers with Hong Kong locals in their 20s–30s. Organised by Sociale Group with a perfect 5.0 rating.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Stress Awareness Fundraiser Hike to Mount Butler","startDate":"2026-04-26","endDate":null,"time":"10:00am","location":"Mount Butler, Eastern District","description":"Charity hike up Mount Butler tied to stress awareness — solid views and a good cause. Run by the well-rated Hike n' Trail Adventures crew.","cost":"Fundraiser contribution","registration":"Check website","category":"Fitness","url":"https://www.meetup.com"},{"title":"Pre-Holiday Networking Night @ Frank's Records","startDate":"2026-04-30","endDate":null,"time":"6:00pm","location":"Frank's Records, Hong Kong","description":"Professional networking night at a record store venue before the May Day break. Organised by The Buz Lead — a good excuse to mix business cards with vinyl.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"The Hong Kong Story Exhibition","startDate":"2026-04-17","endDate":null,"time":"All day","location":"Hong Kong Museum of History, Tsim Sha Tsui","description":"Newly reopened after nearly five years of renovation, this permanent exhibition spans 10 sections and 2,800+ artefacts tracing HK from prehistoric settlements to global metropolis. The recreated 1930s street with a double-decker tram is a standout.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","url":null},{"title":"Hong Kong Sevens 2026","startDate":"2026-04-17","endDate":"2026-04-19","time":"Various","location":"Hong Kong Stadium, So Kon Po","description":"The iconic international rugby sevens tournament returns to Hong Kong Stadium for a weekend of top-tier sport and electric crowd atmosphere. One of Asia's biggest sporting and social events — world-class rugby by day, legendary parties by night.","cost":"Ticketed","registration":"Check website","category":"Sports","url":null},{"title":"Defining Heroes on Stage: The Challenges of Chinese Opera Adaptation","startDate":"2026-05-05","endDate":null,"time":"7:30pm","location":"Function Room AC2, Level 4, Administration Building, Hong Kong Cultural Centre, Tsim Sha Tsui","description":"A talk exploring how classic Chinese opera legends get reimagined for modern audiences, featuring the creative team behind the Hong Kong-Shenzhen Cantonese Opera co-production 'To Be or Not To Be'. Free entry with a first-come, first-served registration.","cost":"Free","registration":"Online registration required at www.iatc.com.hk/doc/107849","category":"Arts & Culture","url":"https://www.iatc.com.hk/doc/107849"},{"title":"Beyond Fan Culture: Promotion Strategies for Performing Arts in Hong Kong and Shenzhen","startDate":"2026-05-17","endDate":null,"time":"3:30pm","location":"Bar Lemna, Lemna of the Alchemist, G/F Restaurant Block, Hong Kong Cultural Centre, Tsim Sha Tsui","description":"A candid industry panel on building audiences and marketing performing arts across the Hong Kong-Shenzhen corridor — held in a bar setting. One drink purchase required per attendee.","cost":"Drinks only","registration":"Online registration required at www.iatc.com.hk/doc/107849","category":"Arts & Culture","url":"https://www.iatc.com.hk/doc/107849"}];
 const ALWAYS_ON = [{"title":"TakeOut Comedy Club","location":"34 Wyndham St, Central","description":"HK's main English-language stand-up venue. Fri & Sat nights, occasional weeknights. Book ahead — sells out.","cost":"From HK$200","url":"https://takeoutcomedy.com/","category":"Comedy"},{"title":"Peel Fresco Music Bar","location":"Peel St, Central","description":"Live jazz from ~9pm nightly. No cover. One of the few places in Central with actual live music on a weeknight.","cost":"Drinks only","url":"https://www.peelfresco.com.hk/","category":"Nightlife"},{"title":"The Wanch","location":"Wan Chai","description":"Long-running Wan Chai pub. Live music nightly. Old-school HK dive-bar energy. No cover.","cost":"Drinks only","url":"http://www.thewanch.com/","category":"Nightlife"},{"title":"Witty Otter Board Game Cafe","location":"Jordan + Wan Chai","description":"500+ board games. Seat fee covers all games. Food and drinks available. Walk-in or book for groups.","cost":"From HK$80/hr seat","url":"https://www.wittyotter.com/","category":"Social"},{"title":"LCSD Sports Halls & Courts","location":"Citywide","description":"Badminton, squash, table tennis, swimming — bookable via LCSD app 7 days in advance. Cheapest courts in town.","cost":"From HK$19/hr","url":"https://www.lcsd.gov.hk/en/sport/","category":"Fitness"},{"title":"HK Trail (Section 1–8)","location":"Peak → Big Wave Bay","description":"50km cross-island trail. Accessible from multiple MTR stations. Section 1 from The Peak: zero cost, killer views.","cost":"Free","url":"https://www.hikingtrailshk.com/hong-kong-trail/","category":"Sports"},{"title":"M+ Museum","location":"West Kowloon","description":"Visual culture museum. Rotating exhibitions and a permanent collection. Check online for current shows.","cost":"HK$120 / HK$60 concession","url":"https://www.mplus.org.hk/","category":"Arts & Culture"}];
 const TODAY = new Date().toISOString().slice(0,10);
 
@@ -155,10 +183,83 @@ function weekLabel(date){
 const WEEK_ORDER=['This week','Next week','In 2 weeks','In 3–4 weeks','Later','Past'];
 
 let activeCat='all';
+let activeDate=null; // YYYY-MM-DD or null
+
+// ── Mini Calendar ─────────────────────────────────────────────────────────────
+const DAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];
+let calYear=new Date().getFullYear();
+let calMonth=new Date().getMonth();
+
+function eventDatesSet(){
+  const s=new Set();
+  EVENTS.forEach(e=>{
+    if(!e.startDate) return;
+    // If multi-day, add all dates in range
+    const start=new Date(e.startDate+'T00:00:00');
+    const end=e.endDate?new Date(e.endDate+'T00:00:00'):start;
+    for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1)) s.add(d.toISOString().slice(0,10));
+  });
+  return s;
+}
+
+function renderCal(){
+  const evtDates=eventDatesSet();
+  const label=new Date(calYear,calMonth,1).toLocaleString('en-GB',{month:'long',year:'numeric'});
+  document.getElementById('cal-label').textContent=label.toUpperCase();
+  const grid=document.getElementById('cal-grid');
+  let html='';
+  DAYS.forEach(d=>{ html+='<div class="cal-dh">'+d+'</div>'; });
+  const firstDay=new Date(calYear,calMonth,1);
+  // Monday-based offset (0=Mon … 6=Sun)
+  let startOffset=(firstDay.getDay()+6)%7;
+  for(let i=0;i<startOffset;i++) html+='<div class="cal-cell"></div>';
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  for(let day=1;day<=daysInMonth;day++){
+    const ds=calYear+'-'+String(calMonth+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+    const isToday=ds===TODAY;
+    const hasEvt=evtDates.has(ds);
+    const isSel=ds===activeDate;
+    let cls='cal-cell';
+    if(hasEvt) cls+=' has-events';
+    if(isToday) cls+=' today';
+    if(isSel) cls+=' selected';
+    if(hasEvt) html+='<div class="'+cls+'" data-date="'+ds+'">'+day+'</div>';
+    else html+='<div class="'+cls+'">'+day+'</div>';
+  }
+  grid.innerHTML=html;
+  grid.querySelectorAll('.cal-cell.has-events').forEach(cell=>{
+    cell.addEventListener('click',function(){
+      const d=this.dataset.date;
+      if(activeDate===d){ activeDate=null; }
+      else { activeDate=d; }
+      renderCal();
+      render();
+      document.getElementById('cal-clear').className='cal-clear'+(activeDate?' visible':'');
+    });
+  });
+}
+
+document.getElementById('cal-prev').addEventListener('click',function(){
+  calMonth--; if(calMonth<0){calMonth=11;calYear--;} renderCal();
+});
+document.getElementById('cal-next').addEventListener('click',function(){
+  calMonth++; if(calMonth>11){calMonth=0;calYear++;} renderCal();
+});
+document.getElementById('cal-clear').addEventListener('click',function(){
+  activeDate=null; renderCal(); render();
+  this.className='cal-clear';
+});
+renderCal();
+// ─────────────────────────────────────────────────────────────────────────────
 
 function render(){
   const filtered=EVENTS.filter(e=>{
     if(activeCat!=='all'&&e.category!==activeCat) return false;
+    if(activeDate){
+      // Show event if activeDate falls within startDate..endDate range
+      const end=e.endDate||e.startDate;
+      if(activeDate<e.startDate||activeDate>end) return false;
+    }
     return true;
   });
 
@@ -234,8 +335,10 @@ document.querySelectorAll('.f-btn').forEach(btn=>{
     document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
     this.classList.add('active');
     const raw=this.dataset.cat;
-    // Unescape HTML entities in cat name
     activeCat=raw.replace(/&amp;/g,'&');
+    activeDate=null;
+    document.getElementById('cal-clear').className='cal-clear';
+    renderCal();
     render();
   });
 });
