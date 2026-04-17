@@ -707,30 +707,32 @@ a:hover{text-decoration:underline}
 }
 /* ── MATRIX TAB v2 ── */
 .mat-wrap{padding:12px 0 32px}
-.mat-domain-section{margin-bottom:14px;border:1px solid #1a1a2a;border-radius:6px;overflow:hidden}
-.mat-domain-hd{display:flex;align-items:center;justify-content:space-between;background:#10101a;padding:8px 14px;border-bottom:1px solid #1a1a2a}
+.mat-domain-section{margin-bottom:14px;border:1px solid #3a3a56;border-radius:6px;overflow:hidden}
+.mat-domain-section.mat-gap{border-color:#8a5a20;box-shadow:0 0 8px rgba(201,168,76,.18)}
+.mat-domain-hd{display:flex;align-items:center;justify-content:space-between;background:#28283c;padding:8px 14px;border-bottom:1px solid #3a3a56}
 .mat-domain-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c}
-.mat-domain-add{background:none;border:1px solid #2a2a3a;color:#666;border-radius:3px;padding:2px 10px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all .15s}
+.mat-domain-add{background:none;border:1px solid #555;color:#999;border-radius:3px;padding:2px 10px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all .15s}
 .mat-domain-add:hover{border-color:#c9a84c;color:#c9a84c;background:#1a1500}
-.mat-domain-empty{color:#2a2a3a;font-size:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;padding:14px 16px;text-align:center}
-.mat-vendor-row{display:grid;grid-template-columns:26px 1fr 130px 36px 26px;align-items:center;padding:8px 12px;border-bottom:1px solid #13131e;background:#0e0e18;cursor:pointer;transition:background .1s;gap:8px}
-.mat-vendor-row:hover{background:#121220}
-.mat-vendor-row.mat-expanded{background:#10101e;border-bottom:none}
-.mat-expand-arrow{color:#333;font-size:12px;transition:transform .2s;user-select:none;text-align:center;flex-shrink:0}
+.mat-domain-empty{color:#888;font-size:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;padding:14px 16px;text-align:center}
+.mat-domain-section.mat-gap .mat-domain-empty{color:#c9a84c}
+.mat-vendor-row{display:grid;grid-template-columns:26px 1fr 130px 36px 26px;align-items:center;padding:8px 12px;border-bottom:1px solid #2a2a40;background:#222234;cursor:pointer;transition:background .1s;gap:8px}
+.mat-vendor-row:hover{background:#2e2e46}
+.mat-vendor-row.mat-expanded{background:#26263a;border-bottom:none}
+.mat-expand-arrow{color:#777;font-size:12px;transition:transform .2s;user-select:none;text-align:center;flex-shrink:0}
 .mat-vendor-row.mat-expanded .mat-expand-arrow{transform:rotate(90deg);color:#c9a84c}
 .mat-vendor-info{min-width:0}
 .mat-vname{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;color:#ccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.3px;display:flex;align-items:center;gap:6px}
-.mat-mname{font-size:10px;color:#444;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif;margin-top:1px}
+.mat-mname{font-size:10px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif;margin-top:1px}
 .mat-cov-bar-wrap{display:flex;align-items:center;gap:6px}
-.mat-cov-bar-bg{flex:1;height:4px;background:#1a1a28;border-radius:2px;overflow:hidden}
+.mat-cov-bar-bg{flex:1;height:4px;background:#2a2a40;border-radius:2px;overflow:hidden}
 .mat-cov-bar-fill{height:100%;border-radius:2px;transition:width .3s;background:#3a8a3a}
 .mat-cov-bar-fill.mid{background:#c9a84c}
 .mat-cov-bar-fill.low{background:#8a3a3a}
-.mat-cov-pct{font-family:'Barlow Condensed',sans-serif;font-size:11px;color:#666;white-space:nowrap;min-width:28px;text-align:right}
-.mat-deploy{font-family:'Barlow Condensed',sans-serif;font-size:9px;color:#444;letter-spacing:0.8px;text-transform:uppercase;text-align:center}
-.mat-rm-btn{background:none;border:none;color:#2a2a38;font-size:14px;cursor:pointer;padding:2px;line-height:1;transition:color .15s;flex-shrink:0;text-align:center}
+.mat-cov-pct{font-family:'Barlow Condensed',sans-serif;font-size:11px;color:#999;white-space:nowrap;min-width:28px;text-align:right}
+.mat-deploy{font-family:'Barlow Condensed',sans-serif;font-size:9px;color:#777;letter-spacing:0.8px;text-transform:uppercase;text-align:center}
+.mat-rm-btn{background:none;border:none;color:#666;font-size:14px;cursor:pointer;padding:2px;line-height:1;transition:color .15s;flex-shrink:0;text-align:center}
 .mat-rm-btn:hover{color:#cc3333}
-.mat-subcap-row{background:#0a0a16;border-bottom:1px solid #13131e;padding:10px 12px 12px 44px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mat-subcap-row{background:#1e1e30;border-bottom:1px solid #2a2a3a;padding:10px 12px 12px 44px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 /* Pill base */
 .mat-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px 3px 7px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.4px;border:1px solid;transition:all .18s;user-select:none;cursor:default}
 /* Coverage levels — unconfirmed */
@@ -1674,6 +1676,14 @@ function renderSlotGrid() {
       addTile.innerHTML = '<span class="add-tile-icon">+</span><span>ADD VENDOR</span>';
       addTile.addEventListener('click', () => openPicker(cap));
       cell.appendChild(addTile);
+    }
+    // "Manage" tile at max capacity
+    if (hasEntries && entries.length >= MAX_VENDORS_PER_SLOT) {
+      const manageTile = document.createElement('div');
+      manageTile.className = 'add-tile';
+      manageTile.innerHTML = '<span class="add-tile-icon">&#9881;</span><span>MANAGE</span>';
+      manageTile.addEventListener('click', () => openPicker(cap));
+      cell.appendChild(manageTile);
     }
 
     grid.appendChild(cell);
@@ -4047,8 +4057,9 @@ document.addEventListener('touchstart', e => {
 }, { passive: false });
 
 /* ── MATRIX TAB v2 ── */
-const matExpanded  = new Set(); // "capId::moduleId" — which rows are expanded
-const matConfirmed = new Set(); // "capId::moduleId::subCapId" — locally confirmed pills
+const matExpanded    = new Set(); // "capId::moduleId" — which rows are expanded
+const matConfirmed   = new Set(); // "capId::moduleId::subCapId" — locally confirmed pills
+const matRemovedCaps = new Set(); // capIds that had a vendor removed this session (show GAP state)
 
 function vendorCovPct(capId, module) {
   const cap = capMap[capId];
@@ -4074,7 +4085,8 @@ function renderMatrixTab() {
 
   allCaps.forEach(cap => {
     const entries = state.stack[cap.id] || [];
-    html += '<div class="mat-domain-section">';
+    const isGap   = entries.length === 0 && matRemovedCaps.has(cap.id);
+    html += '<div class="mat-domain-section' + (isGap ? ' mat-gap' : '') + '">';
 
     // Domain header
     html += '<div class="mat-domain-hd">'
@@ -4083,7 +4095,8 @@ function renderMatrixTab() {
       + '</div>';
 
     if (entries.length === 0) {
-      html += '<div class="mat-domain-empty">No technology assigned &mdash; click + Add tech</div>';
+      const emptyMsg = isGap ? 'GAP &mdash; no technology assigned' : 'No technology assigned &mdash; click + Add tech';
+      html += '<div class="mat-domain-empty">' + emptyMsg + '</div>';
     } else {
       entries.forEach(entry => {
         const vendor = vendorMap[entry.vendor_id];
@@ -4173,7 +4186,7 @@ function renderMatrixTab() {
       const mid   = btn.dataset.mid;
       if (!capId || !mid || !state.stack[capId]) return;
       state.stack[capId] = state.stack[capId].filter(en => en.module_id !== mid);
-      if (!state.stack[capId].length) delete state.stack[capId];
+      if (!state.stack[capId].length) { delete state.stack[capId]; matRemovedCaps.add(capId); }
       matExpanded.delete(capId + '::' + mid);
       // Clear confirmed pills for this vendor+domain
       [...matConfirmed].forEach(k => { if (k.startsWith(capId + '::' + mid + '::')) matConfirmed.delete(k); });
