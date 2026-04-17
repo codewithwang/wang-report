@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HK Adults Calendar — The Wang Report</title>
+<meta name="description" content="Things to do in Hong Kong: food events, nightlife, comedy, arts, sports, and more.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fffff8;--text:#1a1a1a;--link:#0645ad;--visited:#663366;
+  --meta:#666;--dim:#999;--border:#ccc;--rule:#e0e0d8;--mono:'Courier New',Courier,monospace;
+}
+html,body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.65}
+body{max-width:820px;margin:0 auto;padding:16px 18px 80px}
+a{color:var(--link);text-decoration:underline}
+a:visited{color:var(--visited)}
+a:hover{text-decoration:none}
+
+/* ── masthead ── */
+.masthead{border-bottom:3px double #1a1a1a;padding-bottom:8px;margin-bottom:12px}
+.site-title{font-family:var(--mono);font-size:clamp(18px,4vw,26px);font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+.site-sub{font-family:var(--mono);font-size:11px;color:var(--meta);text-transform:uppercase;letter-spacing:2px;margin-top:2px}
+.masthead-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:6px}
+.site-meta{font-family:var(--mono);font-size:11px;color:var(--meta)}
+.refresh-btn{font-family:var(--mono);font-size:11px;background:none;border:1px solid var(--border);color:var(--link);cursor:pointer;padding:2px 8px}
+.refresh-btn:hover{background:#f0f0e8}
+
+/* ── filters ── */
+.filter-bar{font-family:var(--mono);font-size:12px;margin:10px 0 14px;border-bottom:1px solid var(--rule);padding-bottom:8px;line-height:1.8}
+.filter-bar span{color:var(--meta);margin-right:4px}
+.f-btn{display:inline;background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0;margin:0 4px 0 0;text-decoration:underline}
+.f-btn::before{content:'['}
+.f-btn::after{content:']'}
+.f-btn.active{color:#1a1a1a;font-weight:bold;text-decoration:none}
+.f-btn:hover{color:#333}
+#count-line{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:10px}
+
+/* ── week headers ── */
+.week-header{font-family:var(--mono);font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:#333;
+  border-top:1px solid var(--border);margin:18px 0 8px;padding-top:6px}
+
+/* ── event rows ── */
+.event-row{padding:8px 0 8px 0;border-bottom:1px dotted var(--rule)}
+.event-row.past{opacity:0.45}
+.event-row.hidden{display:none}
+.event-meta{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:2px}
+.event-cat{text-transform:lowercase;margin-right:8px}
+.event-title{font-size:14px;font-weight:bold;line-height:1.4}
+.event-title a{color:var(--text);text-decoration:none}
+.event-title a:visited{color:#333}
+.event-title a:hover{color:var(--link);text-decoration:underline}
+.event-venue{font-size:13px;color:var(--meta);margin-top:1px}
+.event-cost{font-family:var(--mono);font-size:11px;color:#555;margin-left:8px}
+.event-desc{font-size:13px;color:#333;margin-top:3px;line-height:1.5}
+.event-reg{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:2px}
+.event-link{font-family:var(--mono);font-size:11px;margin-top:3px}
+.event-link a::before{content:'→ '}
+
+/* ── always on ── */
+.always-on{margin-top:28px}
+.ao-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0}
+.ao-item{padding:8px 12px 8px 0;border-bottom:1px dotted var(--rule)}
+.ao-cat{font-family:var(--mono);font-size:10px;text-transform:lowercase;color:var(--meta)}
+.ao-title{font-weight:bold;font-size:13px}
+.ao-title a{color:var(--text);text-decoration:none}
+.ao-title a:hover{color:var(--link);text-decoration:underline}
+.ao-location{font-size:12px;color:var(--meta)}
+.ao-desc{font-size:12px;color:#444;margin-top:2px;line-height:1.45}
+.ao-cost{font-family:var(--mono);font-size:11px;color:#555}
+
+/* ── footer ── */
+.footer{margin-top:32px;padding-top:10px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--meta)}
+.footer a{color:var(--meta)}
+.no-events{font-family:var(--mono);font-size:13px;color:var(--meta);padding:20px 0;text-align:center}
+@media(max-width:480px){body{padding:12px 12px 60px}.site-title{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="masthead">
+  <div class="masthead-row">
+    <div>
+      <div class="site-title">HK Adults Calendar</div>
+      <div class="site-sub">The Wang Report &mdash; Things To Do In Hong Kong</div>
+    </div>
+    <div style="text-align:right">
+      <div class="site-meta">Updated: Fri, 17 Apr 2026</div>
+      <div class="site-meta">12 events in the next 8 weeks</div>
+    </div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span>show:</span>
+  <button class="f-btn active" data-cat="all">all</button>
+  <button class="f-btn" data-cat="Food &amp; Dining">food &amp; dining</button>
+  <button class="f-btn" data-cat="Nightlife">nightlife</button>
+  <button class="f-btn" data-cat="Comedy">comedy</button>
+  <button class="f-btn" data-cat="Arts &amp; Culture">arts &amp; culture</button>
+  <button class="f-btn" data-cat="Fitness">fitness</button>
+  <button class="f-btn" data-cat="Social">social</button>
+  <button class="f-btn" data-cat="Sports">sports</button>
+  <button class="f-btn" data-cat="Experiences">experiences</button>
+  &nbsp;&nbsp;<button class="refresh-btn" onclick="doRefresh()">refresh</button>
+</div>
+
+<div id="count-line"></div>
+<div id="events-list"></div>
+
+<div class="always-on">
+  <div class="week-header">&#9472;&#9472;&#9472; Always On &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
+  <div class="ao-grid" id="always-on-grid"></div>
+</div>
+
+<div class="footer">
+  THE WANG REPORT &mdash; HK ADULTS CALENDAR &nbsp;|&nbsp;
+  <a href="/hk-local.html">HK LOCAL</a> &nbsp;|&nbsp;
+  <a href="/hkkidscalendar">HK KIDS CALENDAR</a> &nbsp;|&nbsp;
+  <a href="/menu.html">WANG EATS</a> &nbsp;|&nbsp;
+  <a href="/index.html">MAIN</a>
+</div>
+
+<script>
+(function(){
+const EVENTS    = [{"title":"TakeOut Comedy — Friday Night Stand-Up","startDate":"2026-04-17","endDate":null,"time":"8:00pm","location":"TakeOut Comedy Club, 34 Wyndham St, Central","description":"Weekly Friday night stand-up featuring local and visiting comics. English-language. Bar opens at 7:30pm.","cost":"HK$200","registration":"Book at takeoutcomedy.com","category":"Comedy","url":"https://takeoutcomedy.com/"},{"title":"Hong Kong Rugby Sevens","startDate":"2026-03-27","endDate":"2026-03-29","time":"All day (3 days)","location":"Hong Kong Stadium, Causeway Bay","description":"Annual international rugby tournament. The biggest party weekend of the HK sports calendar.","cost":"From HK$400","registration":"Tickets at hkrugby.com","category":"Sports","url":"https://www.hksevens.com/"},{"title":"Mannings BoostUP Fiesta","startDate":"2026-04-25","endDate":"2026-04-26","time":"All day","location":"West Kowloon Cultural District (WestK)","description":"A two-day wellness festival with 50 experts and 40+ experiences spanning pilates, sound healing, high-energy workouts, and health assessments including cardiovascular monitoring and body composition analysis. Equal parts self-improvement and social scene, with a curated wellness and beauty marketplace on-site.","cost":"From HK$200 (single day) / HK$360 (two-day pass) / HK$300 at door","registration":"Check website","category":"Fitness","url":null},{"title":"Language Exchange @ My Home Cafe","startDate":"2026-04-18","endDate":null,"time":"1:30pm","location":"My Home Cafe, Causeway Bay","description":"Weekly Saturday language exchange meetup in CWB. Good mix of locals and expats practising Cantonese, Mandarin, and English over coffee.","cost":"Drinks only","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Hong Kong Chill & Chat Night","startDate":"2026-04-18","endDate":null,"time":"7:30pm","location":"Hong Kong (venue via organiser)","description":"Casual Saturday social for locals and travellers to meet and chat. Relaxed format — just show up and talk.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"8am Free HIIT Workout at SYS Park","startDate":"2026-04-18","endDate":null,"time":"8:00am","location":"Sun Yat-sen Memorial Park, Sheung Wan","description":"Community HIIT session run by FitFam HK — free, outdoors, and open to all fitness levels. A solid way to start a Saturday before the city wakes up.","cost":"Free","registration":"Check website","category":"Fitness","url":"https://www.meetup.com"},{"title":"日落与学府 · English–Chinese Language Exchange","startDate":"2026-04-18","endDate":null,"time":"2:30pm","location":"Hong Kong (university district, venue via organiser)","description":"Bilingual language exchange organised by Discover Hong Kong — sunset setting near a campus area. Great for practising Chinese or English in a relaxed crowd.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Tea/Coffee Chill at Rooftop Terrace","startDate":"2026-04-19","endDate":null,"time":"2:30pm","location":"Rooftop terrace (venue via organiser)","description":"Casual Sunday afternoon chill with Friend to Friend hangout crew. Low-key social over drinks with a view.","cost":"Drinks only","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Star Road Language Exchange","startDate":"2026-04-19","endDate":null,"time":"5:00pm","location":"Star Road, Wan Chai","description":"Sunday evening language exchange on Star Road run by Star Road Entertainment. Multilingual crowd, social atmosphere.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Friend to Friend Hangout — Meet Foreigners & Locals","startDate":"2026-04-25","endDate":null,"time":"8:00pm","location":"Hong Kong (venue via organiser)","description":"Evening social for Hong Kongers who want to meet expats and foreigners. 1000+ member group with a strong track record of warm, easy-going events.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"港漂 × 香港本地人一起玩 (20–30s Mainland & HK Locals Hangout)","startDate":"2026-04-25","endDate":null,"time":"4:00pm","location":"Hong Kong (venue via organiser)","description":"Afternoon social mixing mainland newcomers with Hong Kong locals in their 20s–30s. Organised by Sociale Group with a perfect 5.0 rating.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"},{"title":"Stress Awareness Fundraiser Hike to Mount Butler","startDate":"2026-04-26","endDate":null,"time":"10:00am","location":"Mount Butler, Eastern District","description":"Charity hike up Mount Butler tied to stress awareness — solid views and a good cause. Run by the well-rated Hike n' Trail Adventures crew.","cost":"Fundraiser contribution","registration":"Check website","category":"Fitness","url":"https://www.meetup.com"},{"title":"Pre-Holiday Networking Night @ Frank's Records","startDate":"2026-04-30","endDate":null,"time":"6:00pm","location":"Frank's Records, Hong Kong","description":"Professional networking night at a record store venue before the May Day break. Organised by The Buz Lead — a good excuse to mix business cards with vinyl.","cost":"Free","registration":"Check website","category":"Social","url":"https://www.meetup.com"}];
+const ALWAYS_ON = [{"title":"TakeOut Comedy Club","location":"34 Wyndham St, Central","description":"HK's main English-language stand-up venue. Fri & Sat nights, occasional weeknights. Book ahead — sells out.","cost":"From HK$200","url":"https://takeoutcomedy.com/","category":"Comedy"},{"title":"Peel Fresco Music Bar","location":"Peel St, Central","description":"Live jazz from ~9pm nightly. No cover. One of the few places in Central with actual live music on a weeknight.","cost":"Drinks only","url":"https://www.peelfresco.com.hk/","category":"Nightlife"},{"title":"The Wanch","location":"Wan Chai","description":"Long-running Wan Chai pub. Live music nightly. Old-school HK dive-bar energy. No cover.","cost":"Drinks only","url":"http://www.thewanch.com/","category":"Nightlife"},{"title":"Witty Otter Board Game Cafe","location":"Jordan + Wan Chai","description":"500+ board games. Seat fee covers all games. Food and drinks available. Walk-in or book for groups.","cost":"From HK$80/hr seat","url":"https://www.wittyotter.com/","category":"Social"},{"title":"LCSD Sports Halls & Courts","location":"Citywide","description":"Badminton, squash, table tennis, swimming — bookable via LCSD app 7 days in advance. Cheapest courts in town.","cost":"From HK$19/hr","url":"https://www.lcsd.gov.hk/en/sport/","category":"Fitness"},{"title":"HK Trail (Section 1–8)","location":"Peak → Big Wave Bay","description":"50km cross-island trail. Accessible from multiple MTR stations. Section 1 from The Peak: zero cost, killer views.","cost":"Free","url":"https://www.hikingtrailshk.com/hong-kong-trail/","category":"Sports"},{"title":"M+ Museum","location":"West Kowloon","description":"Visual culture museum. Rotating exhibitions and a permanent collection. Check online for current shows.","cost":"HK$120 / HK$60 concession","url":"https://www.mplus.org.hk/","category":"Arts & Culture"}];
+const TODAY = new Date().toISOString().slice(0,10);
+
+function fmt(d){
+  if(!d) return '';
+  const [y,m,day]=d.split('-');
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return months[+m-1]+' '+parseInt(day);
+}
+
+function fmtRange(s,e){
+  if(!e||e===s) return fmt(s);
+  const [sy,sm]=s.split('-'), [ey,em]=e.split('-');
+  if(sm===em) return fmt(s)+'–'+parseInt(e.split('-')[2]);
+  return fmt(s)+'–'+fmt(e);
+}
+
+function weekLabel(date){
+  const d=new Date(date+'T00:00:00');
+  const t=new Date(TODAY+'T00:00:00');
+  const diff=Math.floor((d-t)/(86400000));
+  if(diff<0) return 'Past';
+  if(diff<7) return 'This week';
+  if(diff<14) return 'Next week';
+  if(diff<21) return 'In 2 weeks';
+  if(diff<35) return 'In 3–4 weeks';
+  return 'Later';
+}
+
+const WEEK_ORDER=['This week','Next week','In 2 weeks','In 3–4 weeks','Later','Past'];
+
+let activeCat='all';
+
+function render(){
+  const filtered=EVENTS.filter(e=>{
+    if(activeCat!=='all'&&e.category!==activeCat) return false;
+    return true;
+  });
+
+  // Sort: upcoming first (by startDate), past last
+  filtered.sort((a,b)=>{
+    const ap=a.startDate<TODAY, bp=b.startDate<TODAY;
+    if(ap!==bp) return ap?1:-1;
+    return a.startDate.localeCompare(b.startDate);
+  });
+
+  // Group by week label
+  const groups={};
+  for(const e of filtered){
+    const wl=weekLabel(e.startDate);
+    if(!groups[wl]) groups[wl]=[];
+    groups[wl].push(e);
+  }
+
+  const upcoming=filtered.filter(e=>(e.endDate||e.startDate)>=TODAY);
+  document.getElementById('count-line').textContent=
+    upcoming.length+' event'+(upcoming.length!==1?'s':'')+' shown'+(activeCat!=='all'?' in '+activeCat:'');
+
+  let html='';
+  for(const wk of WEEK_ORDER){
+    const grp=groups[wk];
+    if(!grp||grp.length===0) continue;
+    // Format week header with date range
+    const firstDate=grp[0].startDate;
+    const lastDate=grp[grp.length-1].startDate;
+    let weekRange='';
+    if(firstDate!==lastDate) weekRange=' · '+fmt(firstDate)+'–'+fmt(lastDate);
+    html+='<div class="week-header">─── '+wk.toUpperCase()+weekRange+' ─────────────────────────</div>';
+    for(const e of grp){
+      const isPast=(e.endDate||e.startDate)<TODAY;
+      const cat=(e.category||'').toLowerCase();
+      const dateStr=fmtRange(e.startDate,e.endDate);
+      const timeStr=e.time&&e.time!=='Various'&&e.time!=='All day'?' · '+e.time:'';
+      const safeUrl=(e.url||'').replace(/&amp;/g,'&');
+      html+='<div class="event-row'+(isPast?' past':'')+'">';
+      html+='<div class="event-meta"><span class="event-cat">'+esc(cat)+'</span><span>'+esc(dateStr)+timeStr+'</span></div>';
+      html+='<div class="event-title">'+(safeUrl?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(e.title)+'</a>':esc(e.title))+'</div>';
+      html+='<div class="event-venue">'+esc(e.location||'')+'<span class="event-cost">'+esc(e.cost||'')+'</span></div>';
+      if(e.description) html+='<div class="event-desc">'+esc(e.description)+'</div>';
+      if(e.registration&&e.registration!=='Check website') html+='<div class="event-reg">'+esc(e.registration)+'</div>';
+      html+='</div>';
+    }
+  }
+
+  if(html==='') html='<div class="no-events">No events found for this filter.</div>';
+  document.getElementById('events-list').innerHTML=html;
+
+  // Always On
+  let aoHtml='';
+  const aoFiltered=activeCat==='all'?ALWAYS_ON:ALWAYS_ON.filter(a=>a.category===activeCat);
+  for(const a of aoFiltered){
+    const safeUrl=(a.url||'').replace(/&amp;/g,'&');
+    aoHtml+='<div class="ao-item">';
+    aoHtml+='<div class="ao-cat">'+esc((a.category||'').toLowerCase())+'</div>';
+    aoHtml+='<div class="ao-title">'+(safeUrl&&safeUrl!='#'?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(a.title)+'</a>':esc(a.title))+'</div>';
+    aoHtml+='<div class="ao-location">'+esc(a.location||'')+'</div>';
+    aoHtml+='<div class="ao-desc">'+esc(a.description||'')+'</div>';
+    if(a.cost) aoHtml+='<div class="ao-cost">'+esc(a.cost)+'</div>';
+    aoHtml+='</div>';
+  }
+  if(aoFiltered.length===0) aoHtml='<div style="font-family:monospace;font-size:12px;color:#999;padding:8px 0">No always-on venues in this category.</div>';
+  document.getElementById('always-on-grid').innerHTML=aoHtml;
+}
+
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+document.querySelectorAll('.f-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const raw=this.dataset.cat;
+    // Unescape HTML entities in cat name
+    activeCat=raw.replace(/&amp;/g,'&');
+    render();
+  });
+});
+
+render();
+})();
+
+function doRefresh(){
+  document.querySelector('.refresh-btn').textContent='refreshing...';
+  fetch('/api/hk-adults-calendar/refresh').then(function(){
+    setTimeout(function(){location.reload();},5000);
+  }).catch(function(){location.reload();});
+}
+</script>
+</body>
+</html>
