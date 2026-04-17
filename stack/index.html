@@ -705,6 +705,44 @@ a:hover{text-decoration:underline}
   .sf-nameplate{background:#eee!important}
   .sf-vname{color:#000!important}
 }
+/* ── MATRIX TAB ── */
+.mat-wrap{padding:12px 0 24px}
+.mat-scroll-wrap{overflow-x:auto;border:1px solid #1e1e2e;border-radius:6px;background:#0e0e18}
+.mat-table{border-collapse:collapse;min-width:100%;table-layout:auto}
+.mat-th{background:#12121e;color:#888;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;padding:10px 8px 8px;border-bottom:2px solid #1e1e2e;white-space:nowrap;vertical-align:bottom;text-align:center}
+.mat-th.mat-tech-col-hd{text-align:left;min-width:220px;max-width:260px;position:sticky;left:0;z-index:3;background:#12121e;box-shadow:1px 0 0 #1e1e2e}
+.mat-th.mat-cap-col-hd{width:72px;padding:6px 4px 8px}
+.mat-cap-hd-inner{display:flex;flex-direction:column;align-items:center;gap:5px}
+.mat-cap-nm{font-size:9px;max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#999;letter-spacing:0.8px}
+.mat-add-btn{background:none;border:1px solid #2a2a3a;color:#555;border-radius:3px;width:22px;height:22px;cursor:pointer;font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;transition:all .15s;font-family:'Barlow Condensed',sans-serif}
+.mat-add-btn:hover{border-color:#c9a84c;color:#c9a84c;background:#1a1500}
+.mat-td{border-bottom:1px solid #13131e;padding:5px 4px;vertical-align:middle;text-align:center;background:#0e0e18}
+.mat-td.mat-tech-td{text-align:left;background:#111118;position:sticky;left:0;z-index:2;padding:6px 8px;box-shadow:1px 0 0 #1e1e2e}
+.mat-row:hover .mat-td{background:#13131f}
+.mat-row:hover .mat-td.mat-tech-td{background:#14141f}
+.mat-tech-cell{display:flex;align-items:center;gap:8px;min-width:0}
+.mat-tech-info{flex:1;min-width:0}
+.mat-vname{font-size:13px;font-weight:600;color:#ddd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px}
+.mat-mname{font-size:11px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif}
+.mat-rm-btn{background:none;border:none;color:#2a2a3a;cursor:pointer;font-size:12px;padding:2px 5px;border-radius:3px;flex-shrink:0;transition:color .15s;line-height:1}
+.mat-rm-btn:hover{color:#ef4444;background:#1a0808}
+.mat-cb-lbl{display:flex;align-items:center;justify-content:center;cursor:pointer;width:100%;padding:2px 0}
+.mat-cb-lbl.mat-disabled{cursor:not-allowed;opacity:0.3}
+.mat-cb{position:absolute;opacity:0;width:0;height:0}
+.mat-cb-box{display:inline-block;width:18px;height:18px;border-radius:4px;border:2px solid #2a2a3a;background:transparent;transition:all .15s;position:relative;flex-shrink:0}
+.mat-cb-box.full{border-color:#3a5a3a}
+.mat-cb-box.partial{border-color:#5a4a1a}
+.mat-cb-box.checked{background:#1e3a1e;border-color:#4a9a4a}
+.mat-cb-box.checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#6acc6a;font-size:12px;font-weight:bold;line-height:1}
+.mat-cb-box.partial.checked{background:#3a2a0a;border-color:#c9a84c}
+.mat-cb-box.partial.checked::after{color:#c9a84c}
+.mat-no-cov-td{background:#0b0b14}
+.mat-in-stack-td{background:#0d160d}
+.mat-nodot{color:#252535;font-size:18px;line-height:1}
+.mat-empty{color:#444;text-align:center;padding:36px 20px;font-size:13px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;border-bottom:1px solid #13131e}
+.mat-empty strong{color:#666}
+.mat-legend{display:flex;gap:18px;margin-top:14px;font-size:11px;color:#555;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;flex-wrap:wrap;align-items:center}
+.mat-legend-item{display:flex;align-items:center;gap:6px}
 </style>
 </head>
 <body>
@@ -747,6 +785,7 @@ a:hover{text-decoration:underline}
     <button class="vtab" data-tab="outcomes">OUTCOMES</button>
     <button class="vtab" data-tab="visualize">VISUALIZE IT</button>
     <button class="vtab" data-tab="exposures">EXPOSURES</button>
+    <button class="vtab" data-tab="matrix">MATRIX</button>
   </div>
 
   <!-- TOOLS VIEW -->
@@ -893,6 +932,9 @@ a:hover{text-decoration:underline}
   <div id="viewExposures" style="display:none">
     <div id="expContent"></div>
   </div>
+
+  <!-- MATRIX VIEW -->
+  <div id="viewMatrix" style="display:none"></div>
 
   <div class="page-footer">
     <div>THE WANG REPORT &middot; Security Stack Assessment &middot; Track B V2.1</div>
@@ -1569,6 +1611,7 @@ function render() {
   renderRecommendations();
   if (activeView === 'visualize') renderVizBoard();
   if (activeView === 'exposures') renderExposureTab();
+  if (activeView === 'matrix') renderMatrixTab();
   updateHashURL();
   saveState();
 }
@@ -2353,7 +2396,7 @@ document.getElementById('shareCopyBtn').addEventListener('click', () => {
 });
 
 /* ── VIEW TAB SWITCHING ── */
-const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes', visualize: 'viewVisualize', exposures: 'viewExposures' };
+const VIEW_PANELS = { tools: 'viewTools', controls: 'viewControls', outcomes: 'viewOutcomes', visualize: 'viewVisualize', exposures: 'viewExposures', matrix: 'viewMatrix' };
 document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
   btn.addEventListener('click', () => {
     const tab = btn.dataset.tab;
@@ -2368,6 +2411,7 @@ document.querySelectorAll('.vtab:not(.vtab-disabled)').forEach(btn => {
     if (tab === 'outcomes') renderOutcomesTab();
     if (tab === 'visualize') renderVizBoard();
     if (tab === 'exposures') renderExposureTab();
+    if (tab === 'matrix') renderMatrixTab();
   });
 });
 
@@ -3995,6 +4039,128 @@ document.addEventListener('touchstart', e => {
   e.preventDefault();
   dot.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
 }, { passive: false });
+
+/* ── MATRIX TAB ── */
+function renderMatrixTab() {
+  const el = document.getElementById('viewMatrix');
+  if (!el) return;
+  const caps = getActiveCaps();
+  const rowMap = new Map();
+  Object.values(state.stack).forEach(entries => {
+    (entries || []).forEach(e => {
+      if (!rowMap.has(e.module_id)) rowMap.set(e.module_id, { vendor_id: e.vendor_id, module_id: e.module_id });
+    });
+  });
+  const rows = Array.from(rowMap.values());
+  function getCovLevel(module, capId) {
+    const cov = module && module.coverage && module.coverage[capId];
+    if (!cov) return null;
+    const vals = Object.values(cov.sub_caps || {});
+    if (!vals.length) return 'partial';
+    if (!vals.some(v => v === 'full' || v === 'partial')) return null;
+    return vals.every(v => v === 'full') ? 'full' : 'partial';
+  }
+  const scrollWrapOld = el.querySelector('.mat-scroll-wrap');
+  const savedScrollLeft = scrollWrapOld ? scrollWrapOld.scrollLeft : 0;
+  let html = '<div class="mat-wrap">';
+  html += '<div class="mat-scroll-wrap"><table class="mat-table"><thead><tr>';
+  html += '<th class="mat-th mat-tech-col-hd">Technology</th>';
+  caps.forEach(cap => {
+    html += '<th class="mat-th mat-cap-col-hd" title="' + esc(cap.name) + '">'
+      + '<div class="mat-cap-hd-inner">'
+      + '<div class="mat-cap-nm">' + esc(cap.name) + '</div>'
+      + '<button class="mat-add-btn" data-capid="' + cap.id + '" title="Add tech for ' + esc(cap.name) + '">+</button>'
+      + '</div></th>';
+  });
+  html += '</tr></thead><tbody>';
+  if (rows.length === 0) {
+    html += '<tr><td class="mat-empty" colspan="' + (caps.length + 1) + '">'
+      + 'No technologies selected &mdash; click <strong>+</strong> in a domain column to add a technology to that slot.'
+      + '</td></tr>';
+  } else {
+    rows.forEach(function(row) {
+      const vendor = vendorMap[row.vendor_id];
+      const module = moduleMap[row.module_id];
+      if (!vendor || !module) return;
+      const grade = vendor.grade || 'NA';
+      html += '<tr class="mat-row">';
+      html += '<td class="mat-td mat-tech-td">'
+        + '<div class="mat-tech-cell">'
+        + '<span class="viz-grade-badge grade-' + grade + '" style="width:20px;height:20px;font-size:10px;flex-shrink:0">' + (grade === 'NA' ? '&mdash;' : grade) + '</span>'
+        + '<div class="mat-tech-info">'
+        + '<div class="mat-vname">' + esc(vendor.name) + '</div>'
+        + '<div class="mat-mname">' + esc(module.module_name) + '</div>'
+        + '</div>'
+        + '<button class="mat-rm-btn" data-mid="' + row.module_id + '" title="Remove from all slots">\u2715</button>'
+        + '</div></td>';
+      caps.forEach(function(cap) {
+        const covLevel = getCovLevel(module, cap.id);
+        const inStack = (state.stack[cap.id] || []).some(e => e.module_id === row.module_id);
+        const slotFull = !inStack && (state.stack[cap.id] || []).length >= MAX_VENDORS_PER_SLOT;
+        if (!covLevel) {
+          html += '<td class="mat-td mat-no-cov-td"><span class="mat-nodot">\u00b7</span></td>';
+        } else {
+          const boxCls = 'mat-cb-box ' + covLevel + (inStack ? ' checked' : '');
+          const titleAttr = inStack ? ('Remove from ' + esc(cap.name)) : (slotFull ? 'Slot full (5 max)' : ('Add to ' + esc(cap.name)));
+          html += '<td class="mat-td' + (inStack ? ' mat-in-stack-td' : '') + '">'
+            + '<label class="mat-cb-lbl' + (slotFull ? ' mat-disabled' : '') + '" title="' + titleAttr + '">'
+            + '<input type="checkbox" class="mat-cb"'
+            + ' data-capid="' + cap.id + '" data-vid="' + row.vendor_id + '" data-mid="' + row.module_id + '"'
+            + (inStack ? ' checked' : '') + (slotFull ? ' disabled' : '') + '>'
+            + '<span class="' + boxCls + '"></span>'
+            + '</label></td>';
+        }
+      });
+      html += '</tr>';
+    });
+  }
+  html += '</tbody></table></div>';
+  html += '<div class="mat-legend">'
+    + '<div class="mat-legend-item"><span class="mat-cb-box full checked" style="display:inline-block"></span>In stack \u2014 full</div>'
+    + '<div class="mat-legend-item"><span class="mat-cb-box partial checked" style="display:inline-block"></span>In stack \u2014 partial</div>'
+    + '<div class="mat-legend-item"><span class="mat-cb-box full" style="display:inline-block"></span>Available</div>'
+    + '<div class="mat-legend-item"><span class="mat-nodot">\u00b7</span>Not supported</div>'
+    + '</div>';
+  html += '</div>';
+  el.innerHTML = html;
+  const scrollWrap = el.querySelector('.mat-scroll-wrap');
+  if (scrollWrap && savedScrollLeft) scrollWrap.scrollLeft = savedScrollLeft;
+  el.querySelectorAll('.mat-add-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const cap = capMap[btn.dataset.capid];
+      if (cap) openPicker(cap);
+    });
+  });
+  el.querySelectorAll('.mat-cb').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const capId = cb.dataset.capid, vid = cb.dataset.vid, mid = cb.dataset.mid;
+      if (cb.checked) {
+        if (!state.stack[capId]) state.stack[capId] = [];
+        if (!state.stack[capId].find(e => e.module_id === mid) && state.stack[capId].length < MAX_VENDORS_PER_SLOT)
+          state.stack[capId].push({ vendor_id: vid, module_id: mid });
+      } else {
+        if (state.stack[capId]) {
+          state.stack[capId] = state.stack[capId].filter(e => e.module_id !== mid);
+          if (!state.stack[capId].length) delete state.stack[capId];
+        }
+      }
+      renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
+      saveState();
+      renderMatrixTab();
+    });
+  });
+  el.querySelectorAll('.mat-rm-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mid = btn.dataset.mid;
+      Object.keys(state.stack).forEach(capId => {
+        state.stack[capId] = (state.stack[capId] || []).filter(e => e.module_id !== mid);
+        if (!state.stack[capId].length) delete state.stack[capId];
+      });
+      render();
+    });
+  });
+}
 
 loadAll();
 
