@@ -4166,6 +4166,11 @@ function renderMatrixTab() {
   html += '</div>'; // /mat-wrap
   el.innerHTML = html;
 
+  // Any click that isn't on a × button cancels pending removal (× uses stopPropagation so it never bubbles here)
+  el.addEventListener('click', () => {
+    if (matPendingRemove.size > 0) { matPendingRemove.clear(); renderMatrixTab(); }
+  });
+
   // Expand/collapse — click anywhere on vendor row except × button
   el.querySelectorAll('.mat-vendor-row').forEach(row => {
     row.addEventListener('click', e => {
