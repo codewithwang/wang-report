@@ -4168,9 +4168,15 @@ function renderMatrixTab() {
   if (!matListenerReady) {
     matListenerReady = true;
     el.addEventListener('click', e => {
-      // × remove vendor
+      // × remove vendor — check FIRST and stop propagation so the row
+      // expand/collapse branch below never sees this click. Without
+      // stopPropagation, the × button click also satisfied
+      // e.target.closest('.mat-vendor-row'), and because the × lives inside
+      // the row, state mutations below could race with the bubbling phase.
       const rmBtn = e.target.closest('.mat-rm-btn');
       if (rmBtn) {
+        e.stopPropagation();
+        e.preventDefault();
         const capId  = rmBtn.dataset.capid;
         const mid    = rmBtn.dataset.mid;
         const expKey = rmBtn.dataset.expkey;
@@ -4179,9 +4185,13 @@ function renderMatrixTab() {
         if (!state.stack[capId].length) delete state.stack[capId];
         matExpanded.delete(expKey);
         [...matConfirmed].forEach(k => { if (k.startsWith(expKey + '::')) matConfirmed.delete(k); });
-        renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
-        saveState();
-        renderMatrixTab();
+        // Use the shared render() pipeline (matches every other remove
+        // handler on the page). Defer via requestAnimationFrame so the
+        // innerHTML rewrite happens AFTER this click event fully
+        // completes — otherwise we were rewriting #viewMatrix's children
+        // while the click was still in its bubbling phase, which on some
+        // browsers left the old row visible until the next interaction.
+        requestAnimationFrame(render);
         return;
       }
       // + Add tech
