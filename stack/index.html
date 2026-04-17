@@ -707,38 +707,47 @@ a:hover{text-decoration:underline}
 }
 /* ── MATRIX TAB v2 ── */
 .mat-wrap{padding:12px 0 32px}
-.mat-domain-section{margin-bottom:16px;border:1px solid #1a1a2a;border-radius:6px;overflow:hidden}
+.mat-domain-section{margin-bottom:14px;border:1px solid #1a1a2a;border-radius:6px;overflow:hidden}
 .mat-domain-hd{display:flex;align-items:center;justify-content:space-between;background:#10101a;padding:8px 14px;border-bottom:1px solid #1a1a2a}
 .mat-domain-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c}
 .mat-domain-add{background:none;border:1px solid #2a2a3a;color:#666;border-radius:3px;padding:2px 10px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all .15s}
 .mat-domain-add:hover{border-color:#c9a84c;color:#c9a84c;background:#1a1500}
-.mat-domain-empty{color:#333;font-size:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;padding:14px 16px;text-align:center}
-.mat-vendor-row{display:grid;grid-template-columns:28px 1fr 120px 44px 80px;align-items:center;padding:8px 14px;border-bottom:1px solid #14141e;background:#0e0e18;cursor:pointer;transition:background .1s;gap:10px}
-.mat-vendor-row:hover{background:#13131e}
-.mat-vendor-row:last-child{border-bottom:none}
-.mat-vendor-row.mat-expanded{background:#111120;border-bottom:none}
-.mat-expand-arrow{color:#444;font-size:13px;transition:transform .2s;user-select:none;text-align:center}
+.mat-domain-empty{color:#2a2a3a;font-size:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;padding:14px 16px;text-align:center}
+.mat-vendor-row{display:grid;grid-template-columns:26px 1fr 130px 36px 26px;align-items:center;padding:8px 12px;border-bottom:1px solid #13131e;background:#0e0e18;cursor:pointer;transition:background .1s;gap:8px}
+.mat-vendor-row:hover{background:#121220}
+.mat-vendor-row.mat-expanded{background:#10101e;border-bottom:none}
+.mat-expand-arrow{color:#333;font-size:12px;transition:transform .2s;user-select:none;text-align:center;flex-shrink:0}
 .mat-vendor-row.mat-expanded .mat-expand-arrow{transform:rotate(90deg);color:#c9a84c}
 .mat-vendor-info{min-width:0}
-.mat-vname{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;color:#ddd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.3px}
-.mat-mname{font-size:11px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif}
+.mat-vname{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;color:#ccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.3px;display:flex;align-items:center;gap:6px}
+.mat-mname{font-size:10px;color:#444;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Barlow Condensed',sans-serif;margin-top:1px}
 .mat-cov-bar-wrap{display:flex;align-items:center;gap:6px}
-.mat-cov-bar-bg{flex:1;height:4px;background:#1a1a2a;border-radius:2px;overflow:hidden}
-.mat-cov-bar-fill{height:100%;border-radius:2px;transition:width .3s;background:#4a9a4a}
-.mat-cov-bar-fill.low{background:#aa3a3a}
+.mat-cov-bar-bg{flex:1;height:4px;background:#1a1a28;border-radius:2px;overflow:hidden}
+.mat-cov-bar-fill{height:100%;border-radius:2px;transition:width .3s;background:#3a8a3a}
 .mat-cov-bar-fill.mid{background:#c9a84c}
-.mat-cov-pct{font-family:'Barlow Condensed',sans-serif;font-size:11px;color:#888;white-space:nowrap;min-width:28px;text-align:right}
-.mat-deploy{font-family:'Barlow Condensed',sans-serif;font-size:10px;color:#555;letter-spacing:0.8px;text-transform:uppercase;text-align:right}
-.mat-subcap-row{background:#0c0c18;border-bottom:1px solid #14141e;padding:10px 14px 12px 52px;display:flex;flex-wrap:wrap;gap:6px}
-.mat-subcap-row:last-child{border-bottom:none}
-.mat-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.5px;border:1px solid;cursor:default;transition:all .15s;user-select:none}
-.mat-pill.full{border-color:#3a6a3a;color:#7acc7a;background:#0d1a0d;cursor:pointer}
-.mat-pill.full:hover{border-color:#5a9a5a;background:#112011}
-.mat-pill.partial{border-color:#5a4820;color:#c9a84c;background:#18120a;cursor:pointer}
-.mat-pill.partial:hover{border-color:#8a6a30;background:#201808}
-.mat-pill.none{border-color:#222230;color:#333;background:transparent;cursor:default}
-.mat-pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
-.mat-legend{display:flex;gap:20px;margin-top:16px;font-size:11px;color:#555;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;flex-wrap:wrap;align-items:center}
+.mat-cov-bar-fill.low{background:#8a3a3a}
+.mat-cov-pct{font-family:'Barlow Condensed',sans-serif;font-size:11px;color:#666;white-space:nowrap;min-width:28px;text-align:right}
+.mat-deploy{font-family:'Barlow Condensed',sans-serif;font-size:9px;color:#444;letter-spacing:0.8px;text-transform:uppercase;text-align:center}
+.mat-rm-btn{background:none;border:none;color:#2a2a38;font-size:14px;cursor:pointer;padding:2px;line-height:1;transition:color .15s;flex-shrink:0;text-align:center}
+.mat-rm-btn:hover{color:#cc3333}
+.mat-subcap-row{background:#0a0a16;border-bottom:1px solid #13131e;padding:10px 12px 12px 44px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+/* Pill base */
+.mat-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px 3px 7px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.4px;border:1px solid;transition:all .18s;user-select:none;cursor:default}
+/* Coverage levels — unconfirmed */
+.mat-pill.p-full{border-color:#2a4a2a;color:#4a7a4a;background:#0a120a}
+.mat-pill.p-partial{border-color:#4a3a14;color:#8a6a30;background:#120e06}
+.mat-pill.p-none{border-color:#1a1a28;color:#2a2a38;background:transparent}
+/* Coverage levels — confirmed (ticked) */
+.mat-pill.p-full.confirmed{border-color:#4aaa4a;color:#aaeaaa;background:#0f2a0f;cursor:pointer;box-shadow:0 0 6px rgba(74,170,74,.25)}
+.mat-pill.p-partial.confirmed{border-color:#c9a84c;color:#f0d080;background:#1e1506;cursor:pointer;box-shadow:0 0 6px rgba(201,168,76,.2)}
+/* Clickable unconfirmed */
+.mat-pill.p-full:not(.p-none){cursor:pointer}
+.mat-pill.p-full:hover:not(.confirmed){border-color:#3a6a3a;color:#6aaa6a;background:#0c180c}
+.mat-pill.p-partial:not(.p-none){cursor:pointer}
+.mat-pill.p-partial:hover:not(.confirmed){border-color:#6a5020;color:#b08040;background:#160f04}
+.mat-pill-check{font-size:10px;opacity:0;transition:opacity .15s}
+.mat-pill.confirmed .mat-pill-check{opacity:1}
+.mat-legend{display:flex;gap:18px;margin-top:16px;font-size:11px;color:#444;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;flex-wrap:wrap;align-items:center}
 .mat-legend-item{display:flex;align-items:center;gap:7px}
 </style>
 </head>
@@ -4038,25 +4047,28 @@ document.addEventListener('touchstart', e => {
 }, { passive: false });
 
 /* ── MATRIX TAB v2 ── */
-const matExpanded = new Set(); // "capId::moduleId" keys
+const matExpanded  = new Set(); // "capId::moduleId" — which rows are expanded
+const matConfirmed = new Set(); // "capId::moduleId::subCapId" — locally confirmed pills
+
+function vendorCovPct(capId, module) {
+  const cap = capMap[capId];
+  if (!cap) return 0;
+  const detail = computeSlotCoverageDetailed(capId, [{ vendor_id: module.vendor_id, module_id: module.module_id }], cap);
+  return Math.round(detail.score * 100);
+}
+
+function matBarCls(pct) { return pct >= 70 ? '' : pct >= 40 ? 'mid' : 'low'; }
 
 function renderMatrixTab() {
   const el = document.getElementById('viewMatrix');
   if (!el) return;
 
-  // All caps regardless of mode — a gap is a gap
+  // All caps — no mode filter, a gap is a gap
   const allCaps = DATA.capabilities;
-
-  // Compute single-vendor coverage % for a module at a capId
-  function vendorCovPct(capId, module) {
-    const cap = capMap[capId];
-    if (!cap) return 0;
-    const detail = computeSlotCoverageDetailed(capId, [{ vendor_id: module.vendor_id, module_id: module.module_id }], cap);
-    return Math.round(detail.score * 100);
+  if (!allCaps || allCaps.length === 0) {
+    el.innerHTML = '<div class="mat-wrap" style="color:#444;padding:30px;text-align:center;font-family:\'Barlow Condensed\',sans-serif;letter-spacing:1px">Loading data…</div>';
+    return;
   }
-
-  // Bar colour class by %
-  function barCls(pct) { return pct >= 70 ? '' : pct >= 40 ? 'mid' : 'low'; }
 
   let html = '<div class="mat-wrap">';
 
@@ -4071,53 +4083,55 @@ function renderMatrixTab() {
       + '</div>';
 
     if (entries.length === 0) {
-      html += '<div class="mat-domain-empty">No technology assigned &mdash; click + Add tech to fill this slot</div>';
+      html += '<div class="mat-domain-empty">No technology assigned &mdash; click + Add tech</div>';
     } else {
       entries.forEach(entry => {
         const vendor = vendorMap[entry.vendor_id];
         const module = moduleMap[entry.module_id];
         if (!vendor || !module) return;
 
-        const grade  = vendor.grade || 'NA';
-        const pct    = vendorCovPct(cap.id, module);
-        const deploy = module.deployment || '';
-        const expKey = cap.id + '::' + entry.module_id;
+        const grade   = vendor.grade || 'NA';
+        const pct     = vendorCovPct(cap.id, module);
+        const deploy  = module.deployment || '';
+        const expKey  = cap.id + '::' + entry.module_id;
         const expanded = matExpanded.has(expKey);
 
-        // Vendor row
-        html += '<div class="mat-vendor-row' + (expanded ? ' mat-expanded' : '') + '"'
-          + ' data-expkey="' + expKey + '">'
+        // Vendor row — clicking anywhere expands except the × button
+        html += '<div class="mat-vendor-row' + (expanded ? ' mat-expanded' : '') + '" data-expkey="' + expKey + '">'
           + '<div class="mat-expand-arrow">&#9658;</div>'
           + '<div class="mat-vendor-info">'
           + '<div class="mat-vname">'
-          + '<span class="viz-grade-badge grade-' + grade + '" style="width:17px;height:17px;font-size:9px;display:inline-flex;margin-right:6px;vertical-align:middle">' + (grade === 'NA' ? '?' : grade) + '</span>'
+          + '<span class="viz-grade-badge grade-' + grade + '" style="width:16px;height:16px;font-size:9px;flex-shrink:0">' + (grade === 'NA' ? '?' : grade) + '</span>'
           + esc(vendor.name) + '</div>'
           + '<div class="mat-mname">' + esc(module.module_name) + '</div>'
           + '</div>'
           + '<div class="mat-cov-bar-wrap">'
-          + '<div class="mat-cov-bar-bg"><div class="mat-cov-bar-fill ' + barCls(pct) + '" style="width:' + pct + '%"></div></div>'
+          + '<div class="mat-cov-bar-bg"><div class="mat-cov-bar-fill ' + matBarCls(pct) + '" style="width:' + pct + '%"></div></div>'
           + '<span class="mat-cov-pct">' + pct + '%</span>'
           + '</div>'
           + '<div class="mat-deploy">' + esc(deploy) + '</div>'
+          + '<button class="mat-rm-btn" data-capid="' + cap.id + '" data-mid="' + entry.module_id + '" title="Remove from this domain">\u00d7</button>'
           + '</div>';
 
-        // Expanded sub-cap strip
+        // Sub-cap expansion strip
         if (expanded) {
           const subCaps = cap.sub_capabilities || [];
           html += '<div class="mat-subcap-row">';
           if (subCaps.length === 0) {
-            html += '<span style="color:#444;font-size:12px;font-family:\'Barlow Condensed\',sans-serif">No sub-capability data</span>';
+            html += '<span style="color:#333;font-size:11px;font-family:\'Barlow Condensed\',sans-serif;letter-spacing:1px">No sub-capability data for this domain</span>';
           } else {
             subCaps.forEach(sc => {
-              const rawLevel = module.coverage && module.coverage[cap.id] && module.coverage[cap.id].sub_caps
+              const rawLevel = (module.coverage && module.coverage[cap.id] && module.coverage[cap.id].sub_caps)
                 ? (module.coverage[cap.id].sub_caps[sc.id] || 'none') : 'none';
-              const label = rawLevel === 'full' ? '\u2713' : rawLevel === 'partial' ? '\u007e' : '\u00b7';
-              const title = rawLevel === 'full' ? 'Full coverage \u2014 click to remove from stack'
-                : rawLevel === 'partial' ? 'Partial coverage \u2014 click to remove from stack'
-                : 'Not covered';
-              html += '<span class="mat-pill ' + rawLevel + '"'
-                + (rawLevel !== 'none' ? ' data-capid="' + cap.id + '" data-vid="' + entry.vendor_id + '" data-mid="' + entry.module_id + '" title="' + title + '"' : '')
-                + '><span class="mat-pill-dot"></span>' + esc(sc.name) + '</span>';
+              const pillKey  = expKey + '::' + sc.id;
+              const confirmed = matConfirmed.has(pillKey);
+              const pillCls  = 'mat-pill p-' + rawLevel + (confirmed ? ' confirmed' : '');
+              const icon     = rawLevel === 'full' ? '\u2713' : rawLevel === 'partial' ? '\u007e' : '\u00b7';
+              const titleTxt = rawLevel === 'none' ? 'Not covered by ' + vendor.name
+                : (confirmed ? 'Confirmed \u2014 click to unmark' : 'Click to confirm coverage');
+              html += '<span class="' + pillCls + '"'
+                + (rawLevel !== 'none' ? ' data-pillkey="' + pillKey + '" title="' + titleTxt + '"' : ' title="' + titleTxt + '"')
+                + '><span class="mat-pill-check">\u2713</span> ' + icon + ' ' + esc(sc.name) + '</span>';
             });
           }
           html += '</div>';
@@ -4130,22 +4144,41 @@ function renderMatrixTab() {
 
   // Legend
   html += '<div class="mat-legend">'
-    + '<div class="mat-legend-item"><span class="mat-pill full" style="pointer-events:none">\u2713 Full coverage</span></div>'
-    + '<div class="mat-legend-item"><span class="mat-pill partial" style="pointer-events:none">~ Partial</span></div>'
-    + '<div class="mat-legend-item"><span class="mat-pill none" style="pointer-events:none">\u00b7 Not covered</span></div>'
-    + '<span style="color:#333;font-size:11px;font-family:\'Barlow Condensed\',sans-serif">&nbsp;\u2014 click a covered pill to remove from stack</span>'
+    + '<div class="mat-legend-item"><span class="mat-pill p-full confirmed" style="pointer-events:none"><span class="mat-pill-check">\u2713</span> \u2713 Confirmed</span></div>'
+    + '<div class="mat-legend-item"><span class="mat-pill p-full" style="pointer-events:none">\u2713 Full</span></div>'
+    + '<div class="mat-legend-item"><span class="mat-pill p-partial" style="pointer-events:none">~ Partial</span></div>'
+    + '<div class="mat-legend-item"><span class="mat-pill p-none" style="pointer-events:none">\u00b7 Not covered</span></div>'
     + '</div>';
 
   html += '</div>'; // /mat-wrap
   el.innerHTML = html;
 
-  // Expand/collapse vendor rows
+  // Expand/collapse — click anywhere on vendor row except × button
   el.querySelectorAll('.mat-vendor-row').forEach(row => {
-    row.addEventListener('click', () => {
+    row.addEventListener('click', e => {
+      if (e.target.closest('.mat-rm-btn')) return; // let × handle separately
       const key = row.dataset.expkey;
       if (!key) return;
       if (matExpanded.has(key)) matExpanded.delete(key);
       else matExpanded.add(key);
+      renderMatrixTab();
+    });
+  });
+
+  // × remove vendor from this domain only
+  el.querySelectorAll('.mat-rm-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const capId = btn.dataset.capid;
+      const mid   = btn.dataset.mid;
+      if (!capId || !mid || !state.stack[capId]) return;
+      state.stack[capId] = state.stack[capId].filter(en => en.module_id !== mid);
+      if (!state.stack[capId].length) delete state.stack[capId];
+      matExpanded.delete(capId + '::' + mid);
+      // Clear confirmed pills for this vendor+domain
+      [...matConfirmed].forEach(k => { if (k.startsWith(capId + '::' + mid + '::')) matConfirmed.delete(k); });
+      renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
+      saveState();
       renderMatrixTab();
     });
   });
@@ -4159,21 +4192,18 @@ function renderMatrixTab() {
     });
   });
 
-  // Sub-cap pill click → remove vendor from this domain slot
-  el.querySelectorAll('.mat-pill.full, .mat-pill.partial').forEach(pill => {
+  // Sub-cap pill click → toggle local confirmation (visual only, no stack changes)
+  el.querySelectorAll('.mat-pill[data-pillkey]').forEach(pill => {
     pill.addEventListener('click', e => {
       e.stopPropagation();
-      const capId = pill.dataset.capid;
-      const mid   = pill.dataset.mid;
-      if (!capId || !mid) return;
-      if (state.stack[capId]) {
-        state.stack[capId] = state.stack[capId].filter(e => e.module_id !== mid);
-        if (!state.stack[capId].length) delete state.stack[capId];
-      }
-      matExpanded.delete(capId + '::' + mid);
-      renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
-      saveState();
-      renderMatrixTab();
+      const key = pill.dataset.pillkey;
+      if (!key) return;
+      if (matConfirmed.has(key)) matConfirmed.delete(key);
+      else matConfirmed.add(key);
+      // Toggle classes in-place without full re-render (prevents scroll/expand loss)
+      pill.classList.toggle('confirmed');
+      const check = pill.querySelector('.mat-pill-check');
+      if (check) check.style.opacity = matConfirmed.has(key) ? '1' : '0';
     });
   });
 }
