@@ -4058,6 +4058,7 @@ document.addEventListener('touchstart', e => {
 /* ── MATRIX TAB v2 ── */
 const matExpanded  = new Set(); // "capId::moduleId" — which rows are expanded
 const matConfirmed = new Set(); // "capId::moduleId::subCapId" — locally confirmed pills
+let matListenerReady = false;   // delegated listener attached once to #viewMatrix
 
 function vendorCovPct(capId, module) {
   const cap = capMap[capId];
@@ -4163,59 +4164,54 @@ function renderMatrixTab() {
   html += '</div>'; // /mat-wrap
   el.innerHTML = html;
 
-  // Expand/collapse — click anywhere on vendor row except × button
-  el.querySelectorAll('.mat-vendor-row').forEach(row => {
-    row.addEventListener('click', e => {
-      if (e.target.closest('.mat-rm-btn')) return;
-      const key = row.dataset.expkey;
-      if (!key) return;
-      if (matExpanded.has(key)) matExpanded.delete(key);
-      else matExpanded.add(key);
-      renderMatrixTab();
+  // Single delegated listener on el — survives el.innerHTML rewrites, never accumulates
+  if (!matListenerReady) {
+    matListenerReady = true;
+    el.addEventListener('click', e => {
+      // × remove vendor
+      const rmBtn = e.target.closest('.mat-rm-btn');
+      if (rmBtn) {
+        const capId  = rmBtn.dataset.capid;
+        const mid    = rmBtn.dataset.mid;
+        const expKey = rmBtn.dataset.expkey;
+        if (!capId || !mid || !state.stack[capId]) return;
+        state.stack[capId] = state.stack[capId].filter(en => en.module_id !== mid);
+        if (!state.stack[capId].length) delete state.stack[capId];
+        matExpanded.delete(expKey);
+        [...matConfirmed].forEach(k => { if (k.startsWith(expKey + '::')) matConfirmed.delete(k); });
+        renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
+        saveState();
+        renderMatrixTab();
+        return;
+      }
+      // + Add tech
+      const addBtn = e.target.closest('.mat-domain-add');
+      if (addBtn) {
+        const cap = capMap[addBtn.dataset.capid];
+        if (cap) openPicker(cap);
+        return;
+      }
+      // Sub-cap pill confirm toggle
+      const pill = e.target.closest('.mat-pill[data-pillkey]');
+      if (pill) {
+        const key = pill.dataset.pillkey;
+        if (!key) return;
+        if (matConfirmed.has(key)) matConfirmed.delete(key); else matConfirmed.add(key);
+        pill.classList.toggle('confirmed');
+        const chk = pill.querySelector('.mat-pill-check');
+        if (chk) chk.style.opacity = matConfirmed.has(key) ? '1' : '0';
+        return;
+      }
+      // Expand/collapse vendor row (anything else on the row)
+      const row = e.target.closest('.mat-vendor-row');
+      if (row) {
+        const key = row.dataset.expkey;
+        if (!key) return;
+        if (matExpanded.has(key)) matExpanded.delete(key); else matExpanded.add(key);
+        renderMatrixTab();
+      }
     });
-  });
-
-  // × remove vendor — single click, immediate removal
-  el.querySelectorAll('.mat-rm-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const capId  = btn.dataset.capid;
-      const mid    = btn.dataset.mid;
-      const expKey = btn.dataset.expkey;
-      if (!capId || !mid || !state.stack[capId]) return;
-      state.stack[capId] = state.stack[capId].filter(en => en.module_id !== mid);
-      if (!state.stack[capId].length) delete state.stack[capId];
-      matExpanded.delete(expKey);
-      [...matConfirmed].forEach(k => { if (k.startsWith(expKey + '::')) matConfirmed.delete(k); });
-      renderSlotGrid(); renderScorePanel(); renderRecommendations(); renderSlotExposureBadges();
-      saveState();
-      renderMatrixTab();
-    });
-  });
-
-  // + Add tech per domain
-  el.querySelectorAll('.mat-domain-add').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const cap = capMap[btn.dataset.capid];
-      if (cap) openPicker(cap);
-    });
-  });
-
-  // Sub-cap pill click → toggle local confirmation (visual only, no stack changes)
-  el.querySelectorAll('.mat-pill[data-pillkey]').forEach(pill => {
-    pill.addEventListener('click', e => {
-      e.stopPropagation();
-      const key = pill.dataset.pillkey;
-      if (!key) return;
-      if (matConfirmed.has(key)) matConfirmed.delete(key);
-      else matConfirmed.add(key);
-      // Toggle classes in-place without full re-render (prevents scroll/expand loss)
-      pill.classList.toggle('confirmed');
-      const check = pill.querySelector('.mat-pill-check');
-      if (check) check.style.opacity = matConfirmed.has(key) ? '1' : '0';
-    });
-  });
+  }
 }
 
 loadAll();
