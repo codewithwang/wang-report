@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Perimeter Is Your AI Stack Now — THE WANG REPORT</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Editor's Corner — long-read layout */
+    .ec-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    .ec-masthead {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #666;
+      padding: 18px 0 4px;
+      text-transform: uppercase;
+    }
+    .ec-rule {
+      border: none;
+      border-top: 3px solid #000;
+      margin: 0 0 6px;
+    }
+    .ec-rule-thin {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 6px 0 18px;
+    }
+    .ec-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 1.15;
+      margin: 18px 0 12px;
+      color: #111;
+    }
+    .ec-deck {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: #333;
+      line-height: 1.5;
+      margin: 0 0 18px;
+      border-left: 3px solid #cc0000;
+      padding-left: 14px;
+    }
+    .ec-byline {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    .ec-body {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .ec-main {
+      flex: 1;
+      min-width: 0;
+    }
+    .ec-sidebar {
+      width: 200px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 680px) {
+      .ec-body { flex-direction: column; }
+      .ec-sidebar { width: 100%; }
+      .ec-title { font-size: 24px; }
+    }
+    .ec-section {
+      margin-bottom: 28px;
+    }
+    .ec-section-heading {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #000;
+      margin: 0 0 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #000;
+    }
+    .ec-para {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #222;
+      margin: 0 0 14px;
+    }
+    .ec-closing {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 2px solid #000;
+    }
+    .ec-closing .ec-para {
+      font-style: italic;
+    }
+    .ec-tags {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+    }
+    .ec-tag {
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: #f0f0f0;
+      color: #555;
+      padding: 2px 8px;
+      margin-right: 6px;
+    }
+    .ec-archive {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 14px;
+      font-family: Arial, sans-serif;
+    }
+    .ec-archive-heading {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .ec-archive-item {
+      display: block;
+      font-size: 11px;
+      color: #333;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      text-decoration: none;
+    }
+    .ec-archive-item:hover { color: #cc0000; }
+    .ec-archive-date {
+      display: block;
+      font-size: 10px;
+      color: #888;
+      margin-bottom: 2px;
+    }
+    .ec-archive-all {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #cc0000;
+      text-decoration: none;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #ddd;
+    }
+    .ec-archive-all:hover { color: #000; }
+    .ec-footer-note {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 40px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">COMPANY WATCH</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="cyber.html" class="">CYBER INTEL</a> | <a href="editors-corner.html" class="nav-active">EDITOR'S CORNER</a> | <a href="sports.html" class="">SPORTS</a> | <a href="health.html" class="">HEALTH</a> | <a href="ai-focus.html" class="">AI FOCUS</a> | <a href="tldr.html" class="">TL;DR TOP 10</a></div>
+
+<div class="timestamp-bar">Tuesday, April 21, 2026</div>
+
+<div class="ec-wrap">
+  <div class="ec-masthead">Editor's Corner</div>
+  <hr class="ec-rule">
+  <hr class="ec-rule-thin">
+
+  <h1 class="ec-title">The Perimeter Is Your AI Stack Now</h1>
+  <div class="ec-deck">Three AI infrastructure vulnerabilities, a $290M crypto heist, and a state-sponsored App Store campaign landed in the same news cycle — the adversary updated their attack surface map. Most security teams haven't.</div>
+  <div class="ec-byline">By Wang Report Chief &nbsp;&bull;&nbsp; Tuesday, April 21, 2026 &nbsp;&bull;&nbsp; The Wang Report</div>
+
+  <div class="ec-body">
+    <div class="ec-main">
+      
+      <div class="ec-section">
+        <h2 class="ec-section-heading">The AI Supply Chain Cracks Open</h2>
+        <p class="ec-para">The Anthropic MCP SDK flaw enabling remote code execution across the AI supply chain, a CVSS 9.8 in the SGLang model-serving framework, and a breach at Vercel where AI tool access was the entry point — with a threatened two-million-dollar data sale as the exit — are not three separate incidents. They are one incident, expressed three different ways, about the same underlying problem: organizations treated AI tooling as a productivity layer and forgot it was also an attack surface. The Model Context Protocol was designed specifically to let AI agents interact with external systems, read data, take actions, automate workflows. A flaw in that SDK does not compromise one application. It potentially compromises every system an agent touches, every workflow it runs, every credential it holds in memory. At a large regional bank I was advising last quarter, the AI tooling team and the security team had genuinely never been in the same review meeting. The tooling team reported to the CDO and measured velocity. The CISO's team measured risk. Neither reporting line had a forcing function to make them talk before deployment. NIST's AI Risk Management Framework has been available long enough that there is no credible excuse for treating AI infrastructure differently from any other privileged access layer — and yet most organizations are doing exactly that. The Vercel breach makes the cost legible: AI tool access, broad permissions, one compromised credential, two million dollars demanded. The adversary has read the deployment statistics and drawn the obvious conclusion.</p>
+      </div>
+
+      <div class="ec-section">
+        <h2 class="ec-section-heading">Lazarus and the DeFi Treasury</h2>
+        <p class="ec-para">North Korea's Lazarus Group took $290 million from KelpDAO. That sentence has stopped surprising people, and it should start surprising them again. The UN Panel of Experts has documented Lazarus as having stolen north of three billion dollars in crypto over the past five years, with proceeds flowing into Pyongyang's weapons programs. This is not opportunistic cybercrime. This is a state treasury operation conducted through the DeFi sector because DeFi's security maturity is, on average, substantially lower than traditional finance. Smart contract audits exist. Multi-signature requirements exist. Protocol governance exists. None of these controls have meaningfully slowed Lazarus because they are technical controls applied to a technical layer, and Lazarus has evolved past attacking the technical layer directly. The current pattern is social engineering of protocol developers, supply chain compromise of code repositories, and patient infrastructure penetration months before an exploit fires. The $290 million from KelpDAO will fund what comes next in Pyongyang, and what comes next in Pyongyang has a material bearing on the security environment across Northeast Asia — a region where, this same week, PLA carrier movements through the Taiwan Strait and West Pacific are being tracked with unusual attention. That connection between DeFi protocol security and regional geopolitical stability is one that boards of financial institutions in this region are not making. They should be. Threat intelligence that stops at the technical IOC level is incomplete intelligence.</p>
+      </div>
+
+      <div class="ec-section">
+        <h2 class="ec-section-heading">China's App Store Distribution Play</h2>
+        <p class="ec-para">China flooding the Apple App Store with crypto-draining wallet fakes is worth pausing on, specifically for what it says about distribution rather than the malware itself. Fake wallet drainers are technically unremarkable. What is remarkable is that App Store submission was chosen as the distribution mechanism at scale. The implicit contract of the App Store is that curation provides a security signal. That contract is being gamed deliberately and systematically. Users who downloaded a fake wallet app from the App Store did so in part because they were told the App Store was a controlled environment. The attack is not only on the user's device — it is on the user's mental model of where trust is warranted. For practitioners advising retail banking clients across HK and APAC, the practical implication is direct: the App Store is not a control, it is a distribution channel, and client-facing security guidance needs to communicate that clearly. This also fits a pattern I would describe as franchise-model fraud — state-adjacent actors building scalable criminal infrastructure and monetizing it in ways that maintain plausible distance from formal attribution. The App Store campaign runs alongside the broader crypto-theft operations. The sophistication differential between Lazarus and the wallet faker campaign is considerable, but they share an audience: the APAC retail crypto investor who trusts the wrong signals.</p>
+      </div>
+
+      <div class="ec-section">
+        <h2 class="ec-section-heading">HK Hospital Authority: The Local Read</h2>
+        <p class="ec-para">The Hospital Authority breach — 56,000 patients exposed — lands in a specific context in Hong Kong that makes it more sensitive than the headline figure suggests. Healthcare data in HK sits at the intersection of PCPD obligations, the national security legal framework, and the live debate about cross-border data flows. The sensitivity is not only clinical. It is residential, it is associational, and in some cases it carries implications about individuals who have reasons to prefer their data not travel in certain directions. The Office of the Privacy Commissioner has been more active recently, but hospital networks in HK are materially under-resourced for security relative to what they hold. Compare this to financial services: a decade of HKMA circulars on technology risk management, operational resilience requirements, supervisory assessments, and mandatory incident reporting has meaningfully raised the security floor in banking. Healthcare has not had an equivalent forcing function. In the same week as the Hospital Authority disclosure, HK announced its tokenized trading framework. The financial sector continues to attract both regulatory attention and security investment. The hospital sector does not. Adversaries read budget allocation as clearly as anyone. When I do threat modeling for healthcare clients in this region, the concern is no longer only ransomware — it is the combination of a breach, a politically sensitive data set, and a regulatory framework that has not yet been tested against that specific intersection.</p>
+      </div>
+      <div class="ec-closing"><p class="ec-para">The thread running through this week is not technical novelty. MCP SDK flaws, DeFi exploits, fake App Store wallets, hospital network breaches — none of these are new attack categories. What is new is the scale of organizational exposure in each layer, driven by deployment that consistently outpaced threat modeling. In boardrooms across the region I am asked whether AI is making organizations more or less secure. The honest answer is that it depends entirely on whether the organization treated AI tooling as a productivity project or a security project, and most treated it as the former. The question I cannot answer yet is how many of them have actually inventoried what their AI agents can touch — and how many of them will only find out when someone else does.</p></div>
+      <div class="ec-tags"><span class="ec-tag">cyber</span> <span class="ec-tag">hongkong</span> <span class="ec-tag">ai-security</span> <span class="ec-tag">lazarus</span> <span class="ec-tag">northkorea</span> <span class="ec-tag">defi</span> <span class="ec-tag">apac</span> <span class="ec-tag">threatintel</span></div>
+      <div class="ec-footer-note">Generated by The Wang Report &middot; OpenClaw &middot; openclaw.ai</div>
+    </div>
+    <div class="ec-sidebar">
+      <div class="ec-archive">
+        <div class="ec-archive-heading">PREVIOUS COLUMNS</div>
+        <a href="/editors-corner/2026-04-23.html" class="ec-archive-item"><span class="ec-archive-date">Apr 23</span> The Probe Arrives One Cycle Late</a>
+        <a href="/editors-corner/2026-04-19.html" class="ec-archive-item"><span class="ec-archive-date">Apr 19</span> Every Front Is Open</a>
+        <a href="/editors-corner/2026-04-17.html" class="ec-archive-item"><span class="ec-archive-date">Apr 17</span> Four Frameworks, Four Failures, One Week</a>
+        <a href="/editors-corner/2026-04-15.html" class="ec-archive-item"><span class="ec-archive-date">Apr 15</span> Deployed and Weaponized on the Same Schedule</a>
+        <a href="/editors-corner/2026-04-15-2.html" class="ec-archive-item"><span class="ec-archive-date">Apr 15</span> The Efficiency Tool Is Also the Weapon</a>
+        <a href="/editors-corner/" class="ec-archive-all">&rarr; All columns</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
+  <br>
+  <a href="index.html">MAIN</a> | <a href="geopolitical.html">GEOPOLITICAL</a> | <a href="cyber.html">CYBER INTEL</a> | <a href="ai-focus.html">AI FOCUS</a>
+</div>
+
+</body>
+</html>
