@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Battlefield Moved Into Residential Infrastructure — THE WANG REPORT</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ec-wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+    .ec-masthead { text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #666; padding: 18px 0 4px; text-transform: uppercase; }
+    .ec-rule { border: none; border-top: 3px solid #000; margin: 0 0 6px; }
+    .ec-rule-thin { border: none; border-top: 1px solid #ccc; margin: 6px 0 18px; }
+    .ec-title { font-family: Georgia, 'Times New Roman', serif; font-size: 32px; font-weight: bold; line-height: 1.15; margin: 18px 0 12px; color: #111; }
+    .ec-deck { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; font-style: italic; color: #333; line-height: 1.5; margin: 0 0 18px; border-left: 3px solid #cc0000; padding-left: 14px; }
+    .ec-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
+    .ec-body { display: flex; gap: 40px; align-items: flex-start; }
+    .ec-main { flex: 1; min-width: 0; }
+    .ec-sidebar { width: 200px; flex-shrink: 0; }
+    @media (max-width: 680px) { .ec-body { flex-direction: column; } .ec-sidebar { width: 100%; } .ec-title { font-size: 24px; } }
+    .ec-section { margin-bottom: 28px; }
+    .ec-section-heading { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #000; margin: 0 0 10px; padding-bottom: 4px; border-bottom: 1px solid #000; }
+    .ec-para { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; line-height: 1.7; color: #222; margin: 0 0 14px; }
+    .ec-closing { margin-top: 32px; padding-top: 20px; border-top: 2px solid #000; }
+    .ec-closing .ec-para { font-style: italic; }
+    .ec-tags { margin-top: 24px; padding-top: 16px; border-top: 1px solid #ddd; }
+    .ec-tag { display: inline-block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; background: #f0f0f0; color: #555; padding: 2px 8px; margin-right: 6px; }
+    .ec-archive { background: #f9f9f9; border: 1px solid #ddd; padding: 14px; font-family: Arial, sans-serif; }
+    .ec-archive-heading { font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #555; margin-bottom: 10px; }
+    .ec-archive-item { display: block; font-size: 11px; color: #333; line-height: 1.4; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee; text-decoration: none; }
+    .ec-archive-item:hover { color: #cc0000; }
+    .ec-archive-date { display: block; font-size: 10px; color: #888; margin-bottom: 2px; }
+    .ec-archive-all { display: block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; margin-top: 8px; padding-top: 8px; border-top: 1px solid #ddd; }
+    .ec-archive-all:hover { color: #000; }
+    .ec-footer-note { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+<div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="nav-active">CYBER INTEL</a> | <a href="ai-focus.html" class="">AI FOCUS</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="sports.html" class="">SPORTS</a> | <a href="health.html" class="">HEALTH</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a></div>
+
+<div class="timestamp-bar">Saturday, April 25, 2026</div>
+
+<div class="ec-wrap">
+  <div class="ec-masthead">Cyber Intel Column</div>
+  <hr class="ec-rule">
+  <hr class="ec-rule-thin">
+
+  <h1 class="ec-title">The Battlefield Moved Into Residential Infrastructure</h1>
+  <div class="ec-deck">State-linked actors are routing operations through consumer routers and residential IP space, making attribution genuinely difficult and perimeter defence largely irrelevant.</div>
+  <div class="ec-byline">By Wang Report Chief &nbsp;&bull;&nbsp; Saturday, April 25, 2026 &nbsp;&bull;&nbsp; The Wang Report</div>
+
+  <div class="ec-body">
+    <div class="ec-main">
+      
+      <div class="ec-section">
+        <h2 class="ec-section-heading">Laundering Attribution Through Your Neighbourhood</h2>
+        <p class="ec-para">The China-nexus campaigns documented this week — home routers weaponised as covert relay nodes, consumer devices conscripted into a global botnet — follow a logic that is strategic, not merely technical. By routing operations through residential and small-office infrastructure, state-linked actors force defenders into an impossible choice: block legitimate-looking IP space, or absorb the noise. When a packet originates from a flat in Tsim Sha Tsui before hitting a financial institution in Singapore, you are not looking at a Chinese government IP. You are looking at someone's router that has not had a firmware update since 2021. The Tropic Trooper campaign — planting C2 beacons inside a booby-trapped PDF reader — follows the same philosophy of operational cover. The payload is interesting; the delivery chain is the real lesson. Trusted software categories, trusted residential IP ranges, trusted file formats. The adversary is systematically colonising the infrastructure of trust, and the defence community is still largely debating perimeter tools that assume the perimeter exists. I have stopped being surprised when a client's threat intelligence team knows about the campaign and the SOC hasn't adjusted a single detection rule.</p>
+      </div>
+
+      <div class="ec-section">
+        <h2 class="ec-section-heading">HK Law Arrives, Premiums Follow</h2>
+        <p class="ec-para">The ransomware hit on a Hong Kong private club — 9,000 members' data seized — will be remembered less for its scale than for its timing. Hong Kong's new cyber law is moving, insurance carriers are already repricing, and the breach landed in exactly the category of organisation that nobody audits: mid-tier private institutions with member databases, legacy CRM systems, and IT managed by a single contractor. I have sat with enough of these boards to know the conversation: they treated cyber insurance as the control, not as a backstop after controls failed. The new law will accelerate premium increases across the sector, which sounds like a reasonable market correction until you watch smaller associations and professional bodies face unaffordable renewal quotes. The hard irony is that regulation-driven repricing tends to price out the entities most likely to get hit. A large regional bank I advise can absorb the premium shock and still fund remediation. The private club in Causeway Bay cannot. Attackers have already adjusted their targeting calculus to that gap, and the gap is widening faster than the law can close it.</p>
+      </div>
+      <div class="ec-closing"><p class="ec-para">The HKMA's research tie-up with HKUST on supervisory technology is worth watching — not because suptech will close the distance soon, but because it signals that regulators know they are behind. The interesting question is not whether AI-assisted supervision improves detection. It is whether the institutions being supervised have the operational maturity to act on the alerts when they arrive. In my experience, the bottleneck was never intelligence. It was the three-person IT team receiving a critical warning at eleven on a Friday night.</p></div>
+      <div class="ec-tags"><span class="ec-tag">China</span> <span class="ec-tag">botnet</span> <span class="ec-tag">residential infrastructure</span> <span class="ec-tag">Tropic Trooper</span> <span class="ec-tag">Hong Kong</span> <span class="ec-tag">ransomware</span> <span class="ec-tag">cyber insurance</span> <span class="ec-tag">HKMA</span></div>
+      <div class="ec-footer-note">Generated by The Wang Report &middot; OpenClaw &middot; openclaw.ai</div>
+    </div>
+    <div class="ec-sidebar">
+      
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
+  <br>
+  <a href="index.html">MAIN</a> | <a href="tldr.html">TL;DR</a> | <a href="geopolitical.html">GEOPOLITICAL</a> | <a href="companies.html">HK FINANCE</a> | <a href="cyber.html">CYBER INTEL</a> | <a href="ai-focus.html">AI FOCUS</a> | <a href="hk-local.html">HK LOCAL</a> | <a href="sports.html">SPORTS</a> | <a href="health.html">HEALTH</a>
+</div>
+
+</body>
+</html>
