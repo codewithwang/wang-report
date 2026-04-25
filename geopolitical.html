@@ -14,7 +14,7 @@
 
 
 <div class="timestamp-bar">
-  Saturday, April 25, 2026 at 10:41 PM GMT+8
+  Saturday, April 25, 2026 at 11:35 PM GMT+8
   &nbsp;&nbsp;
   <button class="refresh-btn" onclick="doRefresh()">REFRESH</button>
   <div class="refresh-info">Every 6 hours · next: Sun, Apr 26, 01:30 AM</div>
@@ -28,147 +28,22 @@
       <a href="https://www.csmonitor.com/World/Middle-East/2026/0425/Iran-Pakistan-U.S.-Middle-East-Hormuz-Strait" target="_blank">Pakistan hosts another round of peace talks between the U.S. and Iran</a>
       <span class="source">bing news</span>
     </div>
-    <div class="hero-image"><img src="img/geo-hero.jpg?t=1777128073568" alt=""></div>
+    <div class="hero-image"><img src="img/geo-hero.jpg?t=1777131339363" alt=""></div>
 
 <div class="masthead">GEOPOLITICAL</div>
 <div class="subhead">THE WANG REPORT &mdash; GEOPOLITICAL TENSIONS &amp; MILITARY WATCH</div>
 
 
 
-<div class="col-teaser">
-  <div class="col-teaser-inner">
-    <span class="col-teaser-label">GEOPOLITICAL COLUMN</span> <span class="col-teaser-date">Apr 25</span>
-    <a href="/geopolitical-column/2026-04-25.html" class="col-teaser-title">Taiwan's Window Narrows While Washington Does Triage</a>
-    <span class="col-teaser-deck">The Iran campaign exposed what Beijing calculated years ago — American precision munitions and strategic attention are finite, and Taiwan is still debating its defense budget.</span>
-  </div>
-</div><div class="tension-dashboard" id="tension-dashboard"
-  data-vix="18.71" data-vix-change="-0.6"
-  data-fg-score="31" data-fg-rating="Fear"
-  data-gpr="168" data-gpr-trend="up"
-  data-doomsday="85" data-climate="">
-  <div class="td-wrti-hero">
-    <div class="td-label">WANG REPORT THREAT INDEX</div>
-    <div class="td-value td-wrti-score" id="td-wrti-val">—</div>
-    <div class="td-sub" id="td-wrti-label"></div>
-  </div>
-  <div class="td-sub-row">
-    <a href="https://finance.yahoo.com/quote/%5EVIX/" target="_blank" rel="noopener" class="td-link" id="td-vix">
-      <div class="td-label">VIX</div>
-      <div class="td-value" id="td-vix-val">18.71</div>
-      <div class="td-sub" id="td-vix-chg"><span class="td-color-green">▼ -0.60</span></div>
-    </a>
-    <a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank" rel="noopener" class="td-link" id="td-fg">
-      <div class="td-label">FEAR &amp; GREED</div>
-      <div class="td-value" id="td-fg-val">31</div>
-      <div class="td-sub" id="td-fg-label">Fear</div>
-    </a>
-    <a href="https://www.matteoiacoviello.com/gpr.htm" target="_blank" rel="noopener" class="td-link" id="td-gpr">
-      <div class="td-label">GPR INDEX</div>
-      <div class="td-value" id="td-gpr-val">168</div>
-      <div class="td-sub" id="td-gpr-trend"><span class="td-color-red">▲</span></div>
-    </a>
-    <a href="https://thebulletin.org/doomsday-clock/" target="_blank" rel="noopener" class="td-link" id="td-doom">
-      <div class="td-label">DOOMSDAY</div>
-      <div class="td-value td-color-red" id="td-doom-val">85s</div>
-      <div class="td-sub">to midnight</div>
-    </a>
-    <a href="https://climateclock.world/" target="_blank" rel="noopener" class="td-link" id="td-climate">
-      <div class="td-label">CLIMATE</div>
-      <div class="td-value" id="td-climate-val">—</div>
-      <div class="td-sub" id="td-climate-sub">remaining</div>
-    </a>
-  </div>
-  <div class="td-blurb" id="td-blurb"></div>
-</div>
-<script>
-(function(){
-  var d = document.getElementById('tension-dashboard');
-  if (!d) return;
-  var vix = parseFloat(d.dataset.vix) || null;
-  var fg = d.dataset.fgScore ? parseInt(d.dataset.fgScore) : null;
-  var gpr = parseFloat(d.dataset.gpr) || null;
-  var doom = parseFloat(d.dataset.doomsday) || 85;
-  var climate = null;
 
-  function clamp(v){return Math.max(0,Math.min(100,v));}
 
-  // Arc helper kept for potential future use but not rendered
-  function makeArc(pct, color){
-    var r=14,cx=18,cy=18,sw=3;
-    var sa=Math.PI, ea=Math.PI+(Math.min(Math.max(pct,0),100)/100)*Math.PI;
-    var p=function(a){return(cx+r*Math.cos(a))+' '+(cy+r*Math.sin(a));};
-    var bg='M '+p(Math.PI)+' A '+r+' '+r+' 0 0 1 '+p(Math.PI*2);
-    var fg2=pct>0?'M '+p(sa)+' A '+r+' '+r+' 0 '+(pct>50?1:0)+' 1 '+p(ea):'';
-    return '<svg class="td-arc" width="36" height="20" viewBox="0 0 36 20"><path d="'+bg+'" stroke="#2a2a2a" stroke-width="'+sw+'" fill="none" stroke-linecap="round"/>'+(fg2?'<path d="'+fg2+'" stroke="'+color+'" stroke-width="'+sw+'" fill="none" stroke-linecap="round"/>':'')+'</svg>';
-  }
 
-  fetch('https://api.climateclock.world/v2/clock.json')
-    .then(function(r){return r.json();})
-    .then(function(j){
-      var deadline = j.data && j.data.modules && j.data.modules.carbon_deadline_1 && j.data.modules.carbon_deadline_1.timestamp;
-      if(deadline){
-        var end = new Date(deadline), now = new Date(), diff = end - now;
-        var years = diff / (365.25*24*60*60*1000);
-        var y = Math.floor(years), m = Math.floor((years - y)*12);
-        document.getElementById('td-climate-val').textContent = y + 'y ' + m + 'm';
-        climate = years;
-        var ce = document.getElementById('td-climate-val');
-        ce.className = 'td-value ' + (years<5?'td-color-red':years<10?'td-color-amber':'td-color-green');
-        d.dataset.climate = years.toFixed(2);
-        computeWRTI();
-      }
-    }).catch(function(){});
-
-  computeWRTI();
-
-  function computeWRTI(){
-    var parts=0, total=0;
-    if(vix!=null){var nv=clamp((vix-10)/30*100);total+=nv*0.3;parts+=0.3;}
-    if(fg!=null){var nf=clamp(100-fg);total+=nf*0.2;parts+=0.2;}
-    if(gpr!=null){var ng=clamp((gpr-50)/250*100);total+=ng*0.3;parts+=0.3;}
-    var nd=clamp((1020-doom)/990*100);total+=nd*0.1;parts+=0.1;
-    var cy = climate!=null ? climate : parseFloat(d.dataset.climate);
-    if(cy){var nc=clamp((10-cy)/9*100);total+=nc*0.1;parts+=0.1;}
-    if(parts>0){
-      var wrti=Math.round(total/parts);
-      var we=document.getElementById('td-wrti-val');
-      we.textContent=wrti;
-      var wc=wrti<30?'#00cc66':wrti<60?'#ffaa00':wrti<80?'#ff3333':'#cc0000';
-      var wcc=wrti<30?'td-color-green':wrti<60?'td-color-amber':wrti<80?'td-color-red':'td-color-darkred';
-      we.className='td-value td-wrti-score '+wcc;
-      var wl=document.getElementById('td-wrti-label');
-      if(wrti<30)wl.textContent='LOW';else if(wrti<60)wl.textContent='ELEVATED';else if(wrti<80)wl.textContent='HIGH';else wl.textContent='CRITICAL';
-    }
-  }
-})();
-</script><div class="geo-threads"><div class="geo-thread">
-  <div class="thread-title">THE REHEARSAL GETS REAL</div>
-  <p class="thread-para">Naval War College analysts now describe China's amphibious assault drills as more realistic and sophisticated — a phrase that invites reflection on what the previous baseline implied. This week eight Chinese military aircraft and seven naval vessels circled Taiwan's perimeter while China simultaneously staged live-fire exercises in waters near Luzon, the Philippine island closest to Taiwan's southern flank. The Type 076 drone carrier, a vessel that blurs the line between aircraft carrier and autonomous weapons platform, has been deployed to the South China Sea. A state media video marking the PLA Navy's anniversary apparently used wordplay to hint at a nuclear-powered carrier under construction. All of this unfolded while the US Indo-Pacific commander was publicly urging Taiwan to pass its special defense budget faster, and analysts were noting that the Iran war had created a meaningful missile stockpile problem for anyone contemplating Taiwan's defense. The hellscape drone plan — thousands of autonomous systems intended to complicate PLA logistics — represents Washington's answer to the gap. Whether deterrence is being strengthened or whether the gap between capability and commitment is simply becoming visible in sharper relief depends heavily on which side is doing the counting. Into this environment, Xi Jinping told a visiting Taiwan opposition leader that Chinese and Taiwanese people will unite. Further observation is left as an exercise for the reader.</p>
-  <div class="thread-sources">Sources: <a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wLUZyZUdFYzI4TEkwV0I5TTVUbEdQaTZfWTZnVXNzX2RxRmR1VE5ybkpsZGg2enprNk96eG9FZGk2WWp4X214cVVjdU9JVVlJYUpBUmt6ZGI?oc=5" target="_blank" class="thread-source">Taiwan News</a> · <a href="https://www.yahoo.com/news/articles/us-navy-hellscape-drone-plan-094837845.html" target="_blank" class="thread-source">bing news</a> · <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE5IZ1ZYbWc3V3ZmTW1yRDRGOVQwNDNBUnp3VVRCRGYtZHFFOWVjMW1UWHZpQ0s3U2tFMjYtVW1QUmxQZDM3WHF1bkJ5TEJ1TkxZMmZGNw?oc=5" target="_blank" class="thread-source">Arab News PK</a> · <a href="https://news.google.com/rss/articles/CBMi9wFBVV95cUxOUl9GSjhHaHlDY0FJU0tJREJ4Rk5WNFRYYkJkZEtuZXBMWkZ0WnlMdDVDYnhOaktpVXltLVF2NEtGTHNLOFUtLXNJTGtMbThoR3pDellEbktHQ2dkQ1FldjZaWWl5RkJSdXg3QTJZR3pVaUtCbExBZHZ5UVV6Q3BlVTI4dHcyRG5uWjVWdlIyVlZlQlZNd3o5djJqa1ZlRXNva0kyZXdJa1k1ZlhLZ0s2cGRFeUNjdjRENGhVaFZfMzhONXEtcGJJSFBKLXBlaTVQRkxCSUdfSnZRc01QNXRadHVzU1pDN24yYWJhSGxLT2RadVRvakJ30gH8AUFVX3lxTFBxTTQ4Wm84UW1zcmdUczJSOTAxNk03MDJEcW15Sk1wUm1La0t4aFNsOHRSM0NoRFRoTEZfTExrN1FCcDFBZzl6Zkh5VEhwQVJjU0pLNGFQWUJxZ1Iya1NKTk9ING9lSHlFTXlYYTNSUXh6OWFrRmFQVjc5cU0xdXZXNXJfM190THo4RmlmQXpkWGRXZVVyT0hxMHFyX2FiZ1d4dDNWeFg3bkVfNUZYMTJFX3RjNDZGZlhuMG9kOEJNODNCWFhPZTRiemV0OGtxeE44MWc5WXh0d3JrbUV2bTdvQzZ6S0llVkJ4T3A0aUxWQmhJalVBVS12d1RvYg?oc=5" target="_blank" class="thread-source">The Times of India</a> · <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNLV9zVVYzMTZPWXg5MU1LbUpQdDJheHBMX29oLWNId2RxU1B1V2ZFRUVRX2lEUXNFYUtiV2wxNldUVmttYnMwZU1qYlNUNjF2LWVCWk5HNmJyM3N3ajJEMzBoanFSLVJObVVTaVp2aUN1SUFyUjFERzYyWlZBdGZFc3E5OTlSeDlRcExFOXFoWTg3RGJoUnNMQ0VaX3lYUGZEN3NsMDU1OWdkVGlnb253OWhIN0ZZbVUzUURpT1hRV1UyQW9z?oc=5" target="_blank" class="thread-source">IndexBox</a> · <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPeF9qTU1tVGE3bV9UeUZ2VVhfUFZhMzMtUWdUb2ZYTUFpd05yNE4tRHpERGg0TjJ6MU5tY1NkaFd0YW80c205SE91YlpTVG9rUkNZbjNOY2Z4WUlmQnZDN3lDTmNCOFdvMlFjMXBTOE1aMk95MzZ5UG1KVm9qX2YtRkFOUG1UMUczTUV5aFFmV3U1SGxMbXdEZlFGMm9hbC1nQzJXZDE3TGNFUQ?oc=5" target="_blank" class="thread-source">Defence Security Asia</a> · <a href="https://www.scmp.com/news/china/military/article/3351420/did-china-just-drop-hint-its-next-aircraft-carrier-will-be-nuclear-powered" target="_blank" class="thread-source">duckduckgo news</a> · <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPS05BaVB6TDVtOFMzZ3UwcFloVjV6RVlFYnh6MGxuRndYUzhNaDc5TUp6eEI2MkplaGQzOTVwYTkwMHJJTWVOcy1xX3h0ak54cW5wYmZyYjMtNXZKMTNhcE9sSkV6TGQ5RmttTlIxQ1ZLWDk4bDdycXNSX0FseGdYbmVsWjFPY1JQajhwRHF4TVVRcm15Y1NMV1Q1Z01UYzhRSEFDVGN2VjdNT05hVnFvM2VMUnJDTEtyVndRc1hENE5qOEU?oc=5" target="_blank" class="thread-source">visiontimes.com</a></div>
-</div>
-<div class="geo-thread">
-  <div class="thread-title">THE PRICE OF BEING EVERYWHERE</div>
-  <p class="thread-para">Wait, let me make sure I understand this correctly: the United States has just concluded something close enough to a war with Iran to call a ceasefire, and the after-action finding is that the missile stockpile has been meaningfully depleted at precisely the moment China is running Taiwan amphibious assault drills with unprecedented sophistication. The Strait of Hormuz remains blocked, meaning the economic cost of the Iran conflict accumulates daily even as the shooting has mostly stopped. Meanwhile, an internal Pentagon email reportedly circulated discussing how to punish NATO allies who failed to support operations in the Iran war — support apparently meaning active participation rather than rhetorical solidarity. This is how alliance systems corrode: not through formal withdrawals but through bilateral score-settling that makes collective defense contingent on recent conduct. Spain's government was moved to publicly address the reports, which is itself a data point worth noting. The geometry is not subtle. Resources consumed in one theater reduce capacity in another. Allies not brought along on one war become less reliable partners in the next. The credibility of extended deterrence rests on a combination of capability and perceived commitment, and both are now subjects of open discussion in ways they were not two years ago.</p>
-  <div class="thread-sources">Sources: <a href="https://www.csmonitor.com/World/Middle-East/2026/0425/Iran-Pakistan-U.S.-Middle-East-Hormuz-Strait" target="_blank" class="thread-source">bing news</a> · <a href="https://www.aol.com/articles/u-trying-suspend-spain-nato-154335670.html" target="_blank" class="thread-source">duckduckgo news</a> · <a href="https://news.google.com/rss/articles/CBMi9wFBVV95cUxOUl9GSjhHaHlDY0FJU0tJREJ4Rk5WNFRYYkJkZEtuZXBMWkZ0WnlMdDVDYnhOaktpVXltLVF2NEtGTHNLOFUtLXNJTGtMbThoR3pDellEbktHQ2dkQ1FldjZaWWl5RkJSdXg3QTJZR3pVaUtCbExBZHZ5UVV6Q3BlVTI4dHcyRG5uWjVWdlIyVlZlQlZNd3o5djJqa1ZlRXNva0kyZXdJa1k1ZlhLZ0s2cGRFeUNjdjRENGhVaFZfMzhONXEtcGJJSFBKLXBlaTVQRkxCSUdfSnZRc01QNXRadHVzU1pDN24yYWJhSGxLT2RadVRvakJ30gH8AUFVX3lxTFBxTTQ4Wm84UW1zcmdUczJSOTAxNk03MDJEcW15Sk1wUm1La0t4aFNsOHRSM0NoRFRoTEZfTExrN1FCcDFBZzl6Zkh5VEhwQVJjU0pLNGFQWUJxZ1Iya1NKTk9ING9lSHlFTXlYYTNSUXh6OWFrRmFQVjc5cU0xdXZXNXJfM190THo4RmlmQXpkWGRXZVVyT0hxMHFyX2FiZ1d4dDNWeFg3bkVfNUZYMTJFX3RjNDZGZlhuMG9kOEJNODNCWFhPZTRiemV0OGtxeE44MWc5WXh0d3JrbUV2bTdvQzZ6S0llVkJ4T3A0aUxWQmhJalVBVS12d1RvYg?oc=5" target="_blank" class="thread-source">The Times of India</a></div>
-</div>
-<div class="geo-thread">
-  <div class="thread-title">EUROPE PAYS, NOBODY ENDS IT</div>
-  <p class="thread-para">Six hundred and sixty drones and missiles fell on Kyiv this week, the kind of number that stopped being shocking eighteen months ago, which is itself a form of shock. Europe is preparing for a longer war — the EU approved a $106 billion loan package after Hungary lifted its veto — but preparing for a longer war is not the same as having a theory of victory, or even a theory of termination. A recent analytical summary describes the situation bluntly: no strategy to end it. The diplomatic architecture is clarifying in ways that are not reassuring. Russia's parliament speaker traveled to Pyongyang to formally commemorate North Korea's troop deployment in Ukraine — an event that would have been unthinkable four years ago and is now apparently worth a ceremonial state visit. The Pyongyang-Moscow axis has graduated from transactional arms dealing to the kind of ritual that signals institutional relationship. Russia fights with North Korean soldiers on European soil while the West processes loan paperwork. Putin's approval rating has meanwhile fallen to its lowest point since before the war, according to a state pollster. The costs are accumulating inside Russia in ways that eventually reach even managed information environments — a pressure that simultaneously makes negotiated off-ramps more plausible and more dangerous to offer prematurely.</p>
-  <div class="thread-sources">Sources: <a href="https://www.msn.com/en-us/news/world/ukraine-war-putin-s-forces-rain-660-drones-and-missiles-on-kyiv/ar-AA21BeIJ" target="_blank" class="thread-source">startpage news</a> · <a href="https://www.nytimes.com/2026/04/25/world/europe/ukraine-russia-europe-european-union.html" target="_blank" class="thread-source">bing news</a> · <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNd2tvYkNJc1lDTHNsR0NPU1RDTDBVMkxRZ2pod3NVVVkxck9UWm9mS2s4czJtV2d2N016VG1IdFJmeW5SSl9EN2QtTnpSUXBQSDdUQWVBcGt1SXVwVkJjU3MzQkRtT3h4NzFjUW4xN3o5blFWS2pEdTNsWWJ5eEZBWXRrV1pQbmlsNnp2RjlBd2lWaHQtcjZWWXVmU09EeDd5eTdTR0E4dkVwMi0tWUx0dzdiTVIyS1NqS0dSU2tRTzMwUTRJUjRV?oc=5" target="_blank" class="thread-source">NPR</a> · <a href="https://www.usnews.com/news/world/articles/2026-04-25/russian-parliament-speaker-in-north-korea-to-mark-pyongyangs-troop-deployment-in-ukraine-war" target="_blank" class="thread-source">bing news</a> · <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxQcVlpcVpEOE9CUVZ0Ty1Kekd1QzRyekZzVF8tSVd0UTdUUkFYc3dZLUtwMjZpY09EY0FWc3lUcE5CTzdQVGtCZ0x6LWVyaFEwNjk3ajFrWTRwZUQxd0JOT1VMZlJBZEZvNm04Z21naVNfbnI5MDNEMEF0bjJJa3NSV2UxbFUzSVZQREFNRmVZQmpPV2ZEMFRKM04yM0E0anBOUGVfMDJ0TmFuV1pwSm0yZkM5Q00zM25CN2ZMQmpYZG1IQ0laejRQZg?oc=5" target="_blank" class="thread-source">Reuters</a></div>
-</div>
-<div class="geo-thread">
-  <div class="thread-title">THE DOCTRINE THAT VANISHED</div>
-  <p class="thread-para">The 15th Five Year Plan outline makes no direct mention of military-civil fusion, the policy framework that spent years being described as a defining feature of Chinese grand strategy and the formal mechanism integrating civilian technology firms into national defense. A careful reading of the document apparently revealed the omission. The question it raises is whether the policy has been abandoned, completed, bureaucratically absorbed, or simply relocated to where foreign observers cannot find it conveniently labeled. The answer matters because the entire export-control and investment-screening architecture built by the United States and its allies was substantially predicated on the argument that military-civil fusion made Chinese commercial technology companies structural extensions of the defense apparatus. Remove the label and the legal and rhetorical scaffolding becomes harder to maintain. Meanwhile in the South China Sea, the Philippines is pushing for a code of conduct by year-end, noting with dry understatement that we owe it to the world. ASEAN-China talks on that code have stalled. China deployed its Type 076 drone carrier to the same waters and held live-fire drills near Luzon while US-Philippine exercises were running nearby. The pattern holds regardless of what the planning documents call it: rules-based frameworks are proposed, negotiations stall, and military facts accumulate on the water.</p>
-  <div class="thread-sources">Sources: <a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNVjFuM3F1Z3R1NEtOWEhpeTViakoyODgzRm5uS1lxVnFGcHhNZzNVVGo3STZOdFcxZEs5R0JmNnJKejZKRDVtQWZjSDZtR3FJam1LWkZjVlEwcGV4Wkl6WWU5SHNfVE5WRU5ndGd2NFNCTHhRSkxEdlZ6RmszUTl4MllNY1E1aUM2MEpPYTV2X3dqa3o4YXEtTmp3NlBKSFhZSEw5ZnlXY2VMd3R6RzJaZktzUnVyOEZfV2ZsMmRKVWR6bzVEQzNzTE5BamxSZG5zRjY2NkVFazBkcU5BcGIxMtIB5gFBVV95cUxNemJaOVJNQmZWM0Z4S2ZudkNNano5ejdoVXZ4N0hEUjFSZzVxT1psZWNfV3dBMWEyclVvYWZkdGgyVlRaZ3JmUmpTQmZBcldzeEFicnlIdm5QOVdkY2YtMnQxel9hV280NlZEbDk5ejV1SzdyM3FMRjJyVnJ4VzZxLVNGclJfM2ZzS1d1X3hyMlBFQkc1Q2dGdEFPb1pKQkVRUEhVU01BcXhqNGhFR05NSzh2TWVsQmRJRFNyQS1lVHp5akllangzRl9KUEhGcGVDZ1pPd1p4Mm4zcDdVM1F3NkJ6TE11Zw?oc=5" target="_blank" class="thread-source">GMA Network</a> · <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPeF9qTU1tVGE3bV9UeUZ2VVhfUFZhMzMtUWdUb2ZYTUFpd05yNE4tRHpERGg0TjJ6MU5tY1NkaFd0YW80c205SE91YlpTVG9rUkNZbjNOY2Z4WUlmQnZDN3lDTmNCOFdvMlFjMXBTOE1aMk95MzZ5UG1KVm9qX2YtRkFOUG1UMUczTUV5aFFmV3U1SGxMbXdEZlFGMm9hbC1nQzJXZDE3TGNFUQ?oc=5" target="_blank" class="thread-source">Defence Security Asia</a> · <a href="https://www.scmp.com/week-asia/politics/article/3351289/philippines-pushes-south-china-sea-code-year-end-we-owe-it-world" target="_blank" class="thread-source">bing news</a> · <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNRWtXemxvcGhCSko1YUlSaVFQVjd3Qnd4LXdkd1VKQlViSW1nM0t1N1RRQklsZTdCWWhJRnJ3QW84Q0FmU2p3cGRPNTQ4ZkNtVXpraDMwRlV4c1hLSVpKRTd3WDZFeHlMSnI1aGE1MnJ2QzdhT3p6NnlRS2U1WHpIUA?oc=5" target="_blank" class="thread-source">AOL.com</a> · <a href="https://thediplomat.com/2026/04/the-staged-death-of-chinas-military-civil-fusion/" target="_blank" class="thread-source">duckduckgo news</a></div>
-</div></div>
-
-<div class="grid-divider">MORE HEADLINES</div>
 
 <div class="columns">
   <div class="column">
     <div class="column-header">ASIA / PACIFIC</div>
       <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wLUZyZUdFYzI4TEkwV0I5TTVUbEdQaTZfWTZnVXNzX2RxRmR1VE5ybkpsZGg2enprNk96eG9FZGk2WWp4X214cVVjdU9JVVlJYUpBUmt6ZGI?oc=5" target="_blank">EIGHT PLA SORTIES CIRCLE TAIWAN</a> <span class="source">Taiwan News</span></div>
-      <div class="story red caps has-thumb"><a href="https://www.yahoo.com/news/articles/us-navy-hellscape-drone-plan-094837845.html" target="_blank"><img class="story-thumb" src="img/thumbs/geo-b13a05849e.jpg?t=1777128073568" alt="" loading="lazy"></a><a href="https://www.yahoo.com/news/articles/us-navy-hellscape-drone-plan-094837845.html" target="_blank">US HELLSCAPE DRONES COULD WRECK CHINA'S TAIWAN PLAN</a> <span class="source">bing news</span></div>
+      <div class="story red caps has-thumb"><a href="https://www.yahoo.com/news/articles/us-navy-hellscape-drone-plan-094837845.html" target="_blank"><img class="story-thumb" src="img/thumbs/geo-b13a05849e.jpg?t=1777131339363" alt="" loading="lazy"></a><a href="https://www.yahoo.com/news/articles/us-navy-hellscape-drone-plan-094837845.html" target="_blank">US HELLSCAPE DRONES COULD WRECK CHINA'S TAIWAN PLAN</a> <span class="source">bing news</span></div>
       <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE5IZ1ZYbWc3V3ZmTW1yRDRGOVQwNDNBUnp3VVRCRGYtZHFFOWVjMW1UWHZpQ0s3U2tFMjYtVW1QUmxQZDM3WHF1bkJ5TEJ1TkxZMmZGNw?oc=5" target="_blank">XI TO TAIWAN OPPOSITION: 'CHINESE WILL UNITE'</a> <span class="source">Arab News PK</span></div>
       <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNVjFuM3F1Z3R1NEtOWEhpeTViakoyODgzRm5uS1lxVnFGcHhNZzNVVGo3STZOdFcxZEs5R0JmNnJKejZKRDVtQWZjSDZtR3FJam1LWkZjVlEwcGV4Wkl6WWU5SHNfVE5WRU5ndGd2NFNCTHhRSkxEdlZ6RmszUTl4MllNY1E1aUM2MEpPYTV2X3dqa3o4YXEtTmp3NlBKSFhZSEw5ZnlXY2VMd3R6RzJaZktzUnVyOEZfV2ZsMmRKVWR6bzVEQzNzTE5BamxSZG5zRjY2NkVFazBkcU5BcGIxMtIB5gFBVV95cUxNemJaOVJNQmZWM0Z4S2ZudkNNano5ejdoVXZ4N0hEUjFSZzVxT1psZWNfV3dBMWEyclVvYWZkdGgyVlRaZ3JmUmpTQmZBcldzeEFicnlIdm5QOVdkY2YtMnQxel9hV280NlZEbDk5ejV1SzdyM3FMRjJyVnJ4VzZxLVNGclJfM2ZzS1d1X3hyMlBFQkc1Q2dGdEFPb1pKQkVRUEhVU01BcXhqNGhFR05NSzh2TWVsQmRJRFNyQS1lVHp5akllangzRl9KUEhGcGVDZ1pPd1p4Mm4zcDdVM1F3NkJ6TE11Zw?oc=5" target="_blank">CHINA FIRES LIVE ROUNDS NEAR LUZON AS BALIKATAN BEGINS</a> <span class="source">GMA Network</span></div>
       <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi9wFBVV95cUxOUl9GSjhHaHlDY0FJU0tJREJ4Rk5WNFRYYkJkZEtuZXBMWkZ0WnlMdDVDYnhOaktpVXltLVF2NEtGTHNLOFUtLXNJTGtMbThoR3pDellEbktHQ2dkQ1FldjZaWWl5RkJSdXg3QTJZR3pVaUtCbExBZHZ5UVV6Q3BlVTI4dHcyRG5uWjVWdlIyVlZlQlZNd3o5djJqa1ZlRXNva0kyZXdJa1k1ZlhLZ0s2cGRFeUNjdjRENGhVaFZfMzhONXEtcGJJSFBKLXBlaTVQRkxCSUdfSnZRc01QNXRadHVzU1pDN24yYWJhSGxLT2RadVRvakJ30gH8AUFVX3lxTFBxTTQ4Wm84UW1zcmdUczJSOTAxNk03MDJEcW15Sk1wUm1La0t4aFNsOHRSM0NoRFRoTEZfTExrN1FCcDFBZzl6Zkh5VEhwQVJjU0pLNGFQWUJxZ1Iya1NKTk9ING9lSHlFTXlYYTNSUXh6OWFrRmFQVjc5cU0xdXZXNXJfM190THo4RmlmQXpkWGRXZVVyT0hxMHFyX2FiZ1d4dDNWeFg3bkVfNUZYMTJFX3RjNDZGZlhuMG9kOEJNODNCWFhPZTRiemV0OGtxeE44MWc5WXh0d3JrbUV2bTdvQzZ6S0llVkJ4T3A0aUxWQmhJalVBVS12d1RvYg?oc=5" target="_blank">IRAN WAR DRAINED US MISSILES NEEDED FOR TAIWAN</a> <span class="source">The Times of India</span></div>
@@ -203,7 +78,7 @@
   </div>
   <div class="column">
     <div class="column-header">GLOBAL TENSIONS</div>
-      <div class="story red caps has-thumb"><a href="https://www.aol.com/articles/u-trying-suspend-spain-nato-154335670.html" target="_blank"><img class="story-thumb" src="img/thumbs/geo-0140f414a5.jpg?t=1777128073569" alt="" loading="lazy"></a><a href="https://www.aol.com/articles/u-trying-suspend-spain-nato-154335670.html" target="_blank">PENTAGON EYES BOOTING SPAIN FROM NATO</a> <span class="source">duckduckgo news</span></div>
+      <div class="story red caps has-thumb"><a href="https://www.aol.com/articles/u-trying-suspend-spain-nato-154335670.html" target="_blank"><img class="story-thumb" src="img/thumbs/geo-0140f414a5.jpg?t=1777131339363" alt="" loading="lazy"></a><a href="https://www.aol.com/articles/u-trying-suspend-spain-nato-154335670.html" target="_blank">PENTAGON EYES BOOTING SPAIN FROM NATO</a> <span class="source">duckduckgo news</span></div>
       <div class="story caps"><a href="https://www.nytimes.com/2026/04/24/world/europe/europe-defense-nato-trump-eu.html" target="_blank">EUROPE ASKS: CAN WE DEFEND OURSELVES WITHOUT NATO?</a> <span class="source">duckduckgo news</span></div>
       <div class="story caps"><a href="https://www.yahoo.com/news/articles/taking-action-protect-american-innovation-180500792.html" target="_blank">WHITE HOUSE: CHINA SYSTEMATICALLY STEALING AMERICAN AI</a> <span class="source">bing news</span></div>
       <div class="story caps"><a href="https://cryptobriefing.com/us-sanctions-chinese-refinery-40-entities-over-iranian-oil-ties/" target="_blank">US SANCTIONS MAJOR CHINA REFINERY OVER IRAN OIL</a> <span class="source">bing news</span></div>
