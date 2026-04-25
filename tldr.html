@@ -7,65 +7,44 @@
 <title>TL;DR Top 10 — The Wang Report</title>
 <link rel="stylesheet" href="style.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f9fafb;--surface:#fff;--border:#e5e7eb;
-  --tx:#111827;--tx2:#6b7280;--link:#1d4ed8;--accent:#dc2626;
-  --nav:#111827;--navtx:#d1d5db;--whybg:#f3f4f6;
-}
-@media(prefers-color-scheme:dark){:root{
-  --bg:#0f172a;--surface:#1e293b;--border:#334155;
-  --tx:#f1f5f9;--tx2:#94a3b8;--link:#60a5fa;--accent:#f87171;
-  --nav:#0f172a;--navtx:#94a3b8;--whybg:#1e293b;
-}}
-body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;line-height:1.5}
-.sitenav{background:var(--nav);padding:10px 16px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.sitenav a{color:var(--navtx);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.5px;padding:3px 8px;border-radius:4px}
-.sitenav a:hover{color:#fff;background:#374151}
-.sitenav a.active{color:#fff;background:var(--accent)}
-.sitenav .sep{color:#4b5563;font-size:10px}
-.pghdr{max-width:680px;margin:24px auto 0;padding:0 16px}
-.pgtitle{font-size:28px;font-weight:800;letter-spacing:-.5px}
-.pgtitle span{color:var(--accent)}
-.pgmeta{font-size:12px;color:var(--tx2);margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.badge{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px;text-transform:uppercase}
-.vtoggle{font-size:11px;color:var(--tx2);text-decoration:none;border:1px solid var(--border);padding:2px 8px;border-radius:4px}
-.vtoggle:hover{background:var(--surface)}
-.feed{max-width:680px;margin:16px auto 40px;padding:0 16px;display:flex;flex-direction:column;gap:12px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;transition:box-shadow .15s}
-.card:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.card-top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.chip{font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px;letter-spacing:.3px;text-transform:uppercase;white-space:nowrap}
-.dots{font-size:13px;color:var(--tx2);letter-spacing:2px;flex:1}
-.rnum{font-size:11px;font-weight:700;color:var(--tx2)}
-.card-hl{font-family:ui-serif,Georgia,serif;font-size:17px;font-weight:700;line-height:1.35;margin-bottom:8px}
-.card-hl a{color:var(--tx);text-decoration:none}
-.card-hl a:hover{color:var(--link)}
-.card-sum{font-size:13px;color:var(--tx2);line-height:1.65;margin-bottom:10px}
-.card-why{font-size:11px;background:var(--whybg);border-left:3px solid var(--accent);padding:6px 10px;margin-bottom:10px;color:var(--tx2);border-radius:0 4px 4px 0}
-.why-lbl{font-weight:700;color:var(--accent);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:6px}
+.pghdr{max-width:700px;margin:16px auto 0;padding:0 14px 12px;border-bottom:1px solid #ccc}
+.pgtitle{font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;color:#000;text-transform:uppercase}
+.pgtitle span{color:#cc0000}
+.pgmeta{font-family:Arial,sans-serif;font-size:11px;color:#555;margin-top:5px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{background:#cc0000;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;letter-spacing:.5px;text-transform:uppercase}
+.vtoggle{font-size:10px;color:#777;text-decoration:none;border:1px solid #ccc;padding:2px 8px}
+.vtoggle:hover{background:#f5f5f5;text-decoration:none}
+.feed{max-width:700px;margin:14px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:10px}
+.card{background:#fff;border:1px solid #e0e0e0;padding:16px}
+.card:hover{border-color:#aaa}
+.card-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.chip{font-family:Arial,sans-serif;font-size:10px;font-weight:700;padding:2px 8px;letter-spacing:.3px;text-transform:uppercase;white-space:nowrap}
+.dots{font-size:12px;color:#555;letter-spacing:2px;flex:1}
+.rnum{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:#999}
+.card-hl{font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:bold;line-height:1.3;margin-bottom:7px}
+.card-hl a{color:#000;text-decoration:none}
+.card-hl a:hover{text-decoration:underline}
+.card-sum{font-family:Georgia,serif;font-size:13px;color:#222;line-height:1.65;margin-bottom:8px}
+.card-why{font-family:"Courier New",monospace;font-size:11px;color:#555;background:#f8f8f2;border-left:2px solid #cc0000;padding:5px 9px;margin-bottom:8px}
+.why-lbl{font-weight:700;color:#cc0000;text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:6px}
 .card-foot{display:flex;align-items:center;justify-content:space-between}
-.card-src{font-size:10px;color:var(--tx2)}
-.card-read{font-size:11px;font-weight:600;color:var(--link);text-decoration:none}
+.card-src{font-family:Arial,sans-serif;font-size:10px;color:#888}
+.card-read{font-family:Arial,sans-serif;font-size:10px;font-weight:700;color:#cc0000;text-decoration:none}
 .card-read:hover{text-decoration:underline}
-.pgfoot{max-width:680px;margin:0 auto 40px;padding:16px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--tx2)}
-.pgfoot a{color:var(--tx2);text-decoration:none}
+.pgfoot{max-width:700px;margin:0 auto 40px;padding:16px 14px;border-top:2px solid #000;text-align:center;font-family:Arial,sans-serif;font-size:10px;color:#999}
+.pgfoot a{color:#888;text-decoration:none}
 .pgfoot a:hover{text-decoration:underline}
-@media(max-width:480px){.card-hl{font-size:15px}.pgtitle{font-size:22px}}
-.nav-bar{background:var(--nav);border-bottom-color:var(--border)}
-.nav-bar a{color:var(--navtx)}
-.nav-bar a:hover{background:#374151;text-decoration:none;color:#fff}
-.nav-bar .nav-active{color:var(--accent);border-bottom-color:var(--accent)}
+@media(max-width:480px){.card-hl{font-size:16px}}
 </style>
 </head>
 <body>
 <div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="nav-active">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER</a> | <a href="ai-focus.html" class="">AI</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a></div>
+<div class="timestamp-bar">Saturday, April 25, 2026 at 22:29 HKT</div>
 <header class="pghdr">
-  <div class="pgtitle">TL;DR <span>TOP 10</span></div>
+  <div class="pgtitle">TL;DR &mdash; <span>TODAY'S TOP 10</span></div>
   <div class="pgmeta">
     <span class="badge">EVENING EDITION</span>
-    <span>Saturday, April 25, 2026 at 22:29 HKT</span>
-    <a href="tldr-drudge.html" class="vtoggle">Drudge View</a>
+    <a href="tldr-drudge.html" class="vtoggle">List view</a>
   </div>
 </header>
 <main class="feed">
@@ -81,7 +60,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>Joint US/UK advisory published today naming a novel, patch-resistant implant targeting Cisco firewall infrastructure used by enterprises and governments globally.</div>
   <div class="card-foot">
     <span class="card-src">BleepingComputer</span>
-    <a class="card-read" href="https://www.bleepingcomputer.com" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.bleepingcomputer.com" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -96,7 +75,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>Attacks on Bamako itself — not just outlying regions — represent an unprecedented escalation confirmed across multiple sources today.</div>
   <div class="card-foot">
     <span class="card-src">BBC World, SCMP</span>
-    <a class="card-read" href="https://www.bbc.com/news/world" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.bbc.com/news/world" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -111,7 +90,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>Iran's military issued new retaliation warnings today while US envoys physically departed for Pakistan, placing both tracks — confrontation and negotiation — in motion at the same time.</div>
   <div class="card-foot">
     <span class="card-src">SCMP</span>
-    <a class="card-read" href="https://www.scmp.com" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.scmp.com" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -126,7 +105,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>Today's confirmed civilian toll in Dnipro marks a notable escalation in lethality from the recent strike cadence.</div>
   <div class="card-foot">
     <span class="card-src">BBC World</span>
-    <a class="card-read" href="https://www.bbc.com/news/world" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.bbc.com/news/world" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -141,7 +120,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>The film was released Wednesday for the 77th PLA Navy anniversary and analyst commentary identifying the nuclear-carrier signal surfaced prominently today.</div>
   <div class="card-foot">
     <span class="card-src">SCMP</span>
-    <a class="card-read" href="https://www.scmp.com" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.scmp.com" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -156,7 +135,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>Cao's warning is a direct public response to the current tariff escalation, representing his most explicit exit signal to date.</div>
   <div class="card-foot">
     <span class="card-src">SCMP</span>
-    <a class="card-read" href="https://www.scmp.com" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.scmp.com" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -171,7 +150,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>BYD's explicit 'can thrive without US' declaration is a direct public response to the current US-China tariff escalation, not a prior strategic position.</div>
   <div class="card-foot">
     <span class="card-src">BBC World</span>
-    <a class="card-read" href="https://www.bbc.com/news/business" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.bbc.com/news/business" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -186,7 +165,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>The merger was announced Friday — one of the largest consolidation moves in enterprise AI outside the US hyperscaler ecosystem this year.</div>
   <div class="card-foot">
     <span class="card-src">TechCrunch</span>
-    <a class="card-read" href="https://techcrunch.com" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://techcrunch.com" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -201,7 +180,7 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>ADT's official confirmation of the breach was issued today in direct response to ShinyHunters' public extortion threat.</div>
   <div class="card-foot">
     <span class="card-src">BleepingComputer</span>
-    <a class="card-read" href="https://www.bleepingcomputer.com" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.bleepingcomputer.com" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 
@@ -216,13 +195,13 @@ body{background:var(--bg);color:var(--tx);font-family:ui-sans-serif,system-ui,-a
   <div class="card-why"><span class="why-lbl">WHY TODAY</span>BBC investigation published today revealed the full extent of the decade-long neglect and the immediate risk exposure, with no government response announced.</div>
   <div class="card-foot">
     <span class="card-src">BBC World</span>
-    <a class="card-read" href="https://www.bbc.com/news/world" target="_blank" rel="noopener">Read &rarr;</a>
+    <a class="card-read" href="https://www.bbc.com/news/world" target="_blank" rel="noopener">READ &rarr;</a>
   </div>
 </article>
 </main>
 <footer class="pgfoot">
   THE WANG REPORT &mdash; TL;DR TOP 10 &mdash; Updates at 06:30 &amp; 18:30 HKT<br>
-  Card View &nbsp;&middot;&nbsp; <a href="tldr-drudge.html">Drudge View</a>
+  <a href="tldr-drudge.html">List view</a> &nbsp;&middot;&nbsp; <a href="index.html">Main</a>
 </footer>
 </body>
 </html>
