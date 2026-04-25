@@ -15,18 +15,21 @@
   .br-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 32px; }
   .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e8e8e8; }
   .br-entry:last-child { border-bottom: none; }
-  .br-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
-  .br-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #555; }
-  .br-byline strong { color: #111; }
-  .br-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999; margin-left: auto; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; display: block; margin-top: 5px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #222; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
-  .br-permalink { display: inline-block; margin-top: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
   .br-permalink:hover { color: #000; }
   .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #999; padding: 60px 0; }
   .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
-  @media (max-width: 600px) { .br-date { margin-left: 0; width: 100%; } }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
 </style>
 </head>
 <body>
@@ -39,10 +42,14 @@
   <hr class="br-rule-thin">
 
   <div class="br-entry">
-    <div class="br-meta">
-      <span class="br-section-tag">GEOPOLITICAL</span>
-      <span class="br-byline"><strong>Mei Chen</strong> &mdash; APAC Geopolitical Analyst</span>
-      <span class="br-date">April 25, 2026</span>
+    <div class="br-byline-row">
+      <div class="br-avatar" style="background:#7b1c1c">MC</div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">GEOPOLITICAL</span>
+        <span class="br-journalist-name">Mei Chen</span>
+        <span class="br-journalist-role">APAC Geopolitical Analyst</span>
+        <span class="br-entry-date">April 25, 2026</span>
+      </div>
     </div>
     <div class="br-body">
       <p>Taiwan tracked 8 PLA jets and 7 warships Saturday — pressure that has intensified steadily since January. Beijing simultaneously condemned Japan's Taiwan Strait transit as a &quot;provocation,&quot; publicly reframing an internationally recognized waterway as sovereign Chinese space. That framing is now doctrine. Every allied transit through the strait becomes a diplomatic incident by design. PLA assault drill parameters are measurably sharper: tighter amphibious sequencing, compressed breach timelines, more credible combined-arms integration. China is not rehearsing for deterrence. It is rehearsing for execution.</p>
@@ -51,10 +58,14 @@
     <a class="br-permalink" href="/briefings/2026-04-25-geopolitical.html">Permalink &rarr;</a>
   </div>
 <div class="br-entry">
-    <div class="br-meta">
-      <span class="br-section-tag">CYBER INTEL</span>
-      <span class="br-byline"><strong>Kai Tanner</strong> &mdash; Cybersecurity Correspondent</span>
-      <span class="br-date">April 25, 2026</span>
+    <div class="br-byline-row">
+      <div class="br-avatar" style="background:#1e3a5f">KT</div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">CYBER INTEL</span>
+        <span class="br-journalist-name">Kai Tanner</span>
+        <span class="br-journalist-role">Cybersecurity Correspondent</span>
+        <span class="br-entry-date">April 25, 2026</span>
+      </div>
     </div>
     <div class="br-body">
       <p>Beijing's preferred approach to persistent access has never required building from scratch when compromised consumer hardware will do. The latest disclosures detail a coordinated campaign converting residential and SOHO routers into a covert relay network — traffic laundered through devices whose owners believe the blinking admin light means everything is fine. The operational security dividend is considerable: attribution dissolves in ISP noise, and the implants ride firmware update cycles that most users never initiate. MAS TRM and HKMA-regulated institutions with remote-access infrastructure should be auditing whether their perimeter logs can actually distinguish a legitimate vendor IP from a compromised endpoint two hops behind one.</p>
@@ -63,10 +74,14 @@
     <a class="br-permalink" href="/briefings/2026-04-25-cyber.html">Permalink &rarr;</a>
   </div>
 <div class="br-entry">
-    <div class="br-meta">
-      <span class="br-section-tag">HK FINANCE</span>
-      <span class="br-byline"><strong>Rachel Lam</strong> &mdash; HK Markets Correspondent</span>
-      <span class="br-date">April 25, 2026</span>
+    <div class="br-byline-row">
+      <div class="br-avatar" style="background:#1a4731">RL</div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">HK FINANCE</span>
+        <span class="br-journalist-name">Rachel Lam</span>
+        <span class="br-journalist-role">HK Markets Correspondent</span>
+        <span class="br-entry-date">April 25, 2026</span>
+      </div>
     </div>
     <div class="br-body">
       <p>The HK$1.29 billion fine levied against PwC over its Evergrande audit closes one regulatory chapter but opens another. The HKICPA action — the largest ever against a Big Four firm in this jurisdiction — lands at a moment when offshore dollar bond markets are still digesting residual Evergrande restructuring haircuts. Audit liability exposure across the sector is now live pricing risk: firms with significant China developer mandates are reassessing engagement terms, and institutional LPs in distressed property funds are reviewing indemnity structures. The signal to offshore capital is that Hong Kong regulators will run enforcement cycles to completion regardless of macro inconvenience.</p>
@@ -75,10 +90,14 @@
     <a class="br-permalink" href="/briefings/2026-04-25-hk-finance.html">Permalink &rarr;</a>
   </div>
 <div class="br-entry">
-    <div class="br-meta">
-      <span class="br-section-tag">AI FOCUS</span>
-      <span class="br-byline"><strong>James Park</strong> &mdash; Technology &amp; AI Correspondent</span>
-      <span class="br-date">April 25, 2026</span>
+    <div class="br-byline-row">
+      <div class="br-avatar" style="background:#1a3558">JP</div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">AI FOCUS</span>
+        <span class="br-journalist-name">James Park</span>
+        <span class="br-journalist-role">Technology &amp; AI Correspondent</span>
+        <span class="br-entry-date">April 25, 2026</span>
+      </div>
     </div>
     <div class="br-body">
       <p>Google has now committed $40 billion to Anthropic — on top of Amazon's $5 billion — making the two largest cloud providers the dominant capital backers of a model vendor that competes with their own AI products. The structure matters more than the headline number: both investments carry cloud-spend commitments, meaning Anthropic's training and inference runs increasingly on Google Cloud and AWS infrastructure. For enterprise buyers, the practical read is that Anthropic is not an independent third party — it is a shared capability of the two largest cloud platforms, and vendor-lock-in calculus needs updating accordingly.</p>

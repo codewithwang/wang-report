@@ -15,18 +15,21 @@
   .br-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 32px; }
   .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e8e8e8; }
   .br-entry:last-child { border-bottom: none; }
-  .br-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
-  .br-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #555; }
-  .br-byline strong { color: #111; }
-  .br-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999; margin-left: auto; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; display: block; margin-top: 5px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #222; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
-  .br-permalink { display: inline-block; margin-top: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
   .br-permalink:hover { color: #000; }
   .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #999; padding: 60px 0; }
   .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
-  @media (max-width: 600px) { .br-date { margin-left: 0; width: 100%; } }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
 
   .bri-item { display: block; padding: 16px 0; border-bottom: 1px solid #eee; text-decoration: none; color: #111; }
   .bri-item:hover .bri-preview { color: #cc0000; }
