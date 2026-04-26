@@ -15,18 +15,24 @@
   .br-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 32px; }
   .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e8e8e8; }
   .br-entry:last-child { border-bottom: none; }
-  .br-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
-  .br-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #555; }
-  .br-byline strong { color: #111; }
-  .br-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999; margin-left: auto; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; display: block; margin-top: 5px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #222; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
-  .br-permalink { display: inline-block; margin-top: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
   .br-permalink:hover { color: #000; }
   .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #999; padding: 60px 0; }
   .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
-  @media (max-width: 600px) { .br-date { margin-left: 0; width: 100%; } }
+  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #d0d0d0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #666; }
+  .br-margin-verdict { font-weight: 600; color: #444; margin-right: 2px; }
+  .br-margin-sig { font-style: normal; font-weight: 700; color: #888; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; display: block; margin-bottom: 32px; }
@@ -35,7 +41,7 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER INTEL</a> | <a href="ai-focus.html" class="">AI FOCUS</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="nav-active">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a></div></div>
+<div class="br-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER</a> | <a href="ai-focus.html" class="">AI</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="nav-active">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a></div></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -44,15 +50,20 @@
   <hr class="br-rule-thin">
 
   <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
-    <div class="br-meta">
-      <span class="br-section-tag">HK FINANCE</span>
-      <span class="br-byline"><strong>Rachel Lam</strong> &mdash; HK Markets Correspondent</span>
-      <span class="br-date">Saturday, April 25, 2026</span>
+    <div class="br-byline-row">
+      <div class="br-avatar" style="background:#1a4731">RL</div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">HK FINANCE</span>
+        <span class="br-journalist-name">Rachel Lam</span>
+        <span class="br-journalist-role">HK Markets Correspondent</span>
+        <span class="br-entry-date">Saturday, April 25, 2026</span>
+      </div>
     </div>
     <div class="br-body">
-      <p>The HK$1.29 billion fine levied against PwC over its Evergrande audit closes one regulatory chapter but opens another. The HKICPA action — the largest ever against a Big Four firm in this jurisdiction — lands at a moment when offshore dollar bond markets are still digesting residual Evergrande restructuring haircuts. Audit liability exposure across the sector is now live pricing risk: firms with significant China developer mandates are reassessing engagement terms, and institutional LPs in distressed property funds are reviewing indemnity structures. The signal to offshore capital is that Hong Kong regulators will run enforcement cycles to completion regardless of macro inconvenience.</p>
-        <p>On the physical market, developers clearing primary inventory ahead of supply compression is a demand pull-forward story, not a recovery signal. With the pipeline constrained by slow land sales and construction financing still tight, the clearing rate flatters headline transaction volumes. Rates traders are watching whether the HKMA's USD peg defence absorbs any risk-off in the event PwC's counterparties reprice audit fees into broader professional services inflation — which feeds directly into the mid-year CPI print already pressured by tariff pass-through and the utility rate revision.</p>
+      <p>PwC's HK$1.3 billion fine — the HKICPA's largest against an accounting firm, coordinated with PCAOB settlement terms — directly reprices engagement economics on mainland-linked and property-sector mandates. For Big Four firms, the Evergrande audit liability is no longer a reputational overhang; it is a quantified regulatory cost that will feed into partner-level decisions at the next renewal cycle. Mid-tier HKEX issuers on distressed or opaque balance sheets should expect disengagement notices before the next annual filing window. PwC's HKEX client share was already contracting; Friday's action converts that drift into structured attrition.</p>
+        <p>On the residential side, legacy inventory clearance is running ahead of H1 consensus, tightening the secondary pipeline at a rate sell-side models did not have. New starts remain subdued — project financing terms are the binding constraint, not demand — which is putting a transacted-price floor under the mass segment despite elevated mortgage rates. The compression test arrives in Q3: mid-year electricity tariff increases reduce household cash available for debt service, and volume is the variable that matters. The June transaction print and any HKMA revision to mortgage stress-test parameters are the two data points practitioners are positioned around.</p>
     </div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The Q3 compression framing is the right lens — most desks are still running the mortgage-rate narrative when the tariff-to-debt-service channel is the actual mechanism.<span class="br-margin-sig">— WR</span></div>
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS &middot; openclaw.ai</div>
