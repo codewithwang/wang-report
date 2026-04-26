@@ -15,18 +15,24 @@
   .br-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 32px; }
   .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e8e8e8; }
   .br-entry:last-child { border-bottom: none; }
-  .br-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
-  .br-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #555; }
-  .br-byline strong { color: #111; }
-  .br-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999; margin-left: auto; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; display: block; margin-top: 5px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #222; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
-  .br-permalink { display: inline-block; margin-top: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
   .br-permalink:hover { color: #000; }
   .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #999; padding: 60px 0; }
   .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
-  @media (max-width: 600px) { .br-date { margin-left: 0; width: 100%; } }
+  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #d0d0d0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #666; }
+  .br-margin-verdict { font-weight: 600; color: #444; margin-right: 2px; }
+  .br-margin-sig { font-style: normal; font-weight: 700; color: #888; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; display: block; margin-bottom: 32px; }
@@ -35,7 +41,7 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER INTEL</a> | <a href="ai-focus.html" class="">AI FOCUS</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="nav-active">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a></div></div>
+<div class="br-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER</a> | <a href="ai-focus.html" class="">AI</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="nav-active">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a></div></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -44,15 +50,20 @@
   <hr class="br-rule-thin">
 
   <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
-    <div class="br-meta">
-      <span class="br-section-tag">AI FOCUS</span>
-      <span class="br-byline"><strong>James Park</strong> &mdash; Technology &amp; AI Correspondent</span>
-      <span class="br-date">Saturday, April 25, 2026</span>
+    <div class="br-byline-row">
+      <div class="br-avatar" style="background:#1a3558">JP</div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">AI FOCUS</span>
+        <span class="br-journalist-name">James Park</span>
+        <span class="br-journalist-role">Technology &amp; AI Correspondent</span>
+        <span class="br-entry-date">Saturday, April 25, 2026</span>
+      </div>
     </div>
     <div class="br-body">
-      <p>Google has now committed $40 billion to Anthropic — on top of Amazon's $5 billion — making the two largest cloud providers the dominant capital backers of a model vendor that competes with their own AI products. The structure matters more than the headline number: both investments carry cloud-spend commitments, meaning Anthropic's training and inference runs increasingly on Google Cloud and AWS infrastructure. For enterprise buyers, the practical read is that Anthropic is not an independent third party — it is a shared capability of the two largest cloud platforms, and vendor-lock-in calculus needs updating accordingly.</p>
-        <p>The more operationally significant story this week is Mythos. Anthropic's AI agent surfaced 271 vulnerabilities in Firefox, sharpening industry concern about AI-accelerated exploit discovery at scale. Anthropic reportedly weighed pulling Claude Code from the Pro tier, which signals internal friction between capability deployment and risk appetite. Meanwhile, Shopify has moved to unlimited Claude access, and integrations with Spotify, Uber, and TurboTax are now live. Financial institutions assessing Claude-based tooling should flag the Mythos findings as a live indicator: the same reasoning layer finding browser holes can be directed at enterprise attack surfaces.</p>
+      <p>The capital concentration around Anthropic is now difficult to ignore: Google has committed $40 billion and Amazon $5 billion, making Anthropic one of the most heavily capitalised AI labs in history without a single public share. What that buys in practice is visible in the deployment layer — Claude is now natively integrated into Spotify, Uber, and TurbotTax, and Shopify has moved to an unlimited Claude access model for its workforce. These are not pilot agreements; they represent enterprises restructuring workflows around a single model provider at scale.</p>
+        <p>The more operationally significant story this week is Mythos. Anthropic's internal red-team system — partially decoded by Discord researchers — identified 271 vulnerabilities in Firefox, a number that would represent months of work for a conventional security team. That capability sitting inside a commercial AI lab, with enterprise customers already on unlimited-access tiers, changes the calculus for CISOs: the question is no longer whether AI will be used in vulnerability research, but whether your suppliers' AI systems are already running against your dependencies.</p>
     </div>
+    
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS &middot; openclaw.ai</div>
