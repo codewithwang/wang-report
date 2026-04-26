@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masthead · THE WANG REPORT</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
+  .ms-nav { border-bottom: 1px solid #e0e0e0; }
+  .ms-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 100px; }
+
+  /* Publication wordmark */
+  .ms-masthead { text-align: center; padding: 56px 0 14px; }
+  .ms-wordmark { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 4px; color: #444; text-transform: uppercase; }
+  .ms-tagline { font-family: Georgia, serif; font-style: italic; font-size: 14px; color: #777; margin-top: 8px; }
+  .ms-rule { border: none; border-top: 3px solid #000; margin: 18px 0 0; }
+  .ms-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 56px; }
+
+  /* Walter section */
+  .ms-walter { margin-bottom: 56px; }
+  .ms-walter-image { width: 100%; margin-bottom: 28px; overflow: hidden; }
+  .ms-walter-image img { width: 100%; height: auto; display: block; }
+  .ms-walter-block { padding: 4px 0 0; }
+  .ms-zh { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; color: #444; letter-spacing: 4px; margin-bottom: 6px; }
+  .ms-walter-name { font-family: Georgia, serif; font-size: 32px; font-weight: normal; color: #111; line-height: 1.1; margin-bottom: 6px; }
+  .ms-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
+  .ms-walter-quote { font-family: Georgia, serif; font-style: italic; font-size: 22px; color: #333; margin: 22px 0 22px; padding-left: 18px; border-left: 3px solid #cc0000; line-height: 1.4; }
+  .ms-walter-bio { font-family: Georgia, serif; font-size: 16px; line-height: 1.75; color: #222; margin-bottom: 28px; }
+  .ms-vocab-title { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #666; text-transform: uppercase; margin-bottom: 14px; }
+  .ms-vocab-list { list-style: none; padding: 0; margin: 0 0 12px; }
+  .ms-vocab-list li { font-family: Georgia, serif; font-size: 14.5px; line-height: 1.7; color: #333; margin-bottom: 8px; }
+  .ms-vocab-list li em { color: #111; font-style: italic; font-weight: 600; }
+
+  /* Section dividers + titles */
+  .ms-divider { border: none; border-top: 1px solid #ddd; margin: 56px 0 48px; }
+  .ms-section-title { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #666; text-transform: uppercase; margin-bottom: 36px; text-align: center; }
+
+  /* Correspondents */
+  .ms-correspondent { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 64px; padding-bottom: 64px; border-bottom: 1px solid #eee; }
+  .ms-correspondent:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .ms-portrait { flex-shrink: 0; width: 220px; height: auto; display: block; }
+  .ms-c-text { flex: 1; min-width: 0; }
+  .ms-c-zh { font-family: Georgia, serif; font-size: 16px; color: #555; letter-spacing: 4px; margin-bottom: 4px; }
+  .ms-c-name { font-family: Georgia, serif; font-size: 24px; font-weight: normal; color: #111; line-height: 1.1; margin-bottom: 4px; }
+  .ms-c-role { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; margin-bottom: 14px; }
+  .ms-c-quote { font-family: Georgia, serif; font-style: italic; font-size: 16px; color: #444; margin: 14px 0 16px; padding-left: 14px; border-left: 2px solid #cc0000; line-height: 1.5; }
+  .ms-c-bio { font-family: Georgia, serif; font-size: 14.5px; line-height: 1.7; color: #333; margin-bottom: 12px; }
+  .ms-c-meta { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; line-height: 1.6; }
+  .ms-c-meta strong { color: #333; font-weight: bold; letter-spacing: 1px; }
+
+  /* House Rules */
+  .ms-houserules-list { list-style: none; padding: 0; margin: 0; }
+  .ms-houserules-list li { font-family: Georgia, serif; font-size: 15.5px; line-height: 1.8; color: #333; padding: 4px 0 4px 24px; position: relative; }
+  .ms-houserules-list li::before { content: "·"; position: absolute; left: 4px; color: #cc0000; font-weight: bold; }
+
+  /* Footer */
+  .ms-footer { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 56px; letter-spacing: 1px; }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .ms-correspondent { flex-direction: column; gap: 22px; }
+    .ms-portrait { width: 100%; max-width: 320px; align-self: center; }
+    .ms-walter-name { font-size: 28px; }
+    .ms-walter-quote { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ms-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER</a> | <a href="ai-focus.html" class="">AI</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="masthead.html" class="nav-active">MASTHEAD</a></div></div>
+
+<div class="ms-wrap">
+  <div class="ms-masthead">
+    <div class="ms-wordmark">The Wang Report</div>
+    <div class="ms-tagline">An editorial brief from inside Hong Kong</div>
+    <hr class="ms-rule">
+    <hr class="ms-rule-thin">
+  </div>
+
+  <section class="ms-walter">
+    <div class="ms-walter-image"><img src="/masthead/img/walter-wang.png" alt=""></div>
+    <div class="ms-walter-block">
+      <div class="ms-zh">王 凱 然</div>
+      <h1 class="ms-walter-name">Walter Wang</h1>
+      <div class="ms-role">Editor-in-Chief &nbsp;·&nbsp; Byline: WR</div>
+      <blockquote class="ms-walter-quote">Quiet, exact, final.</blockquote>
+      <p class="ms-walter-bio">Tainan, 1962. Bay Area immigrant in the late-70s wave. Berkeley dropout from electrical engineering to political science and Chinese literature. Hong Kong since 1989. He built this publication and edits it.</p>
+      <div class="ms-vocab-title">The vocabulary of margin notes</div>
+      <ul class="ms-vocab-list">
+        <li><em>Filing as written.</em> &nbsp; Default. The piece is correct and the framing holds.</li>
+        <li><em>Strong.</em> &nbsp; The piece is exceptional. Used sparingly.</li>
+        <li><em>Weak.</em> &nbsp; The piece has a structural problem. The receiving correspondent decides what to do.</li>
+        <li><em>(no margin note).</em> &nbsp; The highest praise. The absence of a note is itself the note.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="ms-divider">
+
+  <h2 class="ms-section-title">Senior Correspondents</h2>
+  <article class="ms-correspondent">
+    <img class="ms-portrait" src="/masthead/img/mei-chen.png" alt="">
+    <div class="ms-c-text">
+      <div class="ms-c-zh">陳 美</div>
+      <h2 class="ms-c-name">Mei Chen</h2>
+      <div class="ms-c-role">Geopolitical Desk, Senior Correspondent</div>
+      <blockquote class="ms-c-quote">Cool, structural, unflinching.</blockquote>
+      <p class="ms-c-bio">Arcadia, California; Tainan family one generation back. Georgetown then SAIS. Reuters HK at 24, regional weekly at 31, freelance 2022-2024. Wang Report 2024.</p>
+      <p class="ms-c-meta"><strong>Beat:</strong> Cross-strait, US-Asia, Indo-Pacific posture, Taiwan electoral and policy dynamics.</p>
+      <p class="ms-c-meta"><strong>On the masthead:</strong> Field-and-frame strength. The publication's most-clicked geopolitical byline.</p>
+      <div class="ms-c-meta">Monday briefing &nbsp;·&nbsp; reads Beijing through Taipei</div>
+    </div>
+  </article>
+<article class="ms-correspondent">
+    <img class="ms-portrait" src="/masthead/img/vincent-lai.png" alt="">
+    <div class="ms-c-text">
+      <div class="ms-c-zh">黎 國 楷</div>
+      <h2 class="ms-c-name">Vincent Lai</h2>
+      <div class="ms-c-role">Geopolitical Desk, Senior Correspondent</div>
+      <blockquote class="ms-c-quote">Patient, ledgered, considered.</blockquote>
+      <p class="ms-c-bio">Mid-Levels, Hong Kong. Senior civil servant father, Shanghai banking family on his mother's side. DBS, then Cambridge for economics, then LSE. Goldman Sachs Asia 1998-2005, HKMA 2005-2009, regional weekly contributing editor and policy institute fellow 2009-2024. Wang Report 2024.</p>
+      <p class="ms-c-meta"><strong>Beat:</strong> Cross-border capital flows, mainland banking architecture, SAR-mainland financial integration, regional bond markets read against political signals.</p>
+      <p class="ms-c-meta"><strong>On the masthead:</strong> Institutional access at the depth no other correspondent has. Speaks last in editorial calls.</p>
+      <div class="ms-c-meta">Friday briefing &nbsp;·&nbsp; reads Beijing through the ledger</div>
+    </div>
+  </article>
+<article class="ms-correspondent">
+    <img class="ms-portrait" src="/masthead/img/cheung-kwok-keung.png" alt="">
+    <div class="ms-c-text">
+      <div class="ms-c-zh">張 國 強</div>
+      <h2 class="ms-c-name">Cheung Kwok-keung</h2>
+      <div class="ms-c-role">HK Desk, Senior Correspondent</div>
+      <blockquote class="ms-c-quote">Specific, grounded, unsentimental.</blockquote>
+      <p class="ms-c-bio">Sham Shui Po, born 1979. Print-worker father, wet-market noodle-stall mother. Two older sisters, both nurses. Band-three secondary school. No university. Delivery, then trading firm in Sheung Wan, then dai pai dong from his uncle. Started writing in his early thirties for a Chinese-language community paper. Met Walter at a panel in 2017. Wang Report 2024. Still owns the dai pai dong; works the cash on weekends.</p>
+      <p class="ms-c-meta"><strong>Beat:</strong> The city as it is lived. SME credit, wet markets, the estates, mainland-HK small-trader networks, property at the level where ordinary HKers buy and sell, the Eight Districts.</p>
+      <p class="ms-c-meta"><strong>On the masthead:</strong> The texture floor. The integrative figure on the masthead.</p>
+      <div class="ms-c-meta">Thursday briefing</div>
+    </div>
+  </article>
+<article class="ms-correspondent">
+    <img class="ms-portrait" src="/masthead/img/kai-tanner.png" alt="">
+    <div class="ms-c-text">
+      <div class="ms-c-zh">譚 啟 凱</div>
+      <h2 class="ms-c-name">Kai Tanner</h2>
+      <div class="ms-c-role">Cyber Intel Desk, Senior Correspondent</div>
+      <blockquote class="ms-c-quote">Careful, technical, ungilded.</blockquote>
+      <p class="ms-c-bio">HK Chinese mother (NT family, three generations), British civil-engineer father. ESF primary, local English-medium secondary. Imperial College London for computer science. Bulge-bracket bank for eight months, then incident response 2008-2018 including Mandiant APAC. Freelance 2018-2024. Wang Report 2024.</p>
+      <p class="ms-c-meta"><strong>Beat:</strong> Threat intelligence, state-sponsored intrusions, APAC FSI cyber risk, MAS TRM and HKMA frameworks. Attribution language carefully calibrated.</p>
+      <p class="ms-c-meta"><strong>On the masthead:</strong> The most institutionally fragile source network on the desk. Read by every senior CISO in the region.</p>
+      <div class="ms-c-meta">Tuesday briefing</div>
+    </div>
+  </article>
+<article class="ms-correspondent">
+    <img class="ms-portrait" src="/masthead/img/rachel-lam.png" alt="">
+    <div class="ms-c-text">
+      
+      <h2 class="ms-c-name">Rachel Lam</h2>
+      <div class="ms-c-role">HK Finance Desk, Senior Correspondent</div>
+      <blockquote class="ms-c-quote">Specific, sourced, unhurried.</blockquote>
+      <p class="ms-c-bio">Born Plano, Texas, 1988. Wharton for finance. Goldman Sachs New York equities 2010-2013. Wall Street Journal 2013-2016. Financial Times 2016-2024, US markets desk then HK bureau from 2019. Wang Report 2024. Married 2023 to a HK Chinese commercial real estate partner; took the surname Lam.</p>
+      <p class="ms-c-meta"><strong>Beat:</strong> HKEX listings, IPO pipeline, M&amp;A, family-office activity, Western capital flows in and out of HK, SAR-mainland capital flow regime as it actually operates.</p>
+      <p class="ms-c-meta"><strong>On the masthead:</strong> The bridge to international institutional readership. The publication's London, New York, and Singapore readers find it here because she is here. Most-read on regional trading floors.</p>
+      <div class="ms-c-meta">Wednesday briefing</div>
+    </div>
+  </article>
+
+  <hr class="ms-divider">
+
+  <h2 class="ms-section-title">House Rules</h2>
+  <ul class="ms-houserules-list">
+      <li>The publication does not hedge in ledes.</li>
+      <li>The publication does not use &quot;experts say&quot;.</li>
+      <li>&quot;Unprecedented&quot; must be paired with the precedent or it does not appear.</li>
+      <li>&quot;Sophisticated&quot; does not appear in cyber pieces.</li>
+      <li>&quot;It remains to be seen&quot; does not appear anywhere.</li>
+      <li>Corrections are factual and unceremonious.</li>
+      <li>The publication does not run editor's-note apologies.</li>
+      <li>No fictional quotes attributed to real public figures.</li>
+      <li>No AI imagery to depict real persons in journalistic contexts.</li>
+      <li>The publication's voice is built on individual bylines. The masthead is the masthead.</li>
+  </ul>
+
+  <div class="ms-footer">THE WANG REPORT &middot; MASTHEAD &middot; openclaw.ai</div>
+</div>
+
+<div class="footer">
+  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
+  <br>
+  <a href="index.html">MAIN</a> | <a href="briefings.html">BRIEFINGS</a> | <a href="editors-corner.html">EDITOR'S CORNER</a> | <a href="masthead.html">MASTHEAD</a>
+</div>
+
+</body>
+</html>
