@@ -12,81 +12,179 @@
 <div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="tldr.html" class="">TL;DR</a> | <a href="geopolitical.html" class="nav-active">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER</a> | <a href="ai-focus.html" class="">AI</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="briefings.html" class="">BRIEFINGS</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="masthead.html" class="">MASTHEAD</a></div>
 
 <div class="timestamp-bar">
-  Monday, April 27, 2026 at 09:00 AM GMT+8
-  <div class="refresh-info">Every 6 hours · next: Mon, Apr 27, 01:30 PM</div>
+  Monday, April 27, 2026 at 01:35 PM GMT+8
+  <div class="refresh-info">Every 6 hours · next: Mon, Apr 27, 07:30 PM</div>
 </div>
 
 
 
 
     <div class="hero-headline">
-      <a href="https://www.telegraphindia.com/india/iran-steps-in-as-mediator-saudi-joins-diplomatic-push-amid-india-pakistan-standoff/cid/2096033" target="_blank">NUCLEAR POWERS FACE OFF; IRAN, SAUDI RUSH TO MEDIATE</a>
+      <a href="https://www.econotimes.com/China-Conducts-Live-Fire-Drills-Near-Luzon-as-US-Philippines-Balikatan-Exercises-Expand-1740037" target="_blank">CHINA FIRES LIVE ROUNDS AS U.S.-PHILIPPINES DRILLS SURGE</a>
     </div>
     <div class="hero-sub">
-      <a href="https://www.telegraphindia.com/india/iran-steps-in-as-mediator-saudi-joins-diplomatic-push-amid-india-pakistan-standoff/cid/2096033" target="_blank">Iran steps in as mediator, Saudi joins diplomatic push amid India-Pakistan standoff</a>
+      <a href="https://www.econotimes.com/China-Conducts-Live-Fire-Drills-Near-Luzon-as-US-Philippines-Balikatan-Exercises-Expand-1740037" target="_blank">China Conducts Live-Fire Drills Near Luzon as U.S.-Philippines Balikatan Exercises Expand</a>
       <span class="source">bing news</span>
     </div>
-    <div class="hero-image"><img src="img/geo-hero.jpg?t=1777251614224" alt=""></div>
+    <div class="hero-image"><img src="img/geo-hero.jpg?t=1777268138642" alt=""></div>
 
 <div class="masthead">GEOPOLITICAL</div>
 <div class="subhead">THE WANG REPORT &mdash; GEOPOLITICAL TENSIONS &amp; MILITARY WATCH</div>
 
 
 
+<div class="tension-dashboard" id="tension-dashboard"
+  data-vix="18.71" data-vix-change="-0.6"
+  data-fg-score="47" data-fg-rating="Neutral"
+  data-gpr="168" data-gpr-trend="up"
+  data-doomsday="85" data-climate="">
+  <div class="td-wrti-hero">
+    <div class="td-label">WANG REPORT THREAT INDEX</div>
+    <div class="td-value td-wrti-score" id="td-wrti-val">—</div>
+    <div class="td-sub" id="td-wrti-label"></div>
+  </div>
+  <div class="td-sub-row">
+    <a href="https://finance.yahoo.com/quote/%5EVIX/" target="_blank" rel="noopener" class="td-link" id="td-vix">
+      <div class="td-label">VIX</div>
+      <div class="td-value" id="td-vix-val">18.71</div>
+      <div class="td-sub" id="td-vix-chg"><span class="td-color-green">▼ -0.60</span></div>
+    </a>
+    <a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank" rel="noopener" class="td-link" id="td-fg">
+      <div class="td-label">FEAR &amp; GREED</div>
+      <div class="td-value" id="td-fg-val">47</div>
+      <div class="td-sub" id="td-fg-label">Neutral</div>
+    </a>
+    <a href="https://www.matteoiacoviello.com/gpr.htm" target="_blank" rel="noopener" class="td-link" id="td-gpr">
+      <div class="td-label">GPR INDEX</div>
+      <div class="td-value" id="td-gpr-val">168</div>
+      <div class="td-sub" id="td-gpr-trend"><span class="td-color-red">▲</span></div>
+    </a>
+    <a href="https://thebulletin.org/doomsday-clock/" target="_blank" rel="noopener" class="td-link" id="td-doom">
+      <div class="td-label">DOOMSDAY</div>
+      <div class="td-value td-color-red" id="td-doom-val">85s</div>
+      <div class="td-sub">to midnight</div>
+    </a>
+    <a href="https://climateclock.world/" target="_blank" rel="noopener" class="td-link" id="td-climate">
+      <div class="td-label">CLIMATE</div>
+      <div class="td-value" id="td-climate-val">—</div>
+      <div class="td-sub" id="td-climate-sub">remaining</div>
+    </a>
+  </div>
+  <div class="td-blurb" id="td-blurb"></div>
+</div>
+<script>
+(function(){
+  var d = document.getElementById('tension-dashboard');
+  if (!d) return;
+  var vix = parseFloat(d.dataset.vix) || null;
+  var fg = d.dataset.fgScore ? parseInt(d.dataset.fgScore) : null;
+  var gpr = parseFloat(d.dataset.gpr) || null;
+  var doom = parseFloat(d.dataset.doomsday) || 85;
+  var climate = null;
 
+  function clamp(v){return Math.max(0,Math.min(100,v));}
+
+  // Arc helper kept for potential future use but not rendered
+  function makeArc(pct, color){
+    var r=14,cx=18,cy=18,sw=3;
+    var sa=Math.PI, ea=Math.PI+(Math.min(Math.max(pct,0),100)/100)*Math.PI;
+    var p=function(a){return(cx+r*Math.cos(a))+' '+(cy+r*Math.sin(a));};
+    var bg='M '+p(Math.PI)+' A '+r+' '+r+' 0 0 1 '+p(Math.PI*2);
+    var fg2=pct>0?'M '+p(sa)+' A '+r+' '+r+' 0 '+(pct>50?1:0)+' 1 '+p(ea):'';
+    return '<svg class="td-arc" width="36" height="20" viewBox="0 0 36 20"><path d="'+bg+'" stroke="#2a2a2a" stroke-width="'+sw+'" fill="none" stroke-linecap="round"/>'+(fg2?'<path d="'+fg2+'" stroke="'+color+'" stroke-width="'+sw+'" fill="none" stroke-linecap="round"/>':'')+'</svg>';
+  }
+
+  fetch('https://api.climateclock.world/v2/clock.json')
+    .then(function(r){return r.json();})
+    .then(function(j){
+      var deadline = j.data && j.data.modules && j.data.modules.carbon_deadline_1 && j.data.modules.carbon_deadline_1.timestamp;
+      if(deadline){
+        var end = new Date(deadline), now = new Date(), diff = end - now;
+        var years = diff / (365.25*24*60*60*1000);
+        var y = Math.floor(years), m = Math.floor((years - y)*12);
+        document.getElementById('td-climate-val').textContent = y + 'y ' + m + 'm';
+        climate = years;
+        var ce = document.getElementById('td-climate-val');
+        ce.className = 'td-value ' + (years<5?'td-color-red':years<10?'td-color-amber':'td-color-green');
+        d.dataset.climate = years.toFixed(2);
+        computeWRTI();
+      }
+    }).catch(function(){});
+
+  computeWRTI();
+
+  function computeWRTI(){
+    var parts=0, total=0;
+    if(vix!=null){var nv=clamp((vix-10)/30*100);total+=nv*0.3;parts+=0.3;}
+    if(fg!=null){var nf=clamp(100-fg);total+=nf*0.2;parts+=0.2;}
+    if(gpr!=null){var ng=clamp((gpr-50)/250*100);total+=ng*0.3;parts+=0.3;}
+    var nd=clamp((1020-doom)/990*100);total+=nd*0.1;parts+=0.1;
+    var cy = climate!=null ? climate : parseFloat(d.dataset.climate);
+    if(cy){var nc=clamp((10-cy)/9*100);total+=nc*0.1;parts+=0.1;}
+    if(parts>0){
+      var wrti=Math.round(total/parts);
+      var we=document.getElementById('td-wrti-val');
+      we.textContent=wrti;
+      var wc=wrti<30?'#00cc66':wrti<60?'#ffaa00':wrti<80?'#ff3333':'#cc0000';
+      var wcc=wrti<30?'td-color-green':wrti<60?'td-color-amber':wrti<80?'td-color-red':'td-color-darkred';
+      we.className='td-value td-wrti-score '+wcc;
+      var wl=document.getElementById('td-wrti-label');
+      if(wrti<30)wl.textContent='LOW';else if(wrti<60)wl.textContent='ELEVATED';else if(wrti<80)wl.textContent='HIGH';else wl.textContent='CRITICAL';
+    }
+  }
+})();
+</script>
 
 
 
 <div class="columns">
   <div class="column">
     <div class="column-header">ASIA / PACIFIC</div>
-      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdFdNMUJyQ2E5RnV2MzlGRTg3ektnX1RZd09FSWQ5NVpVdWR0NFdidTJMaHFCQ28yYVo0S0hqcWtoZGJvenJsZmhWbkVadjUtZ3E4UlMtVGh1NmFHVWdWbjVINkpiX0xWU05OVDV0UHZnMGRBNnpMTnN2V2RkeURzV0lVdk56NHJYcEczM29VZ082MzJCZmRnWGgzc0NKa0lJcno1bGVQY01aM2tleFdmVGVUYk5QT1ZSQUI0dFVrUVZraGluR0psdUxFNkY3MVBOR0hkeA?oc=5" target="_blank">28 PLA JETS, 8 WARSHIPS CIRCLE TAIWAN</a> <span class="source">ANI News</span></div>
-      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNTE5MNEc1VDQtYWt2UDJ6elBVaW1KYWNnZ0U5QXFIbEk2cnl6U3RxdTRfX0xvUlVFNHhRbFFBLTJNaWdXcnZfazVma01RQXhsYnBfZHhhMTFra0lqMk5NdlNZSGwtRlJydnlNWGVQTTFZUndid25QUUZqaGlqSXowd0ltTE82d2FTeGZ5d29FbGtHMHlhSHRkZ3g4ZVduMWRTMFMxd1dPMVBNeXRBc0NvVnFR0gG3AUFVX3lxTE1NSWlPb1lnQi1sd3RsbTZDQnQ2cVNhb01nUlpPR09iZFNHZElDcHlCMlQ0REZkUFl2QjdrUWFOdGgwYXh3S1YzemQwekNtNlEtOTVlZ1hBMV9pVEZyTzAxVGZtSzRveWh6c1hKd0hEWEFsVWJSazF3UkFWU1pxRUU4RGtxcTNUVFh0OXJRRnNzVDVCMFFLbjNwRC1RX1RoVERYdnhWSWVJbG9zMkJhTmQtTVNrcUVoYw?oc=5" target="_blank">LEAKED FILES: RUSSIA-CHINA PLOT TAIWAN CONQUEST</a> <span class="source">Zee News</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxQTGIyWGN0MUVGcmJHYzc4Snk3MjgzbnRPdi1kdmJFM3pocjMzVGNCbV95VUd3ZlZaVVNYSWlqb0k5ZHNNMU40ZXItcFRoR05uTS05RTdGdHJCWGQydHRfUVZxY1Bjak9UT002cDZWRVhlTkFiemtuWXhjUVBYVV9XMnMtNzBQWjNuejBGcFRjMjBMM3lnZmNUeWR4TmxERWNGeXVzQlVIZkpHUXhzR0Y5YmdqeE9yNVlLS0dyRzJGc2lUUG9YVWx0blFza1hxSEtTRzFCM1BxMlN5Zw?oc=5" target="_blank">CHINA DEPLOYS FIRST ASSAULT SHIP TO SOUTH CHINA SEA</a> <span class="source">Army Recognition</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOQ19UcXRHRDlHRFRZWDFLQ0JLdEFTdFlRUHlUcDRyb1hLc3hRazIzWjdwRHFsU0U3ZFdhQU81UC00RFhxZFhEVDNKMHpRUkZWWmpEZTJYdkJlNGdOaGtHR09iUU9wbkRKSVpfeGstb1lSRzZYV2tqaEEzNjJvS0FGa3NwUlFlQkl0YWFPUGRUc0ZtN3l5N0g1bURjc3dXcl9nVVhKNEEwbzJidjlKTUVXaFgyRnMtZDRheHMwa0JqNHdzZFdEYUpUT2w0ZHBLeXEyaGpGX0Z2STNsRzZaUUE?oc=5" target="_blank">US-JAPAN FORCES DRILL IN SOUTH CHINA SEA</a> <span class="source">Zona Militar</span></div>
-      <div class="story caps"><a href="https://www.msn.com/en-xl/asia/pakistan/indias-pressure-vs-pakistans-responsepublished-on-april-27-2026-156-am/ar-AA21MFio?ocid=BingNewsVerp" target="_blank">INDIA TURNS UP HEAT ON PAKISTAN</a> <span class="source">bing news</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPTk5vWkJ3SWdrNVF1OG50bUtvOTZiZ1doaWh4aTg1ZDNOV2xLamllTU9naktvRmhnRmIwdW9IV29IN084Y1dDVzFTbk51eE5HV2RUV0RIZ1pPUEJuMFFzY2xUUHkxRnotMVlFMERkZnhpYUNGbWxOLWlsVVpabXhrSURVS3NBeEl4VmVrdEhhSTYxTTU0NDlCZHNJRjR2RlFaOGRUeg?oc=5" target="_blank">BEIJING'S TAIWAN PLAYBOOK: BEYOND THE GUNS</a> <span class="source">The Geopolitics</span></div>
-      <div class="story caps"><a href="https://www.taipeitimes.com/News/feat/archives/2026/04/27/2003856294" target="_blank">AS TRUMP-XI NEARS, TAIWAN SELLOUT FEARS MOUNT</a> <span class="source">bing news</span></div>
-      <div class="story caps"><a href="https://www.msn.com/en-us/news/world/potential-consequences-of-a-chinese-invasion-of-taiwan-on-the-world-stage/vi-AA218lGb?ocid=BingNewsVerp" target="_blank">WHAT CHINA TAKING TAIWAN MEANS FOR THE WORLD</a> <span class="source">bing news</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE9aOVlsbHNrNlFlNkF1SWtWejRrV1liRzlKcU9YeHZySFFJc1ZYbGpTS29WN2xsRk5RSDM1QlZnT1RmM0R4c19Rc3BBLTRDdXlKb0pkdFREbFBsV09XaXFCeW9wVksyUVY4dmhJYUF4bEpqTU52S29ncU5n?oc=5" target="_blank">Taiwan Completes 14-Day War Games</a> <span class="source">Taipei Times</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1kaUF6WF9mNjBhWmhpdmVBUFdBZkdNQUtuR3lwY3N0dUMtc3p3NzBnNFNfcGVRODl1UUFxdkZrZHhFUWQ5SlZ6NGhWMXYycUo3NzhIOUdXSDhRZjB6?oc=5" target="_blank">Taiwan Condemns Retired Officer's China Visit</a> <span class="source">Focus Taiwan</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTFBPSkxDeTFUSHE3c0p4QzNaMTEwc3NOYnZoSzBFNlktMXFQRHJIVF9DLTBiWDBDUWwxdDYzTk1jZWZjYTNzT2hvQzFlTmhPek9xbjBrRUxqWlV2YmNYdHhIMFRB?oc=5" target="_blank">China Holds Anti-Arbitration Rally on South China Sea</a> <span class="source">Global Times</span></div>
+      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNTE5MNEc1VDQtYWt2UDJ6elBVaW1KYWNnZ0U5QXFIbEk2cnl6U3RxdTRfX0xvUlVFNHhRbFFBLTJNaWdXcnZfazVma01RQXhsYnBfZHhhMTFra0lqMk5NdlNZSGwtRlJydnlNWGVQTTFZUndid25QUUZqaGlqSXowd0ltTE82d2FTeGZ5d29FbGtHMHlhSHRkZ3g4ZVduMWRTMFMxd1dPMVBNeXRBc0NvVnFR0gG3AUFVX3lxTE1NSWlPb1lnQi1sd3RsbTZDQnQ2cVNhb01nUlpPR09iZFNHZElDcHlCMlQ0REZkUFl2QjdrUWFOdGgwYXh3S1YzemQwekNtNlEtOTVlZ1hBMV9pVEZyTzAxVGZtSzRveWh6c1hKd0hEWEFsVWJSazF3UkFWU1pxRUU4RGtxcTNUVFh0OXJRRnNzVDVCMFFLbjNwRC1RX1RoVERYdnhWSWVJbG9zMkJhTmQtTVNrcUVoYw?oc=5" target="_blank">LEAKED: RUSSIA-CHINA WAR MACHINE TARGETING TAIWAN</a> <span class="source">Zee News</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTFBGOUt6eHBRVDJZMVdoRTEteDF3Q0tVZEZFVTJqbURvOWN5WWRXdG1EX1REQ29PUVk4bEtFSy1YYXNPNmIwdVNLR01NR1VhTzJGdDBEN184WDY?oc=5" target="_blank">Nine PLA Warships, Seven Aircraft Ring Taiwan</a> <span class="source">Taiwan News</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOeWZHT2pvaVgtZGJZSHJIdjZlR2JabGFnS01sY1NlOEtmbXptajZzRm1ZLUYxcndZSy0tei13QkRxUDE0aU5QanVZbVI2cmFrdkNFR1VrWm5OamFheVFGTGxlTHRWQ0VaU3c1R2lfVUplOVowY2lreTFNaFVWUXlkT1E5SktuemxDTDB6di15bEFVMHdTdGcwWFdPeE80eGh1aDA2YzJSSDhhNERZR0JoVC1fUi16djZYVUJlUGdLaWZ4cGNfX2twcDFqTWVMOWdqNkRNSg?oc=5" target="_blank">China Deploys New Assault Ship Into South China Sea</a> <span class="source">Army Recognition</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNSk9zSWw5VzhpTW0tUjNhLXJBd19Jb19KcGl5TDlLaGxzZ0hFcl9sZGxIWWNDZ2g2ekt5TzBNM0lvcFFvbUljWWMteGpiNVFRcllJb1FGQzVsd3BPeU11VlZHN3Q0M1ltZWw3dG00eE5tb3d3cWQ0WEp2RENRQVVaTWZqVnEzY3NQOE9tclpEVGhmNFdXRjMyQ0wwNzcxX3Zq?oc=5" target="_blank">China Quietly Rebuilds South China Sea Islands</a> <span class="source">Lowy Institute</span></div>
+      <div class="story caps"><a href="https://www.msn.com/en-us/news/world/potential-consequences-of-a-chinese-invasion-of-taiwan-on-the-world-stage/vi-AA218lGb?ocid=BingNewsVerp" target="_blank">What Happens When China Invades Taiwan</a> <span class="source">bing news</span></div>
+      <div class="story caps"><a href="https://www.yahoo.com/news/articles/north-korea-strengthens-nuclear-push-013952697.html" target="_blank">Kim Races for Nuclear Status as World Looks Away</a> <span class="source">bing news</span></div>
+      <div class="story caps"><a href="https://apnews.com/article/north-korea-russia-ukraine-memorial-museum-7c010fe1ded78fc45167c4fbab17ec92" target="_blank">Kim Opens Museum for Troops Killed Fighting for Putin</a> <span class="source">bing news</span></div>
+      <div class="story caps"><a href="https://www.channelnewsasia.com/east-asia/north-korea-russia-ukraine-war-kim-jong-un-support-sacred-war-6082856" target="_blank">Kim Blesses Russia's 'Sacred' Ukraine War</a> <span class="source">bing news</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOQ19UcXRHRDlHRFRZWDFLQ0JLdEFTdFlRUHlUcDRyb1hLc3hRazIzWjdwRHFsU0U3ZFdhQU81UC00RFhxZFhEVDNKMHpRUkZWWmpEZTJYdkJlNGdOaGtHR09iUU9wbkRKSVpfeGstb1lSRzZYV2tqaEEzNjJvS0FGa3NwUlFlQkl0YWFPUGRUc0ZtN3l5N0g1bURjc3dXcl9nVVhKNEEwbzJidjlKTUVXaFgyRnMtZDRheHMwa0JqNHdzZFdEYUpUT2w0ZHBLeXEyaGpGX0Z2STNsRzZaUUE?oc=5" target="_blank">US, Japan Navies Challenge China in South China Sea</a> <span class="source">Zona Militar</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQeE1IeC1PWFFqbC1jcU0yaldSdWNmYzZDYXN0ZUZ3YVZxZlplN2xXSXhkWE1SUmNSU0tvWnZFWm5rejZ5bkhOc0FVMjlOcms0WEpiOW1sSV9PY0dSZ1VHZkxNc3J3MU5DTmg0c1MzOFBxRTFWcEdTUG11U2w0cjlmSzRNaUcyV0NPcDVjYTB2b0VHZ3NLQUloQ1FvN0xsUGlqak1JNEhwX041ekpaZlRR?oc=5" target="_blank">Taiwan Shrugs Off China's European Arms Sanctions</a> <span class="source">Reuters</span></div>
+      <div class="story"><a href="https://www.telegraphindia.com/india/iran-steps-in-as-mediator-saudi-joins-diplomatic-push-amid-india-pakistan-standoff/cid/2096033" target="_blank">Iran, Saudi Arabia Move to Cool India-Pakistan Crisis</a> <span class="source">bing news</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1kaUF6WF9mNjBhWmhpdmVBUFdBZkdNQUtuR3lwY3N0dUMtc3p3NzBnNFNfcGVRODl1UUFxdkZrZHhFUWQ5SlZ6NGhWMXYycUo3NzhIOUdXSDhRZjB6?oc=5" target="_blank">Taiwan Condemns Retired Officer's Secret China Trip</a> <span class="source">Focus Taiwan</span></div>
+      <div class="story"><a href="https://www.taipeitimes.com/News/feat/archives/2026/04/27/2003856294" target="_blank">Taiwan Fears Trump Will Sell Out to Xi</a> <span class="source">bing news</span></div>
   </div>
   <div class="column">
     <div class="column-header">MIDDLE EAST &amp; EUROPE</div>
-      <div class="story red caps has-thumb"><a href="https://www.aol.com/articles/russia-launches-one-largest-attacks-185040600.html" target="_blank"><img class="story-thumb" src="img/thumbs/geo-3feb523dd8.jpg?t=1777251614224" alt="" loading="lazy"></a><a href="https://www.aol.com/articles/russia-launches-one-largest-attacks-185040600.html" target="_blank">RUSSIA FIRES 619 DRONES AT UKRAINE; 10 CIVILIANS DEAD</a> <span class="source">startpage news</span></div>
-      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5tOHdfcUk3dVpXaXpwamg2NFQtMTRGQzZyVjcwT0Y0c3JlSGU5b19zWTB6TmJtUC01RTBFMDFTVjZaUFlQLVFOdXZkOU14SlFyZDRKUFhRVDFLWFhQSHRMcQ?oc=5" target="_blank">UKRAINE SMASHES THREE RUSSIAN WARSHIPS IN CRIMEA</a> <span class="source">The Kyiv Independent</span></div>
-      <div class="story red caps"><a href="https://cryptobriefing.com/iran-rejects-nuclear-limits-seeks-sanctions-relief-and-strait-of-hormuz/" target="_blank">IRAN SPURNS NUCLEAR LIMITS; DEMANDS HORMUZ STAY SHUT</a> <span class="source">bing news</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxPaW1mbGJ5MkRieE56d3hBUkh4VDZZcE9LTFRQNkVCWGkyVHVWSm5qVXdVdXY1UDRQLVFlSkJZSlNNYnZSRGlFSzNqRXM0R1JTdG9jVFZhX3pZSDJ5U3EtX1VMRElEdEVTWUpseWNnYUl5ZVZrWi1ISUhvZG5nRkNkd1hPMkZNNlI4eTN2aW5WRFhJMnBPOVNHakVzRzJTc3RwV3NpNkNpYUZRTEh6dElMd1FRU1p2Ykplb2hkRi0zUlNwb3ZHR1FoSXowMzZMNmJzaDhOdmp1V2ZwQQ?oc=5" target="_blank">UKRAINIAN DRONES HIT RUSSIAN OIL REFINERY DEEP INSIDE</a> <span class="source">The Kyiv Independent</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSC1sV0FXbV9EZ05MWVRkaC14Mm42bnZEQy0xNHcxRml5TzZtQl9Hbkd2TzM3NmlueGRmM1IyYmEwUms1VHVhZV9qS2M0SXFuUXRKQ3AyaTUzS1hWS1ZVcjcwVENRMFUzd1VOdkxUQ2I3YjJDMVNFdml6NkFjRnZRbU40Rm52QUVXbWlacmloWXZjdHBSRXhid3dFRWsxazhGa3JZaExkUGVyR3V3dEExM2M1a01GUF84UzZjSFJpQ3Q?oc=5" target="_blank">RUSSIA THANKS KIM JONG-UN FOR 'LIBERATING' KURSK</a> <span class="source">The Moscow Times</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE9fR1hUdzhZaUVaem1Fd0FheG5aR0pFU2kyVGxsa2JablNjRE91WkpSYzVaQUlYOWFLVlBET193NU5VTmRXamxtZGlpOFpnMkh4LVFjT2tIUGY?oc=5" target="_blank">TRUMP: 'GOOD TALKS' WITH PUTIN AND ZELENSKYY</a> <span class="source">TRT World</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQR0Fvc01yYURqTXZDbk96bmdLemo0SGkwU1F5YVVONnVOSVFOV1VtaklldGRuNHlybkQ1MkJ0cEc3eEQ4d25FVzVJTmZIV0NSbTJZWEI5eVBzdld0RzhQelBFTFBNQy0wdUdmVEVjUXU4akV1Tk1URGx2eWxaWHk4endfbkZuN1NMTGhBcUZQbm9NWlk?oc=5" target="_blank">EUROPE PREPARES FOR LONGER WAR — NO END IN SIGHT</a> <span class="source">The New York Times</span></div>
-      <div class="story caps"><a href="https://www.cbsnews.com/live-updates/us-iran-war-trump-strait-of-hormuz-hezbollah-lebanon-israel-ceasefire/" target="_blank">IRAN FM RACES TO MOSCOW AS US ENVOYS STAND DOWN</a> <span class="source">startpage news</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBmMnFTNDNEc1VadmtDdVkwLVprME1QaFl3cHBsSFhtdnB0aHo3YllQQ01LbWVhdEhNd1RYRFVPRDJRZFA0eVJuMkFUNHFDTVRkQUVNbVFNazNPam5zelM0aFNJaGl3SEFaRi1NR0tzVE1zQkR0YW54dlY3X3E?oc=5" target="_blank">TRUMP PULLS WITKOFF FROM IRAN PEACE MISSION</a> <span class="source">The New York Times</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQNXZReTlUSXF2dTRNTjFoVkNYMU93b2Q5YkhWcFhVd2JuYXhKeVdrc1dRN1NhczhHRW5FaW9uVlRPd01iWGRrajVGeDc1V1kzMGJ5V3BmMVlJLXZHYWRWdDhtYUR6bEZyT2lvNzQ2ZmczQnBGc3JBTjBMQWR0Q2hseGJsODJEM0pwemVPUlZGQzlRRUluczJv?oc=5" target="_blank">US AND IRAN SINK INTO 'NO WAR, NO PEACE' TRAP</a> <span class="source">The New York Times</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE1vVmJWZEZJdjBfbGlYNWF1aUo1R0wxY2E2ODZDMHVmUUZIN2VMQm96U2hHOU1OLTFnREg0SGxRSFNaRElyQ3B2Nm1HLWJxdm42VkhLcy1lTWYwNHB2aEVLaGNyZGkxc2l5NjdERjg0XzNha1B4UC1jdg?oc=5" target="_blank">9 US AIR FORCE TANKERS SURGE TOWARD MIDDLE EAST</a> <span class="source">Simple Flying</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOb1pmRzFCQXBTY3pjQ1RfSTdJRDBiU3Z2a0tfVWl0UzZ4bENGcnEtLWtXUF9pelhpMEU5MGhUa3NPUDJBZlc5c182U0hKWDF6NTFRdnFFX0tRZjBPRDZVYmlPMDhCTVhpbVJzYy0zRzRwSW1zVkI5eDlPMko0bjRDbm9PODJnWm52eWhIQjd6R1VpVEVCNVBrSHFYLVpFVzR3VXBleWxKSWppZkQ2eFE?oc=5" target="_blank">ISRAEL SECRETLY DEPLOYED IRON DOME TO UAE</a> <span class="source">Middle East Eye</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMi3gJBVV95cUxOSlZObVJxSV9LMGQ3MUFyRVpvYzIwT3k5NXhYSkdOUmhlemYtazlacGJTUEVfOVVLNi1EQTUwYUQwS1VScUp6Rk1JZi1JRnVQTldKWExXQWo0X1NWX0VQSXlENHg1Q3hkZmZhUXJlZWdncmdxSkpuWkxuaXlPbmVjQXRXQklDUjZaV1RaYXFfY1VoQTd3SVhwX2FJR19lenByNXRBN1VGdVlpdEFXbGpDMi1PdVZVVzFJVGpnZkJJM1lmMHJ0bW1XVGduNHdjN25Xb0JXQXlXdGZmNk9TRGVITDc1a2tpSVRKZTI3MGFPa05CVkh1cVlKZ3paZVN2VTNlRndla0ExWjlUVlJjaFlWUExwS3NJX0UtQkM3WGpMN0xVOU5XMVJlN2k3ZHFyczk2SE5RbjFJeWRoU1I1ZE4ybDlsbFFOWlpNQ1hCVWNmNFNhWkNfNDhDRjlRNnAyZw?oc=5" target="_blank">IRAN OPENS HAJJ TO SAUDI IN SURPRISE DIPLOMATIC MOVE</a> <span class="source">Travel And Tour World</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1VTy01dU9yUDlHSm9sOGxmU0VVMTBqMWE1TnRkMTVMYndTRXY1NF8zc1I2OF93Tl9qZmdxaXl1YjBhNFlEOFpRSm5EYmh3WmVDdVB2dkRvWGo3LTZsaFAzSktXcS1ucmJhRnpuZ3ZreXk0OXpJenAwb29CbjdPYXM?oc=5" target="_blank">Russia's Spring of Discontent — Putin Has One Answer</a> <span class="source">CNN</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQQWF6S3NsNU1UUUJJTEZjTU9sV0Z0Y1Y0cEJrY0NfUS1hak1aMEdORkFPU0RGUEZSNXRrSEJBcTBqVHhiRzc4RjkwR2lxZUhheGx0TmhFZWdHTUNWekYtejJtVURYOTJOa2s3X3JiV0NtM0F3eEJTQ3VzcVVFQjNSVWc2cWZMMHdaZWc?oc=5" target="_blank">Inside Russia's Bleak Mood as War and Economy Grind On</a> <span class="source">The Washington Post</span></div>
-      <div class="story"><a href="https://www.aol.com/articles/ukraine-land-robots-revolutionising-shapeshifting-080109299.html" target="_blank">Ukraine's Killer Robots Are Rewriting the War</a> <span class="source">startpage news</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE00bGpWMUZZdFJ6clIwbHl2ZmU4Z2JIUGQ0YVNPbWhMZEw0eExJX1hrRzhqVUJ5QVl6LVJqekdOYXZ0RDA4d2FjT3RwSndHdDBPbTgzQTEzbDc2eDhpUlI4aDFINjBLbWNLQUgyc2trX3NmWlNvN2Zn?oc=5" target="_blank">Chernobyl at 40: Russia Has Hit Ukraine Nuclear Sites 155 Times</a> <span class="source">Euromaidan Press</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQTXpMT19nUWMyMDRlSXg3enBLbEtYWG1qUEpvcVM4d0ZnVVQ3V3RXNnBmNlFyZFRaRUNyWU5sUGRSUVRhODAtRThQM1VTcDNnWWRHZlhUUlAtZE5FODBJdi1CNnhtVktsMXk4S0E5VzBXSER4ZlN2TklybGhhTHZNQzRBSzFVd28?oc=5" target="_blank">Russia Will Never Accept Real Peace</a> <span class="source">The National Interest</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOZ0dEdzZrY2JsQzV5dUxZNHVNb1NHWnBzME9OTmV6azNFdmVyV2hQanZ6N09SUU1TNTJYbjh0UnJoVTg2ZzlGRkEtUnE3blpGMXN3c2JhamFrZndSWnRwcTNHaC01OG9WMHZQMlpWLWhWY0FBMkZ0blNla21lUUxvTWhreUxqXzRnV3c?oc=5" target="_blank">Ukraine Is Shielding Moldova From Russian Advance</a> <span class="source">Euromaidan Press</span></div>
+      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBvaWRtTGI5VzdqXzhQNUZEclpqenNDS1l5bmF1RmVvSlp5SGg2b016MXlFX0UyY1drdFVsUkVlSWFwTUhlRmFPSjVmZWhyQkZTRmduZUFPNC1abjdyWVh5a1lyelljT1RNREE?oc=5" target="_blank">IRAN OFFERS HORMUZ DEAL TO END WAR</a> <span class="source">The Jerusalem Post</span></div>
+      <div class="story red caps has-thumb"><a href="https://www.yahoo.com/news/articles/ukraine-war-latest-three-russian-170121320.html" target="_blank"><img class="story-thumb" src="img/thumbs/geo-4de0db3fb9.jpg?t=1777268138642" alt="" loading="lazy"></a><a href="https://www.yahoo.com/news/articles/ukraine-war-latest-three-russian-170121320.html" target="_blank">UKRAINE SMASHES THREE RUSSIAN WARSHIPS IN CRIMEA BLITZ</a> <span class="source">bing news</span></div>
+      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOVi0tOWZGeWc4bXRnV0VPUWRnV290cFlDOUQ0OUJhWjZBYW1ZUGU3ZERrU2J5UHV4NzlhVjdPMmx0cjBvRkh6eVBUYmc4enNtcnFDa3ZSM3lJVWlBYlVnRDZWZnZJSWYtRTV3T0FjLWtPenhXbjhQbVY2eHRRamw5ZUFyVjFYX2ZqMEVEbXh6XzFQTGh4NWhzeno0Wk9VaUpGcDA3aVREWkloM1BKczdz?oc=5" target="_blank">PUTIN DRONES CHERNOBYL — 'NUCLEAR TERRORISM' CHARGE</a> <span class="source">The Independent</span></div>
+      <div class="story red caps"><a href="https://news.google.com/rss/articles/CBMiowJBVV95cUxQNml5YWNRRi1VN1ZsOEN4emVVbmhfdy1HX293TEVjdEdTUXctYWpqOEQydmhBN2I5QzU0QkhMUmxOV3kzT0RKMkNBbnZsa0J1RVRORXVIRTBYZWc0T3FFb0hqdnFJYjJwd0RkSDB4Qi1XZWVMdWhROVRTWWQ1Z213aTc3RDVZUVJHRVRfazM4UGQ4R0ZiekYyQkluT0JodVZNajNucDJZdldZNTJpUzEzMWdmVURyQmJibnlTZE56aUR1bDBxXzNmcEtmcy14eGJqSG1CVXNiRXZOd19ZeXRfT3RUT3hPT3lhb3BITENzYUpZQVhSS0piXzc5QzViVTY0NWtoaWI4RzRLeXZmMm5aNHR6YnRCcFh5THp3Xy1TOUg4T28?oc=5" target="_blank">IRAN WAR: LEBANON BOMBED, HORMUZ CHOKED</a> <span class="source">The Sunday Guardian</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOQVB1bUluUzlIRWVLTGxDRFN0RU1VSDNnVUl0UEljVUl5RWluYVFZbldET2I3Nm9OUk5kNjhZa1hicDRpSl9Id1lJdG5LQWMxWUt4RF9OUXBKMVpqVlhNblFOcDZiLTNFY1BPWmEwS2ZNUzR3SkZxMmlzY29OQjBCTVpJOXRHRVZUa0VoRWlyeGZnWEREZ2llbFh5dGY2NnFTSDlHd1NndFRGQUxnWEpqQ09EMA?oc=5" target="_blank">Moscow Unleashes Biggest Aerial Strike: 10 Dead</a> <span class="source">The Independent</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQNXZReTlUSXF2dTRNTjFoVkNYMU93b2Q5YkhWcFhVd2JuYXhKeVdrc1dRN1NhczhHRW5FaW9uVlRPd01iWGRrajVGeDc1V1kzMGJ5V3BmMVlJLXZHYWRWdDhtYUR6bEZyT2lvNzQ2ZmczQnBGc3JBTjBMQWR0Q2hseGJsODJEM0pwemVPUlZGQzlRRUluczJv?oc=5" target="_blank">US and Iran Trapped in 'No War, No Peace'</a> <span class="source">The New York Times</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOb1pmRzFCQXBTY3pjQ1RfSTdJRDBiU3Z2a0tfVWl0UzZ4bENGcnEtLWtXUF9pelhpMEU5MGhUa3NPUDJBZlc5c182U0hKWDF6NTFRdnFFX0tRZjBPRDZVYmlPMDhCTVhpbVJzYy0zRzRwSW1zVkI5eDlPMko0bjRDbm9PODJnWm52eWhIQjd6R1VpVEVCNVBrSHFYLVpFVzR3VXBleWxKSWppZkQ2eFE?oc=5" target="_blank">Israel Secretly Deployed Iron Dome to UAE</a> <span class="source">Middle East Eye</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPb1VGYVkwMnFaYUNNNmhBdW0wRnBsZFJKSHhLNWdJMzBCY1B4TE5DTkFqemkyVUJROHNIa2ZWZGRzbTc5TnVYMzIyU3NDYTAteV9WT0JyaWEweGkzaVpsR3dGbnV0YWw0NDYtSVgyWnQ3bzJmb0w2TTFnWTFGNmdhN2tKZElPOTUtQUdwU0ZUN1FVbDV1Z0hsbWx4NXJTQnM5ZkhwT2hoaDZkeUs1UzF6Qmo4SXFlT0tHOUJMOTBTQnFKWVNBX1lGWnp4Y9IB0AFBVV95cUxPZGdTa2R0RDFoeG9qM0hNc21nZ2FrYXBFbDc1VnZOQzdSVmpNZDVQZWhfMGZic1VDX3RCVnhHd3VnVnBPbUJXYU15NlJud2FWcWllR0hHaXhld0hIZUMtOUNIMDRwRmhmbzdsLURvbDVFNkd6bGQyU085REJpQmxUR0lvT2ctbmptWWYyZk9RdVN3c0dyb21fOU1ZSVZNR015Rm1DUzhESUVjM2EyMExCbmthUUo2UzltalZRenZnMnZNeTZPM2NWSDFydDFuN3M2?oc=5" target="_blank">16 Dead in Strikes; Chernobyl Anniversary Haunts War</a> <span class="source">PBS</span></div>
+      <div class="story caps"><a href="https://www.firstpost.com/world/putin-has-failed-russia-is-losing-35000-soldiers-a-month-to-drone-strikes-finland-president-alexander-stubb-on-ukraine-war-14004743.html" target="_blank">Putin Has Failed; Russia Bleeding 35,000 Troops a Month</a> <span class="source">bing news</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE1KY2ZOajVzY0pnWmd5WEFjdTVpQXJfY1JRcTZ6TU4yT2s3SGN0b1F3V0ktblJJcUg1YUFmM2F6eHI0NHpTaWh1dTZOeGJ2WmdQMmxVR0xIMHg2bElrMDNoZVRlWmhTRnhxT0pOeXNXbE9FM1pBdl9Fd002dW0?oc=5" target="_blank">Iran FM Defies Trump, Presses Ahead on Regional Tour</a> <span class="source">CNN</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxObmw4QmVkeHBCaWdrR1hnNkt4UEhzQVRGT25kQ01IUExQUnhMZno1eGxfMWlkVmpwZGlwU01QVjVVSTVmNHlEa0prdnVVbVJiYy12UkVqeVlaM2JGWUVPVFUzYjBvalVveGtuX0ZDcDk4QWFYMWVkNUVYOXluX1hVR2RiX0RyaE03VVRTcXNEM25peURxR29ORlZnV3lJQXZEeE5qeld2ZWtQTHJzc3pFLTExMTBFTTBiNXF2R24tUHV4MGtkNU9BaDhn0gHPAUFVX3lxTE1PSXhwUXdyUFhlbTB6MTRkUWZ4Q0lzOFlwQ21rYXpUT0E2RWxIemVUc3dUOHlMZWMxRzhCcklBV0R3dUcxQU44UmM2a2Jvd1VUaG01TnJhR2tPUUpuX1htTmxrNW9jblpuQW1TYUhraWVoOFVaZWhmd3ZWWm9BNzRtUW1KNXJoR2pNVGVmYnhxOWwzZ3d5M0lYR1Y0ZXdNRFJYcmwxQzFCeE91dTZpRF96M2JHRDhSYkh3cFk5MWgyLXBUWi10QTBhMUthX1JIYw?oc=5" target="_blank">Oil Breaks $106 as US-Iran Talks Collapse</a> <span class="source">Moneycontrol.com</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBmMnFTNDNEc1VadmtDdVkwLVprME1QaFl3cHBsSFhtdnB0aHo3YllQQ01LbWVhdEhNd1RYRFVPRDJRZFA0eVJuMkFUNHFDTVRkQUVNbVFNazNPam5zelM0aFNJaGl3SEFaRi1NR0tzVE1zQkR0YW54dlY3X3E?oc=5" target="_blank">Trump Pulls Envoys From Pakistan Peace Mission</a> <span class="source">The New York Times</span></div>
+      <div class="story caps"><a href="https://cryptobriefing.com/iran-rejects-nuclear-limits-seeks-sanctions-relief-and-strait-of-hormuz/" target="_blank">Iran: Lift Sanctions First, Then We Talk Nukes</a> <span class="source">bing news</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxNcFZCYXpIUzVpNkpHTm1nSlhrd19lWW5GdFlLOF8zV29Ybm50akdUNFE2Zk84ZUx3MHhLNDk5VGRkY2w0aWE3SnBDZUhsbUt4dXBLM1cxenJtNUJoYnVYMnEtdElwLWw5Y2RvMXZvaUdVdkpGZVBQRk5IWHdzXzdzN3Bzc2NOdlkwbno3c005d1ZzZTJBVlJNOUNhOUU0cTRRbVdDMzZmNWlBM2VoV0t2TWtlU0FRVkxrMS1Tc0lHdVF5YXpzQThrM25JcG1EeGowMmd3?oc=5" target="_blank">Israel, Hezbollah Trade Ceasefire Violation Accusations</a> <span class="source">France 24</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQR0dPOXZSMDAzdFNTT2tRUW43eDlxMFhNa2NiX2daQlFGVUo3aFBUUDdZVDgyUzZWa01LM2lqN3ppc0tteDUxWWQ1MmZ6SkRtdHBObHYxUlpiRDZKOWU0dHpHNXQ0YWI3ZjRpS1NXWm11VUZMQ0hVME5UaW1IQWQ4YWR3WHNsZ3NPNnk1NHQ4M1hLV2VEamVvODRXX0Y5cDUzLVg2TlRjVXp2NlQ0d1JWNld0ZVVKNGdtV3N3?oc=5" target="_blank">Iran Seeks Hormuz Exit Through Oman Backchannel</a> <span class="source">Reuters</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQQWF6S3NsNU1UUUJJTEZjTU9sV0Z0Y1Y0cEJrY0NfUS1hak1aMEdORkFPU0RGUEZSNXRrSEJBcTBqVHhiRzc4RjkwR2lxZUhheGx0TmhFZWdHTUNWekYtejJtVURYOTJOa2s3X3JiV0NtM0F3eEJTQ3VzcVVFQjNSVWc2cWZMMHdaZWc?oc=5" target="_blank">Gloom Spreads in Russia as War Economy Falters</a> <span class="source">The Washington Post</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxOZmJFZWRGeGpIRFZsczdGVGl5aTNGcVY5Mzd6UVBfR1UtY0NkaVhjN2ppR0JQbzg4bjhyU1BwcDRGYVRPeGdDQzdudF9zTnF2OG1XME5oYm9qQncyMEx3RmFWSGdLNGxLNTBIam9XQ2VsUklTVFpGNno1U1RTVEZRY1VyLW9ZdUZnclV0dV9Jb0FKUQ?oc=5" target="_blank">Battlefield Robots Are Reshaping the Ukraine War</a> <span class="source">The Independent</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMi3gJBVV95cUxOSlZObVJxSV9LMGQ3MUFyRVpvYzIwT3k5NXhYSkdOUmhlemYtazlacGJTUEVfOVVLNi1EQTUwYUQwS1VScUp6Rk1JZi1JRnVQTldKWExXQWo0X1NWX0VQSXlENHg1Q3hkZmZhUXJlZWdncmdxSkpuWkxuaXlPbmVjQXRXQklDUjZaV1RaYXFfY1VoQTd3SVhwX2FJR19lenByNXRBN1VGdVlpdEFXbGpDMi1PdVZVVzFJVGpnZkJJM1lmMHJ0bW1XVGduNHdjN25Xb0JXQXlXdGZmNk9TRGVITDc1a2tpSVRKZTI3MGFPa05CVkh1cVlKZ3paZVN2VTNlRndla0ExWjlUVlJjaFlWUExwS3NJX0UtQkM3WGpMN0xVOU5XMVJlN2k3ZHFyczk2SE5RbjFJeWRoU1I1ZE4ybDlsbFFOWlpNQ1hCVWNmNFNhWkNfNDhDRjlRNnAyZw?oc=5" target="_blank">Iran Opens Saudi Hajj Route in Diplomatic Gambit</a> <span class="source">Travel And Tour World</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxPRkN1WWRWZkhyQlRCeF9sd3Item5DZDBBNzRxU3BJNjQ1MEdLUFF3TlZNN1R4TzIzbWRQdEpMY1M2dEtwWXZhR1Z0akExZ2ZSdEJxS1NkUUhudjEwanNFTWljcVMxVHdlZWF0MFVDem1JdkpGNXdDY0NCbzFFck9FbTFkU3UwTFdMdEFVQTdjRDlyWGM3MUltemlvNkROTkxxYzNlNEkwdDEyQllEZjB4dV9XdnFmSWpZZ3Frd0Fsand4Ui1nRXdBY2I5S200WFRYRFp6UjVhTEtybUtDZHFsWEdYVFM0cm4wdmtoNg?oc=5" target="_blank">Zelenskyy Signs Azerbaijan Deal as Bombs Fall</a> <span class="source">The Guardian</span></div>
+      <div class="story"><a href="https://charter97.org/en/news/2026/4/27/681942/" target="_blank">Finland: Russia Losing Five Times More Than Ukraine</a> <span class="source">bing news</span></div>
   </div>
   <div class="column">
     <div class="column-header">GLOBAL TENSIONS</div>
-      <div class="story caps has-thumb"><a href="https://www.aa.com.tr/en/politics/czech-premier-says-nato-data-shows-country-will-miss-its-2-defense-spending-target/3918620" target="_blank"><img class="story-thumb" src="img/thumbs/geo-17b3084fce.jpg?t=1777251614224" alt="" loading="lazy"></a><a href="https://www.aa.com.tr/en/politics/czech-premier-says-nato-data-shows-country-will-miss-its-2-defense-spending-target/3918620" target="_blank">CZECH PM: WE WILL MISS NATO'S 2% SPENDING FLOOR</a> <span class="source">bing news</span></div>
-      <div class="story caps"><a href="https://www.devdiscourse.com/article/politics/3887567-tensions-rise-as-us-iran-talks-stall-amid-middle-east-conflicts" target="_blank">US-IRAN TALKS COLLAPSE UNDER MIDDLE EAST FIRE</a> <span class="source">startpage news</span></div>
-      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQdjN3UV9WalQzM0ZKdjVYSjZSUko2dU5rcWM0dmFfRVZoYnFLVklVZG9yYk5KVXpxazVoT0Z4c0V2QmpvU3hiR1ZfWm1VWXA4aHNydTNuRnhYRjE0WXF6aTJBSkxMQmk2YklpZTB6TWpLYUVVV0tTend1UlpMVWU4SUNtbHFLeFJxNUh3UTBmSENvX05CbUFlQ0YyY3BrMGdzRjVz?oc=5" target="_blank">OIL TOPS $100 AS MIDDLE EAST CONFLICT RAGES</a> <span class="source">Crypto Briefing</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1ZSmRjVjlIMHk3WlhDUjZ3b1A1VnF5TWFIQWFHOE5Weng0c2JRVkR2X290UEpCSkFibmJPYTNEMkstNHU2dkFIMjVEZFZtblBiNS02MVBMb19saThCZXlRN2ZfZ3ZaSm1oX3c?oc=5" target="_blank">UN: Iran Civilians Face Medical Supply Collapse</a> <span class="source">The Jerusalem Post</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOMXczampxT0ZsdG5Jand3dEstcmpFSDNiLTNsNXJxOC1pdjEyQzA4Rl9ZYVAzeWYtSzhwT21QOXR5NUl4M3hZS1VUWHVXaUVucEotMUlOcFhCeFJLd0Q5R0cxMVdEcDcwV3k2bUlFOTZxSFpLTUQ3RkpVMzl1dWVqeTlxWi1JWWJjd2phRWwwRGU0NWI3N29EMHpyRV9UUTlkZ0NYYklOTnR2TVA4d1V4VWRBTF9TTWpHZGRv0gHAAUFVX3lxTE44YVVrcDBIOUJjTFpBaXcta3dsSDdyYURrRDU4SGNoem9RRXB2bmV1UE9SRVlkUWJtSzNaOE96dEVuRWMzblI3R24tbmdnNl9BNGxELUNESE9JRE5FSjk5ZlVzWk1ITnhjei00RFJtODJSWmN4TkhJTkhIZkdyQ1pVcGVVUEdIZnc2c1ZoWWpNdktSM3FVeXlJN09nbmNNQ2dBUXNGbG9VejJ0TWVVOXhLX2ZCWXczU3ptWHRDWTBQQw?oc=5" target="_blank">UK Draws Up Contingency Plans for Iran War Fallout</a> <span class="source">Middle East Monitor</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPR1h6NzFodUVwaXduV0VyTjlnYTF3REJyUnkwWjBRVEotWVd3SmZmcFFPRlh6NkNiLTJOcGhrTmVrZkZqV2t6dE9ZWk53WDJVZGxBWVJVX3RYMG5TcnZEOEFOTWpRZzNTTVY2SC1ZRm5KQS1MMTNzamxXMzJnMVlGTUVvYWpRR241cy1pWGg0a1JpRzNXZGxWN2w4TVdCUQ?oc=5" target="_blank">IEA: Middle East War Kills LNG Expansion Until 2028</a> <span class="source">IndexBox</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE41Z0dzSHgydFRsSlpKaUVyTHlVYnRPSi1YeWxXM21lVXJLYlllaXdzZHZVYkJlS2wxX0ZGY0dLSnNNNmRLbmpTV3RsV0N5ZTlmaGFkMHhoenlHUQ?oc=5" target="_blank">Higher Prices Could Grind On for Eight Months</a> <span class="source">BBC</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOU2lEUHB1ZDV6VXhJeDRRZWE3OEhhLTBTZFFxNllucDBCblNwa2FUaVItYTBuQ1h1WWdCMU9UbXNQdDJEOGVaQXltUEVIOE5XdVlEOTEwajBEdFZsaUVFd0d6OXRGajh1UHpjcUM5aWJaS3I2MTZTVGxwWmp1cUZHbkNuUUJCWGRWX2VGYWVkNnpqQXIxVTRpQm9YejJfUjNnVVBsRk9ENEE1d2owQ3NKcE9qR0o5SXNqUGJz?oc=5" target="_blank">US Oil and Chinese Solar Win Big From Iran War</a> <span class="source">The Guardian</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMi_AFBVV95cUxQUWtFYnpfUmphLUJuQWk4bE1TaENIaTgyOXEwMlZpWG1nR29WWmFMbXJXREpUUmtuVWcxeGViai1na0ZiMWhLTHlOMG5WNUZWOGtVZlhvanB1Rm1CeFhicTZMZlQ2OXI0bzJUME9PbV9wdDR4NnllSVlJZjlMTGJFdVExcE5LWHF2VmdxUW9oSUxiNVJzak9YYkY5a1BtTlNEZXZPQU45d0hJRWc1SzRDVzBJLWtxNENMcHZzUlNWUFM1YUI4RFJ5SHB5UDg2b0R3UndrYzFtSkwzWkRXenRNdFVZRWtBVXRaQWV5aEcyMnZrWXZVTzc3eXRRaVbSAYICQVVfeXFMT0hRLWY4Ti1ucE5qYlF2blZhbWhOVmZhQ2VrZXlGS0RzWDNrdWhaWkE2UVRHTGNIZnhxWmhhVjdtOWREemZ0eXJNSlJtY29qekJKU3VqRDhpWXNoWWotU0ZaQ0tmUWtBdU12eUZOQk5aSGVma1RSbUs4SXYxRDNrcVBjLUNwb3VtZzRRWUlubUVBQm1sWmtpeW54M0JVQUtiSW4xWEhtV0FaUnVsd1AxOU9aa2p2dl9mbzN3b1dpMFVaeFRNb3dQaE94V1NYNWd0c0UweElqUVc1N1dKSkVKNHhFYnM3NzdjaFZvZnZYbVhTN3lCTXNYVUFrTlVzWXc3SjZR?oc=5" target="_blank">BRICS Fractures Over Middle East Conflict</a> <span class="source">The Times of India</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQR0dPOXZSMDAzdFNTT2tRUW43eDlxMFhNa2NiX2daQlFGVUo3aFBUUDdZVDgyUzZWa01LM2lqN3ppc0tteDUxWWQ1MmZ6SkRtdHBObHYxUlpiRDZKOWU0dHpHNXQ0YWI3ZjRpS1NXWm11VUZMQ0hVME5UaW1IQWQ4YWR3WHNsZ3NPNnk1NHQ4M1hLV2VEamVvODRXX0Y5cDUzLVg2TlRjVXp2NlQ0d1JWNld0ZVVKNGdtV3N3?oc=5" target="_blank">Iran Tells Oman It Wants the War Ended</a> <span class="source">Reuters</span></div>
-      <div class="story"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOYzc2LW9VeExGbmoyQncwX2VjeVJZNjlGbHBmRDhfU0xJT1QzOG9HVGtGRTd0V202Y2tNUks4bmdsWGktT2lpY25WclJzN3h3aldhdzRRcWFjM1U5dWRad3BHSVBqdG91Qmp5ZnNfT0V0ZXJFX0pPRUZ6bHFsNE9wZGF3cnBEWUpEN3c?oc=5" target="_blank">EU Demands Lasting End to Middle East War</a> <span class="source">Macau Business</span></div>
+      <div class="story caps"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPNDZocXN5bDRHbVZjUmVsMVZfa0JyYldGQkJuNXR3Y2M1LVh6SE1waXdxMTQ4SVNIWUt0YURLMzRfOFk4NGExOGdySjVzSnBhNDViMHAtVmkyVF92SG5nMnRYWmozeFZ1WVB4YUZZakk0MVhROG1hODlMcjRVUTI0SEdhcEpWT0pFc3luaFpHdXdNTXlsLVFremJzRnAydGxsMGQ2ZFRR?oc=5" target="_blank">Trump Presses China to Do More on Iran War</a> <span class="source">Middle East Eye</span></div>
+      <div class="story caps"><a href="https://www.devdiscourse.com/article/politics/3887567-tensions-rise-as-us-iran-talks-stall-amid-middle-east-conflicts" target="_blank">US-Iran Talks Dead as Middle East Burns</a> <span class="source">bing news</span></div>
+      <div class="story"><a href="https://www.euractiv.com/news/sipri-challenges-claim-all-nato-allies-reached-2-warns-of-creative-accounting/" target="_blank">SIPRI: NATO Allies Fudging Defense Spend Numbers</a> <span class="source">bing news</span></div>
+      <div class="story"><a href="https://www.moneycontrol.com/news/trade/india-us/america-s-future-is-with-india-pakistan-doesn-t-even-come-close-says-ex-us-official-13899049.html" target="_blank">Ex-Official: US Future Is India, Not Pakistan</a> <span class="source">bing news</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOMXczampxT0ZsdG5Jand3dEstcmpFSDNiLTNsNXJxOC1pdjEyQzA4Rl9ZYVAzeWYtSzhwT21QOXR5NUl4M3hZS1VUWHVXaUVucEotMUlOcFhCeFJLd0Q5R0cxMVdEcDcwV3k2bUlFOTZxSFpLTUQ3RkpVMzl1dWVqeTlxWi1JWWJjd2phRWwwRGU0NWI3N29EMHpyRV9UUTlkZ0NYYklOTnR2TVA4d1V4VWRBTF9TTWpHZGRv0gHAAUFVX3lxTE44YVVrcDBIOUJjTFpBaXcta3dsSDdyYURrRDU4SGNoem9RRXB2bmV1UE9SRVlkUWJtSzNaOE96dEVuRWMzblI3R24tbmdnNl9BNGxELUNESE9JRE5FSjk5ZlVzWk1ITnhjei00RFJtODJSWmN4TkhJTkhIZkdyQ1pVcGVVUEdIZnc2c1ZoWWpNdktSM3FVeXlJN09nbmNNQ2dBUXNGbG9VejJ0TWVVOXhLX2ZCWXczU3ptWHRDWTBQQw?oc=5" target="_blank">UK Quietly Prepares for Iran War Supply Shortages</a> <span class="source">Middle East Monitor</span></div>
+      <div class="story"><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPR1h6NzFodUVwaXduV0VyTjlnYTF3REJyUnkwWjBRVEotWVd3SmZmcFFPRlh6NkNiLTJOcGhrTmVrZkZqV2t6dE9ZWk53WDJVZGxBWVJVX3RYMG5TcnZEOEFOTWpRZzNTTVY2SC1ZRm5KQS1MMTNzamxXMzJnMVlGTUVvYWpRR241cy1pWGg0a1JpRzNXZGxWN2w4TVdCUQ?oc=5" target="_blank">IEA: Iran War Delays Global LNG Expansion to 2028</a> <span class="source">IndexBox</span></div>
   </div>
 </div>
 
