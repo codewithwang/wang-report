@@ -554,6 +554,14 @@ a.td-link:hover { background: #1a1a1a; }
   flex-shrink: 0;
 }
 .col-teaser-title:hover { color: #cc0000; }
+.col-teaser-byline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #777;
+  flex-shrink: 0;
+}
 .col-teaser-deck {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 13px;
@@ -563,6 +571,63 @@ a.td-link:hover { background: #1a1a1a; }
   width: 100%;
   margin-top: 3px;
   line-height: 1.4;
+}
+
+/* Front-page weekly column strip */
+.front-col-teaser {
+  border-top: 3px solid #000;
+  border-bottom: 1px solid #ccc;
+  background: #fafafa;
+  padding: 14px 16px;
+  margin: 14px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.front-col-stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #cc0000;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.front-col-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+  text-decoration: none;
+  display: block;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.front-col-title:hover { color: #cc0000; }
+.front-col-deck {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.front-col-byline {
+  font-size: 10px;
+  color: #777;
+  letter-spacing: 0.5px;
+}
+.front-col-date {
+  color: #999;
+}
+.front-col-more {
+  color: #cc0000;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.front-col-more:hover { color: #000; }
+@media (max-width: 680px) {
+  .front-col-title { font-size: 17px; }
 }
 
 .client-roster {
