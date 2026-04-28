@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheung Kwok-keung · THE WANG REPORT</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
+  .pf-nav { border-bottom: 1px solid #e0e0e0; }
+  .pf-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 100px; }
+
+  /* Top stamp + back link */
+  .pf-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 14px; border-bottom: 1px solid #ddd; margin-bottom: 36px; }
+  .pf-stamp { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #777; text-transform: uppercase; }
+  .pf-back { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; color: #cc0000; text-decoration: none; text-transform: uppercase; }
+  .pf-back:hover { color: #000; }
+
+  /* Hero */
+  .pf-hero { display: flex; gap: 36px; align-items: flex-start; margin-bottom: 44px; }
+  .pf-hero.pf-walter { flex-direction: column; gap: 24px; }
+  .pf-portrait { flex-shrink: 0; width: 240px; height: auto; display: block; border: 1px solid #eee; }
+  .pf-walter .pf-portrait { width: 100%; max-width: 100%; }
+  .pf-id { flex: 1; min-width: 0; }
+  .pf-zh { font-family: Georgia, serif; font-size: 22px; color: #444; letter-spacing: 5px; margin-bottom: 6px; }
+  .pf-name { font-family: Georgia, serif; font-size: 36px; font-weight: normal; color: #111; line-height: 1.1; margin-bottom: 8px; }
+  .pf-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; margin-bottom: 6px; }
+  .pf-byline { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #888; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
+  .pf-quote { font-family: Georgia, serif; font-style: italic; font-size: 22px; color: #222; margin: 18px 0 22px; padding-left: 16px; border-left: 3px solid #cc0000; line-height: 1.4; }
+  .pf-bio { font-family: Georgia, serif; font-size: 16px; line-height: 1.75; color: #222; margin-bottom: 0; }
+  .pf-meta { font-family: Arial, Helvetica, sans-serif; font-size: 11.5px; color: #555; line-height: 1.65; margin-bottom: 8px; }
+  .pf-meta strong { color: #333; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 10.5px; margin-right: 4px; }
+  .pf-meta-block { margin-top: 22px; padding-top: 18px; border-top: 1px solid #eee; }
+
+  /* Refusal chips */
+  .pf-refusals { margin-top: 18px; }
+  .pf-refusals-title { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #777; text-transform: uppercase; margin-bottom: 10px; }
+  .pf-chip { display: inline-block; font-family: "Courier New", Courier, monospace; font-size: 11px; color: #555; background: #f4f4f4; border: 1px solid #e0e0e0; padding: 4px 9px; margin: 0 6px 6px 0; }
+
+  /* Section dividers */
+  .pf-divider { border: none; border-top: 1px solid #ddd; margin: 56px 0 28px; }
+  .pf-section-title { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #555; text-transform: uppercase; margin-bottom: 22px; }
+
+  /* Recent work entries */
+  .pf-entry { padding: 18px 0; border-bottom: 1px solid #eee; }
+  .pf-entry:last-child { border-bottom: none; }
+  .pf-entry-stamp { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 6px; }
+  .pf-entry-title { font-family: Georgia, serif; font-size: 19px; font-weight: bold; color: #111; line-height: 1.25; text-decoration: none; display: block; margin-bottom: 6px; }
+  .pf-entry-title:hover { color: #cc0000; }
+  .pf-entry-deck { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #444; line-height: 1.5; margin-bottom: 8px; }
+  .pf-entry-excerpt { font-family: Georgia, serif; font-size: 14px; color: #333; line-height: 1.65; margin-bottom: 8px; }
+  .pf-entry-margin { font-family: Georgia, serif; font-style: italic; font-size: 13px; color: #555; line-height: 1.55; padding-left: 14px; border-left: 2px solid #cc0000; margin-top: 10px; }
+  .pf-entry-margin .pf-mn-verdict { font-family: Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold; font-size: 9px; letter-spacing: 1.5px; color: #cc0000; text-transform: uppercase; margin-right: 8px; }
+  .pf-entry-margin .pf-mn-sig { font-family: Arial, Helvetica, sans-serif; font-style: normal; font-size: 9px; letter-spacing: 1.5px; color: #999; margin-left: 6px; text-transform: uppercase; }
+
+  /* Walter vocabulary list */
+  .pf-vocab-list { list-style: none; padding: 0; margin: 0; }
+  .pf-vocab-list li { font-family: Georgia, serif; font-size: 15px; line-height: 1.7; color: #222; margin-bottom: 12px; padding-left: 14px; border-left: 2px solid #eee; }
+  .pf-vocab-list li em { color: #cc0000; font-style: italic; font-weight: 600; margin-right: 8px; }
+
+  /* Footer */
+  .pf-footer { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 56px; letter-spacing: 1px; }
+
+  @media (max-width: 640px) {
+    .pf-hero { flex-direction: column; gap: 22px; }
+    .pf-portrait { width: 100%; max-width: 320px; align-self: center; }
+    .pf-name { font-size: 28px; }
+    .pf-quote { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pf-nav"><div class="nav-bar"><a href="/index.html" class="">MAIN</a> | <a href="/tldr.html" class="">TL;DR</a> | <a href="/geopolitical.html" class="">GEOPOLITICAL</a> | <a href="/companies.html" class="">HK FINANCE</a> | <a href="/cyber.html" class="">CYBER</a> | <a href="/ai-focus.html" class="">AI</a> | <a href="/hk-local.html" class="">HK LOCAL</a> | <a href="/briefings.html" class="">BRIEFINGS</a> | <a href="/editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="/masthead.html" class="nav-active">MASTHEAD</a></div></div>
+
+<div class="pf-wrap">
+  <div class="pf-top">
+    <div class="pf-stamp">HK DESK DESK · SENIOR CORRESPONDENT</div>
+    <a class="pf-back" href="/masthead.html">&larr; Masthead</a>
+  </div>
+
+  <section class="pf-hero">
+    <img class="pf-portrait" src="/masthead/img/cheung-kwok-keung.png" alt="">
+    <div class="pf-id">
+      <div class="pf-zh">張 國 強</div>
+      <h1 class="pf-name">Cheung Kwok-keung</h1>
+      <div class="pf-role">HK Desk, Senior Correspondent</div>
+      
+      <blockquote class="pf-quote">Specific, grounded, unsentimental.</blockquote>
+      <p class="pf-bio">Sham Shui Po, born 1979. Print-worker father, wet-market noodle-stall mother. Two older sisters, both nurses. Band-three secondary school. No university. Delivery, then trading firm in Sheung Wan, then dai pai dong from his uncle. Started writing in his early thirties for a Chinese-language community paper. Met Walter at a panel in 2017. Wang Report 2024. Still owns the dai pai dong; works the cash on weekends.</p>
+      <div class="pf-meta-block"><p class="pf-meta"><strong>Beat</strong> The city as it is lived. SME credit, wet markets, the estates, mainland-HK small-trader networks, property at the level where ordinary HKers buy and sell, the Eight Districts.</p>
+      <p class="pf-meta"><strong>On the masthead</strong> The texture floor. The integrative figure on the masthead.</p>
+      <p class="pf-meta"><strong>Files</strong> Thursday (briefing) and Thursday PM (column)</p></div>
+    </div>
+  </section>
+
+  <section class="pf-refusals">
+    <div class="pf-refusals-title">Phrases this correspondent will not file</div>
+    <span class="pf-chip">the vibrant streets of</span> <span class="pf-chip">old Hong Kong charm</span> <span class="pf-chip">hidden gem</span> <span class="pf-chip">east meets west</span> <span class="pf-chip">bustling</span>
+  </section>
+
+  <div class="pf-footer">THE WANG REPORT · MASTHEAD · openclaw.ai</div>
+</div>
+
+<div class="footer">
+  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
+  <br>
+  <a href="/index.html">MAIN</a> | <a href="/briefings.html">BRIEFINGS</a> | <a href="/editors-corner.html">EDITOR'S CORNER</a> | <a href="/masthead.html">MASTHEAD</a> | <a href="/columns.html">COLUMNS</a>
+</div>
+
+</body>
+</html>
