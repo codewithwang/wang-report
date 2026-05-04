@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lam Wang Cha Chaang Teng · Season 1</title>
+<style>
+  :root {
+    --cream: #f6efe1;
+    --parchment: #fbf6ea;
+    --ink: #2b1d12;
+    --ink-soft: #5a4632;
+    --accent: #8a1e1e;
+    --rule: #c8b48a;
+    --brewing: #a89070;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); }
+  body {
+    font-family: "Garamond", "EB Garamond", "Baskerville", "Palatino Linotype", Georgia, serif;
+    line-height: 1.55;
+    padding: 48px 24px 96px;
+  }
+  .menu {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--parchment);
+    border: 1px solid var(--rule);
+    box-shadow: 0 18px 48px rgba(90, 70, 50, 0.15);
+    padding: 64px 64px 80px;
+  }
+  header.masthead {
+    text-align: center;
+    border-bottom: 2px double var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  h1.restaurant {
+    font-family: "Playfair Display", "Didot", "Garamond", serif;
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0;
+  }
+  .ornament {
+    text-align: center;
+    color: var(--rule);
+    margin: 24px 0 8px;
+    font-size: 18px;
+    letter-spacing: 0.5em;
+  }
+  section.course {
+    margin-top: 36px;
+  }
+  h2.course-title {
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .course-sub {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin: 0 0 20px;
+  }
+  .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 48px;
+  }
+  .items.single { grid-template-columns: 1fr; }
+  .dish {
+    padding: 4px 0;
+  }
+  .dish h3 {
+    font-size: 17px;
+    margin: 0 0 4px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    font-variant: small-caps;
+    font-weight: 700;
+  }
+  .dish p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .weekly {
+    margin-top: 48px;
+    border-top: 2px double var(--rule);
+    border-bottom: 2px double var(--rule);
+    padding: 24px 0 28px;
+    text-align: center;
+  }
+  .weekly h2 {
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    color: var(--accent);
+  }
+  .weekly p {
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
+  }
+  .brewing-section {
+    margin-top: 48px;
+    border-top: 1px dashed var(--rule);
+    padding-top: 28px;
+  }
+  .brewing-section h2 {
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+    color: var(--brewing);
+  }
+  .brewing-section .course-sub {
+    color: var(--brewing);
+  }
+  .brewing-section .dish h3 {
+    color: var(--brewing);
+  }
+  .brewing-section .dish p {
+    color: var(--brewing);
+    opacity: 0.8;
+  }
+  footer.foot {
+    text-align: center;
+    margin-top: 36px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    body { padding: 16px 8px 48px; }
+    .menu { padding: 28px 20px 40px; }
+    h1.restaurant { font-size: 32px; }
+    .items { grid-template-columns: 1fr; gap: 18px; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .menu { box-shadow: none; border: none; }
+  }
+  .season-nav {
+    text-align: center; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); margin: -12px 0 28px; padding: 8px 0; border-bottom: 1px solid var(--rule);
+  }
+  .season-nav .season-active { color: var(--accent); font-weight: 600; }
+  .season-nav .season-sep { margin: 0 14px; color: var(--rule); }
+  .season-nav a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  .season-nav a:hover { color: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="menu">
+    <header class="masthead">
+      <p class="eyebrow"><a href="/index.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">The Wang Report</a> · Est. 2026 · Wang Family Kitchen</p>
+      <h1 class="restaurant">Lam Wang Cha Chaang Teng</h1>
+      <p class="tagline">A family table for the dishes we love, from Taipei to Texas, in Hong Kong.</p>
+    </header>
+
+    <div class="ornament">✦ ❦ ✦</div>
+    <div class="season-nav">
+      <span class="season-active">Season 1 · The Family Classics</span>
+      <span class="season-sep">|</span>
+      <a href="/menu.html">Season 2 · The Heart &amp; Pressure Edit</a>
+    </div>
+
+    <!-- ALL DAY BREAKFAST -->
+    <section class="course">
+      <h2 class="course-title">All Day Breakfast</h2>
+      <p class="course-sub">Any time is breakfast time</p>
+      <div class="items">
+        <div class="dish">
+          <h3><a href="/recipes/banana-oatmeal-cake.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Banana Oatmeal Cake</a></h3>
+          <p>Warm oat cake baked with ripe bananas, cubed and pan-fried in butter until golden. No flour, no sugar. <a href="/recipes/banana-oatmeal-cake.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3>2 Eggs, Any Style</h3>
+          <p>Hard-boiled, soft-boiled, scrambled, or sunny side up. Cooked to order, always with a pinch of flaky salt.</p>
+        </div>
+        <div class="dish">
+          <h3>Buttered Toast</h3>
+          <p>Thick-cut bread toasted golden and spread with good butter. Simple, honest, perfect.</p>
+        </div>
+        <div class="dish">
+          <h3>Avocado Toast</h3>
+          <p>Ripe avocado smashed on sourdough with a squeeze of lemon, chili flakes, and sea salt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPETIZERS & DIPS -->
+    <section class="course">
+      <h2 class="course-title">Appetizers &amp; Dips</h2>
+      <p class="course-sub">Small plates to share around the table</p>
+      <div class="items">
+        <div class="dish">
+          <h3><a href="/recipes/hummus.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Hummus</a></h3>
+          <p>Creamy chickpea purée whipped with tahini, lemon, and olive oil. Served with warm flatbread or crisp vegetables. <a href="/recipes/hummus.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/cucumber-tzatziki.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Cucumber Tzatziki</a></h3>
+          <p>Cool Greek yogurt sauce folded with cucumber, mint, parsley, and a whisper of cumin. The perfect companion to kebabs. <a href="/recipes/cucumber-tzatziki.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/salsa.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">House Salsa</a></h3>
+          <p>Bright, chunky tomato salsa with onion, cilantro, jalapeño, and a squeeze of lime. Served with tortilla chips. <a href="/recipes/salsa.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN ENTRÉES -->
+    <section class="course">
+      <h2 class="course-title">Main Entrées</h2>
+      <p class="course-sub">From around the world — the heart of the table</p>
+      <div class="items">
+        <div class="dish">
+          <h3><a href="/recipes/pork-belly-rice.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Pork Belly Rice (滷肉飯)</a></h3>
+          <p>Taiwanese braised pork belly, slow-simmered in soy, rice wine, and five-spice until silky. Spooned over a bowl of hot white rice. <a href="/recipes/pork-belly-rice.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/sukiyaki.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Sukiyaki (すき焼き)</a></h3>
+          <p>Japanese hot pot of thinly sliced beef, tofu, mushrooms, and vegetables simmered in a sweet-savory soy broth. Dip in raw egg before eating. <a href="/recipes/sukiyaki.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/texas-chili.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Texas Chili</a></h3>
+          <p>Hearty slow-simmered beef chili, Texas-style — no beans, just tender chunks of beef in a deep, smoky chili sauce. <a href="/recipes/texas-chili.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/keto-beef-stew.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Keto Beef Stew</a></h3>
+          <p>Rich low-carb beef stew with tender beef, celery, mushrooms, and herbs in a savory bone broth. Comforting and wholesome. <a href="/recipes/keto-beef-stew.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/chicken-parmesan.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Chicken Parmesan</a></h3>
+          <p>Golden breaded chicken cutlet topped with marinara and melted mozzarella. Served with pasta or a green salad. <a href="/recipes/chicken-parmesan.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/yoshinoya-beef-rice.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Yoshinoya-Style Beef Rice</a></h3>
+          <p>Thinly sliced beef and onions simmered in a sweet soy-dashi sauce, ladled generously over hot steamed rice. A Japanese comfort classic. <a href="/recipes/yoshinoya-beef-rice.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/chicken-tenders.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Crispy Chicken Tenders</a></h3>
+          <p>Juicy chicken breast strips coated in seasoned flour and panko, fried until golden and crunchy. Served with honey mustard or sweet chili. <a href="/recipes/chicken-tenders.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/chicken-tikka.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Chicken Tikka</a></h3>
+          <p>Yogurt-marinated chicken charred in a hot pan, then simmered in a creamy spiced tomato sauce. Served over basmati rice. <a href="/recipes/chicken-tikka.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/porkchop-japanese-curry.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Fried Pork Chop &amp; Japanese Curry</a></h3>
+          <p>Crispy breaded pork cutlet served alongside rich, thick Japanese curry over steamed rice. The ultimate katsu kare. <a href="/recipes/porkchop-japanese-curry.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3><a href="/recipes/chicken-biryani.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Chicken Biryani</a></h3>
+          <p>Spiced chicken layered with saffron basmati rice, fried onions, and fresh herbs — sealed and steamed until every grain is perfumed. <a href="/recipes/chicken-biryani.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE DISHES -->
+    <section class="course">
+      <h2 class="course-title">Side Dishes</h2>
+      <p class="course-sub">The perfect accompaniments</p>
+      <div class="items">
+        <div class="dish">
+          <h3><a href="/recipes/miso-glazed-aubergine.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Miso-Glazed Aubergine</a></h3>
+          <p>Silky aubergine halves pan-fried until golden, then finished under the grill with a sweet, umami-rich white miso glaze. <a href="/recipes/miso-glazed-aubergine.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
+        </div>
+        <div class="dish">
+          <h3>Boiled Broccoli</h3>
+          <p>Tender-crisp broccoli florets blanched until bright green. A pinch of salt, a drizzle of oyster sauce or sesame oil.</p>
+        </div>
+        <div class="dish">
+          <h3>Boiled Choi Sum</h3>
+          <p>Hong Kong-style blanched choi sum with a splash of soy and a drizzle of hot oil. Simple and clean.</p>
+        </div>
+        <div class="dish">
+          <h3>Boiled Cauliflower</h3>
+          <p>Cauliflower florets boiled until just tender. Finished with butter, salt, and a crack of black pepper.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRINKS -->
+    <section class="course">
+      <h2 class="course-title">Drinks</h2>
+      <p class="course-sub">To sip alongside or on their own</p>
+      <div class="items">
+        <div class="dish">
+          <h3>Water</h3>
+          <p>Still, room temperature or chilled.</p>
+        </div>
+        <div class="dish">
+          <h3>Yummy Water</h3>
+          <p>Electrolyte-infused water. Hydration with a little something extra.</p>
+        </div>
+        <div class="dish">
+          <h3>Sparkling Water with Lemon</h3>
+          <p>Cold sparkling water with a fresh wedge of lemon. Crisp and clean.</p>
+        </div>
+        <div class="dish">
+          <h3>Green Tea</h3>
+          <p>Light, grassy, and gently caffeinated. Brewed fresh.</p>
+        </div>
+        <div class="dish">
+          <h3>Corn Tea (옥수수차)</h3>
+          <p>Roasted corn kernels steeped in hot water — naturally sweet, nutty, and caffeine-free. A Korean staple.</p>
+        </div>
+        <div class="dish">
+          <h3>Oolong Tea</h3>
+          <p>Semi-oxidised Chinese tea with a smooth, floral character. Between green and black.</p>
+        </div>
+        <div class="dish">
+          <h3>Black Tea</h3>
+          <p>Full-bodied and robust. Served straight or with a splash of milk.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FROM THE MARKETPLACE -->
+    <section class="course">
+      <h2 class="course-title">From the Marketplace</h2>
+      <p class="course-sub">Ready-made favourites from Fusion, Fairwood &amp; the neighbourhood</p>
+      <div class="items">
+        <div class="dish">
+          <h3>Char Siu Pork</h3>
+          <p>Honey-glazed Cantonese BBQ pork, sliced thick. Sweet, smoky, and impossibly red.</p>
+        </div>
+        <div class="dish">
+          <h3>Half Soya Chicken</h3>
+          <p>Poached chicken steeped in a master stock of soy, star anise, and rock sugar. Silky skin, clean flavour.</p>
+        </div>
+        <div class="dish">
+          <h3>Half Broiled Chicken</h3>
+          <p>Roasted until the skin is crisp and golden, the meat juicy underneath. Simple, satisfying, always good.</p>
+        </div>
+        <div class="dish">
+          <h3>Pork Chop Rice</h3>
+          <p>Fried pork chop over rice with gravy — Fairwood or Fusion style. The Hong Kong fast-food classic.</p>
+        </div>
+        <div class="dish">
+          <h3>Beef Curry Brisket</h3>
+          <p>Tender brisket chunks braised in a rich, aromatic Hong Kong-style curry. Served over steamed rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Clear Beef Brisket Soup &amp; Rice</h3>
+          <p>Slow-simmered brisket in a clear, deeply flavoured broth with white radish. Comforting and light.</p>
+        </div>
+        <div class="dish">
+          <h3>Wing's Catering Chicken</h3>
+          <p>Roast chicken from Wing's — a household favourite. Crispy skin, reliable, always delivers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEKLY MENU -->
+    <aside class="weekly">
+      <h2>This Week's Menu</h2>
+      <p>Ask the chef about today's special preparation. Seasonal rotations and family favorites are posted fresh each week.</p>
+    </aside>
+
+    <!-- STILL BREWING -->
+    <section class="course brewing-section">
+      <h2>Still Brewing</h2>
+      <p class="course-sub">Recipes in the pipeline — coming to the kitchen soon</p>
+      <div class="items">
+        <div class="dish">
+          <h3>Turkish Kebabs</h3>
+          <p>Marinated and grilled skewers of seasoned meat served with warm flatbread, tzatziki, and a side of rice or salad.</p>
+        </div>
+        <div class="dish">
+          <h3>Soondooboo (순두부찌개)</h3>
+          <p>Bubbling Korean soft tofu stew with seafood or pork, kimchi, and a runny egg cracked in at the table. Served piping hot with rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Bulgogi (불고기)</h3>
+          <p>Thinly sliced beef marinated in soy, garlic, pear, and sesame, grilled until caramelized. Served with steamed rice and banchan.</p>
+        </div>
+        <div class="dish">
+          <h3>Taiwan Radish &amp; Meatball Soup</h3>
+          <p>Clear, comforting broth with tender daikon radish and hand-rolled pork meatballs. A homestyle Taiwanese classic.</p>
+        </div>
+        <div class="dish">
+          <h3>Thai Green Curry</h3>
+          <p>Fragrant coconut curry with green chilies, Thai basil, bamboo shoots, and chicken or beef. Served over jasmine rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Meatball Marinara</h3>
+          <p>Hand-rolled beef and pork meatballs simmered in a slow-cooked marinara. Served over spaghetti or with crusty bread.</p>
+        </div>
+        <div class="dish">
+          <h3>Thai Basil Minced Pork &amp; Egg (Pad Kra Pao)</h3>
+          <p>Spicy stir-fried minced pork with Thai holy basil, garlic, and chili — crowned with a crispy fried egg over jasmine rice.</p>
+        </div>
+        <div class="dish">
+          <h3>Stoofvlees</h3>
+          <p>Belgian beef stew braised in dark ale with mustard, onions, and a touch of brown sugar — rich, tangy, and deeply savory. Traditionally served with frites.</p>
+        </div>
+        <div class="dish">
+          <h3>Thai Lettuce Wraps</h3>
+          <p>Fragrant minced chicken or pork stir-fried with garlic, chili, and basil, served inside crisp lettuce cups with a tangy dipping sauce.</p>
+        </div>
+        <div class="dish">
+          <h3>Anchovy, Pepperoni &amp; Olive Board</h3>
+          <p>A savory trio of cured anchovies, spicy pepperoni, and briny olives — served with crusty bread.</p>
+        </div>
+        <div class="dish">
+          <h3>Classic Caesar Salad</h3>
+          <p>Crisp romaine hearts tossed with creamy Caesar dressing, parmesan, and golden croutons. Simple and satisfying.</p>
+        </div>
+        <div class="dish">
+          <h3>Lemon Parmesan Romaine with Anchovies</h3>
+          <p>Romaine leaves dressed in bright lemon, extra-virgin olive oil, and shaved parmesan — finished with whole anchovy fillets for a salty kick.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      Lam Wang Cha Chaang Teng
+    </footer>
+  </div>
+</body>
+</html>

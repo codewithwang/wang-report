@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lam Wang Cha Chaang Teng · Menu</title>
+<title>Lam Wang Cha Chaang Teng · Menu · Season 2</title>
 <style>
   :root {
     --cream: #f6efe1;
@@ -12,7 +12,6 @@
     --ink-soft: #5a4632;
     --accent: #8a1e1e;
     --rule: #c8b48a;
-    --brewing: #a89070;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); }
@@ -29,408 +28,1190 @@
     box-shadow: 0 18px 48px rgba(90, 70, 50, 0.15);
     padding: 64px 64px 80px;
   }
-  header.masthead {
-    text-align: center;
-    border-bottom: 2px double var(--rule);
-    padding-bottom: 28px;
-    margin-bottom: 36px;
-  }
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin: 0 0 10px;
-  }
+  header.masthead { text-align: center; border-bottom: 2px double var(--rule); padding-bottom: 28px; margin-bottom: 36px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px; }
   h1.restaurant {
     font-family: "Playfair Display", "Didot", "Garamond", serif;
-    font-size: 44px;
-    font-weight: 700;
-    margin: 0 0 6px;
-    letter-spacing: 0.04em;
-    color: var(--accent);
+    font-size: 44px; font-weight: 700; margin: 0 0 6px; letter-spacing: 0.04em; color: var(--accent);
   }
-  .tagline {
-    font-style: italic;
-    color: var(--ink-soft);
-    font-size: 14px;
-    margin: 0;
+  .tagline { font-style: italic; color: var(--ink-soft); margin: 0; }
+  .ornament { text-align: center; color: var(--rule); letter-spacing: 0.4em; margin: 24px 0; }
+  .season-nav {
+    text-align: center; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); margin: -12px 0 28px; padding: 8px 0; border-bottom: 1px solid var(--rule);
   }
-  .ornament {
-    text-align: center;
-    color: var(--rule);
-    margin: 24px 0 8px;
-    font-size: 18px;
-    letter-spacing: 0.5em;
+  .season-nav .season-active { color: var(--accent); font-weight: 600; }
+  .season-nav .season-sep { margin: 0 14px; color: var(--rule); }
+  .season-nav a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  .season-nav a:hover { color: var(--accent); border-color: var(--accent); }
+  .intro-card {
+    background: var(--cream); border: 1px solid var(--rule); border-radius: 2px;
+    padding: 18px 24px; margin-bottom: 36px; font-size: 13px; line-height: 1.7; color: var(--ink-soft);
   }
-  section.course {
-    margin-top: 36px;
+  .intro-card strong { color: var(--ink); font-weight: 700; }
+  .course { margin-bottom: 40px; }
+  .course-title {
+    font-size: 22px; letter-spacing: 0.2em; text-transform: uppercase;
+    text-align: center; margin: 0 0 4px; color: var(--accent);
   }
-  h2.course-title {
-    text-align: center;
-    font-size: 26px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin: 0 0 4px;
-    color: var(--ink);
+  .course-sub { text-align: center; font-style: italic; color: var(--ink-soft); margin: 0 0 20px; font-size: 13px; }
+  .items { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 36px; }
+  .items.single { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+  .dish h3 { font-size: 16px; margin: 0 0 5px; color: var(--ink); font-weight: 700; letter-spacing: 0.02em; }
+  .dish p { margin: 0 0 6px; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+  .nutrition {
+    font-size: 11px; color: var(--ink-soft); letter-spacing: 0.03em; font-style: italic; margin-top: 2px;
   }
-  .course-sub {
-    text-align: center;
-    font-style: italic;
-    color: var(--ink-soft);
-    font-size: 13px;
-    margin: 0 0 20px;
+  .nutrition .sep { color: var(--rule); margin: 0 4px; }
+  .preps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .prep-chip {
+    display: inline-block; padding: 3px 10px; border: 1px solid var(--rule);
+    border-radius: 12px; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft); cursor: pointer;
+    background: var(--parchment); user-select: none;
   }
-  .items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px 48px;
+  .prep-chip:hover { background: var(--cream); border-color: var(--accent); color: var(--accent); }
+  .prep-chip.active { background: var(--accent); color: var(--parchment); border-color: var(--accent); }
+  .prep-detail {
+    display: none; margin-top: 10px; padding: 10px 14px;
+    background: var(--cream); border-left: 3px solid var(--accent);
+    font-size: 13px; line-height: 1.55;
   }
-  .items.single { grid-template-columns: 1fr; }
-  .dish {
-    padding: 4px 0;
-  }
-  .dish h3 {
-    font-size: 17px;
-    margin: 0 0 4px;
-    color: var(--ink);
-    letter-spacing: 0.02em;
-    font-variant: small-caps;
-    font-weight: 700;
-  }
-  .dish p {
-    margin: 0;
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .weekly {
-    margin-top: 48px;
-    border-top: 2px double var(--rule);
-    border-bottom: 2px double var(--rule);
-    padding: 24px 0 28px;
-    text-align: center;
-  }
-  .weekly h2 {
-    font-size: 22px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin: 0 0 10px;
-    color: var(--accent);
-  }
-  .weekly p {
-    font-style: italic;
-    color: var(--ink-soft);
-    max-width: 640px;
-    margin: 0 auto;
-    font-size: 14px;
-  }
-  .brewing-section {
-    margin-top: 48px;
-    border-top: 1px dashed var(--rule);
-    padding-top: 28px;
-  }
-  .brewing-section h2 {
-    text-align: center;
-    font-size: 22px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin: 0 0 4px;
-    color: var(--brewing);
-  }
-  .brewing-section .course-sub {
-    color: var(--brewing);
-  }
-  .brewing-section .dish h3 {
-    color: var(--brewing);
-  }
-  .brewing-section .dish p {
-    color: var(--brewing);
-    opacity: 0.8;
-  }
+  .prep-detail.open { display: block; }
+  .prep-detail .prep-meta { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+  .prep-detail .prep-instructions { margin: 0; }
   footer.foot {
-    text-align: center;
-    margin-top: 36px;
-    color: var(--ink-soft);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    text-align: center; margin-top: 36px; color: var(--ink-soft);
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
   }
+  .footer-note { text-align: center; margin-top: 20px; font-size: 12px; color: var(--ink-soft); font-style: italic; line-height: 1.7; }
+  .updated { text-align: center; font-size: 10px; color: var(--ink-soft); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 8px; }
   @media (max-width: 720px) {
     body { padding: 16px 8px 48px; }
     .menu { padding: 28px 20px 40px; }
     h1.restaurant { font-size: 32px; }
     .items { grid-template-columns: 1fr; gap: 18px; }
   }
-  @media print {
-    body { background: white; padding: 0; }
-    .menu { box-shadow: none; border: none; }
-  }
+  @media print { body { background: white; padding: 0; } .menu { box-shadow: none; border: none; } .prep-detail { display: block !important; } }
 </style>
 </head>
 <body>
   <div class="menu">
     <header class="masthead">
-      <p class="eyebrow"><a href="/index.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">The Wang Report</a> · Est. 2026 · Wang Family Kitchen</p>
+      <p class="eyebrow">Wang Family Kitchen · Season 2</p>
       <h1 class="restaurant">Lam Wang Cha Chaang Teng</h1>
-      <p class="tagline">A family table for the dishes we love, from Taipei to Texas, in Hong Kong.</p>
+      <p class="tagline">A family table for the dishes we love, from Taipei to Texas, in Hong Kong. Tuned for hearts and pressures.</p>
     </header>
 
     <div class="ornament">✦ ❦ ✦</div>
+    <div class="season-nav">
+      <a href="/menu-season1.html">Season 1 · The Family Classics</a>
+      <span class="season-sep">|</span>
+      <span class="season-active">Season 2 · The Heart &amp; Pressure Edit</span>
+    </div>
 
-    <!-- ALL DAY BREAKFAST -->
+    <div class="intro-card">
+      <strong>A note on the kitchen.</strong> Every dish on this menu has been written for blood pressure mitigation and cholesterol balance. Dry rubs replace batter where possible. Soy is reduced or substituted with citrus and vinegar. Stocks are homemade. Coconut milk is halved. Fermented pastes -- miso, doenjang, gochujang -- are used at half quantity. Salt cod is desalted. Capers are rinsed.
+      <br><br><strong>On the numbers below.</strong> Nutrition figures are per single serving and assume the low-sodium method described. Cooked with full salt or bottled sauces, sodium can rise 3-5x. Calories and macros are reasonable approximations, not lab values.
+    </div>
+
     <section class="course">
-      <h2 class="course-title">All Day Breakfast</h2>
-      <p class="course-sub">Any time is breakfast time</p>
+      <h2 class="course-title">Hong Kong</h2>
+      <div class="course-sub">The home table</div>
       <div class="items">
-        <div class="dish">
-          <h3><a href="/recipes/banana-oatmeal-cake.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Banana Oatmeal Cake</a></h3>
-          <p>Warm oat cake baked with ripe bananas, cubed and pan-fried in butter until golden. No flour, no sugar. <a href="/recipes/banana-oatmeal-cake.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3>2 Eggs, Any Style</h3>
-          <p>Hard-boiled, soft-boiled, scrambled, or sunny side up. Cooked to order, always with a pinch of flaky salt.</p>
-        </div>
-        <div class="dish">
-          <h3>Buttered Toast</h3>
-          <p>Thick-cut bread toasted golden and spread with good butter. Simple, honest, perfect.</p>
-        </div>
-        <div class="dish">
-          <h3>Avocado Toast</h3>
-          <p>Ripe avocado smashed on sourdough with a squeeze of lemon, chili flakes, and sea salt.</p>
-        </div>
+      <div class="dish">
+        <h3>Steamed sea bass with ginger and spring onion</h3>
+        <p>Whole fish steamed in the wok, finished with hot sesame oil and a teaspoon of low-sodium soy. The oyster sauce finish is replaced with a drop of black vinegar.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>36g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Steamed grouper with rinsed black bean</h3>
+        <p>Fermented black bean rinsed twice to cut sodium, scattered with chili and ginger. A small amount delivers all the depth.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>38g protein<span class="sep">·</span>420mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Wonton soup, homemade broth</h3>
+        <p>Pork and prawn wontons in clear stock built from chicken bones, ginger, and white pepper. No MSG, no stock cube.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>22g protein<span class="sep">·</span>520mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Fish congee with ginger</h3>
+        <p>Plain rice congee simmered slowly, fresh fish slices laid in to poach at the end. Naturally low sodium, deeply restorative.</p>
+        <div class="nutrition">310 cal<span class="sep">·</span>42g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>24g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Silken tofu, soy ginger dressing</h3>
+        <p>Cold silken tofu, low-sodium soy, sesame oil, scallion. No cooking, ready in two minutes.</p>
+        <div class="nutrition">160 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>14g protein<span class="sep">·</span>320mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Stir-fried water spinach with garlic</h3>
+        <p>High-heat wok work, lots of garlic, white pepper. Finishes with one drop of sesame oil. No soy needed.</p>
+        <div class="nutrition">120 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>7g fat<span class="sep">·</span>5g protein<span class="sep">·</span>90mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Choi sum with garlic</h3>
+        <p>Blanched then finished in the wok with smashed garlic. Clean, mineral, perfect with rice.</p>
+        <div class="nutrition">90 cal<span class="sep">·</span>7g carbs<span class="sep">·</span>5g fat<span class="sep">·</span>4g protein<span class="sep">·</span>80mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Lotus root and pork clear soup</h3>
+        <p>Slow-simmered for two hours. Lotus root brings potassium and crunch, pork ribs bring the depth.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>18g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>18g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Steamed egg with shiitake</h3>
+        <p>Silky steamed egg, sliced shiitake for umami. Halve the soy sauce topping; the mushrooms carry it.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>14g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Poached chicken in light stock</h3>
+        <p>Simmered in fresh stock with ginger and spring onion. Skip the dipping soy and use a chili-ginger oil instead.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>36g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Braised tofu with mushrooms</h3>
+        <p>Firm tofu simmered with shiitake, ginger, low-sodium soy. Deeply savory without the salt load.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>12g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>18g protein<span class="sep">·</span>440mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <!-- APPETIZERS & DIPS -->
     <section class="course">
-      <h2 class="course-title">Appetizers &amp; Dips</h2>
-      <p class="course-sub">Small plates to share around the table</p>
+      <h2 class="course-title">Mediterranean</h2>
+      <div class="course-sub">From the inland sea</div>
       <div class="items">
-        <div class="dish">
-          <h3><a href="/recipes/hummus.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Hummus</a></h3>
-          <p>Creamy chickpea purée whipped with tahini, lemon, and olive oil. Served with warm flatbread or crisp vegetables. <a href="/recipes/hummus.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/cucumber-tzatziki.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Cucumber Tzatziki</a></h3>
-          <p>Cool Greek yogurt sauce folded with cucumber, mint, parsley, and a whisper of cumin. The perfect companion to kebabs. <a href="/recipes/cucumber-tzatziki.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/salsa.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">House Salsa</a></h3>
-          <p>Bright, chunky tomato salsa with onion, cilantro, jalapeño, and a squeeze of lime. Served with tortilla chips. <a href="/recipes/salsa.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
+      <div class="dish">
+        <h3>Hummus with full crudite board</h3>
+        <p>Chickpeas whipped with tahini, lemon, olive oil, garlic. Cucumber, bell pepper, carrot, celery. Permanent staple.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>10g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Mint yogurt sauce</h3>
+        <p>Greek yogurt, cucumber, dried mint, garlic, lemon. The all-purpose accompaniment for every grilled meat dish.</p>
+        <div class="nutrition">80 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>3g fat<span class="sep">·</span>6g protein<span class="sep">·</span>60mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled sardines, lemon and herbs</h3>
+        <p>Whole sardines, oregano dry rub, lemon zest, garlic. Five minutes over the grill. Maximum omega-3.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>0g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>28g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Baked salmon with zaatar</h3>
+        <p>Za&#39;atar dry rub of thyme, sumac, sesame. No salt needed. Roasted at 200C for twelve minutes.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>20g fat<span class="sep">·</span>38g protein<span class="sep">·</span>160mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled sea bream with herb oil</h3>
+        <p>Whole fish, scored, brushed with olive oil, rosemary, lemon. Oven or grill, just a pinch of sodium.</p>
+        <div class="nutrition">300 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>42g protein<span class="sep">·</span>200mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Shakshuka, low-sodium</h3>
+        <p>Eggs poached in a spiced tomato sauce. Cumin, paprika, chili. No added salt -- the tomato is enough.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>18g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Baba ganoush</h3>
+        <p>Charred aubergine, tahini, lemon, garlic. Smoky, creamy, zero sodium when made from scratch.</p>
+        <div class="nutrition">160 cal<span class="sep">·</span>12g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>4g protein<span class="sep">·</span>40mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Tabbouleh with quinoa</h3>
+        <p>Quinoa replaces bulgur. Parsley-heavy, mint, tomato, lemon, olive oil. Magnesium and potassium dense.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>7g protein<span class="sep">·</span>60mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>White bean and rosemary stew</h3>
+        <p>Cannellini beans simmered with garlic, rosemary, olive oil. No stock cube -- the beans give their own broth.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>46g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>16g protein<span class="sep">·</span>140mg sodium<span class="sep">·</span>12g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Roasted vegetable platter, tahini drizzle</h3>
+        <p>Eggplant, peppers, zucchini, tomato. Roasted hot, finished with tahini thinned with lemon.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>18g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>6g protein<span class="sep">·</span>60mg sodium<span class="sep">·</span>7g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <!-- MAIN ENTRÉES -->
     <section class="course">
-      <h2 class="course-title">Main Entrées</h2>
-      <p class="course-sub">From around the world — the heart of the table</p>
+      <h2 class="course-title">Korean</h2>
+      <div class="course-sub">Seoul, slow</div>
       <div class="items">
-        <div class="dish">
-          <h3><a href="/recipes/pork-belly-rice.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Pork Belly Rice (滷肉飯)</a></h3>
-          <p>Taiwanese braised pork belly, slow-simmered in soy, rice wine, and five-spice until silky. Spooned over a bowl of hot white rice. <a href="/recipes/pork-belly-rice.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/sukiyaki.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Sukiyaki (すき焼き)</a></h3>
-          <p>Japanese hot pot of thinly sliced beef, tofu, mushrooms, and vegetables simmered in a sweet-savory soy broth. Dip in raw egg before eating. <a href="/recipes/sukiyaki.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/texas-chili.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Texas Chili</a></h3>
-          <p>Hearty slow-simmered beef chili, Texas-style — no beans, just tender chunks of beef in a deep, smoky chili sauce. <a href="/recipes/texas-chili.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/keto-beef-stew.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Keto Beef Stew</a></h3>
-          <p>Rich low-carb beef stew with tender beef, celery, mushrooms, and herbs in a savory bone broth. Comforting and wholesome. <a href="/recipes/keto-beef-stew.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/chicken-parmesan.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Chicken Parmesan</a></h3>
-          <p>Golden breaded chicken cutlet topped with marinara and melted mozzarella. Served with pasta or a green salad. <a href="/recipes/chicken-parmesan.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/yoshinoya-beef-rice.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Yoshinoya-Style Beef Rice</a></h3>
-          <p>Thinly sliced beef and onions simmered in a sweet soy-dashi sauce, ladled generously over hot steamed rice. A Japanese comfort classic. <a href="/recipes/yoshinoya-beef-rice.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/chicken-tenders.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Crispy Chicken Tenders</a></h3>
-          <p>Juicy chicken breast strips coated in seasoned flour and panko, fried until golden and crunchy. Served with honey mustard or sweet chili. <a href="/recipes/chicken-tenders.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/chicken-tikka.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Chicken Tikka</a></h3>
-          <p>Yogurt-marinated chicken charred in a hot pan, then simmered in a creamy spiced tomato sauce. Served over basmati rice. <a href="/recipes/chicken-tikka.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/porkchop-japanese-curry.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Fried Pork Chop &amp; Japanese Curry</a></h3>
-          <p>Crispy breaded pork cutlet served alongside rich, thick Japanese curry over steamed rice. The ultimate katsu kare. <a href="/recipes/porkchop-japanese-curry.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3><a href="/recipes/chicken-biryani.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Chicken Biryani</a></h3>
-          <p>Spiced chicken layered with saffron basmati rice, fried onions, and fresh herbs — sealed and steamed until every grain is perfumed. <a href="/recipes/chicken-biryani.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
+      <div class="dish">
+        <h3>Soondooboo jjigae, low-sodium</h3>
+        <p>Soft tofu stew with halved gochujang, homemade anchovy stock, mushrooms, zucchini. Silky, spicy, clean.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>12g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>18g protein<span class="sep">·</span>480mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Bulgogi, light marinade</h3>
+        <p>Grated pear as the tenderiser. One tablespoon of low-sodium soy, garlic, sesame. Grilled or pan-seared.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>30g protein<span class="sep">·</span>420mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Steamed Korean egg custard</h3>
+        <p>Silky egg custard with sliced green onion. Low sodium, high protein. Ten minutes start to finish.</p>
+        <div class="nutrition">160 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>14g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Bibimbap with brown rice</h3>
+        <p>Assorted vegetables, egg, lean beef or tofu over brown rice. Gochujang served on the side, not in the bowl.</p>
+        <div class="nutrition">480 cal<span class="sep">·</span>62g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>24g protein<span class="sep">·</span>520mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Japchae, light soy</h3>
+        <p>Sweet potato glass noodles with mushroom, spinach, carrot, sesame. Half the soy of the original.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>54g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>10g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Doenjang jjigae, light</h3>
+        <p>Fermented soybean paste soup with tofu, zucchini, mushroom. Half the doenjang, full vegetables.</p>
+        <div class="nutrition">200 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>14g protein<span class="sep">·</span>560mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Korean grilled mackerel</h3>
+        <p>Dry-rubbed with minimal sea salt, ginger, gochugaru. Grilled until the skin crisps. No sauce needed.</p>
+        <div class="nutrition">300 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>32g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Spinach banchan</h3>
+        <p>Blanched spinach, sesame oil, a tiny bit of soy, garlic. A potassium powerhouse in five minutes.</p>
+        <div class="nutrition">80 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>5g fat<span class="sep">·</span>4g protein<span class="sep">·</span>120mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Spicy cucumber salad</h3>
+        <p>Sliced cucumber, gochugaru, garlic, rice vinegar. Zero added sodium when you skip the salt step.</p>
+        <div class="nutrition">60 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>2g fat<span class="sep">·</span>2g protein<span class="sep">·</span>40mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Corn tea</h3>
+        <p>Roasted corn kernels steeped in hot water. Caffeine-free, mildly sweet, kidney-supporting.</p>
+        <div class="nutrition">5 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>0g fat<span class="sep">·</span>0g protein<span class="sep">·</span>0mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <!-- SIDE DISHES -->
     <section class="course">
-      <h2 class="course-title">Side Dishes</h2>
-      <p class="course-sub">The perfect accompaniments</p>
+      <h2 class="course-title">Japanese</h2>
+      <div class="course-sub">Quietly considered</div>
       <div class="items">
-        <div class="dish">
-          <h3><a href="/recipes/miso-glazed-aubergine.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid #c8b48a;">Miso-Glazed Aubergine</a></h3>
-          <p>Silky aubergine halves pan-fried until golden, then finished under the grill with a sweet, umami-rich white miso glaze. <a href="/recipes/miso-glazed-aubergine.html" style="color: #8a1e1e; font-size: 0.85em; text-decoration: none;">View Recipe →</a></p>
-        </div>
-        <div class="dish">
-          <h3>Boiled Broccoli</h3>
-          <p>Tender-crisp broccoli florets blanched until bright green. A pinch of salt, a drizzle of oyster sauce or sesame oil.</p>
-        </div>
-        <div class="dish">
-          <h3>Boiled Choi Sum</h3>
-          <p>Hong Kong-style blanched choi sum with a splash of soy and a drizzle of hot oil. Simple and clean.</p>
-        </div>
-        <div class="dish">
-          <h3>Boiled Cauliflower</h3>
-          <p>Cauliflower florets boiled until just tender. Finished with butter, salt, and a crack of black pepper.</p>
-        </div>
+      <div class="dish">
+        <h3>Miso soup, half-paste, tofu and wakame</h3>
+        <p>Half the usual miso quantity. Wakame seaweed for minerals, silken tofu, scallion at the end.</p>
+        <div class="nutrition">90 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>4g fat<span class="sep">·</span>7g protein<span class="sep">·</span>480mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Teriyaki salmon, homemade glaze</h3>
+        <p>One tablespoon of low-sodium soy, mirin, ginger. Marinated twenty minutes, grilled. No bottled sauce.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>34g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Chicken karaage, baked dry rub</h3>
+        <p>Ginger, garlic, white pepper, rice wine dry rub. Dusted with potato starch and baked until crisp.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>30g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Cold soba with light dashi dip</h3>
+        <p>Buckwheat noodles for fiber and magnesium. Light dashi-mirin dip on the side -- dip, don&#39;t immerse.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>64g carbs<span class="sep">·</span>3g fat<span class="sep">·</span>14g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Baked agedashi tofu</h3>
+        <p>Tofu patted dry, dusted with potato starch, baked crispy. Served in a light dashi broth.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>16g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Edamame with lemon and sesame</h3>
+        <p>Steamed edamame, lemon zest, toasted sesame. Skip the salt bowl -- already complete.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>16g protein<span class="sep">·</span>20mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Yakitori, yuzu shio</h3>
+        <p>Chicken thigh on skewers. White pepper and yuzu zest replace the salt rub. No tare sauce.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>34g protein<span class="sep">·</span>220mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Braised daikon in kombu dashi</h3>
+        <p>Daikon simmered slowly in kombu dashi until soft and translucent. Mineral-rich, almost no sodium.</p>
+        <div class="nutrition">80 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>1g fat<span class="sep">·</span>3g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Natto with brown rice</h3>
+        <p>Fermented soybeans over warm brown rice. Vitamin K2, gut health, cholesterol modulation. Acquired taste.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>48g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>18g protein<span class="sep">·</span>80mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Steamed gyoza, pork and cabbage</h3>
+        <p>Steamed not pan-fried. Cabbage and ginger forward, half the soy in the filling.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>14g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <!-- DRINKS -->
     <section class="course">
-      <h2 class="course-title">Drinks</h2>
-      <p class="course-sub">To sip alongside or on their own</p>
+      <h2 class="course-title">Taiwanese</h2>
+      <div class="course-sub">Island flavours</div>
       <div class="items">
-        <div class="dish">
-          <h3>Water</h3>
-          <p>Still, room temperature or chilled.</p>
-        </div>
-        <div class="dish">
-          <h3>Yummy Water</h3>
-          <p>Electrolyte-infused water. Hydration with a little something extra.</p>
-        </div>
-        <div class="dish">
-          <h3>Sparkling Water with Lemon</h3>
-          <p>Cold sparkling water with a fresh wedge of lemon. Crisp and clean.</p>
-        </div>
-        <div class="dish">
-          <h3>Green Tea</h3>
-          <p>Light, grassy, and gently caffeinated. Brewed fresh.</p>
-        </div>
-        <div class="dish">
-          <h3>Corn Tea (옥수수차)</h3>
-          <p>Roasted corn kernels steeped in hot water — naturally sweet, nutty, and caffeine-free. A Korean staple.</p>
-        </div>
-        <div class="dish">
-          <h3>Oolong Tea</h3>
-          <p>Semi-oxidised Chinese tea with a smooth, floral character. Between green and black.</p>
-        </div>
-        <div class="dish">
-          <h3>Black Tea</h3>
-          <p>Full-bodied and robust. Served straight or with a splash of milk.</p>
-        </div>
+      <div class="dish">
+        <h3>Braised tofu with mushrooms, Taiwanese</h3>
+        <p>Tofu simmered with shiitake, ginger, low-sodium soy. The mushrooms carry the savory weight.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>12g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>18g protein<span class="sep">·</span>440mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Taiwan radish and meatball soup</h3>
+        <p>Clear broth, daikon, hand-rolled pork meatballs. Homemade is naturally low sodium.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>18g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Cold sesame noodles</h3>
+        <p>Tahini or natural peanut butter, rice vinegar, ginger, garlic. No soy. Cucumber strips on top.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>54g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>12g protein<span class="sep">·</span>260mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Steamed pork and tofu patty</h3>
+        <p>Half ground pork, half silken tofu, ginger. Steams to a silky softness. Reduced meat ratio cuts saturated fat.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>22g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Pork with garlic and black vinegar</h3>
+        <p>Lean pork loin sliced cold, dressed in pounded garlic, black vinegar, chili. Almost no soy.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>32g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Oyster vermicelli soup, low-sodium</h3>
+        <p>Rice vermicelli in clear pork bone broth with fresh oysters. Homemade stock only -- no MSG.</p>
+        <div class="nutrition">300 cal<span class="sep">·</span>42g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>18g protein<span class="sep">·</span>440mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <!-- FROM THE MARKETPLACE -->
     <section class="course">
-      <h2 class="course-title">From the Marketplace</h2>
-      <p class="course-sub">Ready-made favourites from Fusion, Fairwood &amp; the neighbourhood</p>
+      <h2 class="course-title">Thai</h2>
+      <div class="course-sub">Bright, hot, herbal</div>
       <div class="items">
-        <div class="dish">
-          <h3>Char Siu Pork</h3>
-          <p>Honey-glazed Cantonese BBQ pork, sliced thick. Sweet, smoky, and impossibly red.</p>
-        </div>
-        <div class="dish">
-          <h3>Half Soya Chicken</h3>
-          <p>Poached chicken steeped in a master stock of soy, star anise, and rock sugar. Silky skin, clean flavour.</p>
-        </div>
-        <div class="dish">
-          <h3>Half Broiled Chicken</h3>
-          <p>Roasted until the skin is crisp and golden, the meat juicy underneath. Simple, satisfying, always good.</p>
-        </div>
-        <div class="dish">
-          <h3>Pork Chop Rice</h3>
-          <p>Fried pork chop over rice with gravy — Fairwood or Fusion style. The Hong Kong fast-food classic.</p>
-        </div>
-        <div class="dish">
-          <h3>Beef Curry Brisket</h3>
-          <p>Tender brisket chunks braised in a rich, aromatic Hong Kong-style curry. Served over steamed rice.</p>
-        </div>
-        <div class="dish">
-          <h3>Clear Beef Brisket Soup &amp; Rice</h3>
-          <p>Slow-simmered brisket in a clear, deeply flavoured broth with white radish. Comforting and light.</p>
-        </div>
-        <div class="dish">
-          <h3>Wing's Catering Chicken</h3>
-          <p>Roast chicken from Wing's — a household favourite. Crispy skin, reliable, always delivers.</p>
-        </div>
+      <div class="dish">
+        <h3>Thai green curry, light coconut milk</h3>
+        <p>Half the coconut milk, doubled vegetables, lean chicken or prawns. Fresh basil torn in at the end.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>18g carbs<span class="sep">·</span>22g fat<span class="sep">·</span>26g protein<span class="sep">·</span>480mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Pad kra pao, dry wok</h3>
+        <p>Holy basil, garlic, chili, minced chicken. Skip fish sauce, use low-sodium soy. Crispy fried egg on top.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>22g fat<span class="sep">·</span>32g protein<span class="sep">·</span>420mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Thai basil prawn stir-fry</h3>
+        <p>Prawns with Thai basil, garlic, bird&#39;s-eye chili. No sauce needed -- fresh lime is the seasoning.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>30g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Tom yum, clear broth</h3>
+        <p>Lemongrass, galangal, kaffir lime, chili, mushroom, prawns. Clear, not coconut. Minimal fish sauce.</p>
+        <div class="nutrition">140 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>4g fat<span class="sep">·</span>18g protein<span class="sep">·</span>480mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Thai larb, chicken or pork</h3>
+        <p>Minced meat with toasted rice powder, lime, halved fish sauce, herbs. Cold salad with high flavor.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>28g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Som tum papaya salad</h3>
+        <p>Green papaya, lime, garlic, halved fish sauce, cherry tomatoes, peanuts. Enzyme-rich, refreshing.</p>
+        <div class="nutrition">160 cal<span class="sep">·</span>22g carbs<span class="sep">·</span>5g fat<span class="sep">·</span>5g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled Thai dry-rub chicken</h3>
+        <p>Turmeric, coriander, white pepper, lemongrass dry rub. No salt in the rub. Char-grilled.</p>
+        <div class="nutrition">300 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>38g protein<span class="sep">·</span>140mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Thai lettuce wraps</h3>
+        <p>Minced chicken with herbs, lime, chili. Spooned into butter lettuce cups. Almost no sodium.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>24g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <!-- WEEKLY MENU -->
-    <aside class="weekly">
-      <h2>This Week's Menu</h2>
-      <p>Ask the chef about today's special preparation. Seasonal rotations and family favorites are posted fresh each week.</p>
-    </aside>
-
-    <!-- STILL BREWING -->
-    <section class="course brewing-section">
-      <h2>Still Brewing</h2>
-      <p class="course-sub">Recipes in the pipeline — coming to the kitchen soon</p>
+    <section class="course">
+      <h2 class="course-title">Vietnamese</h2>
+      <div class="course-sub">Clean lines</div>
       <div class="items">
-        <div class="dish">
-          <h3>Turkish Kebabs</h3>
-          <p>Marinated and grilled skewers of seasoned meat served with warm flatbread, tzatziki, and a side of rice or salad.</p>
-        </div>
-        <div class="dish">
-          <h3>Soondooboo (순두부찌개)</h3>
-          <p>Bubbling Korean soft tofu stew with seafood or pork, kimchi, and a runny egg cracked in at the table. Served piping hot with rice.</p>
-        </div>
-        <div class="dish">
-          <h3>Bulgogi (불고기)</h3>
-          <p>Thinly sliced beef marinated in soy, garlic, pear, and sesame, grilled until caramelized. Served with steamed rice and banchan.</p>
-        </div>
-        <div class="dish">
-          <h3>Taiwan Radish &amp; Meatball Soup</h3>
-          <p>Clear, comforting broth with tender daikon radish and hand-rolled pork meatballs. A homestyle Taiwanese classic.</p>
-        </div>
-        <div class="dish">
-          <h3>Thai Green Curry</h3>
-          <p>Fragrant coconut curry with green chilies, Thai basil, bamboo shoots, and chicken or beef. Served over jasmine rice.</p>
-        </div>
-        <div class="dish">
-          <h3>Meatball Marinara</h3>
-          <p>Hand-rolled beef and pork meatballs simmered in a slow-cooked marinara. Served over spaghetti or with crusty bread.</p>
-        </div>
-        <div class="dish">
-          <h3>Thai Basil Minced Pork &amp; Egg (Pad Kra Pao)</h3>
-          <p>Spicy stir-fried minced pork with Thai holy basil, garlic, and chili — crowned with a crispy fried egg over jasmine rice.</p>
-        </div>
-        <div class="dish">
-          <h3>Stoofvlees</h3>
-          <p>Belgian beef stew braised in dark ale with mustard, onions, and a touch of brown sugar — rich, tangy, and deeply savory. Traditionally served with frites.</p>
-        </div>
-        <div class="dish">
-          <h3>Thai Lettuce Wraps</h3>
-          <p>Fragrant minced chicken or pork stir-fried with garlic, chili, and basil, served inside crisp lettuce cups with a tangy dipping sauce.</p>
-        </div>
-        <div class="dish">
-          <h3>Anchovy, Pepperoni &amp; Olive Board</h3>
-          <p>A savory trio of cured anchovies, spicy pepperoni, and briny olives — served with crusty bread.</p>
-        </div>
-        <div class="dish">
-          <h3>Classic Caesar Salad</h3>
-          <p>Crisp romaine hearts tossed with creamy Caesar dressing, parmesan, and golden croutons. Simple and satisfying.</p>
-        </div>
-        <div class="dish">
-          <h3>Lemon Parmesan Romaine with Anchovies</h3>
-          <p>Romaine leaves dressed in bright lemon, extra-virgin olive oil, and shaved parmesan — finished with whole anchovy fillets for a salty kick.</p>
-        </div>
+      <div class="dish">
+        <h3>Pho, homemade low-sodium broth</h3>
+        <p>Star anise, cinnamon, charred ginger, onion, beef bone -- six-hour simmer, fat skimmed. No fish sauce in the broth.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>54g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>24g protein<span class="sep">·</span>540mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Vietnamese chicken salad</h3>
+        <p>Shredded poached chicken, cabbage, carrot, Vietnamese mint, lime. Minimal fish sauce in the dressing.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>26g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Turmeric and dill fish</h3>
+        <p>Turmeric and dill marinated fish pan-fried at the table, served with rice noodles and herbs. No soy.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>28g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Fresh spring rolls</h3>
+        <p>Rice paper wraps with prawns, lettuce, mint, vermicelli. Peanut sauce thinned with lime for dipping.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>12g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled lemongrass chicken</h3>
+        <p>Lemongrass, garlic, turmeric dry marinade. Grilled hard. Fragrant and naturally low-sodium.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>36g protein<span class="sep">·</span>160mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Caramelised ginger fish</h3>
+        <p>Fish simmered in caramel with ginger and chili. Fish sauce cut by sixty percent -- caramel does the work.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>30g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
       </div>
     </section>
 
-    <footer class="foot">
-      Lam Wang Cha Chaang Teng
-    </footer>
+    <section class="course">
+      <h2 class="course-title">Filipino</h2>
+      <div class="course-sub">Sour and bright</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Sinigang na gulay</h3>
+        <p>Sour tamarind broth with eggplant, okra, radish, spinach. Pure vegetable version, no fish sauce.</p>
+        <div class="nutrition">140 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>3g fat<span class="sep">·</span>5g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>7g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Sinigang na salmon head</h3>
+        <p>Salmon head in tamarind broth. Omega-3 rich, naturally sour, very little added salt needed.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>24g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Pinakbet, dry vegetable stir-fry</h3>
+        <p>Bitter gourd, okra, eggplant, squash, beans. A small amount of shrimp paste, heavy on the vegetables.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>7g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>White chicken adobo</h3>
+        <p>Chicken braised in vinegar, garlic, peppercorn, bay. No soy sauce at all. Naturally low-sodium and excellent.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>34g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Vinegar-poached fish</h3>
+        <p>Fish simmered in vinegar, ginger, garlic. Naturally tangy and preserving. Minimal fish sauce.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>32g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled eggplant salad</h3>
+        <p>Char-grilled eggplant, diced tomato, onion, cane vinegar. Smoky, sour, zero sodium from scratch.</p>
+        <div class="nutrition">120 cal<span class="sep">·</span>18g carbs<span class="sep">·</span>5g fat<span class="sep">·</span>3g protein<span class="sep">·</span>40mg sodium<span class="sep">·</span>6g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Greek</h2>
+      <div class="course-sub">From the village table</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Grilled octopus, lemon and oregano</h3>
+        <p>Tenderised octopus grilled over flame, dressed with olive oil, lemon, dried oregano. Pure protein.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>30g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Greek salad, no added salt</h3>
+        <p>Tomato, cucumber, kalamata olive, small feta, red onion, oregano. The feta provides all the salt.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>8g protein<span class="sep">·</span>480mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Fasolada, white bean soup</h3>
+        <p>Cannellini beans, carrot, celery, tomato, olive oil. Greece&#39;s national dish. No stock cube.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>46g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>16g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>12g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Spanakopita, half-feta filling</h3>
+        <p>Spinach and feta in filo. Half the feta of a standard recipe, brushed with olive oil rather than butter.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>10g protein<span class="sep">·</span>480mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Avgolemono soup</h3>
+        <p>Lemon and egg enriched chicken broth with rice. Homemade broth only -- bright and restorative.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>18g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Horiatiki dakos, barley rusk salad</h3>
+        <p>Wholegrain barley rusk topped with grated tomato, olive oil, rinsed capers, oregano.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>6g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>6g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Turkish</h2>
+      <div class="course-sub">Charcoal and citrus</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Turkish kebab, cumin and paprika</h3>
+        <p>Cumin, coriander, paprika, garlic dry rub. No salt. Char-grilled. Served with yogurt and shepherd&#39;s salad.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>36g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Mercimek corbasi, red lentil soup</h3>
+        <p>Red lentils, cumin, smoked paprika, lemon. No stock cube -- the lentils thicken naturally.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>42g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>16g protein<span class="sep">·</span>160mg sodium<span class="sep">·</span>10g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Cacik, yogurt cucumber and mint</h3>
+        <p>Yogurt, cucumber, dried mint, garlic. The mint sauce that goes with every grilled meat.</p>
+        <div class="nutrition">80 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>3g fat<span class="sep">·</span>6g protein<span class="sep">·</span>60mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Coban salatasi, shepherd&#39;s salad</h3>
+        <p>Tomato, cucumber, pepper, red onion, parsley, lemon, olive oil. Zero sodium from scratch.</p>
+        <div class="nutrition">140 cal<span class="sep">·</span>12g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>3g protein<span class="sep">·</span>20mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Menemen, tomato scrambled eggs</h3>
+        <p>Eggs scrambled into tomato, pepper, onion. The tomato is the seasoning -- no salt needed.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>12g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>14g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled sea bass in vine leaves</h3>
+        <p>Sea bass wrapped in vine leaves and grilled. The leaves provide natural seasoning. No added salt.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>38g protein<span class="sep">·</span>220mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Italian</h2>
+      <div class="course-sub">Cucina povera</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Pasta e fagioli</h3>
+        <p>Cannellini beans, short pasta, tomato, rosemary. Garlic and herb-driven, no stock cube.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>62g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>14g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>10g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled branzino, capers and lemon</h3>
+        <p>Sea bass fillet with rinsed capers and lemon-herb sauce. Italian Mediterranean at its most direct.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>34g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Ribollita, Tuscan kale and bean soup</h3>
+        <p>Cavolo nero, cannellini, tomato, stale bread. Hearty and fiber-dense.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>46g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>14g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>11g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Chicken piccata, no breading</h3>
+        <p>Chicken breast pounded thin, lemon, rinsed capers, white wine. The flour coat is skipped.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>36g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Frittata with courgette and herbs</h3>
+        <p>Baked egg dish with zucchini, onion, mixed herbs. A small grating of parmesan on top.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>16g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Homemade pesto with wholegrain pasta</h3>
+        <p>Fresh basil, pine nuts, olive oil, garlic, parmesan. Wholegrain penne. Homemade pesto has almost no sodium.</p>
+        <div class="nutrition">420 cal<span class="sep">·</span>54g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>12g protein<span class="sep">·</span>140mg sodium<span class="sep">·</span>7g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Insalata di mare, seafood salad</h3>
+        <p>Prawns, calamari, mussels, lemon, olive oil, parsley. The shellfish bring their own salinity.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>10g fat<span class="sep">·</span>30g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Ratatouille</h3>
+        <p>Eggplant, zucchini, tomato, bell pepper, herbs de Provence. Slow-oven version with olive oil. No salt.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>22g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>4g protein<span class="sep">·</span>40mg sodium<span class="sep">·</span>7g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Spanish</h2>
+      <div class="course-sub">From the plancha</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Gazpacho, chilled raw tomato soup</h3>
+        <p>Blended tomato, cucumber, pepper, olive oil, vinegar, garlic. Cold, raw, maximum nutrients.</p>
+        <div class="nutrition">160 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>3g protein<span class="sep">·</span>40mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Pimientos de padron</h3>
+        <p>Shishito-style peppers blistered in olive oil. Minimal flaky salt. High in Vitamin C.</p>
+        <div class="nutrition">140 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>3g protein<span class="sep">·</span>120mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Pollo al ajillo, garlic chicken</h3>
+        <p>Chicken thighs with twenty cloves of garlic, white wine, thyme. Garlic is a BP superfood.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>36g protein<span class="sep">·</span>220mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Espinacas con garbanzos</h3>
+        <p>Andalusian classic -- spinach, chickpeas, cumin, smoked paprika. No added salt.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>14g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>10g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Sardinas a la plancha</h3>
+        <p>Fresh sardines griddled with lemon and parsley. Maximum omega-3 in five minutes.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>0g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>28g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Patatas bravas, oven-roasted</h3>
+        <p>Potatoes roasted not fried, smoked paprika oil, fresh tomato salsa. No aioli.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>42g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>5g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">French</h2>
+      <div class="course-sub">Quietly classic</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Poulet roti aux herbes de Provence</h3>
+        <p>Dry rub of thyme, rosemary, lavender, garlic. Roasted whole. The definitive low-sodium chicken.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>42g protein<span class="sep">·</span>160mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Salade nicoise</h3>
+        <p>Tuna, egg, green beans, tomato, olive, potato. Olive oil and lemon dressing.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>28g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>6g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Soupe au pistou</h3>
+        <p>Provencal vegetable soup with a fresh basil paste stirred in. Dense with fiber, no stock cube.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>9g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>French onion soup, homemade broth</h3>
+        <p>Slow-caramelised onions in homemade beef broth. The deep onion sweetness replaces salt.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>11g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Frittata aux fines herbes</h3>
+        <p>Eggs with chervil, tarragon, parsley, chives. A French omelette baked flat. No added salt.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>16g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Pastel de nata, low-sugar</h3>
+        <p>An occasional treat for the table. Reduced sugar custard tart. Not a daily dish -- but morale matters.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>22g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>4g protein<span class="sep">·</span>80mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Mexican</h2>
+      <div class="course-sub">Mercado-bright</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Guacamole, scratch-made</h3>
+        <p>Avocado, lime, cilantro, jalapeno, red onion, tomato. No salt needed when the lime is generous.</p>
+        <div class="nutrition">220 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>3g protein<span class="sep">·</span>20mg sodium<span class="sep">·</span>9g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Black bean tacos, cabbage slaw</h3>
+        <p>Home-cooked black beans, cumin, oregano, in corn tortilla. Cabbage, lime, a little crema.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>48g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>14g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>12g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled fish tacos, dry rubbed</h3>
+        <p>White fish with ancho chili, cumin, garlic dry rub. Grilled. Corn tortilla, mango salsa.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>28g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Nopales cactus salad</h3>
+        <p>Sliced cactus paddles, tomato, onion, cilantro, lime. High fiber, high potassium. A BP superfood.</p>
+        <div class="nutrition">80 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>1g fat<span class="sep">·</span>3g protein<span class="sep">·</span>20mg sodium<span class="sep">·</span>6g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Sweet potato and black bean chili</h3>
+        <p>No-meat chili -- sweet potato, black bean, cumin, chipotle. Heavy on potassium and fiber.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>64g carbs<span class="sep">·</span>5g fat<span class="sep">·</span>14g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>14g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Tex-Mex</h2>
+      <div class="course-sub">Cattle country</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Fajita-style grilled chicken, dry rub</h3>
+        <p>Smoked paprika, cumin, garlic, oregano, lime dry rub. Served in lettuce wraps for low-carb.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>6g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>36g protein<span class="sep">·</span>220mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Breakfast burrito bowl</h3>
+        <p>Scrambled eggs, black beans, peppers, avocado, salsa over brown rice. No cheese, high fiber.</p>
+        <div class="nutrition">480 cal<span class="sep">·</span>54g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>22g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>12g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Tomatillo chicken stew</h3>
+        <p>Chicken thigh, tomatillo, poblano, garlic. Homemade broth, no added salt. High Vitamin C.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>32g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Chili with beans, reduced sodium</h3>
+        <p>Beef and kidney bean chili. No canned tomato salt -- fresh tomatoes plus a little chipotle in adobo.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>32g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>11g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">California</h2>
+      <div class="course-sub">Coastal grain bowls</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Farro grain bowl, tahini dressing</h3>
+        <p>Farro, roasted beets, sweet potato, arugula, tahini-lemon dressing. Potassium and fiber dense.</p>
+        <div class="nutrition">480 cal<span class="sep">·</span>64g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>14g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>14g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Avocado and grapefruit salad</h3>
+        <p>Sliced avocado, grapefruit segments, arugula, walnuts, lemon vinaigrette. Heart-protective fats.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>24g fat<span class="sep">·</span>6g protein<span class="sep">·</span>40mg sodium<span class="sep">·</span>9g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled salmon bowl, edamame and brown rice</h3>
+        <p>Salmon, edamame, cucumber, avocado, low-sodium sesame dressing. The ideal bowl for blood pressure.</p>
+        <div class="nutrition">520 cal<span class="sep">·</span>48g carbs<span class="sep">·</span>24g fat<span class="sep">·</span>34g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>9g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Zucchini noodles, pesto and cherry tomato</h3>
+        <p>Spiralised zucchini, homemade pesto, tomato, pine nuts. Zero carb base, fresh, almost zero sodium.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>22g fat<span class="sep">·</span>8g protein<span class="sep">·</span>140mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Kale and quinoa power salad</h3>
+        <p>Massaged kale, quinoa, dried cranberry, almond, lemon vinaigrette. High magnesium and potassium.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>48g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>11g protein<span class="sep">·</span>160mg sodium<span class="sep">·</span>9g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Turkey and avocado lettuce wraps</h3>
+        <p>Lean turkey, avocado, tomato, mustard in romaine cups. High protein, no bread, low sodium.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>28g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Portuguese</h2>
+      <div class="course-sub">From the harbour</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Piri piri chicken, dry rub</h3>
+        <p>Bird&#39;s-eye chili, garlic, lemon, olive oil dry rub. No marinade. Grilled hard over high heat.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>42g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Caldo verde, kale and light chourico</h3>
+        <p>Kale soup with potato and a small amount of chourico. Mostly kale, very little sausage.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>11g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Bacalhau a bras, desalted</h3>
+        <p>Salt cod soaked forty-eight hours with water changes. Egg, potato, olive, parsley. Soak is non-negotiable.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>24g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>32g protein<span class="sep">·</span>540mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Ameijoas a bulhao pato</h3>
+        <p>Clams steamed open with garlic, lemon, white wine, cilantro. Naturally briny -- no added salt.</p>
+        <div class="nutrition">200 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>24g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">American</h2>
+      <div class="course-sub">From the table</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Herb dry-rub grilled chicken breast</h3>
+        <p>Thyme, garlic, smoked paprika, black pepper, lemon zest. Grilled or oven-roasted. No batter ever.</p>
+        <div class="nutrition">260 cal<span class="sep">·</span>1g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>42g protein<span class="sep">·</span>180mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Turkey meatballs, fresh tomato sauce</h3>
+        <p>Ground turkey, herbs, egg. Baked not fried. Fresh tomato sauce -- no canned-tomato salt load.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>34g protein<span class="sep">·</span>340mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Grilled portobello mushroom burger</h3>
+        <p>Portobello cap dry-rubbed with smoked paprika and garlic. Served in lettuce, not a bun.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>7g protein<span class="sep">·</span>140mg sodium<span class="sep">·</span>4g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Baked panko chicken tenders</h3>
+        <p>Replaces the original fried tenders. Panko, herb dry rub, baked at 220C for twenty minutes.</p>
+        <div class="nutrition">320 cal<span class="sep">·</span>18g carbs<span class="sep">·</span>11g fat<span class="sep">·</span>36g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Caesar salad, light dressing</h3>
+        <p>Romaine, homemade dressing with reduced anchovy, parmesan, wholegrain croutons.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>11g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Banana oatmeal cake</h3>
+        <p>Warm oat cake baked with ripe bananas, pan-fried in butter. No flour, no sugar.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>42g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>7g protein<span class="sep">·</span>120mg sodium<span class="sep">·</span>6g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Avocado toast on sourdough</h3>
+        <p>Smashed avocado on sourdough, lemon, chili flakes, sea salt.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>9g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>8g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <h2 class="course-title">Fusion</h2>
+      <div class="course-sub">Across the table</div>
+      <div class="items">
+      <div class="dish">
+        <h3>Miso-glazed roasted cauliflower steaks</h3>
+        <p>Thick-cut cauliflower, white miso thinned with mirin and rice vinegar. Roasted at 220C. Umami without the salt load.</p>
+        <div class="nutrition">180 cal<span class="sep">·</span>18g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>7g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>5g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Korean-Taiwanese braised tofu</h3>
+        <p>Firm tofu in halved gochujang, five-spice, rice vinegar. Spicy, sweet, tangy. Low-sodium soy only.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>14g carbs<span class="sep">·</span>12g fat<span class="sep">·</span>18g protein<span class="sep">·</span>420mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>HK-Vietnamese lemongrass prawn congee</h3>
+        <p>Plain HK congee base with Vietnamese lemongrass, chili, fresh prawns. The prawns season the broth.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>38g carbs<span class="sep">·</span>6g fat<span class="sep">·</span>22g protein<span class="sep">·</span>280mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Japanese-Mediterranean salmon crudo</h3>
+        <p>Sashimi-grade salmon, yuzu, olive oil, sea herbs, microgreens. Zero cooking, maximum omega-3.</p>
+        <div class="nutrition">280 cal<span class="sep">·</span>2g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>28g protein<span class="sep">·</span>80mg sodium<span class="sep">·</span>0g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Thai-Greek grilled chicken with tzatziki</h3>
+        <p>Lemongrass and galangal dry rub on chicken thigh. Served with Greek tzatziki and shepherd&#39;s salad.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>16g fat<span class="sep">·</span>38g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Filipino-Spanish white adobo verde</h3>
+        <p>White adobo with tomatillo and calamansi. No soy. A vinegar and green-herb base.</p>
+        <div class="nutrition">300 cal<span class="sep">·</span>8g carbs<span class="sep">·</span>14g fat<span class="sep">·</span>34g protein<span class="sep">·</span>220mg sodium<span class="sep">·</span>2g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Taiwanese-California grain bowl</h3>
+        <p>Brown rice, braised tofu, edamame, rinsed kimchi, avocado, sesame-lemon dressing.</p>
+        <div class="nutrition">480 cal<span class="sep">·</span>54g carbs<span class="sep">·</span>18g fat<span class="sep">·</span>18g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>11g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Turkish-Korean spiced lamb patties</h3>
+        <p>Minced lamb with cumin, coriander, gochugaru dry rub. Grilled. Served with cacik.</p>
+        <div class="nutrition">340 cal<span class="sep">·</span>4g carbs<span class="sep">·</span>22g fat<span class="sep">·</span>28g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>1g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Baked Vietnamese-Californian spring rolls</h3>
+        <p>Rice paper baked crisp, filled with shrimp, avocado, herbs. Lime-peanut dipping sauce.</p>
+        <div class="nutrition">240 cal<span class="sep">·</span>32g carbs<span class="sep">·</span>8g fat<span class="sep">·</span>14g protein<span class="sep">·</span>240mg sodium<span class="sep">·</span>3g fiber</div>
+        
+        
+      </div>
+      <div class="dish">
+        <h3>Garlic-miso soba noodle salad</h3>
+        <p>Cold soba, white miso-lemon dressing at half quantity, edamame, cucumber, sesame. No soy.</p>
+        <div class="nutrition">380 cal<span class="sep">·</span>64g carbs<span class="sep">·</span>9g fat<span class="sep">·</span>16g protein<span class="sep">·</span>380mg sodium<span class="sep">·</span>7g fiber</div>
+        
+        
+      </div>
+      </div>
+    </section>
+
+    <div class="footer-note">Hummus with cucumber, bell peppers, carrots and celery is on the table at every meal. Mint yogurt sauce accompanies every grilled meat dish. All meats char-grilled or oven-roasted unless otherwise noted. No deep-frying.</div>
+    <footer class="foot">Prepared with love · Lam Wang Cha Chaang Teng</footer>
+    <div class="updated">Updated 2026-05-04 · 135 dishes</div>
   </div>
+  <script>
+  document.addEventListener('click', function(e) {
+    const chip = e.target.closest('.prep-chip');
+    if (!chip) return;
+    const dishEl = chip.closest('.dish');
+    const slug = chip.getAttribute('data-prep');
+    const detail = dishEl.querySelector('.prep-detail[data-prep="' + slug + '"]');
+    const wasOpen = detail && detail.classList.contains('open');
+    dishEl.querySelectorAll('.prep-detail').forEach(d => d.classList.remove('open'));
+    dishEl.querySelectorAll('.prep-chip').forEach(c => c.classList.remove('active'));
+    if (!wasOpen && detail) {
+      detail.classList.add('open');
+      chip.classList.add('active');
+    }
+  });
+</script>
 </body>
 </html>
