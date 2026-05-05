@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weapons Language and the Institutional Lag Behind It · THE WANG REPORT</title>
+  <title>AI on the Threat Feed, Unabsorbed · THE WANG REPORT</title>
   <link rel="stylesheet" href="style.css">
   <style>
     .col-wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 60px; }
@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<div class="nav-bar"><a href="/index.html" class="">MAIN</a> | <a href="/tldr.html" class="">TL;DR</a> | <a href="/geopolitical.html" class="">GEOPOLITICAL</a> | <a href="/companies.html" class="">HK FINANCE</a> | <a href="/cyber.html" class="nav-active">CYBER</a> | <a href="/ai-focus.html" class="">AI</a> | <a href="/hk-local.html" class="">HK LOCAL</a> | <a href="/briefings.html" class="">BRIEFINGS</a> | <a href="/editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="/masthead.html" class="">MASTHEAD</a></div>
+<div class="nav-bar"><a href="/index.html" class="">MAIN</a> | <a href="/geopolitical.html" class="">GEOPOLITICAL</a> | <a href="/companies.html" class="">HK FINANCE</a> | <a href="/cyber.html" class="nav-active">CYBER</a> | <a href="/ai-focus.html" class="">AI</a> | <a href="/hk-local.html" class="">HK LOCAL</a> | <a href="/hkjc-read.html" class="">HKJC READ</a> | <a href="/weekend.html" class="">WEEKEND</a> | <a href="/editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="/masthead.html" class="">MASTHEAD</a></div>
 
 <div class="col-wrap">
   <div class="col-fieldstamp">
@@ -56,8 +56,8 @@
     <span>WEEKLY</span>
   </div>
 
-  <h1 class="col-title">Weapons Language and the Institutional Lag Behind It</h1>
-  <div class="col-deck">Treasury's 'nuclear weapon' framing for AI in finance is institutional acknowledgment that the attack surface has changed faster than the governance structures meant to contain it.</div>
+  <h1 class="col-title">AI on the Threat Feed, Unabsorbed</h1>
+  <div class="col-deck">Anthropic's Mythos appearing on institutional threat registries forces a question that procurement frameworks and cyber insurance policies were not built to answer.</div>
 
   <div class="col-byline-row">
     <div class="col-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
@@ -70,19 +70,22 @@
 
   
       <div class="col-section">
-        <h2 class="col-section-heading">When Regulators Reach for Metaphor</h2>
-        <p class="col-para">When a U.S. Treasury document starts using 'nuclear weapon' to describe AI capabilities against the banking system, the interesting thing is not the hyperbole -- it is the function the hyperbole serves. Language that dramatic in an institutional document is not for technical staff. It is for boards, for audit committees, for insurance underwriters who need a frame that maps onto decisions they already understand. The Treasury paper arrives in a moment when prompt injection, once a theoretical attack class, has moved into documented real-world exploitation. The attack is not glamorous: an AI assistant reads a maliciously crafted document, or processes an email with embedded instructions, and routes funds, exfiltrates credentials, or corrupts an approval workflow. The inputs look like ordinary data. The model cannot distinguish between a legitimate instruction from a user and an adversarial one embedded in content it is processing. For banks that have deployed AI in customer workflows, compliance review, or document summarization, this is not a future problem. The exploitation chain is short. The gap between a demonstration in a research paper and a working intrusion is now measured in weeks, not years.</p>
+        <h2 class="col-section-heading">Reclassifying the Tool Stack</h2>
+        <p class="col-para">When Singapore's financial chiefs convened this week over Mythos, and when the EU opened formal talks with Anthropic over the same release, they were doing something that threat intelligence programs have historically resisted: categorizing a commercial AI product alongside state-sponsored intrusion sets. The U.S. Treasury's warning that AI is targeting bank accounts operated from the same register. None of these statements explain the mechanism precisely. That is the tell. The institutions are reacting faster than their frameworks can process.</p>
+        <p class="col-para">Mythos being flagged as an active cybersecurity threat is not the same as a vulnerability in a firewall or a phishing kit on a darknet forum. It names a general-purpose capability as the threat, not a specific exploit chain. That distinction matters for defenders. Insurance policies are written around breach events: unauthorized access, data exfiltration, business interruption. Hong Kong's insurers scrambling to reprice cyber coverage after the law tightened suggests the market senses that the loss scenarios it has been pricing are not the loss scenarios it will be paying out. The models to price AI-enabled fraud at scale do not exist yet. Underwriters are estimating. So are regulators.</p>
       </div>
 
       <div class="col-section">
-        <h2 class="col-section-heading">APAC Specificity, Not General Alarm</h2>
-        <p class="col-para">The HKMA's decision to partner with HKUST on applied cybersecurity research is the kind of institutional signal that reads cautiously optimistic unless you look at the timing. This partnership announcement lands in the same week that Silver Fox, a group operating with objectives that track closely to Chinese state interests, was documented deploying a new backdoor across targets in India and Russia -- two economies with significant APAC FSI exposure to Hong Kong-clearing transactions. The office platform zero-day active since March, exploited before a patch existed, is the operational reminder that the research-to-exploit cycle has no obligation to wait for academic partnerships to produce anything. Hong Kong's forthcoming mandatory breach reporting regime is the right structural move, and the tightening of cyber insurance rates around it is the market pricing something the compliance calendar has not fully acknowledged. What practitioners here are quietly asking is whether MAS Technology Risk Management guidelines, and the HKMA equivalents, were written with agentic AI deployments in mind. They were not. They were written when the largest concern was whether a bank's business continuity documentation was current.</p>
+        <h2 class="col-section-heading">Old Vectors, Still Clearing</h2>
+        <p class="col-para">While the AI debate consumed C-suite calendars this week, attacks that require no AI at all ran without interruption. A zero-day in cPanel was being weaponized before a patch existed. A Chinese office automation platform had been under active remote code execution exploitation since March, two months before disclosure reached most administrators. Microsoft's phishing infrastructure hit 35,000 accounts across 26 countries, a campaign relying on credential harvesting techniques that have not meaningfully changed since 2016. Medtronic disclosed unauthorized access to corporate IT systems, the kind of entry that typically starts with a compromised credential or an unpatched edge device, not an AI agent.</p>
+        <p class="col-para">The week's sharpest irony sat with Trellix: a cybersecurity vendor had source code stolen. An organization whose value proposition is threat detection failed to detect it. Source code in an attacker's possession becomes a map of detection logic: what signatures look like, where the blind spots are, what a product will not catch. The firms licensing Trellix on the basis of that detection logic now face a question the vendor cannot answer for them: whether the signatures are still the product, or whether the product is now a liability.</p>
       </div>
-  <div class="col-closing"><p class="col-para">The HKMA-HKUST partnership will eventually produce something. The question is whether what it produces will address the attack surface that exists when the first paper clears peer review, or the one that existed when the research agenda was set. The regulator's lag is structural, not a failure of will. But in a year when the gap between theoretical and weaponized closed to weeks, structural lag is the thing that gets you.</p></div>
+  <div class="col-closing"><p class="col-para">The HKMA signing a cybersecurity research deal with HKUST, and Hong Kong's push for mandatory breach reporting, are institutional responses to what regulators can see and name. Breach reporting mandates, insurance repricing, emergency sessions convened around specific AI releases all share that constraint. The attacks that cleared accounts this week were not visible to most monitoring programs until after the fact. Whether the architecture being assembled addresses what is actually breaking, or what is currently legible, is a question the institutions convening this week did not pose.</p></div>
   <div class="col-archive-strip">
         <div class="col-archive-heading">PREVIOUS COLUMNS, CYBER INTEL DESK</div>
         <div class="col-archive-grid">
-          <a href="/cyber-column/2026-04-28-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">Apr 28</span><span class="col-archive-title">The Patch Queue Can't Run at Discovery Speed</span><span class="col-archive-author">Kai Tanner</span></a>
+          <a href="/cyber-column/2026-05-05-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">May 5</span><span class="col-archive-title">Weapons Language and the Institutional Lag Behind It</span><span class="col-archive-author">Kai Tanner</span></a>
+        <a href="/cyber-column/2026-04-28-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">Apr 28</span><span class="col-archive-title">The Patch Queue Can't Run at Discovery Speed</span><span class="col-archive-author">Kai Tanner</span></a>
         </div>
       </div>
 
