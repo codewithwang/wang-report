@@ -349,12 +349,68 @@ a.td-link:hover { background: #232a3d; }
 /* Siren for breaking news */
 .siren { display: inline; width: 30px; vertical-align: middle; }
 
+/* Leaderboard ad slot — above the fold */
+.ad-leaderboard {
+    width: 728px;
+    height: 90px;
+    min-height: 90px;
+    max-width: 100%;
+    margin: 8px auto;
+    background: #EDE8DE;
+    border: 1px solid #C8C0B0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9AA3B8;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.ad-leaderboard:empty::after { content: 'Advertisement'; }
+
+/* Page body — content + right rail */
+.page-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 98%;
+    margin: 0 auto;
+}
+
+/* Right rail */
+.right-rail {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.ad-slot {
+    background: #EDE8DE;
+    border: 1px solid #C8C0B0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9AA3B8;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.ad-slot:empty::after { content: 'Advertisement'; }
+.ad-300x250 {
+    width: 300px;
+    height: 250px;
+    min-height: 250px;
+}
+
 /* Three-column layout — wide like Drudge */
 .columns {
     display: flex;
     justify-content: center;
-    max-width: 98%;
-    margin: 0 auto;
+    flex: 1;
+    min-width: 0;
 }
 .column {
     flex: 1;
@@ -845,11 +901,15 @@ a.td-link:hover { background: #232a3d; }
 /* ========== RESPONSIVE: TABLET (≤900px) ========== */
 
 @media (max-width: 900px) {
+    .page-body { flex-direction: column; }
+    .right-rail { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .ad-300x250 { width: 300px; }
+    .ad-leaderboard { width: 100%; max-width: 468px; height: 60px; min-height: 60px; }
     .columns { flex-wrap: wrap; }
     .column {
         flex: 1 1 48%;
         border-right: none;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #C8C0B0;
         padding-bottom: 10px;
         margin-bottom: 10px;
     }
@@ -865,6 +925,9 @@ a.td-link:hover { background: #232a3d; }
     body { padding: 6px; }
 
     /* Layout: stack to single column */
+    .page-body { gap: 12px; }
+    .right-rail { flex-direction: column; align-items: center; }
+    .ad-leaderboard { max-width: 320px; height: 50px; min-height: 50px; }
     .columns { flex-direction: column; }
     .column {
         flex: 1 1 100%;
