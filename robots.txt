@@ -1,0 +1,43 @@
+# The Wang Report — robots.txt
+# https://wangreport.com
+
+# Allow all major search engines and LLM crawlers.
+# Rationale: this site is editorial curation + commentary on public-source news.
+# Being cited by search engines and LLMs is brand-positive; the underlying
+# sources are already public, so blocking does not protect anything.
+
+User-agent: *
+Allow: /
+
+# Explicit allow for major LLM / AI training crawlers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://wangreport.com/sitemap.xml
