@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI on the Threat Feed, Unabsorbed · THE WANG REPORT</title>
+  <title>Hong Kong's Breach Law Arrives After the Credential · THE WANG REPORT</title>
   <link rel="stylesheet" href="style.css">
   <style>
     .col-wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 60px; }
@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<div class="nav-bar"><a href="/index.html" class="">MAIN</a> | <a href="/geopolitical.html" class="">GEOPOLITICAL</a> | <a href="/companies.html" class="">HK FINANCE</a> | <a href="/cyber.html" class="nav-active">CYBER</a> | <a href="/ai-focus.html" class="">AI</a> | <a href="/hk-local.html" class="">HK LOCAL</a> | <a href="/hkjc-read.html" class="">HKJC READ</a> | <a href="/weekend.html" class="">WEEKEND</a> | <a href="/editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="/masthead.html" class="">MASTHEAD</a></div>
+<div class="nav-bar"><a href="/index.html" class="">MAIN</a> | <a href="/geopolitical.html" class="">GEOPOLITICAL</a> | <a href="/companies.html" class="">HK FINANCE</a> | <a href="/cyber.html" class="nav-active">CYBER</a> | <a href="/ai-focus.html" class="">AI</a> | <a href="/hk-local.html" class="">HK LOCAL</a> | <a href="/weekend.html" class="">WEEKEND</a> | <a href="/editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="/briefings.html" class="">BRIEFINGS</a> | <a href="/masthead.html" class="">MASTHEAD</a></div>
 
 <div class="col-wrap">
   <div class="col-fieldstamp">
@@ -56,36 +56,38 @@
     <span>WEEKLY</span>
   </div>
 
-  <h1 class="col-title">AI on the Threat Feed, Unabsorbed</h1>
-  <div class="col-deck">Anthropic's Mythos appearing on institutional threat registries forces a question that procurement frameworks and cyber insurance policies were not built to answer.</div>
+  <h1 class="col-title">Hong Kong's Breach Law Arrives After the Credential</h1>
+  <div class="col-deck">TCLBanker's WhatsApp worm is harvesting sessions across 59 financial platforms; Hong Kong's incoming breach-reporting mandate would activate after the accounts are already drained.</div>
 
   <div class="col-byline-row">
     <div class="col-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
     <div class="col-byline-text">
       <span class="col-byline-name">譚 啟 凱 <span class="col-byline-sep">·</span> Kai Tanner</span>
       <span class="col-byline-role">Cyber Intel Desk, Senior Correspondent</span>
-      <span class="col-byline-date">Tuesday, May 5, 2026</span>
+      <span class="col-byline-date">Sunday, May 10, 2026</span>
     </div>
   </div>
 
   
       <div class="col-section">
-        <h2 class="col-section-heading">Reclassifying the Tool Stack</h2>
-        <p class="col-para">When Singapore's financial chiefs convened this week over Mythos, and when the EU opened formal talks with Anthropic over the same release, they were doing something that threat intelligence programs have historically resisted: categorizing a commercial AI product alongside state-sponsored intrusion sets. The U.S. Treasury's warning that AI is targeting bank accounts operated from the same register. None of these statements explain the mechanism precisely. That is the tell. The institutions are reacting faster than their frameworks can process.</p>
-        <p class="col-para">Mythos being flagged as an active cybersecurity threat is not the same as a vulnerability in a firewall or a phishing kit on a darknet forum. It names a general-purpose capability as the threat, not a specific exploit chain. That distinction matters for defenders. Insurance policies are written around breach events: unauthorized access, data exfiltration, business interruption. Hong Kong's insurers scrambling to reprice cyber coverage after the law tightened suggests the market senses that the loss scenarios it has been pricing are not the loss scenarios it will be paying out. The models to price AI-enabled fraud at scale do not exist yet. Underwriters are estimating. So are regulators.</p>
+        <h2 class="col-section-heading">Fifty-Nine Platforms, One Worm</h2>
+        <p class="col-para">TCLBanker is a credential-harvesting trojan confirmed targeting 59 financial platforms, distributed via WhatsApp message chains. The distribution mechanism is worth naming precisely: the worm reads the infected device's WhatsApp contact list and propagates outward as if from the victim, converting every compromised handset into a distribution node inside a network of pre-established trust. In APAC financial services, where WhatsApp remains a primary client-communication channel at institutions that have not migrated to regulated messaging platforms, this is not an incidental attack surface. It is the attack surface.</p>
+        <p class="col-para">The interception happens at the session layer, not at credentials at rest. HKMA's Technology Risk Management guidelines, last revised in January 2021, mandate multi-factor authentication for internet banking, but the control model assumes an attacker who needs to authenticate from outside. TCLBanker operates after the customer has already authenticated -- it intercepts the live session token. The vendor framing on mobile banking security has focused on login hardening. The artifact shows the login was not the problem.</p>
       </div>
 
       <div class="col-section">
-        <h2 class="col-section-heading">Old Vectors, Still Clearing</h2>
-        <p class="col-para">While the AI debate consumed C-suite calendars this week, attacks that require no AI at all ran without interruption. A zero-day in cPanel was being weaponized before a patch existed. A Chinese office automation platform had been under active remote code execution exploitation since March, two months before disclosure reached most administrators. Microsoft's phishing infrastructure hit 35,000 accounts across 26 countries, a campaign relying on credential harvesting techniques that have not meaningfully changed since 2016. Medtronic disclosed unauthorized access to corporate IT systems, the kind of entry that typically starts with a compromised credential or an unpatched edge device, not an AI agent.</p>
-        <p class="col-para">The week's sharpest irony sat with Trellix: a cybersecurity vendor had source code stolen. An organization whose value proposition is threat detection failed to detect it. Source code in an attacker's possession becomes a map of detection logic: what signatures look like, where the blind spots are, what a product will not catch. The firms licensing Trellix on the basis of that detection logic now face a question the vendor cannot answer for them: whether the signatures are still the product, or whether the product is now a liability.</p>
+        <h2 class="col-section-heading">The Reporting Clock Starts Last</h2>
+        <p class="col-para">Hong Kong's incoming breach-reporting mandate, pushed with renewed urgency following data-leak disclosures in Q1 2026, is built on a forensic model: an unauthorized access event occurs, it is discovered, a clock starts, the institution reports. The model works when the breach leaves a trace on institutional infrastructure. Session interception leaves no such trace. The session was authenticated. From the institution's log perspective, nothing went wrong.</p>
+        <p class="col-para">The IMF's May 2026 warning about AI-powered cybercrime overwhelming global finance is framed as forward risk, something building toward a threshold. TCLBanker is not building toward a threshold. It is deployed. The gap between the IMF's tense and the malware's operational status is roughly the same gap as between Hong Kong's draft notification rules and the attack model those rules were written to address.</p>
+        <p class="col-para">The HKMA and HKUST announced an applied cybersecurity research partnership this week. The workstream breakdown has not been published. Whether the research agenda reaches session-layer interception on consumer mobile platforms, rather than the more visible AI-detection problem, is a question the announcement does not answer.</p>
       </div>
-  <div class="col-closing"><p class="col-para">The HKMA signing a cybersecurity research deal with HKUST, and Hong Kong's push for mandatory breach reporting, are institutional responses to what regulators can see and name. Breach reporting mandates, insurance repricing, emergency sessions convened around specific AI releases all share that constraint. The attacks that cleared accounts this week were not visible to most monitoring programs until after the fact. Whether the architecture being assembled addresses what is actually breaking, or what is currently legible, is a question the institutions convening this week did not pose.</p></div>
+  <div class="col-closing"><p class="col-para">*The control that changes the outcome here is not breach reporting and it is not multi-factor authentication at login. It is binding transaction verification -- a cryptographic confirmation step separate from the authenticated session, tied to the specific transfer amount and destination account, delivered on a second channel the session-layer trojan cannot reach. Several European banks implemented exactly this following the 2012-2014 Zeus campaign. The question for Hong Kong's financial institutions is whether institutional memory of that campaign reached the mobile banking product team.*</p></div>
   <div class="col-archive-strip">
         <div class="col-archive-heading">PREVIOUS COLUMNS, CYBER INTEL DESK</div>
         <div class="col-archive-grid">
-          <a href="/cyber-column/2026-05-05-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">May 5</span><span class="col-archive-title">Weapons Language and the Institutional Lag Behind It</span><span class="col-archive-author">Kai Tanner</span></a>
-        <a href="/cyber-column/2026-04-28-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">Apr 28</span><span class="col-archive-title">The Patch Queue Can't Run at Discovery Speed</span><span class="col-archive-author">Kai Tanner</span></a>
+          <a href="/cyber-column/2026-05-10-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">May 10</span><span class="col-archive-title">TCLBanker Arrived Where HKMA Circulars Do Not Reach</span><span class="col-archive-author">Kai Tanner</span></a>
+        <a href="/cyber-column/2026-05-05-kai-tanner-2.html" class="col-archive-item"><span class="col-archive-date">May 5</span><span class="col-archive-title">AI on the Threat Feed, Unabsorbed</span><span class="col-archive-author">Kai Tanner</span></a>
+        <a href="/cyber-column/2026-05-05-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">May 5</span><span class="col-archive-title">Weapons Language and the Institutional Lag Behind It</span><span class="col-archive-author">Kai Tanner</span></a>
         </div>
       </div>
 
