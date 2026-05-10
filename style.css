@@ -85,11 +85,13 @@ body {
 }
 /* Tension Dashboard */
 .tension-dashboard {
-    background: #111;
+    background: #1a1f2e;
     max-width: 98%;
-    margin: 8px auto;
-    border: 1px solid #2a2a2a;
+    margin: 12px auto;
+    border: 1px solid #2a3142;
+    border-top: 3px solid #cc0000;
     padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* WRTI Hero Section */
@@ -97,15 +99,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 14px 12px 10px;
-    border-bottom: 1px solid #222;
+    padding: 18px 12px 14px;
+    border-bottom: 1px solid #2a3142;
+    background: linear-gradient(180deg, #232a3d 0%, #1a1f2e 100%);
 }
 .td-wrti-hero .td-label {
     font-family: Arial, sans-serif;
     font-size: 9px;
     font-weight: bold;
     letter-spacing: 0.25em;
-    color: #666;
+    color: #9aa3b8;
     text-transform: uppercase;
     margin-bottom: 4px;
 }
