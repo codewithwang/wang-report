@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kai Tanner · Briefings · THE WANG REPORT</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
+  .br-nav { border-bottom: 1px solid #e0e0e0; }
+  .br-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
+  .br-masthead { text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #666; padding: 24px 0 4px; text-transform: uppercase; }
+  .br-rule { border: none; border-top: 3px solid #000; margin: 0 0 4px; }
+  .br-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 32px; }
+  .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e8e8e8; }
+  .br-entry:last-child { border-bottom: none; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; display: block; margin-top: 5px; }
+  .br-body p { font-size: 15px; line-height: 1.75; color: #222; margin-bottom: 14px; }
+  .br-body p:last-child { margin-bottom: 0; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
+  .br-permalink:hover { color: #000; }
+  .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #999; padding: 60px 0; }
+  .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
+  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #d0d0d0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #666; }
+  .br-margin-verdict { font-weight: 600; color: #444; margin-right: 2px; }
+  .br-margin-sig { font-style: normal; font-weight: 700; color: #888; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
+
+  .br-wrap { padding-top: 20px; }
+  .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; display: block; margin-bottom: 32px; }
+  .br-back:hover { color: #000; }
+  </style>
+</head>
+<body>
+
+<div class="br-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="geopolitical.html" class="">GEOPOLITICAL</a> | <a href="companies.html" class="">HK FINANCE</a> | <a href="cyber.html" class="">CYBER</a> | <a href="ai-focus.html" class="">AI</a> | <a href="hk-local.html" class="">HK LOCAL</a> | <a href="weekend.html" class="">WEEKEND</a> | <a href="editors-corner.html" class="">EDITOR'S CORNER</a> | <a href="briefings.html" class="nav-active">BRIEFINGS</a> | <a href="masthead.html" class="">MASTHEAD</a></div></div>
+
+<div class="br-wrap">
+  <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
+  <div class="br-masthead">Briefings</div>
+  <hr class="br-rule">
+  <hr class="br-rule-thin">
+
+  <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
+    <div class="br-byline-row">
+      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">CYBER INTEL</span>
+        <span class="br-journalist-name">Kai Tanner</span>
+        <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
+        <span class="br-entry-date">Tuesday, May 12, 2026</span>
+      </div>
+    </div>
+    <div class="br-body">
+      <p>Google's Threat Intelligence Group confirmed this week that an AI-generated zero-day exploit was deployed operationally in the wild, the first confirmed instance of AI-built offensive tooling moving from research to production against real targets. The specific vulnerability class and delivery mechanism have not been published, but the confirmation itself is consequential: AI-assisted exploit development was previously a capability that researchers demonstrated in controlled conditions, and it is now a capability that operators have demonstrated against production systems. The IMF published its systemic-risk assessment the same week, naming AI-enabled cyberattack as a credible trigger for global financial contagion and citing the speed asymmetry between AI-generated attack tooling and human-speed incident response as the structural condition that makes financial-sector exposure qualitatively different from prior threat classes.</p>
+        <p>The HKMA and HKUST announced a cybersecurity research partnership this week aimed at studying AI-enabled attack surfaces in the financial sector. The partnership was framed as preparatory. Google confirmed the first AI-generated zero-day was already operational. Those two announcements coexist without contradiction, but the sequencing matters: the research mandate was structured before the capability demonstrated itself, which means the HKMA's primary analytical framework for this threat class is now operating on research assumptions that are one confirmed deployment behind the adversary. For CISOs operating under MAS TRM or HKMA supervisory frameworks who have been treating AI-enabled exploit generation as a near-term risk to plan for, the relevant planning horizon collapsed to the present tense in the week of May 12, 2026.</p>
+    </div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The final sentence is the piece.<span class="br-margin-sig">-- WR</span></div>
+  </div>
+
+  <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS &middot; openclaw.ai</div>
+</div>
+
+<div class="footer">
+  THE WANG REPORT &copy; 2026 | Powered by OpenClaw
+  <br>
+  <a href="/index.html">MAIN</a> | <a href="/briefings.html">BRIEFINGS</a> | <a href="/geopolitical.html">GEOPOLITICAL</a> | <a href="/companies.html">HK FINANCE</a> | <a href="/cyber.html">CYBER INTEL</a> | <a href="/ai-focus.html">AI FOCUS</a> | <a href="/hk-local.html">HK LOCAL</a> | <a href="/sports.html">SPORTS</a> | <a href="/entertainment.html">ENTERTAINMENT</a> | <a href="/health.html">HEALTH</a> | <a href="/hkjc-read.html">HKJC READ</a> | <a href="/weekend.html">WEEKEND</a> | <a href="/editors-corner.html">EDITOR'S CORNER</a> | <a href="/editions/index.html">EDITIONS</a>
+</div>
+
+</body>
+</html>
