@@ -649,11 +649,12 @@ a.td-link:hover { background: #232a3d; }
 
 /* Front-page weekly column strip */
 .front-col-teaser {
+  max-width: var(--wr-page);
+  margin: 18px auto;
   border-top: 4px solid #B0241E;
   border-bottom: 1px solid #C8C0B0;
   background: #EDE8DE;
   padding: 16px 20px 14px;
-  margin: 18px 0;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
 }
