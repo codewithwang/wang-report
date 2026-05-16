@@ -30,7 +30,7 @@
 <div class="nav-bar"><a href="index.html" class="nav-active">MAIN</a> | <a href="briefings.html" class="">BRIEFINGS</a> | <a href="weekend.html" class="">WEEKEND</a> | <a href="masthead.html" class="">MASTHEAD</a> | <a href="about.html" class="">ABOUT</a></div>
 
 <div class="timestamp-bar">
-  Saturday, May 16, 2026 at 10:19 PM GMT+8
+  Saturday, May 16, 2026 at 10:41 PM GMT+8
 </div>
 
 <div class="ad-leaderboard"></div>
@@ -56,7 +56,7 @@
       <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5DLXY2RlYtalB1OU9lWWh1OF91NGgybkx5dno5N1cwQy1yNVl3NGloclhkTTljb3Q5NXYtMEQzTDhUSDV5aU4xSVc2SGl0R3YtcVlIT1hwbVVZZw?oc=5" target="_blank">Trump warns Taiwan against declaring independence, hours after summit with China's Xi - BBC</a>
       <span class="source">BBC</span>
     </div>
-    <div class="hero-image"><img src="img/hero.jpg?t=1778941141167" alt=""></div>
+    <div class="hero-image"><img src="img/hero.jpg?t=1778942496165" alt=""></div>
 
 <div class="masthead">THE WANG REPORT</div>
 <div class="subhead"><a href="https://news.ycombinator.com">HACKER NEWS</a>
@@ -81,64 +81,21 @@
   .wx-day-label { font-size:9px; color:#888; letter-spacing:1px; text-transform:uppercase; }
   .wx-day-hi { font-weight:bold; color:#B0241E; }
   .wx-day-lo { color:#555; }
-  .wx-err { color:#999; font-size:10px; }
   @media(max-width:600px){ .wx-forecast { display:none; } }
-  </style>
-  <div class="wx-bar" id="wx-bar">
-    <span class="wx-err">Loading HK weather...</span>
-  </div>
-  <script>
-  (function(){
-    const bar = document.getElementById('wx-bar');
-    const WX_ICON = {'sunny':'☀','cloudy':'☁','rain':'🌧','thunder':'⛈','fog':'🌫','windy':'💨'};
-    function wxIcon(t){ t=(t||'').toLowerCase(); if(/thunder|storm/i.test(t)) return '⛈'; if(/rain|shower/i.test(t)) return '🌧'; if(/fog|mist/i.test(t)) return '🌫'; if(/cloud/i.test(t)) return '⛅'; if(/sun|fine|fair/i.test(t)) return '☀'; return ''; }
-    const API = 'https://data.weather.gov.hk/weatherAPI/opendata/weather.php';
-    Promise.all([
-      fetch(API+'?dataType=rhrread&lang=en').then(r=>r.json()).catch(()=>null),
-      fetch(API+'?dataType=fnd&lang=en').then(r=>r.json()).catch(()=>null)
-    ]).then(([cur,fnd])=>{
-      let html = '';
-      if(cur){
-        const hko = (cur.temperature&&cur.temperature.data||[]).find(d=>d.place==='Hong Kong Observatory')||{};
-        const hum = (cur.humidity&&cur.humidity.data||[]).find(d=>d.place==='Hong Kong Observatory')||{};
-        const icon = wxIcon(cur.icon&&cur.icon[0]||'');
-        html += '<div class="wx-now">'
-          +(icon?'<span style="font-size:18px">'+icon+'</span>':'')
-          +'<span class="wx-temp">'+(hko.value||'--')+'°C</span>'
-          +'<span class="wx-cond">HK Observatory</span>'
-          +'<span class="wx-hum">Humidity '+(hum.value||'--')+'%</span>'
-          +'</div>';
-      }
-      if(fnd&&fnd.weatherForecast){
-        html += '<div class="wx-forecast">';
-        fnd.weatherForecast.slice(0,7).forEach(d=>{
-          const label = d.forecastDate ? d.forecastDate.slice(4) : '';
-          html += '<div class="wx-day">'
-            +'<div class="wx-day-label">'+label+'</div>'
-            +'<div style="font-size:14px">'+wxIcon(d.forecastWeather||'')+'</div>'
-            +'<div class="wx-day-hi">'+(d.forecastMaxtemp&&d.forecastMaxtemp.value||'--')+'°</div>'
-            +'<div class="wx-day-lo">'+(d.forecastMintemp&&d.forecastMintemp.value||'--')+'°</div>'
-            +'</div>';
-        });
-        html += '</div>';
-      }
-      bar.innerHTML = html || '<span class="wx-err">HK weather unavailable</span>';
-    }).catch(()=>{ bar.innerHTML='<span class="wx-err">HK weather unavailable</span>'; });
-  })();
-  </script>
+  </style><div class="wx-bar"><div class="wx-now"><span style="font-size:18px">🌧</span><span class="wx-temp">24°C</span><span class="wx-cond">HK Observatory</span><span class="wx-hum">Humidity 86%</span></div><div class="wx-forecast"><div class="wx-day"><div class="wx-day-label">0517</div><div style="font-size:14px">⛈</div><div class="wx-day-hi">26°</div><div class="wx-day-lo">23°</div></div><div class="wx-day"><div class="wx-day-label">0518</div><div style="font-size:14px">🌧</div><div class="wx-day-hi">28°</div><div class="wx-day-lo">25°</div></div><div class="wx-day"><div class="wx-day-label">0519</div><div style="font-size:14px">🌧</div><div class="wx-day-hi">30°</div><div class="wx-day-lo">26°</div></div><div class="wx-day"><div class="wx-day-label">0520</div><div style="font-size:14px">🌧</div><div class="wx-day-hi">31°</div><div class="wx-day-lo">26°</div></div><div class="wx-day"><div class="wx-day-label">0521</div><div style="font-size:14px">🌧</div><div class="wx-day-hi">31°</div><div class="wx-day-lo">26°</div></div><div class="wx-day"><div class="wx-day-label">0522</div><div style="font-size:14px">🌧</div><div class="wx-day-hi">32°</div><div class="wx-day-lo">27°</div></div><div class="wx-day"><div class="wx-day-label">0523</div><div style="font-size:14px">☀</div><div class="wx-day-hi">32°</div><div class="wx-day-lo">27°</div></div></div></div>
 
 <div class="front-col-teaser">
   <div class="front-col-eyebrow"><span class="front-col-stamp">THIS WEEK'S COLUMN</span> <span class="front-col-stamp-sep">·</span> <span class="front-col-desk">GEOPOLITICAL DESK</span></div>
   <div class="front-col-body">
-    <div class="front-col-avatar"><img src="/masthead/img/mei-chen.png" alt="MC"/></div>
+    <div class="front-col-avatar"><img src="/masthead/img/vincent-lai.png" alt="VL"/></div>
     <div class="front-col-text">
-      <a href="/geopolitical-column/2026-05-16-mei-chen.html" class="front-col-title">Trump's Taiwan Clarity Runs One Way</a>
-      <div class="front-col-deck">Trump warned Taipei against independence and declined to commit to its defense; the summit produced not strategic ambiguity but asymmetric clarity that Beijing can sequence against.</div>
-      <div class="front-col-byline">By <strong>Mei Chen</strong><span class="front-col-role">Geopolitical Desk, Senior Correspondent</span><span class="front-col-date">Sat, May 16</span></div>
+      <a href="/geopolitical-column/2026-05-16-vincent-lai-2.html" class="front-col-title">The Summit Framework Neither Capital Can Sustain</a>
+      <div class="front-col-deck">The Trump-Xi summit produced a Taiwan framework both capitals can describe but neither can operationalize; the PLAN's nine ships make the gap visible.</div>
+      <div class="front-col-byline">By <strong>Vincent Lai</strong><span class="front-col-role">Geopolitical Desk, Senior Correspondent</span><span class="front-col-date">Sat, May 16</span></div>
     </div>
   </div>
   <div class="front-col-actions">
-    <a href="/geopolitical-column/2026-05-16-mei-chen.html" class="front-col-cta">Read the column &rarr;</a>
+    <a href="/geopolitical-column/2026-05-16-vincent-lai-2.html" class="front-col-cta">Read the column &rarr;</a>
     <a href="/columns.html" class="front-col-more">All columns</a>
   </div>
 </div>
@@ -164,6 +121,7 @@
 </div><style>
   .tt-block { max-width: 1100px; margin: 18px auto 24px; padding: 16px 18px 18px; border: 1px solid #ddd; background: #fafafa; }
   .tt-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid #000; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; }
+  .tt-ts { font-size: 9px; font-weight: normal; letter-spacing: 1px; color: #999; }
   .tt-cta a { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #cc0000; text-decoration: none; }
   .tt-cta a:hover { text-decoration: underline; }
   .tt-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
@@ -177,7 +135,7 @@
   @media (max-width: 760px) { .tt-rows { grid-template-columns: 1fr; } }
   </style>
   <div class="tt-block">
-  <div class="tt-eyebrow">TODAY'S 10 <span class="tt-cta"><a href="tldr.html">FULL DIGEST &rarr;</a></span></div>
+  <div class="tt-eyebrow">TODAY'S 10 <span class="tt-ts">&middot; 22:12 HKT</span> <span class="tt-cta"><a href="tldr.html">FULL DIGEST &rarr;</a></span></div>
   <div class="tt-rows">
     <a href="https://www.scmp.com" class="tt-row" target="_blank" rel="noopener">
       <span class="tt-rank">1</span>
@@ -291,7 +249,7 @@
   </div>
   <div class="column">
     <div class="column-header">BUSINESS / TECH / MISC</div>
-      <div class="story caps has-thumb"><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353809/what-do-travellers-need-know-when-hong-kong-airports-terminal-2-opens?utm_source=rss_feed" target="_blank"><img class="story-thumb" src="img/thumbs/main-09786a619e.jpg?t=1778941141167" alt="" loading="lazy"></a><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353809/what-do-travellers-need-know-when-hong-kong-airports-terminal-2-opens?utm_source=rss_feed" target="_blank">HK AIRPORT TERMINAL 2 OPENS MAY 27</a> <span class="source">SCMP</span></div>
+      <div class="story caps has-thumb"><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353809/what-do-travellers-need-know-when-hong-kong-airports-terminal-2-opens?utm_source=rss_feed" target="_blank"><img class="story-thumb" src="img/thumbs/main-09786a619e.jpg?t=1778942496165" alt="" loading="lazy"></a><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353809/what-do-travellers-need-know-when-hong-kong-airports-terminal-2-opens?utm_source=rss_feed" target="_blank">HK AIRPORT TERMINAL 2 OPENS MAY 27</a> <span class="source">SCMP</span></div>
       <div class="story caps"><a href="https://www.bloomberg.com/news/articles/2026-05-16/nextera-energy-is-said-to-be-in-talks-to-acquire-dominion-energy" target="_blank">NEXTERA IN TALKS TO BUY DOMINION ENERGY</a> <span class="source">Bloomberg</span></div>
       <div class="story caps"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNSHlkeEpxbnJZNS10MUJ0MWpQbmw2Q2FHNU1WNTF5OGQyYVo0bVVZaE93ZnRDVGEwSUxXZ24zU2N2ZXdGNERSODI1R0gtRHl1bC1KVi1admlrNlBGY3JxenFGTlRfYUJrbG56RXJXcWpwV2U4X21ZVGlXUWdPMHA2eXU2WFQ5U0ZrMm9XNGFNMjd6MVIyOEltLUFsUmhCVDh1RXduM0s2Q0xWSWxsbjh3cWRlQ3BGSHBPWUxMZjlrMnhGWTFpRHc?oc=5" target="_blank">ARM HOLDINGS FACES US ANTITRUST PROBE</a> <span class="source">Reuters</span></div>
       <div class="story caps"><a href="https://www.scmp.com/business/china-business/article/3353813/buyers-flock-shkp-project-new-territories-confidence-grows-home-market-outlook?utm_source=rss_feed" target="_blank">HK HOMEBUYERS SWARM SHKP NEW TERRITORIES PROJECT</a> <span class="source">SCMP</span></div>
