@@ -3,41 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weekend · THE WANG REPORT</title>
+  <title>Weekend &middot; THE WANG REPORT</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .we-wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 60px; }
-    .we-fieldstamp { text-align: center; font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #555; padding: 18px 0 8px; text-transform: uppercase; }
-    .we-rule { border: none; border-top: 3px solid #000; margin: 0 0 6px; }
-    .we-rule-thin { border: none; border-top: 1px solid #ccc; margin: 6px 0 24px; }
-    .we-heading { font-family: Georgia, serif; font-size: 30px; font-weight: bold; margin: 16px 0 8px; color: #111; }
-    .we-sub { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #555; margin-bottom: 32px; line-height: 1.55; }
-    .we-rail-label { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #000; }
-    .we-rail { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 12px; }
-    .we-card { display: block; padding: 22px 20px; background: #fff; border: 1px solid #ddd; text-decoration: none; color: #111; transition: border-color 120ms ease; }
-    .we-card:hover { border-color: #cc0000; }
-    .we-card:hover .we-title { color: #cc0000; }
-    .we-card-empty { background: #fafafa; border-style: dashed; }
-    .we-stamp { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #888; text-transform: uppercase; margin-bottom: 4px; }
-    .we-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-    .we-title { font-family: Georgia, serif; font-size: 20px; font-weight: bold; line-height: 1.25; margin: 0 0 8px; }
-    .we-deck { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #444; line-height: 1.5; margin-bottom: 8px; }
-    .we-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; letter-spacing: 0.5px; }
-    .we-role { color: #999; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; }
-    .we-empty-line { font-family: Georgia, serif; font-size: 14px; color: #777; margin: 14px 0 12px; font-style: italic; }
-    .we-cta { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 2px; color: #cc0000; }
-    .we-section-label { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #000; }
-    .we-row { display: block; padding: 14px 0; border-top: 1px solid #ddd; text-decoration: none; color: #111; }
-    .we-row:hover .we-row-title { color: #cc0000; }
-    .we-row-stamp { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #888; text-transform: uppercase; }
-    .we-row-meta { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #888; letter-spacing: 0.5px; margin: 4px 0; }
-    .we-row-author { color: #555; }
-    .we-row-title { font-family: Georgia, serif; font-size: 17px; font-weight: bold; line-height: 1.3; }
-    .we-empty-block { font-family: Georgia, serif; font-size: 14px; color: #777; padding: 28px 0; text-align: center; font-style: italic; }
+    .we-wrap { max-width: var(--wr-page); margin: 0 auto; padding: 0 20px 60px; }
+    .we-fieldstamp { text-align: center; font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #5A6470; padding: 18px 0 8px; text-transform: uppercase; }
+    .we-rule { border: none; border-top: 3px solid #0B1F3A; margin: 0 0 6px; }
+    .we-rule-thin { border: none; border-top: 1px solid #C8C0B0; margin: 6px 0 24px; }
+    .we-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 900; margin: 12px 0 8px; color: #0B1F3A; letter-spacing: 1px; }
+    .we-sub { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #5A6470; margin-bottom: 28px; line-height: 1.55; }
+
+    /* Walter hero — type only, navy on bone, oxblood signal border */
+    .we-hero { background: #EDE8DE; border-top: 4px solid #B0241E; border-bottom: 1px solid #C8C0B0; padding: 32px 36px 28px; margin: 8px 0 36px; }
+    .we-hero-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 3px; color: #B0241E; margin-bottom: 12px; text-transform: uppercase; }
+    .we-hero-title { font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 900; line-height: 1.15; color: #0B1F3A; margin: 0 0 12px; letter-spacing: 0.5px; }
+    .we-hero-title a { color: inherit; text-decoration: none; }
+    .we-hero-title a:hover { color: #B0241E; }
+    .we-hero-deck { font-family: Georgia, serif; font-size: 17px; font-style: italic; color: #0B1F3A; line-height: 1.5; margin: 0 0 18px; }
+    .we-hero-lede { font-family: Georgia, serif; font-size: 15.5px; line-height: 1.75; color: #0B1F3A; margin: 0 0 18px; }
+    .we-hero-sig { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 2px; color: #5A6470; margin-bottom: 14px; }
+    .we-hero-cta { display: inline-block; font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; text-decoration: none; padding: 6px 0; border-top: 1px solid #C8C0B0; }
+    .we-hero-cta:hover { color: #0B1F3A; }
+
+    /* Section label */
+    .we-section-label { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #0B1F3A; text-transform: uppercase; margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #0B1F3A; }
+
+    /* 2x2 grid */
+    .we-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 12px; }
+    .we-card { display: block; padding: 22px 22px; background: #EDE8DE; border: 1px solid #C8C0B0; text-decoration: none; color: #0B1F3A; transition: border-color 120ms ease, background 120ms ease; }
+    .we-card:hover { border-color: #B0241E; background: #F4EFE6; }
+    .we-card:hover .we-title { color: #B0241E; }
+    .we-card-empty { background: #F4EFE6; border-style: dashed; }
+    .we-stamp { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #5A6470; text-transform: uppercase; margin-bottom: 4px; }
+    .we-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+    .we-title { font-family: Georgia, serif; font-size: 20px; font-weight: bold; line-height: 1.25; margin: 0 0 8px; color: #0B1F3A; }
+    .we-deck { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #5A6470; line-height: 1.5; margin-bottom: 10px; }
+    .we-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; letter-spacing: 0.5px; }
+    .we-role { color: #9AA3B8; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; }
+    .we-empty-line { font-family: Georgia, serif; font-size: 14px; color: #5A6470; margin: 14px 0 12px; font-style: italic; }
+    .we-cta { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 2px; color: #B0241E; }
+
+    /* Recent strip — horizontal row of compact dated tiles */
+    .we-recent-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: #C8C0B0; border: 1px solid #C8C0B0; }
+    .we-tile { display: flex; flex-direction: column; padding: 14px 14px 12px; background: #F4EFE6; text-decoration: none; color: #0B1F3A; min-height: 110px; transition: background 120ms ease; }
+    .we-tile:hover { background: #EDE8DE; }
+    .we-tile:hover .we-tile-title { color: #B0241E; }
+    .we-tile-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .we-tile-stamp { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 1.5px; color: #B0241E; text-transform: uppercase; }
+    .we-tile-date { font-family: "Courier New", Courier, monospace; font-size: 9px; color: #5A6470; letter-spacing: 1px; }
+    .we-tile-title { font-family: Georgia, serif; font-size: 13.5px; font-weight: bold; line-height: 1.35; color: #0B1F3A; margin-bottom: 6px; flex: 1; }
+    .we-tile-byline { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; letter-spacing: 0.5px; }
+
+    .we-empty-block { font-family: Georgia, serif; font-size: 14px; color: #5A6470; padding: 28px 0; text-align: center; font-style: italic; }
+
     @media (max-width: 760px) {
-      .we-heading { font-size: 24px; }
-      .we-rail { grid-template-columns: 1fr; }
+      .we-heading { font-size: 28px; }
+      .we-hero { padding: 22px 20px 20px; }
+      .we-hero-title { font-size: 26px; }
+      .we-hero-deck { font-size: 15px; }
+      .we-grid-2x2 { grid-template-columns: 1fr; }
       .we-title { font-size: 18px; }
+      .we-recent-row { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
     }
   </style>
 </head>
@@ -48,14 +74,23 @@
 <div class="timestamp-bar">Sunday, May 17, 2026</div>
 
 <div class="we-wrap">
-  <div class="we-fieldstamp">THE WANG REPORT · WEEKEND</div>
+  <div class="we-fieldstamp">THE WANG REPORT &middot; WEEKEND</div>
   <hr class="we-rule">
   <hr class="we-rule-thin">
   <h1 class="we-heading">Weekend</h1>
-  <div class="we-sub">Saturday and Sunday filings from the Sports, Entertainment, Health, and Climate desks. Climate runs event-driven; Magnus files when the week's news warrants. The other three file weekly.</div>
+  <div class="we-sub">Walter's weekly Editor's Corner and the weekend desks' filings, consolidated on Sunday. Climate runs event-driven; Magnus files when the week's news warrants.</div>
 
-  <div class="we-rail-label">Saturday &mdash; Sports &amp; Entertainment</div>
-  <div class="we-rail">
+  <section class="we-hero">
+    <div class="we-hero-eyebrow">EDITOR'S CORNER &middot; WEEKLY &middot; SUNDAY</div>
+    <h1 class="we-hero-title"><a href="/editors-corner.html">Operational Tempo, and the Cities That Watch</a></h1>
+    <div class="we-hero-deck">Twenty-nine PLA aircraft, severed cables, and warships near Penghu mark a week when the Taiwan question moved from signal to sequence; Hong Kong's compliance sprint is reading the same calendar.</div>
+    <p class="we-hero-lede">The week produced specific numbers.  Twenty-nine PLA aircraft completed sorties around Taiwan.</p>
+    <div class="we-hero-sig">&mdash; WR &middot; May 2, 2026</div>
+    <a class="we-hero-cta" href="/editors-corner.html">Read the Corner &rarr;</a>
+  </section>
+
+  <div class="we-section-label">This week's filings</div>
+  <div class="we-grid-2x2">
     <a href="/sports-column/2026-05-16-dev-chatterjee-3.html" class="we-card">
     <div class="we-stamp">SPORTS DESK · HONG KONG · WEEKLY</div>
     <div class="we-date">May 16, 2026</div>
@@ -63,18 +98,14 @@
     <div class="we-deck">Miriam Adelson's move to rebuild the Mavericks and Las Vegas Sands' push to legalize Texas gaming are one project described in different press releases.</div>
     <div class="we-byline">By Dev Chatterjee <span class="we-role">Senior Correspondent</span></div>
   </a>
-<a href="/entertainment-column/2026-05-16-joy-lee-2.html" class="we-card">
+<a href="/entertainment-column/2026-05-16-joy-lee-3.html" class="we-card">
     <div class="we-stamp">ENTERTAINMENT DESK</div>
-    <div class="we-date">May 16, 2026</div>
-    <h2 class="we-title">Two Governments Priced the Same Pop Act</h2>
-    <div class="we-deck">South Korea's military deferral statute and Saudi Arabia's venue infrastructure push are two sovereign bets on the same globally touring pop act.</div>
+    <div class="we-date">May 17, 2026</div>
+    <h2 class="we-title">The Trainee Contract Is Now the Asset</h2>
+    <div class="we-deck">Kakao's $1 billion SM acquisition and HYBE's IP litigation against Min Hee-jin are the same transaction: buying legal control of who a trainee becomes.</div>
     <div class="we-byline">By Joy Lee <span class="we-role">Senior Correspondent</span></div>
   </a>
-  </div>
-
-  <div class="we-rail-label">Sunday &mdash; Health &amp; Climate</div>
-  <div class="we-rail">
-    <a href="/health-column/2026-05-16-sora-whitlam-4.html" class="we-card">
+<a href="/health-column/2026-05-16-sora-whitlam-4.html" class="we-card">
     <div class="we-stamp">HEALTH DESK</div>
     <div class="we-date">May 17, 2026</div>
     <h2 class="we-title">The Platform Charges What the Clinic Cannot Certify</h2>
@@ -91,102 +122,70 @@
   </div>
 
   <div class="we-section-label">Recent weekend filings</div>
-  <a href="/health-column/2026-05-16-sora-whitlam-4.html" class="we-row">
-      <div class="we-row-stamp">HEALTH DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 17, 2026</span>
-         &middot; <span class="we-row-author">Sora Whitlam</span>
+  <div class="we-recent-row"><a href="/health-column/2026-05-16-sora-whitlam-3.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">HEALTH DESK</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">The Platform Charges What the Clinic Cannot Certify</div>
+      <div class="we-tile-title">The Epigenetic Signal the Protocol Market Ignores</div>
+      <div class="we-tile-byline">Sora Whitlam</div>
     </a>
-<a href="/health-column/2026-05-16-sora-whitlam-3.html" class="we-row">
-      <div class="we-row-stamp">HEALTH DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Sora Whitlam</span>
+<a href="/health-column/2026-05-16-sora-whitlam-2.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">HEALTH DESK</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">The Epigenetic Signal the Protocol Market Ignores</div>
+      <div class="we-tile-title">The Epigenetic Clock the Protocols Cannot Move</div>
+      <div class="we-tile-byline">Sora Whitlam</div>
     </a>
-<a href="/sports-column/2026-05-16-dev-chatterjee-3.html" class="we-row">
-      <div class="we-row-stamp">SPORTS DESK · HONG KONG · WEEKLY</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Dev Chatterjee</span>
+<a href="/sports-column/2026-05-16-dev-chatterjee-2.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">SPORTS DESK · HONG KONG · WEEKLY</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">The Other Board Sits in Austin</div>
+      <div class="we-tile-title">The Mavericks Are a Macau Capital Play</div>
+      <div class="we-tile-byline">Dev Chatterjee</div>
     </a>
-<a href="/health-column/2026-05-16-sora-whitlam-2.html" class="we-row">
-      <div class="we-row-stamp">HEALTH DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Sora Whitlam</span>
+<a href="/health-column/2026-05-16-sora-whitlam.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">HEALTH DESK</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">The Epigenetic Clock the Protocols Cannot Move</div>
+      <div class="we-tile-title">The Biology That Capital Prices Too Late</div>
+      <div class="we-tile-byline">Sora Whitlam</div>
     </a>
-<a href="/sports-column/2026-05-16-dev-chatterjee-2.html" class="we-row">
-      <div class="we-row-stamp">SPORTS DESK · HONG KONG · WEEKLY</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Dev Chatterjee</span>
+<a href="/sports-column/2026-05-16-dev-chatterjee.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">SPORTS DESK · HONG KONG · WEEKLY</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">The Mavericks Are a Macau Capital Play</div>
+      <div class="we-tile-title">Sands Capital, Ujiri, and the Tencent Clock</div>
+      <div class="we-tile-byline">Dev Chatterjee</div>
     </a>
-<a href="/health-column/2026-05-16-sora-whitlam.html" class="we-row">
-      <div class="we-row-stamp">HEALTH DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Sora Whitlam</span>
+<a href="/entertainment-column/2026-05-16-joy-lee-2.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">ENTERTAINMENT DESK</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">The Biology That Capital Prices Too Late</div>
+      <div class="we-tile-title">Two Governments Priced the Same Pop Act</div>
+      <div class="we-tile-byline">Joy Lee</div>
     </a>
-<a href="/sports-column/2026-05-16-dev-chatterjee.html" class="we-row">
-      <div class="we-row-stamp">SPORTS DESK · HONG KONG · WEEKLY</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Dev Chatterjee</span>
+<a href="/entertainment-column/2026-05-16-joy-lee.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">ENTERTAINMENT DESK</span>
+        <span class="we-tile-date">MAY 16</span>
       </div>
-      <div class="we-row-title">Sands Capital, Ujiri, and the Tencent Clock</div>
+      <div class="we-tile-title">Seoul and Riyadh Want the Ground Rent</div>
+      <div class="we-tile-byline">Joy Lee</div>
     </a>
-<a href="/climate-column/2026-05-16-magnus-honeyfield.html" class="we-row">
-      <div class="we-row-stamp">CLIMATE DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Magnus Honeyfield</span>
+<a href="/climate-column/2026-05-11-magnus-honeyfield.html" class="we-tile">
+      <div class="we-tile-head">
+        <span class="we-tile-stamp">CLIMATE DESK</span>
+        <span class="we-tile-date">MAY 11</span>
       </div>
-      <div class="we-row-title">Kalmaegi Shows Where the Capital Stops</div>
-    </a>
-<a href="/entertainment-column/2026-05-16-joy-lee-2.html" class="we-row">
-      <div class="we-row-stamp">ENTERTAINMENT DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Joy Lee</span>
-      </div>
-      <div class="we-row-title">Two Governments Priced the Same Pop Act</div>
-    </a>
-<a href="/entertainment-column/2026-05-16-joy-lee.html" class="we-row">
-      <div class="we-row-stamp">ENTERTAINMENT DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 16, 2026</span>
-         &middot; <span class="we-row-author">Joy Lee</span>
-      </div>
-      <div class="we-row-title">Seoul and Riyadh Want the Ground Rent</div>
-    </a>
-<a href="/climate-column/2026-05-11-magnus-honeyfield.html" class="we-row">
-      <div class="we-row-stamp">CLIMATE DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 11, 2026</span>
-         &middot; <span class="we-row-author">Magnus Honeyfield</span>
-      </div>
-      <div class="we-row-title">Eight Cents on Every Dollar Lost</div>
-    </a>
-<a href="/entertainment-column/2026-05-10-joy-lee-3.html" class="we-row">
-      <div class="we-row-stamp">ENTERTAINMENT DESK</div>
-      <div class="we-row-meta">
-        <span class="we-row-date">May 10, 2026</span>
-         &middot; <span class="we-row-author">Joy Lee</span>
-      </div>
-      <div class="we-row-title">K-Pop's IP Consolidation Bet Is Fracturing</div>
-    </a>
+      <div class="we-tile-title">Eight Cents on Every Dollar Lost</div>
+      <div class="we-tile-byline">Magnus Honeyfield</div>
+    </a></div>
 </div>
 
 <div class="footer">
