@@ -5,6 +5,8 @@
     --wr-page: min(1280px, 98vw);
 }
 
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
     background: #F4EFE6;
     margin: 0;
