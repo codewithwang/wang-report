@@ -7,31 +7,31 @@
   <link rel="stylesheet" href="style.css">
   <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
-  .br-nav { border-bottom: 1px solid #e0e0e0; }
+  body { background: #F4EFE6; color: #0B1F3A; font-family: Georgia, 'Times New Roman', serif; }
+  .br-nav { border-bottom: 1px solid #C8C0B0; }
   .br-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
-  .br-masthead { text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #666; padding: 24px 0 4px; text-transform: uppercase; }
-  .br-rule { border: none; border-top: 3px solid #000; margin: 0 0 4px; }
-  .br-rule-thin { border: none; border-top: 1px solid #ccc; margin: 4px 0 32px; }
-  .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e8e8e8; }
+  .br-masthead { text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #5A6470; padding: 24px 0 4px; text-transform: uppercase; }
+  .br-rule { border: none; border-top: 3px solid #0B1F3A; margin: 0 0 4px; }
+  .br-rule-thin { border: none; border-top: 1px solid #C8C0B0; margin: 4px 0 32px; }
+  .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #C8C0B0; }
   .br-entry:last-child { border-bottom: none; }
   .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
-  .br-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
-  .br-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
   .br-byline-text { flex: 1; min-width: 0; }
-  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #cc0000; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
-  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; display: block; margin-top: 1px; }
-  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #aaa; display: block; margin-top: 5px; }
-  .br-body p { font-size: 15px; line-height: 1.75; color: #222; margin-bottom: 14px; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
-  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #cc0000; text-decoration: none; }
-  .br-permalink:hover { color: #000; }
-  .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #999; padding: 60px 0; }
-  .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center; margin-top: 40px; letter-spacing: 1px; }
-  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #d0d0d0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #666; }
-  .br-margin-verdict { font-weight: 600; color: #444; margin-right: 2px; }
-  .br-margin-sig { font-style: normal; font-weight: 700; color: #888; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
+  .br-permalink:hover { color: #0B1F3A; }
+  .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #5A6470; padding: 60px 0; }
+  .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #5A6470; text-align: center; margin-top: 40px; letter-spacing: 1px; }
+  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #C8C0B0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #5A6470; }
+  .br-margin-verdict { font-weight: 600; color: #0B1F3A; margin-right: 2px; }
+  .br-margin-sig { font-style: normal; font-weight: 700; color: #5A6470; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
   @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
 </style>
 </head>
@@ -46,7 +46,7 @@
 
   <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/vincent-lai.png" alt="VL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/vincent-lai.jpg" alt="VL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Vincent Lai</span>
@@ -63,7 +63,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/cheung-kwok-keung.png" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">WEEKEND WITH KIDS</span>
         <span class="br-journalist-name">Cheung Kwok-keung</span>
@@ -80,7 +80,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/cheung-kwok-keung.png" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK DESK</span>
         <span class="br-journalist-name">Cheung Kwok-keung</span>
@@ -97,7 +97,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/joy-lee.png" alt="JL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/joy-lee.jpg" alt="JL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">ENTERTAINMENT</span>
         <span class="br-journalist-name">Joy Lee</span>
@@ -114,7 +114,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK FINANCE</span>
         <span class="br-journalist-name">Rachel Lam</span>
@@ -131,7 +131,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -148,7 +148,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/mei-chen.png" alt="MC"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="MC"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Mei Chen</span>
@@ -165,7 +165,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -182,7 +182,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK FINANCE</span>
         <span class="br-journalist-name">Rachel Lam</span>
@@ -199,7 +199,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/mei-chen.png" alt="MC"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="MC"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Mei Chen</span>
@@ -216,7 +216,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -233,7 +233,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/cheung-kwok-keung.png" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK DESK</span>
         <span class="br-journalist-name">Cheung Kwok-keung</span>
@@ -250,7 +250,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/aya-nakamura.png" alt="AN"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/aya-nakamura.jpg" alt="AN"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">AI FOCUS</span>
         <span class="br-journalist-name">Aya Nakamura</span>
@@ -267,7 +267,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK FINANCE</span>
         <span class="br-journalist-name">Rachel Lam</span>
@@ -284,7 +284,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/vincent-lai.png" alt="VL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/vincent-lai.jpg" alt="VL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Vincent Lai</span>
@@ -301,7 +301,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/cheung-kwok-keung.png" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">WEEKEND WITH KIDS</span>
         <span class="br-journalist-name">Cheung Kwok-keung</span>
@@ -318,7 +318,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/cheung-kwok-keung.png" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK DESK</span>
         <span class="br-journalist-name">Cheung Kwok-keung</span>
@@ -335,7 +335,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK FINANCE</span>
         <span class="br-journalist-name">Rachel Lam</span>
@@ -352,7 +352,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/joy-lee.png" alt="JL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/joy-lee.jpg" alt="JL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">ENTERTAINMENT</span>
         <span class="br-journalist-name">Joy Lee</span>
@@ -369,7 +369,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -386,7 +386,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -403,7 +403,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/mei-chen.png" alt="MC"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="MC"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Mei Chen</span>
@@ -420,7 +420,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/vincent-lai.png" alt="VL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/vincent-lai.jpg" alt="VL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Vincent Lai</span>
@@ -437,7 +437,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/cheung-kwok-keung.png" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK DESK</span>
         <span class="br-journalist-name">Cheung Kwok-keung</span>
@@ -454,7 +454,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK FINANCE</span>
         <span class="br-journalist-name">Rachel Lam</span>
@@ -471,7 +471,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -488,7 +488,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/mei-chen.png" alt="MC"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="MC"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Mei Chen</span>
@@ -505,7 +505,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/vincent-lai.png" alt="VL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/vincent-lai.jpg" alt="VL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Vincent Lai</span>
@@ -522,7 +522,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/mei-chen.png" alt="MC"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="MC"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">GEOPOLITICAL</span>
         <span class="br-journalist-name">Mei Chen</span>
@@ -539,7 +539,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/kai-tanner.png" alt="KT"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
@@ -556,7 +556,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">HK FINANCE</span>
         <span class="br-journalist-name">Rachel Lam</span>
@@ -573,7 +573,7 @@
   </div>
 <div class="br-entry">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/aya-nakamura.png" alt="AN"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/aya-nakamura.jpg" alt="AN"/></div>
       <div class="br-byline-text">
         <span class="br-section-tag">AI FOCUS</span>
         <span class="br-journalist-name">James Park</span>

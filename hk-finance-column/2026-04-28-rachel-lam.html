@@ -12,8 +12,8 @@
     .col-title { font-family: Georgia, 'Times New Roman', serif; font-size: 32px; font-weight: bold; line-height: 1.15; margin: 22px 0 12px; color: #111; }
     .col-deck { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; font-style: italic; color: #333; line-height: 1.5; margin: 0 0 22px; border-left: 3px solid #cc0000; padding-left: 14px; }
     .col-byline-row { display: flex; align-items: center; gap: 14px; margin: 0 0 28px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
-    .col-avatar { width: 52px; height: 52px; border-radius: 50%; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
-    .col-avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+    .col-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+    .col-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
     .col-byline-text { flex: 1; min-width: 0; font-family: Georgia, 'Times New Roman', serif; }
     .col-byline-name { display: block; font-size: 14px; font-weight: bold; color: #111; margin-bottom: 2px; }
     .col-byline-sep { color: #999; font-weight: normal; padding: 0 4px; }
@@ -39,7 +39,7 @@
       .col-fieldstamp { font-size: 9px; letter-spacing: 1.5px; }
       .col-archive-grid { grid-template-columns: 1fr; }
       .col-avatar { width: 44px; height: 44px; font-size: 12px; }
-      .col-avatar img { width: 44px; height: 44px; }
+      .col-avatar img { width: 100%; height: 100%; }
     }
   </style>
 </head>
@@ -60,7 +60,7 @@
   <div class="col-deck">Mainland sponsors and international allocators are pricing the same HK IPOs at a spread that twelve months of roadshows have not closed.</div>
 
   <div class="col-byline-row">
-    <div class="col-avatar"><img src="/masthead/img/rachel-lam.png" alt="RL"/></div>
+    <div class="col-avatar"><img src="/masthead/img/thumbs/rachel-lam.jpg" alt="RL"/></div>
     <div class="col-byline-text">
       <span class="col-byline-name">Rachel Lam</span>
       <span class="col-byline-role">HK Finance Desk, Senior Correspondent</span>
