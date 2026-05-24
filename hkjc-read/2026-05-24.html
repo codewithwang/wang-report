@@ -56,15 +56,32 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
 .hr-bd-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; vertical-align: middle; }
 .hr-bd-chip { font-family: "Courier New", Courier, monospace; font-size: 10px; background: #efeadb; color: #555; padding: 1px 6px; border-radius: 2px; white-space: nowrap; }
 .hr-bd-thesis { font-family: Georgia, serif; font-size: 14px; color: #333; line-height: 1.5; margin-top: 4px; }
+.hr-bd-fullfield { margin: 14px 0 4px; border-top: 1px dashed #d8d2c0; padding-top: 10px; }
+.hr-bd-fullfield > summary { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; color: #006400; text-transform: uppercase; cursor: pointer; padding: 4px 0; list-style: none; }
+.hr-bd-fullfield > summary::-webkit-details-marker { display: none; }
+.hr-bd-fullfield > summary::before { content: "▸ "; display: inline-block; transition: transform 0.15s; }
+.hr-bd-fullfield[open] > summary::before { content: "▾ "; }
+.hr-bd-fullfield-list { list-style: none; padding: 8px 0 4px; margin: 0; counter-reset: ff; }
+.hr-bd-fullfield-list li { display: grid; grid-template-columns: 28px minmax(140px, 1.8fr) 64px 1.2fr 1.2fr; gap: 8px; padding: 4px 0; font-size: 12px; align-items: baseline; border-bottom: 1px dotted #ece6d4; }
+.hr-bd-fullfield-list li:last-child { border-bottom: 0; }
+.hr-ff-draw { font-family: "Courier New", Courier, monospace; font-weight: bold; color: #555; text-align: center; }
+.hr-ff-name { font-family: "Courier New", Courier, monospace; font-weight: bold; color: #1a1a1a; letter-spacing: 0.3px; }
+.hr-ff-rtg { font-family: "Courier New", Courier, monospace; color: #777; font-size: 11px; }
+.hr-ff-jockey { font-family: Georgia, serif; color: #444; font-size: 12px; }
+.hr-ff-trainer { font-family: Georgia, serif; color: #888; font-size: 11px; font-style: italic; }
 @media (max-width: 640px) {
   .hr-wordmark { font-size: 14px; letter-spacing: 4px; }
   .hr-byline { flex-direction: column; align-items: flex-start; gap: 14px; }
   .hr-bd-race-meta { display: block; margin-top: 4px; }
+  .hr-bd-fullfield-list li { grid-template-columns: 24px 1fr 50px; gap: 6px; }
+  .hr-ff-jockey, .hr-ff-trainer { grid-column: 2 / -1; font-size: 11px; padding-left: 0; }
+  .hr-ff-trainer { color: #999; }
 }</style>
 </head>
 <body>
 
-<div class="hr-nav"><div class="nav-bar"><a href="index.html" class="">MAIN</a> | <a href="wire.html" class="">WIRE</a> | <a href="briefings.html" class="">BRIEFINGS</a> | <a href="weekend.html" class="">WEEKEND</a> | <a href="masthead.html" class="">MASTHEAD</a> | <a href="about.html" class="">ABOUT</a></div></div>
+<div class="hr-nav"><div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="briefings.html" class="">Briefings</a> | <a href="weekend.html" class="">Weekend</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">HK Finance</a><a href="cyber.html" class="nav-desk-link">Cyber Intel</a><a href="ai-focus.html" class="nav-desk-link">AI Focus</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="entertainment.html" class="nav-desk-link">Entertainment</a><a href="health.html" class="nav-desk-link">Health</a><a href="hkjc-read.html" class="nav-desk-link nav-desk-active">HKJC Read</a></div></nav></div>
 
 <div class="hr-wrap">
   <div class="hr-masthead">
@@ -96,7 +113,7 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
 <h3>institutional weather</h3><p>The nine-runner field in Race 8 tells you something about where Hong Kong's prestige staying races sit in the regional capital calendar at season's end. Smaller fields at Group level in May reflect a predictable concentration: fewer horses are at their competitive peak, international raiders have largely returned home, and the ownership layer that remains is local and institutional. HKJC's charity disbursement pipeline closes out in June, and the final Group races of the season serve a dual function: sporting conclusion, and the high-profile civic event that anchors the institution's annual public narrative before the off-season. Today's card, one Group race over a volume base of five Class 4 heats, is a precise expression of how that institution balances its two roles: sport as spectacle at the top of the card, and sport as revenue mechanism for everything beneath it.</p>
     <div class="hr-breakdown">
   <div class="hr-section-title">Field Breakdown &middot; Vivian Wong</div>
-  <p class="hr-bd-note">Top 3 contenders by rating and form, plus one dark horse per race. Not selections -- structural reads of the field.</p>
+  <p class="hr-bd-note">Top 3 contenders by rating and form, plus one dark horse per race. Not selections -- structural reads of the field. Tap "Full field" to see every runner.</p>
   
     <div class="hr-bd-race">
       <div class="hr-bd-race-header">
@@ -734,7 +751,9 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
 <div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="index.html">MAIN</a> | <a href="tldr.html">TL;DR</a> | <a href="geopolitical.html">GEOPOLITICAL</a> | <a href="hk-finance.html">HK FINANCE</a> | <a href="cyber.html">CYBER INTEL</a> | <a href="ai-focus.html">AI FOCUS</a> | <a href="hk-local.html">HK LOCAL</a> | <a href="sports.html">SPORTS</a> | <a href="entertainment.html">ENTERTAINMENT</a> | <a href="health.html">HEALTH</a> | <a href="hkjc-read.html">HKJC READ</a> | <a href="weekend.html">WEEKEND</a> | <a href="editors-corner.html">EDITOR'S CORNER</a> | <a href="editions/index.html">EDITIONS</a>
+  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="briefings.html">Briefings</a> &middot; <a href="weekend.html">Weekend</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">HK Finance</a> &middot; <a href="cyber.html">Cyber Intel</a> &middot; <a href="ai-focus.html">AI Focus</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="entertainment.html">Entertainment</a> &middot; <a href="health.html">Health</a> &middot; <a href="hkjc-read.html">HKJC Read</a></span>
+  <br>
+  <a href="about.html">About</a> | <a href="privacy.html">Privacy</a>
 </div>
 
 

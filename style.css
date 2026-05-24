@@ -593,6 +593,45 @@ a.td-link:hover { background: #232a3d; }
     border-bottom: 2px solid #B0241E;
 }
 
+/* Desk strip — tier 2 of the top nav, exposes all 9 desks under the primary nav.
+   Horizontal scroll on narrow viewports, no JS. Hides scrollbar visually but
+   keeps swipe behaviour. Bone background + navy text matches house palette;
+   slightly muted vs the primary nav to read as secondary. */
+.nav-desks {
+    background: #E5DFD2;
+    border-bottom: 1px solid #C8C0B0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.nav-desks::-webkit-scrollbar { display: none; }
+.nav-desks-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 4px 8px;
+    white-space: nowrap;
+    min-width: max-content;
+    margin: 0 auto;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+.nav-desks .nav-desk-link {
+    color: #4a4030;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-right: 1px solid #C8C0B0;
+}
+.nav-desks .nav-desk-link:last-child { border-right: none; }
+.nav-desks .nav-desk-link:hover { color: #0B1F3A; text-decoration: underline; }
+.nav-desks .nav-desk-active {
+    color: #B0241E;
+    font-weight: bold;
+}
+
 /* Client Watch styles */
 .col-teaser {
   border-top: 2px solid #0B1F3A;
@@ -963,6 +1002,16 @@ a.td-link:hover { background: #232a3d; }
     /* Nav bar — compact for small screens */
     .nav-bar { font-size: 11px; letter-spacing: 0; }
     .nav-bar a { padding: 2px 6px; }
+
+    /* Desk strip — switch to scroll-from-left so all 9 desks remain
+       reachable via swipe at 393px width. Centring breaks horizontal
+       scroll when content exceeds viewport. */
+    .nav-desks-inner {
+        justify-content: flex-start;
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+    .nav-desks .nav-desk-link { padding: 3px 8px; }
     .subhead { font-size: 10px; }
     .subhead a { margin: 0 4px; }
 
