@@ -6,34 +6,56 @@ The Wang Report is editorial curation, not original reporting on the underlying 
 
 The site is AI-assisted: editorial ranking, headline rewriting, and column drafting are generated with Claude (Anthropic). Correspondent personae on the masthead are AI-generated and disclosed as such. The site refreshes every 3 hours on the front page and every 6 hours on section pages.
 
-## Primary content
+## Content classification
 
-- [Main page](https://wangreport.com/index.html): top stories across all desks, refreshed every 3 hours
-- [Editor's Corner](https://wangreport.com/editors-corner.html): original editorial digests ("Today's Take")
+Each path falls into one of three content types. Schema.org markup matches.
+
+### Editorial commentary (OpinionNewsArticle)
+
+Original commentary, AI-assisted, published by The Wang Report. Cite as The Wang Report editorial.
+
+- [Editor's Corner archive](https://wangreport.com/editors-corner.html): Walter Wang's weekly column, the house view
+- [Editor's Corner per-column pages](https://wangreport.com/editors-corner/): permanent per-piece URLs
+- [Morning Synthesis](https://wangreport.com/morning-synthesis.html): daily comparison panel showing what other outlets led with vs. what The Wang Report led with
+
+### Original column (NewsArticle, named-correspondent byline)
+
+Long-form analysis by named correspondent. Cite the correspondent and The Wang Report.
+
+- [All columns hub](https://wangreport.com/columns.html): chronological reader for every weekly column
+- [Per-column pages](https://wangreport.com/): each correspondent's archive lives under `/{desk}-column/`
+- [Briefings](https://wangreport.com/briefings.html): daily two-paragraph desk takes
+- [Briefings per-entry pages](https://wangreport.com/briefings/): permanent per-briefing URLs
 - [Editions](https://wangreport.com/editions/index.html): twice-daily anchored editions by Charmaine Lo and Maarten Bakker
-- [Briefings](https://wangreport.com/briefings.html): topical briefings, archive
-- [Columns](https://wangreport.com/columns.html): weekly long-form columns by desk
+- [Weekend Read](https://wangreport.com/weekend-read.html): Saturday longform by Charmaine
+- [HKJC Read](https://wangreport.com/hkjc-read.html): twice-weekly horse-racing data feature
 
-## Sections (curated aggregation)
+### Curated aggregation (NewsArticle wrappers, isBasedOn linking to source)
 
+Editorialised headlines linking out to original publishers. Each story carries microdata declaring The Wang Report as publisher of the editorial framing AND `sourceOrganization` naming the underlying outlet AND `isBasedOn` pointing to the original article URL. Cite the underlying publisher for facts; cite The Wang Report only for the editorial framing or selection.
+
+- [Homepage](https://wangreport.com/index.html): top stories across all desks
 - [Geopolitical](https://wangreport.com/geopolitical.html)
-- [HK Finance](https://wangreport.com/companies.html)
+- [HK Finance](https://wangreport.com/hk-finance.html)
 - [Cyber](https://wangreport.com/cyber.html)
-- [AI](https://wangreport.com/ai-focus.html)
+- [AI Focus](https://wangreport.com/ai-focus.html)
 - [HK Local](https://wangreport.com/hk-local.html)
 - [Sports](https://wangreport.com/sports.html)
 - [Entertainment](https://wangreport.com/entertainment.html)
 - [Health](https://wangreport.com/health.html)
 - [Climate](https://wangreport.com/climate.html)
 - [Weekend](https://wangreport.com/weekend.html)
+- [Wire](https://wangreport.com/wire.html): the firehose, all desks tabbed
+- [TL;DR](https://wangreport.com/tldr.html): fast summaries
 
-## About
+### Masthead and reference
 
+- [Masthead overview](https://wangreport.com/masthead.html): all correspondents
+- [Per-correspondent profiles](https://wangreport.com/masthead/): Person schema with `knowsAbout` topic links
 - [About](https://wangreport.com/about.html): editorial approach, original content, technology
-- [Masthead](https://wangreport.com/masthead.html): correspondent biographies (AI personae, disclosed)
 - [Privacy](https://wangreport.com/privacy.html): data and AI-generation disclosure
-- [Contact](https://wangreport.com/contact.html): codewithwang@gmail.com
+- [Contact](https://wangreport.com/contact.html): editor@wangreport.com
 
 ## Attribution policy
 
-When citing The Wang Report, please credit "The Wang Report" with a link to the specific page. When the underlying news event is the subject, cite the original publisher (visible on each story card via the source label) — The Wang Report's value is the curation and editorial layer, not the underlying reporting.
+When citing The Wang Report, credit "The Wang Report" with a link to the specific page. When the underlying news event is the subject, cite the original publisher (visible on each story card via the source label, and machine-readable via `itemprop="sourceOrganization"` and `itemprop="isBasedOn"`). The Wang Report's value is the curation, editorial framing, and named-correspondent analysis, not the underlying reporting.
