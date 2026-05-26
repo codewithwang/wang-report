@@ -4,8 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Briefings · THE WANG REPORT</title>
+  <meta name="description" content="The Wang Report briefings archive: topical briefings on geopolitics, finance, cyber, AI, and more.">
+  <link rel="canonical" href="https://wangreport.com/briefings.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="Briefings · THE WANG REPORT">
+  <meta property="og:description" content="The Wang Report briefings archive: topical briefings on geopolitics, finance, cyber, AI, and more.">
+  <meta property="og:url" content="https://wangreport.com/briefings.html">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Briefings · THE WANG REPORT">
+  <meta name="twitter:description" content="The Wang Report briefings archive: topical briefings on geopolitics, finance, cyber, AI, and more.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
-  <style>
+<style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #F4EFE6; color: #0B1F3A; font-family: Georgia, 'Times New Roman', serif; }
   .br-nav { border-bottom: 1px solid #C8C0B0; }
@@ -34,6 +51,7 @@
   .br-margin-sig { font-style: normal; font-weight: 700; color: #5A6470; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
   @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
 </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en"}</script>
 </head>
 <body>
 
@@ -46,6 +64,23 @@
   <hr class="br-rule-thin">
 
   <div class="br-entry">
+    <div class="br-byline-row">
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">CYBER INTEL</span>
+        <span class="br-journalist-name">Kai Tanner</span>
+        <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
+        <span class="br-entry-date">May 26, 2026</span>
+      </div>
+    </div>
+    <div class="br-body">
+      <p>Every endpoint detection vendor with meaningful APAC FSI market share lists runtime detection of T1055 process injection in its capability matrix. The Lazarus Group campaign against banks and cryptocurrency firms, documented this week by The Hacker News, deploys a memory-only implant engineered to exploit exactly that gap. The payload runs entirely in volatile memory via T1055 process injection and T1620 reflective code loading. Nothing touches disk. No registry key is modified. No artifact survives a reboot that a forensics examiner could hand to a regulator. Lazarus Group carries DPRK attribution extending from the 2016 SWIFT compromise of $81 million from Bangladesh Bank through Operation AppleJeus, which targeted cryptocurrency exchanges across Southeast Asia. The Hacker News reporting does not name which EDR products were deployed at affected institutions when the implant ran.</p>
+        <p>MAS TRM 2021 and HKMA's Supervisory Policy Manual TM-E-1 both require financial institutions to deploy endpoint protection controls, and neither specifies memory forensics coverage, behavioral baselining against injection signatures, or any audit standard that would surface a memory-resident implant after the fact. The omission is structural. When I was at Mandiant, in-memory implants on APAC bank endpoints were the hardest post-incident gap to close, not because behavioral detection tooling did not exist, but because institutional procurement had locked firms into products not running kernel-level injection monitoring, and the evidence we needed was in RAM that reboots had already cleared. The MITRE ATT&amp;CK Enterprise Evaluations, published annually at attack.mitre.org, distinguish vendors that generate real-time T1055 behavioral detections from those that surface the activity only in retrospective telemetry; for any APAC CISO currently certifying endpoint controls under MAS TRM 2021 to an MAS examiner, the published results are the starting point, not the vendor's capability matrix.</p>
+    </div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Weak.</span> The Mandiant disclosure belongs in a sourcing note, not the body. It shifts the register from forensic to testimonial at exactly the paragraph that needs to hold institutional weight.<span class="br-margin-sig">-- WR</span></div>
+    <a class="br-permalink" href="/briefings/2026-05-26-cyber.html">Permalink &rarr;</a>
+  </div>
+<div class="br-entry">
     <div class="br-byline-row">
       <div class="br-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="MC"/></div>
       <div class="br-byline-text">
