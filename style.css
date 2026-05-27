@@ -332,6 +332,9 @@ a.td-link:hover { background: #232a3d; }
     line-height: 1.1;
     padding: 15px 10px;
     color: #0B1F3A;
+    max-width: var(--wr-page);
+    margin-left: auto;
+    margin-right: auto;
 }
 .hero-headline a { color: #0B1F3A; text-decoration: none; }
 .hero-headline a:hover { text-decoration: underline; }
@@ -344,17 +347,34 @@ a.td-link:hover { background: #232a3d; }
     font-weight: bold;
     padding: 0 10px 10px;
     color: #0B1F3A;
+    max-width: var(--wr-page);
+    margin-left: auto;
+    margin-right: auto;
 }
 .hero-sub a { color: #0B1F3A; text-decoration: none; }
 .hero-sub a:hover { text-decoration: underline; }
 
-/* Center image */
+/* Hero image — desk-page lead photo (cyber.html, sports.html, hk-local.html, etc).
+   Box is page-width aligned; the inner <img> is forced to fill the box with
+   object-fit:cover so source images with mismatched natural aspect ratios
+   (300x300 client-hero, 3800x2137 sports-hero, 1024x576 hero, etc.) all render
+   at a uniform 16:9 frame instead of stretching tall/short.
+   Source image natural ratios are NOT modified — flag for Harry if any source
+   image needs to be re-cropped at the source. */
 .hero-image {
+    max-width: var(--wr-page);
+    margin: 10px auto;
+    padding: 0;
     text-align: center;
-    padding: 10px 0;
 }
 .hero-image img {
-    max-width: 600px;
+    display: block;
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
     border: 1px solid #ccc;
 }
 
@@ -514,6 +534,80 @@ a.td-link:hover { background: #232a3d; }
 .markets-bar span { margin: 0 10px; }
 .market-up { color: #006600; }
 .market-down { color: #B0241E; }
+
+/* ============================================================
+   .ticker-style  —  the canonical "text ticker" pattern
+   ------------------------------------------------------------
+   Generalised version of .markets-bar. Replaces boxy widgets
+   (e.g. .tension-dashboard) with a single-line, page-width
+   bordered strip in the house Courier/12px voice.
+
+   USAGE (Wave-3 generators output this HTML shape):
+
+     <div class="ticker-style ticker-style--threat">
+       <span class="ticker-style__label">THREAT INDEX 38 &#9650; +2</span>
+       <span>Mainland 42</span> | <span>HK 35</span> | <span>Taiwan 51</span>
+     </div>
+
+   The first <span> may use .ticker-style__label for a leading
+   pill (label + score + delta arrow). All subsequent <span>
+   children render as ticker items separated by literal "|"
+   pipes in the markup (preserve the pipes — they read as
+   bloomberg-style separators).
+
+   VARIANTS (modifier class on root):
+     .ticker-style--threat   red top border    (Threat Index)
+     .ticker-style--ai       blue top border   (AI Pulse)
+     .ticker-style--markets  navy top border   (default, same
+                                                as .markets-bar)
+     .ticker-style--climate  green top border  (Climate signals)
+
+   WHERE TO USE INSTEAD OF BOXY WIDGETS:
+     - .tension-dashboard (geopolitical.html)   -> ticker-style--threat
+     - any "AI Pulse" / "AI signals" box        -> ticker-style--ai
+     - climate signal panels                    -> ticker-style--climate
+     - homepage daily-data strip                -> ticker-style--markets
+   ============================================================ */
+.ticker-style {
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-top: 1px solid #0B1F3A;
+    border-bottom: 1px solid #0B1F3A;
+    margin: 8px auto;
+    max-width: var(--wr-page);
+    color: #0B1F3A;
+    line-height: 1.6;
+}
+.ticker-style span { margin: 0 10px; white-space: nowrap; }
+.ticker-style__label {
+    color: #B0241E;
+    letter-spacing: 0.5px;
+    margin-right: 14px !important;
+}
+
+/* Variant top-border colours; bottom stays navy for vault rhythm. */
+.ticker-style--threat   { border-top-color: #B0241E; border-top-width: 2px; }
+.ticker-style--ai       { border-top-color: #4488ff; border-top-width: 2px; }
+.ticker-style--markets  { border-top-color: #0B1F3A; }
+.ticker-style--climate  { border-top-color: #006600; border-top-width: 2px; }
+
+.ticker-style--threat .ticker-style__label   { color: #B0241E; }
+.ticker-style--ai     .ticker-style__label   { color: #4488ff; }
+.ticker-style--climate .ticker-style__label  { color: #006600; }
+
+@media (max-width: 600px) {
+    .ticker-style {
+        font-size: 11px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .ticker-style span { margin: 0 4px; }
+    .ticker-style__label { margin-right: 6px !important; }
+}
 
 /* Footer */
 .footer {
@@ -967,7 +1061,7 @@ a.td-link:hover { background: #232a3d; }
     }
     .column:last-child { border-bottom: none; }
     .hero-headline { font-size: 36px; }
-    .hero-image img { max-width: 100%; }
+    .hero-image img { max-width: 100%; aspect-ratio: 16 / 9; }
     .markets-bar { font-size: 11px; display: flex; flex-wrap: wrap; justify-content: center; }
 }
 
@@ -991,7 +1085,7 @@ a.td-link:hover { background: #232a3d; }
     .masthead { font-size: 22px; letter-spacing: 1px; }
     .hero-headline { font-size: 28px; padding: 10px 6px; }
     .hero-sub { font-size: 15px; }
-    .hero-image img { max-width: 100%; }
+    .hero-image img { max-width: 100%; aspect-ratio: 16 / 9; }
 
     /* Story text — larger for readability */
     .story a { font-size: 16px; line-height: 1.5; }
