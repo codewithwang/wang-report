@@ -915,6 +915,112 @@ a.td-link:hover { background: #232a3d; }
   .front-col-actions { flex-wrap: wrap; }
 }
 
+/* Desk lead's DAILY TAKE (briefingBlockHtml) — same container family as the
+   column teaser so they align and stack cleanly; navy accent distinguishes the
+   daily take from the oxblood weekly column. Added 2026-05-31. */
+.briefing-take {
+  max-width: var(--wr-page);
+  margin: 18px auto;
+  border-top: 4px solid #0B1F3A;
+  border-bottom: 1px solid #C8C0B0;
+  background: #EDE8DE;
+  padding: 16px 20px 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.briefing-take + .briefing-take { margin-top: -10px; }
+.briefing-take-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #ddd;
+}
+.briefing-take-stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  color: #0B1F3A;
+  text-transform: uppercase;
+}
+.briefing-take-sep { color: #ccc; }
+.briefing-take-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #444;
+  text-transform: uppercase;
+}
+.briefing-take-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.briefing-take-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #0B1F3A;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #ddd;
+}
+.briefing-take-byline { font-size: 11px; color: #555; letter-spacing: 0.3px; }
+.briefing-take-byline strong { color: #111; font-size: 13px; }
+.briefing-take-role {
+  color: #888;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 8px 0 6px;
+}
+.briefing-take-date { color: #999; }
+.briefing-take-body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+}
+.briefing-take-body p { margin: 0 0 10px; }
+.briefing-take-body p:last-child { margin-bottom: 0; }
+.briefing-take-note {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #555;
+  border-left: 3px solid #B0241E;
+  padding-left: 12px;
+  margin-top: 12px;
+}
+.briefing-take-note-by { font-style: normal; font-weight: bold; color: #B0241E; letter-spacing: 1px; }
+.briefing-take-perma {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+}
+.briefing-take-perma:hover { color: #B0241E; }
+@media (max-width: 680px) {
+  .briefing-take-body { font-size: 14px; }
+  .briefing-take-avatar { width: 40px; height: 40px; font-size: 13px; }
+}
+
 .client-roster {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
