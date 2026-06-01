@@ -1269,3 +1269,20 @@ a.td-link:hover { background: #232a3d; }
 .tldr-framing { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #444; padding: 12px 16px; background: #f9f9f9; border-left: 3px solid #B0241E; margin: 0 auto 18px; max-width: 700px; }
 .tldr-framing-anchor { font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; margin-right: 8px; }
 .tldr-framing-text { color: #444; }
+
+/* ─── Email capture (The Wang Review weekly signup) ───────────────────────────
+   Site-wide band rendered above the footer by build-page.emailCaptureHtml().
+   Navy band, bone text, oxblood button — house palette. */
+.email-capture { max-width: 760px; margin: 40px auto 0; padding: 22px 24px; background: #0B1F3A; color: #F4F1E8; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-radius: 2px; }
+.email-capture-copy { flex: 1 1 280px; }
+.email-capture-heading { font-family: Georgia, serif; font-size: 18px; font-weight: bold; color: #F4F1E8; margin-bottom: 3px; }
+.email-capture-sub { font-family: Georgia, serif; font-size: 13px; font-style: italic; color: #C8C0B0; line-height: 1.4; }
+.email-capture-form { flex: 0 1 360px; display: flex; gap: 8px; min-width: 260px; }
+.email-capture-form input { flex: 1; padding: 10px 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; border: 1px solid #C8C0B0; background: #F4F1E8; color: #111; border-radius: 2px; }
+.email-capture-form input:focus { outline: 2px solid #B0241E; outline-offset: -1px; }
+.email-capture-form button { padding: 10px 18px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 0.5px; color: #F4F1E8; background: #B0241E; border: none; border-radius: 2px; cursor: pointer; white-space: nowrap; }
+.email-capture-form button:hover { background: #8A1C17; }
+@media (max-width: 680px) {
+  .email-capture { flex-direction: column; align-items: stretch; text-align: left; }
+  .email-capture-form { flex-basis: auto; }
+}

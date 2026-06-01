@@ -34,32 +34,15 @@
 </head>
 <body>
 
-<div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
+<div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="weekly.html" class="">Review</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
 <nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a></div></nav>
 
 <style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
 <div class="timestamp-bar">
-  Monday, June 1, 2026 at 09:56 PM GMT+8
+  Tuesday, June 2, 2026 at 12:53 AM GMT+8
 </div>
 
 <div class="ad-leaderboard"></div>
-
-
-    <div class="hero-headline cyber-hero">
-      <a href="https://www.bleepingcomputer.com/news/microsoft/critical-windows-netlogon-remote-code-execution-flaw-now-exploited-in-attacks/" target="_blank">Windows Netlogon RCE Flaw Now Actively Exploited in Attacks</a>
-    </div>
-    <div class="hero-sub">
-      <a href="https://www.bleepingcomputer.com/news/microsoft/critical-windows-netlogon-remote-code-execution-flaw-now-exploited-in-attacks/" target="_blank">Critical Windows Netlogon RCE flaw now exploited in attacks</a>
-      <span class="source">BleepingComputer</span>
-    </div>
-    <div class="hero-image"><img src="img/cyber-hero.jpg?t=1780322212086" alt=""></div>
-
-<div class="masthead cyber-masthead">CYBER INTEL</div>
-<div class="subhead">THE WANG REPORT &middot; CYBERSECURITY BREAKING NEWS &amp; REGULATORY WATCH</div>
-
-
-
-
 
 <div class="briefing-take">
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
@@ -70,7 +53,26 @@
   <div class="briefing-take-body"><p>Every endpoint detection vendor with meaningful APAC FSI market share lists runtime detection of T1055 process injection in its capability matrix. The Lazarus Group campaign against banks and cryptocurrency firms, documented this week by The Hacker News, deploys a memory-only implant engineered to exploit exactly that gap. The payload runs entirely in volatile memory via T1055 process injection and T1620 reflective code loading. Nothing touches disk. No registry key is modified. No artifact survives a reboot that a forensics examiner could hand to a regulator. Lazarus Group carries DPRK attribution extending from the 2016 SWIFT compromise of $81 million from Bangladesh Bank through Operation AppleJeus, which targeted cryptocurrency exchanges across Southeast Asia. The Hacker News reporting does not name which EDR products were deployed at affected institutions when the implant ran.</p><p>MAS TRM 2021 and HKMA's Supervisory Policy Manual TM-E-1 both require financial institutions to deploy endpoint protection controls, and neither specifies memory forensics coverage, behavioral baselining against injection signatures, or any audit standard that would surface a memory-resident implant after the fact. The omission is structural. When I was at Mandiant, in-memory implants on APAC bank endpoints were the hardest post-incident gap to close, not because behavioral detection tooling did not exist, but because institutional procurement had locked firms into products not running kernel-level injection monitoring, and the evidence we needed was in RAM that reboots had already cleared. The MITRE ATT&amp;CK Enterprise Evaluations, published annually at attack.mitre.org, distinguish vendors that generate real-time T1055 behavioral detections from those that surface the activity only in retrospective telemetry; for any APAC CISO currently certifying endpoint controls under MAS TRM 2021 to an MAS examiner, the published results are the starting point, not the vendor's capability matrix.</p></div>
   <div class="briefing-take-note">The Mandiant disclosure belongs in a sourcing note, not the body. It shifts the register from forensic to testimonial at exactly the paragraph that needs to hold institutional weight. <span class="briefing-take-note-by">&mdash; WR</span></div>
   <a href="/briefings/2026-05-26-cyber.html" class="briefing-take-perma">Permalink &rarr;</a>
-</div><div class="front-col-teaser">
+</div>
+
+
+    <div class="hero-headline cyber-hero">
+      <a href="https://www.darkreading.com/threat-intelligence/patch-palo-alto-auth-bypass-bug-exploit" target="_blank">Patch Now: Palo Alto GlobalProtect Auth Bypass Back Under Active Exploit in Two Attack Waves</a>
+    </div>
+    <div class="hero-sub">
+      <a href="https://www.darkreading.com/threat-intelligence/patch-palo-alto-auth-bypass-bug-exploit" target="_blank">Patch Now: Another Palo Alto Auth Bypass Bug Under Active Exploit</a>
+      <span class="source">Dark Reading</span>
+    </div>
+    <div class="hero-image"><img src="img/cyber-hero.jpg?t=1780332811121" alt=""></div>
+
+<div class="masthead cyber-masthead">CYBER INTEL</div>
+<div class="subhead">THE WANG REPORT &middot; CYBERSECURITY BREAKING NEWS &amp; REGULATORY WATCH</div>
+
+
+
+
+
+<div class="front-col-teaser">
   <div class="front-col-eyebrow"><span class="front-col-stamp">FROM THE CYBER DESK</span> <span class="front-col-stamp-sep">·</span> <span class="front-col-desk">WEEKLY COLUMN</span></div>
   <div class="front-col-body">
     <div class="front-col-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
@@ -82,7 +84,7 @@
   </div>
   <div class="front-col-actions">
     <a href="/cyber-column/2026-05-26-kai-tanner.html" class="front-col-cta">Read the column &rarr;</a>
-    <a href="/columns.html" class="front-col-more">All columns</a>
+    <a href="/weekly.html" class="front-col-more">The Wang Review</a>
   </div>
 </div>
 
@@ -94,22 +96,24 @@
   <div class="columns">
     <div class="column">
     <div class="column-header">BREACHES &amp; ATTACKS</div>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="qwant news"><link itemprop="isBasedOn" href="https://abc13.com/post/carnival-data-breach-passengers-information-including-passport-details-impacted-cybersecurity-incident-cruise-line-says/19208632/"><a href="https://abc13.com/post/carnival-data-breach-passengers-information-including-passport-details-impacted-cybersecurity-incident-cruise-line-says/19208632/" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-80a437c9a9.jpg?t=1780322212086" alt="" loading="lazy"></a><a href="https://abc13.com/post/carnival-data-breach-passengers-information-including-passport-details-impacted-cybersecurity-incident-cruise-line-says/19208632/" target="_blank"><span itemprop="headline">Carnival Cruise Breach Exposes Passport Details of Customers</span></a> <span class="source">qwant news</span></article>
-      <article class="story caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html"><a href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-0ace1f8b00.jpg?t=1780322212086" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html" target="_blank"><span itemprop="headline">WP Maps Pro Flaw Exploited to Plant Rogue Admin Accounts</span></a> <span class="source">The Hacker News</span></article>
+      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/microsoft/critical-windows-netlogon-remote-code-execution-flaw-now-exploited-in-attacks/"><a href="https://www.bleepingcomputer.com/news/microsoft/critical-windows-netlogon-remote-code-execution-flaw-now-exploited-in-attacks/" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-91ff579cf2.jpg?t=1780332811121" alt="" loading="lazy"></a><a href="https://www.bleepingcomputer.com/news/microsoft/critical-windows-netlogon-remote-code-execution-flaw-now-exploited-in-attacks/" target="_blank"><span itemprop="headline">Critical Windows Netlogon Remote Code Execution Flaw Now Exploited in Live Attacks</span></a> <span class="source">BleepingComputer</span></article>
+      <article class="story caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html"><a href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-0ace1f8b00.jpg?t=1780332811121" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html" target="_blank"><span itemprop="headline">WP Maps Pro Zero-Day Actively Exploited to Plant Rogue Admin Accounts on WordPress Sites</span></a> <span class="source">The Hacker News</span></article>
+      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="duckduckgo news"><link itemprop="isBasedOn" href="https://www.click2houston.com/news/local/2026/05/31/carnival-data-breach-may-affect-thousands-of-texans-exposing-passport-and-driver's-license-information/"><a href="https://www.click2houston.com/news/local/2026/05/31/carnival-data-breach-may-affect-thousands-of-texans-exposing-passport-and-driver's-license-information/" target="_blank"><span itemprop="headline">Carnival Data Breach Exposes Passports and Driver's Licenses of Thousands of Travelers</span></a> <span class="source">duckduckgo news</span></article>
+      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/microsoft/microsoft-investigates-office-apps-teams-file-access-issues/"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-investigates-office-apps-teams-file-access-issues/" target="_blank"><span itemprop="headline">Microsoft Teams and Office for the Web Block File Access in Ongoing Incident</span></a> <span class="source">BleepingComputer</span></article>
   </div>
   <div class="column">
     <div class="column-header">REGULATORY &amp; COMPLIANCE</div>
       
       <div class="section-divider">AI + CYBER</div>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="qwant news"><link itemprop="isBasedOn" href="https://www.techmeme.com/260531/p10"><a href="https://www.techmeme.com/260531/p10" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-bf912429b2.jpg?t=1780322212086" alt="" loading="lazy"></a><a href="https://www.techmeme.com/260531/p10" target="_blank"><span itemprop="headline">Western AI Tools Turbocharging Iran's Malware and Phishing Operations</span></a> <span class="source">qwant news</span></article>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html"><a href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-a3c1407f6b.jpg?t=1780322212086" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html" target="_blank"><span itemprop="headline">OpenAI Codex Auth Tokens Stolen in npm Supply Chain Attack</span></a> <span class="source">The Hacker News</span></article>
+      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html"><a href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-a3c1407f6b.jpg?t=1780332811122" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html" target="_blank"><span itemprop="headline">OpenAI Codex Auth Tokens Stolen in Malicious npm Supply Chain Attack</span></a> <span class="source">The Hacker News</span></article>
+      <article class="story caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="qwant news"><link itemprop="isBasedOn" href="https://thenextweb.com/news/shangri-la-dialogue-ai-dangers-nuclear-weapons-defense"><a href="https://thenextweb.com/news/shangri-la-dialogue-ai-dangers-nuclear-weapons-defense" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-31001f6107.jpg?t=1780332811122" alt="" loading="lazy"></a><a href="https://thenextweb.com/news/shangri-la-dialogue-ai-dangers-nuclear-weapons-defense" target="_blank"><span itemprop="headline">AI Overtakes Nuclear Weapons as Top Threat at Asia's Premier Defense Summit</span></a> <span class="source">qwant news</span></article>
   </div>
   <div class="column">
     <div class="column-header">THREAT INTEL &amp; TOOLS</div>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html"><a href="https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-ccbaea4196.jpg?t=1780322212086" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html" target="_blank"><span itemprop="headline">Dutch Authorities Dismantle Botnet Tied to 17 Million Infected Devices</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="qwant news"><link itemprop="isBasedOn" href="https://www.insurancejournal.com/news/national/2026/06/01/871885.htm"><a href="https://www.insurancejournal.com/news/national/2026/06/01/871885.htm" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-cfb1707697.jpg?t=1780322212086" alt="" loading="lazy"></a><a href="https://www.insurancejournal.com/news/national/2026/06/01/871885.htm" target="_blank"><span itemprop="headline">Verizon DBIR: Software Vulnerabilities Still Not Being Patched Fast Enough</span></a> <span class="source">qwant news</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="qwant news"><link itemprop="isBasedOn" href="https://www.techtimes.com/articles/317470/20260531/enterprise-ai-agent-stack-takes-shape-asana-palo-alto-buy-execution-security-layers.htm"><a href="https://www.techtimes.com/articles/317470/20260531/enterprise-ai-agent-stack-takes-shape-asana-palo-alto-buy-execution-security-layers.htm" target="_blank"><span itemprop="headline">Asana and Palo Alto Networks Build Out AI Agent Security Stack</span></a> <span class="source">qwant news</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="HackerNews"><link itemprop="isBasedOn" href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting"><a href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting" target="_blank"><span itemprop="headline">Cloudflare Turnstile Quietly Demands Fingerprintable WebGL Data</span></a> <span class="source">HackerNews</span></article>
+      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/06/china-aligned-groups-ramp-up-attacks.html"><a href="https://thehackernews.com/2026/06/china-aligned-groups-ramp-up-attacks.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-c167191312.jpg?t=1780332811122" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/06/china-aligned-groups-ramp-up-attacks.html" target="_blank"><span itemprop="headline">China-Linked Dragon Weave Campaign Hits Czech Republic and Taiwan with Espionage Tool</span></a> <span class="source">The Hacker News</span></article>
+      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html"><a href="https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-ccbaea4196.jpg?t=1780332811122" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html" target="_blank"><span itemprop="headline">Dutch Police Dismantle Botnet Tied to 17 Million Infected Devices</span></a> <span class="source">The Hacker News</span></article>
+      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="HackerNews"><link itemprop="isBasedOn" href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting"><a href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting" target="_blank"><span itemprop="headline">Cloudflare Turnstile Now Demands Fingerprintable WebGL, Stoking Privacy Alarms</span></a> <span class="source">HackerNews</span></article>
+      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="qwant news"><link itemprop="isBasedOn" href="https://www.techradar.com/pro/the-biggest-cyber-threats-businesses-face-in-2026"><a href="https://www.techradar.com/pro/the-biggest-cyber-threats-businesses-face-in-2026" target="_blank"><span itemprop="headline">The Biggest Cyber Threats Facing Businesses in 2026</span></a> <span class="source">qwant news</span></article>
   </div>
   </div>
   <aside class="right-rail">
@@ -125,7 +129,7 @@
 <div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
+  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="weekly.html">Review</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
   <br>
   <a href="about.html">About</a> | <a href="privacy.html">Privacy</a>
 </div>
