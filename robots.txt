@@ -8,6 +8,15 @@
 
 User-agent: *
 Allow: /
+# Retired / non-editorial pages kept out of the index.
+Disallow: /clients.html
+Disallow: /cooper-flagg.html
+Disallow: /cooperflagg51.html
+Disallow: /social.html
+Disallow: /menu.html
+Disallow: /menu-season1.html
+Disallow: /menubk.html
+Disallow: /recipes/
 
 # Explicit allow for major LLM / AI training crawlers.
 User-agent: GPTBot
