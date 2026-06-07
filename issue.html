@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Issue · Sunday, June 7, 2026 · THE WANG REPORT</title>
-  <meta name="description" content="The Issue, Sunday, June 7, 2026: The Wang Report's weekly edition. 8 long-form columns from the desks, with an editor's note from Walter Wang.">
+  <meta name="description" content="The Issue, Sunday, June 7, 2026: The Wang Report's weekly edition. 8 long-form columns from the desks.">
   <link rel="canonical" href="https://wangreport.com/issue.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
   <meta property="og:title" content="The Issue · Sunday, June 7, 2026 · THE WANG REPORT">
-  <meta property="og:description" content="The Issue, Sunday, June 7, 2026: The Wang Report's weekly edition. 8 long-form columns from the desks, with an editor's note from Walter Wang.">
+  <meta property="og:description" content="The Issue, Sunday, June 7, 2026: The Wang Report's weekly edition. 8 long-form columns from the desks.">
   <meta property="og:url" content="https://wangreport.com/issue.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Issue · Sunday, June 7, 2026 · THE WANG REPORT">
-  <meta name="twitter:description" content="The Issue, Sunday, June 7, 2026: The Wang Report's weekly edition. 8 long-form columns from the desks, with an editor's note from Walter Wang.">
+  <meta name="twitter:description" content="The Issue, Sunday, June 7, 2026: The Wang Report's weekly edition. 8 long-form columns from the desks.">
   <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -30,6 +30,8 @@
     .iss-masthead { text-align: center; margin: 8px 0 4px; }
     .iss-title { font-family: Georgia, 'Times New Roman', serif; font-size: 40px; font-weight: bold; letter-spacing: 0.5px; color: #0B1F3A; margin: 0; line-height: 1.05; }
     .iss-date { font-family: "Courier New", Courier, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #777; margin: 8px 0 0; }
+
+    /* v1 cover note (fallback path) */
     .iss-cover { margin: 34px 0 8px; padding: 0 0 28px; border-bottom: 2px solid #000; }
     .iss-cover-eyebrow { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #cc0000; margin-bottom: 14px; }
     .iss-cover-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
@@ -40,6 +42,8 @@
     .iss-cover-byrole { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #777; margin-top: 2px; }
     .iss-cover-body p { font-family: Georgia, 'Times New Roman', serif; font-size: 16.5px; line-height: 1.66; color: #1a1a1a; margin: 0 0 15px; }
     .iss-cover-body p:first-child::first-letter { font-size: 52px; font-weight: bold; float: left; line-height: 0.82; padding: 4px 10px 2px 0; font-family: Georgia, serif; color: #0B1F3A; }
+
+    /* v1 card grid */
     .iss-contents-label { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #111; text-transform: uppercase; margin: 32px 0 4px; }
     .iss-card { display: flex; gap: 16px; align-items: flex-start; padding: 22px 0; border-top: 1px solid #ddd; text-decoration: none; color: #111; }
     .iss-card:first-of-type { border-top: 2px solid #000; }
@@ -53,6 +57,53 @@
     .iss-card-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; letter-spacing: 0.4px; }
     .iss-card-arrow { align-self: center; font-family: Georgia, serif; font-size: 20px; color: #ccc; flex-shrink: 0; }
     .iss-card:hover .iss-card-arrow { color: #cc0000; }
+
+    /* v2 lead essay */
+    .iss-lead { margin: 34px 0 0; padding: 0 0 32px; border-bottom: 2px solid #000; }
+    .iss-lead-eyebrow { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #cc0000; margin-bottom: 10px; }
+    .iss-lead-title { font-family: Georgia, 'Times New Roman', serif; font-size: 32px; font-weight: bold; line-height: 1.18; color: #0B1F3A; margin: 0 0 10px; }
+    .iss-lead-dek { font-family: Georgia, serif; font-size: 18px; font-style: italic; color: #444; line-height: 1.5; margin: 0 0 18px; }
+    .iss-lead-byline-row { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .iss-lead-avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #0B1F3A; border: 2px solid #fff; box-shadow: 0 0 0 1px #ddd; }
+    .iss-lead-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .iss-lead-byname { font-family: Georgia, serif; font-size: 14px; font-weight: bold; color: #111; display: block; }
+    .iss-lead-byrole { font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #777; display: block; margin-top: 2px; }
+    .iss-lead-body p { font-family: Georgia, 'Times New Roman', serif; font-size: 16.5px; line-height: 1.7; color: #1a1a1a; margin: 0 0 16px; text-align: justify; }
+    .iss-lead-body p:first-child::first-letter { font-size: 52px; font-weight: bold; float: left; line-height: 0.82; padding: 4px 10px 2px 0; font-family: Georgia, serif; color: #0B1F3A; }
+    .iss-lead-pullquote { border-left: 4px solid #0B1F3A; margin: 24px 0 24px 0; padding: 10px 20px; font-family: Georgia, serif; font-size: 19px; font-style: italic; color: #333; line-height: 1.5; }
+
+    /* v2 standout column */
+    .iss-standout { margin: 36px 0 0; padding: 28px 0 32px; border-top: 4px solid #c8a84b; border-bottom: 2px solid #000; }
+    .iss-standout-eyebrow { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #c8a84b; margin-bottom: 10px; }
+    .iss-standout-title { font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: bold; line-height: 1.2; color: #0B1F3A; margin: 0 0 10px; }
+    .iss-standout-dek { font-family: Georgia, serif; font-size: 16px; font-style: italic; color: #444; line-height: 1.5; margin: 0 0 16px; }
+    .iss-standout-byline-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .iss-standout-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #e0e0e0; border: 2px solid #fff; box-shadow: 0 0 0 1px #ddd; }
+    .iss-standout-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .iss-standout-byname { font-family: Georgia, serif; font-size: 13px; font-weight: bold; color: #111; display: block; }
+    .iss-standout-byrole { font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #777; display: block; margin-top: 2px; }
+    .iss-standout-body p { font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.68; color: #1a1a1a; margin: 0 0 15px; text-align: justify; }
+    .iss-standout-body p:first-child::first-letter { font-size: 48px; font-weight: bold; float: left; line-height: 0.82; padding: 4px 9px 2px 0; font-family: Georgia, serif; color: #c8a84b; }
+    .iss-standout-canon { margin-top: 20px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; }
+    .iss-standout-canon a { color: #0B1F3A; text-decoration: underline; }
+    .iss-standout-canon a:hover { color: #cc0000; }
+
+    /* v2 teaser rows */
+    .iss-teasers-label { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #111; text-transform: uppercase; margin: 36px 0 4px; }
+    .iss-teaser { display: flex; gap: 16px; align-items: flex-start; padding: 22px 0; border-top: 1px solid #ddd; }
+    .iss-teaser:first-of-type { border-top: 2px solid #000; }
+    .iss-teaser-avatar { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #e0e0e0; border: 2px solid #fff; box-shadow: 0 0 0 1px #ddd; display: flex; align-items: center; justify-content: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold; color: #fff; }
+    .iss-teaser-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .iss-teaser-body { flex: 1; min-width: 0; }
+    .iss-teaser-desk { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+    .iss-teaser-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.22; margin: 0 0 6px; color: #111; }
+    .iss-teaser-dek { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #444; line-height: 1.45; margin-bottom: 8px; }
+    .iss-teaser-byline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666; margin-bottom: 10px; }
+    .iss-teaser-excerpt { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; line-height: 1.6; color: #333; margin: 0 0 10px; }
+    .iss-teaser-continue { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #0B1F3A; text-decoration: none; letter-spacing: 0.5px; }
+    .iss-teaser-continue:hover { color: #cc0000; }
+
+    /* shared util */
     .iss-empty { font-family: Georgia, serif; font-size: 16px; color: #777; padding: 48px 0; text-align: center; font-style: italic; }
     .iss-backissues { margin-top: 48px; padding-top: 16px; }
     .iss-backissues-label { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #888; text-transform: uppercase; margin-bottom: 6px; }
@@ -65,9 +116,15 @@
     .iss-arc-meta { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #777; letter-spacing: 0.5px; }
     @media (max-width: 680px) {
       .iss-title { font-size: 30px; }
+      .iss-lead-title { font-size: 24px; }
+      .iss-standout-title { font-size: 22px; }
+      .iss-teaser-title { font-size: 18px; }
       .iss-card-title { font-size: 18px; }
       .iss-card-avatar { width: 52px; height: 52px; }
       .iss-cover-body p:first-child::first-letter { font-size: 42px; }
+      .iss-lead-body p:first-child::first-letter { font-size: 42px; }
+      .iss-standout-body p:first-child::first-letter { font-size: 38px; }
+      .iss-teaser-avatar { width: 48px; height: 48px; }
     }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -110,7 +167,6 @@
       <p>Magnus Honeyfield and Cheung Kwok-keung land in a quieter register. The SFC's new e-distribution rules look like forward motion on the climate protection gap; the instruments that would close it are still outside the framework. May's home-sales surge looks like a market recovery; the secondary market where most families actually buy has not moved, and Beijing's capital controls are the reason. Neither story is a scandal. Both are cases where the number that moved and the market it describes are pointing at different things.</p>
     </div>
   </div>
-
   <div class="iss-contents-label">In this issue</div>
     <a class="iss-card" href="/geopolitical-column/2026-06-01-mei-chen.html">
     <div class="iss-card-avatar"><img src="/masthead/img/thumbs/mei-chen.jpg" alt="Mei Chen"></div>
@@ -193,10 +249,10 @@
     <div class="iss-card-arrow">&rarr;</div>
   </a>
 
-  <div class="iss-backissues"><div class="iss-backissues-label">Back issues</div><a href="/issue/">Browse every edition &rarr;</a></div>
+  <div class="iss-backissues"><div class="iss-backissues-label">Back issues</div><a href="issue/">Browse every edition &rarr;</a></div>
 </div>
 
-<div class="footer">
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
   <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
