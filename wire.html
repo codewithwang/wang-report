@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>THE WIRE · THE WANG REPORT</title>
+  <title>BREAKING DISPATCH · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/wire.html">
   <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
-  <meta property="og:title" content="THE WIRE · THE WANG REPORT">
+  <meta property="og:title" content="BREAKING DISPATCH · THE WANG REPORT">
   <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <meta property="og:url" content="https://wangreport.com/wire.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="THE WIRE · THE WANG REPORT">
+  <meta name="twitter:title" content="BREAKING DISPATCH · THE WANG REPORT">
   <meta name="twitter:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
@@ -39,7 +39,7 @@
 
 <style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
 <div class="timestamp-bar">
-  Friday, June 12, 2026 at 03:14 PM GMT+8
+  Friday, June 12, 2026 at 05:48 PM GMT+8
 </div>
 
 <div class="ad-leaderboard"></div>
@@ -48,8 +48,8 @@
 
 
 
-<div class="masthead">THE WIRE</div>
-<div class="subhead">All desks  ·  chronological  ·  deduped</div>
+<div class="masthead">BREAKING DISPATCH</div>
+<div class="subhead">All desks  ·  live  ·  newest first</div>
 
 
 
@@ -95,10 +95,72 @@
   .wire-tab[data-cat="health"].is-active { border-bottom-color: var(--wr-d-health); }
   .wire-tab[data-cat="entertainment"].is-active { border-bottom-color: var(--wr-d-entertainment); }
 
-  /* Row list */
-  .wire-list { max-width: 880px; margin: 14px auto 0; }
-  .wire-list .wire-row { display:block; }
-  .wire-list[data-tab]:not([data-tab="all"]) .wire-row { display:none; }
+  /* ── Dispatch grouped view (default "All" tab) ── */
+  .wire-dispatch { max-width: 880px; margin: 14px auto 0; }
+  .wire-dispatch-group { margin: 0 0 28px; }
+  .wire-dispatch-desk-hd {
+    padding: 14px 12px 12px;
+    border-left: 3px solid var(--wr-group-color, #0B1F3A);
+    background: #F7F4EE;
+    margin-bottom: 2px;
+  }
+  .wire-dispatch-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .wire-dispatch-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--wr-group-color, #0B1F3A);
+    flex-shrink: 0;
+  }
+  .wire-dispatch-deskname {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0B1F3A;
+    letter-spacing: 0.3px;
+  }
+  .wire-dispatch-sep { color: #B8B0A0; font-size: 12px; }
+  .wire-dispatch-journalist {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10.5px;
+    color: #5A6470;
+    letter-spacing: 0.4px;
+  }
+  .wire-dispatch-desklink {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10px;
+    color: #8A8478;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .wire-dispatch-desklink:hover { color: #0B1F3A; text-decoration: underline; }
+  .wire-dispatch-take {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #2A3040;
+    font-style: italic;
+    margin: 0;
+  }
+  .wire-dispatch-count {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10px;
+    color: #8A8478;
+    padding: 6px 12px 0;
+    letter-spacing: 0.4px;
+  }
+
+  /* Flat row list (individual desk tabs) */
+  .wire-list { max-width: 880px; margin: 14px auto 0; display: none; }
+  .wire-list.is-shown { display: block; }
+  .wire-list .wire-row { display: block; }
+  .wire-list[data-tab]:not([data-tab="all"]) .wire-row { display: none; }
   .wire-list[data-tab="geopolitical"]  .wire-row[data-cat="geopolitical"],
   .wire-list[data-tab="cyber"]         .wire-row[data-cat="cyber"],
   .wire-list[data-tab="hk-local"]      .wire-row[data-cat="hk-local"],
@@ -107,10 +169,9 @@
   .wire-list[data-tab="sports"]        .wire-row[data-cat="sports"],
   .wire-list[data-tab="health"]        .wire-row[data-cat="health"],
   .wire-list[data-tab="entertainment"] .wire-row[data-cat="entertainment"] { display:block; }
-  /* HK Finance switches to its grouped-by-company view; flat list hides. */
   .wire-list[data-tab="hk-finance"] { display:none; }
 
-  /* Per-row dot colour (driven by data-cat) */
+  /* Per-row dot colour */
   .wire-row[data-cat="geopolitical"] { --wr-row-color: var(--wr-d-geopolitical); }
   .wire-row[data-cat="cyber"] { --wr-row-color: var(--wr-d-cyber); }
   .wire-row[data-cat="hk-finance"] { --wr-row-color: var(--wr-d-hk-finance); }
@@ -122,9 +183,6 @@
   .wire-row[data-cat="entertainment"] { --wr-row-color: var(--wr-d-entertainment); }
   .wire-row[data-cat="hk-finance"] { --wr-row-color: var(--wr-d-hk-finance); }
 
-  /* Row anatomy: headline dominant, one quiet meta line below, optional
-     thumbnail floated right. The text column sits in .wire-text so its
-     width is constrained when a thumb is present. */
   .wire-row {
     display: flex;
     align-items: flex-start;
@@ -172,9 +230,7 @@
     letter-spacing: 0.5px;
   }
   .wire-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+    width: 7px; height: 7px; border-radius: 50%;
     background: var(--wr-row-color, #5A6470);
     flex-shrink: 0;
   }
@@ -183,7 +239,6 @@
   .wire-time { color: #5A6470; }
   .wire-host { color: #8A8478; }
 
-  /* Visited rhythm: headline grey, dot dim */
   .wire-row:visited .wire-head { color: #6A6F7A; }
   .wire-row:visited .wire-dot { opacity: 0.4; }
 
@@ -204,24 +259,407 @@
     .wire-meta { font-size: 10.5px; gap: 6px; }
     .wire-tabs { gap:16px; }
     .wire-tab { font-size:13px; }
+    .wire-dispatch-take { font-size: 12.5px; }
   }
   </style>
   <section class="wire-section">
     <div class="wire-head-row">
-      <span class="wire-section-sub">60 stories &middot; rolling 24h &middot; newest first</span>
+      <span class="wire-section-sub">39 stories &middot; rolling 24h &middot; newest first</span>
     </div>
     <div class="wire-tabs" role="tablist">
-    <button class="wire-tab is-active" data-tab="all" type="button">All <span class="wire-tab-n">60</span></button>
-    <button class="wire-tab" data-tab="geopolitical" data-cat="geopolitical" type="button">Geopolitics <span class="wire-tab-n">7</span></button>
-    <button class="wire-tab" data-tab="cyber" data-cat="cyber" type="button">Cyber <span class="wire-tab-n">4</span></button>
-    <button class="wire-tab" data-tab="hk-finance" data-cat="hk-finance" type="button">HK Finance <span class="wire-tab-n">22</span></button>
-    <button class="wire-tab" data-tab="hk-local" data-cat="hk-local" type="button">HK Local <span class="wire-tab-n">13</span></button>
+    <button class="wire-tab is-active" data-tab="all" type="button">All <span class="wire-tab-n">39</span></button>
+    <button class="wire-tab" data-tab="geopolitical" data-cat="geopolitical" type="button">Geopolitics <span class="wire-tab-n">3</span></button>
+    <button class="wire-tab" data-tab="cyber" data-cat="cyber" type="button">Cyber <span class="wire-tab-n">2</span></button>
+    <button class="wire-tab" data-tab="hk-finance" data-cat="hk-finance" type="button">HK Finance <span class="wire-tab-n">13</span></button>
+    <button class="wire-tab" data-tab="hk-local" data-cat="hk-local" type="button">HK Local <span class="wire-tab-n">8</span></button>
     <button class="wire-tab wire-tab-dim" data-tab="ai-focus" data-cat="ai-focus" type="button">AI <span class="wire-tab-n">0</span></button>
     <button class="wire-tab wire-tab-dim" data-tab="climate" data-cat="climate" type="button">Climate <span class="wire-tab-n">0</span></button>
-    <button class="wire-tab" data-tab="sports" data-cat="sports" type="button">Sports <span class="wire-tab-n">14</span></button>
+    <button class="wire-tab" data-tab="sports" data-cat="sports" type="button">Sports <span class="wire-tab-n">13</span></button>
     <button class="wire-tab wire-tab-dim" data-tab="health" data-cat="health" type="button">Health <span class="wire-tab-n">0</span></button>
     <button class="wire-tab wire-tab-dim" data-tab="entertainment" data-cat="entertainment" type="button">Culture <span class="wire-tab-n">0</span></button>
   </div>
+    <div class="wire-dispatch" id="wire-dispatch"><div class="wire-dispatch-group" style="--wr-group-color:#B0241E">
+      <div class="wire-dispatch-desk-hd">
+        <div class="wire-dispatch-meta">
+          <span class="wire-dispatch-dot" aria-hidden="true"></span>
+          <span class="wire-dispatch-deskname">Sports</span>
+          <span class="wire-dispatch-sep">&middot;</span><span class="wire-dispatch-journalist">Dev Chatterjee</span>
+          <a class="wire-dispatch-desklink" href="/sports.html">full desk &rarr;</a>
+        </div>
+        <p class="wire-dispatch-take">Four NBA franchises are running active trade scenarios on Kyrie Irving while he is still in rehabilitation for a torn ACL, which means the market has concluded that an injured 34-year-old point guard is worth trading...</p>
+      </div>
+      <a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOaC00ZXF4QzFlMzl1aEN3QzVuSVdzTk1oTmtuM1dPa043MTNqRV9JNlpfbXMxNDd0djM4UXg5bk9LQnc5Z010NHlxN19SaC0wX3lCSXpmTXdfekdDemN1TzNZODZBc0o4WTZFWDVwNy12QzVkS0RMMnNvTmtTRUtOMm9hWVRKQ3NPckJ5WnllVDRsTWdKMXpfdTZjNTFrbm0zdTV2S2FiN1FTUGw3Z3FPdE5Wdld1SEsyR2ljaXZ3?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">LIV Golf Loss Down Under Could Be Death Knell</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Sports</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 21:36</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQQkx4RkFNN1RiZ1dwc3NPQjRkUDgyWEMzUTNKNUdIS3RCNG91eFU3ekQ5Skl3cTFxOWxaLThMZ2NvdWhBNjRZaERFSDNjaW1IU3pleExFUE40TEY5UmlDLUtPYXM5TFJzN3U2SHE1QldLTWlrbnVjS05SWlhrdlBnYnFfRGl3WkFxNVE?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Alpine Moves to Have Monaco Result Reviewed</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Sports</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:48</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMiggFBVV95cUxOUll2a0UycThoTUpwZkVRbTJydUpBSmIySVFHLUNibW5sMXBjaEdsZExkamR5REFTWE5zdjEzQU50V3dPVHNpU094VnUxZmxNbjVLVVZNQTJ1NEk4YmtKbFdOSkExYXp5ckVFNzZJWS1RazRTSF83ZVlBV2tMMTNITmxR?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">LB Calls for De'Aaron Fox Out After One Play</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Sports</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:42</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOTnh0UzlHcTZRMjh0alk5aW1YWVlDUS13eDQ5aUxsYmpKMkI0UXI4SUhTZWxVc2tjVHItVzkzSHV1UmVMc0N3OGctLVdfdlZMN2JxNUZGczhQeVpfUlczSXgwak52MnZqdEg2dVRwVEZuWkZTZDBIbVctRXpRZHF4WGhRTVozV29LbHN2dGo5Qk5yYXU5VFc3V2Y5Wk1jOEY1OXlxSlVRdXpGOVJrS1ZmN2c4OUFEazIySUdCOUhhOW4wMTFxM0pYamhuZ2FsUTYyeEhhaVdPWi0yV2JjMVNUQ29RbzJTZzg?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Lea Bullish on Vanderbilt's Linebacker Room</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Sports</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:00</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxNeHZaZmh5RVJqVkhiTkx4UkFNOFhfQ1hnUlBJREZPZ01FdG85SFZmM1RqRnVIZUhoNTUwQTlTQ0hpXzdtX1FmSzVYVXFwMGRPYUNLNUV1eHl6OURuTndXMC1heHpqWmRMc1dLai10UzNQT0txa3NuYTdqTHppeklrNzNvem1XWFZOdTBOTFlCc3g5eUo2V3dpejRxYVVFb25wemFzSkFTMlg5emdCU3JaLW16aTdTT0x5Vk9sak9VeDNqUm5wOWVOZ3BtYmk0cWFRUFBZbC1SYUN1eWNXYTBNTjRHZEIyY0pYc1E?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Clark Lea Changed the Plan for Martel Hight</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Sports</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:00</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPUkFjMWEtcWJyMmJIYk9OVlZsZkpoX3RjQUZXQnRjdXhUaEQ2SnA2SXgtRTBJakx5VDl6aFJib1FpSm9JLWJfZWtGYjU5VVdCTzAxRVZyNGtTdWtxa2hURXFBRnhtQ1I0aGxYbXhGclpYZTAwOTRCVWxHZ1BGN29PUWx4VlBMZ3BGT2tpVk9VZlZxVVBNSUZDTnZ3?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">ESPN Analyst Blasts Taylor Swift as Fake Fan</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Sports</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:48</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+      <div class="wire-dispatch-count">+7 more on this desk</div>
+    </div>
+<div class="wire-dispatch-group" style="--wr-group-color:#2D4A32">
+      <div class="wire-dispatch-desk-hd">
+        <div class="wire-dispatch-meta">
+          <span class="wire-dispatch-dot" aria-hidden="true"></span>
+          <span class="wire-dispatch-deskname">HK Finance</span>
+          <span class="wire-dispatch-sep">&middot;</span><span class="wire-dispatch-journalist">Rachel Lam</span>
+          <a class="wire-dispatch-desklink" href="/hk-finance.html">full desk &rarr;</a>
+        </div>
+        <p class="wire-dispatch-take">Nicolas Aguzin told Bloomberg this week that a SpaceX listing would be &quot;exciting,&quot; then in the same interview defended Stock Connect (which is an odd sequence: making the case for Western tech issuers by defending the...</p>
+      </div>
+      <a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE9qckpZemZFYjlKWERHQ3pjWkNtSk5OTjIxZGhqWDl1U0RoMzhuNDc1cG5tbHJDeUFlTjFGNEVqckdyZzBlLWhRajRlNlpjdTRHY3F0NFViZWI2eGtpakNHRjBpT3c?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Trump Moves Bitcoin and Oil Markets Hard With Latest Iran Threat - BeInCrypto</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Crypto.com</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 21:01</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMicEFVX3lxTE80UW5DZ3lyQXlQdWE2ZE9fWFA4eDJGMDFwcE1OOHBqU2hVQnlONkxvRlFESjNoeHh1b3EwNGlIdkpLU2tHQUp1MVh3bnVhYVlZTGx6VDNTT1Z2R1JsN0c1RU90d0tvUVg5dnlYV0wtV1M?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Investing in Digital Asset - a16z crypto</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Crypto.com</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:30</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1GVXl6YmZzUUEyeEpUY3JNclVqZU9LVzRQa3pDczlYcnJrLWlHdVY4Uk9XcnRUOThuUkN6aC1UWXFiNU1pdUQzQ2xpYkRMWC1DNnVldjNaOXFHbUpRX3ZIb0JWYk5PNmNLUzNF?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Fortune Crypto 100 Crowns Hyperliquid as Top DeFi Platform in Debut Ranking - BeInCrypto</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Crypto.com</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:17</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBkTXAzYk9vVlhBTHh2OXhFS3UwQ2hxY2FKaEZGVmxabW83ZmhmMC1nY2l2Y3RoRlRuVVdDZ1JMS2V4X0pWaWhNdnpEenhENXJJN2FMdnZSdzc5Y00?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">BitMEX Launches 2026 Trading Cup featuring $200,000 Prize Pool and More Rewards - BeInCrypto</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Crypto.com</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:00</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdGJsZktpcV9FSTBEV050b19iXzFWTEJ1eEs5d2oyMklfMXJyVjFhT3labjRybDY1bXFmVXhWMVRSWlZObFdDRWJaWHFEcHM5dEhKQ0VuSDNwdDY4UExWYThkakRLNDhReDJpdE1kSzUtZklPUGFzVGY5UVg0ZVAycHRheEh3bFV5UlRndDQ3UW1jYTNOYTc3cklkTml3QjBsYlJEcllYM1p0eDR1SERsSk45M0FJZHp1VFVKMTQtV3VNZmQzZmg1bXBNTWU0WjB60gHQAUFVX3lxTE9VbUF5S3BHczZqR3hKbHFiWVVRbFVyTkYzenh6Tm1vd3h5NGRRcThlZktVUmowbEhuYk0tMTdqclZUeHVaeU1nQ2pwV0F5Z1RES2licVlCMktRMEVVWTc1MGkzS3g3aU5pSFZGdkt0cTRvOUNpWTNxSkdnWmJxTnpBTVJObGExQTN1cW9JVHROYWZwYXBCZ29Dd3ktTVZWcnAxU0JxOUoxOGRZX0ZNMUdCdEpzVHVaN1V3Wjg5RGRNZnVSZWdkaVhqZWhQZVo1Sm0?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Equipment Failure Hits Tseung Kwan O Line, Delays Up to 15 Minutes</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">MTR</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:21</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPa1JCRlRkT1NBa0RvSlBSZWgwZjhaOVBVZGJWTmpYa0xnMnphMFkxNzU0ZlE5X3dsSUp3VGZjVXR5a3hESFJLemVZTTNfcGdPb3ZYS2JTQmotN0hINkxPV3MtMDVmeHAwU3RXSWV1dEF6RU1BbGdrNktjd2lOaV9RWkIzRzRnYmc2T1JBTmFCb2xTdmRNZzkyaG13NXNUSWdMSWxVT3RLbDZjcmdGR0V4dy1TNk50LXdx?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">HKJC Pumps $203M Into Zaha Hadid-Designed HKUST Student Residence</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HKJC</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:15</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+      <div class="wire-dispatch-count">+7 more on this desk</div>
+    </div>
+<div class="wire-dispatch-group" style="--wr-group-color:#8A5A2B">
+      <div class="wire-dispatch-desk-hd">
+        <div class="wire-dispatch-meta">
+          <span class="wire-dispatch-dot" aria-hidden="true"></span>
+          <span class="wire-dispatch-deskname">HK Local</span>
+          <span class="wire-dispatch-sep">&middot;</span><span class="wire-dispatch-journalist">Cheung Kwok-keung</span>
+          <a class="wire-dispatch-desklink" href="/hk-local.html">full desk &rarr;</a>
+        </div>
+        <p class="wire-dispatch-take">The charge is manslaughter. Prosecutors filed it Thursday in connection with the fire that killed 168 people, and the brief before the court used the phrase &quot;fuelled by greed&quot; to describe the decisions that shaped the...</p>
+      </div>
+      <a class="wire-row" data-cat="hk-local" href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3356795/16-arrested-over-bogus-mpf-withdrawal-requests-due-serious-health-problems?utm_source=rss_feed" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Sixteen Nabbed in $4.3M MPF Fraud Ring</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HK Local</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:58</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">scmp.com</span>
+        </span>
+      </span>
+      <img class="wire-thumb" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/06/11/a3c90be9-f625-4240-a88b-3623fa28d26e_f20f5a0c.jpg?itok=LlHVzkN_&amp;amp;v=1781182719" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    </a>
+<a class="wire-row" data-cat="hk-local" href="https://www.scmp.com/business/money/article/3356792/hong-kong-indonesia-move-towards-direct-transactions-yuan-rupiah?utm_source=rss_feed" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">HK, Indonesia Sign Yuan-Rupiah Settlement Pact</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HK Local</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:42</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">scmp.com</span>
+        </span>
+      </span>
+      <img class="wire-thumb" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/06/11/c579da64-2264-4f07-809d-d2d98721955c_3633ecfb.jpg?itok=ajXXQu5x&amp;amp;v=1781181721" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    </a>
+<a class="wire-row" data-cat="hk-local" href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3356787/hong-kongs-new-national-security-regulation-be-used-rarely-ministers-say?utm_source=rss_feed" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Security Law Powers to Be Used Rarely</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HK Local</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:21</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">scmp.com</span>
+        </span>
+      </span>
+      <img class="wire-thumb" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/06/11/d4bd55e7-7b8d-4ea1-9498-ded5ec88d6bf_acf27483.jpg?itok=B2jnr_Mu&amp;amp;v=1781180349" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    </a>
+<a class="wire-row" data-cat="hk-local" href="https://news.google.com/rss/articles/CBMixgFBVV95cUxQN0VSd3c0cnFuNW1iTmpZbWVxUjNqejN1djIxckRFOTI5UUxULVRyclJKdXhMZmpzMkRQSWhfbTJXZFFPZVZRdXFZaGRwVlM4dEozZUpVZlNSTVFfOW5VWlRWX1dCa0Q1OTVSY2wxY1RneTdfc09tbjhrYW9SSDBfb0xuTHBiLWdUU0xrQ21jNnJ0aFQyUUd1cjBaM2R2ZVdTZHkxVUQ3ejJTT2dOdVE5dkMxMDBSd2pJNmpPdHFCN2VkZGI4aVE?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">$23.8M in Rare Fish Maws Seized</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HK Local</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:10</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-local" href="https://news.rthk.hk/rthk/en/component/k2/1858141-20260611.htm" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Child Was Cleared for Home Before Fatal Fall</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HK Local</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:05</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.rthk.hk</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="hk-local" href="https://news.rthk.hk/rthk/en/component/k2/1858154-20260611.htm" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Lee Backs Kazakhstan Smart City Push</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">HK Local</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 18:58</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.rthk.hk</span>
+        </span>
+      </span>
+      
+    </a>
+      <div class="wire-dispatch-count">+2 more on this desk</div>
+    </div>
+<div class="wire-dispatch-group" style="--wr-group-color:#0B1F3A">
+      <div class="wire-dispatch-desk-hd">
+        <div class="wire-dispatch-meta">
+          <span class="wire-dispatch-dot" aria-hidden="true"></span>
+          <span class="wire-dispatch-deskname">Cyber</span>
+          <span class="wire-dispatch-sep">&middot;</span><span class="wire-dispatch-journalist">Kai Tanner</span>
+          <a class="wire-dispatch-desklink" href="/cyber.html">full desk &rarr;</a>
+        </div>
+        <p class="wire-dispatch-take">Microsoft calls Exchange enterprise-grade. The Ghost-Sender authentication bypass, one of 206 vulnerabilities in the June 2026 Patch Tuesday release (Microsoft's largest single-cycle disclosure on record), allows a...</p>
+      </div>
+      <a class="wire-row" data-cat="cyber" href="https://www.bleepingcomputer.com/news/security/south-korea-hits-coupang-with-record-409-million-fine-over-data-breach/" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">South Korea Slaps Coupang With Record $409 Million Data Breach Fine</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Cyber</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:52</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">bleepingcomputer.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="cyber" href="https://www.bleepingcomputer.com/news/security/cisa-tells-govt-agencies-to-patch-critical-exploited-flaws-in-3-days/" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">CISA Orders Federal Agencies to Patch Critical Exploited Flaws in 3 Days</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Cyber</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:46</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">bleepingcomputer.com</span>
+        </span>
+      </span>
+      
+    </a>
+      
+    </div>
+<div class="wire-dispatch-group" style="--wr-group-color:#6B1F1F">
+      <div class="wire-dispatch-desk-hd">
+        <div class="wire-dispatch-meta">
+          <span class="wire-dispatch-dot" aria-hidden="true"></span>
+          <span class="wire-dispatch-deskname">Geopolitics</span>
+          <span class="wire-dispatch-sep">&middot;</span><span class="wire-dispatch-journalist">Mei Chen</span>
+          <a class="wire-dispatch-desklink" href="/geopolitical.html">full desk &rarr;</a>
+        </div>
+        <p class="wire-dispatch-take">Taiwan's first HIMARS live-fire into China-facing waters, conducted Thursday inside the 10-day Han Kuang anti-invasion exercise, is not a deterrence signal in the conventional sense. Deterrence signals are sent to an...</p>
+      </div>
+      <a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNSjc5M1lqZGZfWUw3cWJ0X3pxZmJBS1V4eWpKLTZzTFpQb3l4c1pYNXNNWlF3LVFZUTMwTFo1eEtQZ2FBMXRLUFNxYV9tT1VVbXo0bFUweXBpbmtLMVgwcEhjelhJMGg3SXNkUEZLdHF4Z3ZKQVIzdS11NGVuVEJxQ24yYmFBMVAwb3k4WVVuNTB1NWhfVkdrS0ttNHI1X0xGNXpF?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Trump Threatens to Seize Iran's Key Oil Ports</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Geopolitics</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 20:46</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMidEFVX3lxTE9TR3p4R1RxTzVxUm93V0tLVTNqNmszZHFZc1NJcWExYkNja0xjZjlKeHMzWFRsN0JEQk9IWmg0VnJ4TWdJNFZ4TTQ3dXZremxXYnYwal95UkxUcDBNN2xPS2NTZ2xuZUdXNE9mbm4ybVR0cTJf?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Five Grim Warning Signs for Putin in Ukraine</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Geopolitics</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:39</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+<a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxOb0Z0VnhFREtkUFVzdmpaUVljS0RDMXhwbVcxdDRvQVpmMnBKSDk1NnVqbTZJNXN2Mk5DUzBDSS02WDZQYkRIaFdhMmNMZGhzd2Q2bjdiWHpFZzlxSUZMZFlyeWljUW1La0pBa1czRlVuRldZRnNJZFFQUGpta3M1XzRCdGkzbEdaeFAtVlBSZDNNNzByWmxNc01XU1l5UVlrdWctWFA0T2U2NV9KY2tUdG5Nb1F1SWhCTFNObWNsZ3ppcGxMbjJEa0hpX2FjWGstMWpJVm930gHbAUFVX3lxTE5PaHV5b2kzdTFrbHdKaFlqMjZLNDM5WU9UbU5ROU5hUGhPTzY2TUVGdWRuZU93UmJ4U1VVeEQ0RHpyYlBicGVjUnlhdk5JXzhZM2tPNmhoMnRNNExVMWpYSGdYSXNQem51NmxpME9Kbll3NWQtVVJJNG05STRYdHpQb25lV1k3eGR2bUpIeW1xbDZRTW1qWkpWYUZQY3BkRy1pMmxuSENMWlBxTUNjRHg5QVNkel8teHY4UUFJcWE1b1VHTXBGX292eU5zb19UbnFkaFdCMEFjUDI2MA?oc=5" target="_blank" rel="noopener">
+      <span class="wire-text">
+        <span class="wire-head">Fractures Emerge in US-Israel Alliance</span>
+        <span class="wire-meta">
+          <span class="wire-dot" aria-hidden="true"></span>
+          <span class="wire-desk">Geopolitics</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-time">yest 19:08</span>
+          <span class="wire-meta-dot">&middot;</span>
+          <span class="wire-host">news.google.com</span>
+        </span>
+      </span>
+      
+    </a>
+      
+    </div></div>
     <div class="wire-list" data-tab="all"><a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOaC00ZXF4QzFlMzl1aEN3QzVuSVdzTk1oTmtuM1dPa043MTNqRV9JNlpfbXMxNDd0djM4UXg5bk9LQnc5Z010NHlxN19SaC0wX3lCSXpmTXdfekdDemN1TzNZODZBc0o4WTZFWDVwNy12QzVkS0RMMnNvTmtTRUtOMm9hWVRKQ3NPckJ5WnllVDRsTWdKMXpfdTZjNTFrbm0zdTV2S2FiN1FTUGw3Z3FPdE5Wdld1SEsyR2ljaXZ3?oc=5" target="_blank" rel="noopener">
       <span class="wire-text">
         <span class="wire-head">LIV Golf Loss Down Under Could Be Death Knell</span>
@@ -767,303 +1205,9 @@
         </span>
       </span>
       
-    </a>
-<a class="wire-row" data-cat="cyber" href="https://thehackernews.com/2026/06/oceanlotus-hits-vietnam-investors-with.html" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">OceanLotus Targets Vietnam Stock Investors With SPECTRALVIPER Backdoor</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Cyber</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:45</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">thehackernews.com</span>
-        </span>
-      </span>
-      <img class="wire-thumb" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2WExeCWTOdaaW7iQfV9dxGz0_rzPShImjBUQfoeRsJeTLg09lrGsSEgA2k05q-weIqQaQ_VVP25lTObup7E0xtcnxj3AtK1HHkNIAkI_hykxraL74qXTPwCRlRCdTB3S5QJO-e2j5zPGxgvCBg9SyRFl9QD2gwVtOqgg3eNF7_ZXGI9JgFSE4LGPjwoS3/s1600/cyberattacks.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
-    </a>
-<a class="wire-row" data-cat="sports" href="https://news.google.com/rss/articles/CBMingFBVV95cUxNb0VIbG5pN0NHdlhhYnFHUTVBZWdPTnlfT0tPZmNNZllnU2kzSDlvRHM3OHJCLS1JR1p2cl9wRGhRNVBvNEN2VnMzTHhoeU9FajU1RkVhSFZmM3pJU3MwSVpPZlVLc1J3N19keXk1YkpnR3JvUHVrX2czc3RQd1JIZ0x0QXJCQzVEcDNOV3IxSUlTeUd0QjN5X3dvUkpXUQ?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Wolves Sack Rob Edwards After Relegation</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Sports</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:44</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNUTAwSlBFdV9DeGN2clhMRTBTUFZMY2tmQ0lSY3hPWFAtSUJhSFF1enFTU3NHaWp3OEFGa3J0OGhwcktERFRDTWJ0aTBQTVpUMlRQa0JaRzVVNkd0dThxTXY1Z252ckZoaXZCbVdEMWpJcjBzUmdOdUx6cjMtWWctNVFaNUtxUHlnVWJTVWtiNV9rZWp1cldiWklwT19Od2g0cm1KU2VaclBodUxQejdielRKa18xQQ?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Why UBS Is Still Reluctant to Turn Bullish on UK Equities</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">UBS</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:33</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPU1RGZW91S3RCbTN3UjhjRkNtdkpZUnY4c0FQcko1dGV4MENTVU5BLU4wUHRvZWFzWWdkTVQxTnJKQ3cwUXYwWkgyNld1LWkteXZSbk1GTU40ZzI3Rm54b3kySUg5aHZsMy1udUtYUEZvd09lS29xbGkwcjIwX0pGZkV1Q2tXUXVjWkRQYzJBNVRpOTU3R1pKTzNJTVdUVzNkUjN6QlBqMkJOY3g4Yi1CekZsNFdGS1dDa0pEYjlta2cyWXlqWjM4Vg?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">AXA XL and Deloitte Launch Global Cyber Risk Partnership</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">AXA</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:08</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiywFBVV95cUxNQ2l1WjVkMEJkc19zLVcteDRsdjZfbHdfMHZZaGhkM1hsVjlELUtXenBzRmZnU2VGM0VrTHZFN3BMcHkyZGY4eWc5UTdqSkw5U3lXdmFkaW5QdVByaG5lOGN3QTMyaFRpeW55VkJKT0t6VUVaNDI5RUUtQzNkTk5CTFc0ODh2Sy1WQjdFcExhLXZOVXFyZkhLc3hrTnVYV2hVSjI4VjIxd1AtVWhHNjBzSGU0d28xRm81LVNLLWJVbTZxd3JFTmdXajlnVdIBywFBVV95cUxQV0NaYjhaQ3pHcW82ZEZPRS1XaXctZ0N4Yk5uNDhkZWlTM0hvTjA2VTB6YU1heFpoSU1hWDF2QVM2WVZpcDdYamlUYkdUUnBkb3NVWFJxM0ljdDNHS3N2aWxIdEs2bVlYWExKQ3NkVTZ5clpQdk91d3VWdTdwcTl3NjNxa1dFY1N5T0t1cHZxdGRvT1NWRlFRd1pUNWxLaUUtTzFPYU9sMnA0RnI3TUJYTkFvY2RQR01zLWFmWnA5c1JxaHhVR0RTanRoYw?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Hong Kong Exchange Reviews Rules to Cement Tech Listing Crown</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HKEX</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:01</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPbHByXzU0bFZ2Tm1oYldLNTV2d3dFOTg5ZDJxeTd2eklEZVAxYngwNjk1c3VvTXI0MDdCZDBOUGYxXzdKcGNwTzZUdWVFRENmQ3JMTmVuSDdRLUJNUEk0THNPd1FxMjBjQkFyd3llUjNmTHFNR05uRW9qVXVtZkVYOE1WMl92TTBfR2M1aEN2WG1LQWVkMVNralRYb3plS0c5Mm5r?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Will US Reevaluate Its Middle East Bases?</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Geopolitics</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:00</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBqMHBYeVc0aWdOSFJhUmtnamlRa3U4UGtidFg1UGZOTmFBYjVJeVFpX2ktMFNTckhjSkd5U1c2QmE4aWlwZzVEQVljOXIzNHZ4cm5kOFRCbXJGN3RfX20xWjNLZGU?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Delaware Lawmakers Advance Bill To Ban All Cryptocurrency Kiosks Statewide - BeInCrypto</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:59</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-local" href="https://news.rthk.hk/rthk/en/component/k2/1858129-20260611.htm" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Rights Safe Under Security Procedures, Officials Say</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HK Local</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:56</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.rthk.hk</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-local" href="https://news.rthk.hk/rthk/en/component/k2/1858116-20260611.htm" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">LCSD Deploys Smart System to Foil Touts</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HK Local</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:52</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.rthk.hk</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-local" href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNTVpBN2JUMk9iUWFJbmlYNVVnaFRVSm5qdlNuMXVtMlFiME5tN05oMUhpUG5McUlLb2dsOHZBbDNrODRVYUJrNG9CQlpRWXUwX000aGFhamhpWS1lWHl2eTIwZXpSUl96c2QxWG9LSENpTWxtQ3ZWNk1UajZHZ29RcW5kY2cxQ3ZJOG0xVjJmLTg4R3dnaWNmcDh1SF9tc1o2WmJDeVd0bGdYQXZOTUdlaGRhOF9lVkxJanhTZE5iRER5eXEwN0VUU1JkalYwSVRvX1hHdDYtc2ZtMzdWTl9Hem5ScldMdw?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">City Launches First Poverty Alleviation Strategy</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HK Local</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:50</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiekFVX3lxTE9xaEZQaFFOSzlrZHAyaG5wZFhVS2puZUlGY1BJMEdkdnBLV3M2UVFqQ3BMcmViZmhNSkZmS052N1pLaS1NTzJIa0hvdE5HZlNKT21DRTJpQU9ld1V1X24tUUdYOUdCR2pnWm1CWU90Wl9Rbmdkckp2MTNB?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Meet the Fortune Crypto Innovators (2026) - Fortune</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:30</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-local" href="https://news.rthk.hk/rthk/en/component/k2/1858120-20260611.htm" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Smart Lanes to Speed HZMB Border Crossings</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HK Local</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:24</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.rthk.hk</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMiugFBVV95cUxQMzdFdzA5WkNfdk9sZjE4N2ltSVljeUFudGZTMkMxcFRzQjJjd2hTajh5bkk4aEV3bVFEbDJmZTZuTHl4SU5JQXhHTkUtc3BUTEMzRFp6SVZ2ZlJDM1hid3VOd3o3UVhMRjZVUGM3YjZMR2c4aUE3UzdOcEQ3TFl5NHFjbU5nRG1Fd1BWWE82aF92MzVzRS0weDZjcHNKT0szUHZsZ3N6QUtpbnRrVmlOM2JiWVZuMVpCZFE?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">US Strike Near Oman Kills Three Indian Sailors</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Geopolitics</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:21</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-local" href="https://news.google.com/rss/articles/CBMivwFBVV95cUxOb1BEQW1BMHp6QUxQQ2luLXZOUm1xaU9TUmJPRzk4THNSWG8zblZFcHZnNWNqVGhQM2ZZUTFMSjFnbW9UemIyV0pTWElhMjBtT3c0YnNOTG5aMFgtQ2N0QURxd2g0ajJwMmI4QXBwb3pfNzJTNGZuaVFYQXBvbndvNndZdzJwQ05LdkdUVGt4anFfSHlib1FjNWtxMXJRd1V6X3h5QkN5SzZydUpnQi0tbTByaFpUVEZwYW1pNmt1dw?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Mortgage Corp Debuts $1.5B Digital Bond</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HK Local</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:14</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQdlRBMjMtNlJlUTlDX01jSVlfZ2V1dkI1ZWFUQ3BJTy1hUldtQXhsUVU1YkZISU56MXphYmRQRHU4bkRRdzk3TXU3bE9sa3BMc01oVHdGaUg4eGtDa055QS03RmRKT2FERl9UcFRpUjhiUEIxWXJvRHVnQnQ5dmFGdWpLU0JEdEcxYTNKTWd2eUdvYkE3eVo1YVFvRm9KdUpIQlJLdUlHbHBpaXpEMVJrTQ?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Oil Climbs Past $91 as Iran Conflict Widens</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Geopolitics</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:13</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQVmJpZ2VKSmhrZ19zVjJiTmVXd2doMDg2aDAwdUd1dC0tQ2dUOEtrbThYWjdtX3BuUW15c0hORERHWlBfOGpzbjFDb29tUlZyRkYyVGpnV1ZrNlYzQnowWThzMU5DQzl0MnFPTGVnSzlQWDItNEpBLUdWY01YRlo4VGZkbm56U0dpbHdVaXlnbEZsMUNmU2p5Y05jUGtGa2M5TlQ3V1FoOEdUTmFDRWxwT1JvemtjaXRnRFRHZQ?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Standard Chartered Wins Saudi Approval for Fund Operations</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Anchorpoint</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:49</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBXV2FMcUdMM3ZQOExkTmtVLXZIOGhmNFNuenRtc1UyeW1mYVlhbFEzMkVZSmdRdDg2QWVmN3otaW1XQnBtUFIxcmN4NExvYklUbEIweVo2TUl3bnJaQWtfbFZZRHhKZWhuSURLZA?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">3 Risk-Off Signs Point to Deepening Caution Across Crypto Markets - BeInCrypto</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:46</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMicEFVX3lxTE42R0tZTm83SWpFMXVFZ3pGUkRFSHppMmNpc3Rid0MweENOUmhvaFRrRV95Q0RPeGdpSWlTSmkzQWp5U204QWh1MEo5Qnl6bDk4RGREb1B5cDFXbnEyMVZ1QXNQU1hmYjVMVUp4aXRmLXc?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Zoomex Monthly On-Chain Report: May 2026 - BeInCrypto</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:44</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="cyber" href="https://www.bleepingcomputer.com/news/security/nottingham-university-data-breach-affects-over-450-000-students/" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Nottingham University Hack Exposes Records of 450,000 Students and Alumni</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Cyber</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:27</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">bleepingcomputer.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="geopolitical" href="https://news.google.com/rss/articles/CBMilAFBVV95cUxObXVqUGVPeDVraE1NLWxqdnZJbVVSc3d5ODRjSkNjVjlxSzNwQU5jUkJGTTNzRUdiRHozSzhHWm96SGZiamZsVmpid0xoaDhFOGdCejJZb0gydzFUOGNXRTRSOWZJRDFZNFNFYUwwZlpnMm5YWkFLNHJ0YURYaXFYWW93cjhjVkRlSUNCSGdhWHlHZjdS?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Iran War Turns Hydrogen Into Energy Security Hedge</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Geopolitics</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:23</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQS3JZTjhPVWZXNmpIOXhqQlM4MzQ3dGY4QkFvQUp5UHlGMU5Wd1k1SllDWnF0dF8tbEo5VmxnS0hWaXF4eDUwanlTNDZMcXNtb1dIWC1UeHNhRzl6TWt2Q1Q2TzlxY2N0OW1HeHJLeWRwNUNldVI1d2ZUZlFoamZFUF9HM2t2SXRlamc?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">FanDuel expands event contracts with Crypto.com deal - AffPapa</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:23</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
     </a></div>
     <div class="wire-grouped"><div class="wire-co-group">
-      <h3 class="wire-co-name">Crypto.com <span class="wire-tab-n">13</span></h3>
+      <h3 class="wire-co-name">Crypto.com <span class="wire-tab-n">8</span></h3>
       <a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE9qckpZemZFYjlKWERHQ3pjWkNtSk5OTjIxZGhqWDl1U0RoMzhuNDc1cG5tbHJDeUFlTjFGNEVqckdyZzBlLWhRajRlNlpjdTRHY3F0NFViZWI2eGtpakNHRjBpT3c?oc=5" target="_blank" rel="noopener">
       <span class="wire-text">
         <span class="wire-head">Trump Moves Bitcoin and Oil Markets Hard With Latest Iran Threat - BeInCrypto</span>
@@ -1176,76 +1320,6 @@
       </span>
       
     </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBqMHBYeVc0aWdOSFJhUmtnamlRa3U4UGtidFg1UGZOTmFBYjVJeVFpX2ktMFNTckhjSkd5U1c2QmE4aWlwZzVEQVljOXIzNHZ4cm5kOFRCbXJGN3RfX20xWjNLZGU?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Delaware Lawmakers Advance Bill To Ban All Cryptocurrency Kiosks Statewide - BeInCrypto</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:59</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiekFVX3lxTE9xaEZQaFFOSzlrZHAyaG5wZFhVS2puZUlGY1BJMEdkdnBLV3M2UVFqQ3BMcmViZmhNSkZmS052N1pLaS1NTzJIa0hvdE5HZlNKT21DRTJpQU9ld1V1X24tUUdYOUdCR2pnWm1CWU90Wl9Rbmdkckp2MTNB?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Meet the Fortune Crypto Innovators (2026) - Fortune</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 16:30</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBXV2FMcUdMM3ZQOExkTmtVLXZIOGhmNFNuenRtc1UyeW1mYVlhbFEzMkVZSmdRdDg2QWVmN3otaW1XQnBtUFIxcmN4NExvYklUbEIweVo2TUl3bnJaQWtfbFZZRHhKZWhuSURLZA?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">3 Risk-Off Signs Point to Deepening Caution Across Crypto Markets - BeInCrypto</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:46</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMicEFVX3lxTE42R0tZTm83SWpFMXVFZ3pGUkRFSHppMmNpc3Rid0MweENOUmhvaFRrRV95Q0RPeGdpSWlTSmkzQWp5U204QWh1MEo5Qnl6bDk4RGREb1B5cDFXbnEyMVZ1QXNQU1hmYjVMVUp4aXRmLXc?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Zoomex Monthly On-Chain Report: May 2026 - BeInCrypto</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:44</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQS3JZTjhPVWZXNmpIOXhqQlM4MzQ3dGY4QkFvQUp5UHlGMU5Wd1k1SllDWnF0dF8tbEo5VmxnS0hWaXF4eDUwanlTNDZMcXNtb1dIWC1UeHNhRzl6TWt2Q1Q2TzlxY2N0OW1HeHJLeWRwNUNldVI1d2ZUZlFoamZFUF9HM2t2SXRlamc?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">FanDuel expands event contracts with Crypto.com deal - AffPapa</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Crypto.com</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:23</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
     </div>
 <div class="wire-co-group">
       <h3 class="wire-co-name">MTR <span class="wire-tab-n">2</span></h3>
@@ -1310,7 +1384,7 @@
     </a>
     </div>
 <div class="wire-co-group">
-      <h3 class="wire-co-name">UBS <span class="wire-tab-n">2</span></h3>
+      <h3 class="wire-co-name">UBS <span class="wire-tab-n">1</span></h3>
       <a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOMTRZcEZ5NHBsWXpPaTdtUFdiTzVwcTI0LTEzanBZa0N3bmVuazNnckxSUmNuV2hqcmJvRy01aDRLbnNSci1tUjBvX0tQeTRfNjQ5ZmRYbGxlWnNfc0RqeHdmM0c1bnRpVk1NTVotaDV3MGJHV2RjTVJrU1JaaGt1OVotTXhCWkhhUnBUaUFtZE9sRDlTbmlGQy1FMDBQNTgwbW45YWdqQkRuN2tNanB2NHBPREFIdw?oc=5" target="_blank" rel="noopener">
       <span class="wire-text">
         <span class="wire-head">UBS Pushes Fed Rate Cut Forecast Back to March 2027</span>
@@ -1325,85 +1399,32 @@
       </span>
       
     </a>
-<a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNUTAwSlBFdV9DeGN2clhMRTBTUFZMY2tmQ0lSY3hPWFAtSUJhSFF1enFTU3NHaWp3OEFGa3J0OGhwcktERFRDTWJ0aTBQTVpUMlRQa0JaRzVVNkd0dThxTXY1Z252ckZoaXZCbVdEMWpJcjBzUmdOdUx6cjMtWWctNVFaNUtxUHlnVWJTVWtiNV9rZWp1cldiWklwT19Od2g0cm1KU2VaclBodUxQejdielRKa18xQQ?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Why UBS Is Still Reluctant to Turn Bullish on UK Equities</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">UBS</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:33</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-    </div>
-<div class="wire-co-group">
-      <h3 class="wire-co-name">AXA <span class="wire-tab-n">1</span></h3>
-      <a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPU1RGZW91S3RCbTN3UjhjRkNtdkpZUnY4c0FQcko1dGV4MENTVU5BLU4wUHRvZWFzWWdkTVQxTnJKQ3cwUXYwWkgyNld1LWkteXZSbk1GTU40ZzI3Rm54b3kySUg5aHZsMy1udUtYUEZvd09lS29xbGkwcjIwX0pGZkV1Q2tXUXVjWkRQYzJBNVRpOTU3R1pKTzNJTVdUVzNkUjN6QlBqMkJOY3g4Yi1CekZsNFdGS1dDa0pEYjlta2cyWXlqWjM4Vg?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">AXA XL and Deloitte Launch Global Cyber Risk Partnership</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">AXA</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:08</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-    </div>
-<div class="wire-co-group">
-      <h3 class="wire-co-name">HKEX <span class="wire-tab-n">1</span></h3>
-      <a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMiywFBVV95cUxNQ2l1WjVkMEJkc19zLVcteDRsdjZfbHdfMHZZaGhkM1hsVjlELUtXenBzRmZnU2VGM0VrTHZFN3BMcHkyZGY4eWc5UTdqSkw5U3lXdmFkaW5QdVByaG5lOGN3QTMyaFRpeW55VkJKT0t6VUVaNDI5RUUtQzNkTk5CTFc0ODh2Sy1WQjdFcExhLXZOVXFyZkhLc3hrTnVYV2hVSjI4VjIxd1AtVWhHNjBzSGU0d28xRm81LVNLLWJVbTZxd3JFTmdXajlnVdIBywFBVV95cUxQV0NaYjhaQ3pHcW82ZEZPRS1XaXctZ0N4Yk5uNDhkZWlTM0hvTjA2VTB6YU1heFpoSU1hWDF2QVM2WVZpcDdYamlUYkdUUnBkb3NVWFJxM0ljdDNHS3N2aWxIdEs2bVlYWExKQ3NkVTZ5clpQdk91d3VWdTdwcTl3NjNxa1dFY1N5T0t1cHZxdGRvT1NWRlFRd1pUNWxLaUUtTzFPYU9sMnA0RnI3TUJYTkFvY2RQR01zLWFmWnA5c1JxaHhVR0RTanRoYw?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Hong Kong Exchange Reviews Rules to Cement Tech Listing Crown</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">HKEX</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 17:01</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
-    </div>
-<div class="wire-co-group">
-      <h3 class="wire-co-name">Anchorpoint <span class="wire-tab-n">1</span></h3>
-      <a class="wire-row" data-cat="hk-finance" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQVmJpZ2VKSmhrZ19zVjJiTmVXd2doMDg2aDAwdUd1dC0tQ2dUOEtrbThYWjdtX3BuUW15c0hORERHWlBfOGpzbjFDb29tUlZyRkYyVGpnV1ZrNlYzQnowWThzMU5DQzl0MnFPTGVnSzlQWDItNEpBLUdWY01YRlo4VGZkbm56U0dpbHdVaXlnbEZsMUNmU2p5Y05jUGtGa2M5TlQ3V1FoOEdUTmFDRWxwT1JvemtjaXRnRFRHZQ?oc=5" target="_blank" rel="noopener">
-      <span class="wire-text">
-        <span class="wire-head">Standard Chartered Wins Saudi Approval for Fund Operations</span>
-        <span class="wire-meta">
-          <span class="wire-dot" aria-hidden="true"></span>
-          <span class="wire-desk">Anchorpoint</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-time">yest 15:49</span>
-          <span class="wire-meta-dot">&middot;</span>
-          <span class="wire-host">news.google.com</span>
-        </span>
-      </span>
-      
-    </a>
     </div></div>
   </section>
   <script>
   (function(){
-    var list    = document.querySelector('.wire-list');
-    var grouped = document.querySelector('.wire-grouped');
-    var tabs    = document.querySelectorAll('.wire-tab');
-    if (!list || !tabs.length) return;
+    var dispatch = document.getElementById('wire-dispatch');
+    var list     = document.querySelector('.wire-list');
+    var grouped  = document.querySelector('.wire-grouped');
+    var tabs     = document.querySelectorAll('.wire-tab');
+    if (!tabs.length) return;
     tabs.forEach(function(t){
       t.addEventListener('click', function(){
         var key = t.getAttribute('data-tab');
-        list.setAttribute('data-tab', key);
-        if (grouped) grouped.classList.toggle('is-shown', key === 'hk-finance');
         tabs.forEach(function(x){ x.classList.toggle('is-active', x === t); });
+        if (key === 'all') {
+          if (dispatch) dispatch.style.display = '';
+          if (list) { list.classList.remove('is-shown'); list.setAttribute('data-tab', 'all'); }
+          if (grouped) grouped.classList.remove('is-shown');
+        } else if (key === 'hk-finance') {
+          if (dispatch) dispatch.style.display = 'none';
+          if (list) { list.classList.remove('is-shown'); list.setAttribute('data-tab', key); }
+          if (grouped) grouped.classList.add('is-shown');
+        } else {
+          if (dispatch) dispatch.style.display = 'none';
+          if (grouped) grouped.classList.remove('is-shown');
+          if (list) { list.setAttribute('data-tab', key); list.classList.add('is-shown'); }
+        }
       });
     });
   })();
