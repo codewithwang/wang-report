@@ -1291,3 +1291,29 @@ a.td-link:hover { background: #232a3d; }
 }
 .ai-colophon { max-width: 760px; margin: 28px auto 0; padding: 0 16px; text-align: center; font-size: 12px; line-height: 1.5; color: #6b6b6b; }
 .ai-colophon a { color: #6b6b6b; text-decoration: underline; }
+
+/* ── World Cup 2026 panel (sports desk, pages/worldcup.js) ──────────────── */
+.wc-panel { border: 2px solid #0B1F3A; margin: 14px auto; max-width: var(--wr-page); background: #fff; }
+.wc-panel-head { background: #0B1F3A; color: #F4F1E8; font-family: 'Playfair Display', serif; font-size: 19px; padding: 7px 14px; display: flex; justify-content: space-between; align-items: baseline; }
+.wc-panel-head .wc-updated { font-family: 'Spectral', serif; font-size: 11px; opacity: 0.8; }
+.wc-cols { display: grid; grid-template-columns: 1fr 1fr 1.5fr; }
+.wc-block { padding: 10px 14px; border-right: 1px solid #C8C0B0; min-width: 0; }
+.wc-block:last-child { border-right: none; }
+.wc-block h4 { margin: 0 0 7px; font-size: 12px; letter-spacing: 0.5px; color: #B0241E; text-transform: none; border-bottom: 1px solid #C8C0B0; padding-bottom: 4px; }
+.wc-block h4 .wc-tz { color: #6b6b6b; font-weight: normal; }
+.wc-row { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 2px 0; line-height: 1.4; }
+.wc-row--live .wc-when { color: #B0241E; font-weight: bold; }
+.wc-teams { min-width: 0; }
+.wc-when { color: #6b6b6b; font-size: 11px; white-space: nowrap; }
+.wc-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 14px; }
+.wc-group { border-collapse: collapse; font-size: 11px; width: 100%; }
+.wc-group caption { text-align: left; font-weight: bold; font-size: 11px; color: #0B1F3A; padding-bottom: 2px; }
+.wc-group th { text-align: right; color: #6b6b6b; font-weight: normal; border-bottom: 1px solid #F0EFED; padding: 0 0 1px 6px; }
+.wc-group td { text-align: right; padding: 1px 0 1px 6px; border-bottom: 1px solid #F0EFED; }
+.wc-group .wc-t { text-align: left; padding-left: 0; max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 900px) {
+  .wc-cols { grid-template-columns: 1fr; }
+  .wc-block { border-right: none; border-bottom: 1px solid #C8C0B0; }
+  .wc-block:last-child { border-bottom: none; }
+  .wc-groups { grid-template-columns: repeat(2, 1fr); }
+}
