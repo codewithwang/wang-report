@@ -1,5 +1,5 @@
 /* THE WANG REPORT */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
     --wr-page: min(1280px, 98vw);
@@ -8,10 +8,10 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-    background: #F4EFE6;
+    background: #F9F8F6;
     margin: 0;
     padding: 10px;
-    font-family: "Courier New", Courier, monospace;
+    font-family: Spectral, Georgia, 'Times New Roman', serif;
 }
 
 /* Masthead */
@@ -95,7 +95,7 @@ body {
     line-height: 1.5;
     margin: 3px 0 6px 0;
     padding: 5px 8px;
-    background: #EDE8DE;
+    background: #F0EFED;
     border-left: 2px solid #B0241E;
 }
 /* Tension Dashboard */
@@ -229,7 +229,7 @@ a.td-link:hover { background: #232a3d; }
     text-align: center;
     padding: 6px 0;
     border-bottom: 1px solid #C8C0B0;
-    background: #EDE8DE;
+    background: #F0EFED;
 }
 .gh-trending-grid {
     display: grid;
@@ -388,7 +388,7 @@ a.td-link:hover { background: #232a3d; }
     min-height: 90px;
     max-width: 100%;
     margin: 8px auto;
-    background: #EDE8DE;
+    background: #F0EFED;
     border: 1px solid #C8C0B0;
     display: flex;
     align-items: center;
@@ -419,7 +419,7 @@ a.td-link:hover { background: #232a3d; }
     gap: 20px;
 }
 .ad-slot {
-    background: #EDE8DE;
+    background: #F0EFED;
     border: 1px solid #C8C0B0;
     display: flex;
     align-items: center;
@@ -468,8 +468,8 @@ a.td-link:hover { background: #232a3d; }
 .story a {
     color: #0B1F3A;
     text-decoration: none;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
     font-size: 14px;
     line-height: 1.4;
 }
@@ -673,7 +673,7 @@ a.td-link:hover { background: #232a3d; }
     font-weight: bold;
     padding: 6px 0;
     border-bottom: 2px solid #0B1F3A;
-    background: #EDE8DE;
+    background: #F0EFED;
     letter-spacing: 1px;
 }
 .nav-bar a {
@@ -692,7 +692,7 @@ a.td-link:hover { background: #232a3d; }
    keeps swipe behaviour. Bone background + navy text matches house palette;
    slightly muted vs the primary nav to read as secondary. */
 .nav-desks {
-    background: #E5DFD2;
+    background: #EAEAE6;
     border-bottom: 1px solid #C8C0B0;
     overflow-x: auto;
     overflow-y: hidden;
@@ -730,7 +730,7 @@ a.td-link:hover { background: #232a3d; }
 .col-teaser {
   border-top: 2px solid #0B1F3A;
   border-bottom: 1px solid #C8C0B0;
-  background: #EDE8DE;
+  background: #F0EFED;
   padding: 10px 14px;
   margin: 0 0 14px;
   font-family: Arial, Helvetica, sans-serif;
@@ -788,7 +788,7 @@ a.td-link:hover { background: #232a3d; }
   margin: 18px auto;
   border-top: 4px solid #B0241E;
   border-bottom: 1px solid #C8C0B0;
-  background: #EDE8DE;
+  background: #F0EFED;
   padding: 16px 20px 14px;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
@@ -923,7 +923,7 @@ a.td-link:hover { background: #232a3d; }
   margin: 18px auto;
   border-top: 4px solid #0B1F3A;
   border-bottom: 1px solid #C8C0B0;
-  background: #EDE8DE;
+  background: #F0EFED;
   padding: 16px 20px 14px;
   font-family: Arial, Helvetica, sans-serif;
 }
