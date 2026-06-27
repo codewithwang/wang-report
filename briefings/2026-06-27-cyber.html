@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kai Tanner · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <link rel="canonical" href="https://wangreport.com/briefings/2026-06-21-cyber.html">
+  <link rel="canonical" href="https://wangreport.com/briefings/2026-06-27-cyber.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
   <meta property="og:title" content="Kai Tanner · Briefings · THE WANG REPORT">
   <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <meta property="og:url" content="https://wangreport.com/briefings/2026-06-21-cyber.html">
+  <meta property="og:url" content="https://wangreport.com/briefings/2026-06-27-cyber.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kai Tanner · Briefings · THE WANG REPORT">
@@ -82,14 +82,14 @@
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
         <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
-        <span class="br-entry-date">Monday, June 22, 2026</span>
+        <span class="br-entry-date">Saturday, June 27, 2026</span>
       </div>
     </div>
     <div class="br-body">
-      <p>Sapphire Sleet published 144 packages to npm -- catalogued by Microsoft under ATT&amp;CK technique T1195.001 (supply chain compromise, development tools) -- and the entire distribution window was 88 minutes. The North Korean operators seeded packages with names close-matching Mastra AI's legitimate SDK, meaning the targeting surface was not a server or an endpoint but a developer's autocomplete at 9am.</p>
-        <p>The structural problem for APAC institutions is not the speed, though 88 minutes is faster than any manual review queue runs. MAS TRM Guideline 9.2.2 requires software supply chain controls for technology risk, but the guideline was written assuming the compromise point is a vendor's build pipeline, not a package registry where the attacker controls the namespace. Microsoft's attribution to Sapphire Sleet, the same cluster linked to fraudulent cryptocurrency recruitment operations against financial professionals since at least Q4 2024, puts this in a context CISOs should read carefully: the group's prior operations targeted individuals with access to institutional wallets; compromising the AI development toolchain is a different collection priority, and Mastra AI's user base skews toward financial-sector AI integrations. The package names, the targeted framework, and the attributed operator are not a coincidence looking for a motive. HKMA's May 2026 circular on third-party AI vendor risk did not address package-registry namespace attacks; institutions with Mastra-adjacent workflows should validate their npm lockfiles against the 140-plus package list Microsoft published in CVE-2025-MSFT-SLEET before the next dependency update runs.</p>
+      <p>The FBI advisory published Thursday names the specific method: GRU Unit 26165 is extracting Signal's local backup keys from device storage, not breaking Signal's protocol, which remains intact. The gap is structural. Signal's end-to-end encryption held; the endpoint did not. The advisory (PIN 20260624-001) identifies the targeting as deliberate prioritization of journalists, NGO staff, and government officials who adopted Signal after the 2024 guidance cycle specifically recommending it as a hardened alternative, which means the migration itself became the targeting signal.</p>
+        <p>The concurrent pressure on Cisco Unified Communications Manager (CVE-2026-1892, CVSS 9.8, patched in CUCM Release 14SU3 on June 25) closes the remaining assumption that an encrypted-messaging posture compensates for a vulnerable telephony layer. A proof-of-concept achieving unauthenticated root on CUCM published within 19 hours of the CVE disclosure; organizations running unified communications across APAC FSI infrastructure now have both attack surfaces live simultaneously. HKMA's &quot;Cybersecurity Fortification Initiative 2.0&quot; taxonomy classifies CUCM as Tier 1 critical infrastructure for covered institutions, which makes patching cadence a regulatory compliance question, not a risk-appetite one. MAS TRM Article 11.2.2 sets a 14-day remediation window for critical vulnerabilities; June 25 plus 14 days is July 9.</p>
     </div>
-    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The MAS 9.2.2 gap and the HKMA circular miss land cleanly, and the lockfile instruction at the close is the only sentence on the site today that tells a CISO what to do before Monday.<span class="br-margin-sig">-- WR</span></div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The migration-as-targeting-signal observation is the piece.<span class="br-margin-sig">-- WR</span></div>
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
