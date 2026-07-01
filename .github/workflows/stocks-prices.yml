@@ -1,0 +1,41 @@
+name: Stocks price tape
+
+# Phase 4: refresh stocks-prices.json every 30 min during market hours so the
+# Stocks page Portfolio Tape stays fresh between the twice-daily full rebuilds.
+on:
+  schedule:
+    - cron: '*/30 1-8 * * 1-5'    # HK market hours (UTC)
+    - cron: '*/30 13-20 * * 1-5'  # US market hours (UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stocks-prices
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch prices
+        run: node update-prices.js
+      - name: Commit if changed
+        run: |
+          git config user.name "wang-report-bot"
+          git config user.email "bot@users.noreply.github.com"
+          if git diff --quiet -- stocks-prices.json; then
+            echo "no price change"
+          else
+            git add stocks-prices.json
+            git commit -m "prices $(date -u '+%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push origin main && break
+              echo "push retry $i"; sleep 5
+            done
+          fi
