@@ -67,7 +67,7 @@
 <body>
 
 <div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a></div></nav></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/stocks.html" class="nav-desk-link">Stocks</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -82,14 +82,14 @@
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
         <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
-        <span class="br-entry-date">Thursday, June 25, 2026</span>
+        <span class="br-entry-date">Friday, June 26, 2026</span>
       </div>
     </div>
     <div class="br-body">
-      <p>Fortinet says the FortiBleed credential extraction affected &quot;a limited number of customers.&quot; The number is 110 million credentials pulled from 430,000 FortiGate devices, and the method is a path-traversal vulnerability (CVE-2022-40684) that has been documented, patched, and exploited in active campaigns since October 2022, meaning the devices that were still exposing credentials in 2026 were running configurations their administrators believed were secured.</p>
-        <p>The structural problem is not the CVE. FortiGate devices sit at the perimeter precisely because they are trusted to authenticate everything inbound; the management plane that CVE-2022-40684 exposes is the same plane that holds VPN credentials, firewall rules, and administrative access to the segments behind the device. APAC financial institutions running FortiGate under MAS TRM Appendix 2 patch-timeline requirements (30 days for critical vulnerabilities) will now face a question from their next MAS inspection that their patch attestations cannot answer: whether the credentials extracted before remediation have since been rotated across every dependent system.</p>
+      <p>The Cisco SD-WAN patch notice dated June 2026 describes the vulnerability as a privilege escalation flaw in the vManage component. The CVE-2026 record and Dark Reading's timeline reconstruction show attackers held root-level access on production devices for approximately two months before Cisco's internal detection caught the activity, which is to say the patch notice documents a remediation window, not a discovery window, and those are different clocks measuring different things.</p>
+        <p>The operational consequence for APAC financial institutions running SD-WAN as their inter-branch fabric is specific: MAS TRM Guideline 11.2 requires FIs to notify MAS of significant IT security incidents within one hour of detection, but &quot;detection&quot; in this framing means the institution's detection, not Cisco's, and any institution whose network-layer telemetry did not independently surface anomalous privilege use during that two-month window is now holding an audit gap it did not know it had. The fix is not applying the patch, which should already be done. The fix is running your SIEM logs back sixty days against the indicator set Cisco published alongside the CVE, because the question your next MAS examination will ask is not whether you patched, but when you would have known.</p>
     </div>
-    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The MAS TRM angle earns its place: it converts a credential count into a regulatory liability that APAC readers cannot abstract away from.<span class="br-margin-sig">-- WR</span></div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The clock distinction in the first paragraph is doing real work, and the audit gap framing in the second is exactly the question MAS will ask.<span class="br-margin-sig">-- WR</span></div>
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
