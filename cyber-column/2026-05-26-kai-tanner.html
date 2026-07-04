@@ -41,6 +41,12 @@
     .col-para { font-family: Spectral, Georgia, serif; font-size: 15px; line-height: 1.7; color: #222; margin: 0 0 14px; }
     .col-closing { margin-top: 32px; padding-top: 20px; border-top: 2px solid #000; }
     .col-closing .col-para { font-style: italic; }
+    .column-sources { margin-top: 36px; padding-top: 16px; border-top: 1px solid #ddd; }
+    .column-sources h4 { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #555; margin: 0 0 10px; }
+    .column-sources ul { list-style: none; margin: 0; padding: 0; }
+    .column-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; margin: 0 0 6px; }
+    .column-sources a { color: #222; }
+    .column-sources span { color: #999; font-size: 11px; }
     .col-archive-strip { margin-top: 44px; padding-top: 20px; border-top: 1px solid #ddd; }
     .col-archive-heading { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-bottom: 14px; }
     .col-archive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -72,7 +78,7 @@
 <body>
 
 <div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a></div></nav>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/stocks.html" class="nav-desk-link">Stocks</a></div></nav>
 
 <div class="col-wrap">
   <div class="col-fieldstamp">
@@ -110,12 +116,13 @@
         <p class="col-para">When I was at Mandiant APAC, the consistent pattern at regional bank incidents was EDR deployed and licensed, memory-scanning at vendor default, and the vendor default tuned conservatively for latency-sensitive trading systems. Reliable T1055 detection requires Event Tracing for Windows (ETW) kernel-level telemetry, memory-region allocation baselining, or behavioral analysis of injection patterns. The MAS and HKMA frameworks name none of these. Reliable T1055 detection requires Event Tracing for Windows (ETW) kernel-level telemetry, memory-region allocation baselining, or behavioral analysis of injection patterns. MAS TRM names none of these. HKMA's TM-G-1 names none of these.</p>
       </div>
   <div class="col-closing"><p class="col-para">MAS TRM was last revised in January 2021. HKMA's Supervisory Policy Manual TM-G-1 carries the same omission. A bank with a clean technology risk attestation filed this quarter may have Lazarus Group code executing in its process tree. The attestation does not ask about memory-scanning. The attestation does not ask about ETW telemetry. What triggers a framework revision is not an internal review cycle. It is an incident report filed with MAS or HKMA naming a licensed institution. That report has not been filed yet.</p></div>
+  
   <div class="col-archive-strip">
         <div class="col-archive-heading">PREVIOUS COLUMNS, CYBER INTEL DESK</div>
         <div class="col-archive-grid">
-          <a href="/cyber-column/2026-06-30-kai-tanner-2.html" class="col-archive-item"><span class="col-archive-date">Jul 1</span><span class="col-archive-title">North Korea's macOS Malware Targets the AI Triage Model</span><span class="col-archive-author">Kai Tanner</span></a>
+          <a href="/cyber-column/2026-07-04-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">Jul 5</span><span class="col-archive-title">THORChain Has Cleared Pyongyang's Money Twice</span><span class="col-archive-author">Kai Tanner</span></a>
+        <a href="/cyber-column/2026-06-30-kai-tanner-2.html" class="col-archive-item"><span class="col-archive-date">Jul 1</span><span class="col-archive-title">North Korea's macOS Malware Targets the AI Triage Model</span><span class="col-archive-author">Kai Tanner</span></a>
         <a href="/cyber-column/2026-06-30-kai-tanner.html" class="col-archive-item"><span class="col-archive-date">Jul 1</span><span class="col-archive-title">Oracle's E-Business Suite Flaw Outruns Patching</span><span class="col-archive-author">Kai Tanner</span></a>
-        <a href="/cyber-column/2026-06-28-kai-tanner-2.html" class="col-archive-item"><span class="col-archive-date">Jun 28</span><span class="col-archive-title">FBI: GRU Is Stealing Signal Backup Keys</span><span class="col-archive-author">Kai Tanner</span></a>
         </div>
       </div>
 
