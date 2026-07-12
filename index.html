@@ -25,11 +25,23 @@
   body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
   a { color: inherit; }
 
-  .nav-bar { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1px; color: #999;
-    text-align: center; padding: 10px; border-bottom: 1px solid #eee; text-transform: uppercase; }
-  .nav-bar a { color: #666; text-decoration: none; margin: 0 6px; }
-  .nav-bar a.nav-active { color: #cc0000; font-weight: bold; }
-  .nav-bar a:hover { color: #cc0000; }
+  /* Site-standard two-tier nav, verbatim from public/style.css so the feed
+     homepage carries the identical top links as every other page. */
+  .nav-bar { text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px; font-weight: bold; padding: 6px 0; border-bottom: 2px solid #0B1F3A; }
+  .nav-bar a { color: #0B1F3A; text-decoration: none; padding: 2px 12px; }
+  .nav-bar a:hover { text-decoration: underline; }
+  .nav-bar .nav-active { color: #B0241E; }
+  .nav-desks { background: #EAEAE6; border-bottom: 1px solid #C8C0B0; overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .nav-desks::-webkit-scrollbar { display: none; }
+  .nav-desks-inner { display: flex; justify-content: center; align-items: center; gap: 0; padding: 4px 8px;
+    white-space: nowrap; min-width: max-content; margin: 0 auto;
+    font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.3px; }
+  .nav-desks .nav-desk-link { color: #4a4030; text-decoration: none; padding: 4px 10px; border-right: 1px solid #C8C0B0; }
+  .nav-desks .nav-desk-link:last-child { border-right: none; }
+  .nav-desks .nav-desk-link:hover { color: #0B1F3A; text-decoration: underline; }
+  .nav-desks .nav-desk-active { color: #B0241E; font-weight: bold; }
 
   .masthead { text-align: center; padding: 30px 16px 8px; }
   .wordmark { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold;
@@ -115,6 +127,7 @@
     text-decoration: none; margin-bottom: 10px; }
   .hero .headline { font-size: 30px; }
   .headline:hover { color: #cc0000; }
+  .headline-static:hover { color: #111; cursor: default; }
   .dek { font-size: 15.5px; line-height: 1.6; color: #444; margin-bottom: 14px; }
   .hero .dek { font-size: 17px; }
   .actions { margin-bottom: 4px; }
@@ -161,10 +174,11 @@
 </style>
 </head>
 <body>
-<div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html">Wire</a> | <a href="issue.html">The Issue</a> | <a href="masthead.html">Masthead</a> | <a href="about.html">About</a></div>
+<div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="stocks.html" class="nav-desk-link">Stocks</a></div></nav>
 <header class="masthead">
   <div class="wordmark"><a href="index.html">The Wang Report</a></div>
-  <div class="dateline">Sunday, July 12, 2026 · Hong Kong</div>
+  <div class="dateline">Monday, July 13, 2026 · Hong Kong</div>
 </header>
 <div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
 <div class="layout">
@@ -229,19 +243,19 @@
       <span class="role">Editor-in-Chief</span>
     </div>
   </div>
-  <a class="headline js-open-synthesis" href="#walter">Iran Talks Resume in Oman as Trump Ramps Up Strikes Anyway</a>
-  <p class="dek">Washington is negotiating and bombing in the same 48 hours, and neither track currently decides Gulf shipping risk.</p>
+  <a class="headline js-open-synthesis" href="#walter">Hormuz Status Splits as Both Sides Claim the Waterway</a>
+  <p class="dek">Washington and Tehran are now issuing contradictory statements about whether the strait carrying a fifth of global oil is even open. Neither government has offered evidence for its version.</p>
   <details class="synthesis" id="synthesis">
     <summary><span class="cta-line">Read the synthesis &rarr;</span></summary>
-    <div class="synth-body"><p>The overnight mismatch: Vance lands in Oman today for talks aimed at getting Tehran to stop shooting at ships in the Strait of Hormuz, the chokepoint carrying roughly a fifth of global oil flow, while US forces spent the prior day hitting over 170 Iranian targets, per the New York Times. This column called the ceasefire dead twice this week. It still is. Negotiating and striking on the same clock is the actual policy, not a contradiction Washington is trying to hide. Magnus Honeyfield's column on prime broker margin calls makes the adjacent point for markets: regulators watching AI valuation risk and cyberattack risk as separate boxes miss that the same margin calls and the same lenders sit behind both. A trade finance desk pricing war risk premiums on Gulf routes needs a durable signal before extending cover past this week, not a photo op. Progress Software's silent ShareFile shutdown, Kai Tanner's lead today, repeats the MOVEit pattern from 2023. Any bank running ShareFile should check exposure this morning, before a formal advisory arrives. Watch Oman.</p></div>
+    <div class="synth-body"><p>The overnight split is definitional: after a third round of US strikes on Iran, Washington and Tehran are disputing the plain status of the Strait of Hormuz, one side calling it open, the other calling it closed, per Bloomberg. This column had Oman producing a signed shipping pledge by this morning. No pledge came. That failure settles Thursday's tripwire against the talks and for the strikes as the operative policy. Retaliation hit at least five Arab states overnight, the clearest sign yet that Iran's response has stopped discriminating between the country that struck it and the neighbours hosting US assets. Kai Tanner's cyber column today catches a second failure pattern: Progress Software issued an unattributed shutdown order on ShareFile, its managed file transfer product, that reproduces the exact silent disclosure shape that preceded the 2023 MOVEit breach, and the exposed surface sat public for three months before the vendor spoke. A Hong Kong compliance officer running third party risk registers needs to pull ShareFile off the approved vendor list today, not wait for a CVE. Senator Lindsey Graham has died. His death removes the Senate's most reliable vote for continued Iran strikes at the exact moment that policy is being tested. Watch whether Hormuz shipping insurers raise war risk premiums by Tuesday; that number will say more than either government's statement.</p></div>
   </details>
   <details class="watch">
   <summary><span class="chev"></span>What Walter is watching<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.ft.com/content/6b6c23e9-f24e-4c3e-bb1a-e5cb6860008d" target="_blank" rel="noopener"><span class="w-title">US strikes Iranian targets as Tehran declares Strait of Hormuz closed</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.ft.com/content/b3b93565-652a-41e9-aabd-9ed35309bdeb" target="_blank" rel="noopener"><span class="w-title">Senator Lindsey Graham, key Trump ally and hawkish voice on Iran, dies at 71</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly two million people as typhoon makes landfall in Zhejiang</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.ft.com/content/750c90d4-6c6f-464a-85c2-5ae86b085da8" target="_blank" rel="noopener"><span class="w-title">China pressures ratings agencies to curb top-tier corporate bond ratings</span><span class="w-src">FT</span></a>
-<a class="w-item" href="https://www.ft.com/content/e3ca7207-fb02-44cd-9532-2c8a01667dbf" target="_blank" rel="noopener"><span class="w-title">Russian forces close in on Kostyantynivka, key eastern Ukraine city</span><span class="w-src">FT</span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US strikes Iran again as Strait of Hormuz standoff continues</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">At least 27 killed in Bangkok pub fire</span><span class="w-src">BBC World</span></a></div>
 </details>
 </article>
 <article class="card" data-desk="editions" id="edition-morning">
@@ -252,16 +266,15 @@
       <span class="role">News Anchor · Morning Edition</span>
     </div>
   </div>
-  <a class="headline" href="tldr.html">Iran's Gulf strikes hit oil terminals two hundred miles from where Hong Kong ships load and unload cargo every day.</a>
+  <span class="headline headline-static">Iran's Gulf strikes hit oil terminals two hundred miles from where Hong Kong ships load and unload cargo every day.</span>
   <p class="dek">Friday's close priced almost none of it in.  Hormuz has closed before and reopened, and traders have learned to treat war as weather.</p>
-  <div class="actions"><a class="cta" href="tldr.html">Today's Ten &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>Charmaine's picks<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.ft.com/content/6b6c23e9-f24e-4c3e-bb1a-e5cb6860008d" target="_blank" rel="noopener"><span class="w-title">US strikes Iranian targets as Tehran declares Strait of Hormuz closed</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.ft.com/content/b3b93565-652a-41e9-aabd-9ed35309bdeb" target="_blank" rel="noopener"><span class="w-title">Senator Lindsey Graham, key Trump ally and hawkish voice on Iran, dies at 71</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly two million people as typhoon makes landfall in Zhejiang</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.ft.com/content/750c90d4-6c6f-464a-85c2-5ae86b085da8" target="_blank" rel="noopener"><span class="w-title">China pressures ratings agencies to curb top-tier corporate bond ratings</span><span class="w-src">FT</span></a>
-<a class="w-item" href="https://www.ft.com/content/e3ca7207-fb02-44cd-9532-2c8a01667dbf" target="_blank" rel="noopener"><span class="w-title">Russian forces close in on Kostyantynivka, key eastern Ukraine city</span><span class="w-src">FT</span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US strikes Iran again as Strait of Hormuz standoff continues</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">At least 27 killed in Bangkok pub fire</span><span class="w-src">BBC World</span></a></div>
 </details>
 </article>
 <article class="card" data-desk="geo">
@@ -393,16 +406,15 @@
       <span class="role">News Anchor · Evening Edition</span>
     </div>
   </div>
-  <a class="headline" href="tldr.html">Institutions had a busy weekend announcing things were handled.</a>
+  <span class="headline headline-static">Institutions had a busy weekend announcing things were handled.</span>
   <p class="dek">Washington struck Iran and called it a message.  Tehran struck back and called it retaliation.</p>
-  <div class="actions"><a class="cta" href="tldr.html">Today's Ten &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>Maarten's picks<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360289/first-session-syrias-parliament-convenes-after-assads-ousting?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Syria's transitional parliament holds first session since Assad's ouster</span><span class="w-src">SCMP</span></a>
-<a class="w-item" href="https://www.scmp.com/tech/article/3360269/chinese-state-owned-firms-set-semiconductor-funds-amid-calls-patient-capital?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">China Life launches semiconductor fund as Beijing pushes 'patient capital'</span><span class="w-src">SCMP</span></a>
-<a class="w-item" href="https://www.scmp.com/news/china/military/article/3360170/what-does-chinas-j-16-fighter-jet-beast-mode-mean-pla-air-force-patrols?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">China's J-16 fighter jet spotted in rare 'beast mode' heavy-loadout configuration</span><span class="w-src">SCMP</span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cly0l5d5xn7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Aldi ramps up US expansion with discount push into urban markets like Manhattan</span><span class="w-src">BBC World</span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/c4gykgyn1r4o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Tyrannosaurus rex fossil set to become most expensive ever sold, raising scientific concerns</span><span class="w-src">BBC World</span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" target="_blank" rel="noopener"><span class="w-title">RedHook Android malware adds Wireless ADB abuse for shell access</span><span class="w-src">BleepingComputer</span></a>
+<a class="w-item" href="https://cryptobriefing.com/fed-hold-rates-steady-2026-inflation/" target="_blank" rel="noopener"><span class="w-title">Fed expected to hold rates steady through 2026 despite rising inflation forecasts</span><span class="w-src">bing news</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cly0l5d5xn7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Aldi escalates US supermarket push with $9bn expansion into urban hubs</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cql1qdq14xro?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Former Qatari Emir Sheikh Hamad bin Khalifa Al Thani dies at 74</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cvgj25j6nmeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US Senator Lindsey Graham dies at 71 after sudden illness</span><span class="w-src">BBC World</span></a></div>
 </details>
 </article>
 <div class="foot">THE WANG REPORT · <a href="classic.html">Classic front page</a> · <a href="about.html">About</a></div>
