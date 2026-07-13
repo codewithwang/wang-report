@@ -1,578 +1,489 @@
 <!DOCTYPE html>
+<!-- wr-feed-home -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>THE WANG REPORT</title>
-  <meta name="description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <link rel="canonical" href="https://wangreport.com/">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="The Wang Report">
-  <meta property="og:locale" content="en_HK">
-  <meta property="og:title" content="THE WANG REPORT">
-  <meta property="og:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <meta property="og:url" content="https://wangreport.com/">
-  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="THE WANG REPORT">
-  <meta name="twitter:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://wangreport.com/#organization","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","logo":{"@type":"ImageObject","url":"https://wangreport.com/img/og-default.png","width":1200,"height":630},"image":"https://wangreport.com/img/og-default.png","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","foundingDate":"2025","foundingLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hong Kong","addressCountry":"HK"}},"email":"editor@wangreport.com","knowsLanguage":["en","zh-Hant"],"publishingPrinciples":"https://wangreport.com/editorial-standards.html","ethicsPolicy":"https://wangreport.com/editorial-standards.html","diversityPolicy":"https://wangreport.com/editorial-standards.html","actionableFeedbackPolicy":"https://wangreport.com/contact.html","correctionsPolicy":"https://wangreport.com/editorial-standards.html#corrections","sameAs":["https://x.com/wangreport"]}</script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HHENRPSK4D');
-  </script>
-</head>
-<body>
-
-<div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="stocks.html" class="nav-desk-link">Stocks</a></div></nav>
-
-<style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
-<div class="timestamp-bar">
-  Monday, July 13, 2026 at 06:31 PM GMT+8&ensp;<span class="wx-inline">HK &middot; LIGHT RAIN &middot; 31&deg;C (26&ndash;30) &middot; 76% HUM</span>
-</div>
-
-<div class="ad-leaderboard"></div>
-
-
-
-
-
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE WANG REPORT</title>
+<meta name="description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, and life. The desk reads everything so you read what matters.">
+<link rel="canonical" href="https://wangreport.com/">
+<meta property="og:title" content="THE WANG REPORT">
+<meta property="og:description" content="Independent news curation from Hong Kong.">
+<meta property="og:image" content="https://wangreport.com/img/og-default.png">
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HHENRPSK4D');
+</script>
 <style>
-  .ws-hero { background:#F9F8F6; border-top:3px solid #0B1F3A; border-bottom:1px solid #C8C0B0; padding:18px 0 22px; margin:0 0 10px; }
-  .ws-hero-inner { max-width:1100px; margin:0 auto; padding:0 16px; display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:start; }
-  .ws-hero-text { min-width:0; }
-  .ws-eyebrow { font-family:Arial,Helvetica,sans-serif; font-size:10px; font-weight:bold; letter-spacing:3px; color:#B0241E; text-transform:uppercase; margin-bottom:6px; }
-  .ws-byline-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .ws-portrait { width:52px; height:52px; border-radius:50%; overflow:hidden; flex-shrink:0; border:1px solid #C8C0B0; }
-  .ws-portrait img { width:100%; height:100%; object-fit:cover; display:block; }
-  .ws-byline-name { font-family:Arial,sans-serif; font-size:11px; font-weight:bold; color:#0B1F3A; letter-spacing:1px; text-transform:uppercase; }
-  .ws-byline-date { font-family:Arial,sans-serif; font-size:10px; color:#5A6470; letter-spacing:0.5px; }
-  .ws-headline { font-family:'Playfair Display',Georgia,serif; font-size:30px; line-height:1.15; font-weight:700; color:#0B1F3A; margin:4px 0 10px; }
-  .ws-headline a { color:inherit; text-decoration:none; }
-  .ws-headline a:hover { color:#B0241E; }
-  .ws-deck { font-family:Spectral,Georgia,serif; font-size:16px; font-style:italic; line-height:1.5; color:#333; margin:0 0 10px; }
-  .ws-teaser { font-family:Spectral,Georgia,serif; font-size:14px; line-height:1.6; color:#5A6470; margin:0 0 12px; }
-  .ws-cta { font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.5px; color:#B0241E; text-transform:uppercase; text-decoration:none; }
-  .ws-cta:hover { color:#0B1F3A; }
-  .ws-comp-eyebrow { font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; color:#5A6470; text-transform:uppercase; margin:0 0 3px; }
-  .ws-comp-meta { font-family:Spectral,Georgia,serif; font-size:13px; font-style:italic; line-height:1.55; color:#5A6470; margin:0 0 12px; }
-  .ws-hero-image { width:100%; aspect-ratio:16/10; overflow:hidden; background:#F0EFED; }
-  .ws-hero-image img { width:100%; height:100%; object-fit:cover; display:block; }
-  @media (max-width: 760px) {
-    .ws-hero-inner { grid-template-columns:1fr; gap:14px; }
-    .ws-headline { font-size:24px; }
-    .ws-deck { font-size:15px; }
-    .ws-hero-image { aspect-ratio:16/9; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
+  a { color: inherit; }
+
+  /* Site-standard two-tier nav, verbatim from public/style.css so the feed
+     homepage carries the identical top links as every other page. */
+  .nav-bar { text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px; font-weight: bold; padding: 6px 0; border-bottom: 2px solid #0B1F3A; }
+  .nav-bar a { color: #0B1F3A; text-decoration: none; padding: 2px 12px; }
+  .nav-bar a:hover { text-decoration: underline; }
+  .nav-bar .nav-active { color: #B0241E; }
+  .nav-desks { background: #EAEAE6; border-bottom: 1px solid #C8C0B0; overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .nav-desks::-webkit-scrollbar { display: none; }
+  .nav-desks-inner { display: flex; justify-content: center; align-items: center; gap: 0; padding: 4px 8px;
+    white-space: nowrap; min-width: max-content; margin: 0 auto;
+    font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.3px; }
+  .nav-desks .nav-desk-link { color: #4a4030; text-decoration: none; padding: 4px 10px; border-right: 1px solid #C8C0B0; }
+  .nav-desks .nav-desk-link:last-child { border-right: none; }
+  .nav-desks .nav-desk-link:hover { color: #0B1F3A; text-decoration: underline; }
+  .nav-desks .nav-desk-active { color: #B0241E; font-weight: bold; }
+
+  .masthead { text-align: center; padding: 30px 16px 8px; }
+  .wordmark { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold;
+    letter-spacing: 5px; color: #222; text-transform: uppercase; }
+  .wordmark a { text-decoration: none; }
+  .dateline { font-style: italic; font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* One shared rule spanning all three columns, rails and feed hang from it. */
+  .rulebar { max-width: 652px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 1100px) { .rulebar { max-width: 1240px; } }
+  .rule { border: none; border-top: 3px solid #000; margin: 12px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid #ccc; margin: 3px 0 0; }
+  .search { width: 100%; font-family: Georgia, serif; font-size: 15px; color: #111;
+    border: 1px solid #ddd; border-radius: 4px; padding: 10px 14px; margin: 16px 0 0; outline: none; }
+  .search:focus { border-color: #999; }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; border-bottom: 1px solid #eee; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: 0 0 auto; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold;
+    letter-spacing: 1px; text-transform: uppercase; color: #555; background: #fff;
+    border: 1px solid #ddd; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+  .chip.on { background: #111; color: #fff; border-color: #111; }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 620px); justify-content: center;
+    gap: 44px; padding: 0 16px 90px; }
+  @media (min-width: 1100px) {
+    .layout { grid-template-columns: 250px minmax(0, 620px) 250px; }
+  }
+
+  .rail { display: none; }
+  @media (min-width: 1100px) {
+    .rail { display: block; position: sticky; top: 20px; align-self: start; padding-top: 22px; }
+  }
+  .rail-title { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 3px;
+    color: #666; text-transform: uppercase; margin-bottom: 16px; }
+
+  .bc-tile { display: block; text-decoration: none; margin-bottom: 22px; }
+  .bc-imgwrap { position: relative; display: block; overflow: hidden; border: 1px solid #ddd; }
+  .bc-imgwrap img { width: 100%; height: 130px; object-fit: cover; object-position: 50% 22%;
+    display: block; filter: saturate(.92); transition: transform .25s; }
+  .bc-tile:hover img { transform: scale(1.04); }
+  .bc-play { position: absolute; left: 50%; top: 50%; width: 42px; height: 42px; margin: -21px 0 0 -21px;
+    background: rgba(0,0,0,.55); border: 2px solid #fff; border-radius: 50%; }
+  .bc-play::after { content: ""; position: absolute; left: 16px; top: 12px;
+    border-left: 12px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+  .bc-dur { position: absolute; right: 6px; bottom: 6px; font-family: Arial, sans-serif; font-size: 10px;
+    color: #fff; background: rgba(0,0,0,.7); padding: 2px 6px; border-radius: 2px; letter-spacing: 1px; }
+  .bc-stamp { display: block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 1.5px; color: #cc0000; text-transform: uppercase; margin-top: 9px; }
+  .bc-name { display: block; font-size: 15px; color: #111; margin-top: 3px; }
+
+  .desk-row { display: flex; align-items: center; gap: 11px; padding: 9px 0;
+    border-bottom: 1px solid #f0f0f0; text-decoration: none; }
+  .desk-face { width: 38px; height: 38px; object-fit: cover; border: 1px solid #ddd; }
+  .desk-name { display: block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 1.5px; color: #cc0000; text-transform: uppercase; }
+  .desk-author { display: block; font-size: 13.5px; color: #333; margin-top: 2px; }
+  .desk-row:hover .desk-author { color: #cc0000; }
+  .rail-links { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; color: #999; margin-top: 16px; }
+  .rail-links a { color: #666; text-decoration: none; }
+  .rail-links a:hover { color: #cc0000; }
+
+  .bc-strip { display: flex; gap: 12px; padding: 14px 0 0; }
+  .bc-strip .bc-tile { flex: 1; margin-bottom: 0; }
+  .bc-strip .bc-imgwrap img { height: 92px; }
+  .bc-strip .bc-name { display: none; }
+  @media (min-width: 1100px) { .bc-strip { display: none; } }
+
+  .card { padding: 30px 0 26px; border-bottom: 1px solid #e8e8e8; }
+  .card.hidden { display: none; }
+  .speaker { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .face { width: 76px; height: 76px; object-fit: cover; display: block; border: 1px solid #ddd; }
+  .hero .face { width: 104px; height: 104px; }
+  .who { display: flex; flex-direction: column; gap: 3px; }
+  .name { font-size: 17px; color: #111; }
+  .hero .name { font-size: 20px; }
+  .zh { font-size: 13px; color: #888; letter-spacing: 3px; margin-left: 6px; }
+  .role { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
+
+  .headline { display: block; font-size: 24px; line-height: 1.25; color: #111;
+    text-decoration: none; margin-bottom: 10px; }
+  .hero .headline { font-size: 30px; }
+  .headline:hover { color: #cc0000; }
+  .headline-static:hover { color: #111; cursor: default; }
+  .dek { font-size: 15.5px; line-height: 1.6; color: #444; margin-bottom: 14px; }
+  .hero .dek { font-size: 17px; }
+  .actions { margin-bottom: 4px; }
+  .cta, .cta-line { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1.5px;
+    color: #cc0000; text-transform: uppercase; text-decoration: none; cursor: pointer; }
+  .cta:hover, .cta-line:hover { color: #000; }
+
+  .synthesis { margin-bottom: 14px; }
+  .synthesis summary { list-style: none; user-select: none; }
+  .synthesis summary::-webkit-details-marker { display: none; }
+  .synthesis[open] summary .cta-line::after { content: " (close)"; color: #999; }
+  .synth-body { margin-top: 14px; }
+  .synth-body p { font-size: 16px; line-height: 1.75; color: #222; margin-bottom: 14px; }
+
+  .watch { margin-top: 12px; }
+  .watch summary { list-style: none; display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold;
+    letter-spacing: 1.5px; color: #666; text-transform: uppercase;
+    padding: 8px 12px; border: 1px solid #e0e0e0; border-radius: 4px; user-select: none; }
+  .watch summary::-webkit-details-marker { display: none; }
+  .watch summary:hover { border-color: #bbb; color: #111; }
+  .chev { width: 7px; height: 7px; border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-1px); transition: transform .15s; }
+  .watch[open] .chev { transform: rotate(-135deg) translateY(-1px); }
+  .w-count { background: #f0f0f0; color: #555; border-radius: 999px; padding: 2px 8px; font-size: 10px; }
+  .w-list { margin-top: 10px; border-left: 2px solid #cc0000; }
+  .w-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    padding: 9px 12px 9px 14px; text-decoration: none; border-bottom: 1px solid #f3f3f3; }
+  .w-item:last-child { border-bottom: none; }
+  .w-item:hover .w-title { color: #cc0000; }
+  .w-title { font-size: 14.5px; line-height: 1.45; color: #222; }
+  .w-src { flex-shrink: 0; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px;
+    color: #999; text-transform: uppercase; }
+
+  .foot { font-family: Arial, sans-serif; font-size: 10px; color: #aaa; text-align: center;
+    margin-top: 40px; letter-spacing: 1px; }
+  .foot a { color: #888; }
+  @media (max-width: 480px) {
+    .headline { font-size: 21px; }
+    .hero .headline { font-size: 25px; }
+    .face { width: 64px; height: 64px; }
+    .hero .face { width: 88px; height: 88px; }
   }
 </style>
-<div class="ws-hero">
-  <div class="ws-hero-inner">
-    <div class="ws-hero-text">
-      <div class="ws-eyebrow">Morning Synthesis · Monday, 13 July 2026</div>
-      <div class="ws-byline-row">
-        <div class="ws-portrait"><img src="/masthead/img/walter-wang.png" alt="Walter Wang"></div>
-        <div>
-          <div class="ws-byline-name">Walter Wang · WR</div>
-          <div class="ws-byline-date">Editor-in-Chief</div>
-        </div>
-      </div>
-      <h1 class="ws-headline"><a href="/morning-synthesis.html">Hormuz Status Splits as Both Sides Claim the Waterway</a></h1>
-      <div class="ws-deck">Washington and Tehran are now issuing contradictory statements about whether the strait carrying a fifth of global oil is even open. Neither government has offered evidence for its version.</div>
-      <div class="ws-teaser">The overnight split is definitional: after a third round of US strikes on Iran, Washington and Tehran are disputing the plain status of the Strait of Hormuz, one side calling…</div>
-      <div class="ws-comp-eyebrow">How others led</div><div class="ws-comp-meta">FT led with US strikes on Iran over Hormuz. Memeorandum with Graham's death. Led with the Hormuz status dispute because it drives shipping risk pricing today.</div>
-      <a class="ws-cta" href="/morning-synthesis.html">Read the full synthesis &rarr;</a>
-    </div>
-    <div class="ws-hero-image"><img src="img/hero.jpg?t=1783938693020" alt=""></div>
-  </div>
+</head>
+<body>
+<div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="stocks.html" class="nav-desk-link">Stocks</a></div></nav>
+<header class="masthead">
+  <div class="wordmark"><a href="index.html">The Wang Report</a></div>
+  <div class="dateline">Monday, July 13, 2026 · Hong Kong</div>
+</header>
+<div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
+<div class="layout">
+<aside class="rail rail-left">
+  <div class="rail-title">The Broadcast</div>
+  <a class="bc-tile" href="#edition-morning">
+  <span class="bc-imgwrap">
+    <img src="/masthead/img/feed/charmaine-lo-wide.jpg" alt="" loading="lazy">
+    <span class="bc-play"></span>
+    <span class="bc-dur">04:12</span>
+  </span>
+  <span class="bc-stamp">Morning Brief · 06:00 HKT</span>
+  <span class="bc-name">Charmaine Lo</span>
+</a>
+  <a class="bc-tile" href="#edition-evening">
+  <span class="bc-imgwrap">
+    <img src="/masthead/img/feed/maarten-bakker-wide.jpg" alt="" loading="lazy">
+    <span class="bc-play"></span>
+    <span class="bc-dur">03:47</span>
+  </span>
+  <span class="bc-stamp">Evening Brief · 18:30 HKT</span>
+  <span class="bc-name">Maarten Bakker</span>
+</a>
+</aside>
+<main class="feed">
+<input class="search" id="search" type="search" placeholder="Search today's report" aria-label="Search">
+<nav class="chips"><button class="chip on" data-filter="all">All</button>
+<button class="chip" data-filter="walter">Walter</button>
+<button class="chip" data-filter="editions">Editions</button>
+<button class="chip" data-filter="geo">Geopolitics</button>
+<button class="chip" data-filter="cyber">Cyber</button>
+<button class="chip" data-filter="finance">Finance &amp; Risk</button>
+<button class="chip" data-filter="ai">AI</button>
+<button class="chip" data-filter="hk">HK Local</button>
+<button class="chip" data-filter="sports">Sports</button>
+<button class="chip" data-filter="life">Life</button></nav>
+<div class="bc-strip">
+  <a class="bc-tile" href="#edition-morning">
+  <span class="bc-imgwrap">
+    <img src="/masthead/img/feed/charmaine-lo-wide.jpg" alt="" loading="lazy">
+    <span class="bc-play"></span>
+    <span class="bc-dur">04:12</span>
+  </span>
+  <span class="bc-stamp">Morning Brief</span>
+  <span class="bc-name">Charmaine Lo</span>
+</a>
+  <a class="bc-tile" href="#edition-evening">
+  <span class="bc-imgwrap">
+    <img src="/masthead/img/feed/maarten-bakker-wide.jpg" alt="" loading="lazy">
+    <span class="bc-play"></span>
+    <span class="bc-dur">03:47</span>
+  </span>
+  <span class="bc-stamp">Evening Brief</span>
+  <span class="bc-name">Maarten Bakker</span>
+</a>
 </div>
-
-<div class="masthead">THE WANG REPORT</div>
-<div class="subhead">Independent news curation from Hong Kong  ·  Refreshed every 3 hours</div>
-
-
-
-<div class="markets-bar"><span class="market-up">HSI 24,213.72 &#9650; +0.16%</span> | <span class="market-up">S&amp;P 500 7,575.39 &#9650; +0.42%</span> | <span class="market-up">NASDAQ 26,281.61 &#9650; +0.29%</span> | <span class="market-down">BTC 63,744.18 &#9660; -0.05%</span> | <span class="market-down">USD/HKD 7.84 &#9660; -0.02%</span></div>
-
-<div style="background:#1a2640;color:#c8d4e8;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <a href="geopolitical.html" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">THREAT INDEX <span style="color:#fff;">49</span> <span style="color:#aab8cc;">ELEVATED</span></a>
-    <span style="color:#6b7fa0;">|</span>
-    <span>VIX 16.25</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>F&amp;G 28</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>GPR 168</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>DOOMSDAY 85s</span>
-    <span style="margin-left:auto;"><a href="geopolitical.html" style="color:#7a9abf;text-decoration:none;font-size:10px;">Full index &rarr;</a></span>
+<article class="card hero" data-desk="walter" id="walter">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/walter-wang-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Walter Wang <span class="zh">王 凱 然</span></span>
+      <span class="role">Editor-in-Chief</span>
+    </div>
   </div>
-</div><div style="background:#0d1520;color:#c8d4e8;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="/cyber.html" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">CYBER INTEL <span style="color:#fff;font-size:15px;">36</span> <span style="color:#c8a030;">MODERATE</span></a>
-    <span style="color:#3a5a7a;">|</span>
-    <span>KEV 7d <span style="color:#e8a0a0;">0</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>CRIT/HIGH <span style="color:#e8a0a0;">85%</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>APAC-FSI <span style="color:#a0c0e8;">2%</span></span>
-    <span style="margin-left:auto;font-size:9px;color:#3a5a7a;"><a href="/cyber.html" style="color:#6a9abf;text-decoration:none;">Cyber desk &rarr;</a></span>
+  <a class="headline js-open-synthesis" href="#walter">Hormuz Status Splits as Both Sides Claim the Waterway</a>
+  <p class="dek">Washington and Tehran are now issuing contradictory statements about whether the strait carrying a fifth of global oil is even open. Neither government has offered evidence for its version.</p>
+  <details class="synthesis" id="synthesis">
+    <summary><span class="cta-line">Read the synthesis &rarr;</span></summary>
+    <div class="synth-body"><p>The overnight split is definitional: after a third round of US strikes on Iran, Washington and Tehran are disputing the plain status of the Strait of Hormuz, one side calling it open, the other calling it closed, per Bloomberg. This column had Oman producing a signed shipping pledge by this morning. No pledge came. That failure settles Thursday's tripwire against the talks and for the strikes as the operative policy. Retaliation hit at least five Arab states overnight, the clearest sign yet that Iran's response has stopped discriminating between the country that struck it and the neighbours hosting US assets. Kai Tanner's cyber column today catches a second failure pattern: Progress Software issued an unattributed shutdown order on ShareFile, its managed file transfer product, that reproduces the exact silent disclosure shape that preceded the 2023 MOVEit breach, and the exposed surface sat public for three months before the vendor spoke. A Hong Kong compliance officer running third party risk registers needs to pull ShareFile off the approved vendor list today, not wait for a CVE. Senator Lindsey Graham has died. His death removes the Senate's most reliable vote for continued Iran strikes at the exact moment that policy is being tested. Watch whether Hormuz shipping insurers raise war risk premiums by Tuesday; that number will say more than either government's statement.</p></div>
+  </details>
+  <details class="watch">
+  <summary><span class="chev"></span>What Walter is watching<span class="w-count">5</span></summary>
+  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US strikes Iran again as Strait of Hormuz standoff continues</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">At least 27 killed in Bangkok pub fire</span><span class="w-src">BBC World</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="editions" id="edition-morning">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/charmaine-lo-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Charmaine Lo <span class="zh">羅 嘉 晴</span></span>
+      <span class="role">News Anchor · Morning Edition</span>
+    </div>
   </div>
-</div><div style="background:#0d1a0d;color:#a8c8a0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:5px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="ai-focus.html" style="text-decoration:none;font-weight:700;color:#c8e8a0;letter-spacing:.08em;">AI PULSE <span style="color:#c8a030;">58</span> <span style="color:#88aa80;">ACTIVE</span></a>
-    <span style="color:#3a5a3a;">|</span>
-    <span>GH TRENDING 10 repos</span>
-    <span style="color:#3a5a3a;">|</span>
-    <span>HN AI POSTS 48</span>
-    <span style="margin-left:auto;"><a href="ai-focus.html" style="color:#7ab07a;text-decoration:none;font-size:10px;">AI desk &rarr;</a></span>
+  <span class="headline headline-static">Iran's closure of the Strait of Hormuz followed the strikes fast enough to suggest the order was drafted before the strikes landed.</span>
+  <p class="dek">Hong Kong's shipping desks spent the day recalculating routes nobody wanted to recalculate.  By dinner time, the Gulf was Hong Kong's problem too.</p>
+  <details class="watch">
+  <summary><span class="chev"></span>Charmaine's picks<span class="w-count">5</span></summary>
+  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US strikes Iran again as Strait of Hormuz standoff continues</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span><span class="w-src">SCMP</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">At least 27 killed in Bangkok pub fire</span><span class="w-src">BBC World</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="geo">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/vincent-lai-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Vincent Lai <span class="zh">黎 振 邦</span></span>
+      <span class="role">Geopolitical Desk, Occasional Contributor</span>
+    </div>
   </div>
-</div><div style="background:#2B1A0D;color:#E8D8C0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="hk-local.html" style="text-decoration:none;font-weight:700;color:#C8A96A;letter-spacing:.08em;">HK PULSE <span style="color:#fff;">45</span> <span style="color:#C8934A;">SUBDUED</span></a>
-    <span style="color:#705a40;">|</span>
-    <span>Mood <span style="color:#C8A96A;">66</span></span>
-    <span style="color:#705a40;">|</span>
-    <span>HKD 7.8394</span>
-    <span style="color:#705a40;">|</span>
-    <span>HSI --</span>
-    <span style="margin-left:auto;"><a href="hk-local.html" style="color:#C8A96A;text-decoration:none;font-size:10px;">HK desk &rarr;</a></span>
+  <a class="headline" href="/geopolitical-column/2026-07-13-vincent-lai.html">CNY800bn: The Freeze That Made The Widening Possible</a>
+  <p class="dek">Beijing's July 7 package reads as capital account liberalization only if you ignore the two-year retail brokerage freeze it completed the same week.</p>
+  <div class="actions"><a class="cta" href="/geopolitical-column/2026-07-13-vincent-lai.html">Read Vincent's column &rarr;</a></div>
+  <details class="watch">
+  <summary><span class="chev"></span>What Vincent is watching<span class="w-count">4</span></summary>
+  <div class="w-list"><a class="w-item" href="https://www.arabtimesonline.com/news/china-rejects-us-philippines-and-allies-south-china-sea-statement/" target="_blank" rel="noopener"><span class="w-title">China Rejects US, Philippines and Allies' South China Sea Statement</span><span class="w-src">duckduckgo news</span></a>
+<a class="w-item" href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/07/12/philippines-urges-effective-south-china-sea-coc-amid-persistent-tensions" target="_blank" rel="noopener"><span class="w-title">Philippines urges effective South China Sea COC amid persistent tensions</span><span class="w-src">duckduckgo news</span></a>
+<a class="w-item" href="https://cryptobriefing.com/south-china-sea-joint-statement-rejects-chinas-maritime-claims/" target="_blank" rel="noopener"><span class="w-title">South China Sea joint statement rejects China's maritime claims</span><span class="w-src">duckduckgo news</span></a>
+<a class="w-item" href="https://www.ibtimes.com/talks-ceasefire-over-missile-loaded-trump-warning-drags-spotlight-back-hormuz-3805185" target="_blank" rel="noopener"><span class="w-title">Trump's Loaded Threats, Iran Leader's Revenge Call: Will Middle East Talks Get Back On Track</span><span class="w-src">duckduckgo news</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="cyber">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/kai-tanner-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Kai Tanner </span>
+      <span class="role">Cyber Intel Desk, Senior Correspondent</span>
+    </div>
   </div>
-</div><style>
-  .an-section { max-width: var(--wr-page, min(1280px, 98vw)); margin: 20px auto 8px; }
-  .an-head { display:flex; justify-content:space-between; align-items:baseline; padding:0 4px 10px; margin-bottom:14px; border-bottom: 2px solid #0B1F3A; }
-  .an-title { font-family:Spectral, Georgia, serif; font-size:15px; font-weight:bold; letter-spacing:3px; color:#0B1F3A; text-transform:uppercase; }
-  .an-sub { font-family:"Courier New", Courier, monospace; font-size:10px; color:#5A6470; letter-spacing:1px; }
-  .an-head-right { display:flex; align-items:baseline; gap:14px; }
-  .an-cta { font-family:"Courier New", Courier, monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#B0241E; text-decoration:none; white-space:nowrap; }
-  .an-cta:hover { color:#0B1F3A; }
-  .an-pair { display:grid; grid-template-columns: 1fr 1fr; gap:1px; background:#C8C0B0; border:1px solid #C8C0B0; }
-  .an-note { background:#F9F8F6; padding:18px 22px 18px; border-left:3px solid #B0241E; display:flex; gap:16px; align-items:flex-start; }
-  .an-note-avatar { width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid #C8C0B0; flex-shrink:0; }
-  .an-note-body { flex:1; min-width:0; }
-  .an-note-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid #C8C0B0; }
-  .an-note-label { font-family:"Courier New", Courier, monospace; font-size:10px; font-weight:bold; letter-spacing:2px; color:#B0241E; text-transform:uppercase; }
-  .an-note-anchor { font-family:Spectral, Georgia, serif; font-size:12px; font-style:italic; color:#5A6470; }
-  .an-note-text { font-family:Spectral, Georgia, serif; font-size:14.5px; line-height:1.7; color:#0B1F3A; margin:0; }
-  @media (max-width: 820px) {
-    .an-pair { grid-template-columns: 1fr; }
-    .an-note { padding:14px 16px; gap:12px; }
-    .an-note-avatar { width:40px; height:40px; }
-  }
-  </style>
-  <section class="an-section">
-    <div class="an-head">
-      <span class="an-title">Today's Framing</span>
-      <span class="an-head-right">
-        <span class="an-sub">EVENING EDITION &middot; Monday, July 13, 2026</span>
-        <a class="an-cta" href="/editions/">All editions &rarr;</a>
-      </span>
+  <a class="headline" href="/cyber-column/2026-07-13-kai-tanner.html">Hong Kong's Passkey Mandate Is a Market Filter</a>
+  <p class="dek">SFC Circular 26EC35 reads as a phishing fix, but its two-tier compliance clock will do more to reshape Hong Kong's 13 licensed platforms than any breach this year.</p>
+  <div class="actions"><a class="cta" href="/cyber-column/2026-07-13-kai-tanner.html">Read Kai's column &rarr;</a></div>
+  <details class="watch">
+  <summary><span class="chev"></span>What Kai is watching<span class="w-count">4</span></summary>
+  <div class="w-list"><a class="w-item" href="https://shellzine.net/cyberpunk-comics/" target="_blank" rel="noopener"><span class="w-title">Cyberpunk Comics, Manga and Graphic Novels</span><span class="w-src">HackerNews</span></a>
+<a class="w-item" href="https://www.canopii.dev/State%20of%20MCP%20Security%202026.pdf" target="_blank" rel="noopener"><span class="w-title">The State of MCP Security [pdf]</span><span class="w-src">HackerNews</span></a>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/" target="_blank" rel="noopener"><span class="w-title">Claude Fable 5 stays free for paid users until July 19 as Anthropic buys more time</span><span class="w-src">BleepingComputer</span></a>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" target="_blank" rel="noopener"><span class="w-title">RedHook Android malware now uses Wireless ADB for shell access</span><span class="w-src">BleepingComputer</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="finance">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/magnus-honeyfield-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Magnus Honeyfield </span>
+      <span class="role">Finance &amp; Risk Desk, Senior Correspondent (Risk)</span>
     </div>
-    <div class="an-pair">
-      <article class="an-note">
-        <a href="/masthead/charmaine-lo.html"><img class="an-note-avatar" src="/masthead/img/thumbs/charmaine-lo.jpg" alt="Charmaine Lo"></a>
-        <div class="an-note-body">
-          <header class="an-note-head">
-            <span class="an-note-label">Morning Anchor</span>
-            <span class="an-note-anchor"><a href="/masthead/charmaine-lo.html" style="color:inherit;text-decoration:none;">Charmaine Lo</a></span>
-          </header>
-          <p class="an-note-text">Iran's closure of the Strait of Hormuz followed the strikes fast enough to suggest the order was drafted before the strikes landed. Hong Kong's shipping desks spent the day recalculating routes nobody wanted to recalculate. By dinner time, the Gulf was Hong Kong's problem too.</p>
-        </div>
-      </article>
-<article class="an-note">
-        <a href="/masthead/maarten-bakker.html"><img class="an-note-avatar" src="/masthead/img/thumbs/maarten-bakker.jpg" alt="Maarten Bakker"></a>
-        <div class="an-note-body">
-          <header class="an-note-head">
-            <span class="an-note-label">Evening Anchor</span>
-            <span class="an-note-anchor"><a href="/masthead/maarten-bakker.html" style="color:inherit;text-decoration:none;">Maarten Bakker</a></span>
-          </header>
-          <p class="an-note-text">Iran shut the Hormuz strait. Washington answered with a second round of strikes, and both capitals will spend tomorrow calling it proportionate. In Hong Kong, the police chief defended freezing pay for the force's lowest earners. Neither government led with the arithmetic.</p>
-        </div>
-      </article>
-    </div>
-  </section><style>
-    .tf-section { max-width: var(--wr-page, min(1280px, 98vw)); margin: 20px auto 8px; }
-    .tf-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #5A6470; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #C8C0B0; }
-    .tf-grid { display: flex; flex-wrap: wrap; gap: 16px; }
-    .tf-card { flex: 1 1 320px; max-width: 100%; display: flex; flex-direction: column; padding: 14px 16px; background: #F9F8F6; border: 1px solid #C8C0B0; text-decoration: none; color: inherit; }
-    .tf-card:hover { background: #F0EFED; }
-    .tf-byline-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .tf-portrait { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid #C8C0B0; }
-    .tf-byline-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
-    .tf-byline-name { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; color: #0B1F3A; letter-spacing: 0.5px; }
-    .tf-byline-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; color: #B0241E; letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
-    .tf-title { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; line-height: 1.2; color: #0B1F3A; margin: 0 0 6px; }
-    .tf-deck { font-family: Spectral, Georgia, serif; font-size: 13.5px; font-style: italic; color: #333; line-height: 1.45; margin: 0; }
-    @media (max-width: 720px) {
-      .tf-card { flex: 1 1 100%; }
-      .tf-title { font-size: 17px; }
-    }
-  </style>
-  <section class="tf-section">
-    <div class="tf-eyebrow">Today's Filed</div>
-    <div class="tf-grid">
-      <a class="tf-card" href="/hk-finance-column/2026-07-13-magnus-honeyfield.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/magnus-honeyfield.jpg" class="tf-portrait" alt="Magnus Honeyfield" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">MAGNUS HONEYFIELD</span>
-        <span class="tf-byline-desk">HK Finance</span>
-      </div>
-    </div>
-    <h2 class="tf-title">The Patch SLA Died This Week</h2>
-    <p class="tf-deck">A ColdFusion flaw was exploited within two hours of disclosure while a Windows Defender flaw sat exploitable for a month, proving the fixed-day patch SLA cannot measure a bimodal threat.</p>
-  </a>
-<a class="tf-card" href="/life-column/2026-07-13-sora-whitlam.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/sora-whitlam.jpg" class="tf-portrait" alt="Sora Whitlam" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">SORA WHITLAM</span>
-        <span class="tf-byline-desk">Life</span>
-      </div>
-    </div>
-    <h2 class="tf-title">The Black Holes That Grew Too Fast</h2>
-    <p class="tf-deck">ESA's Euclid telescope confirmed 31 ancient quasars this week, and the real fight is whether JWST spectroscopy follow-up on the little red dots will show the earliest supermassive black holes skip stellar evolution entirely.</p>
-  </a>
-<a class="tf-card" href="/ai-focus-column/2026-07-13-aya-nakamura.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="tf-portrait" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">AYA NAKAMURA</span>
-        <span class="tf-byline-desk">AI Focus</span>
-      </div>
-    </div>
-    <h2 class="tf-title">SK Hynix's $26.5B Listing Bets on China's H200 Backlog</h2>
-    <p class="tf-deck">Beijing tightened its own AI model exports while easing Nvidia chip import caps, but the real constraint on China's AI buildout sits in Korean memory supply, not chip licenses.</p>
-  </a>
-<a class="tf-card" href="/geopolitical-column/2026-07-13-vincent-lai.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/vincent-lai.jpg" class="tf-portrait" alt="Vincent Lai" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">VINCENT LAI</span>
-        <span class="tf-byline-desk">Geopolitical</span>
-      </div>
-    </div>
-    <h2 class="tf-title">CNY800bn: The Freeze That Made The Widening Possible</h2>
-    <p class="tf-deck">Beijing's July 7 package reads as capital account liberalization only if you ignore the two-year retail brokerage freeze it completed the same week.</p>
-  </a>
-<a class="tf-card" href="/hk-local-weekend-column/2026-07-13-cheung-kwok-keung.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" class="tf-portrait" alt="Cheung Kwok-keung" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">CHEUNG KWOK-KEUNG</span>
-        <span class="tf-byline-desk">HK Local Weekend</span>
-      </div>
-    </div>
-    <h2 class="tf-title">A Warning With No Off Switch</h2>
-    <p class="tf-deck">Hong Kong only changes behaviour when a number forces it to, and this week's Very Hot Weather Warning proved it by sending six hikers to hospital.</p>
-  </a>
-<a class="tf-card" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" class="tf-portrait" alt="Cheung Kwok-keung" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">CHEUNG KWOK-KEUNG</span>
-        <span class="tf-byline-desk">HK Local</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Hong Kong Will Rescue You, If You Weren't Working</h2>
-    <p class="tf-deck">Hong Kong airlifts hikers to hospital for free when the heat gets them, but the new gig-worker injury law won't cover a rider felled by the same heat.</p>
-  </a>
-<a class="tf-card" href="/cyber-column/2026-07-13-kai-tanner.html">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="tf-portrait" alt="Kai Tanner" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">KAI TANNER</span>
-        <span class="tf-byline-desk">Cyber</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Hong Kong's Passkey Mandate Is a Market Filter</h2>
-    <p class="tf-deck">SFC Circular 26EC35 reads as a phishing fix, but its two-tier compliance clock will do more to reshape Hong Kong's 13 licensed platforms than any breach this year.</p>
-  </a>
-    </div>
-  </section><style>
-  .mn-section { max-width: var(--wr-page, min(1280px, 98vw)); margin: 18px auto 4px; }
-  .mn-head { display:flex; justify-content:space-between; align-items:baseline; padding-bottom:8px; margin-bottom:10px; border-bottom:2px solid #0B1F3A; }
-  .mn-eyebrow { font-family:"Courier New",Courier,monospace; font-size:11px; font-weight:bold; letter-spacing:3px; color:#0B1F3A; text-transform:uppercase; }
-  .mn-sub { font-family:"Courier New",Courier,monospace; font-size:10px; color:#5A6470; letter-spacing:1px; }
-  .mn-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#C8C0B0; border:1px solid #C8C0B0; }
-  .mn-item { background:#F9F8F6; padding:14px 16px; text-decoration:none; color:#0B1F3A; display:flex; gap:12px; align-items:flex-start; transition:background 0.12s; }
-  .mn-item:hover { background:#F0EFED; }
-  .mn-avatar { width:32px; height:32px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid #ddd; margin-top:2px; }
-  .mn-body { flex:1; min-width:0; }
-  .mn-byline { display:flex; align-items:baseline; gap:6px; margin-bottom:6px; }
-  .mn-name { font-family:"Courier New",Courier,monospace; font-size:10px; font-weight:bold; color:#0B1F3A; letter-spacing:0.5px; white-space:nowrap; }
-  .mn-desk { font-family:"Courier New",Courier,monospace; font-size:9px; color:#B0241E; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .mn-note { font-family:Spectral,Georgia,serif; font-size:13px; font-style:italic; line-height:1.5; color:#333; }
-  @media(max-width:760px){ .mn-grid { grid-template-columns:1fr; } }
-  </style>
-  <section class="mn-section">
-    <div class="mn-head">
-      <span class="mn-eyebrow">WR Editorial Notes</span>
-      <span class="mn-sub">Editor annotations · latest 3</span>
-    </div>
-    <div class="mn-grid"><a class="mn-item" href="/briefings/2026-07-13-sports.html">
-      <img class="mn-avatar" src="/masthead/img/thumbs/dev-chatterjee.jpg" alt="Dev Chatterjee" onerror="this.style.display='none'">
-      <div class="mn-body">
-        <div class="mn-byline"><span class="mn-name">Dev Chatterjee</span> <span class="mn-desk">SPORTS</span></div>
-        <div class="mn-note">The site-generated revenue comparison against three other majors combined needs a citation the desk can defend if chal…</div>
-      </div>
-    </a><a class="mn-item" href="/briefings/2026-07-13-ai-focus.html">
-      <img class="mn-avatar" src="/masthead/img/thumbs/aya-nakamura.jpg" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="mn-body">
-        <div class="mn-byline"><span class="mn-name">Aya Nakamura</span> <span class="mn-desk">AI FOCUS</span></div>
-        <div class="mn-note">The Ascend gap only narrows if Beijing's labs can convert idle capacity into a shipped model on a comparable timeline;…</div>
-      </div>
-    </a><a class="mn-item" href="/briefings/2026-07-13-geopolitical-ledger.html">
-      <img class="mn-avatar" src="/masthead/img/thumbs/vincent-lai.jpg" alt="Vincent Lai" onerror="this.style.display='none'">
-      <div class="mn-body">
-        <div class="mn-byline"><span class="mn-name">Vincent Lai</span> <span class="mn-desk">GEOPOLITICAL LEDGER</span></div>
-        <div class="mn-note">The reallocation-not-new-capacity read is sound, but the piece stops short of naming what the MSS drops if it services…</div>
-      </div>
-    </a></div>
-  </section><style>
-    .iss-mod { max-width: var(--wr-page, min(1280px, 98vw)); margin: 22px auto 8px; background: #0B1F3A; color: #F1ECE1; padding: 18px 22px 20px; }
-    .iss-mod-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(241,236,225,0.25); padding-bottom: 10px; margin-bottom: 6px; flex-wrap: wrap; }
-    .iss-mod-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: #fff; }
-    .iss-mod-cta { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #E8B04B; text-decoration: none; white-space: nowrap; }
-    .iss-mod-cta:hover { color: #fff; }
-    .iss-mod-lead { font-family: Spectral, Georgia, serif; font-size: 14.5px; font-style: italic; color: #D8D0C2; line-height: 1.5; margin: 8px 0 12px; }
-    .iss-mod-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid rgba(241,236,225,0.12); text-decoration: none; color: #F1ECE1; }
-    .iss-mod-row:first-of-type { border-top: none; }
-    .iss-mod-row:hover .iss-mod-title { color: #E8B04B; }
-    .iss-mod-face { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: none; }
-    .iss-mod-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #9AA6B4; flex: none; width: 110px; }
-    .iss-mod-title { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700; line-height: 1.25; flex: 1 1 auto; min-width: 0; }
-    .iss-mod-by { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #9AA6B4; flex: none; white-space: nowrap; }
-    @media (max-width: 720px) {
-      .iss-mod-desk { display: none; }
-      .iss-mod-by { display: none; }
-    }
-  </style>
-  <section class="iss-mod">
-    <div class="iss-mod-head">
-      <span class="iss-mod-eyebrow">This Week in The Issue</span>
-      <a class="iss-mod-cta" href="/issue.html">Read The Issue &rarr;</a>
-    </div>
-    
-    <a class="iss-mod-row" href="/geopolitical-column/2026-07-11-vincent-lai.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/vincent-lai.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
-      <span class="iss-mod-title">Beijing Widens the Hong Kong Pipe, Not the Door</span>
-      <span class="iss-mod-by">Vincent Lai</span>
-    </a>
-<a class="iss-mod-row" href="/geopolitical-column/2026-07-11-mei-chen.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/mei-chen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
-      <span class="iss-mod-title">Beijing's SLBM Test Radicalizes Fiji, Not Taipei</span>
-      <span class="iss-mod-by">Mei Chen</span>
-    </a>
-<a class="iss-mod-row" href="/hk-finance-column/2026-07-11-magnus-honeyfield.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/magnus-honeyfield.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">FINANCE &amp; RISK DESK</span>
-      <span class="iss-mod-title">AI Selloffs Route Through Prime Broker Margin Calls</span>
-      <span class="iss-mod-by">Magnus Honeyfield</span>
-    </a>
-<a class="iss-mod-row" href="/cyber-column/2026-07-11-kai-tanner.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/kai-tanner.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">CYBER DESK</span>
-      <span class="iss-mod-title">Progress Software's Silent ShareFile Shutdown</span>
-      <span class="iss-mod-by">Kai Tanner</span>
-    </a>
-<a class="iss-mod-row" href="/ai-focus-column/2026-07-11-aya-nakamura.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/aya-nakamura.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">AI DESK</span>
-      <span class="iss-mod-title">Atlas Shuts Down as GPT-5.6 Ships</span>
-      <span class="iss-mod-by">Aya Nakamura</span>
-    </a>
-<a class="iss-mod-row" href="/hk-local-weekend-column/2026-07-11-cheung-kwok-keung.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">HK LOCAL DESK</span>
-      <span class="iss-mod-title">Bavi Missed HK, 135 Flights Cancelled Anyway</span>
-      <span class="iss-mod-by">Cheung Kwok-keung</span>
-    </a>
-<a class="iss-mod-row" href="/hk-local-column/2026-07-11-cheung-kwok-keung.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">HK LOCAL DESK</span>
-      <span class="iss-mod-title">HEAL Fertility's Six Weeks of Silence</span>
-      <span class="iss-mod-by">Cheung Kwok-keung</span>
-    </a>
-<a class="iss-mod-row" href="/sports-column/2026-07-11-dev-chatterjee.html">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/dev-chatterjee.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SPORTS DESK</span>
-      <span class="iss-mod-title">PIF Trades LIV Golf for the 2034 World Cup</span>
-      <span class="iss-mod-by">Dev Chatterjee</span>
-    </a>
-  </section><style>
-  .tt-block { max-width: var(--wr-page, min(1280px, 98vw)); margin: 18px auto 24px; padding: 16px 18px 18px; border: 1px solid #C8C0B0; background: #F0EFED; }
-  .tt-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid #000; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-  .tt-ts { font-size: 9px; font-weight: normal; letter-spacing: 1px; color: #999; }
-  .tt-cta a { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #B0241E; text-decoration: none; }
-  .tt-cta a:hover { text-decoration: underline; }
-  .tt-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
-  .tt-row { display: flex; gap: 10px; padding: 6px 0; text-decoration: none; color: #111; border-top: 1px solid #eee; align-items: baseline; }
-  .tt-row:first-child, .tt-rows > .tt-row:nth-child(2) { border-top: none; }
-  .tt-row:hover .tt-head { color: #B0241E; }
-  .tt-row-anchor { background: rgba(212, 197, 106, 0.18); }
-  .tt-rank { font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: bold; color: #888; min-width: 22px; padding-left: 4px; }
-  .tt-body { display: flex; flex-direction: column; gap: 2px; }
-  .tt-cat-line { display: flex; align-items: baseline; gap: 8px; }
-  .tt-cat { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 1.8px; color: #5A6470; text-transform: uppercase; }
-  .tt-anchor-mark { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 1.5px; color: #B0241E; text-transform: uppercase; }
-  .tt-head { font-family: Spectral, Georgia, serif; font-size: 14px; line-height: 1.35; }
-  .tt-brief { font-family: Spectral, Georgia, serif; font-size: 12px; line-height: 1.45; color: #5A6470; margin-top: 1px; }
-  @media (max-width: 760px) { .tt-rows { grid-template-columns: 1fr; } }
-  </style>
-  <div class="tt-block">
-    <div class="tt-eyebrow">
-      <span>TODAY'S 6 &middot; Morning Edition <span class="tt-ts">&middot; 06:01 HKT</span></span>
-      <span class="tt-cta"><a href="wire.html">See full Wire &rarr;</a></span>
-    </div>
-    <div class="tt-rows"><a href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;amp;at_campaign=rss" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BBC World, FT"><meta itemprop="datePublished" content="2026-07-12T16:46:24.000Z"><link itemprop="isBasedOn" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;amp;at_campaign=rss"><meta itemprop="headline" content="US strikes Iran again as Strait of Hormuz standoff continues">
-      <span class="tt-rank">1</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span></span>
-        <span class="tt-head">US strikes Iran again as Strait of Hormuz standoff continues</span>
-        <span class="tt-brief">The US launched another round of strikes on Iran as the ceasefire faltered, insisting the Strait of Hormuz remains open after Tehran declare…</span>
-      </span>
-    </a>
-<a href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="SCMP"><meta itemprop="datePublished" content="2026-07-12T16:22:11.000Z"><link itemprop="isBasedOn" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed"><meta itemprop="headline" content="Israel sets October 27 parliamentary election as Netanyahu seeks new term">
-      <span class="tt-rank">2</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span></span>
-        <span class="tt-head">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span>
-        <span class="tt-brief">Israel's Knesset confirmed national elections for October 27, the last legally permissible date, in a vote widely seen as a referendum on Ne…</span>
-      </span>
-    </a>
-<a href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;amp;at_campaign=rss" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BBC World"><meta itemprop="datePublished" content="2026-07-12T07:39:45.000Z"><link itemprop="isBasedOn" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;amp;at_campaign=rss"><meta itemprop="headline" content="China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang">
-      <span class="tt-rank">3</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #3a2a1a">APAC</span></span>
-        <span class="tt-head">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span>
-        <span class="tt-brief">Chinese authorities evacuated close to two million people in Zhejiang province ahead of a powerful typhoon landfall, suspending schools, wor…</span>
-      </span>
-    </a>
-<a href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><meta itemprop="datePublished" content="2026-07-12T14:27:32.000Z"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/"><meta itemprop="headline" content="RedHook Android malware adds Wireless ADB abuse for shell access">
-      <span class="tt-rank">4</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1e3a5f">Cybersecurity</span></span>
-        <span class="tt-head">RedHook Android malware adds Wireless ADB abuse for shell access</span>
-        <span class="tt-brief">A new variant of the RedHook Android malware exploits Android's Wireless Debugging (ADB) feature to gain shell-level device access without n…</span>
-      </span>
-    </a>
-<a href="https://cryptobriefing.com/fed-hold-rates-steady-2026-inflation/" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="bing news"><meta itemprop="datePublished" content="2026-07-12T08:26:00.000Z"><link itemprop="isBasedOn" href="https://cryptobriefing.com/fed-hold-rates-steady-2026-inflation/"><meta itemprop="headline" content="Fed expected to hold rates steady through 2026 despite rising inflation forecasts">
-      <span class="tt-rank">5</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a4731">Markets &amp; Macro</span></span>
-        <span class="tt-head">Fed expected to hold rates steady through 2026 despite rising inflation forecasts</span>
-        <span class="tt-brief">The Federal Reserve held its benchmark rate at 3.50%-3.75%, with over 75% of economists now expecting no changes through the rest of 2026 ev…</span>
-      </span>
-    </a>
-<a href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" class="tt-row tt-row-anchor" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="SCMP, FT"><meta itemprop="datePublished" content="2026-07-12T16:46:05.000Z"><link itemprop="isBasedOn" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed"><meta itemprop="headline" content="Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle">
-      <span class="tt-rank">6</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span><span class="tt-anchor-mark">Charmaine's pick</span></span>
-        <span class="tt-head">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span>
-        <span class="tt-brief">Ukrainian President Volodymyr Zelensky announced a sweeping cabinet shake-up, with Prime Minister Yulia Svyrydenko stepping down and being o…</span>
-      </span>
-    </a></div>
   </div>
-
-
-
-<style>
-  .di-strip { max-width: var(--wr-page, min(1280px, 98vw)); margin: 0 auto; display:grid; grid-template-columns:repeat(7,1fr); gap:1px; background:#C8C0B0; border-bottom:1px solid #C8C0B0; }
-  .di-card { background:#F9F8F6; display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 8px 9px; text-decoration:none; color:#111; text-align:center; transition:background 0.12s; }
-  .di-card:hover { background:#F0EFED; }
-  .di-avatar { width:36px; height:36px; border-radius:50%; object-fit:cover; border:1px solid #ddd; flex-shrink:0; }
-  .di-text { display:flex; flex-direction:column; gap:2px; min-width:0; width:100%; }
-  .di-desk { font-family:"Courier New",Courier,monospace; font-size:8.5px; font-weight:bold; color:#B0241E; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; justify-content:center; gap:4px; }
-  .di-pill { font-size:7px; font-weight:bold; letter-spacing:1px; padding:1px 4px; flex-shrink:0; }
-  .di-fresh { color:#0B1F3A; background:#D4C56A; }
-  .di-stale { color:#9AA3B8; border:1px solid #9AA3B8; }
-  .di-name { font-family:"Courier New",Courier,monospace; font-size:9px; color:#5A6470; letter-spacing:0.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .di-title { font-family:Spectral,Georgia,serif; font-size:11px; font-style:italic; line-height:1.3; color:#222; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .di-notfiled { color:#aaa; font-style:italic; }
-  @media(max-width:880px){ .di-strip { grid-template-columns:repeat(4,1fr); } }
-  @media(max-width:540px){ .di-strip { grid-template-columns:repeat(3,1fr); } .di-title { display:none; } }
-  </style>
-  <div class="di-strip"><a href="/geopolitical-column/2026-07-13-vincent-lai.html" class="di-card">
-      <img src="/masthead/img/thumbs/mei-chen.jpg" class="di-avatar" alt="Mei Chen" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">GEOPOLITICAL<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Mei Chen</span>
-        <span class="di-title">CNY800bn: The Freeze That Made The Widening Possible</span>
-      </div>
-    </a><a href="/hk-finance-column/2026-07-13-magnus-honeyfield.html" class="di-card">
-      <img src="/masthead/img/thumbs/rachel-lam.jpg" class="di-avatar" alt="Rachel Lam" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">FINANCE & RISK<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Rachel Lam</span>
-        <span class="di-title">The Patch SLA Died This Week</span>
-      </div>
-    </a><a href="/cyber-column/2026-07-13-kai-tanner.html" class="di-card">
-      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="di-avatar" alt="Kai Tanner" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">CYBER<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Kai Tanner</span>
-        <span class="di-title">Hong Kong's Passkey Mandate Is a Market Filter</span>
-      </div>
-    </a><a href="/ai-focus-column/2026-07-13-aya-nakamura.html" class="di-card">
-      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="di-avatar" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">AI<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Aya Nakamura</span>
-        <span class="di-title">SK Hynix's $26.5B Listing Bets on China's H200 Bac…</span>
-      </div>
-    </a><a href="/hk-local-column/2026-07-13-cheung-kwok-keung.html" class="di-card">
-      <img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" class="di-avatar" alt="Cheung Kwok-keung" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">HK LOCAL<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Cheung Kwok-keung</span>
-        <span class="di-title">Hong Kong Will Rescue You, If You Weren't Working</span>
-      </div>
-    </a><a href="/sports-column/2026-07-11-dev-chatterjee.html" class="di-card">
-      <img src="/masthead/img/thumbs/dev-chatterjee.jpg" class="di-avatar" alt="Dev Chatterjee" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">SPORTS</span>
-        <span class="di-name">Dev Chatterjee</span>
-        <span class="di-title">PIF Trades LIV Golf for the 2034 World Cup</span>
-      </div>
-    </a><a href="/life-column/2026-07-13-sora-whitlam.html" class="di-card">
-      <img src="/masthead/img/thumbs/joy-lee.jpg" class="di-avatar" alt="Joy Lee" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">LIFE<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Joy Lee</span>
-        <span class="di-title">The Black Holes That Grew Too Fast</span>
-      </div>
-    </a></div>
-
-
-
-
-
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
-  THE WANG REPORT &copy; 2026
-  <br>
-  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
-  <br>
-  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a>
+  <a class="headline" href="/hk-finance-column/2026-07-13-magnus-honeyfield.html">The Patch SLA Died This Week</a>
+  <p class="dek">A ColdFusion flaw was exploited within two hours of disclosure while a Windows Defender flaw sat exploitable for a month, proving the fixed-day patch SLA cannot measure a bimodal threat.</p>
+  <div class="actions"><a class="cta" href="/hk-finance-column/2026-07-13-magnus-honeyfield.html">Read Magnus's column &rarr;</a></div>
+  
+</article>
+<article class="card" data-desk="ai">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/aya-nakamura-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Aya Nakamura <span class="zh">中 村 彩</span></span>
+      <span class="role">AI Desk, Senior Correspondent</span>
+    </div>
+  </div>
+  <a class="headline" href="/ai-focus-column/2026-07-13-aya-nakamura.html">SK Hynix's $26.5B Listing Bets on China's H200 Backlog</a>
+  <p class="dek">Beijing tightened its own AI model exports while easing Nvidia chip import caps, but the real constraint on China's AI buildout sits in Korean memory supply, not chip licenses.</p>
+  <div class="actions"><a class="cta" href="/ai-focus-column/2026-07-13-aya-nakamura.html">Read Aya's column &rarr;</a></div>
+  <details class="watch">
+  <summary><span class="chev"></span>What Aya is watching<span class="w-count">4</span></summary>
+  <div class="w-list"><a class="w-item" href="https://openai.com/index/deutsche-telekom" target="_blank" rel="noopener"><span class="w-title">How Deutsche Telekom is rewiring telecommunications with AI</span><span class="w-src">OpenAI</span></a>
+<a class="w-item" href="https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot" target="_blank" rel="noopener"><span class="w-title">GPT-5.6 is now the preferred model in Microsoft 365 Copilot</span><span class="w-src">OpenAI</span></a>
+<a class="w-item" href="https://openai.com/index/gpt-5-6" target="_blank" rel="noopener"><span class="w-title">GPT-5.6: Frontier intelligence that scales with your ambition</span><span class="w-src">OpenAI</span></a>
+<a class="w-item" href="https://openai.com/index/chatgpt-for-your-most-ambitious-work" target="_blank" rel="noopener"><span class="w-title">ChatGPT is now a partner for your most ambitious work</span><span class="w-src">OpenAI</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="hk">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/cheung-kwok-keung-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Cheung Kwok-keung <span class="zh">張 國 強</span></span>
+      <span class="role">HK Desk, Senior Correspondent</span>
+    </div>
+  </div>
+  <a class="headline" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">Hong Kong Will Rescue You, If You Weren't Working</a>
+  <p class="dek">Hong Kong airlifts hikers to hospital for free when the heat gets them, but the new gig-worker injury law won't cover a rider felled by the same heat.</p>
+  <div class="actions"><a class="cta" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">Read Cheung's column &rarr;</a></div>
+  <details class="watch">
+  <summary><span class="chev"></span>What Cheung is watching<span class="w-count">4</span></summary>
+  <div class="w-list"><a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1861987-20260713.htm" target="_blank" rel="noopener"><span class="w-title">IOMed to play a role in enhancing HK's legal hub statu</span><span class="w-src">RTHK</span></a>
+<a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1861986-20260713.htm" target="_blank" rel="noopener"><span class="w-title">Train fault caused train disruption on TKO line</span><span class="w-src">RTHK</span></a>
+<a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1861948-20260712.htm" target="_blank" rel="noopener"><span class="w-title">'Injury law will better protect gig delivery workers'</span><span class="w-src">RTHK</span></a>
+<a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1861945-20260712.htm" target="_blank" rel="noopener"><span class="w-title">'Heritage revitalisation to boost rural tourism'</span><span class="w-src">RTHK</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="sports">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/dev-chatterjee-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Dev Chatterjee </span>
+      <span class="role">Senior Correspondent</span>
+    </div>
+  </div>
+  <a class="headline" href="/sports-column/2026-07-11-dev-chatterjee.html">PIF Trades LIV Golf for the 2034 World Cup</a>
+  <p class="dek">PIF is ending its LIV Golf funding after 2026, not because the golf bet failed, but because hosting the 2034 World Cup is a better use of the same money.</p>
+  <div class="actions"><a class="cta" href="/sports-column/2026-07-11-dev-chatterjee.html">Read Dev's column &rarr;</a></div>
+  <details class="watch">
+  <summary><span class="chev"></span>What Dev is watching<span class="w-count">4</span></summary>
+  <div class="w-list"><a class="w-item" href="https://clutchpoints.com/nba/dallas-mavericks/mavericks-rumors-insider-teases-move-cooper-flagg-kyrie-irving-summer-league" target="_blank" rel="noopener"><span class="w-title">Mavericks rumors: Insider teases another move as Cooper Flagg, Kyrie Irving link up at Summer League</span><span class="w-src">bing news</span></a>
+<a class="w-item" href="https://clutchpoints.com/nba/los-angeles-lakers/lakers-news-cameron-carr-out-for-nba-summer-league-vs-mavericks" target="_blank" rel="noopener"><span class="w-title">Why Cameron Carr is out for NBA Summer League vs. Mavericks</span><span class="w-src">bing news</span></a>
+<a class="w-item" href="https://sports.yahoo.com/articles/rare-combination-cowboys-96-million-201506108.html" target="_blank" rel="noopener"><span class="w-title">'Rare Combination': Cowboys' $96 Million Superstar Tops List of NFL Elite</span><span class="w-src">duckduckgo news</span></a>
+<a class="w-item" href="https://sports.yahoo.com/articles/0-chance-cowboys-analyst-shuts-214026238.html" target="_blank" rel="noopener"><span class="w-title">'0% Chance', Cowboys Analyst Shuts Down Wild Rumors of Dallas Landing All-Pro for 2026 NFL Season</span><span class="w-src">duckduckgo news</span></a></div>
+</details>
+</article>
+<article class="card" data-desk="life">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/sora-whitlam-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Sora Whitlam </span>
+      <span class="role">Life Desk, Senior Correspondent (Sciences)</span>
+    </div>
+  </div>
+  <a class="headline" href="/life-column/2026-07-13-sora-whitlam.html">The Black Holes That Grew Too Fast</a>
+  <p class="dek">ESA's Euclid telescope confirmed 31 ancient quasars this week, and the real fight is whether JWST spectroscopy follow-up on the little red dots will show the earliest supermassive black holes skip stellar evolution entirely.</p>
+  <div class="actions"><a class="cta" href="/life-column/2026-07-13-sora-whitlam.html">Read Sora's column &rarr;</a></div>
+  
+</article>
+<article class="card" data-desk="editions" id="edition-evening">
+  <div class="speaker">
+    <img class="face" src="/masthead/img/feed/maarten-bakker-sq.jpg" alt="" loading="lazy">
+    <div class="who">
+      <span class="name">Maarten Bakker <span class="zh">馬 柏 熹</span></span>
+      <span class="role">News Anchor · Evening Edition</span>
+    </div>
+  </div>
+  <span class="headline headline-static">Iran shut the Hormuz strait.</span>
+  <p class="dek">Washington answered with a second round of strikes, and both capitals will spend tomorrow calling it proportionate.  In Hong Kong, the police chief defended freezing pay for the force's lowest earners.</p>
+  <details class="watch">
+  <summary><span class="chev"></span>Maarten's picks<span class="w-count">5</span></summary>
+  <div class="w-list"><a class="w-item" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" target="_blank" rel="noopener"><span class="w-title">RedHook Android malware adds Wireless ADB abuse for shell access</span><span class="w-src">BleepingComputer</span></a>
+<a class="w-item" href="https://cryptobriefing.com/fed-hold-rates-steady-2026-inflation/" target="_blank" rel="noopener"><span class="w-title">Fed expected to hold rates steady through 2026 despite rising inflation forecasts</span><span class="w-src">bing news</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cly0l5d5xn7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Aldi escalates US supermarket push with $9bn expansion into urban hubs</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cql1qdq14xro?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Former Qatari Emir Sheikh Hamad bin Khalifa Al Thani dies at 74</span><span class="w-src">BBC World</span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cvgj25j6nmeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US Senator Lindsey Graham dies at 71 after sudden illness</span><span class="w-src">BBC World</span></a></div>
+</details>
+</article>
+<div class="foot">THE WANG REPORT · <a href="classic.html">Classic front page</a> · <a href="about.html">About</a></div>
+</main>
+<aside class="rail rail-right">
+  <div class="rail-title">The Desks</div>
+  <a class="desk-row" href="geopolitical.html">
+    <img class="desk-face" src="/masthead/img/feed/vincent-lai-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">Geopolitical</span>
+    <span class="desk-author">Vincent Lai</span></span>
+  </a>
+<a class="desk-row" href="cyber.html">
+    <img class="desk-face" src="/masthead/img/feed/kai-tanner-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">Cyber</span>
+    <span class="desk-author">Kai Tanner</span></span>
+  </a>
+<a class="desk-row" href="hk-finance.html">
+    <img class="desk-face" src="/masthead/img/feed/magnus-honeyfield-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">Finance &amp; Risk</span>
+    <span class="desk-author">Magnus Honeyfield</span></span>
+  </a>
+<a class="desk-row" href="ai-focus.html">
+    <img class="desk-face" src="/masthead/img/feed/aya-nakamura-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">AI</span>
+    <span class="desk-author">Aya Nakamura</span></span>
+  </a>
+<a class="desk-row" href="hk-local.html">
+    <img class="desk-face" src="/masthead/img/feed/cheung-kwok-keung-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">HK Local</span>
+    <span class="desk-author">Cheung Kwok-keung</span></span>
+  </a>
+<a class="desk-row" href="sports.html">
+    <img class="desk-face" src="/masthead/img/feed/dev-chatterjee-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">Sports</span>
+    <span class="desk-author">Dev Chatterjee</span></span>
+  </a>
+<a class="desk-row" href="life.html">
+    <img class="desk-face" src="/masthead/img/feed/sora-whitlam-sq.jpg" alt="" loading="lazy">
+    <span class="desk-text"><span class="desk-name">Life</span>
+    <span class="desk-author">Sora Whitlam</span></span>
+  </a>
+  <div class="rail-links">
+    <a href="stocks.html">Stocks</a> · <a href="wire.html">Wire</a> · <a href="issue.html">The Issue</a>
+  </div>
+</aside>
 </div>
-
 <script>
-
+  const cardsEl = Array.from(document.querySelectorAll('.card'));
+  let activeChip = 'all';
+  function applyFilters() {
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    cardsEl.forEach(c => {
+      const chipOk = activeChip === 'all' || c.dataset.desk === activeChip;
+      const qOk = !q || c.textContent.toLowerCase().includes(q);
+      c.classList.toggle('hidden', !(chipOk && qOk));
+    });
+  }
+  document.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+    ch.classList.add('on');
+    activeChip = ch.dataset.filter;
+    applyFilters();
+  }));
+  document.getElementById('search').addEventListener('input', applyFilters);
+  document.querySelector('.js-open-synthesis').addEventListener('click', e => {
+    e.preventDefault();
+    const d = document.getElementById('synthesis');
+    d.open = !d.open;
+  });
 </script>
-
 </body>
 </html>
