@@ -130,6 +130,10 @@
   .headline-static:hover { color: #111; cursor: default; }
   .dek { font-size: 15.5px; line-height: 1.6; color: #444; margin-bottom: 14px; }
   .hero .dek { font-size: 17px; }
+  .lead-img { margin: -4px 0 16px; }
+  .lead-img img { width: 100%; max-height: 320px; object-fit: cover; display: block;
+    border: 1px solid #e5e5e5; filter: saturate(.94); }
+  .hero .lead-img img { max-height: 400px; }
   .actions { margin-bottom: 4px; }
   .cta, .cta-line { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1.5px;
     color: #cc0000; text-transform: uppercase; text-decoration: none; cursor: pointer; }
@@ -154,11 +158,13 @@
   .watch[open] .chev { transform: rotate(-135deg) translateY(-1px); }
   .w-count { background: #f0f0f0; color: #555; border-radius: 999px; padding: 2px 8px; font-size: 10px; }
   .w-list { margin-top: 10px; border-left: 2px solid #cc0000; }
-  .w-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  .w-item { display: flex; align-items: center; gap: 12px;
     padding: 9px 12px 9px 14px; text-decoration: none; border-bottom: 1px solid #f3f3f3; }
   .w-item:last-child { border-bottom: none; }
   .w-item:hover .w-title { color: #cc0000; }
-  .w-title { font-size: 14.5px; line-height: 1.45; color: #222; }
+  .w-thumb { width: 48px; height: 48px; object-fit: cover; border: 1px solid #eee;
+    flex-shrink: 0; background: #f0f0ec; }
+  .w-title { flex: 1; min-width: 0; font-size: 14.5px; line-height: 1.45; color: #222; }
   .w-meta { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
   .w-src { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; color: #999; text-transform: uppercase; }
   .w-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: 0.5px; color: #bbb; }
@@ -179,7 +185,7 @@
 <nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a></div></nav>
 <header class="masthead">
   <div class="wordmark"><a href="index.html">The Wang Report</a></div>
-  <div class="dateline">Monday, July 13, 2026 · Hong Kong</div>
+  <div class="dateline">Tuesday, July 14, 2026 · Hong Kong</div>
 </header>
 <div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
 <div class="layout">
@@ -244,19 +250,20 @@
       <span class="role">Editor-in-Chief</span>
     </div>
   </div>
-  <a class="headline js-open-synthesis" href="#walter">Hormuz Status Splits as Both Sides Claim the Waterway</a>
-  <p class="dek">Washington and Tehran are now issuing contradictory statements about whether the strait carrying a fifth of global oil is even open. Neither government has offered evidence for its version.</p>
+  <a class="headline js-open-synthesis" href="#walter">Iran Widens War to Gulf States, Strait of Hormuz Now Closed by Its Own Claim</a>
+  <p class="dek">Overnight strikes on Bahrain and Kuwait turn a two-country exchange into a regional one, and the closure this column flagged as a definitional dispute Sunday now has bodies attached, at a Bangkok bar and on a Biddeford street.</p>
+  <div class="lead-img"><img src="img/feed-lead/walter-ef5b7268e6.jpg" alt="" loading="lazy"></div>
   <details class="synthesis" id="synthesis">
     <summary><span class="cta-line">Read the synthesis &rarr;</span></summary>
-    <div class="synth-body"><p>The overnight split is definitional: after a third round of US strikes on Iran, Washington and Tehran are disputing the plain status of the Strait of Hormuz, one side calling it open, the other calling it closed, per Bloomberg. This column had Oman producing a signed shipping pledge by this morning. No pledge came. That failure settles Thursday's tripwire against the talks and for the strikes as the operative policy. Retaliation hit at least five Arab states overnight, the clearest sign yet that Iran's response has stopped discriminating between the country that struck it and the neighbours hosting US assets. Kai Tanner's cyber column today catches a second failure pattern: Progress Software issued an unattributed shutdown order on ShareFile, its managed file transfer product, that reproduces the exact silent disclosure shape that preceded the 2023 MOVEit breach, and the exposed surface sat public for three months before the vendor spoke. A Hong Kong compliance officer running third party risk registers needs to pull ShareFile off the approved vendor list today, not wait for a CVE. Senator Lindsey Graham has died. His death removes the Senate's most reliable vote for continued Iran strikes at the exact moment that policy is being tested. Watch whether Hormuz shipping insurers raise war risk premiums by Tuesday; that number will say more than either government's statement.</p></div>
+    <div class="synth-body"><p>Sunday this column read Hormuz as a definitional fight, open versus closed, with no settling number yet. The number arrived overnight: Iran hit Bahrain and Kuwait directly, per Reuters, and Trump answered with a 20% levy on Hormuz cargo plus a reinstated port blockade. That is the second front the July 8 edition flagged as the line between bilateral war and regional war, and it has been crossed. FT led with Trump vowing to hit Iran hard this week. Dubai is already breaking ground on a new port built specifically to bypass the strait, a hedge that treats the closure claim as durable, not theatre. A trade-finance desk issuing letters of credit against Gulf cargo now has to reprice war-risk premiums before Tuesday's opening bell, not after. FT reports stocks and bonds fell overnight on the escalation, a market move that lines up with Dubai's bet against Washington's rhetoric. Away from the strait, Nihon Kotsu's shutdown after a cyberattack and the EU-UK sanctions on GRU hackers both landed the same day cyber desks were already tracking Hong Kong's passkey mandate. Watch whether Dubai's port timeline holds against a wartime supply chain.</p></div>
   </details>
   <details class="watch">
   <summary><span class="chev"></span>What Walter is watching<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US strikes Iran again as Strait of Hormuz standoff continues</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">At least 27 killed in Bangkok pub fire</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.ft.com/content/34f93b7e-b1a7-40c3-8e6e-a5cac7dbaa9c" target="_blank" rel="noopener"><span class="w-title">US strikes Iran, Trump threatens 20% levy on Hormuz cargo and reinstates port blockade</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BBC World</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/54be872f-c0a2-46dd-9337-5cad9124e734" target="_blank" rel="noopener"><span class="w-title">Stocks and bonds slide as US-Iran conflict escalates, oil rises further</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">FT</span></span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cx2wzpwn51lo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/walter-ef5b7268e6.jpg" alt="" loading="lazy"><span class="w-title">Volkswagen to cut up to 100,000 jobs worldwide amid profit slump</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BBC Business</span></span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cgev34lvgp4o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/walter-1d86f080b6.jpg" alt="" loading="lazy"><span class="w-title">States sue to block Paramount-Warner Bros $110bn merger</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BBC Business</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/1f97b548-1bd8-41c8-8380-043ec688d77a" target="_blank" rel="noopener"><span class="w-title">Dubai to build new port bypassing Strait of Hormuz</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">FT</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="editions" id="edition-morning">
@@ -269,13 +276,14 @@
   </div>
   <span class="headline headline-static">Iran's closure of the Strait of Hormuz followed the strikes fast enough to suggest the order was drafted before the strikes landed.</span>
   <p class="dek">Hong Kong's shipping desks spent the day recalculating routes nobody wanted to recalculate.  By dinner time, the Gulf was Hong Kong's problem too.</p>
+  <div class="lead-img"><img src="img/feed-lead/edition-morning-ef5b7268e6.jpg" alt="" loading="lazy"></div>
   <details class="watch">
   <summary><span class="chev"></span>Charmaine's picks<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US strikes Iran again as Strait of Hormuz standoff continues</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.scmp.com/news/world/russia-central-asia/article/3360297/ukraines-prime-minister-steps-down-zelensky-announces-government-reshuffle?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Zelensky dismisses Ukraine PM Svyrydenko in government reshuffle</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.scmp.com/news/world/middle-east/article/3360296/israel-hold-parliamentary-elections-october-27-netanyahu-seeks-another-term?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Israel sets October 27 parliamentary election as Netanyahu seeks new term</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">China evacuates nearly 2 million as powerful typhoon makes landfall in Zhejiang</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">At least 27 killed in Bangkok pub fire</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.ft.com/content/34f93b7e-b1a7-40c3-8e6e-a5cac7dbaa9c" target="_blank" rel="noopener"><span class="w-title">US strikes Iran, Trump threatens 20% levy on Hormuz cargo and reinstates port blockade</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BBC World</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/54be872f-c0a2-46dd-9337-5cad9124e734" target="_blank" rel="noopener"><span class="w-title">Stocks and bonds slide as US-Iran conflict escalates, oil rises further</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">FT</span></span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cx2wzpwn51lo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-ef5b7268e6.jpg" alt="" loading="lazy"><span class="w-title">Volkswagen to cut up to 100,000 jobs worldwide amid profit slump</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BBC Business</span></span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/cgev34lvgp4o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-1d86f080b6.jpg" alt="" loading="lazy"><span class="w-title">States sue to block Paramount-Warner Bros $110bn merger</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BBC Business</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/1f97b548-1bd8-41c8-8380-043ec688d77a" target="_blank" rel="noopener"><span class="w-title">Dubai to build new port bypassing Strait of Hormuz</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">FT</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="geo">
@@ -288,13 +296,14 @@
   </div>
   <a class="headline" href="/geopolitical-column/2026-07-13-vincent-lai.html">CNY800bn: The Freeze That Made The Widening Possible</a>
   <p class="dek">Beijing's July 7 package reads as capital account liberalization only if you ignore the two-year retail brokerage freeze it completed the same week.</p>
+  <div class="lead-img"><img src="img/feed-lead/vincent-lai-5174f5a6c6.jpg" alt="" loading="lazy"></div>
   <div class="actions"><a class="cta" href="/geopolitical-column/2026-07-13-vincent-lai.html">Read Vincent's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Vincent is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQX3JwNTYxUlA2ZFNXVlNwRVdTMkVCM3Azck95LTZWTTBnZ25Wb3lTakZJOXNjWGZ2RUhhLWJhal9LQzBiNTNRMjJsVWRUUm5zeXVMRVpsdE4yVENoVEJ3NVowa3BGalRZem4yWTNoaEFJdzBHUE5HRmdrT0E2eGJfeXFGRzJuYU5ObWtQYVBKbzAxd2xkeENDbTNHTHVTM0ZJZWYwQlAxdU9KdENGN2pudFUwNkVwWW14WDFSSndOa3BzTk9LZG9OSlJXYVA?oc=5" target="_blank" rel="noopener"><span class="w-title">Middle East tension: US strikes Iran after Tehran closes Strait of Hormuz, Gulf states on high alert - connectedtoindia.com</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">connectedtoindia.com</span></span></a>
-<a class="w-item" href="https://www.arabtimesonline.com/news/china-rejects-us-philippines-and-allies-south-china-sea-statement/" target="_blank" rel="noopener"><span class="w-title">China Rejects US, Philippines and Allies' South China Sea Statement</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
-<a class="w-item" href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/07/12/philippines-urges-effective-south-china-sea-coc-amid-persistent-tensions" target="_blank" rel="noopener"><span class="w-title">Philippines urges effective South China Sea COC amid persistent tensions</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
-<a class="w-item" href="https://cryptobriefing.com/south-china-sea-joint-statement-rejects-chinas-maritime-claims/" target="_blank" rel="noopener"><span class="w-title">South China Sea joint statement rejects China's maritime claims</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a></div>
+<a class="w-item" href="https://www.arabtimesonline.com/news/china-rejects-us-philippines-and-allies-south-china-sea-statement/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/vincent-lai-5174f5a6c6.jpg" alt="" loading="lazy"><span class="w-title">China Rejects US, Philippines and Allies' South China Sea Statement</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
+<a class="w-item" href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/07/12/philippines-urges-effective-south-china-sea-coc-amid-persistent-tensions" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/vincent-lai-92ec830c06.jpg" alt="" loading="lazy"><span class="w-title">Philippines urges effective South China Sea COC amid persistent tensions</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
+<a class="w-item" href="https://cryptobriefing.com/south-china-sea-joint-statement-rejects-chinas-maritime-claims/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/vincent-lai-d4a98172f6.jpg" alt="" loading="lazy"><span class="w-title">South China Sea joint statement rejects China's maritime claims</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="geo">
@@ -307,6 +316,7 @@
   </div>
   <a class="headline" href="/geopolitical-column/2026-07-13-mei-chen-2.html">The Statement Was Never For Beijing</a>
   <p class="dek">The joint statement rejecting China's maritime claims was addressed to Beijing in form only; its real target is a Code of Conduct that Manila's own chairmanship cannot deliver.</p>
+  
   <div class="actions"><a class="cta" href="/geopolitical-column/2026-07-13-mei-chen-2.html">Read Mei's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Mei is watching<span class="w-count">4</span></summary>
@@ -326,13 +336,14 @@
   </div>
   <a class="headline" href="/cyber-column/2026-07-13-kai-tanner.html">Hong Kong's Passkey Mandate Is a Market Filter</a>
   <p class="dek">SFC Circular 26EC35 reads as a phishing fix, but its two-tier compliance clock will do more to reshape Hong Kong's 13 licensed platforms than any breach this year.</p>
+  <div class="lead-img"><img src="img/feed-lead/kai-tanner-46c825ba40.jpg" alt="" loading="lazy"></div>
   <div class="actions"><a class="cta" href="/cyber-column/2026-07-13-kai-tanner.html">Read Kai's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Kai is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://shellzine.net/cyberpunk-comics/" target="_blank" rel="noopener"><span class="w-title">Cyberpunk Comics, Manga and Graphic Novels</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">HackerNews</span></span></a>
 <a class="w-item" href="https://www.canopii.dev/State%20of%20MCP%20Security%202026.pdf" target="_blank" rel="noopener"><span class="w-title">The State of MCP Security [pdf]</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">HackerNews</span></span></a>
-<a class="w-item" href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/" target="_blank" rel="noopener"><span class="w-title">Claude Fable 5 stays free for paid users until July 19 as Anthropic buys more time</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BleepingComputer</span></span></a>
-<a class="w-item" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" target="_blank" rel="noopener"><span class="w-title">RedHook Android malware now uses Wireless ADB for shell access</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">BleepingComputer</span></span></a></div>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-46c825ba40.jpg" alt="" loading="lazy"><span class="w-title">Claude Fable 5 stays free for paid users until July 19 as Anthropic buys more time</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BleepingComputer</span></span></a>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-78691cfdcc.jpg" alt="" loading="lazy"><span class="w-title">RedHook Android malware now uses Wireless ADB for shell access</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">BleepingComputer</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="finance">
@@ -345,6 +356,7 @@
   </div>
   <a class="headline" href="/hk-finance-column/2026-07-13-magnus-honeyfield.html">The Patch SLA Died This Week</a>
   <p class="dek">A ColdFusion flaw was exploited within two hours of disclosure while a Windows Defender flaw sat exploitable for a month, proving the fixed-day patch SLA cannot measure a bimodal threat.</p>
+  
   <div class="actions"><a class="cta" href="/hk-finance-column/2026-07-13-magnus-honeyfield.html">Read Magnus's column &rarr;</a></div>
   
 </article>
@@ -358,6 +370,7 @@
   </div>
   <a class="headline" href="/hk-finance-column/2026-07-13-rachel-lam.html">Hong Kong's HK$210.2 Billion IPO Boom Runs on Beijing's Deadline</a>
   <p class="dek">Hong Kong's HK$210. 2 billion first-half IPO haul reads like a market renaissance, but it is mostly mainland filers racing a China Securities Regulatory Commission deadline before their clearance windows expire.</p>
+  
   <div class="actions"><a class="cta" href="/hk-finance-column/2026-07-13-rachel-lam.html">Read Rachel's column &rarr;</a></div>
   
 </article>
@@ -371,6 +384,7 @@
   </div>
   <a class="headline" href="/ai-focus-column/2026-07-13-aya-nakamura.html">SK Hynix's $26.5B Listing Bets on China's H200 Backlog</a>
   <p class="dek">Beijing tightened its own AI model exports while easing Nvidia chip import caps, but the real constraint on China's AI buildout sits in Korean memory supply, not chip licenses.</p>
+  
   <div class="actions"><a class="cta" href="/ai-focus-column/2026-07-13-aya-nakamura.html">Read Aya's column &rarr;</a></div>
   
 </article>
@@ -384,13 +398,14 @@
   </div>
   <a class="headline" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">Hong Kong Will Rescue You, If You Weren't Working</a>
   <p class="dek">Hong Kong airlifts hikers to hospital for free when the heat gets them, but the new gig-worker injury law won't cover a rider felled by the same heat.</p>
+  <div class="lead-img"><img src="img/feed-lead/cheung-kwok-keung-69a9c6e302.jpg" alt="" loading="lazy"></div>
   <div class="actions"><a class="cta" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">Read Cheung's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Cheung is watching<span class="w-count">4</span></summary>
-  <div class="w-list"><a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1861948-20260712.htm" target="_blank" rel="noopener"><span class="w-title">'Injury law will better protect gig delivery workers'</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">RTHK</span></span></a>
-<a class="w-item" href="https://www.scmp.com/business/article/3360152/hong-kong-developers-ready-new-home-launches-amid-forecasts-muted-price-increases?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">Hong Kong developers ready new home launches amid forecasts of muted price increases</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.scmp.com/opinion/hong-kong-opinion/article/3359958/how-hong-kong-can-draw-line-under-2019-20-protests-and-move-forward?utm_source=rss_feed" target="_blank" rel="noopener"><span class="w-title">How Hong Kong can draw line under the 2019-20 protests and move forward</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3360217/hong-kong-police-chief-backs-plan-deny-pay-rises-bottom-5-performers" target="_blank" rel="noopener"><span class="w-title">Hong Kong police chief defends plan to deny pay rises to bottom 5% of performers</span><span class="w-meta"><span class="w-date">Jul 11</span><span class="w-src">bing news</span></span></a></div>
+  <div class="w-list"><a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1861948-20260712.htm" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/cheung-kwok-keung-69a9c6e302.jpg" alt="" loading="lazy"><span class="w-title">'Injury law will better protect gig delivery workers'</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">RTHK</span></span></a>
+<a class="w-item" href="https://www.scmp.com/business/article/3360152/hong-kong-developers-ready-new-home-launches-amid-forecasts-muted-price-increases?utm_source=rss_feed" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/cheung-kwok-keung-eabc25df2d.jpg" alt="" loading="lazy"><span class="w-title">Hong Kong developers ready new home launches amid forecasts of muted price increases</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
+<a class="w-item" href="https://www.scmp.com/opinion/hong-kong-opinion/article/3359958/how-hong-kong-can-draw-line-under-2019-20-protests-and-move-forward?utm_source=rss_feed" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/cheung-kwok-keung-1a47ba4d5b.jpg" alt="" loading="lazy"><span class="w-title">How Hong Kong can draw line under the 2019-20 protests and move forward</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">SCMP</span></span></a>
+<a class="w-item" href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3360217/hong-kong-police-chief-backs-plan-deny-pay-rises-bottom-5-performers" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/cheung-kwok-keung-5d78c8d464.jpg" alt="" loading="lazy"><span class="w-title">Hong Kong police chief defends plan to deny pay rises to bottom 5% of performers</span><span class="w-meta"><span class="w-date">Jul 11</span><span class="w-src">bing news</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="sports">
@@ -403,12 +418,13 @@
   </div>
   <a class="headline" href="/sports-column/2026-07-13-dev-chatterjee.html">The $9.612 Billion Seahawks Sale That a Rounding Error Froze</a>
   <p class="dek">This week sport's economics outran the referees meant to manage them, from World Cup ratings blowing past format critics to an NFL sale frozen by a rounding-error stake.</p>
+  <div class="lead-img"><img src="img/feed-lead/dev-chatterjee-74b2d5e450.jpg" alt="" loading="lazy"></div>
   <div class="actions"><a class="cta" href="/sports-column/2026-07-13-dev-chatterjee.html">Read Dev's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Dev is watching<span class="w-count">4</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.bbc.com/mediacentre/articles/2026/england-argentina-world-cup-2026-semi-finals" target="_blank" rel="noopener"><span class="w-title">FIFA World Cup 2026 - How to watch England v Argentina on TV and BBC iPlayer and follow across the BBC</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
-<a class="w-item" href="https://www.huffpost.com/entry/fifa-infantino-2030-world-cup-expansion_n_6a53f57ae4b09843d52b9254" target="_blank" rel="noopener"><span class="w-title">World Cup Boss Teases Idea For Expanding Tournament After 2026 Edition</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
-<a class="w-item" href="https://sports.yahoo.com/articles/0-chance-cowboys-analyst-shuts-214026238.html" target="_blank" rel="noopener"><span class="w-title">'0% Chance', Cowboys Analyst Shuts Down Wild Rumors of Dallas Landing All-Pro for 2026 NFL Season</span><span class="w-meta"><span class="w-date">Jul 11</span><span class="w-src">duckduckgo news</span></span></a>
+  <div class="w-list"><a class="w-item" href="https://www.bbc.com/mediacentre/articles/2026/england-argentina-world-cup-2026-semi-finals" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/dev-chatterjee-74b2d5e450.jpg" alt="" loading="lazy"><span class="w-title">FIFA World Cup 2026 - How to watch England v Argentina on TV and BBC iPlayer and follow across the BBC</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
+<a class="w-item" href="https://www.huffpost.com/entry/fifa-infantino-2030-world-cup-expansion_n_6a53f57ae4b09843d52b9254" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/dev-chatterjee-433ff8c155.jpg" alt="" loading="lazy"><span class="w-title">World Cup Boss Teases Idea For Expanding Tournament After 2026 Edition</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">duckduckgo news</span></span></a>
+<a class="w-item" href="https://sports.yahoo.com/articles/0-chance-cowboys-analyst-shuts-214026238.html" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/dev-chatterjee-2ebadf16ea.jpg" alt="" loading="lazy"><span class="w-title">'0% Chance', Cowboys Analyst Shuts Down Wild Rumors of Dallas Landing All-Pro for 2026 NFL Season</span><span class="w-meta"><span class="w-date">Jul 11</span><span class="w-src">duckduckgo news</span></span></a>
 <a class="w-item" href="https://www.msn.com/en-us/sports/soccer/the-final-remaining-world-cup-semifinal-teams-as-ranked-by-fifa/ar-AA27LjcZ" target="_blank" rel="noopener"><span class="w-title">The final remaining World Cup semifinal teams as ranked by FIFA</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">duckduckgo news</span></span></a></div>
 </details>
 </article>
@@ -422,6 +438,7 @@
   </div>
   <a class="headline" href="/life-column/2026-07-13-joy-lee.html">HBO Max's Emmy Haul Is A Dowry</a>
   <p class="dek">HBO Max's 122 Emmy nominations arrive as Paramount Skydance finalizes a $110. 9 billion purchase, and the timing turns a trophy case into a home appraisal.</p>
+  
   <div class="actions"><a class="cta" href="/life-column/2026-07-13-joy-lee.html">Read Joy's column &rarr;</a></div>
   
 </article>
@@ -435,6 +452,7 @@
   </div>
   <a class="headline" href="/life-column/2026-07-13-sora-whitlam.html">The Black Holes That Grew Too Fast</a>
   <p class="dek">ESA's Euclid telescope confirmed 31 ancient quasars this week, and the real fight is whether JWST spectroscopy follow-up on the little red dots will show the earliest supermassive black holes skip stellar evolution entirely.</p>
+  
   <div class="actions"><a class="cta" href="/life-column/2026-07-13-sora-whitlam.html">Read Sora's column &rarr;</a></div>
   
 </article>
@@ -448,13 +466,14 @@
   </div>
   <span class="headline headline-static">Iran shut the Hormuz strait.</span>
   <p class="dek">Washington answered with a second round of strikes, and both capitals will spend tomorrow calling it proportionate.  In Hong Kong, the police chief defended freezing pay for the force's lowest earners.</p>
+  <div class="lead-img"><img src="img/feed-lead/edition-evening-b8dbb515b5.jpg" alt="" loading="lazy"></div>
   <details class="watch">
   <summary><span class="chev"></span>Maarten's picks<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/" target="_blank" rel="noopener"><span class="w-title">RedHook Android malware adds Wireless ADB abuse for shell access</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">BleepingComputer</span></span></a>
-<a class="w-item" href="https://cryptobriefing.com/fed-hold-rates-steady-2026-inflation/" target="_blank" rel="noopener"><span class="w-title">Fed expected to hold rates steady through 2026 despite rising inflation forecasts</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">bing news</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cly0l5d5xn7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Aldi escalates US supermarket push with $9bn expansion into urban hubs</span><span class="w-meta"><span class="w-date">Jul 12</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cql1qdq14xro?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">Former Qatari Emir Sheikh Hamad bin Khalifa Al Thani dies at 74</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cvgj25j6nmeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><span class="w-title">US Senator Lindsey Graham dies at 71 after sudden illness</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.bleepingcomputer.com/news/security/japans-largest-taxi-operator-shuts-systems-after-cyberattack/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-b8dbb515b5.jpg" alt="" loading="lazy"><span class="w-title">Japan's largest taxi operator Nihon Kotsu shuts systems after cyberattack</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">BleepingComputer</span></span></a>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/security/eu-and-uk-hit-russia-with-first-joint-cyber-sanctions-package/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-d06c9b3fc7.jpg" alt="" loading="lazy"><span class="w-title">EU and UK sanction Russian GRU hackers over cyberattacks across Europe</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BleepingComputer</span></span></a>
+<a class="w-item" href="https://techcrunch.com/2026/07/13/apple-says-former-employee-exploited-rare-bug-to-download-confidential-files-after-leaving-for-openai/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-e3380a0145.jpg" alt="" loading="lazy"><span class="w-title">Apple alleges former employee stole files after joining OpenAI, in trade secrets suit</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">TechCrunch</span></span></a>
+<a class="w-item" href="https://www.scmp.com/news/us/science-technology/article/3360437/us-national-science-foundation-ban-projects-flagged-chinese-institutions?utm_source=rss_feed" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-1185cd1aba.jpg" alt="" loading="lazy"><span class="w-title">US National Science Foundation to ban research projects with flagged Chinese institutions</span><span class="w-meta"><span class="w-date">Jul 14</span><span class="w-src">SCMP</span></span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-1f1e8ee37f.jpg" alt="" loading="lazy"><span class="w-title">Fire at Bangkok bar kills at least 28, injures 25 critically</span><span class="w-meta"><span class="w-date">Jul 13</span><span class="w-src">BBC World</span></span></a></div>
 </details>
 </article>
 <div class="foot">THE WANG REPORT · <a href="classic.html">Classic front page</a> · <a href="about.html">About</a></div>
