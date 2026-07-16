@@ -178,14 +178,37 @@
     .face { width: 64px; height: 64px; }
     .hero .face { width: 88px; height: 88px; }
   }
+  
+.hx-panel { border: 2px solid #0B1F3A; margin: 14px auto; max-width: 1240px; background: #fff; font-family: Georgia, 'Times New Roman', serif; }
+.hx-panel-head { background: #0B1F3A; color: #F4F1E8; font-family: Georgia, serif; font-size: 19px; padding: 7px 14px; display: flex; justify-content: space-between; align-items: baseline; }
+.hx-panel-head .hx-updated { font-family: Georgia, serif; font-size: 11px; opacity: 0.85; }
+.hx-cols { display: grid; grid-template-columns: 1.4fr 1fr; }
+.hx-block { padding: 14px 18px; border-right: 1px solid #C8C0B0; min-width: 0; }
+.hx-block:last-child { border-right: none; }
+.hx-block-title { font-size: 12px; font-weight: bold; letter-spacing: 0.5px; color: #B0241E; border-bottom: 1px solid #C8C0B0; padding-bottom: 6px; margin-bottom: 10px; }
+.hx-bet-row { padding: 8px 0; border-bottom: 1px dotted #e2ddd0; }
+.hx-bet-row:last-child { border-bottom: none; }
+.hx-bet-line { font-size: 14px; color: #1a1a1a; }
+.hx-bet-thesis { font-size: 12.5px; color: #666; font-style: italic; margin-top: 2px; }
+.hx-ledger-row { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; }
+.hx-net-pos { color: #006400; font-weight: bold; }
+.hx-net-neg { color: #8b0000; font-weight: bold; }
+.hx-empty { font-size: 14px; font-style: italic; color: #777; padding: 6px 0; }
+.hx-foot { font-size: 11px; color: #888; text-align: center; padding: 10px 14px; border-top: 1px solid #e2ddd0; }
+.hx-foot a { color: #666; }
+@media (max-width: 640px) {
+  .hx-cols { grid-template-columns: 1fr; }
+  .hx-block { border-right: none; border-bottom: 1px solid #C8C0B0; }
+  .hx-block:last-child { border-bottom: none; }
+}
 </style>
 </head>
 <body>
 <div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a></div></nav>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
 <header class="masthead">
   <div class="wordmark"><a href="index.html">The Wang Report</a></div>
-  <div class="dateline">Thursday, July 16, 2026 · Hong Kong</div>
+  <div class="dateline">Friday, July 17, 2026 · Hong Kong</div>
 </header>
 <div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
 <div class="layout">
@@ -250,12 +273,12 @@
       <span class="role">Editor-in-Chief</span>
     </div>
   </div>
-  <a class="headline js-open-synthesis" href="#walter">Hormuz Blockade Claim Meets an Oil Market That Isn't Panicking Yet</a>
-  <p class="dek">Trump reimposed a naval blockade on Iran overnight while withdrawing a tolls threat within hours, and Gulf war-risk insurers have not moved their Hormuz transit rates in response.</p>
-  <div class="lead-img"><img src="img/feed-lead/walter-60fdaaa914.jpg" alt="" loading="lazy"></div>
+  <a class="headline js-open-synthesis" href="#walter">Chip Curbs Hit Silicon While Hormuz Runs on Fumes</a>
+  <p class="dek">Beijing calls new US export curbs a threat to global supply chains the same morning chip stocks slide and TSMC adds another $100bn to its US build-out, a reallocation story the sixth day of Iran strikes cannot out-shout.</p>
+  <div class="lead-img"><img src="img/feed-lead/walter-8f74d875a1.jpg" alt="" loading="lazy"></div>
   <details class="synthesis" id="synthesis">
     <summary><span class="cta-line">Read the synthesis &rarr;</span></summary>
-    <div class="synth-body"><p>The fourth straight night of US strikes on Iran came with a policy reversal inside the same news cycle: Washington announced a Hormuz blockade, then Trump withdrew the tolls threat hours later while insisting the blockade itself continues, per the Guardian. That is not a ceasefire signal, it is a sign Washington is still improvising the mechanics of a chokepoint blockade it committed to rhetorically before working out the shipping-law details. Oil traders are reading it as real enough, per our own wire, warning of a supply crunch as stockpiles thin. War-risk insurance rates on Hormuz transits are the number to watch, and they have not moved yet, the response a genuine closure would produce. Elsewhere, IBM's 25 percent single-session crash is being treated by the market as company-specific, and China's growth data missed its official target, a data point with more market weight this week than anything coming out of Tehran. Hong Kong's own overnight story, police arresting five over &quot;seditious&quot; books at independent bookshops, is a reminder that the city's information controls tighten in parallel with the geopolitical noise, not despite it. A trade-finance underwriter now has to decide by Friday whether to reprice Gulf transit cover on the blockade claim or wait for a second data point. Watch whether Hormuz war-risk rates move by Friday close; if they hold flat, the blockade is still rhetoric.</p></div>
+    <div class="synth-body"><p>The overnight mismatch has moved from the Gulf to the fab floor. Washington tightened chip export curbs and visa rules for Chinese researchers in the same cycle Beijing called the curbs a threat to global supply chains, per SCMP, and chip and memory names slid on Wall Street even as TSMC raised its US production pledge to 265 billion dollars total. IBM crashed Monday on the same reallocation logic; TSMC just backed it with a capital commitment instead of analyst chatter. Iran is day six of US strikes with no new number to test the blockade claim against, so treat Hormuz as background noise until war risk insurance actually moves. Elsewhere, Coca-Cola's Fairlife unit halted US production after a ransomware hit, and the Scattered Spider crew drew 5.5 years for the Transport for London breach, the first custodial sentence this loosely affiliated group has taken globally. Moonshot's Kimi K3 launch is aimed squarely at Anthropic's Opus 4.8. It will not win the comparison, but the gap it claims to close is now a headline metric, and compliance officers should spend five minutes on it today. Watch the TSMC capex line by year end.</p></div>
   </details>
 </article>
 <article class="card" data-desk="editions" id="edition-morning">
@@ -268,14 +291,14 @@
   </div>
   <span class="headline headline-static">Iran's blockade and Argentina's World Cup run made this look like a day of drama elsewhere.</span>
   <p class="dek">The number worth sitting with is 622: fresh Microsoft flaws patched overnight, two already under attack.  Somewhere a CISO is rereading that sentence for the third time.</p>
-  <div class="lead-img"><img src="img/feed-lead/edition-morning-60fdaaa914.jpg" alt="" loading="lazy"></div>
+  <div class="lead-img"><img src="img/feed-lead/edition-morning-8f74d875a1.jpg" alt="" loading="lazy"></div>
   <details class="watch">
   <summary><span class="chev"></span>Charmaine's picks<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-patch-actively-exploited-sharepoint-flaws/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-60fdaaa914.jpg" alt="" loading="lazy"><span class="w-title">CISA warns of active exploitation of on-premises SharePoint flaws</span><span class="w-meta"><span class="w-date">Jul 15</span><span class="w-src">BleepingComputer</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/c9323zgq6wvo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-099ede8c36.jpg" alt="" loading="lazy"><span class="w-title">US conducts new strikes on Iran as Trump leaves door open to further escalation</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.ft.com/content/6c314457-ce9a-4689-b3e1-ff637de0d6bf" target="_blank" rel="noopener"><span class="w-title">Oil traders warn of supply crunch as Hormuz closure reopens and stockpiles thin</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">FT</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cd959x4edy8o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-92628fb493.jpg" alt="" loading="lazy"><span class="w-title">China's economic growth slows sharply, missing official target</span><span class="w-meta"><span class="w-date">Jul 15</span><span class="w-src">BBC World</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cq61660qpdpo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-4a8c9f43d6.jpg" alt="" loading="lazy"><span class="w-title">Hong Kong police arrest five in raid on independent bookshops over 'seditious' books</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">BBC World</span></span></a></div>
+  <div class="w-list"><a class="w-item" href="https://www.bbc.co.uk/news/articles/c151gdjwd10o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-8f74d875a1.jpg" alt="" loading="lazy"><span class="w-title">US launches new wave of strikes on Iran as fighting enters sixth day</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">BBC World</span></span></a>
+<a class="w-item" href="https://www.scmp.com/news/us/article/3360846/beijing-denounces-us-chip-curbs-threat-global-supply-chains?utm_source=rss_feed" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-474c493d3d.jpg" alt="" loading="lazy"><span class="w-title">Beijing condemns new US chip export curbs as threat to global supply chains</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">SCMP</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/c92a5a36-55a0-4d04-b84c-d1705976987b?syn-25a6b1a6=1" target="_blank" rel="noopener"><span class="w-title">Chip and memory stocks slide as Wall Street rally falters</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">FT</span></span></a>
+<a class="w-item" href="https://techcrunch.com/2026/07/16/ubers-14-8b-delivery-hero-deal-would-nearly-double-its-global-footprint/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-8bea902bbc.jpg" alt="" loading="lazy"><span class="w-title">Uber to acquire Delivery Hero for $14.8bn in all-stock deal</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">TechCrunch</span></span></a>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/security/coca-cola-says-fairlife-ransomware-attack-halts-us-dairy-production/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-morning-7499f8a193.jpg" alt="" loading="lazy"><span class="w-title">Coca-Cola's Fairlife dairy unit halts US production after ransomware attack</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">BleepingComputer</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="geo">
@@ -438,6 +461,23 @@
 <a class="w-item" href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxORXo3aWM4M1Y2b1FlNmNGekE5Wml6OEVzUjhmNmd4OFRSM1ZVX3NLMGdtenlMMFM2bEtvT0toYXlSQVVmV1N6U3VSeW9rRkRiWUwydGUwVGJzS1E1Qkh1c3BPRGRyZURsUm5wSE9XanNOSi1rU0J1TkhpcktTMEtDRUE5SUJ1dklib1Y4NUFVeWUyQUllbWJFUUVKaUFjNEFIaDVOSXRQbXVWOE5NX2s5enNjSTUtVzFkVzVXWnVSSzhtVnM?oc=5" target="_blank" rel="noopener"><span class="w-title">Argentina stun England with late comeback to reach World Cup final: Live updates - The Athletic - The New York Times</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">The New York Times</span></span></a></div>
 </details>
 </article>
+<article class="card" data-desk="sports" id="hkjc-exercise">
+  
+<div class="hx-panel">
+  <div class="hx-panel-head"><span>The HK$200 Exercise</span><span class="hx-updated"></span></div>
+  <div class="hx-cols">
+    <div class="hx-block hx-block-left"><p class="hx-empty">No bets on the book yet. The first HK$200 goes down on the next race-day morning, Sha Tin Sunday or Happy Valley Wednesday.</p></div>
+    <div class="hx-block hx-block-right">
+    <div class="hx-block-title">The Ledger</div>
+    <div class="hx-ledger-row"><span>Staked</span><span>HK$0</span></div>
+    <div class="hx-ledger-row"><span>Returned</span><span>HK$0</span></div>
+    <div class="hx-ledger-row"><span>Net</span><span class="hx-net-pos">+HK$0</span></div>
+    <div class="hx-ledger-row"><span>Record</span><span>0W-0L</span></div>
+    <div class="hx-ledger-row"><span>Meetings</span><span>0</span></div></div>
+  </div>
+  <div class="hx-foot">Not betting advice. A paper exercise tracked in public. Full analysis: <a href="/hkjc-read.html">The HKJC Read</a>.</div>
+</div>
+</article>
 <article class="card" data-desk="life">
   <div class="speaker">
     <img class="face" src="/masthead/img/feed/joy-lee-sq.jpg" alt="" loading="lazy">
@@ -488,14 +528,14 @@
   </div>
   <span class="headline headline-static">Iran got blockaded, retaliated, and got told to behave, all before lunch, which passes for a slow Thursday now.</span>
   <p class="dek">Legco rushed a port bill through committee without breaking stride.  Microsoft patched 622 holes in one sitting, which reads less like an update than a confession.</p>
-  <div class="lead-img"><img src="img/feed-lead/edition-evening-6b85d0fa9e.jpg" alt="" loading="lazy"></div>
+  <div class="lead-img"><img src="img/feed-lead/edition-evening-bb563f7ad3.jpg" alt="" loading="lazy"></div>
   <details class="watch">
   <summary><span class="chev"></span>Maarten's picks<span class="w-count">5</span></summary>
-  <div class="w-list"><a class="w-item" href="https://www.scmp.com/news/china/diplomacy/article/3360723/eu-accuses-china-seeking-reshape-global-order-stark-new-strategy-paper?utm_source=rss_feed" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-6b85d0fa9e.jpg" alt="" loading="lazy"><span class="w-title">EU accuses China and Russia of seeking to reshape the global order in new strategy paper</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">SCMP</span></span></a>
-<a class="w-item" href="https://www.ft.com/content/94959f40-1874-4ece-b629-b18f43aa3ede" target="_blank" rel="noopener"><span class="w-title">SpaceX shares fall below IPO price, erasing about $1 trillion in value</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">FT</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/c5yzy3ng05lo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-1b26209a53.jpg" alt="" loading="lazy"><span class="w-title">British Steel nationalisation moves a step closer with new legislation</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">BBC Business</span></span></a>
-<a class="w-item" href="https://therecord.media/gold-eagle-cybersecurity-vulnerabilities-clearinghouse" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-72c20fe50e.jpg" alt="" loading="lazy"><span class="w-title">Trump administration launches AI-powered clearinghouse for cyber vulnerabilities</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">The Record</span></span></a>
-<a class="w-item" href="https://www.bbc.co.uk/news/articles/cd959q11g54o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-0ee607b1e5.jpg" alt="" loading="lazy"><span class="w-title">Pew survey finds global favorability shifting toward China and away from the US</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">BBC World</span></span></a></div>
+  <div class="w-list"><a class="w-item" href="https://therecord.media/scattered-spider-hackers-tfl-sentenced" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-bb563f7ad3.jpg" alt="" loading="lazy"><span class="w-title">Scattered Spider members sentenced to 5.5 years for £29m Transport for London hack</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">The Record</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/c6ecd8ce-c441-4d7c-aea6-fae3e28fb6ff?syn-25a6b1a6=1" target="_blank" rel="noopener"><span class="w-title">Chinese AI start-up Moonshot to launch Kimi K3, aiming to beat Anthropic's Claude Opus 4.8</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">FT</span></span></a>
+<a class="w-item" href="https://www.bbc.co.uk/news/articles/c62x8ldxr7eo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-30cea8f47a.jpg" alt="" loading="lazy"><span class="w-title">TSMC pledges additional $100bn to US production, raising total commitment to $265bn</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">BBC Business</span></span></a>
+<a class="w-item" href="https://www.scmp.com/news/china/diplomacy/article/3360848/us-toughen-visa-regulations-chinese-journalists-foreign-students?utm_source=rss_feed" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/edition-evening-98c614a523.jpg" alt="" loading="lazy"><span class="w-title">US tightens visa rules for Chinese journalists and foreign students</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">SCMP</span></span></a>
+<a class="w-item" href="https://www.ft.com/content/06865b90-5b62-46c5-ae8d-147842b41cd0?syn-25a6b1a6=1" target="_blank" rel="noopener"><span class="w-title">Zelensky's dismissal of defence minister Fedorov sparks public and political backlash in Ukraine</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">BBC World</span></span></a></div>
 </details>
 </article>
 <div class="foot">THE WANG REPORT · <a href="classic.html">Classic front page</a> · <a href="about.html">About</a></div>

@@ -93,6 +93,28 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
   .hr-bd-fullfield-list li { grid-template-columns: 24px 1fr 50px; gap: 6px; }
   .hr-ff-jockey, .hr-ff-trainer { grid-column: 2 / -1; font-size: 11px; padding-left: 0; }
   .hr-ff-trainer { color: #999; }
+}
+.hx-panel { border: 2px solid #0B1F3A; margin: 14px auto; max-width: 1240px; background: #fff; font-family: Georgia, 'Times New Roman', serif; }
+.hx-panel-head { background: #0B1F3A; color: #F4F1E8; font-family: Georgia, serif; font-size: 19px; padding: 7px 14px; display: flex; justify-content: space-between; align-items: baseline; }
+.hx-panel-head .hx-updated { font-family: Georgia, serif; font-size: 11px; opacity: 0.85; }
+.hx-cols { display: grid; grid-template-columns: 1.4fr 1fr; }
+.hx-block { padding: 14px 18px; border-right: 1px solid #C8C0B0; min-width: 0; }
+.hx-block:last-child { border-right: none; }
+.hx-block-title { font-size: 12px; font-weight: bold; letter-spacing: 0.5px; color: #B0241E; border-bottom: 1px solid #C8C0B0; padding-bottom: 6px; margin-bottom: 10px; }
+.hx-bet-row { padding: 8px 0; border-bottom: 1px dotted #e2ddd0; }
+.hx-bet-row:last-child { border-bottom: none; }
+.hx-bet-line { font-size: 14px; color: #1a1a1a; }
+.hx-bet-thesis { font-size: 12.5px; color: #666; font-style: italic; margin-top: 2px; }
+.hx-ledger-row { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; }
+.hx-net-pos { color: #006400; font-weight: bold; }
+.hx-net-neg { color: #8b0000; font-weight: bold; }
+.hx-empty { font-size: 14px; font-style: italic; color: #777; padding: 6px 0; }
+.hx-foot { font-size: 11px; color: #888; text-align: center; padding: 10px 14px; border-top: 1px solid #e2ddd0; }
+.hx-foot a { color: #666; }
+@media (max-width: 640px) {
+  .hx-cols { grid-template-columns: 1fr; }
+  .hx-block { border-right: none; border-bottom: 1px solid #C8C0B0; }
+  .hx-block:last-child { border-bottom: none; }
 }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -107,7 +129,7 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
 <body>
 
 <div class="hr-nav"><div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">HK Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a></div></nav></div>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link nav-desk-active">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="hr-wrap">
   <div class="hr-masthead">
@@ -127,7 +149,22 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
     </div>
   </div>
 
-  <p class="hr-explainer">The HKJC Read is the Wang Report's twice-weekly data-journalism feature on Hong Kong horse racing. It publishes race-day mornings before the first post at Sha Tin (Sunday) or Happy Valley (Wednesday). It is not a tipster service. It does not publish picks or selections. It analyzes the field and the institutional context using the publication's data tooling.</p>
+  <p class="hr-explainer">The HKJC Read is the Wang Report's twice-weekly data-journalism feature on Hong Kong horse racing. It publishes race-day mornings before the first post at Sha Tin (Sunday) or Happy Valley (Wednesday), analyzing the field and the institutional context using the publication's data tooling. Alongside the analysis it runs the HK$200 Exercise, a tracked paper-betting experiment: a notional HK$200 per meeting, split across two bets derived from the field breakdown, graded in public once results are official. It is not betting advice.</p>
+  
+<div class="hx-panel">
+  <div class="hx-panel-head"><span>The HK$200 Exercise</span><span class="hx-updated"></span></div>
+  <div class="hx-cols">
+    <div class="hx-block hx-block-left"><p class="hx-empty">No bets on the book yet. The first HK$200 goes down on the next race-day morning, Sha Tin Sunday or Happy Valley Wednesday.</p></div>
+    <div class="hx-block hx-block-right">
+    <div class="hx-block-title">The Ledger</div>
+    <div class="hx-ledger-row"><span>Staked</span><span>HK$0</span></div>
+    <div class="hx-ledger-row"><span>Returned</span><span>HK$0</span></div>
+    <div class="hx-ledger-row"><span>Net</span><span class="hx-net-pos">+HK$0</span></div>
+    <div class="hx-ledger-row"><span>Record</span><span>0W-0L</span></div>
+    <div class="hx-ledger-row"><span>Meetings</span><span>0</span></div></div>
+  </div>
+  <div class="hx-foot">Not betting advice. A paper exercise tracked in public.</div>
+</div>
   <div class="hr-section">
     <div class="hr-section-title">Today's Read</div>
     <div class="hr-piece">
