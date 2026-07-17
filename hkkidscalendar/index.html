@@ -38,6 +38,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .tb-emoji{font-size:1.4rem;line-height:1;flex-shrink:0}
 .tb-title{font-size:.95rem;font-weight:800;color:var(--primary);white-space:nowrap}
 .tb-sub{font-size:.68rem;color:var(--muted);white-space:nowrap;margin-left:.35rem}
+.cal-switch{font-size:12px;margin-top:4px;font-weight:600}
+.cal-switch a{color:#2563eb;text-decoration:none}
+.cal-switch a:hover{text-decoration:underline}
+.cal-switch-on{color:#334155}
 .tb-meta{flex-shrink:0;text-align:right;font-size:.68rem;color:var(--muted);line-height:1.5}
 .tb-meta a{color:var(--primary);text-decoration:none;font-weight:700}
 .app-shell{flex:1;display:grid;grid-template-columns:350px 1fr;overflow:hidden;min-height:0}
@@ -113,12 +117,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 </head>
 <body>
 <div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/ai-radar.html" class="nav-desk-link">AI Radar</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="/hk-adults-calendar/" class="nav-desk-link nav-desk-active">Calendars</a></div></nav>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-radar.html" class="nav-desk-link">AI Radar</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="/hk-adults-calendar/" class="nav-desk-link nav-desk-active">Calendars</a></div></nav>
 <header class="topbar">
   <div class="tb-brand">
     <span class="tb-emoji">&#127880;</span>
     <div class="tb-title">HK Kids Calendar</div>
     <div class="tb-sub">Hong Kong Kids Activities &amp; Open Days</div>
+    <div class="cal-switch"><a href="/hk-adults-calendar/">&larr; Adults calendar</a> <span class="cal-switch-on">&middot; Kids</span></div>
   </div>
   <div class="tb-meta">
     <div id="refreshDate"></div>

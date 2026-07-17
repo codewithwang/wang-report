@@ -12,6 +12,7 @@
 <meta property="og:image" content="https://wangreport.com/img/og-default.png">
 <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
 <script>
@@ -44,10 +45,11 @@
   .nav-desks .nav-desk-active { color: #B0241E; font-weight: bold; }
 
   .masthead { text-align: center; padding: 30px 16px 8px; }
-  .wordmark { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold;
-    letter-spacing: 5px; color: #222; text-transform: uppercase; }
+  .wordmark { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-size: 36px;
+    font-weight: 900; letter-spacing: 2px; color: #0B1F3A; text-transform: uppercase; }
   .wordmark a { text-decoration: none; }
-  .dateline { font-style: italic; font-size: 13px; color: #999; margin-top: 6px; }
+  .dateline { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px; color: #999; margin-top: 6px; }
 
   /* One shared rule spanning all three columns, rails and feed hang from it. */
   .rulebar { max-width: 652px; margin: 0 auto; padding: 0 16px; }
@@ -122,6 +124,9 @@
   .zh { font-size: 13px; color: #888; letter-spacing: 3px; margin-left: 6px; }
   .role { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
     letter-spacing: 2px; color: #cc0000; text-transform: uppercase; }
+  .take-stamp { display: block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 1.5px; color: #8a7a55; text-transform: uppercase; margin-bottom: 8px; }
+  .cta-2nd { margin-left: 14px; color: #888; }
 
   .headline { display: block; font-size: 24px; line-height: 1.25; color: #111;
     text-decoration: none; margin-bottom: 10px; }
@@ -173,6 +178,7 @@
     margin-top: 40px; letter-spacing: 1px; }
   .foot a { color: #888; }
   @media (max-width: 480px) {
+    .wordmark { font-size: 22px; letter-spacing: 1px; }
     .headline { font-size: 21px; }
     .hero .headline { font-size: 25px; }
     .face { width: 64px; height: 64px; }
@@ -205,7 +211,7 @@
 </head>
 <body>
 <div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
 <header class="masthead">
   <div class="wordmark"><a href="index.html">The Wang Report</a></div>
   <div class="dateline">Friday, July 17, 2026 · Hong Kong</div>
@@ -309,10 +315,11 @@
       <span class="role">Geopolitical Desk, Occasional Contributor</span>
     </div>
   </div>
-  <a class="headline" href="/geopolitical-column/2026-07-13-vincent-lai.html">CNY800bn: The Freeze That Made The Widening Possible</a>
-  <p class="dek">Beijing's July 7 package reads as capital account liberalization only if you ignore the two-year retail brokerage freeze it completed the same week.</p>
+  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 17</span>
+  <a class="headline" href="/briefings/2026-07-17-geopolitical-ledger.html">Beijing's response to the trilateral South China Sea rejection was a shrug.</a>
+  <p class="dek">Its response to what Yahoo's satellite imagery shows in the northwest, ranges built to the footprint of the Presidential Office Building and full-scale US destroyer mockups, was to keep building.  The two events sit on different desks.</p>
   
-  <div class="actions"><a class="cta" href="/geopolitical-column/2026-07-13-vincent-lai.html">Read Vincent's column &rarr;</a></div>
+  <div class="actions"><a class="cta" href="/briefings/2026-07-17-geopolitical-ledger.html">Read Vincent's take &rarr;</a><a class="cta cta-2nd" href="/geopolitical-column/2026-07-13-vincent-lai.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Vincent is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMi8gFBVV95cUxNNURWM1JzeGNRa01OV282LW50NklfcEV2UDRISVNCZFhtQ3RoSnkzWFpqejh2WGZWa1d2VkliXzdoTkNiY3FjUjFyRkZ1SDNWVHNpclhRMVNxc1RjQlpjMjA2d3pRVGNsVVVDU2RIeXRtajNsTkVZQzZzU0tQLWhySWN6bGw5OVY1NjFOY1poZUdpRnpwV0dUSDkzcU9HM2dta0xJRzA1Z01ZNnFUXzFMcFA0YWFrNG5sbzNyWWwySldyYWg0Q29vMWVtcDQzT25PR3ZvRFI2aGZyR0dUWjcyZ0RsX2VRVFBhWFhQQmJrZmZ1dw?oc=5" target="_blank" rel="noopener"><span class="w-title">Market outlook: beyond the chokepoint: how the Middle East conflict is triggering a global energy reset - Energy Connects</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">Energy Connects</span></span></a>
@@ -329,10 +336,11 @@
       <span class="role">Geopolitical Desk, Senior Correspondent</span>
     </div>
   </div>
-  <a class="headline" href="/geopolitical-column/2026-07-13-mei-chen-2.html">The Statement Was Never For Beijing</a>
-  <p class="dek">The joint statement rejecting China's maritime claims was addressed to Beijing in form only; its real target is a Code of Conduct that Manila's own chairmanship cannot deliver.</p>
+  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 17</span>
+  <a class="headline" href="/briefings/2026-07-17-geopolitical.html">Iran's sixth night of strikes and Ukraine's cabinet purge have absorbed Washington's Asia desk this week, and Beijing has read the absence correctly.</a>
+  <p class="dek">Satellite imagery reviewed by Yahoo News shows People's Liberation Army training ranges in China's northwest built to the precise footprint of Taiwan's Presidential Office Building and full-scale mockups of US Navy destroyer hulls, targets built for…</p>
   
-  <div class="actions"><a class="cta" href="/geopolitical-column/2026-07-13-mei-chen-2.html">Read Mei's column &rarr;</a></div>
+  <div class="actions"><a class="cta" href="/briefings/2026-07-17-geopolitical.html">Read Mei's take &rarr;</a><a class="cta cta-2nd" href="/geopolitical-column/2026-07-13-mei-chen-2.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Mei is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNYWNHS3hzbW1ESlR5Nlo2dGVzV2ppUWYtUDNXYmpwWkdaeEpaa29fakN2MmpMQXdLOERnalpqSTlUZGlQUEJLV09LWmU1M2hOV185OGNfNjFYSWRNX09IdFp4TEpMMFJ6OWMtSkx2T2JQaURYZ1NtMzAxbE02cTA3WDdQVVh6UjB5X0tIemhlVldGSlMzMEUyWTBTcHEtUktOSGdXOQ?oc=5" target="_blank" rel="noopener"><span class="w-title">Philippines sees progress in South China Sea code talks, aims for 2026 deal - Crypto Briefing</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">Crypto Briefing</span></span></a>
@@ -349,10 +357,11 @@
       <span class="role">Cyber Intel Desk, Senior Correspondent</span>
     </div>
   </div>
-  <a class="headline" href="/cyber-column/2026-07-13-kai-tanner.html">Hong Kong's Passkey Mandate Is a Market Filter</a>
-  <p class="dek">SFC Circular 26EC35 reads as a phishing fix, but its two-tier compliance clock will do more to reshape Hong Kong's 13 licensed platforms than any breach this year.</p>
+  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 17</span>
+  <a class="headline" href="/briefings/2026-07-17-cyber.html">Ransomware breach data for 2025 puts identity attacks ahead of exploited vulnerabilities as the leading root cause for the first time, and 97…</a>
+  <p class="dek">The MFA was present.  It did not hold.</p>
   <div class="lead-img"><img src="img/feed-lead/kai-tanner-470855e124.jpg" alt="" loading="lazy"></div>
-  <div class="actions"><a class="cta" href="/cyber-column/2026-07-13-kai-tanner.html">Read Kai's column &rarr;</a></div>
+  <div class="actions"><a class="cta" href="/briefings/2026-07-17-cyber.html">Read Kai's take &rarr;</a><a class="cta cta-2nd" href="/cyber-column/2026-07-13-kai-tanner.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Kai is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://www.bbc.com/future/article/20260715-how-period-trackers-share-womens-private-details" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-470855e124.jpg" alt="" loading="lazy"><span class="w-title">The privacy problems hidden in your period tracker</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">HackerNews</span></span></a>
@@ -397,10 +406,13 @@
       <span class="role">AI Desk, Senior Correspondent</span>
     </div>
   </div>
-  <a class="headline" href="/ai-focus-column/2026-07-13-aya-nakamura.html">SK Hynix's $26.5B Listing Bets on China's H200 Backlog</a>
-  <p class="dek">Beijing tightened its own AI model exports while easing Nvidia chip import caps, but the real constraint on China's AI buildout sits in Korean memory supply, not chip licenses.</p>
+  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 17</span>
+  <a class="headline" href="/briefings/2026-07-17-ai-focus.html">Apple Sues OpenAI: The Ex-Engineer Bug Was Timing, Not Novelty
+
+Apple's July 9 suit against OpenAI names a specific mechanism: a former Apple…</a>
+  <p class="dek">That's not an allegation about a stolen model or a copied training pipeline.  It's a claim about a person and a tool bug, which is a much narrower and more provable case than the sprawling &quot;OpenAI trained on our data&quot; suits that usually get filed against labs.</p>
   <div class="lead-img"><img src="img/feed-lead/aya-nakamura-2b7cf192ed.jpg" alt="" loading="lazy"></div>
-  <div class="actions"><a class="cta" href="/ai-focus-column/2026-07-13-aya-nakamura.html">Read Aya's column &rarr;</a></div>
+  <div class="actions"><a class="cta" href="/briefings/2026-07-17-ai-focus.html">Read Aya's take &rarr;</a><a class="cta cta-2nd" href="/ai-focus-column/2026-07-13-aya-nakamura.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Aya is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://huggingface.co/blog/nvidia/nemotron-3-embed-wins-rteb" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/aya-nakamura-2b7cf192ed.jpg" alt="" loading="lazy"><span class="w-title">NVIDIA Nemotron 3 Embed Ranks #1 Overall on RTEB, Advancing Agentic Retrieval</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">Hugging Face</span></span></a>
@@ -417,10 +429,11 @@
       <span class="role">HK Desk, Senior Correspondent</span>
     </div>
   </div>
-  <a class="headline" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">Hong Kong Will Rescue You, If You Weren't Working</a>
-  <p class="dek">Hong Kong airlifts hikers to hospital for free when the heat gets them, but the new gig-worker injury law won't cover a rider felled by the same heat.</p>
+  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 17</span>
+  <a class="headline" href="/briefings/2026-07-17-hk-desk.html">So the bookstore raids this week, five arrests, national security officers walking out with boxes of paperbacks.</a>
+  <p class="dek">Everyone's talking about it like it's a first.  It isn't.</p>
   <div class="lead-img"><img src="img/feed-lead/cheung-kwok-keung-15f6a9e2c3.jpg" alt="" loading="lazy"></div>
-  <div class="actions"><a class="cta" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">Read Cheung's column &rarr;</a></div>
+  <div class="actions"><a class="cta" href="/briefings/2026-07-17-hk-desk.html">Read Cheung's take &rarr;</a><a class="cta cta-2nd" href="/hk-local-column/2026-07-13-cheung-kwok-keung.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Cheung is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://news.rthk.hk/rthk/en/component/k2/1862483-20260716.htm" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/cheung-kwok-keung-15f6a9e2c3.jpg" alt="" loading="lazy"><span class="w-title">Hongkonger killed near NZ resort town in car crash</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">RTHK</span></span></a>
@@ -437,10 +450,11 @@
       <span class="role">Senior Correspondent</span>
     </div>
   </div>
-  <a class="headline" href="/sports-column/2026-07-13-dev-chatterjee.html">The $9.612 Billion Seahawks Sale That a Rounding Error Froze</a>
-  <p class="dek">This week sport's economics outran the referees meant to manage them, from World Cup ratings blowing past format critics to an NFL sale frozen by a rounding-error stake.</p>
+  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 17</span>
+  <a class="headline" href="/briefings/2026-07-17-sports.html">Sinner won Wimbledon without breaking form and Coco Gauff's team just proved that watching the world's top talent up close does not make you the…</a>
+  <p class="dek">But this week the biggest story wearing a jersey is Cleveland's own, sort of: LeBron James, 41 years old and somehow still the most valuable rumor in basketball, teasing his next stop and promising it'll be &quot;fun,&quot; while the Mavericks quietly get floated as…</p>
   
-  <div class="actions"><a class="cta" href="/sports-column/2026-07-13-dev-chatterjee.html">Read Dev's column &rarr;</a></div>
+  <div class="actions"><a class="cta" href="/briefings/2026-07-17-sports.html">Read Dev's take &rarr;</a><a class="cta cta-2nd" href="/sports-column/2026-07-13-dev-chatterjee.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Dev is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTUs4VE80VG1MelZyM1MzNEJ4SE5VNVQya1I2c2VSYkhXaGZtRWNkMGRNZjVJd3B3bGltQ2labjJMV2FZR0NwdFV4cXVTazBmYklvSUhtMy1URVAtOWxzNEJ3ZW1iNG5CdjRCM1BPQlF6VVR1alpxQmNnajlRblJQSDZPX3pSTzVLN2JmbmFsSzZPR3huOVlja0otMEtuUXBsWHhpRm1mRWdZODIyTG5xYWd0eTcyRXRvQ2FUcVZHY1NCcGM?oc=5" target="_blank" rel="noopener"><span class="w-title">2026 NFL trade tiers: Players worth Round 1 picks by team - ESPN</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">ESPN</span></span></a>
