@@ -57,8 +57,14 @@ a:hover{text-decoration:none}
 .event-row{padding:8px 0 8px 0;border-bottom:1px dotted var(--rule)}
 .event-row.past{opacity:0.45}
 .event-row.hidden{display:none}
+/* Distance fade: the further out the week group, the grayer the row. */
+.event-row.fade-1{opacity:0.92}
+.event-row.fade-2{opacity:0.8}
+.event-row.fade-3{opacity:0.68}
+.event-row.fade-4{opacity:0.55}
 .event-meta{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:2px}
 .event-cat{text-transform:lowercase;margin-right:8px}
+.event-ages{margin-left:8px;color:#7a6b45}
 .event-title{font-size:14px;font-weight:bold;line-height:1.4}
 .event-title a{color:var(--text);text-decoration:none}
 .event-title a:visited{color:#333}
@@ -79,6 +85,7 @@ a:hover{text-decoration:none}
 .ao-location{font-size:12px;color:var(--meta)}
 .ao-desc{font-size:12px;color:#444;margin-top:2px;line-height:1.45}
 .ao-cost{font-family:var(--mono);font-size:11px;color:#555}
+.ao-ages{font-family:var(--mono);font-size:10px;color:#7a6b45}
 .cal-wrap{font-family:var(--mono);font-size:12px;border:1px solid var(--border);display:inline-block;padding:8px 10px;margin-bottom:14px;background:#fffff8}
 .cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .cal-nav-btn{background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0 4px;font-size:13px}
@@ -120,7 +127,7 @@ a:hover{text-decoration:none}
       <div class="cal-switch">calendar: <span class="cal-switch-on">adults</span> &middot; <a href="/hkkidscalendar/">kids &rarr;</a></div>
     </div>
     <div style="text-align:right">
-      <div class="site-meta">Updated: Fri, 17 Jul 2026</div>
+      <div class="site-meta">Updated: Sat, 18 Jul 2026</div>
       <div class="site-meta">140 events in the next 8 weeks</div>
     </div>
   </div>
@@ -154,7 +161,7 @@ a:hover{text-decoration:none}
 <div id="events-list"></div>
 
 <div class="always-on">
-  <div class="week-header">&#9472;&#9472;&#9472; Always On &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
+  <div class="week-header">&#9472;&#9472;&#9472; Always On &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
   <div class="ao-grid" id="always-on-grid"></div>
 </div>
 
@@ -182,8 +189,8 @@ function fmt(d){
 function fmtRange(s,e){
   if(!e||e===s) return fmt(s);
   const [sy,sm]=s.split('-'), [ey,em]=e.split('-');
-  if(sm===em) return fmt(s)+'–'+parseInt(e.split('-')[2]);
-  return fmt(s)+'–'+fmt(e);
+  if(sm===em) return fmt(s)+'\u2013'+parseInt(e.split('-')[2]);
+  return fmt(s)+'\u2013'+fmt(e);
 }
 
 function weekLabel(date){
@@ -194,30 +201,29 @@ function weekLabel(date){
   if(diff<7) return 'This week';
   if(diff<14) return 'Next week';
   if(diff<21) return 'In 2 weeks';
-  if(diff<35) return 'In 3–4 weeks';
+  if(diff<35) return 'In 3\u20134 weeks';
   return 'Later';
 }
 
-const WEEK_ORDER=['This week','Next week','In 2 weeks','In 3–4 weeks','Later','Past'];
+const WEEK_ORDER=['This week','Next week','In 2 weeks','In 3\u20134 weeks','Later','Past'];
+// Distance fade: further-out week groups render grayer so near-term reads first.
+const WEEK_FADE={'This week':'','Next week':' fade-1','In 2 weeks':' fade-2','In 3\u20134 weeks':' fade-3','Later':' fade-4','Past':' past'};
 
 let activeCat='all';
-let activeDate=null; // YYYY-MM-DD or null
+let activeDate=null;
 
-// ── Mini Calendar ─────────────────────────────────────────────────────────────
 const DAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];
 let calYear=new Date().getFullYear();
 let calMonth=new Date().getMonth();
 
 function eventDatesSet(){
   const s=new Set();
-  // One-off events
   EVENTS.forEach(e=>{
     if(!e.startDate) return;
     const start=new Date(e.startDate+'T00:00:00');
     const end=e.endDate?new Date(e.endDate+'T00:00:00'):start;
     for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1)) s.add(d.toISOString().slice(0,10));
   });
-  // Recurring ALWAYS_ON venues: mark every matching weekday in horizon
   const horizon=new Date(TODAY+'T00:00:00');
   horizon.setDate(horizon.getDate()+56);
   ALWAYS_ON.forEach(a=>{
@@ -239,7 +245,6 @@ function renderCal(){
   let html='';
   DAYS.forEach(d=>{ html+='<div class="cal-dh">'+d+'</div>'; });
   const firstDay=new Date(calYear,calMonth,1);
-  // Monday-based offset (0=Mon … 6=Sun)
   let startOffset=(firstDay.getDay()+6)%7;
   for(let i=0;i<startOffset;i++) html+='<div class="cal-cell"></div>';
   const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
@@ -279,7 +284,6 @@ document.getElementById('cal-clear').addEventListener('click',function(){
   this.className='cal-clear';
 });
 renderCal();
-// ─────────────────────────────────────────────────────────────────────────────
 
 function render(){
   const filtered=EVENTS.filter(e=>{
@@ -291,7 +295,6 @@ function render(){
     return true;
   });
 
-  // When a date is selected, synthesise recurring ALWAYS_ON entries for that weekday
   if(activeDate){
     const dow=new Date(activeDate+'T00:00:00').getDay();
     ALWAYS_ON.forEach(a=>{
@@ -299,32 +302,31 @@ function render(){
       if(activeCat!=='all'&&a.category!==activeCat) return;
       filtered.push({
         title: a.title,
+        emoji: a.emoji,
         startDate: activeDate,
         endDate: null,
         time: 'Recurring',
         location: a.location,
         description: a.description,
         cost: a.cost,
+        ages: a.ages,
         registration: 'Walk-in / check website',
         category: a.category,
         url: a.url,
         _recurring: true,
       });
     });
-    // Hide the static always-on section when date is selected
     document.querySelector('.always-on').style.display='none';
   } else {
     document.querySelector('.always-on').style.display='';
   }
 
-  // Sort: upcoming first (by startDate), past last
   filtered.sort((a,b)=>{
     const ap=a.startDate<TODAY, bp=b.startDate<TODAY;
     if(ap!==bp) return ap?1:-1;
     return a.startDate.localeCompare(b.startDate);
   });
 
-  // Group by week label
   const groups={};
   for(const e of filtered){
     const wl=weekLabel(e.startDate);
@@ -340,22 +342,24 @@ function render(){
   for(const wk of WEEK_ORDER){
     const grp=groups[wk];
     if(!grp||grp.length===0) continue;
-    // Format week header with date range
     const firstDate=grp[0].startDate;
     const lastDate=grp[grp.length-1].startDate;
     let weekRange='';
-    if(firstDate!==lastDate) weekRange=' · '+fmt(firstDate)+'–'+fmt(lastDate);
-    html+='<div class="week-header">─── '+wk.toUpperCase()+weekRange+' ─────────────────────────</div>';
+    if(firstDate!==lastDate) weekRange=' \u00b7 '+fmt(firstDate)+'\u2013'+fmt(lastDate);
+    html+='<div class="week-header">\u2500\u2500\u2500 '+wk.toUpperCase()+weekRange+' \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500</div>';
+    const fade=WEEK_FADE[wk]||'';
     for(const e of grp){
       const isPast=(e.endDate||e.startDate)<TODAY;
       const cat=(e.category||'').toLowerCase();
       const dateStr=fmtRange(e.startDate,e.endDate);
-      const timeStr=e.time&&e.time!=='Various'&&e.time!=='All day'?' · '+e.time:'';
+      const timeStr=e.time&&e.time!=='Various'&&e.time!=='All day'?' \u00b7 '+e.time:'';
       const safeUrl=(e.url||'').replace(/&amp;/g,'&');
-      html+='<div class="event-row'+(isPast?' past':'')+'">';
+      const titleText=(e.emoji?e.emoji+' ':'')+e.title;
+      html+='<div class="event-row'+(isPast?' past':fade)+'">';
       const recurTag=e._recurring?' <span style="font-family:var(--mono);font-size:10px;color:var(--dim);border:1px solid var(--rule);padding:0 3px">recurring</span>':'';
-      html+='<div class="event-meta"><span class="event-cat">'+esc(cat)+'</span><span>'+esc(dateStr)+timeStr+'</span>'+recurTag+'</div>';
-      html+='<div class="event-title">'+(safeUrl?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(e.title)+'</a>':esc(e.title))+'</div>';
+      const agesTag=e.ages?'<span class="event-ages">ages '+esc(e.ages)+'</span>':'';
+      html+='<div class="event-meta"><span class="event-cat">'+esc(cat)+'</span><span>'+esc(dateStr)+timeStr+'</span>'+agesTag+recurTag+'</div>';
+      html+='<div class="event-title">'+(safeUrl?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(titleText)+'</a>':esc(titleText))+'</div>';
       html+='<div class="event-venue">'+esc(e.location||'')+'<span class="event-cost">'+esc(e.cost||'')+'</span></div>';
       if(e.description) html+='<div class="event-desc">'+esc(e.description)+'</div>';
       if(e.registration&&e.registration!=='Check website') html+='<div class="event-reg">'+esc(e.registration)+'</div>';
@@ -366,17 +370,18 @@ function render(){
   if(html==='') html='<div class="no-events">No events found for this filter.</div>';
   document.getElementById('events-list').innerHTML=html;
 
-  // Always On
   let aoHtml='';
-  const aoFiltered=activeCat==='all'?ALWAYS_ON:ALWAYS_ON.filter(a=>a.category===activeCat);
+  const aoFiltered=activeCat==='all'?ALWAYS_ON:ALWAYS_ON.filter(a=>!a.category||a.category===activeCat);
   for(const a of aoFiltered){
     const safeUrl=(a.url||'').replace(/&amp;/g,'&');
+    const aoTitle=(a.emoji?a.emoji+' ':'')+a.title;
     aoHtml+='<div class="ao-item">';
-    aoHtml+='<div class="ao-cat">'+esc((a.category||'').toLowerCase())+'</div>';
-    aoHtml+='<div class="ao-title">'+(safeUrl&&safeUrl!='#'?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(a.title)+'</a>':esc(a.title))+'</div>';
+    if(a.category) aoHtml+='<div class="ao-cat">'+esc(a.category.toLowerCase())+'</div>';
+    aoHtml+='<div class="ao-title">'+(safeUrl&&safeUrl!='#'?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(aoTitle)+'</a>':esc(aoTitle))+'</div>';
     aoHtml+='<div class="ao-location">'+esc(a.location||'')+'</div>';
     aoHtml+='<div class="ao-desc">'+esc(a.description||'')+'</div>';
     if(a.cost) aoHtml+='<div class="ao-cost">'+esc(a.cost)+'</div>';
+    if(a.ages) aoHtml+='<div class="ao-ages">ages '+esc(a.ages)+'</div>';
     aoHtml+='</div>';
   }
   if(aoFiltered.length===0) aoHtml='<div style="font-family:monospace;font-size:12px;color:#999;padding:8px 0">No always-on venues in this category.</div>';
