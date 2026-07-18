@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- R1 PROTOTYPE -- Cyber desk hub redesign, 2026-07-18. Preview only, never deployed.
+     Content is real: briefings/2026-07-18-cyber.html, cyber-column-latest.json,
+     cve-feed.json (2026-07-17), cyber-vendors-news.json (2026-07-18), cyber-news.json. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CYBER &middot; THE WANG REPORT</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── R1 hub layer. Everything else inherits from the shared style.css. ── */
+  a { color: inherit; }
+
+  /* Desk-tone experiment: faint cyber wash over the house bone. */
+  body { background: #F7F9F8; }
+
+  :root {
+    --cy: #1D5F5A;          /* deep teal -- cyber desk accent */
+    --cy-rule: #D3DEDA;     /* thin rules on the wash */
+  }
+
+  /* Light pulse-style score strip (replaces the dark navy ribbon). */
+  .pulse-bar { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+    letter-spacing: .04em; color: #444; padding: 6px 8px;
+    border-top: 2px solid var(--cy); border-bottom: 1px solid #C8C0B0;
+    max-width: min(1280px, 98vw); margin: 0 auto; }
+  .pulse-bar a { color: #0B1F3A; text-decoration: none; }
+  .pulse-bar a:hover { color: var(--cy); text-decoration: underline; }
+  .pulse-bar b { color: #B0241E; }
+  .pulse-bar .pv { color: var(--cy); font-weight: bold; }
+  .pb-sep { color: #b8c4c0; }
+  .pb-note { color: #96a49f; font-size: 9px; }
+  @media (max-width: 600px) { .pb-note { display: none; } }
+
+  .rulebar { max-width: 732px; margin: 0 auto; padding: 0 16px; }
+  .rule { border: none; border-top: 3px solid #000; margin: 12px 0 0; }
+  .rule-thin { border: none; border-top: 1px solid #ccc; margin: 3px 0 0; }
+
+  .hub { max-width: 732px; margin: 0 auto; padding: 0 16px 70px; }
+
+  /* Section heads -- the site's section-tag pattern, carried in desk teal. */
+  .hub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    border-bottom: 1px solid var(--cy-rule); padding-bottom: 6px; margin: 36px 0 4px; }
+  .desk-tag { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
+    letter-spacing: 2.5px; color: var(--cy); text-transform: uppercase; }
+  .hub-head-link { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 1.5px; text-transform: uppercase; color: #667; text-decoration: none; white-space: nowrap; }
+  .hub-head-link:hover { color: var(--cy); }
+
+  /* Daily take -- house .briefing-take family, teal accent instead of navy. */
+  .briefing-take { margin: 22px auto 0; border-top-color: var(--cy); background: #F1F5F4; max-width: none; }
+  .briefing-take-stamp { color: var(--cy); }
+  .briefing-take-avatar { background: var(--cy); }
+  .briefing-take-perma:hover { color: var(--cy); }
+
+  /* Weekly column card -- sitewide oxblood convention stays red. */
+  .front-col-teaser { margin: 14px auto 0; max-width: none; }
+
+  /* Watch-list -- homepage w-item list style, teal hover. */
+  .w-list { border-left: 2px solid var(--cy); }
+  .w-item { display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 14px;
+    text-decoration: none; border-bottom: 1px solid #e8eeec; }
+  .w-item:last-child { border-bottom: none; }
+  .w-item:hover .w-title { color: var(--cy); }
+  .w-title { flex: 1; min-width: 0; font-size: 14.5px; line-height: 1.45; color: #222; }
+  .w-meta { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+  .w-src { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; color: #999; text-transform: uppercase; }
+  .w-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: #b6beba; }
+
+  /* CVE Spotlight -- light rows, Courier data voice, plain-text markers. */
+  .cve-row { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0;
+    border-bottom: 1px solid #e8eeec; }
+  .cve-row:last-child { border-bottom: none; }
+  .cve-sev { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
+    min-width: 84px; padding-top: 2px; }
+  .cve-sev-crit { color: #B0241E; }
+  .cve-sev-un { color: #667; }
+  .cve-title { font-size: 14.5px; line-height: 1.4; color: #222; text-decoration: none; display: block; }
+  a.cve-title:hover { color: var(--cy); }
+  .cve-meta { font-family: 'Courier New', Courier, monospace; font-size: 10px; color: #96a49f; margin-top: 2px; }
+  .cve-meta b { color: var(--cy); font-weight: bold; }
+  .cve-foot { font-family: 'Courier New', Courier, monospace; font-size: 9px; color: #aab5b0;
+    margin-top: 10px; line-height: 1.5; }
+
+  /* Vendor Watch teaser -- one line per vendor. */
+  .vw-row { display: flex; align-items: baseline; gap: 12px; padding: 8px 0;
+    border-bottom: 1px solid #e8eeec; text-decoration: none; }
+  .vw-row:last-child { border-bottom: none; }
+  .vw-name { font-family: 'Courier New', Courier, monospace; font-size: 11px; font-weight: bold;
+    letter-spacing: .5px; color: var(--cy); min-width: 122px; flex-shrink: 0; }
+  .vw-line { flex: 1; min-width: 0; font-size: 14px; line-height: 1.45; color: #222; }
+  .vw-row:hover .vw-line { color: var(--cy); }
+  .vw-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: #b6beba; flex-shrink: 0; }
+
+  /* Desk index strip -- the hub's outbound surface, Courier voice. */
+  .desk-index { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+    font-weight: bold; letter-spacing: .04em; color: #444; padding: 8px 10px; margin-top: 40px;
+    border-top: 1px solid var(--cy); border-bottom: 1px solid var(--cy); }
+  .desk-index a { color: #0B1F3A; text-decoration: none; margin: 0 10px; white-space: nowrap; }
+  .desk-index a:hover { color: var(--cy); text-decoration: underline; }
+
+  @media (max-width: 700px) {
+    .hub { padding: 0 12px 60px; }
+    .w-meta { align-items: flex-end; }
+    .vw-row { flex-wrap: wrap; gap: 4px 12px; }
+    .vw-name { min-width: 0; }
+    .vw-date { display: none; }
+    .cve-sev { min-width: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-bar"><a href="https://wangreport.com/index.html" class="">Main</a> | <a href="https://wangreport.com/wire.html" class="">Wire</a> | <a href="https://wangreport.com/issue.html" class="">The Issue</a> | <a href="https://wangreport.com/masthead.html" class="">Masthead</a> | <a href="https://wangreport.com/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="https://wangreport.com/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="https://wangreport.com/stocks.html" class="nav-desk-link">Stocks</a><a href="https://wangreport.com/cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="https://wangreport.com/ai-radar.html" class="nav-desk-link">AI Radar</a><a href="https://wangreport.com/dads.html" class="nav-desk-link">Dads</a><a href="https://wangreport.com/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+
+<header>
+  <div class="masthead">CYBER</div>
+  <div class="subhead">THE WANG REPORT &middot; Saturday, July 18, 2026 &middot; HONG KONG</div>
+  <div class="pulse-bar">
+    <span class="desk-tag">Cyber Intel</span><span class="pb-sep"> | </span>
+    <a href="https://wangreport.com/cve/">INDEX <b>60</b> ELEVATED</a><span class="pb-sep"> | </span>
+    <span>KEV 7D <span class="pv">8</span></span><span class="pb-sep"> | </span>
+    <span>CRIT/HIGH <span class="pv">71%</span></span><span class="pb-sep"> | </span>
+    <span>APAC-FSI <span class="pv">4%</span></span><span class="pb-sep"> | </span>
+    <span>EPSS HEAT <span class="pv">66</span></span><span class="pb-sep"> | </span>
+    <span class="pb-note">NVD + CISA KEV &middot; 250 CVEs</span>
+  </div>
+</header>
+<div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
+
+<main class="hub">
+
+  <!-- 1 · The desk correspondent's daily take, lead position -->
+  <div class="briefing-take">
+    <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
+    <div class="briefing-take-head">
+      <div class="briefing-take-avatar has-photo"><img src="https://wangreport.com/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
+      <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Jul 18</span></div>
+    </div>
+    <div class="briefing-take-body">
+      <p>Fortinet's advisory names two vulnerabilities in FortiSandbox and calls them &quot;actively exploited.&quot; CISA's emergency directive, issued the same week, gives federal civilian agencies until Sunday to patch, a compression normally reserved for flaws already sitting in a known exploit chain rather than freshly disclosed ones. FortiSandbox sits inline on the inspection path for file detonation, which means a working exploit there does not just compromise a box, it blinds the control the network was relying on to catch the next stage. The two-day window says CISA has telemetry on active use it has not detailed publicly.</p>
+      <p>The precedent is FortiOS SSL-VPN in 2023 and 2024, where Fortinet's own disclosures consistently trailed exploitation by weeks, and organizations patching on Fortinet's calendar rather than CISA's ended up remediating intrusions instead of vulnerabilities. FortiSandbox deployments in Hong Kong's banking sector fall under HKMA's incident-notification rules the moment exploitation is confirmed rather than suspected, and the operative control here is not the patch, which lands after compromise, but whether SOC teams flagged FortiSandbox as a detonation-path asset in their exposure inventory before this week. Assets tagged that way get isolated by Sunday, July 20. Assets that weren't get discovered during incident response.</p>
+    </div>
+    <div class="briefing-take-note">Weak. The piece asserts CISA has undisclosed telemetry on active use from the two-day window alone, but a compressed deadline is consistent with policy default for inline detonation-path assets, not proof of hidden evidence. Separate what the directive proves from what it implies, or drop the inference. <span class="briefing-take-note-by">-- WR</span></div>
+    <a href="https://wangreport.com/briefings/2026-07-18-cyber.html" class="briefing-take-perma">Permalink &rarr;</a>
+  </div>
+
+  <!-- Latest weekly column card -->
+  <div class="front-col-teaser">
+    <div class="front-col-eyebrow"><span class="front-col-stamp">From the Cyber Desk</span> <span class="front-col-stamp-sep">&middot;</span> <span class="front-col-desk">Weekly Column</span></div>
+    <div class="front-col-body">
+      <div class="front-col-avatar"><img src="https://wangreport.com/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
+      <div class="front-col-text">
+        <a href="https://wangreport.com/cyber-column/2026-07-13-kai-tanner.html" class="front-col-title">Hong Kong's Passkey Mandate Is a Market Filter</a>
+        <div class="front-col-deck">SFC Circular 26EC35 reads as a phishing fix, but its two-tier compliance clock will do more to reshape Hong Kong's 13 licensed platforms than any breach this year.</div>
+        <div class="front-col-byline">By <strong>Kai Tanner</strong><span class="front-col-role">Cyber Intel Desk, Senior Correspondent</span><span class="front-col-date">Mon, Jul 13</span></div>
+      </div>
+    </div>
+    <div class="front-col-actions">
+      <a href="https://wangreport.com/cyber-column/2026-07-13-kai-tanner.html" class="front-col-cta">Read the column &rarr;</a>
+      <a href="https://wangreport.com/columns.html" class="front-col-more">All columns</a>
+    </div>
+  </div>
+
+  <!-- 2 · Curated watch-list -->
+  <div class="hub-head">
+    <span class="desk-tag">The Watch-List</span>
+    <a class="hub-head-link" href="https://wangreport.com/wire.html">Full wire &rarr;</a>
+  </div>
+  <div class="w-list">
+    <a class="w-item" href="https://www.bleepingcomputer.com/news/security/cisa-warns-feds-to-patch-exploited-fortinet-fortisandbox-flaws-by-sunday/" target="_blank" rel="noopener"><span class="w-title">CISA Orders Emergency Patch On Exploited Fortinet Flaws</span><span class="w-meta"><span class="w-src">BleepingComputer</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" target="_blank" rel="noopener"><span class="w-title">Inc Ransomware Chains SonicWall Zero-Days For Root Access</span><span class="w-meta"><span class="w-src">Dark Reading</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/" target="_blank" rel="noopener"><span class="w-title">New Windows Zero-Day Hands Hackers Admin On Patched Systems</span><span class="w-meta"><span class="w-src">BleepingComputer</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" target="_blank" rel="noopener"><span class="w-title">Unauthenticated Code Execution Flaw Hits Core WordPress</span><span class="w-meta"><span class="w-src">The Hacker News</span><span class="w-date">Jul 18</span></span></a>
+    <a class="w-item" href="https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html" target="_blank" rel="noopener"><span class="w-title">DigiCert Breach Tied To Code-Signing Certificate Theft Group</span><span class="w-meta"><span class="w-src">The Hacker News</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank" rel="noopener"><span class="w-title">Ernst &amp; Young Discloses Breach After Support Desk Hack</span><span class="w-meta"><span class="w-src">BleepingComputer</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://thehackernews.com/2026/07/north-korea-linked-hackers-hide.html" target="_blank" rel="noopener"><span class="w-title">North Korean Hackers Hide Malware In Fake Coding Tests</span><span class="w-meta"><span class="w-src">The Hacker News</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://thehackernews.com/2026/07/eu-orders-google-to-open-android-mic.html" target="_blank" rel="noopener"><span class="w-title">EU Forces Google To Open Android Mic And Camera To Rivals</span><span class="w-meta"><span class="w-src">The Hacker News</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html" target="_blank" rel="noopener"><span class="w-title">New Botnet Hunts Exposed AI Services For Cloud Keys</span><span class="w-meta"><span class="w-src">The Hacker News</span><span class="w-date">Jul 17</span></span></a>
+    <a class="w-item" href="https://www.darkreading.com/threat-intelligence/1m-emails-hidden-text-dupe-ai-security-filters" target="_blank" rel="noopener"><span class="w-title">Over A Million Phishing Emails Use Hidden Text To Fool AI Filters</span><span class="w-meta"><span class="w-src">Dark Reading</span><span class="w-date">Jul 16</span></span></a>
+  </div>
+
+  <!-- 3 · CVE Spotlight (light) -->
+  <div class="hub-head">
+    <span class="desk-tag">CVE Spotlight</span>
+    <a class="hub-head-link" href="https://wangreport.com/cve/">Full feed &rarr;</a>
+  </div>
+  <div class="cve-row">
+    <span class="cve-sev cve-sev-crit">CRIT 9.1</span>
+    <div style="flex:1;min-width:0;">
+      <a class="cve-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">Fortinet FortiSandbox OS Command Injection</a>
+      <div class="cve-meta">CVE-2026-25089 &middot; <b>KEV</b> listed Jul 16 &middot; EPSS 36% &middot; patch deadline Sun, Jul 20</div>
+    </div>
+  </div>
+  <div class="cve-row">
+    <span class="cve-sev cve-sev-crit">CRIT 9.1</span>
+    <div style="flex:1;min-width:0;">
+      <a class="cve-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-0257" target="_blank" rel="noopener">Palo Alto Networks PAN-OS Authentication Bypass</a>
+      <div class="cve-meta">CVE-2026-0257 &middot; <b>KEV</b> listed May 29 &middot; EPSS 87%</div>
+    </div>
+  </div>
+  <div class="cve-row">
+    <span class="cve-sev cve-sev-un">UNSCORED</span>
+    <div style="flex:1;min-width:0;">
+      <a class="cve-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-10520" target="_blank" rel="noopener">Ivanti Sentry OS Command Injection</a>
+      <div class="cve-meta">CVE-2026-10520 &middot; <b>KEV</b> listed Jun 11 &middot; EPSS 99%</div>
+    </div>
+  </div>
+  <div class="cve-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated daily.</div>
+
+  <!-- 4 · Vendor Watch teaser -->
+  <div class="hub-head">
+    <span class="desk-tag">Vendor Watch</span>
+    <a class="hub-head-link" href="https://wangreport.com/cyber-vendors.html">All 15 vendors &rarr;</a>
+  </div>
+  <a class="vw-row" href="https://wangreport.com/cyber-vendors.html">
+    <span class="vw-name">CyberArk</span>
+    <span class="vw-line">Palo Alto Networks Closes Acquisition of CyberArk</span>
+    <span class="vw-date">Jul 17</span>
+  </a>
+  <a class="vw-row" href="https://wangreport.com/cyber-vendors.html">
+    <span class="vw-name">Palo Alto</span>
+    <span class="vw-line">Q3 2026 Earnings: What CISOs Need to Know</span>
+    <span class="vw-date">Jul 17</span>
+  </a>
+  <a class="vw-row" href="https://wangreport.com/cyber-vendors.html">
+    <span class="vw-name">CrowdStrike</span>
+    <span class="vw-line">Buys Back XM Cyber Tech, Five Years After $700M Sale</span>
+    <span class="vw-date">Jul 17</span>
+  </a>
+  <a class="vw-row" href="https://wangreport.com/cyber-vendors.html">
+    <span class="vw-name">SailPoint</span>
+    <span class="vw-line">Executives Face Law Firm Probe Over Possible Securities Violations</span>
+    <span class="vw-date">Jul 17</span>
+  </a>
+
+  <!-- 5 · Desk index -->
+  <div class="desk-index">
+    <a href="https://wangreport.com/cyber-intel/">Cyber Scorecard</a> |
+    <a href="https://wangreport.com/cve/">CVE Feed</a> |
+    <a href="https://wangreport.com/cyber-vendors.html">Vendor Watch</a> |
+    <a href="https://wangreport.com/cyber-column.html">Column Archive</a>
+  </div>
+
+</main>
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="https://wangreport.com/editorial-standards.html">Editorial Standards</a>.</div>
+<div class="footer">
+  THE WANG REPORT &copy; 2026
+  <br>
+  <a href="https://wangreport.com/index.html">Main</a> &middot; <a href="https://wangreport.com/wire.html">Wire</a> &middot; <a href="https://wangreport.com/issue.html">The Issue</a> &middot; <a href="https://wangreport.com/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="https://wangreport.com/geopolitical.html">Geopolitical</a> &middot; <a href="https://wangreport.com/hk-finance.html">Finance &amp; Risk</a> &middot; <a href="https://wangreport.com/cyber.html">Cyber</a> &middot; <a href="https://wangreport.com/ai-focus.html">AI</a> &middot; <a href="https://wangreport.com/hk-local.html">HK Local</a> &middot; <a href="https://wangreport.com/sports.html">Sports</a> &middot; <a href="https://wangreport.com/life.html">Life</a></span>
+  <br>
+  <a href="https://wangreport.com/about.html">About</a> | <a href="https://wangreport.com/editorial-standards.html">Editorial Standards</a> | <a href="https://wangreport.com/privacy.html">Privacy</a>
+</div>
+
+</body>
+</html>

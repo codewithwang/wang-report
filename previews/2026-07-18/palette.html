@@ -1,0 +1,66 @@
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Wang Report -- Color Scheme</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background:#F9F8F6; color:#0B1F3A; font-family: Spectral, Georgia, serif; max-width:860px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-family:'Playfair Display', Georgia, serif; font-size:34px; margin:0 0 6px; }
+  .sub { font-family:Arial, sans-serif; font-size:12px; color:#5A6470; letter-spacing:1px; text-transform:uppercase; margin-bottom:36px; }
+  h2 { font-family:'Playfair Display', Georgia, serif; font-size:22px; border-top:2px solid #0B1F3A; padding-top:14px; margin:44px 0 6px; }
+  p.note { font-size:15px; line-height:1.7; color:#333; margin:8px 0 20px; }
+  .row { display:flex; flex-wrap:wrap; gap:14px; }
+  .sw { width:150px; }
+  .chipbox { height:64px; border:1px solid #C8C0B0; }
+  .sw .name { font-family:Arial, sans-serif; font-size:12px; font-weight:bold; margin-top:6px; }
+  .sw .hex { font-family:'Courier New', monospace; font-size:12px; color:#5A6470; }
+  .sw .use { font-family:Arial, sans-serif; font-size:11px; color:#5A6470; line-height:1.5; margin-top:2px; }
+  .desk { display:flex; align-items:stretch; border:1px solid #C8C0B0; margin-bottom:10px; }
+  .desk .bar { width:10px; flex:none; }
+  .desk .body { flex:1; padding:12px 16px; }
+  .desk .tag { font-family:Arial, sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; }
+  .desk .demo { font-size:15px; margin-top:4px; }
+  .desk .hexes { font-family:'Courier New', monospace; font-size:11px; color:#5A6470; margin-top:4px; }
+</style>
+
+<h1>The Wang Report</h1>
+<div class="sub">Color scheme proposal -- Stamp &amp; Ink -- 2026-07-18</div>
+
+<p class="note">The scheme already lives in the logo and the best pages: a bone paper ground,
+ink navy for words, and one red, the seal red of a Chinese chop, spent sparingly.
+This page codifies it so every page draws from the same five colors, and adds a
+quiet per-desk tone so you can feel which desk you are on without the site
+breaking into nine brands.</p>
+
+<h2>Core -- the whole site uses only these</h2>
+<div class="row">
+  <div class="sw"><div class="chipbox" style="background:#F9F8F6"></div><div class="name">Bone</div><div class="hex">#F9F8F6</div><div class="use">Page ground. Never pure white.</div></div>
+  <div class="sw"><div class="chipbox" style="background:#0B1F3A"></div><div class="name">Ink</div><div class="hex">#0B1F3A</div><div class="use">Text, rules, nameplate.</div></div>
+  <div class="sw"><div class="chipbox" style="background:#B0241E"></div><div class="name">Seal Red</div><div class="hex">#B0241E</div><div class="use">The one accent. Section tags, hot stories, the chop.</div></div>
+  <div class="sw"><div class="chipbox" style="background:#C8C0B0"></div><div class="name">Warm Rule</div><div class="hex">#C8C0B0</div><div class="use">Hairlines, borders, dividers.</div></div>
+  <div class="sw"><div class="chipbox" style="background:#F0EFED"></div><div class="name">Panel</div><div class="hex">#F0EFED</div><div class="use">Quiet boxes, pulled quotes.</div></div>
+  <div class="sw"><div class="chipbox" style="background:#5A6470"></div><div class="name">Slate</div><div class="hex">#5A6470</div><div class="use">Bylines, dates, captions. Floor for any gray text.</div></div>
+</div>
+
+<p class="note" style="margin-top:24px">Rules that come with it: the site is light, no dark panels anywhere.
+Seal red is rationed, if everything is red nothing is. Grays never drop below
+slate for reading text. The dark navy score ribbons die in the desk-hub redesign.</p>
+
+<h2>Desk tones -- so each desk feels like its own room</h2>
+<p class="note">Each desk keeps the core scheme and adds one muted accent, used only for its
+section tags, score strip, and link hovers, plus a barely-there wash on the page
+ground. Same paper, different ink in the stamp pad. HK Local keeps the seal red
+itself, the city is the home desk.</p>
+
+<div class="desk" style="background:#F7F9F8"><div class="bar" style="background:#1D5F5A"></div><div class="body"><span class="tag" style="color:#1D5F5A">Cyber</span><div class="demo">Deep teal. Terminal green's grown-up cousin.</div><div class="hexes">accent #1D5F5A · wash #F7F9F8</div></div></div>
+<div class="desk" style="background:#FAF7F6"><div class="bar" style="background:#6B2430"></div><div class="body"><span class="tag" style="color:#6B2430">Geopolitical</span><div class="demo">Oxblood. Old atlases and embassy leather.</div><div class="hexes">accent #6B2430 · wash #FAF7F6</div></div></div>
+<div class="desk" style="background:#F7F9F7"><div class="bar" style="background:#1E5C46"></div><div class="body"><span class="tag" style="color:#1E5C46">Finance &amp; Risk</span><div class="demo">Bottle green. Ledger paper and banker's lamps.</div><div class="hexes">accent #1E5C46 · wash #F7F9F7</div></div></div>
+<div class="desk" style="background:#F8F7FA"><div class="bar" style="background:#3E356B"></div><div class="body"><span class="tag" style="color:#3E356B">AI</span><div class="demo">Indigo. The only cool desk, on purpose.</div><div class="hexes">accent #3E356B · wash #F8F7FA</div></div></div>
+<div class="desk" style="background:#F9F8F6"><div class="bar" style="background:#B0241E"></div><div class="body"><span class="tag" style="color:#B0241E">HK Local</span><div class="demo">The seal red itself. Home desk, home color.</div><div class="hexes">accent #B0241E · wash: bone</div></div></div>
+<div class="desk" style="background:#FAF8F5"><div class="bar" style="background:#A05A1F"></div><div class="body"><span class="tag" style="color:#A05A1F">Sports</span><div class="demo">Burnt sienna. Clay courts and race dirt.</div><div class="hexes">accent #A05A1F · wash #FAF8F5</div></div></div>
+<div class="desk" style="background:#FAF9F5"><div class="bar" style="background:#8A6D1F"></div><div class="body"><span class="tag" style="color:#8A6D1F">Life</span><div class="demo">Ochre. Sunday morning color.</div><div class="hexes">accent #8A6D1F · wash #FAF9F5</div></div></div>
+<div class="desk" style="background:#F7F8FA"><div class="bar" style="background:#2F5570"></div><div class="body"><span class="tag" style="color:#2F5570">Science</span><div class="demo">Slate blue. Chalkboards, not neon.</div><div class="hexes">accent #2F5570 · wash #F7F8FA</div></div></div>
+
+<h2>Where you'll see it first</h2>
+<p class="note">The Cyber hub prototype in this same folder wears the teal treatment. If the
+family feels right, the desk-hub rollout carries one tone to each desk and the
+calendars pick up the core scheme in place of their current grays.</p>

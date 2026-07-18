@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How The Wang Report Is Made · THE WANG REPORT</title>
+  <meta name="description" content="The Wang Report's editorial pipeline, shown plainly: how the desks write, the gates that judge every piece, where pieces die, and what is human versus machine.">
+  <link rel="stylesheet" href="style.css">
+<style>
+  .him-nav { border-bottom: 1px solid #C8C0B0; }
+
+  .him-wrap { max-width: 720px; margin: 0 auto; padding: 30px 20px 60px; font-family: Spectral, Georgia, 'Times New Roman', serif; }
+  .him-wrap h1 { font-family: Arial, sans-serif; font-size: 18px; letter-spacing: 2px; border-bottom: 2px solid #0B1F3A; padding-bottom: 8px; color: #0B1F3A; margin: 0 0 6px; }
+  .him-updated { font-size: 12px; color: #888; font-style: italic; margin: 0 0 18px; }
+  .him-wrap h2 { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 1.5px; margin: 36px 0 10px; color: #333; text-transform: uppercase; }
+  .him-wrap p { font-size: 14.5px; line-height: 1.75; color: #222; margin: 12px 0; }
+  .him-wrap a { color: #B0241E; }
+
+  /* ── Flow diagram ── */
+  .him-flow { max-width: 560px; margin: 28px auto 8px; }
+
+  .him-node { background: #fff; border: 1px solid #C8C0B0; border-top: 3px solid #0B1F3A; padding: 14px 18px 13px; }
+  .him-node-title { font-family: Spectral, Georgia, serif; font-size: 16px; font-weight: 700; color: #0B1F3A; margin-bottom: 5px; }
+  .him-node-title .him-zh { font-weight: 400; color: #888; font-size: 13px; letter-spacing: 2px; margin-left: 8px; }
+  .him-node-text { font-size: 13.5px; line-height: 1.65; color: #333; }
+  .him-node--gate { border-top-color: #B0241E; }
+  .him-node--walter { border-top-color: #0B1F3A; border-width: 1px 1px 1px 1px; border-top-width: 3px; background: #F0EFED; }
+  .him-gate-tag { font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; display: block; margin-bottom: 4px; }
+
+  /* Two lanes inside the desks node */
+  .him-lanes { display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+  .him-lane { flex: 1 1 200px; min-width: 0; border-left: 2px solid #C8C0B0; padding-left: 12px; }
+  .him-lane-title { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #0B1F3A; text-transform: uppercase; margin-bottom: 4px; }
+  .him-lane-text { font-size: 13px; line-height: 1.6; color: #333; }
+
+  /* Vertical connector with arrowhead */
+  .him-connector { display: flex; flex-direction: column; align-items: center; padding: 2px 0; }
+  .him-connector-line { width: 0; height: 22px; border-left: 2px solid #0B1F3A; }
+  .him-connector-arrow { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #0B1F3A; }
+
+  /* Kill / hold branch: elbow off to the right, below the gate it exits from */
+  .him-branch { display: flex; align-items: stretch; margin: 0 0 0 8%; }
+  .him-branch-elbow { flex: 0 0 26px; border-left: 2px dashed #B0241E; border-bottom: 2px dashed #B0241E; margin-bottom: 14px; min-height: 26px; }
+  .him-branch-card { flex: 1; min-width: 0; margin-top: 12px; background: #FAF6F2; border: 1px dashed #B0241E; padding: 10px 14px; }
+  .him-branch-label { font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .him-branch-text { font-size: 12.5px; line-height: 1.6; color: #444; font-style: italic; }
+
+  .him-gates-note { font-size: 13px; font-style: italic; color: #555; text-align: center; margin: 20px auto 6px; max-width: 480px; line-height: 1.6; }
+
+  @media (max-width: 600px) {
+    .him-wrap { padding: 22px 14px 48px; }
+    .him-branch { margin-left: 4%; }
+    .him-lanes { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="him-nav"><div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div><nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
+
+<div class="him-wrap">
+
+  <h1>HOW THE WANG REPORT IS MADE</h1>
+  <p class="him-updated">Last updated: July 2026</p>
+
+  <p>The Wang Report is produced by an editorial pipeline. Correspondents draft, a fixed sequence of editorial gates judges what they file, and an editor-in-chief layer reads the day and the week whole. The <a href="masthead.html">Masthead</a> says plainly that the correspondents are authored personas and that the work under their bylines is produced by AI under human editorial direction. This page shows how that direction actually operates.</p>
+
+  <p>We publish it because the honest version of an AI publication is not a disclaimer, it is a diagram. What follows is the pipeline as it runs, in order, including the places where a piece dies.</p>
+
+  <div class="him-flow">
+
+    <div class="him-node">
+      <div class="him-node-title">The day's news</div>
+      <div class="him-node-text">Wire services and regional outlets are read through the day and ranked into each desk's feed. Every piece starts from sourced public reporting, not from a blank page.</div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node">
+      <div class="him-node-title">The desks write</div>
+      <div class="him-lanes">
+        <div class="him-lane">
+          <div class="him-lane-title">Daily takes</div>
+          <div class="him-lane-text">A senior correspondent files a short read on the day's news for their beat, on a weekday rotation.</div>
+        </div>
+        <div class="him-lane">
+          <div class="him-lane-title">Weekly columns</div>
+          <div class="him-lane-text">Long-form analysis built on a verified research brief. The desks with a comedic register work out the premise first, the take and the joke in one breath, before a word of the draft exists.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node him-node--gate">
+      <span class="him-gate-tag">Gate 1</span>
+      <div class="him-node-title">Boredom gate</div>
+      <div class="him-node-text">The first judge. It never edits a word; it asks one question: would a busy reader be glad to have read this? A competent summary with a point of view on nothing fails.</div>
+    </div>
+
+    <div class="him-branch">
+      <div class="him-branch-elbow"></div>
+      <div class="him-branch-card">
+        <span class="him-branch-label">Sent back</span>
+        <div class="him-branch-text">A dull draft cannot be polished into an interesting one. The writer comes at the story again, from a sharper angle, before it re-enters the line.</div>
+      </div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node him-node--gate">
+      <span class="him-gate-tag">Gate 2</span>
+      <div class="him-node-title">Critic pass</div>
+      <div class="him-node-text">A line editor reads the draft against the house rule stack and returns a numbered punch list: quote the fault, name the rule, state the fix. The writer applies exactly those edits and nothing else. A clean draft passes untouched.</div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node him-node--gate">
+      <span class="him-gate-tag">Gate 3</span>
+      <div class="him-node-title">Fact audit</div>
+      <div class="him-node-text">Every load-bearing specific, the names, numbers, dates, and regulations, is checked against the source material the piece was written from. Anything unsupported is rewritten to the general true form or cut. Nothing is ever replaced with an invented specific, and listed sources can only come from the material itself.</div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node him-node--gate">
+      <span class="him-gate-tag">Gate 4</span>
+      <div class="him-node-title">Sensitivity review</div>
+      <div class="him-node-text">The only gate that can stop a piece outright. It judges register around human cost and publication risk. Most pieces pass. Some are revised in place. A held piece does not publish until a human editor has read it and signed off.</div>
+    </div>
+
+    <div class="him-branch">
+      <div class="him-branch-elbow"></div>
+      <div class="him-branch-card">
+        <span class="him-branch-label">Held</span>
+        <div class="him-branch-text">The piece leaves the pipeline and waits for the editor. Some held pieces run later, revised. Some never run.</div>
+      </div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node him-node--gate">
+      <span class="him-gate-tag">Gate 5</span>
+      <div class="him-node-title">Final checks</div>
+      <div class="him-node-text">A programmatic pass for house invariants before anything ships. No judgment here, just the checklist.</div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node him-node--walter">
+      <div class="him-node-title">Walter Wang<span class="him-zh">王 凱 然</span></div>
+      <div class="him-node-text">Editor-in-Chief. The synthesis layer. He reads every daily filing and adds a margin note only by exception; most filings ship without one, and the absence of a note is itself the note. Each morning he writes the Morning Synthesis, compressing the overnight cycle into one read. Each week he sets the steer for The Issue and writes its lead essay last, from the desks' fresh columns, so the edition opens with a view of what the week actually produced.</div>
+    </div>
+
+    <div class="him-connector"><div class="him-connector-line"></div><div class="him-connector-arrow"></div></div>
+
+    <div class="him-node">
+      <div class="him-node-title">Ship</div>
+      <div class="him-node-text">The site rebuilds on a rolling cycle through the day. The Morning Synthesis publishes at dawn Hong Kong time. The Issue publishes weekly.</div>
+    </div>
+
+  </div>
+
+  <p class="him-gates-note">The weekly columns run every gate in sequence. Daily filings run a shorter chain, but nothing on the site skips the sensitivity review.</p>
+
+  <h2>What is human, what is machine</h2>
+
+  <p>The machine does the drafting, the gate-running, the fact-checking against sources, and the layout. The human owns everything the machine is measured against: the editorial steer, the standards each gate enforces, the taste that decides what the publication sounds like, the corpus of past work each voice is held to, and the sign-off on every held piece.</p>
+
+  <p>The gates are not a substitute for an editor. They are how one editor's judgment is applied to every piece, every day, at the same standard. When a piece is held, a person decides. When the standard changes, a person changed it.</p>
+
+  <p>The bench itself, who writes what and in what voice, is on the <a href="masthead.html">Masthead</a>.</p>
+
+</div>
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
+  THE WANG REPORT &copy; 2026
+  <br>
+  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
+  <br>
+  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a>
+</div>
+
+</body>
+</html>
