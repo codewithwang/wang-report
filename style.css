@@ -569,6 +569,11 @@ a.td-link:hover { background: #232a3d; }
      - homepage daily-data strip                -> ticker-style--markets
    ============================================================ */
 .ticker-style {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    row-gap: 4px;
     text-align: center;
     font-family: "Courier New", Courier, monospace;
     font-size: 12px;
@@ -581,7 +586,14 @@ a.td-link:hover { background: #232a3d; }
     color: #0B1F3A;
     line-height: 1.6;
 }
-.ticker-style span { margin: 0 10px; white-space: nowrap; }
+/* Flex-wrap on the container (above) lets the strip break onto new rows once
+   it runs out of width instead of overflowing the page horizontally — a
+   real risk once a strip holds many items (e.g. the Stocks portfolio tape
+   with 15+ tickers). Nowrap stays scoped to each ticker cell so a single
+   "TICKER ▲ price %" chip never breaks mid-token; the separator dots and
+   label are short and safe to wrap. */
+.ticker-style span { margin: 0 10px; }
+.ticker-style [data-ticker] { white-space: nowrap; }
 .ticker-style__label {
     color: #B0241E;
     letter-spacing: 0.5px;
@@ -599,12 +611,7 @@ a.td-link:hover { background: #232a3d; }
 .ticker-style--climate .ticker-style__label  { color: #006600; }
 
 @media (max-width: 600px) {
-    .ticker-style {
-        font-size: 11px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    .ticker-style { font-size: 11px; }
     .ticker-style span { margin: 0 4px; }
     .ticker-style__label { margin-right: 6px !important; }
 }

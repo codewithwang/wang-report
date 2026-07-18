@@ -25,8 +25,13 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#fffff8;--text:#1a1a1a;--link:#0645ad;--visited:#663366;
-  --meta:#666;--dim:#999;--border:#ccc;--rule:#e0e0d8;--mono:'Courier New',Courier,monospace;
+  /* Palette nudged toward the site scheme (bone/ink/seal-red) 2026-07-18:
+     --text/--link now sit in the ink family instead of near-black/generic
+     blue; --meta/--dim now sit in the house muted family instead of
+     generic grays. --dim is also the hard contrast floor for the
+     "distance fade" below (see fade-N comment). */
+  --bg:#F9F8F6;--text:#0B1F3A;--link:#0B1F3A;--visited:#663366;
+  --meta:#5A6470;--dim:#8A8A85;--border:#C8C0B0;--rule:#e0e0d8;--mono:'Courier New',Courier,monospace;
 }
 html,body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.65}
 body{max-width:820px;margin:0 auto;padding:16px 18px 80px}
@@ -49,19 +54,22 @@ a:hover{text-decoration:none}
 .f-btn{display:inline;background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0;margin:0 4px 0 0;text-decoration:underline}
 .f-btn::before{content:'['}
 .f-btn::after{content:']'}
-.f-btn.active{color:#1a1a1a;font-weight:bold;text-decoration:none}
+.f-btn.active{color:#B0241E;font-weight:bold;text-decoration:none}
 .f-btn:hover{color:#333}
 #count-line{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:10px}
-.week-header{font-family:var(--mono);font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:#333;
+.week-header{font-family:var(--mono);font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--text);
   border-top:1px solid var(--border);margin:18px 0 8px;padding-top:6px}
 .event-row{padding:8px 0 8px 0;border-bottom:1px dotted var(--rule)}
-.event-row.past{opacity:0.45}
+.event-row.past{opacity:0.87}
 .event-row.hidden{display:none}
-/* Distance fade: the further out the week group, the grayer the row. */
-.event-row.fade-1{opacity:0.92}
-.event-row.fade-2{opacity:0.8}
-.event-row.fade-3{opacity:0.68}
-.event-row.fade-4{opacity:0.55}
+/* Distance fade: the further out the week group, the grayer the row.
+   Floor raised 2026-07-18 so the palest tier never renders lighter than
+   --dim (#8A8A85) on the --bg (#F9F8F6) page, dates were reading as
+   near-invisible at the old 0.55/0.68 opacities. */
+.event-row.fade-1{opacity:0.97}
+.event-row.fade-2{opacity:0.93}
+.event-row.fade-3{opacity:0.90}
+.event-row.fade-4{opacity:0.87}
 .event-meta{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:2px}
 .event-cat{text-transform:lowercase;margin-right:8px}
 .event-ages{margin-left:8px;color:#7a6b45}
@@ -86,7 +94,7 @@ a:hover{text-decoration:none}
 .ao-desc{font-size:12px;color:#444;margin-top:2px;line-height:1.45}
 .ao-cost{font-family:var(--mono);font-size:11px;color:#555}
 .ao-ages{font-family:var(--mono);font-size:10px;color:#7a6b45}
-.cal-wrap{font-family:var(--mono);font-size:12px;border:1px solid var(--border);display:inline-block;padding:8px 10px;margin-bottom:14px;background:#fffff8}
+.cal-wrap{font-family:var(--mono);font-size:12px;border:1px solid var(--border);display:inline-block;padding:8px 10px;margin-bottom:14px;background:var(--bg)}
 .cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .cal-nav-btn{background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0 4px;font-size:13px}
 .cal-nav-btn:hover{color:#333}
@@ -96,8 +104,8 @@ a:hover{text-decoration:none}
 .cal-cell{width:28px;height:22px;text-align:center;line-height:22px;cursor:default;color:var(--meta);font-size:11px}
 .cal-cell.has-events{color:var(--text);cursor:pointer;text-decoration:underline;font-weight:bold}
 .cal-cell.has-events:hover{color:var(--link)}
-.cal-cell.today{background:#1a1a1a;color:#fffff8}
-.cal-cell.today.has-events{background:#1a1a1a;color:#fffff8}
+.cal-cell.today{background:#B0241E;color:var(--bg)}
+.cal-cell.today.has-events{background:#B0241E;color:var(--bg)}
 .cal-cell.selected{background:var(--link);color:#fff}
 .cal-cell.selected.today{background:var(--link);color:#fff}
 .cal-clear{font-size:10px;color:var(--link);cursor:pointer;text-decoration:underline;text-align:right;margin-top:3px;display:none}
@@ -382,7 +390,7 @@ function render(){
     if(a.ages) aoHtml+='<div class="ao-ages">ages '+esc(a.ages)+'</div>';
     aoHtml+='</div>';
   }
-  if(aoFiltered.length===0) aoHtml='<div style="font-family:monospace;font-size:12px;color:#999;padding:8px 0">No always-on venues in this category.</div>';
+  if(aoFiltered.length===0) aoHtml='<div style="font-family:monospace;font-size:12px;color:var(--dim);padding:8px 0">No always-on venues in this category.</div>';
   document.getElementById('always-on-grid').innerHTML=aoHtml;
 }
 
