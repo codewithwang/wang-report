@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://wangreport.com/img/og-default.png">
 <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
 <script>
@@ -22,34 +22,25 @@
   gtag('config', 'G-HHENRPSK4D');
 </script>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #fff; color: #111; font-family: Georgia, 'Times New Roman', serif; }
+  /* Base body/typeface/background comes from the SHARED style.css linked
+     above (Spectral on #F9F8F6, same as every section page). This block must
+     never redeclare body font or background, that duplication is exactly
+     what made the homepage drift from the rest of the site three times. */
   a { color: inherit; }
+  .card a, .rail a, .chips a { text-decoration: none; }
 
-  /* Site-standard two-tier nav, verbatim from public/style.css so the feed
-     homepage carries the identical top links as every other page. */
-  .nav-bar { text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 13px; font-weight: bold; padding: 6px 0; border-bottom: 2px solid #0B1F3A; }
-  .nav-bar a { color: #0B1F3A; text-decoration: none; padding: 2px 12px; }
-  .nav-bar a:hover { text-decoration: underline; }
-  .nav-bar .nav-active { color: #B0241E; }
-  .nav-desks { background: #EAEAE6; border-bottom: 1px solid #C8C0B0; overflow-x: auto; overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .nav-desks::-webkit-scrollbar { display: none; }
-  .nav-desks-inner { display: flex; justify-content: center; align-items: center; gap: 0; padding: 4px 8px;
-    white-space: nowrap; min-width: max-content; margin: 0 auto;
-    font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.3px; }
-  .nav-desks .nav-desk-link { color: #4a4030; text-decoration: none; padding: 4px 10px; border-right: 1px solid #C8C0B0; }
-  .nav-desks .nav-desk-link:last-child { border-right: none; }
-  .nav-desks .nav-desk-link:hover { color: #0B1F3A; text-decoration: underline; }
-  .nav-desks .nav-desk-active { color: #B0241E; font-weight: bold; }
+  /* Two-tier nav styles come from the shared style.css. */
+  .pulse-bar { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+    letter-spacing: .04em; color: #444; padding: 5px 8px; border-bottom: 1px solid #C8C0B0;
+    max-width: min(1280px, 98vw); margin: 0 auto; }
+  .pulse-bar a { color: #0B1F3A; text-decoration: none; }
+  .pulse-bar a:hover { text-decoration: underline; }
+  .pulse-bar b { color: #B0241E; }
+  .pb-sep { color: #b8b0a0; }
+  .wx-inline { color: #444; }
 
-  .masthead { text-align: center; padding: 30px 16px 8px; }
-  .wordmark { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-size: 36px;
-    font-weight: 900; letter-spacing: 2px; color: #0B1F3A; text-transform: uppercase; }
-  .wordmark a { text-decoration: none; }
-  .dateline { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 11px; color: #999; margin-top: 6px; }
+  /* Nameplate = the shared .masthead / .subhead from style.css, same markup
+     as wire/stocks/cyber/every section page. No local nameplate CSS. */
 
   /* One shared rule spanning all three columns, rails and feed hang from it. */
   .rulebar { max-width: 652px; margin: 0 auto; padding: 0 16px; }
@@ -178,7 +169,6 @@
     margin-top: 40px; letter-spacing: 1px; }
   .foot a { color: #888; }
   @media (max-width: 480px) {
-    .wordmark { font-size: 22px; letter-spacing: 1px; }
     .headline { font-size: 21px; }
     .hero .headline { font-size: 25px; }
     .face { width: 64px; height: 64px; }
@@ -211,10 +201,11 @@
 </head>
 <body>
 <div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="weekend-read.html" class="nav-desk-link">Weekend Read</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
-<header class="masthead">
-  <div class="wordmark"><a href="index.html">The Wang Report</a></div>
-  <div class="dateline">Saturday, July 18, 2026 · Hong Kong</div>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+<header>
+  <div class="masthead"><a href="index.html" style="color:inherit;text-decoration:none;">THE WANG REPORT</a></div>
+  <div class="subhead">Saturday, July 18, 2026 &middot; HONG KONG</div>
+  <div class="pulse-bar"><span class="wx-inline">HK &middot; LIGHT RAIN &middot; 29&deg;C (27&ndash;31) &middot; 81% HUM</span><span class="pb-sep"> | </span><a href="geopolitical.html">THREAT <b>52</b> ELEVATED</a><span class="pb-sep"> | </span><a href="hk-finance.html">MARKET RISK <b>50</b> ELEVATED</a><span class="pb-sep"> | </span><a href="cyber.html">CYBER <b>60</b> ELEVATED</a></div>
 </header>
 <div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
 <div class="layout">
@@ -246,7 +237,6 @@
 <button class="chip" data-filter="editions">Editions</button>
 <button class="chip" data-filter="geo">Geopolitics</button>
 <button class="chip" data-filter="cyber">Cyber</button>
-<button class="chip" data-filter="finance">Finance &amp; Risk</button>
 <button class="chip" data-filter="ai">AI</button>
 <button class="chip" data-filter="science">Science</button>
 <button class="chip" data-filter="hk">HK Local</button>
@@ -323,7 +313,7 @@
   <details class="watch">
   <summary><span class="chev"></span>What Vincent is watching<span class="w-count">4</span></summary>
   <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOaVBuOHdxdTZhLXpUUzhlaVUwQ0pGNURNVU1ZWGZJMVc2LThfb1lkZmd3MFpmYUZiWmZsRl9KR3l6dUFpZGFXZU95dGVwMW5DbklyZkZQelJ3TmZmZEVGMTFJRTVGY3lfaFp0X01RVnN5ZTZfdEtKZm5TOHppZE1iOEtBTFFCWUdJemtiM0ZSUEZVRXZwYlFrRFN5MmdTYXlTbEJtVUlHaEJBWEhiV1JBdWVPc2N5WF9Dd2diZEZGaVV5bF9OdGJFam1TeS1Xa3JPeEREb3VvTUlrdw?oc=5" target="_blank" rel="noopener"><span class="w-title">US Equity Futures Drop as AI Concerns Weigh on Tech Stocks, Middle East Conflict Continues - marketscreener.com</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">marketscreener.com</span></span></a>
-<a class="w-item" href="https://news.google.com/rss/articles/CBMimAJBVV95cUxNUjFSY3JxVWNpbFExMHJOaFJPVWxYLWxCZXhlMFB5TGg4NWM2c2tpZFBsSmo2b183bzl3bUYzVU1GVjB3ZVFGcHhXMGNhMndpa1FfbVNPR1NLdUtmdEpxWVRnTm5NamltMXRKaldpMHRDS0NRNGotTGZEeDNTYW93eHBCOXFpZVdFY1dZQklEelFBbmdMcm5HQTBER0I2WWVvazVTRnNxY2lrWkZNbjVzWkNNazJ0Vk4zR1hhMzJlMXNJXzdFeHkwRWE4VllYWmhqSWtRRWpQNk5sTjMzQWJNVUhmZEVFb0FGOS1Ld2VLUFNHS1B4TnplandaMmF2Nl9NY01OYkNqQmRfVGpCMGZ1MWhvQnpZTFFU?oc=5" target="_blank" rel="noopener"><span class="w-title">Nasdaq, S&amp;amp;P 500 Futures Slide As Chip Stocks Tumble, Iran Tensions Fuel Risk-Off Mood: Why NFLX, NBIS, SPCX, TSLA, DJT, SLS Are In Focus - TradingView</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">TradingView</span></span></a>
+<a class="w-item" href="https://news.google.com/rss/articles/CBMimAJBVV95cUxNUjFSY3JxVWNpbFExMHJOaFJPVWxYLWxCZXhlMFB5TGg4NWM2c2tpZFBsSmo2b183bzl3bUYzVU1GVjB3ZVFGcHhXMGNhMndpa1FfbVNPR1NLdUtmdEpxWVRnTm5NamltMXRKaldpMHRDS0NRNGotTGZEeDNTYW93eHBCOXFpZVdFY1dZQklEelFBbmdMcm5HQTBER0I2WWVvazVTRnNxY2lrWkZNbjVzWkNNazJ0Vk4zR1hhMzJlMXNJXzdFeHkwRWE4VllYWmhqSWtRRWpQNk5sTjMzQWJNVUhmZEVFb0FGOS1Ld2VLUFNHS1B4TnplandaMmF2Nl9NY01OYkNqQmRfVGpCMGZ1MWhvQnpZTFFU?oc=5" target="_blank" rel="noopener"><span class="w-title">Nasdaq, S&amp;P 500 Futures Slide As Chip Stocks Tumble, Iran Tensions Fuel Risk-Off Mood: Why NFLX, NBIS, SPCX, TSLA, DJT, SLS Are In Focus - TradingView</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">TradingView</span></span></a>
 <a class="w-item" href="https://news.google.com/rss/articles/CBMizgFBVV95cUxPNEF5cGRSV1l1YkpEcFNoUmxBQlVYaXVjNUZ4eHRHc0dPTi1naXFZTzdSVkFtbVE2dHdwVllJeWo3eGNNTElBZlh0WkhaRjd4bkFsS0lMMFJRQWE5RG92WlJSMnQ5eFdkZjRwcE1sbnlyNFA1dDNYMTlFbHNQT21YaXRpeV9La0ZCUTQ4Y3h1ZEZkNDRQT2V5LVlzRFlzbGdWYjhpMExXSVFMLVZ2LUdWU2NuUGdMdUZBcS1Pc3JHRzUzY1NENEUzWThIaWRSQQ?oc=5" target="_blank" rel="noopener"><span class="w-title">The dollar rises supported by geopolitical tensions and the increase in bond yields - المتداول العربي</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">المتداول العربي</span></span></a>
 <a class="w-item" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxPdmJDZTlLbHdpMWU3dU5ZMVRtRnRQcjl2X192QTAtU1J1Szk2ME1HdEt4VlVINmMtUlQySjJUc0x2X1c5OXhWLWJqVXdUaUtBdTFad3dkNURWeldtbnZOeHBQUUlJcWQySEp1elctNjdWRHppY19aUDQyMUtGX0NrZk9fOTdubzFQaldTLVRQNFJ5Mnk1LW9aSlhBLWNyRzhRdzd6RFlTTnYxa2NaWkhNNXZnbXZraXdOMnRoNA?oc=5" target="_blank" rel="noopener"><span class="w-title">Taiwan building drones to emulate Ukraine as it preps for a potential conflict with China - NBC News</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">NBC News</span></span></a></div>
 </details>
@@ -367,28 +357,7 @@
   <div class="w-list"><a class="w-item" href="https://blog.zksecurity.xyz/posts/openvm-bugs/" target="_blank" rel="noopener"><span class="w-title">AI Meets Cryptography 2: What AI Found in OpenVM's ZkVM</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">HackerNews</span></span></a>
 <a class="w-item" href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-189850f386.jpg" alt="" loading="lazy"><span class="w-title">Abbott probes two cyber incidents amid extortion claims</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">BleepingComputer</span></span></a>
 <a class="w-item" href="https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-68dcc1f493.jpg" alt="" loading="lazy"><span class="w-title">HollowByte DDoS flaw bloats OpenSSL server memory with 11-byte payload</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">BleepingComputer</span></span></a>
-<a class="w-item" href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-054b807916.jpg" alt="" loading="lazy"><span class="w-title">Ernst &amp;amp; Young discloses data breach after support system hack</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">BleepingComputer</span></span></a></div>
-</details>
-</article>
-<article class="card" data-desk="finance">
-  <div class="speaker">
-    <img class="face" src="/masthead/img/feed/magnus-honeyfield-sq.jpg" alt="" loading="lazy">
-    <div class="who">
-      <span class="name">Magnus Honeyfield </span>
-      <span class="role">Science Desk, Senior Correspondent</span>
-    </div>
-  </div>
-  <span class="take-stamp">From the desk &middot; Daily take &middot; Jul 18</span>
-  <a class="headline" href="/briefings/2026-07-18-science.html">Brain implants restore sense of touch by reversing the signal path most prosthetics only run one way.</a>
-  <p class="dek">Most BCI coverage this year has been about reading intent out of the brain, motor cortex signals decoded into cursor moves or robotic arm commands.  STAT's report this week on a quadriplegic patient describes the opposite direction: an array stimulating…</p>
-  
-  <div class="actions"><a class="cta" href="/briefings/2026-07-18-science.html">Read Magnus's take &rarr;</a><a class="cta cta-2nd" href="/hk-finance-column/2026-07-13-magnus-honeyfield.html">This week's column &rarr;</a></div>
-  <details class="watch">
-  <summary><span class="chev"></span>What Magnus is watching<span class="w-count">4</span></summary>
-  <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxOSlVGMkkyRDZxLW5CeUhkT2YzTDY1ckFiMndhTnc0OUdxVU54aUFJbHFFV2VKMmVqU1U5U1Z1clp2aGNjUDFQNENmT2RSeEk0anRhODZVYXlOSW4wVGNpVll1OE14RHJPYkdOTVN4UXNVU3V0bkk2RkEzMk5ZcU5hX2Z4ZF9Vd2VLcUVRN1A1Ry1sQjZNV3luc0NfN011OHF3VW4wNmhLbW12T1BQWWd2UXExR0ZRY18yajc3VnI4R0M?oc=5" target="_blank" rel="noopener"><span class="w-title">Citadel backs two rival crypto exchanges with $600 million as both chase the same Wall Street prize - CryptoSlate</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">CryptoSlate</span></span></a>
-<a class="w-item" href="https://news.google.com/rss/articles/CBMiekFVX3lxTE96Tkx6MnhUdUVhemNMYnE4YzlrTDJkdVlmMlo5Sm55cngxNWhZUFN6UnEtalU0WjFvYXFuM0ZYc0ROT1VTYTQ2ajEybDh1V0EtcFFtb3ZrMXlac0dCeG5WTWRYbjhpV19mN1lNMk9ZMDBlNm1QSXhPdjFR?oc=5" target="_blank" rel="noopener"><span class="w-title">OECD body says UBS still failing to address human rights risks within passive holdings - TheBanker.com</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">TheBanker.com</span></span></a>
-<a class="w-item" href="https://news.google.com/rss/articles/CBMie0FVX3lxTFBhejN6bEh3dnYxT0xEYjZfV1JyVTktQktUM3JYaWVRMEVwaDB3SVRQbVpRSXVITVJSaDgtNS1lOXlDMy1yM3RCSkFuMU1ZMVRUZVpxOUFlbXgzV0VEVjVhVVlTUmtVQlVSSmZGTlJvNDJrbk5wem1zMXNsRQ?oc=5" target="_blank" rel="noopener"><span class="w-title">AAGI4343522 Bond Profile, Key Metrics - TradingView</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">TradingView</span></span></a>
-<a class="w-item" href="https://news.google.com/rss/articles/CBMilAFBVV95cUxNS3MwS21BMXptNGhJaVhBNzhpZXNMMWpHaERkYkhFMkhxSzY2VzJqb0V5am9mX01OR1ZrQTZFQkY1S0dlcURpQnF5MmJKa3BXTFFCQ0RScXdpM2dMdWxncUUwRk5xaVhXQ0xFRXlNWDdJQk5CTDlFaFFDbjN6NmM2eDB6NUFUeWZORFNfUmJ5UnkzN01x?oc=5" target="_blank" rel="noopener"><span class="w-title">AIA, BPI AIA DONATE TO KYTHE FOR PEDIATRIC CARE - PressReader</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">PressReader</span></span></a></div>
+<a class="w-item" href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank" rel="noopener"><img class="w-thumb" src="img/feed-thumb/kai-tanner-054b807916.jpg" alt="" loading="lazy"><span class="w-title">Ernst &amp; Young discloses data breach after support system hack</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">BleepingComputer</span></span></a></div>
 </details>
 </article>
 <article class="card" data-desk="ai">
@@ -469,7 +438,7 @@
   <div class="actions"><a class="cta" href="/briefings/2026-07-18-sports.html">Read Dev's take &rarr;</a><a class="cta cta-2nd" href="/sports-column/2026-07-13-dev-chatterjee.html">This week's column &rarr;</a></div>
   <details class="watch">
   <summary><span class="chev"></span>What Dev is watching<span class="w-count">4</span></summary>
-  <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNWGlnNFlvcFhXUFdUX3J3WjI2RTd2NFh6cUxRLWpYUlFqT1Byd2V0SGZSeDJsOXZFZlFSZUhSVlZTeTlPZ1c5cEl1SUJQN0VNZFdiTGtDQ2R4cm1UUVl4VU1vMEF0OFRuU2lpa09zaFBQS0hsV2tfTFJOZGRBODdWZjd5SEp3aGFjSVN1RnNWbkg?oc=5" target="_blank" rel="noopener"><span class="w-title">Lionel Messi, Dani Olmo &amp;amp; Lionel Scaloni: World Cup finalists spotted on the ATP Tour | ATP Tour | Tennis - ATP Tour</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">ATP Tour</span></span></a>
+  <div class="w-list"><a class="w-item" href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNWGlnNFlvcFhXUFdUX3J3WjI2RTd2NFh6cUxRLWpYUlFqT1Byd2V0SGZSeDJsOXZFZlFSZUhSVlZTeTlPZ1c5cEl1SUJQN0VNZFdiTGtDQ2R4cm1UUVl4VU1vMEF0OFRuU2lpa09zaFBQS0hsV2tfTFJOZGRBODdWZjd5SEp3aGFjSVN1RnNWbkg?oc=5" target="_blank" rel="noopener"><span class="w-title">Lionel Messi, Dani Olmo &amp; Lionel Scaloni: World Cup finalists spotted on the ATP Tour | ATP Tour | Tennis - ATP Tour</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">ATP Tour</span></span></a>
 <a class="w-item" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxOeDVLc2RvRFpZRmFMenBMcXZNa0J1ZlBwRWJVaGVYZGZNaVM4TW5WQkpxelViWUpzMExuNlhUTjkzS2pvMDlVRUhFbnQwVGVnVXVKc3Noeldlc3A1VmlXQlYzbDRYUFFJeUZrVjZQUE92UzFZOEl5ODlYanlnd2xtWERTRVRfc1puMnNvaGcxbXhNMTZfTXRadnJvOGQ0emJtaUl5NDFkUXFWR0htOEVKVGNOOXNSb09hZ1VadQ?oc=5" target="_blank" rel="noopener"><span class="w-title">Fernando Alonso 'main focus' of Belgian Grand Prix to get home and watch World Cup final - ESPN</span><span class="w-meta"><span class="w-date">Jul 17</span><span class="w-src">ESPN</span></span></a>
 <a class="w-item" href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPaS12alpQUHVYei1ENE5ZWTVYbFdwN2NQMnYzUnYxV3A3LU9yb19INlRDZFl4VENpelpReFlYXzBIV1dxanNrbUYzRXh3bHpEVmdvZ0QwclJuWmNwUDEwV0xDeWh1NXd2dkx6UlZwRERDSnRFU1BRZlZaTF8xeTZpYTdSeXJZTXI0NnRnSFFrX3ZUOTJ0NVdNRGhyVTcxTWVLcS1LczdIeUVMUzVmRFE?oc=5" target="_blank" rel="noopener"><span class="w-title">Dallas Cowboys 2026 roster rundown: OT Drew Shelton - Blogging The Boys</span><span class="w-meta"><span class="w-date">Jul 18</span><span class="w-src">Blogging The Boys</span></span></a>
 <a class="w-item" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNY01RUk1ERkxEaFRVNGl2QzRVclllR01PR1dKNEZQbUtENjYwNmd1cnBOakQ1Mko1Q2U2NjZaQ0dkSzVoSGJGZUI0NmtxdmNPbGFjS1FCTmgzLURxTXlwVkZuLTBENndyN3FLWEdJdDFQVDYzZUFnOFRVcWpNODV3OVl3Rk5QaXFCcDE0dVE5WjkyU2V2SHJLOGxvOGFjOVF0OHNQeUdB?oc=5" target="_blank" rel="noopener"><span class="w-title">Dallas Cowboys pass rusher hit with suspension by the NFL - Cleveland.com</span><span class="w-meta"><span class="w-date">Jul 16</span><span class="w-src">Cleveland.com</span></span></a></div>
@@ -530,11 +499,6 @@
     <img class="desk-face" src="/masthead/img/feed/kai-tanner-sq.jpg" alt="" loading="lazy">
     <span class="desk-text"><span class="desk-name">Cyber</span>
     <span class="desk-author">Kai Tanner</span></span>
-  </a>
-<a class="desk-row" href="hk-finance.html">
-    <img class="desk-face" src="/masthead/img/feed/magnus-honeyfield-sq.jpg" alt="" loading="lazy">
-    <span class="desk-text"><span class="desk-name">Finance &amp; Risk</span>
-    <span class="desk-author">Magnus Honeyfield</span></span>
   </a>
 <a class="desk-row" href="ai-focus.html">
     <img class="desk-face" src="/masthead/img/feed/aya-nakamura-sq.jpg" alt="" loading="lazy">

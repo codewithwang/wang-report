@@ -7,10 +7,11 @@
 <meta name="description" content="CVE intelligence weighted to APAC financial-services regulation, OT/ICS exposure, and client vendor footprint. Context reconstructed for the CVEs NVD no longer enriches.">
 <style>
   :root{
-    --bg:#0d0d14; --panel:#15151f; --panel2:#1b1b27; --line:#272736;
-    --ink:#e7e7ef; --dim:#9a9aae; --faint:#6c6c82; --gold:#c9a84c;
-    --crit:#e5484d; --high:#f5a524; --med:#d8b24a; --low:#6aaa64; --un:#7a7a8c;
-    --kev:#e5484d; --ot:#5aa9c9; --fsi:#b58ad6; --recon:#c9a84c; --nvd:#6aaaee;
+    /* Light theme 2026-07-18 (Harry): white background, Wang Report palette. */
+    --bg:#F9F8F6; --panel:#ffffff; --panel2:#f1efe9; --line:#ddd8cf;
+    --ink:#1a1a1a; --dim:#666670; --faint:#99998f; --gold:#8a6c14;
+    --crit:#c62f36; --high:#b26a00; --med:#8a6d1f; --low:#2e7d32; --un:#777;
+    --kev:#B0241E; --ot:#1f6b8a; --fsi:#6b3fa0; --recon:#8a6c14; --nvd:#0645ad;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -28,7 +29,7 @@
     gap:8px;flex-wrap:wrap;align-items:center}
   .pill{background:var(--panel);border:1px solid var(--line);color:var(--dim);
     padding:5px 12px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none}
-  .pill.on{background:var(--gold);color:#1a1407;border-color:var(--gold);font-weight:650}
+  .pill.on{background:var(--gold);color:#fffff8;border-color:var(--gold);font-weight:650}
   .pill .n{opacity:.6;margin-left:5px;font-size:11px}
   input.search{flex:1;min-width:160px;background:var(--panel);border:1px solid var(--line);
     color:var(--ink);padding:7px 12px;border-radius:8px;font-size:14px}
