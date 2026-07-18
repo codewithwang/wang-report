@@ -3,112 +3,153 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CVE Intel · APAC FSI + OT lens</title>
+<title>CVE Feed &middot; THE WANG REPORT</title>
 <meta name="description" content="CVE intelligence weighted to APAC financial-services regulation, OT/ICS exposure, and client vendor footprint. Context reconstructed for the CVEs NVD no longer enriches.">
+<link rel="canonical" href="https://wangreport.com/cve/">
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
 <style>
-  :root{
-    /* Light theme 2026-07-18 (Harry): white background, Wang Report palette. */
-    --bg:#F9F8F6; --panel:#ffffff; --panel2:#f1efe9; --line:#ddd8cf;
-    --ink:#1a1a1a; --dim:#666670; --faint:#99998f; --gold:#8a6c14;
-    --crit:#c62f36; --high:#b26a00; --med:#8a6d1f; --low:#2e7d32; --un:#777;
-    --kev:#B0241E; --ot:#1f6b8a; --fsi:#6b3fa0; --recon:#8a6c14; --nvd:#0645ad;
+  /* CVE Feed -- Wire idiom, Reddit treatment: score-forward ranked rows.
+     Palette/fonts inherited from /style.css (--wr-bone/--wr-ink/--wr-seal,
+     Spectral/Playfair). This block only adds the row/score/tag layer. */
+
+  .cve-head-row { max-width: var(--wr-page, min(1040px, 98vw)); margin: 22px auto 4px; padding: 0 12px; }
+  .cve-standfirst { font-family: Spectral, Georgia, serif; font-size: 14px; line-height: 1.5; color: #2A3040; max-width: 720px; }
+  .cve-meta-line { font-family: "Courier New", Courier, monospace; font-size: 11px; color: var(--wr-slate, #5A6470); margin-top: 10px; letter-spacing: 0.3px; }
+  .cve-meta-line b { color: var(--wr-slate, #5A6470); }
+
+  /* Filter strip -- same text-tab convention as /wire, not pill/chip boxes. */
+  .cve-controls { max-width: var(--wr-page, min(1040px, 98vw)); margin: 14px auto 0; padding: 10px 12px 12px; display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; border-bottom: 1px solid var(--wr-rule, #C8C0B0); font-family: Georgia, "Times New Roman", serif; }
+  .cve-filter { font-size: 14px; color: var(--wr-slate, #5A6470); background: none; border: 0; padding: 4px 0; margin: 0; cursor: pointer; border-bottom: 2px solid transparent; }
+  .cve-filter:hover { color: var(--wr-ink); }
+  .cve-filter.on { color: var(--wr-ink); font-weight: 700; border-bottom-color: var(--wr-ink); }
+  .cve-filter-n { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #8A8478; margin-left: 4px; }
+  .cve-search { font-family: Georgia, serif; font-size: 13px; border: 1px solid var(--wr-rule, #C8C0B0); background: #fff; padding: 5px 10px; color: var(--wr-ink); min-width: 160px; }
+  .cve-sort { margin-left: auto; font-family: "Courier New", Courier, monospace; font-size: 11px; color: #8A8478; cursor: pointer; }
+  .cve-sort b { color: var(--wr-ink); }
+
+  main.cve-list { max-width: var(--wr-page, min(1040px, 98vw)); margin: 0 auto; padding: 4px 12px 60px; }
+
+  .cve-row { border-bottom: 1px solid var(--wr-rule, #C8C0B0); }
+  .cve-row-head { display: flex; align-items: flex-start; gap: 16px; padding: 14px 4px; cursor: pointer; }
+  .cve-row-head:hover { background: #F0EFED; }
+
+  .cve-score { flex: 0 0 auto; width: 46px; text-align: left; font-family: "Courier New", Courier, monospace; }
+  .cve-score-n { font-size: 22px; font-weight: 700; line-height: 1; color: var(--wr-ink); }
+  .cve-score-cap { display: block; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; color: #8A8478; margin-top: 3px; }
+
+  .cve-text { flex: 1 1 auto; min-width: 0; }
+  .cve-id-line { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .cve-id { font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: 700; color: var(--wr-ink); }
+  .cve-age { font-family: "Courier New", Courier, monospace; font-size: 11px; color: #8A8478; }
+  .cve-title { font-family: Spectral, Georgia, serif; font-size: 16px; line-height: 1.4; color: var(--wr-ink); margin-top: 2px; }
+  .cve-why { font-family: Spectral, Georgia, serif; font-size: 13px; font-style: italic; color: #444; line-height: 1.5; margin-top: 6px; }
+  .cve-row-meta { margin-top: 7px; font-family: "Courier New", Courier, monospace; font-size: 11px; color: var(--wr-slate, #5A6470); letter-spacing: 0.3px; }
+
+  /* Hot rows -- KEV or top-EPSS: same bold seal-red + tag convention as
+     /wire's .wire-row--hot / .wire-hot-tag. Reused, not reinvented. */
+  .cve-row--hot .cve-title { color: var(--wr-seal, #B0241E); font-weight: 700; }
+  .cve-hot-tag {
+    display: inline-block;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--wr-seal, #B0241E);
+    border: 1px solid var(--wr-seal, #B0241E);
+    border-radius: 2px;
+    padding: 0 4px;
+    margin-right: 6px;
+    vertical-align: middle;
   }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:15px;line-height:1.5}
-  .mono{font-family:'SF Mono',ui-monospace,Menlo,monospace}
-  a{color:var(--gold);text-decoration:none}
-  a:hover{text-decoration:underline}
-  header{border-bottom:1px solid var(--line);padding:22px 20px 16px;max-width:1040px;margin:0 auto}
-  .word{font-size:13px;letter-spacing:.18em;color:var(--gold);font-weight:700}
-  h1{font-size:26px;margin:6px 0 4px;font-weight:650}
-  .sub{color:var(--dim);font-size:14px;max-width:680px}
-  .meta{color:var(--faint);font-size:12px;margin-top:10px}
-  .meta b{color:var(--dim);font-weight:600}
-  .controls{max-width:1040px;margin:14px auto 0;padding:0 20px;display:flex;
-    gap:8px;flex-wrap:wrap;align-items:center}
-  .pill{background:var(--panel);border:1px solid var(--line);color:var(--dim);
-    padding:5px 12px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none}
-  .pill.on{background:var(--gold);color:#fffff8;border-color:var(--gold);font-weight:650}
-  .pill .n{opacity:.6;margin-left:5px;font-size:11px}
-  input.search{flex:1;min-width:160px;background:var(--panel);border:1px solid var(--line);
-    color:var(--ink);padding:7px 12px;border-radius:8px;font-size:14px}
-  .sort{margin-left:auto;color:var(--faint);font-size:12px;cursor:pointer}
-  .sort b{color:var(--gold)}
-  main{max-width:1040px;margin:0 auto;padding:8px 20px 80px}
-  .row{border:1px solid var(--line);border-radius:10px;background:var(--panel);
-    margin:9px 0;overflow:hidden}
-  .head{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:13px 15px;
-    cursor:pointer;align-items:start}
-  .sev{text-align:center}
-  .sevn{font-size:20px;font-weight:750;line-height:1}
-  .sevb{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:3px}
-  .cid{font-size:15px;font-weight:650;letter-spacing:.01em}
-  .title{color:var(--dim);font-size:13.5px;margin-top:2px}
-  .chips{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
-  .chip{font-size:11px;padding:2px 8px;border-radius:5px;border:1px solid var(--line);
-    color:var(--dim);background:var(--panel2)}
-  .chip.kev{color:#fff;background:var(--kev);border-color:var(--kev);font-weight:600}
-  .chip.ot{color:var(--ot);border-color:#2c4a57}
-  .chip.fsi{color:var(--fsi);border-color:#43395a}
-  .chip.vend{color:var(--gold);border-color:#46401f}
-  .chip.recon{color:var(--recon);border-color:#46401f}
-  .chip.nvd{color:var(--nvd);border-color:#2a4060}
-  .why{margin-top:9px;color:var(--ink);font-size:13px;opacity:.92}
-  .score{text-align:right;color:var(--faint);font-size:11px}
-  .score .v{display:block;font-size:18px;font-weight:700;color:var(--gold)}
-  .body{display:none;padding:0 15px 15px 93px;border-top:1px solid var(--line);
-    background:var(--panel2)}
-  .row.open .body{display:block}
-  .body h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);
-    margin:14px 0 5px}
-  .desc{color:var(--dim);font-size:13.5px}
-  .prov{display:flex;gap:7px;flex-wrap:wrap}
-  .prov .chip{font-size:10.5px}
-  table.aff{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:3px}
-  table.aff td{padding:3px 8px 3px 0;color:var(--dim);vertical-align:top}
-  table.aff td:first-child{color:var(--ink);white-space:nowrap}
-  .refs a{display:inline-block;margin-right:14px;font-size:12.5px;word-break:break-all}
-  .empty{color:var(--faint);text-align:center;padding:60px 0}
-  footer{max-width:1040px;margin:0 auto;padding:20px;color:var(--faint);
-    font-size:11.5px;border-top:1px solid var(--line)}
-  @media(max-width:620px){.head{grid-template-columns:52px 1fr};.score{display:none}
-    .body{padding-left:15px}}
+  .cve-row--hot .cve-score-n { color: var(--wr-seal, #B0241E); }
+
+  .cve-body { display: none; padding: 4px 4px 18px 62px; }
+  .cve-row.open .cve-body { display: block; }
+  .cve-body h4 { font-family: "Courier New", Courier, monospace; font-size: 10.5px; letter-spacing: 0.6px; text-transform: uppercase; color: #8A8478; margin: 14px 0 5px; font-weight: 700; }
+  .cve-desc { font-family: Spectral, Georgia, serif; font-size: 13.5px; color: #333; line-height: 1.5; }
+  .cve-prov { font-family: "Courier New", Courier, monospace; font-size: 11px; color: var(--wr-slate, #5A6470); }
+  table.cve-aff { width: 100%; border-collapse: collapse; font-family: Spectral, Georgia, serif; font-size: 13px; margin-top: 3px; }
+  table.cve-aff td { padding: 3px 8px 3px 0; color: #444; vertical-align: top; border-bottom: 1px solid #EDE8DE; }
+  table.cve-aff td:first-child { color: var(--wr-ink); white-space: nowrap; }
+  .cve-refs a { display: inline-block; margin-right: 14px; font-family: "Courier New", Courier, monospace; font-size: 11.5px; word-break: break-all; color: var(--wr-seal, #B0241E); }
+  .cve-refs a:hover { text-decoration: underline; }
+  .cve-lookups a { display: inline-block; margin-right: 14px; font-family: "Courier New", Courier, monospace; font-size: 11.5px; color: var(--wr-seal, #B0241E); }
+
+  .cve-empty { text-align: center; color: var(--wr-slate, #5A6470); padding: 60px 12px; font-family: Spectral, Georgia, serif; font-style: italic; }
+
+  @media (max-width: 600px) {
+    .cve-row-head { padding: 12px 4px; gap: 10px; }
+    .cve-score { width: 38px; }
+    .cve-score-n { font-size: 18px; }
+    .cve-title { font-size: 14.5px; }
+    .cve-body { padding-left: 4px; }
+  }
 </style>
 </head>
 <body>
-<header>
-  <div class="word">WANG REPORT · CVE INTEL</div>
-  <h1>What actually matters to your stack this week</h1>
-  <div class="sub">CVEs weighted to APAC financial-services regulation (HKMA, MAS), OT/ICS exposure, and your clients' vendor footprint. Where NVD stopped enriching, context is reconstructed from the CNA record and stamped with its source.</div>
-  <div class="meta" id="meta"></div>
-</header>
 
-<div class="controls">
-  <span class="pill on" data-f="all">All <span class="n" id="n-all"></span></span>
-  <span class="pill" data-f="kev">Exploited (KEV) <span class="n" id="n-kev"></span></span>
-  <span class="pill" data-f="vendors">Your stack <span class="n" id="n-vendors"></span></span>
-  <span class="pill" data-f="ot">OT / ICS <span class="n" id="n-ot"></span></span>
-  <span class="pill" data-f="apac_fsi">APAC FSI <span class="n" id="n-apac_fsi"></span></span>
-  <span class="pill" data-f="reconstructed">Reconstructed <span class="n" id="n-reconstructed"></span></span>
-  <input class="search" id="search" placeholder="Search CVE id, vendor, keyword...">
-  <span class="sort" id="sort">sort: <b>relevance</b></span>
+<div class="nav-bar">
+  <a href="/index.html">Main</a> | <a href="/wire.html">Wire</a> | <a href="/issue.html">The Issue</a> | <a href="/masthead.html">Masthead</a> | <a href="/about.html">About</a>
+</div>
+<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner">
+  <a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-radar.html" class="nav-desk-link">AI Radar</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a>
+</div></nav>
+
+<div class="masthead">CVE FEED</div>
+<div class="subhead">THE WANG REPORT &middot; CYBER DESK &middot; APAC FSI + OT LENS &middot; <a href="/cyber.html">CYBER</a> &middot; <a href="/cyber-vendors.html">VENDOR WATCH</a></div>
+
+<div class="cve-head-row">
+  <div class="cve-standfirst">CVEs weighted to APAC financial-services regulation (HKMA, MAS), OT/ICS exposure, and your clients&rsquo; vendor footprint. Where NVD stopped enriching, context is reconstructed from the CNA record and stamped with its source. Score is the composite relevance rank, left, highest first.</div>
+  <div class="cve-meta-line" id="meta"></div>
 </div>
 
-<main id="list"><div class="empty">Loading feed...</div></main>
-<footer id="foot"></footer>
+<div class="cve-controls">
+  <button class="cve-filter on" data-f="all" type="button">All <span class="cve-filter-n" id="n-all"></span></button>
+  <button class="cve-filter" data-f="kev" type="button">Exploited, KEV <span class="cve-filter-n" id="n-kev"></span></button>
+  <button class="cve-filter" data-f="vendors" type="button">Your stack <span class="cve-filter-n" id="n-vendors"></span></button>
+  <button class="cve-filter" data-f="ot" type="button">OT / ICS <span class="cve-filter-n" id="n-ot"></span></button>
+  <button class="cve-filter" data-f="apac_fsi" type="button">APAC FSI <span class="cve-filter-n" id="n-apac_fsi"></span></button>
+  <button class="cve-filter" data-f="reconstructed" type="button">Reconstructed <span class="cve-filter-n" id="n-reconstructed"></span></button>
+  <input class="cve-search" id="search" placeholder="Search CVE id, vendor, keyword...">
+  <span class="cve-sort" id="sort">sort: <b>score</b></span>
+</div>
+
+<main class="cve-list" id="list"><div class="cve-empty">Loading feed...</div></main>
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div>
+<div class="footer" id="foot-wrap">
+  THE WANG REPORT &copy; <span id="cve-year"></span>
+  <br>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br>
+  <span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance &amp; Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <br>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/briefings/">Take Archive</a>
+  <div id="foot" style="margin-top:8px"></div>
+</div>
 
 <script>
-const SEV=(s)=>s==null?['--','unscored','var(--un)']:
-  s>=9?[s.toFixed(1),'critical','var(--crit)']:
-  s>=7?[s.toFixed(1),'high','var(--high)']:
-  s>=4?[s.toFixed(1),'medium','var(--med)']:[s.toFixed(1),'low','var(--low)'];
 const esc=(t)=>(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ageStr=(d)=>{if(!d)return'';const dt=new Date(d);if(isNaN(dt))return'';
   const days=Math.floor((Date.now()-dt)/864e5);
   return days<=0?'today':days<30?days+'d ago':days<365?Math.floor(days/30)+'mo ago':Math.floor(days/365)+'y ago';};
 
-let DATA=[], FILTER='all', SORT='relevance', Q='';
+let DATA=[], FILTER='all', SORT='score', Q='';
+let HOT_IDS=new Set();
+
+function computeHot(items){
+  // KEV-listed rows are always hot (tag: KEV). Non-KEV rows in the top 5
+  // EPSS values on the page also get the hot treatment (tag: HOT). Mirrors
+  // /wire's .wire-row--hot convention: rare, meaningful, not a pile-up.
+  const ids=new Set();
+  const tag={};
+  items.forEach(i=>{ if(i.kev){ ids.add(i.id); tag[i.id]='KEV'; } });
+  const byEpss=[...items].filter(i=>i.epss!=null && !i.kev).sort((a,b)=>b.epss-a.epss).slice(0,5);
+  byEpss.forEach(i=>{ ids.add(i.id); tag[i.id]='HOT'; });
+  return {ids, tag};
+}
 
 function matchFilter(i){
   if(FILTER==='all')return true;
@@ -127,44 +168,42 @@ function matchQ(i){
 function render(){
   let items=DATA.filter(i=>matchFilter(i)&&matchQ(i));
   if(SORT==='date')items=[...items].sort((a,b)=>(b.published||'').localeCompare(a.published||''));
+  else items=[...items].sort((a,b)=>b.score-a.score);
+  const hot=computeHot(DATA);
   const el=document.getElementById('list');
-  if(!items.length){el.innerHTML='<div class="empty">No CVEs match this filter.</div>';return;}
+  if(!items.length){el.innerHTML='<div class="cve-empty">No CVEs match this filter.</div>';return;}
   el.innerHTML=items.map((i,idx)=>{
-    const [sv,sb,sc]=SEV(i.severity);
-    const recon=i.enrichment==='reconstructed'?`<span class="chip recon">CVSS reconstructed</span>`:
-      i.enrichment==='nvd_enriched'?`<span class="chip nvd">NVD enriched</span>`:
-      `<span class="chip">unscored</span>`;
-    const chips=[
-      i.kev?`<span class="chip kev">KEV${i.kev_date?' '+i.kev_date:''}</span>`:'',
-      (i.epss!=null&&i.epss>=0.05)?`<span class="chip">EPSS ${(i.epss*100).toFixed(0)}%</span>`:'',
-      ...i.vendors.map(v=>`<span class="chip vend">${esc(v)}</span>`),
-      i.ot?`<span class="chip ot">OT/ICS</span>`:'',
-      i.apac_fsi?`<span class="chip fsi">APAC FSI</span>`:'',
-      recon, i.cwe?`<span class="chip">${esc(i.cwe)}</span>`:''
-    ].join('');
+    const isHot=hot.ids.has(i.id);
+    const hotTag=isHot?`<span class="cve-hot-tag">${hot.tag[i.id]}</span>`:'';
+    const metaParts=[
+      i.severity_band!=='unscored'?i.severity_band+(i.severity!=null?' '+i.severity.toFixed(1):''):'unscored',
+      (i.epss!=null)?'EPSS '+(i.epss*100).toFixed(0)+'%':'',
+      i.vendors.length?i.vendors.join(', '):'',
+      i.ot?'OT/ICS':'',
+      i.apac_fsi?'APAC FSI':'',
+      i.cwe?i.cwe:'',
+      i.enrichment==='reconstructed'?'CVSS reconstructed':(i.enrichment==='nvd_enriched'?'NVD enriched':''),
+    ].filter(Boolean);
     const aff=(i.affected||[]).filter(a=>a.vendor||a.product).map(a=>
       `<tr><td>${esc(a.vendor)} ${esc(a.product)}</td><td>${esc(a.versions||'')}</td></tr>`).join('');
-    const prov=Object.entries(i.provenance||{}).filter(([k,v])=>v).map(([k,v])=>
-      `<span class="chip">${k}: ${esc(v)}</span>`).join('');
+    const prov=Object.entries(i.provenance||{}).filter(([k,v])=>v).map(([k,v])=>`${k}: ${esc(v)}`).join(' &middot; ');
     const refs=(i.refs||[]).map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//,'').slice(0,52))}</a>`).join('');
-    return `<div class="row" data-i="${idx}">
-      <div class="head" onclick="this.parentNode.classList.toggle('open')">
-        <div class="sev"><div class="sevn" style="color:${sc}">${sv}</div><div class="sevb">${sb}</div></div>
-        <div>
-          <span class="cid mono">${esc(i.id)}</span>
-          <span style="color:var(--faint);font-size:12px;margin-left:8px">${ageStr(i.published||i.kev_date)}</span>
-          ${i.title?`<div class="title">${esc(i.title)}</div>`:''}
-          <div class="chips">${chips}</div>
-          <div class="why">${esc(i.rationale)}</div>
+    return `<div class="cve-row${isHot?' cve-row--hot':''}" data-i="${idx}">
+      <div class="cve-row-head" onclick="this.parentNode.classList.toggle('open')">
+        <div class="cve-score"><span class="cve-score-n">${Math.round(i.score)}</span><span class="cve-score-cap">score</span></div>
+        <div class="cve-text">
+          <div class="cve-id-line"><span class="cve-id">${esc(i.id)}</span><span class="cve-age">${ageStr(i.published||i.kev_date)}</span></div>
+          <div class="cve-title">${hotTag}${esc(i.title||'')}</div>
+          ${i.rationale?`<div class="cve-why">${esc(i.rationale)}</div>`:''}
+          <div class="cve-row-meta">${esc(metaParts.join(' · '))}</div>
         </div>
-        <div class="score">relevance<span class="v">${i.score}</span></div>
       </div>
-      <div class="body">
-        ${i.description?`<h4>Description</h4><div class="desc">${esc(i.description)}</div>`:''}
-        ${aff?`<h4>Affected products</h4><table class="aff">${aff}</table>`:''}
-        <h4>Provenance · where each field came from</h4><div class="prov">${prov||'<span class="chip">no enrichment</span>'}</div>
-        ${refs?`<h4>References</h4><div class="refs">${refs}</div>`:''}
-        <h4>Lookups</h4><div class="refs">
+      <div class="cve-body">
+        ${i.description?`<h4>Description</h4><div class="cve-desc">${esc(i.description)}</div>`:''}
+        ${aff?`<h4>Affected products</h4><table class="cve-aff">${aff}</table>`:''}
+        <h4>Provenance, where each field came from</h4><div class="cve-prov">${prov||'no enrichment'}</div>
+        ${refs?`<h4>References</h4><div class="cve-refs">${refs}</div>`:''}
+        <h4>Lookups</h4><div class="cve-lookups">
           <a href="https://nvd.nist.gov/vuln/detail/${esc(i.id)}" target="_blank" rel="noopener">NVD</a>
           <a href="https://www.cve.org/CVERecord?id=${esc(i.id)}" target="_blank" rel="noopener">CVE.org</a>
           <a href="https://www.first.org/epss/" target="_blank" rel="noopener">EPSS</a>
@@ -181,26 +220,29 @@ function counts(){
   FILTER='all';
 }
 
-document.querySelectorAll('.pill').forEach(p=>p.onclick=()=>{
-  document.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));
+document.querySelectorAll('.cve-filter').forEach(p=>p.onclick=()=>{
+  document.querySelectorAll('.cve-filter').forEach(x=>x.classList.remove('on'));
   p.classList.add('on');FILTER=p.dataset.f;render();});
 document.getElementById('search').oninput=e=>{Q=e.target.value;render();};
 document.getElementById('sort').onclick=function(){
-  SORT=SORT==='relevance'?'date':'relevance';
+  SORT=SORT==='score'?'date':'score';
   this.innerHTML='sort: <b>'+SORT+'</b>';render();};
+
+document.getElementById('cve-year').textContent=new Date().getFullYear();
 
 fetch('./data/cve-feed.json').then(r=>r.json()).then(d=>{
   DATA=d.items;
   const gen=new Date(d.generated);
   document.getElementById('meta').innerHTML=
-    `<b>${d.count}</b> CVEs on the radar · lens: ${esc(d.lens)} · refreshed ${gen.toLocaleString()}`;
+    `<b>${d.count}</b> CVEs on the radar &middot; lens: ${esc(d.lens)} &middot; refreshed ${gen.toLocaleString()}`;
   document.getElementById('foot').innerHTML=
-    `Sources: CVE.org (CNA) · CISA KEV · FIRST EPSS · CISA ICS · NVD (fallback). `+
+    `Sources: CVE.org (CNA) &middot; CISA KEV &middot; FIRST EPSS &middot; CISA ICS &middot; NVD (fallback). `+
     `Reconstructed = context filled from the CNA record because NVD no longer enriches it. `+
     `Generated ${esc(d.generated)}. Not a substitute for vendor advisories.`;
   counts();render();
 }).catch(e=>{document.getElementById('list').innerHTML=
-  '<div class="empty">Could not load feed.<br>'+esc(String(e))+'</div>';});
+  '<div class="cve-empty">Could not load feed.<br>'+esc(String(e))+'</div>';});
 </script>
+
 </body>
 </html>

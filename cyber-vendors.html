@@ -22,6 +22,56 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
+<style>
+  .cvw-section { max-width: var(--wr-page, min(880px, 98vw)); margin: 22px auto 24px; }
+  .cvw-head-row { display:flex; justify-content:flex-end; align-items:baseline; padding:0 4px 10px; margin-bottom:6px; border-bottom: 2px solid #0B1F3A; }
+  .cvw-section-sub { font-family:"Courier New", Courier, monospace; font-size:10px; color:#5A6470; letter-spacing:0.5px; }
+
+  .cvw-roster { max-width: var(--wr-page, min(880px, 98vw)); margin: 14px auto 0; padding: 0 4px; font-family: Spectral, Georgia, serif; font-size: 12.5px; color: #5A6470; }
+
+  .cvw-group { max-width: 880px; margin: 0 auto 26px; }
+  .cvw-vendor-hd {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 12px 4px 8px; margin-bottom: 2px;
+    border-left: 3px solid #B0241E;
+    padding-left: 10px;
+  }
+  .cvw-vendor-name { font-family: "Playfair Display", Georgia, serif; font-size: 16px; font-weight: 700; color: #0B1F3A; }
+  .cvw-vendor-n { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #8A8478; }
+
+  .cvw-empty-row { padding: 6px 10px 14px; font-family: Spectral, Georgia, serif; font-style: italic; font-size: 12.5px; color: #8A8478; }
+
+  .cvw-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 10px 12px 12px; border-bottom: 1px solid #E4DED1; text-decoration: none; color: #0B1F3A; }
+  .cvw-row:hover { background: #EDE8DE; }
+  .cvw-row:hover .cvw-head { color: #B0241E; }
+
+  .cvw-score { flex: 0 0 auto; width: 34px; text-align: left; font-family: "Courier New", Courier, monospace; }
+  .cvw-score-n { font-size: 18px; font-weight: 700; line-height: 1; color: #0B1F3A; }
+  .cvw-score-cap { display: block; font-size: 8.5px; letter-spacing: 0.4px; text-transform: uppercase; color: #8A8478; margin-top: 2px; }
+
+  .cvw-text { flex: 1 1 auto; min-width: 0; }
+  .cvw-head { font-family: Spectral, Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.4; color: #0B1F3A; }
+
+  .cvw-row--hot .cvw-head, .cvw-row--hot:visited .cvw-head { color: #B0241E; font-weight: 700; }
+  .cvw-row--hot .cvw-score-n { color: #B0241E; }
+  .cvw-hot-tag {
+    display: inline-block;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    color: #B0241E; border: 1px solid #B0241E; border-radius: 2px;
+    padding: 0 4px; margin-right: 6px; vertical-align: middle;
+  }
+
+  .cvw-meta { margin-top: 5px; font-family: "Courier New", Courier, monospace; font-size: 10.5px; color: #5A6470; letter-spacing: 0.3px; }
+  .cvw-row:visited .cvw-head { color: #6A6F7A; }
+
+  @media (max-width: 600px) {
+    .cvw-row { padding: 10px 6px 10px 8px; gap: 10px; }
+    .cvw-head { font-size: 14px; }
+    .cvw-score { width: 28px; }
+    .cvw-score-n { font-size: 15px; }
+  }
+</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
@@ -38,96 +88,358 @@
 <nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
 
 <div class="timestamp-bar">
-  Saturday, July 18, 2026 at 08:00 AM GMT+8
+  Sunday, July 19, 2026 at 12:11 AM GMT+8
 </div>
-
-
-    <div class="hero-headline">
-      <a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBBU3AtVlVlc3c4NzJ1T3AwM0VHM1VHVnZSUmdiWlM1c3JrVXY4d1VWY2ZpTEQwZDZ3Q0ctYXc2OTVfZTBwWkx1OVEtSGREV0ZFOGM4WVFXWFp5dXFHVldXdHVVTVpKTHpzNXJyc1RVMTJTQQ?oc=5" target="_blank">Palo Alto Networks Q3 2026 Earnings: What CISOs Need to Know</a>
-    </div>
-    <div class="hero-sub">
-      <a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBBU3AtVlVlc3c4NzJ1T3AwM0VHM1VHVnZSUmdiWlM1c3JrVXY4d1VWY2ZpTEQwZDZ3Q0ctYXc2OTVfZTBwWkx1OVEtSGREV0ZFOGM4WVFXWFp5dXFHVldXdHVVTVpKTHpzNXJyc1RVMTJTQQ?oc=5" target="_blank">Palo Alto Networks: Palo Alto Networks (PANW) Q3 2026 Earnings Call Transcript</a>
-      <span class="source">Fortune</span>
-    </div>
 
 <div class="masthead">VENDOR WATCH</div>
 <div class="subhead">THE WANG REPORT &middot; CYBER VENDOR DESK &middot; BUSINESS &amp; PRODUCT SIGNALS &middot; <a href="cyber-intel/">SCORECARD</a> &middot; <a href="cve/">CVE FEED</a></div>
 
-<div class="ticker-style ticker-style--markets">
-  <span class="ticker-style__label">Vendor Board</span>
-  | <span>SailPoint</span> | <span>Okta</span> | <span>CyberArk</span> | <span>Google SecOps</span> | <span>SentinelOne</span> | <span>Palo Alto Networks</span> | <span>Zscaler</span> | <span>Netskope</span> | <span>Wiz</span> | <span>watchTowr</span> | <span>CrowdStrike</span> | <span>Snyk</span> | <span>OneTrust</span> | <span>Darktrace</span> | <span>AI Security Tools</span>
-</div>
+<div class="cvw-roster">Tracking: SailPoint &middot; Okta &middot; CyberArk &middot; Google SecOps &middot; SentinelOne &middot; Palo Alto Networks &middot; Zscaler &middot; Netskope &middot; Wiz &middot; watchTowr &middot; CrowdStrike &middot; Snyk &middot; OneTrust &middot; Darktrace &middot; AI Security Tools</div>
 
-<div class="page-body">
-<div class="columns">
-  <div class="column">
-    <div class="column-header">Palo Alto Networks</div>
-    <article class="story"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPemNlZ0pFQllvb0ZDOXk5WVYxdXdjWDliY0t2VVB6V19QQl9TMVRTQmRfMllpTXJNRUQtMl96RnctT25KOHZhWUZIMGh3ZllwcFlOYTJXRzNXUm9maUl3VWlWWHdkOG1YaHFrYklsQThuN2NSWEEzdXNuVENVbWRCNUs5SUc0S3dCZGdoTHljbVlJLVg4amlZWmxwYWFxU21sZkxLU193?oc=5" target="_blank">AT&amp;T and Palo Alto Networks Roll Out Quantum Resilient SASE Fabric</a><span class="source-block">SDxCentral</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1pZnNBRTNGMGU3UHBMYUJ5Ul9aMjBoQzVCTjVlWkRoU2RHT2cxZy1wZ3dUQVg0WWFyZkNFYzZyLWVEdlhubkZvbXkxejR3UGRUQkxJRGJSRnU1a2o0cEgzVmJwSWpKYzdLMER6WWsyNGZwUQ?oc=5" target="_blank">Unit 42's 2026 Incident Response Report Flags AI Driven Attack Surge</a><span class="source-block">Unit 42</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQTWdtV2E2Q1UxT0xrLUNxQ3owYjZEN2ItcFpQZWh4UkQ2S1JSNzZVZHd5bjM5QVNWQ3JiQXFxRDAwdnVVMVpzUWtTbXJreHg1aVVlUnNqSllMOVZjZlpJM25jNVhwV0d1NkxNMlQ4dlZ1dzJUU25NSE1DRzRYOXNCMGJ3?oc=5" target="_blank">Unit 42 Uncovers Zero Day Trilogy in Siemens ROX II</a><span class="source-block">Unit 42</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOU2lWZVJJQURBYk5kelQzRFdoTzBORHMzbTl6WDA0UnBaT0NGOHhYWnFQb2FkbmIwUzhNTFM2S25lVkhoMHE5M2s1M1FXS1lYaHNVdlphME1HR0E0YlNWbEpkTHU0Y1VjUTY0cG91bk9XTDRTcDdtLVROTVdNOXhNOS0tRGxocGZSS09SYllYanUyWVhoUkVxakZTUVI0UQ?oc=5" target="_blank">Baird Lifts Palo Alto Price Target to $400, Keeps Outperform</a><span class="source-block">Moomoo</span></article>
-    <div class="section-divider">SailPoint</div>
-      <article class="story red"><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPQy16NUxmT05UVWRDd1J2UElxazQ2OHpZSmJYZk02YjFCVlVZTUFzZHJxZTVzNllvd084dGROSW5keThMTXFWV0gxcVVHdWxsTU1kTTJPaGJfXzVvQ1NWOUp3MG0zUWRSVHRWR2hzbVlrTFkzUTlfMHA2RlFHRjFCb1NVa3RKX0lEbjVzX3pDcXo?oc=5" target="_blank">SailPoint Executives Face Law Firm Probe Over Possible Securities Violations</a><span class="source-block">Pluang</span></article>
-      <div class="section-divider">Google SecOps</div>
-      <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div>
-      <div class="section-divider">Netskope</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOamRwWG8zMGpnRDVaTTNBcWNMVDE3Skk5S2VIQWlrOVoxeG5BNkR6NGlYZmF1MDNVZTZLVFpDbmhIT0lFRmU4LWFXdzB0TkxmUzVkY3g4bkhyTE80VllZcThNdUI5QzJCU1IxTDRkaG42bzlhaWJiNTRyXzB6SDJZSjJwNFZldkt4VktBSmNHSzdrTzJPWWJiY2F1eE9ySkR4azVr?oc=5" target="_blank">Analyst Lifts Netskope Price Target to $16</a><span class="source-block">MarketBeat</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxOY3Vqa0k0RnI2blRLR0N5Rnc1NThvemw5Q3EzNGFXNDJ0ZG9CMVBFOEhuNHV1VkRyNVNFXzdTdnB4VGhfeE5FY1NRYkpnMHRfM1U5V05sVFFaNGliSG9odzhuZFdSM3FPWWRKQU1JNE1RLUJSR3VjbThYd3FTQl9YcTJxZlU0Ri1QaUNlVzNjUXNhVUZpVXpBbFU0QzdmWnNPcmtXOFV2REFHOGg5?oc=5" target="_blank">Short Interest in Netskope Jumps 76%</a><span class="source-block">MarketBeat</span></article>
-      <div class="section-divider">CrowdStrike</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE13YmwtRHN2a3hRYmN0SnFYU3l3N2NrcXctREdxWmJxcE5WQmRnaXFvaDRUdks0aHN5RFhYMWVOQTdiOWozaVYzUkpUVHNGSF9yNDlvVXI4c1VjNURqbGF0d1lyRlBBYTQ3?oc=5" target="_blank">CrowdStrike Buys Back XM Cyber Tech, Five Years After $700M Sale</a><span class="source-block">calcalistech.com</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPVzdPdnVRcmp0Rks2Rmh5djZRYUxPTnRmVUJnZ0hxVWFnQUh6V3ItcjlleXdJUGhIaGxvcm5KZUpKcmVMTTQxcmhnb1hVS0dQQXBheFVxVWdRUFItX0d2OG45cUg1dHVVT0lJSTk5RXdfeFNqanF5UGIyTlJha0RvTmpYbzVaUDROcXpaX19tODU4eDJkR1hkdTRjc3JZdmcwM2pZbUtvTzU5SnhwUG1vYnBYbVk5Y2hDSEtOall30gHDAUFVX3lxTE1waDd2U1NCeUZ1UjhXdlpQd1FZSlBMOXhaMmNZNWZXcENCeTFwNlVLRFp5X3lPd091cHNQRmtPY01UWHJ5WVhPM0VzMTU3eDl1eGtjbmxqZUE4bFUtVzBpZEJScHF6OGE4dzV1Y0haaVcxdVpCQlFMOU8wQTE4MmVPTDNKcjZWOUZlV3A3b2gtQ0dtd2t6ZDFZOTFVLW0wR2Z3Q1FkQjAzS1ozRDlDcWNuR2xKUlZuN3ZQOE1CQjJMVEJ6VQ?oc=5" target="_blank">CrowdStrike Expands Sovereign Cloud Push With Schwarz Digits in Europe</a><span class="source-block">Pulse 2.0</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMi9wFBVV95cUxOYlI5OHY5UUlYRjBKSGx2MHJaZm1jX3hGdFFHckZvS0JWMUwzcGhjN1ZWdW1qOFQwbWNqSWNPNm9XMWx6WkNyLTIwZG4ySlp4NEwzcjlWZi1CZXpHLUF3eU1aWV9LekVMcE42YXFrU1NiVmdMLXgtQjR0bHBKbFpQNHFjNU4yU2FvU3FkcENURWpEbEI0Tmx4X0hnd1NHaFBLUEQ5YVRRMzI3RXBnNWRkcW5zX050aGFsRHAtbVAwOHdqSk5JSHBKcnA0WFlxVEk4dzRJRXhKUkxrZnhFd1A3NlZKNVJ5RTVpV3JnTy1OZS1MMXBUV3M4?oc=5" target="_blank">CrowdStrike Field CTO Warns AI Agents Could Supercharge Living Off the Land Attacks</a><span class="source-block">IT Pro</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZ2JLeDFYMFk0WHBDN1BGbHJVTW9laHVKN0RfcWtTYWVkb0tRaHNnTC00R052YnFPMXBtZENILTYzbk9KM3BoVHBWVDVrTzVNUDhhT09BdzFZSDR5VzRkQmJUMEw3MnVCMU1nTWF3X29VdHNhT1kzQlNieU9tTnR5SlFYZXVVMXlqUXBmbkZXLTFoaTdJQ1huY3djSVhJWkFUS0hkWm1VWVJzRnI1U09VOHMxa0NEU0p6dkpnMGpVdUN6dw?oc=5" target="_blank">Stifel Lifts CrowdStrike Target to $230 on AI Demand</a><span class="source-block">Investing.com</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNTUNxYm9xc3JFY2gyVWhoZ29yZXNfanVDWGlXaGx3bDNWQkFyQ0FvUEEtRldidVRRQjhtbEptOU9raDNxMnNId2xSeUt4ajFscHNtT01Vb042Q1FVdTBkTzFDOWpmbTlMZG9ZZmxfeU5zQVMwbWVBU1pLajdxcXNaZGhEZjdONkxtMjFvZ09qVlpTTTU5aGpJbEJXdW1FSmlxTkNfc1hTNERkaXg4ZHJHZV93MU9jMFpSYUdJUEYwRQ?oc=5" target="_blank">Frost &amp; Sullivan Names CrowdStrike Identity Threat Detection Company of the Year</a><span class="source-block">Macau Business</span></article>
-      <div class="section-divider">Darktrace</div>
-      <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div>
+<section class="cvw-section">
+  <div class="cvw-head-row">
+    <span class="cvw-section-sub">34 stories &middot; 15 vendors &middot; ranked by heat, hottest first per vendor</span>
   </div>
-  <div class="column">
-    <div class="column-header">VENDOR NEWS</div>
-    <div class="section-divider">Okta</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFByTWN1eHdVbTJsVXI5QXotVGhrYUczWVJOanFiSlk3dWxCOGdBcUpxVTRwbjdpM3huUG8xcG1sQW96MWM4TzR6U0s5WC1MMi1lY29nU0xWMThPejNaOFZ0cnZ2U2Z2SVBiZ2pEMQ?oc=5" target="_blank">Okta Posts Q2 2026 Earnings</a><span class="source-block">TipRanks</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5XM1N2NVRZQzRuTXlGbWh4eTMzVlFpLVUwY1ZGNXlqQmZTZlBYZXdhOUxPaGJQUHM5U0RiVVZLeWF6UTdUNVlOdUhqR2NpQTl4aHJzb1RHeFprQ2g3cDBJSF9sT2ZudUNUcUxDaQ?oc=5" target="_blank">Okta Reports Q3 2025 Results</a><span class="source-block">TipRanks</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQOWdTTjR4djJNU1VvU3Z0ckVrLWJDTmN0Yk9oTFVXeFZFVGtSVXd3RzM0ZW9JTkNjU0hINjgzWTI4ekZ1NFZsSk4zSW5OSk03amVkOGE3YlQwY2NOZ2lNSEMwa2FEOWtoNFd2cW5lbmZlNjFQUldNOWRoQktwZ3VJTGNUQ1BIVFFPeUhKYVBR?oc=5" target="_blank">Capital One Upgrades Okta and Palo Alto Networks</a><span class="source-block">Seeking Alpha</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQNkQxNjdVTUN0dmw5Zk9xMHNBWXl3NF83WVNsSFE2X1U3aUt4ZWwyREluWGZhQ0Rhc0dhSEpld1EzMmJsUUQ4bHJ1dEk5VGVnNlBHRzl4aThMNERzV2YxS1p6SXhJODctUWNJTGNLWVhRdXlwYkprZlJtWjhqcXdRaGVaMG1lZTF3aTFqZWRCSEJld1hCRW9fX19QMU1hNWlmN1RydzJJRHc3aERkdnNCT0huMVdoWHpZNndnWHpvM05xRkhsU0R0MzBkWmFZQU1EUXE4Q3UtZw?oc=5" target="_blank">Allspring Global Increases Okta Stake</a><span class="source-block">MarketBeat</span></article>
-      <div class="section-divider">SentinelOne</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9wNHhod0lYek1sbGZuYUh6Y3NtWnlOSjBFYXlLbnRKenFkNF9fOHp4alF4b3VaU2tmY0ozVERueS1EUVhKZ0xEM1BQenhTTmxkUnVPVWxLR1lhcktNcjVRVm53VzVGMGpNa2NDSlNaVlo2MFVhTE9aWUR5c0o?oc=5" target="_blank">Analysts Ask: Is SentinelOne the Next CrowdStrike?</a><span class="source-block">AOL.com</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxObWN5YXBjaXhKaFFxSTlFVFY2UXpONGZHUHNIczNtUWhJbmpCYjN1QUliYW1wb24yemRDeHo0VG51T29VQXJlTGhvdDhZMng1ODU4NFZGdktub0NRa0tBZm16R09lYkNLTjNiOHh4OV9EbTJoVktTS1RnT2taZXJ1WFlLRUFITERUS2tRWVF6cWNLTVN3Q2lnOHJRcE5IRklJaUFQQTJuNUUtSnd5SXRuVk12alRjN0h2WDZnWDFxYUN4QWpwSU0tYtIByAFBVV95cUxObWN5YXBjaXhKaFFxSTlFVFY2UXpONGZHUHNIczNtUWhJbmpCYjN1QUliYW1wb24yemRDeHo0VG51T29VQXJlTGhvdDhZMng1ODU4NFZGdktub0NRa0tBZm16R09lYkNLTjNiOHh4OV9EbTJoVktTS1RnT2taZXJ1WFlLRUFITERUS2tRWVF6cWNLTVN3Q2lnOHJRcE5IRklJaUFQQTJuNUUtSnd5SXRuVk12alRjN0h2WDZnWDFxYUN4QWpwSU0tYg?oc=5" target="_blank">SentinelOne Gains Attention After Cyber Threat Warning, Valuation in Question</a><span class="source-block">simplywall.st</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPQ1JHd2N1blZDY0RjdWR3dEtGNWx2SDRSQ0pkSjZydFp6TXgzYXFiUk5MSUtpbUo1OUhidEhJZVUtci1ueU9fSHlXaVRiR0tEZDBla2NIdWJQVmpLd0JXRTJQN0h3bkJxU2xiN20zVmJEU2pMSjRYRnJSWnZYOXNKdUlWNll0V0xONVE3bHM4NElHT2oyZHdlQg?oc=5" target="_blank">SentinelOne's Recent Strength Becoming Hard to Justify, Analyst Says</a><span class="source-block">Seeking Alpha</span></article>
-      <div class="section-divider">Wiz</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPUmZSaGwzdjFRbUpJRVB3bHhUMlRsSGhrR3FHZVhLVG5YMTBxWHI1bnhDaTlhRlpxWkx4TTBTMmVuVkQ0a1NYV2dubGhkOTF4QkJGTWE5bnBtYjBaN3RuYWhsckRsWUczak4tRUJjS3RlNTBGc1k3bDV1STFCNGxLTnVaYy1LUVowY0JGUnMwb3dJWFpVUU0yeDZxRTJ6ZEQzcHd6TWVWSGtybC1DY0V3?oc=5" target="_blank">Google introduces “Agentic Defense” following $32 Billion Wiz Acquisition</a><span class="source-block">Cybersecurity Insiders</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNcUh2akp1OEhaU2pYcTJ1My1UakFLX3JQWlJOdUhadDhqTXBVZVAtWVNBbktGQVptRDcyNzJOVy1FU0xwUk0xSzVXYnd1LUNuQXk1dEhvYTlsRmlnQVVnY2tSV0htaVRWU1Bkb1lzQWlnVURJQUxIWV9EVDhieVlKZlZMMWtDUENYT0ZvdFhWT3BtOWt6UEFZMnl1LUtudw?oc=5" target="_blank">Google Unveils Agentic Defense After Wiz Deal</a><span class="source-block">Dark Reading</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxNcWxqNE1sR2NXQ1ozd0pGejNDT1FFbDVOYnBUMlRHOFFGWGVxQzJabjJkU0lyNVltakoyTHNiUzBGeDNjS0l0WnBQUm1yaXE2Wk93TDZRMVB5cE5ZS2J1bEdmYWxXeUNGLURiLXZraE8wdVRqQ0RrUzRpeWlEMHJqSG4tejdhWGFDdzdlWm9idGd1MG8?oc=5" target="_blank">Google Cloud sets out AI security plan with Gemini &amp; Wiz</a><span class="source-block">SecurityBrief Australia</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPX25SQkM4VkxuMUNKQ3VLeF9PeWVRUDJvekZaWkp6WldPd1lNVEwtM1l5aC1hemFuSXpsSExGLVF2bV9tclBqblp4ZFZPbXVtckJibTAyclJxc0V4YnptcFdNcVA5ekxBUHJkaF9YaEZJNnFWQ0ZfeXJGMmlGdmdHczVMMjNuUFF0U0s3eHBQay1ZQlE?oc=5" target="_blank">Upwind vs. Wiz: Comparing Pricing, Runtime Security, and AI Protection</a><span class="source-block">HackerNoon</span></article>
-      <div class="section-divider">Snyk</div>
-      <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div>
-      <div class="section-divider">AI Security Tools</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxQaWdHWDdhS2NHRDB3NXhMaTRWay1aMV92cTZPQms3QkFqaUtGRGlYLUozQmludmExSEdSUTl4YjhZb3dlMnN5LXhYNGM4anMydFF6TGxRb215em1ZQk9MX0kyaE9pZ2xLZ2ZpU1BmS3FxZ1J3RFdmTDdUM0w5VFk5NDhPaWJXYmlRbERrcnNDRUgxSDZRX1dkU04zeExudF9uNEwxX3Zla09vd09E0gGyAUFVX3lxTE5XaXBkeDByT1NRRmIwZDF5WHlad0lJRWFWaHhrU2x1R0FQbTE5SElxR2xBclRRUWY2NEo0cmo5eTFxNG81cWVQU1FTT2g5TW1WUXNoQ2U5NkYzZjQ5eUhIRnNYX2FxZzc1amR0cS1MZXlFT2VXR3VMeUV1RWxLYXl5YVpuYmlPWHpnNEFwU1gtaG9OLThVbkpWVERDQUJMQVhtUHJJMGVhZGE0a2dSMlg2Qmc?oc=5" target="_blank">Beacon Security Lands $13M Seed for AI Native Cyber Defense Platform</a><span class="source-block">Pulse 2.0</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE5nMkRhSmJZb01WYXlnVU9KaktRT0txclpFNlNndnpBWUFYd0liQk0zYXpwT3Nrd0w5Q21VMjFWUU9XSXBuLWtmTUVQU3BJU2ZsRzRnaEhuV041dVVFeU51LUNiTGhXOEtONWpr?oc=5" target="_blank">Brex Open Sources CrabTrap, a Proxy That Reins In Rogue AI Agents</a><span class="source-block">Crypto Briefing</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOWlllb2s2Sk5CVk5PVmNmMUp4MEpFRXFhYjhBNXdiRWVnLVU2T0xKakFaWC1YbGJicUUtNV9qSGZKZ01PYzhYR0NhYUtzYmtSZC1PaHJXNTJwV3VEUUxsb2FJMDAtSE1WSXdvYnd6ODRkM2pUOTU4alZiTUtBb1JkaGtXZWFEaHpnNGc1TjlMNUtUV2cxS09Qd2FDUjdxNURXazdXVkhmSWVtZFE?oc=5" target="_blank">CRN Names Its 10 Coolest AI Observability and Governance Tools of 2026</a><span class="source-block">crn.com</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQdTBZNXVfcG1OZWE0SGRHSHA0YUg0dU1XWFY5QUxDdjZod0RZaTllVDZQX0lXd2hfOWotSll2dU0xSFp5a2pteENJbnRPRU1OTW9TaVNJOXVmNldmOEVFSlFROTVZcUxoQnBLS1kzcGFqb2RONExpaThMRkNEZkxEQTNNTWdtcFBfU19sNGctQXNVREp2Tzh3R3hSRmJHMVlqdVBuZHpkZF9QNGNsTmc?oc=5" target="_blank">Identity Security Market Heats Up With New Funding, M&amp;A and Channel Deals</a><span class="source-block">Biometric Update</span></article>
-  </div>
-  <div class="column">
-    <div class="column-header">VENDOR NEWS</div>
-    <div class="section-divider">CyberArk</div>
-      <article class="story red"><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQRHlERjVBeFN4MUhZQlp0NWV5ZUV6TTMyTmp4NXBOUDZpZG5vZ1lJNGk3RjFYQU1NT3JtelNqb3NfX1JaWWZDb1pMNG5tczZmdWxaY3JNWkJzZXBablc5Qm8zc0lPYUpJS1JRUC15aWFOUVVtUHVfQ1hHeVhJMlVSN0F1Uk4zb0NWaE9FZ0UwdEdCVnpoVTRERU9EaXQxSXJwWkhTbHJ4clJKN1ZPcXAxU1FYNzJhTXJrN0p3Mg?oc=5" target="_blank">Palo Alto Networks Closes Acquisition of CyberArk</a><span class="source-block">MSN</span></article>
-      <div class="section-divider">Zscaler</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQUE96akhDWU54YTM3cVRld1VFcWlaOE5PQkNNYW5GS1FydndlTkVUZEpUZWdLSlZQVXFncTBNbHhhU1FDZ3phUVBIb3dSR24taHhrZWFsM3hyZGMtN285ajVsUWlZZ2tLQ2g1TkdVTFh1eUFTeFdXMFJCbWo1dV95S3RIRzVDZVU4TWh2cVZQbDF1aE0?oc=5" target="_blank">Zscaler Doubles Down With New HQ, Signals Long Term Growth Bet</a><span class="source-block">The Business Journals</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE1paVVwbTFzMkNkOE9aZHFQOUZXeXBxX0VWYi0wUGpDNXRZZ0FScG1GVVR0elVQM1VKQ2N5NmxLZWR3WjRucjYtT2U1cDlxNEh2dDFVaGZPSUZta2FqZ3RmSE8tQVVUbXBpNDhnMHE2cw?oc=5" target="_blank">Zscaler Q3 2025 Earnings: Results, Guidance and Call Highlights</a><span class="source-block">TipRanks</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxNdUtPQ3N0WjM1emZGM3JSMW9DcDI3ekd0aXVZb1phVFV2dlVWT2U0MTBfU3ZocEhoa0lOTlZzMVowamlyMUprTXVxbFV1RDUyXzVKZmJlVExPeUdwM3g1Y004cExlMmZQNWhlNUxLZG9RQm45RUt3OUN0SElpaWlTNFFkUjFKajRjQUJHcEh1TmRWSU95eTJTUlJma0NFQUdvMzQxODN4WjhIVXZpcDF3dDJ1VWhTWVU?oc=5" target="_blank">Zscaler Founder Jay Chaudhry Talks AI Strategy on CAIO Connect</a><span class="source-block">The National Law Review</span></article>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMi6wFBVV95cUxQeFRLdkxzZVBocERfRkdieExPUW5uTkg4bmt3eFV3eVpQWUJwTXdrLXhnVWMzbFhlM3VPOE5GRV9TakpieGdvQlhOQk1Gc1VSdG42RXp5MW1tWkhIUW55WUVDeVBhUTNuQVM3blBzR3F3N2RuYkhxMkpaU0VLVlZSX3hoc0hXOC1GZjhRYnIwcDU5S2JGc0FGWWlDSUJUSndITkRRRTQ4QTJReENQV1FaUlNpZGp2bERCVHZrZmU4OVFrTjBnQUc3cHNIcEVoSkRkTVJKXzVlX25ZaWVCSUEtX1UzZkJIcEVEWlNN?oc=5" target="_blank">Cramer Names Zscaler Among Top Cybersecurity Stocks to Own Now</a><span class="source-block">24/7 Wall St.</span></article>
-      <div class="section-divider">watchTowr</div>
-      <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div>
-      <div class="section-divider">OneTrust</div>
-      <article class="story"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNRmtCLUg4b0VYcjlHbFZTOVRRS19wU2h4alFlRUJuODlIQ05jZlZtWHN2LW0yUnFtbC1XTWJVZ2NDRGJQRmpya3R2bEtIZEtpRmJualk1TW9wYXA0a3hHY3FCdlA3cnNXSHVSUUZqZUFFWWR0d2lPMXNMVE5Jd0pUa291bk9sQUI1Y2FZcnlPZDh0YVJDRVZYeDJRN3R6MEc0TUJjeWlOSkl1cEtYU05jenExeW1lRzlJX3R6ODVhNUZkQmQwVXRj?oc=5" target="_blank">OneTrust Ties Product Push to EU AI Act Compliance Demand</a><span class="source-block">TipRanks</span></article>
-  </div>
-</div>
-</div>
+  <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Palo Alto Networks</span>
+        <span class="cvw-vendor-n">5 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMickFVX3lxTFBBU3AtVlVlc3c4NzJ1T3AwM0VHM1VHVnZSUmdiWlM1c3JrVXY4d1VWY2ZpTEQwZDZ3Q0ctYXc2OTVfZTBwWkx1OVEtSGREV0ZFOGM4WVFXWFp5dXFHVldXdHVVTVpKTHpzNXJyc1RVMTJTQQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Palo Alto Networks Q3 2026 Earnings: What CISOs Need to Know</span>
+        <span class="cvw-meta">Fortune</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPemNlZ0pFQllvb0ZDOXk5WVYxdXdjWDliY0t2VVB6V19QQl9TMVRTQmRfMllpTXJNRUQtMl96RnctT25KOHZhWUZIMGh3ZllwcFlOYTJXRzNXUm9maUl3VWlWWHdkOG1YaHFrYklsQThuN2NSWEEzdXNuVENVbWRCNUs5SUc0S3dCZGdoTHljbVlJLVg4amlZWmxwYWFxU21sZkxLU193?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">AT&amp;T and Palo Alto Networks Roll Out Quantum Resilient SASE Fabric</span>
+        <span class="cvw-meta">SDxCentral</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMickFVX3lxTE1pZnNBRTNGMGU3UHBMYUJ5Ul9aMjBoQzVCTjVlWkRoU2RHT2cxZy1wZ3dUQVg0WWFyZkNFYzZyLWVEdlhubkZvbXkxejR3UGRUQkxJRGJSRnU1a2o0cEgzVmJwSWpKYzdLMER6WWsyNGZwUQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Unit 42's 2026 Incident Response Report Flags AI Driven Attack Surge</span>
+        <span class="cvw-meta">Unit 42</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQTWdtV2E2Q1UxT0xrLUNxQ3owYjZEN2ItcFpQZWh4UkQ2S1JSNzZVZHd5bjM5QVNWQ3JiQXFxRDAwdnVVMVpzUWtTbXJreHg1aVVlUnNqSllMOVZjZlpJM25jNVhwV0d1NkxNMlQ4dlZ1dzJUU25NSE1DRzRYOXNCMGJ3?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Unit 42 Uncovers Zero Day Trilogy in Siemens ROX II</span>
+        <span class="cvw-meta">Unit 42</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMingFBVV95cUxOU2lWZVJJQURBYk5kelQzRFdoTzBORHMzbTl6WDA0UnBaT0NGOHhYWnFQb2FkbmIwUzhNTFM2S25lVkhoMHE5M2s1M1FXS1lYaHNVdlphME1HR0E0YlNWbEpkTHU0Y1VjUTY0cG91bk9XTDRTcDdtLVROTVdNOXhNOS0tRGxocGZSS09SYllYanUyWVhoUkVxakZTUVI0UQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Baird Lifts Palo Alto Price Target to $400, Keeps Outperform</span>
+        <span class="cvw-meta">Moomoo</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">CrowdStrike</span>
+        <span class="cvw-vendor-n">5 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE13YmwtRHN2a3hRYmN0SnFYU3l3N2NrcXctREdxWmJxcE5WQmRnaXFvaDRUdks0aHN5RFhYMWVOQTdiOWozaVYzUkpUVHNGSF9yNDlvVXI4c1VjNURqbGF0d1lyRlBBYTQ3?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>CrowdStrike Buys Back XM Cyber Tech, Five Years After $700M Sale</span>
+        <span class="cvw-meta">calcalistech.com</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPVzdPdnVRcmp0Rks2Rmh5djZRYUxPTnRmVUJnZ0hxVWFnQUh6V3ItcjlleXdJUGhIaGxvcm5KZUpKcmVMTTQxcmhnb1hVS0dQQXBheFVxVWdRUFItX0d2OG45cUg1dHVVT0lJSTk5RXdfeFNqanF5UGIyTlJha0RvTmpYbzVaUDROcXpaX19tODU4eDJkR1hkdTRjc3JZdmcwM2pZbUtvTzU5SnhwUG1vYnBYbVk5Y2hDSEtOall30gHDAUFVX3lxTE1waDd2U1NCeUZ1UjhXdlpQd1FZSlBMOXhaMmNZNWZXcENCeTFwNlVLRFp5X3lPd091cHNQRmtPY01UWHJ5WVhPM0VzMTU3eDl1eGtjbmxqZUE4bFUtVzBpZEJScHF6OGE4dzV1Y0haaVcxdVpCQlFMOU8wQTE4MmVPTDNKcjZWOUZlV3A3b2gtQ0dtd2t6ZDFZOTFVLW0wR2Z3Q1FkQjAzS1ozRDlDcWNuR2xKUlZuN3ZQOE1CQjJMVEJ6VQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">CrowdStrike Expands Sovereign Cloud Push With Schwarz Digits in Europe</span>
+        <span class="cvw-meta">Pulse 2.0</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMi9wFBVV95cUxOYlI5OHY5UUlYRjBKSGx2MHJaZm1jX3hGdFFHckZvS0JWMUwzcGhjN1ZWdW1qOFQwbWNqSWNPNm9XMWx6WkNyLTIwZG4ySlp4NEwzcjlWZi1CZXpHLUF3eU1aWV9LekVMcE42YXFrU1NiVmdMLXgtQjR0bHBKbFpQNHFjNU4yU2FvU3FkcENURWpEbEI0Tmx4X0hnd1NHaFBLUEQ5YVRRMzI3RXBnNWRkcW5zX050aGFsRHAtbVAwOHdqSk5JSHBKcnA0WFlxVEk4dzRJRXhKUkxrZnhFd1A3NlZKNVJ5RTVpV3JnTy1OZS1MMXBUV3M4?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">CrowdStrike Field CTO Warns AI Agents Could Supercharge Living Off the Land Attacks</span>
+        <span class="cvw-meta">IT Pro</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZ2JLeDFYMFk0WHBDN1BGbHJVTW9laHVKN0RfcWtTYWVkb0tRaHNnTC00R052YnFPMXBtZENILTYzbk9KM3BoVHBWVDVrTzVNUDhhT09BdzFZSDR5VzRkQmJUMEw3MnVCMU1nTWF3X29VdHNhT1kzQlNieU9tTnR5SlFYZXVVMXlqUXBmbkZXLTFoaTdJQ1huY3djSVhJWkFUS0hkWm1VWVJzRnI1U09VOHMxa0NEU0p6dkpnMGpVdUN6dw?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Stifel Lifts CrowdStrike Target to $230 on AI Demand</span>
+        <span class="cvw-meta">Investing.com</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNTUNxYm9xc3JFY2gyVWhoZ29yZXNfanVDWGlXaGx3bDNWQkFyQ0FvUEEtRldidVRRQjhtbEptOU9raDNxMnNId2xSeUt4ajFscHNtT01Vb042Q1FVdTBkTzFDOWpmbTlMZG9ZZmxfeU5zQVMwbWVBU1pLajdxcXNaZGhEZjdONkxtMjFvZ09qVlpTTTU5aGpJbEJXdW1FSmlxTkNfc1hTNERkaXg4ZHJHZV93MU9jMFpSYUdJUEYwRQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Frost &amp; Sullivan Names CrowdStrike Identity Threat Detection Company of the Year</span>
+        <span class="cvw-meta">Macau Business</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Wiz</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPUmZSaGwzdjFRbUpJRVB3bHhUMlRsSGhrR3FHZVhLVG5YMTBxWHI1bnhDaTlhRlpxWkx4TTBTMmVuVkQ0a1NYV2dubGhkOTF4QkJGTWE5bnBtYjBaN3RuYWhsckRsWUczak4tRUJjS3RlNTBGc1k3bDV1STFCNGxLTnVaYy1LUVowY0JGUnMwb3dJWFpVUU0yeDZxRTJ6ZEQzcHd6TWVWSGtybC1DY0V3?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Google introduces “Agentic Defense” following $32 Billion Wiz Acquisition</span>
+        <span class="cvw-meta">Cybersecurity Insiders</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMingFBVV95cUxNcUh2akp1OEhaU2pYcTJ1My1UakFLX3JQWlJOdUhadDhqTXBVZVAtWVNBbktGQVptRDcyNzJOVy1FU0xwUk0xSzVXYnd1LUNuQXk1dEhvYTlsRmlnQVVnY2tSV0htaVRWU1Bkb1lzQWlnVURJQUxIWV9EVDhieVlKZlZMMWtDUENYT0ZvdFhWT3BtOWt6UEFZMnl1LUtudw?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Google Unveils Agentic Defense After Wiz Deal</span>
+        <span class="cvw-meta">Dark Reading</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMikwFBVV95cUxNcWxqNE1sR2NXQ1ozd0pGejNDT1FFbDVOYnBUMlRHOFFGWGVxQzJabjJkU0lyNVltakoyTHNiUzBGeDNjS0l0WnBQUm1yaXE2Wk93TDZRMVB5cE5ZS2J1bEdmYWxXeUNGLURiLXZraE8wdVRqQ0RrUzRpeWlEMHJqSG4tejdhWGFDdzdlWm9idGd1MG8?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Google Cloud sets out AI security plan with Gemini &amp; Wiz</span>
+        <span class="cvw-meta">SecurityBrief Australia</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPX25SQkM4VkxuMUNKQ3VLeF9PeWVRUDJvekZaWkp6WldPd1lNVEwtM1l5aC1hemFuSXpsSExGLVF2bV9tclBqblp4ZFZPbXVtckJibTAyclJxc0V4YnptcFdNcVA5ekxBUHJkaF9YaEZJNnFWQ0ZfeXJGMmlGdmdHczVMMjNuUFF0U0s3eHBQay1ZQlE?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Upwind vs. Wiz: Comparing Pricing, Runtime Security, and AI Protection</span>
+        <span class="cvw-meta">HackerNoon</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">CyberArk</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQRHlERjVBeFN4MUhZQlp0NWV5ZUV6TTMyTmp4NXBOUDZpZG5vZ1lJNGk3RjFYQU1NT3JtelNqb3NfX1JaWWZDb1pMNG5tczZmdWxaY3JNWkJzZXBablc5Qm8zc0lPYUpJS1JRUC15aWFOUVVtUHVfQ1hHeVhJMlVSN0F1Uk4zb0NWaE9FZ0UwdEdCVnpoVTRERU9EaXQxSXJwWkhTbHJ4clJKN1ZPcXAxU1FYNzJhTXJrN0p3Mg?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">8</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Palo Alto Networks Closes Acquisition of CyberArk</span>
+        <span class="cvw-meta">MSN &amp;middot; market-moving</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">SailPoint</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPQy16NUxmT05UVWRDd1J2UElxazQ2OHpZSmJYZk02YjFCVlVZTUFzZHJxZTVzNllvd084dGROSW5keThMTXFWV0gxcVVHdWxsTU1kTTJPaGJfXzVvQ1NWOUp3MG0zUWRSVHRWR2hzbVlrTFkzUTlfMHA2RlFHRjFCb1NVa3RKX0lEbjVzX3pDcXo?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>SailPoint Executives Face Law Firm Probe Over Possible Securities Violations</span>
+        <span class="cvw-meta">Pluang &amp;middot; market-moving</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">AI Security Tools</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMirAFBVV95cUxQaWdHWDdhS2NHRDB3NXhMaTRWay1aMV92cTZPQms3QkFqaUtGRGlYLUozQmludmExSEdSUTl4YjhZb3dlMnN5LXhYNGM4anMydFF6TGxRb215em1ZQk9MX0kyaE9pZ2xLZ2ZpU1BmS3FxZ1J3RFdmTDdUM0w5VFk5NDhPaWJXYmlRbERrcnNDRUgxSDZRX1dkU04zeExudF9uNEwxX3Zla09vd09E0gGyAUFVX3lxTE5XaXBkeDByT1NRRmIwZDF5WHlad0lJRWFWaHhrU2x1R0FQbTE5SElxR2xBclRRUWY2NEo0cmo5eTFxNG81cWVQU1FTT2g5TW1WUXNoQ2U5NkYzZjQ5eUhIRnNYX2FxZzc1amR0cS1MZXlFT2VXR3VMeUV1RWxLYXl5YVpuYmlPWHpnNEFwU1gtaG9OLThVbkpWVERDQUJMQVhtUHJJMGVhZGE0a2dSMlg2Qmc?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Beacon Security Lands $13M Seed for AI Native Cyber Defense Platform</span>
+        <span class="cvw-meta">Pulse 2.0</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMia0FVX3lxTE5nMkRhSmJZb01WYXlnVU9KaktRT0txclpFNlNndnpBWUFYd0liQk0zYXpwT3Nrd0w5Q21VMjFWUU9XSXBuLWtmTUVQU3BJU2ZsRzRnaEhuV041dVVFeU51LUNiTGhXOEtONWpr?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Brex Open Sources CrabTrap, a Proxy That Reins In Rogue AI Agents</span>
+        <span class="cvw-meta">Crypto Briefing</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOWlllb2s2Sk5CVk5PVmNmMUp4MEpFRXFhYjhBNXdiRWVnLVU2T0xKakFaWC1YbGJicUUtNV9qSGZKZ01PYzhYR0NhYUtzYmtSZC1PaHJXNTJwV3VEUUxsb2FJMDAtSE1WSXdvYnd6ODRkM2pUOTU4alZiTUtBb1JkaGtXZWFEaHpnNGc1TjlMNUtUV2cxS09Qd2FDUjdxNURXazdXVkhmSWVtZFE?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">CRN Names Its 10 Coolest AI Observability and Governance Tools of 2026</span>
+        <span class="cvw-meta">crn.com</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQdTBZNXVfcG1OZWE0SGRHSHA0YUg0dU1XWFY5QUxDdjZod0RZaTllVDZQX0lXd2hfOWotSll2dU0xSFp5a2pteENJbnRPRU1OTW9TaVNJOXVmNldmOEVFSlFROTVZcUxoQnBLS1kzcGFqb2RONExpaThMRkNEZkxEQTNNTWdtcFBfU19sNGctQXNVREp2Tzh3R3hSRmJHMVlqdVBuZHpkZF9QNGNsTmc?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Identity Security Market Heats Up With New Funding, M&amp;A and Channel Deals</span>
+        <span class="cvw-meta">Biometric Update</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Okta</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMibEFVX3lxTFByTWN1eHdVbTJsVXI5QXotVGhrYUczWVJOanFiSlk3dWxCOGdBcUpxVTRwbjdpM3huUG8xcG1sQW96MWM4TzR6U0s5WC1MMi1lY29nU0xWMThPejNaOFZ0cnZ2U2Z2SVBiZ2pEMQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Okta Posts Q2 2026 Earnings</span>
+        <span class="cvw-meta">TipRanks</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5XM1N2NVRZQzRuTXlGbWh4eTMzVlFpLVUwY1ZGNXlqQmZTZlBYZXdhOUxPaGJQUHM5U0RiVVZLeWF6UTdUNVlOdUhqR2NpQTl4aHJzb1RHeFprQ2g3cDBJSF9sT2ZudUNUcUxDaQ?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Okta Reports Q3 2025 Results</span>
+        <span class="cvw-meta">TipRanks</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQOWdTTjR4djJNU1VvU3Z0ckVrLWJDTmN0Yk9oTFVXeFZFVGtSVXd3RzM0ZW9JTkNjU0hINjgzWTI4ekZ1NFZsSk4zSW5OSk03amVkOGE3YlQwY2NOZ2lNSEMwa2FEOWtoNFd2cW5lbmZlNjFQUldNOWRoQktwZ3VJTGNUQ1BIVFFPeUhKYVBR?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Capital One Upgrades Okta and Palo Alto Networks</span>
+        <span class="cvw-meta">Seeking Alpha</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQNkQxNjdVTUN0dmw5Zk9xMHNBWXl3NF83WVNsSFE2X1U3aUt4ZWwyREluWGZhQ0Rhc0dhSEpld1EzMmJsUUQ4bHJ1dEk5VGVnNlBHRzl4aThMNERzV2YxS1p6SXhJODctUWNJTGNLWVhRdXlwYkprZlJtWjhqcXdRaGVaMG1lZTF3aTFqZWRCSEJld1hCRW9fX19QMU1hNWlmN1RydzJJRHc3aERkdnNCT0huMVdoWHpZNndnWHpvM05xRkhsU0R0MzBkWmFZQU1EUXE4Q3UtZw?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Allspring Global Increases Okta Stake</span>
+        <span class="cvw-meta">MarketBeat</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Zscaler</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQUE96akhDWU54YTM3cVRld1VFcWlaOE5PQkNNYW5GS1FydndlTkVUZEpUZWdLSlZQVXFncTBNbHhhU1FDZ3phUVBIb3dSR24taHhrZWFsM3hyZGMtN285ajVsUWlZZ2tLQ2g1TkdVTFh1eUFTeFdXMFJCbWo1dV95S3RIRzVDZVU4TWh2cVZQbDF1aE0?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Zscaler Doubles Down With New HQ, Signals Long Term Growth Bet</span>
+        <span class="cvw-meta">The Business Journals</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMib0FVX3lxTE1paVVwbTFzMkNkOE9aZHFQOUZXeXBxX0VWYi0wUGpDNXRZZ0FScG1GVVR0elVQM1VKQ2N5NmxLZWR3WjRucjYtT2U1cDlxNEh2dDFVaGZPSUZta2FqZ3RmSE8tQVVUbXBpNDhnMHE2cw?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Zscaler Q3 2025 Earnings: Results, Guidance and Call Highlights</span>
+        <span class="cvw-meta">TipRanks</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMitwFBVV95cUxNdUtPQ3N0WjM1emZGM3JSMW9DcDI3ekd0aXVZb1phVFV2dlVWT2U0MTBfU3ZocEhoa0lOTlZzMVowamlyMUprTXVxbFV1RDUyXzVKZmJlVExPeUdwM3g1Y004cExlMmZQNWhlNUxLZG9RQm45RUt3OUN0SElpaWlTNFFkUjFKajRjQUJHcEh1TmRWSU95eTJTUlJma0NFQUdvMzQxODN4WjhIVXZpcDF3dDJ1VWhTWVU?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Zscaler Founder Jay Chaudhry Talks AI Strategy on CAIO Connect</span>
+        <span class="cvw-meta">The National Law Review</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMi6wFBVV95cUxQeFRLdkxzZVBocERfRkdieExPUW5uTkg4bmt3eFV3eVpQWUJwTXdrLXhnVWMzbFhlM3VPOE5GRV9TakpieGdvQlhOQk1Gc1VSdG42RXp5MW1tWkhIUW55WUVDeVBhUTNuQVM3blBzR3F3N2RuYkhxMkpaU0VLVlZSX3hoc0hXOC1GZjhRYnIwcDU5S2JGc0FGWWlDSUJUSndITkRRRTQ4QTJReENQV1FaUlNpZGp2bERCVHZrZmU4OVFrTjBnQUc3cHNIcEVoSkRkTVJKXzVlX25ZaWVCSUEtX1UzZkJIcEVEWlNN?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Cramer Names Zscaler Among Top Cybersecurity Stocks to Own Now</span>
+        <span class="cvw-meta">24/7 Wall St.</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">SentinelOne</span>
+        <span class="cvw-vendor-n">3 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9wNHhod0lYek1sbGZuYUh6Y3NtWnlOSjBFYXlLbnRKenFkNF9fOHp4alF4b3VaU2tmY0ozVERueS1EUVhKZ0xEM1BQenhTTmxkUnVPVWxLR1lhcktNcjVRVm53VzVGMGpNa2NDSlNaVlo2MFVhTE9aWUR5c0o?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Analysts Ask: Is SentinelOne the Next CrowdStrike?</span>
+        <span class="cvw-meta">AOL.com</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxObWN5YXBjaXhKaFFxSTlFVFY2UXpONGZHUHNIczNtUWhJbmpCYjN1QUliYW1wb24yemRDeHo0VG51T29VQXJlTGhvdDhZMng1ODU4NFZGdktub0NRa0tBZm16R09lYkNLTjNiOHh4OV9EbTJoVktTS1RnT2taZXJ1WFlLRUFITERUS2tRWVF6cWNLTVN3Q2lnOHJRcE5IRklJaUFQQTJuNUUtSnd5SXRuVk12alRjN0h2WDZnWDFxYUN4QWpwSU0tYtIByAFBVV95cUxObWN5YXBjaXhKaFFxSTlFVFY2UXpONGZHUHNIczNtUWhJbmpCYjN1QUliYW1wb24yemRDeHo0VG51T29VQXJlTGhvdDhZMng1ODU4NFZGdktub0NRa0tBZm16R09lYkNLTjNiOHh4OV9EbTJoVktTS1RnT2taZXJ1WFlLRUFITERUS2tRWVF6cWNLTVN3Q2lnOHJRcE5IRklJaUFQQTJuNUUtSnd5SXRuVk12alRjN0h2WDZnWDFxYUN4QWpwSU0tYg?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">SentinelOne Gains Attention After Cyber Threat Warning, Valuation in Question</span>
+        <span class="cvw-meta">simplywall.st</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPQ1JHd2N1blZDY0RjdWR3dEtGNWx2SDRSQ0pkSjZydFp6TXgzYXFiUk5MSUtpbUo1OUhidEhJZVUtci1ueU9fSHlXaVRiR0tEZDBla2NIdWJQVmpLd0JXRTJQN0h3bkJxU2xiN20zVmJEU2pMSjRYRnJSWnZYOXNKdUlWNll0V0xONVE3bHM4NElHT2oyZHdlQg?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">SentinelOne's Recent Strength Becoming Hard to Justify, Analyst Says</span>
+        <span class="cvw-meta">Seeking Alpha</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Netskope</span>
+        <span class="cvw-vendor-n">2 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOamRwWG8zMGpnRDVaTTNBcWNMVDE3Skk5S2VIQWlrOVoxeG5BNkR6NGlYZmF1MDNVZTZLVFpDbmhIT0lFRmU4LWFXdzB0TkxmUzVkY3g4bkhyTE80VllZcThNdUI5QzJCU1IxTDRkaG42bzlhaWJiNTRyXzB6SDJZSjJwNFZldkt4VktBSmNHSzdrTzJPWWJiY2F1eE9ySkR4azVr?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Analyst Lifts Netskope Price Target to $16</span>
+        <span class="cvw-meta">MarketBeat</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://news.google.com/rss/articles/CBMirAFBVV95cUxOY3Vqa0k0RnI2blRLR0N5Rnc1NThvemw5Q3EzNGFXNDJ0ZG9CMVBFOEhuNHV1VkRyNVNFXzdTdnB4VGhfeE5FY1NRYkpnMHRfM1U5V05sVFFaNGliSG9odzhuZFdSM3FPWWRKQU1JNE1RLUJSR3VjbThYd3FTQl9YcTJxZlU0Ri1QaUNlVzNjUXNhVUZpVXpBbFU0QzdmWnNPcmtXOFV2REFHOGg5?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Short Interest in Netskope Jumps 76%</span>
+        <span class="cvw-meta">MarketBeat</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">OneTrust</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNRmtCLUg4b0VYcjlHbFZTOVRRS19wU2h4alFlRUJuODlIQ05jZlZtWHN2LW0yUnFtbC1XTWJVZ2NDRGJQRmpya3R2bEtIZEtpRmJualk1TW9wYXA0a3hHY3FCdlA3cnNXSHVSUUZqZUFFWWR0d2lPMXNMVE5Jd0pUa291bk9sQUI1Y2FZcnlPZDh0YVJDRVZYeDJRN3R6MEc0TUJjeWlOSkl1cEtYU05jenExeW1lRzlJX3R6ODVhNUZkQmQwVXRj?oc=5" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>OneTrust Ties Product Push to EU AI Act Compliance Demand</span>
+        <span class="cvw-meta">TipRanks</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Google SecOps</span>
+        <span class="cvw-vendor-n">0 stories</span>
+      </div>
+      <div class="cvw-empty-row">No recent news this cycle</div>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">watchTowr</span>
+        <span class="cvw-vendor-n">0 stories</span>
+      </div>
+      <div class="cvw-empty-row">No recent news this cycle</div>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Snyk</span>
+        <span class="cvw-vendor-n">0 stories</span>
+      </div>
+      <div class="cvw-empty-row">No recent news this cycle</div>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Darktrace</span>
+        <span class="cvw-vendor-n">0 stories</span>
+      </div>
+      <div class="cvw-empty-row">No recent news this cycle</div>
+    </div>
+</section>
 
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div>
-<div class="footer">
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="index.html">MAIN</a> | <a href="cyber.html">CYBER</a> | <a href="cyber-intel/">VENDOR SCORECARD</a> | <a href="cve/">CVE FEED</a> | <a href="hk-finance.html">FINANCE & RISK</a>
+  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
+  <br>
+  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis.html">Morning Synthesis</a> | <a href="how-its-made.html">How It's Made</a>
 </div>
 
 </body>

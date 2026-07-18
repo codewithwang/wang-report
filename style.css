@@ -3,7 +3,38 @@
 
 :root {
     --wr-page: min(1280px, 98vw);
+
+    /* Stamp & Ink — codified 2026-07-18 (Maverick/architecture/site-roadmap-2026-07-18.md).
+       The whole site draws from these six; desk accents below are the only additions. */
+    --wr-bone:  #F9F8F6;   /* page ground, never pure white */
+    --wr-ink:   #0B1F3A;   /* text, rules, nameplate */
+    --wr-seal:  #B0241E;   /* the one accent: section tags, hot stories, the chop */
+    --wr-rule:  #C8C0B0;   /* hairlines, borders, dividers */
+    --wr-panel: #F0EFED;   /* quiet boxes, pulled quotes */
+    --wr-slate: #5A6470;   /* bylines, dates, captions; floor for gray text */
+
+    /* Desk tones — one muted accent + faint page wash per desk (hub pages set
+       body class desk-<key>; HK Local keeps the seal itself). */
+    --desk-cyber:        #1D5F5A; --desk-cyber-wash:        #F7F9F8;
+    --desk-geopolitical: #6B2430; --desk-geopolitical-wash: #FAF7F6;
+    --desk-finance:      #1E5C46; --desk-finance-wash:      #F7F9F7;
+    --desk-ai:           #3E356B; --desk-ai-wash:           #F8F7FA;
+    --desk-hk-local:     #B0241E; --desk-hk-local-wash:     #F9F8F6;
+    --desk-sports:       #A05A1F; --desk-sports-wash:       #FAF8F5;
+    --desk-life:         #8A6D1F; --desk-life-wash:         #FAF9F5;
+    --desk-science:      #2F5570; --desk-science-wash:      #F7F8FA;
 }
+
+/* Hub pages: body.desk-<key> picks up its tone via these two hooks. */
+body[class*="desk-"] { --desk-accent: var(--wr-ink); --desk-wash: var(--wr-bone); background: var(--desk-wash); }
+body.desk-cyber        { --desk-accent: var(--desk-cyber);        --desk-wash: var(--desk-cyber-wash); }
+body.desk-geopolitical { --desk-accent: var(--desk-geopolitical); --desk-wash: var(--desk-geopolitical-wash); }
+body.desk-finance      { --desk-accent: var(--desk-finance);      --desk-wash: var(--desk-finance-wash); }
+body.desk-ai           { --desk-accent: var(--desk-ai);           --desk-wash: var(--desk-ai-wash); }
+body.desk-hk-local     { --desk-accent: var(--desk-hk-local);     --desk-wash: var(--desk-hk-local-wash); }
+body.desk-sports       { --desk-accent: var(--desk-sports);       --desk-wash: var(--desk-sports-wash); }
+body.desk-life         { --desk-accent: var(--desk-life);         --desk-wash: var(--desk-life-wash); }
+body.desk-science      { --desk-accent: var(--desk-science);      --desk-wash: var(--desk-science-wash); }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -1324,3 +1355,121 @@ a.td-link:hover { background: #232a3d; }
   .wc-block:last-child { border-bottom: none; }
   .wc-groups { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ─── Desk hub pages (R1 redesign, 2026-07-19) ────────────────────────────────
+   One template (pages/desk-hub.js) renders every desk hub. The tone flows from
+   body.desk-<key> via --desk-accent / --desk-wash (declared at the top of this
+   file); .hub-* classes must never hardcode a desk color. Light everywhere: no
+   dark panels, no chips/pills. Derived tints below use color-mix (baseline
+   supported since 2023). */
+body[class*="desk-"] {
+  --desk-rule:  color-mix(in srgb, var(--desk-accent) 16%, var(--desk-wash));
+  --desk-panel: color-mix(in srgb, var(--desk-accent) 5%,  var(--desk-wash));
+  --desk-faint: color-mix(in srgb, var(--desk-accent) 45%, var(--desk-wash));
+}
+
+/* Light Courier score strip (replaces the old dark navy ribbon). */
+.hub-pulse { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+  letter-spacing: .04em; color: #444; padding: 6px 8px;
+  border-top: 2px solid var(--desk-accent); border-bottom: 1px solid var(--wr-rule);
+  max-width: var(--wr-page); margin: 0 auto; }
+.hub-pulse a { color: var(--wr-ink); text-decoration: none; }
+.hub-pulse a:hover { color: var(--desk-accent); text-decoration: underline; }
+.hub-pv { font-weight: bold; color: var(--desk-accent); }
+.hub-pv--alert { color: var(--wr-seal); }
+.hub-pv--ink { color: var(--wr-ink); }
+.hub-pv--muted { color: var(--wr-slate); }
+.hub-pulse-sep { color: var(--desk-faint); }
+.hub-pulse-note { color: var(--desk-faint); font-size: 9px; }
+@media (max-width: 600px) { .hub-pulse-note { display: none; } }
+
+.hub-rulebar { max-width: 732px; margin: 0 auto; padding: 0 16px; }
+.hub-rule { border: none; border-top: 3px solid #000; margin: 12px 0 0; }
+.hub-rule-thin { border: none; border-top: 1px solid #ccc; margin: 3px 0 0; }
+
+.hub { max-width: 732px; margin: 0 auto; padding: 0 16px 70px; }
+.hub a { color: inherit; }
+
+/* Section heads: the site's section-tag pattern carried in the desk tone. */
+.hub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  border-bottom: 1px solid var(--desk-rule); padding-bottom: 6px; margin: 36px 0 4px; }
+.hub-tag { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
+  letter-spacing: 2.5px; color: var(--desk-accent); text-transform: uppercase; }
+.hub-head-link { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold;
+  letter-spacing: 1.5px; text-transform: uppercase; color: #667; text-decoration: none; white-space: nowrap; }
+.hub-head-link:hover { color: var(--desk-accent); }
+
+/* Daily take in lead position: house .briefing-take family, desk accent
+   instead of navy. Column card keeps the sitewide oxblood convention. */
+.hub .briefing-take { margin: 22px auto 0; max-width: none;
+  border-top-color: var(--desk-accent); background: var(--desk-panel); }
+.hub .briefing-take-stamp { color: var(--desk-accent); }
+.hub .briefing-take-avatar { background: var(--desk-accent); }
+.hub .briefing-take-avatar.has-photo { background: none; }
+.hub .briefing-take-perma:hover { color: var(--desk-accent); }
+.hub .front-col-teaser { margin: 14px auto 0; max-width: none; }
+
+/* Watch-list: accent left rail, homepage w-item list rhythm. */
+.hub-wlist { border-left: 2px solid var(--desk-accent); }
+.hub-w-item { display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 14px;
+  text-decoration: none; border-bottom: 1px solid var(--desk-rule); }
+.hub-w-item:last-child { border-bottom: none; }
+.hub-w-item:hover .hub-w-title { color: var(--desk-accent); }
+.hub-w-title { flex: 1; min-width: 0; font-size: 14.5px; line-height: 1.45; color: #222; }
+.hub-w-meta { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.hub-w-src { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; color: #999; text-transform: uppercase; }
+.hub-w-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: var(--desk-faint); }
+
+/* Module data rows: light, Courier data voice, plain-text markers (no badges). */
+.hub-row { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0;
+  border-bottom: 1px solid var(--desk-rule); }
+.hub-row:last-child { border-bottom: none; }
+.hub-row-key { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
+  color: var(--desk-accent); min-width: 84px; padding-top: 2px; }
+.hub-row-key--alert { color: var(--wr-seal); }
+.hub-row-key--muted { color: #667; }
+.hub-row-main { flex: 1; min-width: 0; }
+.hub-row-title { font-size: 14.5px; line-height: 1.4; color: #222; text-decoration: none; display: block; }
+a.hub-row-title:hover { color: var(--desk-accent); }
+.hub-row-meta { font-family: 'Courier New', Courier, monospace; font-size: 10px; color: var(--desk-faint); margin-top: 2px; }
+.hub-row-meta b { color: var(--desk-accent); font-weight: bold; }
+.hub-foot { font-family: 'Courier New', Courier, monospace; font-size: 9px; color: var(--desk-faint);
+  margin-top: 10px; line-height: 1.5; }
+
+/* One-line key/value teaser rows (e.g. Vendor Watch). */
+.hub-kv-row { display: flex; align-items: baseline; gap: 12px; padding: 8px 0;
+  border-bottom: 1px solid var(--desk-rule); text-decoration: none; }
+.hub-kv-row:last-child { border-bottom: none; }
+.hub-kv-key { font-family: 'Courier New', Courier, monospace; font-size: 11px; font-weight: bold;
+  letter-spacing: .5px; color: var(--desk-accent); min-width: 122px; flex-shrink: 0; }
+.hub-kv-line { flex: 1; min-width: 0; font-size: 14px; line-height: 1.45; color: #222; }
+.hub-kv-row:hover .hub-kv-line { color: var(--desk-accent); }
+.hub-kv-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: var(--desk-faint); flex-shrink: 0; }
+
+/* Desk index strip: the hub's outbound surface, Courier voice. */
+.hub-index { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+  font-weight: bold; letter-spacing: .04em; color: #444; padding: 8px 10px; margin-top: 40px;
+  border-top: 1px solid var(--desk-accent); border-bottom: 1px solid var(--desk-accent); }
+.hub-index a { color: var(--wr-ink); text-decoration: none; margin: 0 10px; white-space: nowrap; }
+.hub-index a:hover { color: var(--desk-accent); text-decoration: underline; }
+
+@media (max-width: 700px) {
+  .hub { padding: 0 12px 60px; }
+  .hub-kv-row { flex-wrap: wrap; gap: 4px 12px; }
+  .hub-kv-key { min-width: 0; }
+  .hub-kv-date { display: none; }
+  .hub-row-key { min-width: 70px; }
+}
+
+/* ─── Sports hub: World Cup panel adaptation (R1, 2026-07-19) ─────────────────
+   worldcup.js emits .wc-panel with its own dark navy head; inside the light
+   desk hub the module heading (.hub-head) carries the title and a .hub-foot
+   carries the update stamp, so the panel renders frameless and light, toned
+   from the desk vars. The panel self-retires after 2026-07-26 (worldcup.js);
+   this block can be deleted with it. */
+.hub .wc-panel { border: none; margin: 0; background: transparent; }
+.hub .wc-panel-head { display: none; }
+.hub .wc-block { border-color: var(--desk-rule); }
+.hub .wc-block:first-child { padding-left: 0; }
+.hub .wc-block h4 { color: var(--desk-accent); border-bottom-color: var(--desk-rule); }
+.hub .wc-group caption { color: var(--wr-ink); }

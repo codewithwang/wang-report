@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CYBER INTEL · THE WANG REPORT</title>
+  <title>CYBER · THE WANG REPORT</title>
   <meta name="description" content="Cybersecurity news with an APAC and Hong Kong lens: threat intelligence, incidents, vendor moves, and the regulation that follows.">
   <link rel="canonical" href="https://wangreport.com/cyber.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
-  <meta property="og:title" content="CYBER INTEL · THE WANG REPORT">
+  <meta property="og:title" content="CYBER · THE WANG REPORT">
   <meta property="og:description" content="Cybersecurity news with an APAC and Hong Kong lens: threat intelligence, incidents, vendor moves, and the regulation that follows.">
   <meta property="og:url" content="https://wangreport.com/cyber.html">
-  <meta property="og:image" content="https://wangreport.com/img/cyber-hero.jpg">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CYBER INTEL · THE WANG REPORT">
+  <meta name="twitter:title" content="CYBER · THE WANG REPORT">
   <meta name="twitter:description" content="Cybersecurity news with an APAC and Hong Kong lens: threat intelligence, incidents, vendor moves, and the regulation that follows.">
-  <meta name="twitter:image" content="https://wangreport.com/img/cyber-hero.jpg">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -32,30 +32,32 @@
     gtag('config', 'G-HHENRPSK4D');
   </script>
 </head>
-<body>
+<body class="desk-cyber">
 
 <div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
 <nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="ai-radar.html" class="nav-desk-link">AI Radar</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
 
-<style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
-<div class="timestamp-bar">
-  Saturday, July 18, 2026 at 09:49 PM GMT+8
-</div>
+<header>
+  <div class="masthead">CYBER</div>
+  <div class="subhead">THE WANG REPORT &middot; Sunday, July 19, 2026 &middot; HONG KONG</div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">60</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">8</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">71%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">4%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">66</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+</header>
+<div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
-<div class="ad-leaderboard"></div>
+<main class="hub">
 
-<div class="briefing-take">
+  <div class="briefing-take">
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
-    <div class="briefing-take-avatar has-photo"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
+    <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
     <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Jul 18</span></div>
   </div>
   <div class="briefing-take-body"><p>Fortinet's advisory names two vulnerabilities in FortiSandbox and calls them &quot;actively exploited.&quot; CISA's emergency directive, issued the same week, gives federal civilian agencies until Sunday to patch, a compression normally reserved for flaws already sitting in a known exploit chain rather than freshly disclosed ones. FortiSandbox sits inline on the inspection path for file detonation, which means a working exploit there does not just compromise a box, it blinds the control the network was relying on to catch the next stage. The two-day window says CISA has telemetry on active use it has not detailed publicly.</p><p>The precedent is FortiOS SSL-VPN in 2023 and 2024, where Fortinet's own disclosures consistently trailed exploitation by weeks, and organizations patching on Fortinet's calendar rather than CISA's ended up remediating intrusions instead of vulnerabilities. FortiSandbox deployments in Hong Kong's banking sector fall under HKMA's incident-notification rules the moment exploitation is confirmed rather than suspected, and the operative control here is not the patch, which lands after compromise, but whether SOC teams flagged FortiSandbox as a detonation-path asset in their exposure inventory before this week. Assets tagged that way get isolated by Sunday, July 20. Assets that weren't get discovered during incident response.</p></div>
-  <div class="briefing-take-note">The piece asserts CISA has undisclosed telemetry on active use from the two-day window alone, but a compressed deadline is consistent with policy default for inline detonation-path assets, not proof of hidden evidence. Separate what the directive proves from what it implies, or drop the inference. <span class="briefing-take-note-by">&mdash; WR</span></div>
-  <a href="/briefings/2026-07-18-cyber.html" class="briefing-take-perma">Permalink &rarr;</a>
+  <div class="briefing-take-note">The piece asserts CISA has undisclosed telemetry on active use from the two-day window alone, but a compressed deadline is consistent with policy default for inline detonation-path assets, not proof of hidden evidence. Separate what the directive proves from what it implies, or drop the inference. <span class="briefing-take-note-by">-- WR</span></div>
+  <a href="briefings/2026-07-18-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
-<div class="front-col-teaser">
+  <div class="front-col-teaser">
   <div class="front-col-eyebrow"><span class="front-col-stamp">FROM THE CYBER DESK</span> <span class="front-col-stamp-sep">·</span> <span class="front-col-desk">WEEKLY COLUMN</span></div>
   <div class="front-col-body">
     <div class="front-col-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
@@ -71,167 +73,78 @@
   </div>
 </div>
 
-
-    <div class="hero-headline cyber-hero">
-      <a href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" target="_blank">Inc Ransomware Chains SonicWall Zero Days for Root Access</a>
-    </div>
-    <div class="hero-sub">
-      <a href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" target="_blank">Inc Ransomware Exploits SonicWall SMA Zero-Days</a>
-      <span class="source">Dark Reading</span>
-    </div>
-    <div class="hero-image"><img src="img/cyber-hero.jpg?t=1784382584210" alt=""></div>
-
-<div class="masthead cyber-masthead">CYBER INTEL</div>
-<div class="subhead">THE WANG REPORT &middot; CYBERSECURITY BREAKING NEWS &amp; REGULATORY WATCH</div>
-
-
-
-
-
-<div class="ticker-style ticker-style--markets">
-  <span class="ticker-style__label">Cyber Desk</span>
-  | <a href="cyber-vendors.html">Vendor Watch</a>
-  | <a href="cyber-intel/">Vendor Scorecard</a>
-  | <a href="cve/">CVE Feed</a>
-</div><div style="background:#0d1520;color:#c8d4e8;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <span style="font-weight:700;color:#e8d5a0;letter-spacing:.08em;">CYBER INTEL SCORE <span style="color:#fff;">60</span> <span style="color:#cc5533;">ELEVATED</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>KEV 7d <span style="color:#e8a0a0;">8</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>CRIT/HIGH <span style="color:#e8a0a0;">71%</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>APAC-FSI <span style="color:#a0c0e8;">4%</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>EPSS HEAT <span style="color:#c8c0a0;">66</span></span>
-    <span style="margin-left:auto;font-size:9px;color:#5a7a9a;">Source: NVD + CISA KEV &middot; 250 CVEs</span>
+  <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
+  <div class="hub-wlist">
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-surge-in-acr-stealer-attacks-on-customers/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft warns of surge in ACR Stealer attacks on customers</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/the-future-of-age-verification-your-face-never-leaves-your-device/" target="_blank" rel="noopener"><span class="hub-w-title">The Future of Age Verification: Your Face Never Leaves Your Device</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" target="_blank" rel="noopener"><span class="hub-w-title">New wp2shell WordPress Core Flaw Lets Unauthenticated Attackers Run Code</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" target="_blank" rel="noopener"><span class="hub-w-title">Abbott probes two cyber incidents amid extortion claims</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html" target="_blank" rel="noopener"><span class="hub-w-title">OpenSSL HollowByte Flaw Could Freeze Server Memory with 11-Byte TLS Requests</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" target="_blank" rel="noopener"><span class="hub-w-title">Inc Ransomware Exploits SonicWall SMA Zero-Days</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html" target="_blank" rel="noopener"><span class="hub-w-title">Seven Malicious Vite npm Packages Use Blockchain C2 to Deliver a RAT</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/application-security/real-ai-threat-blind-trust" target="_blank" rel="noopener"><span class="hub-w-title">The Real AI Threat Is Blind Trust</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/gold-eagle-clearinghouse-targets-security-gap" target="_blank" rel="noopener"><span class="hub-w-title">Gold Eagle Clearinghouse Targets Security Gap, but How Is Unclear</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 17</span></span></a>
+    <a class="hub-w-item" href="https://arxiv.org/abs/2607.14587" target="_blank" rel="noopener"><span class="hub-w-title">Qubes OS Security in the Public Record</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://github.com/BadChemical/IoT-Vulnerability-Research-Public/blob/main/TP-Link_Kasa_EC71/Kasa_EC71.md" target="_blank" rel="noopener"><span class="hub-w-title">TP-Link Kasa cameras leaked home GPS via unauthenticated UDP for 6 years</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 18</span></span></a>
   </div>
-</div><div style="background:#F9F8F6;border:1px solid #ddd8cf;border-radius:4px;padding:14px 16px;margin:16px 0;">
-  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:6px;">
-    <span style="font-family:Courier New,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#B0241E;">CVE SPOTLIGHT</span>
-    <span style="font-family:Courier New,monospace;font-size:9px;color:#999;">Last updated: 18 Jul 2026 &middot; Updated daily &middot; <a href="cve/index.html" style="color:#7a9abf;text-decoration:none;">Full feed &rarr;</a></span>
-  </div>
-  <div style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #e8e4de;">
-  <span style="font-family:Courier New,monospace;font-size:10px;font-weight:700;color:#c05c00;min-width:62px;padding-top:1px;">HIGH 8.6</span>
-  <div style="flex:1;min-width:0;">
-    <div style="font-family:Spectral,Georgia,serif;font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.3;">
-      <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20230" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">A vulnerability in Cisco Unified Communications Manager (Unified CM) and Cisco Unified Communications Manager Session Ma</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap;">
-      <span style="background:#B0241E;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.04em;">KEV</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#666;">Cisco</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#999;">KEV listed 2026-06-25</span>
+
+  <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
+  <div class="hub-module"><div class="hub-row">
+    <span class="hub-row-key">HIGH 8.6</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20230" target="_blank" rel="noopener">Cisco Unified Communications Manager Server-Side Request Forgery</a>
+      <div class="hub-row-meta">CVE-2026-20230 &middot; <b>KEV</b> listed Jun 25 &middot; EPSS 42%</div>
     </div>
   </div>
-</div><div style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #e8e4de;">
-  <span style="font-family:Courier New,monospace;font-size:10px;font-weight:700;color:#B0241E;min-width:62px;padding-top:1px;">CRITICAL 9.1</span>
-  <div style="flex:1;min-width:0;">
-    <div style="font-family:Spectral,Georgia,serif;font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.3;">
-      <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">A improper neutralization of special elements used in an os command ('os command injection') vulnerability in Fortinet F</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap;">
-      <span style="background:#B0241E;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.04em;">KEV</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#666;">Fortinet, Fortinet</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#999;">KEV listed 2026-07-16</span>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.1</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">Fortinet FortiSandbox OS Command Injection</a>
+      <div class="hub-row-meta">CVE-2026-25089 &middot; <b>KEV</b> listed Jul 16 &middot; EPSS 36%</div>
     </div>
   </div>
-</div><div style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #e8e4de;">
-  <span style="font-family:Courier New,monospace;font-size:10px;font-weight:700;color:#B0241E;min-width:62px;padding-top:1px;">CRITICAL 9.8</span>
-  <div style="flex:1;min-width:0;">
-    <div style="font-family:Spectral,Georgia,serif;font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.3;">
-      <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-4250" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">Microsoft Windows Buffer Overflow Vulnerability</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap;">
-      <span style="background:#B0241E;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.04em;">KEV</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#666;">Microsoft</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#999;">KEV listed 2026-05-20</span>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2008-4250" target="_blank" rel="noopener">Microsoft Windows Buffer Overflow Vulnerability</a>
+      <div class="hub-row-meta">CVE-2008-4250 &middot; <b>KEV</b> listed May 20 &middot; EPSS 99%</div>
     </div>
   </div>
-</div><div style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #e8e4de;">
-  <span style="font-family:Courier New,monospace;font-size:10px;font-weight:700;color:#7a6b00;min-width:62px;padding-top:1px;">MEDIUM 5.3</span>
-  <div style="flex:1;min-width:0;">
-    <div style="font-family:Spectral,Georgia,serif;font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.3;">
-      <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-56164" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">Microsoft SharePoint Server Elevation of Privilege Vulnerability</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap;">
-      <span style="background:#B0241E;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.04em;">KEV</span> <span style="background:#3a5a3a;color:#c8e8c8;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.04em;">OT</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#666;">Microsoft, Microsoft</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#999;">KEV listed 2026-07-14</span>
-    </div>
-  </div>
-</div><div style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #e8e4de;">
-  <span style="font-family:Courier New,monospace;font-size:10px;font-weight:700;color:#B0241E;min-width:62px;padding-top:1px;">CRITICAL 9.8</span>
-  <div style="flex:1;min-width:0;">
-    <div style="font-family:Spectral,Georgia,serif;font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.3;">
-      <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-9082" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">Drupal Core SQL Injection Vulnerability</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap;">
-      <span style="background:#B0241E;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.04em;">KEV</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#666;">Drupal</span>
-      <span style="font-family:Courier New,monospace;font-size:10px;color:#999;">KEV listed 2026-05-22</span>
-    </div>
-  </div>
-</div>
-  <div style="font-family:Courier New,monospace;font-size:9px;color:#aaa;margin-top:10px;line-height:1.5;">Ranked by: CISA KEV status + APAC financial-services &amp; OT sector relevance + CVSS score + EPSS exploit probability. Source: NVD + CISA KEV. Updated daily.</div>
-</div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 18. Updated daily.</div></div>
 
+  <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 15 vendors &rarr;</a></div>
+  <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">CyberArk</span>
+    <span class="hub-kv-line">Palo Alto Networks Closes Acquisition of CyberArk</span>
+    <span class="hub-kv-date">Jul 17</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">Palo Alto Networks Q3 2026 Earnings: What CISOs Need to Know</span>
+    <span class="hub-kv-date">Jul 17</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">SailPoint</span>
+    <span class="hub-kv-line">SailPoint Executives Face Law Firm Probe Over Possible Securities Violations</span>
+    <span class="hub-kv-date">Jul 18</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Posts Q2 2026 Earnings</span>
+    <span class="hub-kv-date">Jul 17</span>
+  </a></div>
 
+  <div class="hub-index"><a href="cyber-intel/">Cyber Scorecard</a> | <a href="cve/">CVE Feed</a> | <a href="cyber-vendors.html">Vendor Watch</a> | <a href="cyber-column/">Column Archive</a></div>
 
-<div class="page-body">
-  <div class="columns">
-    <div class="column">
-    <div class="column-header">BREACHES &amp; ATTACKS</div>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/"><a href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-8501477a4a.jpg?t=1784382584210" alt="" loading="lazy"></a><a href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/" target="_blank"><span itemprop="headline">Windows LegacyHive Zero Day Grants Instant Admin</span></a> <span class="source">BleepingComputer</span></article>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html"><a href="https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-7d46daae0f.jpg?t=1784382584210" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html" target="_blank"><span itemprop="headline">DigiCert Breach Tied to Code Signing Certificate Theft Gang</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story red caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/"><a href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-054b807916.jpg?t=1784382584210" alt="" loading="lazy"></a><a href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank"><span itemprop="headline">Ernst and Young Discloses Breach After Support System Hack</span></a> <span class="source">BleepingComputer</span></article>
-      <article class="story red caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/"><a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" target="_blank"><span itemprop="headline">Abbott Probes Two Breaches Amid Extortion Threats</span></a> <span class="source">BleepingComputer</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html"><a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" target="_blank"><span itemprop="headline">WordPress Core Flaw Lets Hackers Run Code, No Login Needed</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html"><a href="https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html" target="_blank"><span itemprop="headline">11 Byte Trick Freezes Unpatched OpenSSL Servers</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="HackerNews"><link itemprop="isBasedOn" href="https://github.com/BadChemical/IoT-Vulnerability-Research-Public/blob/main/TP-Link_Kasa_EC71/Kasa_EC71.md"><a href="https://github.com/BadChemical/IoT-Vulnerability-Research-Public/blob/main/TP-Link_Kasa_EC71/Kasa_EC71.md" target="_blank"><span itemprop="headline">TP-Link Kasa Cameras Leaked Home GPS for Six Years</span></a> <span class="source">HackerNews</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/north-korea-linked-hackers-hide.html"><a href="https://thehackernews.com/2026/07/north-korea-linked-hackers-hide.html" target="_blank"><span itemprop="headline">North Korean Hackers Hide Malware in Fake Coding Tests</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html"><a href="https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html" target="_blank"><span itemprop="headline">NadMesh Botnet Hunts AI Services for Cloud Keys</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html"><a href="https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html" target="_blank"><span itemprop="headline">Malicious Vite Packages Hide RAT in Blockchain Command Channel</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/us-charges-two-over-laundering-43-million-from-investment-fraud/"><a href="https://www.bleepingcomputer.com/news/security/us-charges-two-over-laundering-43-million-from-investment-fraud/" target="_blank"><span itemprop="headline">US Charges Two in $43 Million Crypto Fraud Laundering</span></a> <span class="source">BleepingComputer</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/inside-the-search-for-clean-residential-proxies-for-carding/"><a href="https://www.bleepingcomputer.com/news/security/inside-the-search-for-clean-residential-proxies-for-carding/" target="_blank"><span itemprop="headline">Carders Hunt Clean Residential Proxies to Beat Fraud Checks</span></a> <span class="source">BleepingComputer</span></article>
-  </div>
-  <div class="column">
-    <div class="column-header">REGULATORY &amp; COMPLIANCE</div>
-      <article class="story caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/eu-orders-google-to-open-android-mic.html"><a href="https://thehackernews.com/2026/07/eu-orders-google-to-open-android-mic.html" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-473e4db92f.jpg?t=1784382584210" alt="" loading="lazy"></a><a href="https://thehackernews.com/2026/07/eu-orders-google-to-open-android-mic.html" target="_blank"><span itemprop="headline">EU Orders Google to Open Android Mic and Camera to Rival AI</span></a> <span class="source">The Hacker News</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="Dark Reading"><link itemprop="isBasedOn" href="https://www.darkreading.com/vulnerabilities-threats/gold-eagle-clearinghouse-targets-security-gap"><a href="https://www.darkreading.com/vulnerabilities-threats/gold-eagle-clearinghouse-targets-security-gap" target="_blank"><span itemprop="headline">White House Gold Eagle Vulnerability Plan Draws Questions</span></a> <span class="source">Dark Reading</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/microsoft/windows-server-2022-reach-end-of-mainstream-support-in-90-days/"><a href="https://www.bleepingcomputer.com/news/microsoft/windows-server-2022-reach-end-of-mainstream-support-in-90-days/" target="_blank"><span itemprop="headline">Windows Server 2022 Mainstream Support Ends in 90 Days</span></a> <span class="source">BleepingComputer</span></article>
-      <div class="section-divider">AI + CYBER</div>
-      <article class="story red caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="Dark Reading"><link itemprop="isBasedOn" href="https://www.darkreading.com/application-security/real-ai-threat-blind-trust"><a href="https://www.darkreading.com/application-security/real-ai-threat-blind-trust" target="_blank"><span itemprop="headline">The Real AI Threat Is Blind Trust in the Machine</span></a> <span class="source">Dark Reading</span></article>
-      <article class="story caps" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="Dark Reading"><link itemprop="isBasedOn" href="https://www.darkreading.com/cloud-security/google-bets-agentic-defense-strategy-outpace-attackers"><a href="https://www.darkreading.com/cloud-security/google-bets-agentic-defense-strategy-outpace-attackers" target="_blank"><span itemprop="headline">Google Bets Agentic Defense Can Outpace AI Attackers</span></a> <span class="source">Dark Reading</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/the-future-of-age-verification-your-face-never-leaves-your-device/"><a href="https://www.bleepingcomputer.com/news/security/the-future-of-age-verification-your-face-never-leaves-your-device/" target="_blank"><span itemprop="headline">Age Verification Shifts to On Device Face Scans</span></a> <span class="source">BleepingComputer</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Hacker News"><link itemprop="isBasedOn" href="https://thehackernews.com/2026/07/the-race-to-field-military-autonomy-is.html"><a href="https://thehackernews.com/2026/07/the-race-to-field-military-autonomy-is.html" target="_blank"><span itemprop="headline">Military Rushes Autonomy, Trust Infrastructure Lags</span></a> <span class="source">The Hacker News</span></article>
-  </div>
-  <div class="column">
-    <div class="column-header">THREAT INTEL &amp; TOOLS</div>
-      <article class="story caps has-thumb" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/"><a href="https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/" target="_blank"><img class="story-thumb" src="img/thumbs/cyber-68dcc1f493.jpg?t=1784382584210" alt="" loading="lazy"></a><a href="https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/" target="_blank"><span itemprop="headline">HollowByte Flaw Bloats OpenSSL Memory With 11 Byte Payload</span></a> <span class="source">BleepingComputer</span></article>
-      <article class="story" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="HackerNews"><link itemprop="isBasedOn" href="https://arxiv.org/abs/2607.14587"><a href="https://arxiv.org/abs/2607.14587" target="_blank"><span itemprop="headline">Qubes OS Security Record Faces Public Scrutiny</span></a> <span class="source">HackerNews</span></article>
-  </div>
-  </div>
-  <aside class="right-rail">
-    <div class="ad-slot ad-300x250"></div>
-    <div class="ad-slot ad-300x250"></div>
-  </aside>
-</div>
-
-
-
-
+</main>
 
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
   <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
   <br>
-  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis.html">Morning Synthesis</a>
+  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis.html">Morning Synthesis</a> | <a href="how-its-made.html">How It's Made</a>
 </div>
-
-<script>
-
-</script>
 
 </body>
 </html>
