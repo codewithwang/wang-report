@@ -35,7 +35,8 @@
 <body class="desk-cyber">
 
 <div class="nav-bar"><a href="index.html" class="">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Features"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance</a><a href="cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="science.html" class="nav-desk-link">Science</a><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance</a><a href="cyber.html" class="nav-desk-link nav-desk-active">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="science.html" class="nav-desk-link">Science</a></div></nav>
+<nav class="nav-desks nav-feats" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
 
 <header>
   <div class="masthead">CYBER</div>
@@ -50,11 +51,11 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Jul 18</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Jul 19</span></div>
   </div>
-  <div class="briefing-take-body"><p>Fortinet's advisory names two vulnerabilities in FortiSandbox and calls them &quot;actively exploited.&quot; CISA's emergency directive, issued the same week, gives federal civilian agencies until Sunday to patch, a compression normally reserved for flaws already sitting in a known exploit chain rather than freshly disclosed ones. FortiSandbox sits inline on the inspection path for file detonation, which means a working exploit there does not just compromise a box, it blinds the control the network was relying on to catch the next stage. The two-day window says CISA has telemetry on active use it has not detailed publicly.</p><p>The precedent is FortiOS SSL-VPN in 2023 and 2024, where Fortinet's own disclosures consistently trailed exploitation by weeks, and organizations patching on Fortinet's calendar rather than CISA's ended up remediating intrusions instead of vulnerabilities. FortiSandbox deployments in Hong Kong's banking sector fall under HKMA's incident-notification rules the moment exploitation is confirmed rather than suspected, and the operative control here is not the patch, which lands after compromise, but whether SOC teams flagged FortiSandbox as a detonation-path asset in their exposure inventory before this week. Assets tagged that way get isolated by Sunday, July 20. Assets that weren't get discovered during incident response.</p></div>
-  <div class="briefing-take-note">The piece asserts CISA has undisclosed telemetry on active use from the two-day window alone, but a compressed deadline is consistent with policy default for inline detonation-path assets, not proof of hidden evidence. Separate what the directive proves from what it implies, or drop the inference. <span class="briefing-take-note-by">-- WR</span></div>
-  <a href="briefings/2026-07-18-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <div class="briefing-take-body"><p>Inc Ransomware's chaining of the two SonicWall SMA zero-days gets root on the appliance, which means the actor sits below the point where the appliance's own logging can see it. SonicWall's advisory frames the pair as &quot;vulnerabilities allowing unauthorized access.&quot; Root-level code execution on a VPN gateway is not unauthorized access in the sense a compliance officer means when filling out a breach questionnaire. It is the ability to rewrite the thing that would have told you a breach happened.</p><p>The appliance in question is the same SMA product line whose earlier CVEs have shown up in Mandiant's and CISA's advisories as edge-device persistence points precisely because SMA boxes sit outside the telemetry most SOCs actually monitor: no EDR agent runs on the appliance itself, so root there is root nobody is watching. The control that would have changed this outcome is not patching velocity, which nobody in an active Inc campaign gets right in time anyway. It is treating SMA and equivalent VPN gateways as untrusted network segments with their own out-of-band log shipping, the same design principle HKMA's TM-G-1 already expects of internet-facing infrastructure carrying customer data. Firms that segmented the gateway logs before July 19, 2026 have an audit trail. The rest are relying on SonicWall's own box to tell them what happened inside it.</p></div>
+  <div class="briefing-take-note">The piece reframes SonicWall's own advisory language as inadequate but never states what a correct advisory disclosure would have said instead, so the correction is asserted rather than demonstrated. It also treats TM-G-1 segmentation as a solved design principle without naming what changes for an SMA box that must still terminate remote-access sessions. <span class="briefing-take-note-by">-- WR</span></div>
+  <a href="briefings/2026-07-19-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -75,17 +76,9 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" target="_blank" rel="noopener"><span class="hub-w-title">Inc Ransomware Chains SonicWall Zero Days For Root Access</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html" target="_blank" rel="noopener"><span class="hub-w-title">DigiCert Breach Tied To Chinese Hackers Who Stole Code Signing Certs</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html" target="_blank" rel="noopener"><span class="hub-w-title">New Botnet Hunts Exposed AI Services For Cloud Keys</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" target="_blank" rel="noopener"><span class="hub-w-title">Abbott Probes Two Breaches Amid Extortion Threats</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-surge-in-acr-stealer-attacks-on-customers/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Warns Of Surge In Password Stealing Malware Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank" rel="noopener"><span class="hub-w-title">Ernst &amp; Young Breached Through Third Party Support System</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 17</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/north-korea-linked-hackers-hide.html" target="_blank" rel="noopener"><span class="hub-w-title">North Korean Hackers Hide Malware In Fake Coding Tests</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 17</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/gold-eagle-clearinghouse-targets-security-gap" target="_blank" rel="noopener"><span class="hub-w-title">White House Vulnerability Response Plan Faces Questions</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 17</span></span></a>
-    <a class="hub-w-item" href="https://github.com/BadChemical/IoT-Vulnerability-Research-Public/blob/main/TP-Link_Kasa_EC71/Kasa_EC71.md" target="_blank" rel="noopener"><span class="hub-w-title">TP-Link Cameras Leaked Home GPS Locations For Six Years</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/real-ai-threat-blind-trust" target="_blank" rel="noopener"><span class="hub-w-title">The Real AI Threat Is Blind Trust In The Model</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://arxiv.org/abs/2607.14587" target="_blank" rel="noopener"><span class="hub-w-title">Qubes OS Puts Its Security Record On Public Display</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-surge-in-acr-stealer-attacks-on-customers/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Warns Of Password Stealing Malware Surge On Enterprise Customers</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/wordpress-core-wp2shell-rce-flaws-get-public-exploits-patch-now/" target="_blank" rel="noopener"><span class="hub-w-title">WordPress Core RCE Exploits Go Public, Patch Immediately</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 19</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/update-now-7-zip-fixes-rce-flaw-exploitable-with-malicious-archives/" target="_blank" rel="noopener"><span class="hub-w-title">7-Zip Patches Code Execution Flaw In Malicious Archives</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 19</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -111,6 +104,28 @@
     </div>
   </div>
   <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 19. Updated daily.</div></div>
+
+  <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
+  <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">AT&amp;T and Palo Alto Networks Launch Quantum Resilient SASE Fabric</span>
+    <span class="hub-kv-date">Jul 17</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Wiz</span>
+    <span class="hub-kv-line">Google Rolls Out Agentic Defense in Wake of $32B Wiz Deal</span>
+    <span class="hub-kv-date">Jul 18</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">CrowdStrike Acquires XM Cyber IP, Expands Falcon to STACKIT Cloud</span>
+    <span class="hub-kv-date">Jul 18</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">SailPoint</span>
+    <span class="hub-kv-line">Law Firm Investigates SailPoint Executives Over Possible Securities Violations</span>
+    <span class="hub-kv-date">Jul 18</span>
+  </a></div>
 
   <div class="hub-index"><a href="cyber-intel/">Cyber Scorecard</a> | <a href="cve/">CVE Feed</a> | <a href="cyber-vendors.html">Vendor Watch</a> | <a href="cyber-column/">Column Archive</a></div>
 

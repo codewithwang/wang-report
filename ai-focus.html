@@ -40,7 +40,7 @@
 <header>
   <div class="masthead">AI FOCUS</div>
   <div class="subhead">THE WANG REPORT &middot; Sunday, July 19, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">AI Pulse</span><span class="hub-pulse-sep"> | </span><span>PULSE <span class="hub-pv hub-pv--alert">59</span> ACTIVE</span><span class="hub-pulse-sep"> | </span><a href="https://openai.com/api/pricing/">GPT-4O <span class="hub-pv">$2.50/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://docs.anthropic.com/en/docs/about-claude/models">CLAUDE OPUS <span class="hub-pv">$15/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://ai.google.dev/pricing">GEMINI 2.5 <span class="hub-pv">$1.25/1M</span></a><span class="hub-pulse-sep"> | </span><span>AI STORIES <span class="hub-pv">47</span></span><span class="hub-pulse-sep"> | </span><span>GH TRENDING <span class="hub-pv">10</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">Input pricing per 1M tokens · 7-day story pool</span></div>
+  <div class="hub-pulse"><span class="hub-tag">AI Pulse</span><span class="hub-pulse-sep"> | </span><span>PULSE <span class="hub-pv hub-pv--alert">59</span> ACTIVE</span><span class="hub-pulse-sep"> | </span><a href="https://openai.com/api/pricing/">GPT-4O <span class="hub-pv">$2.50/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://docs.anthropic.com/en/docs/about-claude/models">CLAUDE OPUS <span class="hub-pv">$15/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://ai.google.dev/pricing">GEMINI 2.5 <span class="hub-pv">$1.25/1M</span></a><span class="hub-pulse-sep"> | </span><span>AI STORIES <span class="hub-pv">51</span></span><span class="hub-pulse-sep"> | </span><span>GH TRENDING <span class="hub-pv">10</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">Input pricing per 1M tokens · 7-day story pool</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -52,8 +52,8 @@
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/aya-nakamura.jpg" alt="AN"/></div>
     <div class="briefing-take-byline">By <strong>Aya Nakamura</strong><span class="briefing-take-role">AI Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Jul 19</span></div>
   </div>
-  <div class="briefing-take-body"><p>The architecture of Kimi 3's benchmark claims is straightforward once you separate what's been measured from what's been shipped. Moonshot AI says Kimi 3 is closing the gap with Anthropic's Opus 4.8 on published evals, the standard tests that score a model's reasoning and coding output against a fixed answer key. That's a claim about capability: what the model does in a benchmark harness with no paying customer on the other end. What it says nothing about is deployment, meaning which enterprises have actually wired Kimi 3 into a production system, signed a contract, and cleared it with a compliance team. Anthropic's actual position rests on the second thing, not the first. Claude runs inside enterprise contracts at named banks and software vendors across Hong Kong and Singapore, each one a deployment that took months of security review to land and that a company won't rip out because a Chinese lab closed a benchmark gap on a leaderboard.</p><p>The bilateral constraint underneath this is compute geography, not model quality. Kimi 3 trains on Ascend 910B clusters inside the PRC, the chip Huawei built specifically because BIS October 2023 controls block Nvidia's H100 and newer parts from PRC-bound shipment. Whatever Kimi 3 scores on a benchmark, it scores it on hardware that cannot access the same interconnect bandwidth or batch-size economics as Opus 4.8's training run, and Moonshot has no Bay Area-style enterprise deployment surface generating the recurring revenue that funds the next training cycle the way Claude's API contracts do for Anthropic. The gap that matters isn't the eval score published this week. It's whether Moonshot can convert a closing benchmark number into deployment revenue before its next training run needs it, and on current compute constraints, that conversion has no clear date on the calendar.</p></div>
-  <div class="briefing-take-note">The compute-geography argument needs a specific figure: cite Ascend 910B's actual interconnect bandwidth versus H100 or Opus 4.8's training hardware, not just the export-control fact of the gap. Flag Moonshot's revenue-per-training-cycle claim for a follow-up once any PRC enterprise contract value becomes public, since the piece currently asserts the funding gap without a number on either side. <span class="briefing-take-note-by">-- WR</span></div>
+  <div class="briefing-take-body"><p>Moonshot AI says Kimi 3, expected to ship this quarter, closes the gap with Anthropic's Opus 4.8, the model that currently anchors Anthropic's enterprise API business. That claim is a capability claim: Moonshot has not published the eval scores yet, and until it does, &quot;closes the gap&quot; means Moonshot's own benchmark selection, not an independent readout. What Moonshot has not claimed, because it cannot, is deployment parity. Opus 4.8 runs on Anthropic's compute partnership with SpaceX's Colossus cluster, funded in the next round by API revenue from enterprise contracts already signed and wired into bank and insurer workflows. Kimi 3 runs on Ascend 910B silicon, the Huawei chip that is PRC's primary domestic alternative after BIS's October 2023 rule cut off Nvidia's H100 and later B200 NVL72 exports to Chinese buyers. Ascend 910B has no equivalent of a Colossus or an Azure behind it, no PRC cloud vendor operating a commercial API surface at Anthropic's or OpenAI's scale to fund Kimi 4 the way Opus's enterprise contracts fund Anthropic's next cluster lease.</p><p>That is the constraint Moonshot's claim runs into, not a forecast about who wins. A model can match a rival's benchmark and still lose the compounding race if nothing recycles deployment revenue into the next training run. Kimi 3's real test is not whether it beats Opus 4.8 on release-day scores. It is whether Moonshot, or any PRC lab, signs an enterprise deployment contract of the kind Anthropic already has in banking and insurance, the contract that turns a good model into a self-funding one. Absent that, the gap Kimi 3 closes on paper reopens on the next training run, whenever Anthropic's Colossus lease next scales.</p></div>
+  <div class="briefing-take-note">The recycling argument needs one more link: state whether Anthropic's Colossus lease terms scale with signed contract value or with a fixed schedule, since the self-funding claim depends on which. Flag the piece for a same-week follow-up if Moonshot announces any enterprise pilot, since that single fact would move Kimi 3 from the paper-gap case to the funded-gap case. <span class="briefing-take-note-by">-- WR</span></div>
   <a href="briefings/2026-07-19-ai-focus.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
@@ -76,60 +76,60 @@
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
     <a class="hub-w-item" href="https://arstechnica.com/tech-policy/2026/07/apple-sues-openai-after-ex-engineer-allegedly-used-bug-to-steal-trade-secrets/" target="_blank" rel="noopener"><span class="hub-w-title">Apple Sues OpenAI Over Stolen Secrets</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 14</span></span></a>
-    <a class="hub-w-item" href="https://www.theverge.com/tech/966442/1password-anthropic-claude-browser-integration" target="_blank" rel="noopener"><span class="hub-w-title">Claude Can Now Use Your 1Password Vault</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 16</span></span></a>
-    <a class="hub-w-item" href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank" rel="noopener"><span class="hub-w-title">Kimi 3 Closing In On Anthropic's Opus</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 16</span></span></a>
-    <a class="hub-w-item" href="https://www.wired.com/story/thinking-machines-lab-releases-its-first-model-inkling/" target="_blank" rel="noopener"><span class="hub-w-title">Thinking Machines Lab Drops First Model</span><span class="hub-w-meta"><span class="hub-w-src">Wired</span><span class="hub-w-date">Jul 16</span></span></a>
+    <a class="hub-w-item" href="https://www.theverge.com/tech/966442/1password-anthropic-claude-browser-integration" target="_blank" rel="noopener"><span class="hub-w-title">Claude Can Now Use Your 1Password</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 16</span></span></a>
+    <a class="hub-w-item" href="https://www.wired.com/story/prompt-injection-attacks-are-thwarting-ai-hacking-agents/" target="_blank" rel="noopener"><span class="hub-w-title">Prompt Injection Is Beating AI Hackers</span><span class="hub-w-meta"><span class="hub-w-src">Wired</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://techcrunch.com/podcast/apples-lawsuit-couldnt-come-at-a-worse-time-for-openai/" target="_blank" rel="noopener"><span class="hub-w-title">Lawsuit Timed to Wreck OpenAI IPO</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 17</span></span></a>
     <a class="hub-w-item" href="https://arstechnica.com/tech-policy/2026/07/new-york-is-the-first-state-to-impose-a-data-center-moratorium/" target="_blank" rel="noopener"><span class="hub-w-title">New York Bans Data Centers For A Year</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 14</span></span></a>
-    <a class="hub-w-item" href="https://arstechnica.com/gadgets/2026/07/its-official-eu-will-force-google-to-share-search-data-and-open-up-ai-on-android/" target="_blank" rel="noopener"><span class="hub-w-title">EU Forces Google To Open Up Android AI</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 17</span></span></a>
+    <a class="hub-w-item" href="https://arstechnica.com/gadgets/2026/07/its-official-eu-will-force-google-to-share-search-data-and-open-up-ai-on-android/" target="_blank" rel="noopener"><span class="hub-w-title">EU Forces Google To Open Android AI</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 17</span></span></a>
     <a class="hub-w-item" href="https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/" target="_blank" rel="noopener"><span class="hub-w-title">Databricks Hits $188 Billion Valuation</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 18</span></span></a>
+    <a class="hub-w-item" href="https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest" target="_blank" rel="noopener"><span class="hub-w-title">Kimi K3 Rivals Opus At Sonnet Prices</span><span class="hub-w-meta"><span class="hub-w-src">Latent Space</span><span class="hub-w-date">Jul 17</span></span></a>
     <a class="hub-w-item" href="https://www.wired.com/story/why-anthropic-is-pushing-states-to-regulate-ai-faster/" target="_blank" rel="noopener"><span class="hub-w-title">Why Anthropic Wants States To Move Faster</span><span class="hub-w-meta"><span class="hub-w-src">Wired</span><span class="hub-w-date">Jul 17</span></span></a>
-    <a class="hub-w-item" href="https://www.wired.com/story/prompt-injection-attacks-are-thwarting-ai-hacking-agents/" target="_blank" rel="noopener"><span class="hub-w-title">Prompt Injection Foils AI Hacking Agents</span><span class="hub-w-meta"><span class="hub-w-src">Wired</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/15/claude-web-fetch-exfiltration/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Tricking Claude Into Leaking Your Secrets</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 15</span></span></a>
-    <a class="hub-w-item" href="https://www.theverge.com/ai-artificial-intelligence/966293/xai-grok-user-lawsuit-csam" target="_blank" rel="noopener"><span class="hub-w-title">xAI Sues Man Over Grok CSAM Deepfakes</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 16</span></span></a>
-    <a class="hub-w-item" href="https://www.theverge.com/policy/966438/eu-google-android-ai-interoperability-search-data-dma" target="_blank" rel="noopener"><span class="hub-w-title">Google Ordered To Open Search To Rivals</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 16</span></span></a>
+    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/16/inkling/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Inkling: Thinking Machines' Open Weights Debut</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 16</span></span></a>
+    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/16/kimi-k3/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">What The Pelican Benchmark Still Teaches</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 17</span></span></a>
+    <a class="hub-w-item" href="https://www.theverge.com/policy/966438/eu-google-android-ai-interoperability-search-data-dma" target="_blank" rel="noopener"><span class="hub-w-title">Google Ordered To Open Search, Android</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 16</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">Radar: Trending Repos</span></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key">&#9733; 6.8k</span>
+    <span class="hub-row-key">&#9733; 3.0k</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/StarTrail-org/PixelRAG" target="_blank" rel="noopener">StarTrail-org/PixelRAG</a>
-      <div class="hub-row-meta">The end of web parsing. The beginning of scalable pixel-native search. link: https://pixelrag.ai/</div>
+      <a class="hub-row-title" href="https://github.com/oomol-lab/open-connector" target="_blank" rel="noopener">oomol-lab/open-connector</a>
+      <div class="hub-row-meta">Open-source auth gateway connecting 1000+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, a</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 965</span>
+    <span class="hub-row-key">&#9733; 1.0k</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://github.com/Stack-Cairn/LiveAgent" target="_blank" rel="noopener">Stack-Cairn/LiveAgent</a>
       <div class="hub-row-meta">A fully functional AI Agent desktop client that supports Webui access and can be creatively customiz</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 839</span>
+    <span class="hub-row-key">&#9733; 494</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/mereyabdenbekuly-ctrl/clodex-ide" target="_blank" rel="noopener">mereyabdenbekuly-ctrl/clodex-ide</a>
-      <div class="hub-row-meta">Local-first, zero-trust agentic IDE for verifiable autonomous software development.</div>
+      <a class="hub-row-title" href="https://github.com/ongridio/ongrid" target="_blank" rel="noopener">ongridio/ongrid</a>
+      <div class="hub-row-meta">An ops AI Agent that understands your infrastructure, finds the root cause, and fixes it, right fro</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 271</span>
+    <span class="hub-row-key">&#9733; 272</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://github.com/avifenesh/bw24" target="_blank" rel="noopener">avifenesh/bw24</a>
       <div class="hub-row-meta">From-scratch Rust+CUDA inference engine, bit-exact by construction, NVFP4, MoE, MTP speculative dec</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 364</span>
+    <span class="hub-row-key">&#9733; 275</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/vshulcz/deja-vu" target="_blank" rel="noopener">vshulcz/deja-vu</a>
-      <div class="hub-row-meta">Memory layer for coding agents: search, MCP recall, auto-context, secret redaction, stats, share and</div>
+      <a class="hub-row-title" href="https://github.com/kerlenton/mcpsnoop" target="_blank" rel="noopener">kerlenton/mcpsnoop</a>
+      <div class="hub-row-meta">Wireshark for MCP. A transparent proxy that shows every real tool call between your AI client and yo</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 1.1k</span>
+    <span class="hub-row-key">&#9733; 257</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/Gitlawb/zero" target="_blank" rel="noopener">Gitlawb/zero</a>
-      <div class="hub-row-meta">The coding agent that answers to you, your model, your machine, your rules.</div>
+      <a class="hub-row-title" href="https://github.com/ZeKaiNie/universal-examprep-skill" target="_blank" rel="noopener">ZeKaiNie/universal-examprep-skill</a>
+      <div class="hub-row-meta">Last-night exam-cram coach as a Claude Agent Skill: turns your slides, notes and past papers into a </div>
     </div>
   </div></div>
 
@@ -142,7 +142,7 @@
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 5</span>
+    <span class="hub-row-key">&uarr; 6</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://arxiv.org/abs/2607.12227" target="_blank" rel="noopener">Rethinking the Evaluation of Harness Evolution for Agents</a>
       <div class="hub-row-meta">Yike Wang, Huaisheng Zhu, Zhengyu Hu</div>
@@ -172,21 +172,21 @@
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 735</span>
+    <span class="hub-row-key">&uarr; 770</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://huggingface.co/prism-ml/Ternary-Bonsai-27B-gguf" target="_blank" rel="noopener">Ternary-Bonsai-27B-gguf</a>
       <div class="hub-row-meta">prism-ml · text-generation</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 444</span>
+    <span class="hub-row-key">&uarr; 472</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://huggingface.co/prism-ml/Bonsai-27B-gguf" target="_blank" rel="noopener">Bonsai-27B-gguf</a>
       <div class="hub-row-meta">prism-ml · text-generation</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 21</span>
+    <span class="hub-row-key">&uarr; 22</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://libretto.sh/debug-agents" target="_blank" rel="noopener">Libretto PR agents – Automatically fix failing playwright scripts</a>
       <div class="hub-row-meta">Show HN</div>

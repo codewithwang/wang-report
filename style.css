@@ -759,6 +759,10 @@ a.td-link:hover { background: #232a3d; }
 }
 .nav-desks .nav-desk-link:last-child { border-right: none; }
 .nav-desks .nav-desk-link:hover { color: #0B1F3A; text-decoration: underline; }
+/* Tier 3 (features): quieter sibling of the desks row (2026-07-19). */
+.nav-feats { background: #F0EFED; }
+.nav-feats .nav-desks-inner { font-size: 11px; padding: 3px 8px; }
+.nav-feats .nav-desk-link { color: #5A6470; }
 .nav-desks .nav-desk-active {
     color: #B0241E;
     font-weight: bold;
