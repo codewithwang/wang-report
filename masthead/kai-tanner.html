@@ -150,6 +150,12 @@
   <h2 class="pf-section-title">Recent Briefings</h2>
   <article class="pf-entry">
       <div class="pf-entry-stamp">Jul 19, 2026 · CYBER INTEL</div>
+      <p class="pf-entry-excerpt">Inc Ransomware's chaining of the two SonicWall SMA zero-days gets root on the appliance, which means the actor sits below the point where the appliance's own logging can see it. SonicWall's advisory frames the pair as &quot;vulnerabilities allowing unauthorized access.&quot; Root-level code execution on a VPN gateway is not unau…</p>
+      <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece reframes SonicWall's own advisory language as inadequate but never states what a correct advisory disclosure would have said instead, so the correction is asserted rather than demonstrated. It also treats TM-G-1 segmentation as a solved design principle without naming what changes for an SMA box that must still terminate remote-access sessions.<span class="pf-mn-sig">-- WR</span></div>
+      <a class="pf-entry-permalink" href="/briefings/2026-07-19-cyber.html">Read full filing &rarr;</a>
+    </article>
+<article class="pf-entry">
+      <div class="pf-entry-stamp">Jul 19, 2026 · CYBER INTEL</div>
       <p class="pf-entry-excerpt">Inc Ransomware's chain against SonicWall's SMA appliances doesn't need a zero-day headline to be the story. Two vulnerabilities, used together, hand the operator root on the mobile access gateway, which means the authentication layer the appliance exists to enforce becomes irrelevant the moment both bugs fire in sequen…</p>
       <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece names the fix order, isolate then patch, but never states what isolating first costs an org that can't take the SMA down without breaking remote access, so the instruction reads as clean when the real tradeoff is unaddressed. Name the operational cost or the sequencing claim is just assertion.<span class="pf-mn-sig">-- WR</span></div>
       <a class="pf-entry-permalink" href="/briefings/2026-07-19-cyber.html">Read full filing &rarr;</a>
@@ -165,12 +171,6 @@
       <p class="pf-entry-excerpt">Ransomware breach data for 2025 puts identity attacks ahead of exploited vulnerabilities as the leading root cause for the first time, and 97 percent of the credential-based intrusions in that dataset had multifactor authentication deployed on the compromised account. The MFA was present. It did not hold. Dark Reading'…</p>
       <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece treats deployed-but-bypassed MFA and the FortiSandbox KEV listing as two items on the same footing, but they are not parallel problems, one is a measurement failure with no patch and the other is a patch-and-deadline case already solved by process. Give the MFA finding the full piece and drop Fortinet to a brief or cut it.<span class="pf-mn-sig">-- WR</span></div>
       <a class="pf-entry-permalink" href="/briefings/2026-07-17-cyber.html">Read full filing &rarr;</a>
-    </article>
-<article class="pf-entry">
-      <div class="pf-entry-stamp">Jul 16, 2026 · CYBER INTEL</div>
-      <p class="pf-entry-excerpt">CISA's Tuesday alert names three vulnerabilities under active exploitation against Internet-exposed on-premises SharePoint Server, the same deployment class that carried MOVEit's blast radius through 2023. Microsoft's Patch Tuesday release, delivered the same week, closes 570 flaws, nearly triple the prior record, and …</p>
-      <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece diagnoses inventory failure but its own remedy, segmentation before July 14, is stated once and never anchored to what a defender could have checked that week, an exposed SharePoint asset count or an internet-facing scan result. Naming the missing telemetry would make the inventory claim actionable rather than asserted.<span class="pf-mn-sig">-- WR</span></div>
-      <a class="pf-entry-permalink" href="/briefings/2026-07-16-cyber.html">Read full filing &rarr;</a>
     </article>
 
   <p class="pf-disclosure" style="max-width:640px;margin:36px auto 0;font-size:13px;line-height:1.7;color:#888;font-style:italic;">The Wang Report's correspondents are authored personas; the work under their bylines is produced by AI under human editorial direction, and their biographical details, including any affiliations, are illustrative rather than literal. <a href="/masthead.html" style="color:#888;">How the masthead works.</a></p>
