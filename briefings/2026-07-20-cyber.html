@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dev Chatterjee · Briefings · THE WANG REPORT</title>
+  <title>Kai Tanner · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <link rel="canonical" href="https://wangreport.com/briefings/2026-07-15-sports.html">
+  <link rel="canonical" href="https://wangreport.com/briefings/2026-07-20-cyber.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
-  <meta property="og:title" content="Dev Chatterjee · Briefings · THE WANG REPORT">
+  <meta property="og:title" content="Kai Tanner · Briefings · THE WANG REPORT">
   <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <meta property="og:url" content="https://wangreport.com/briefings/2026-07-15-sports.html">
+  <meta property="og:url" content="https://wangreport.com/briefings/2026-07-20-cyber.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dev Chatterjee · Briefings · THE WANG REPORT">
+  <meta name="twitter:title" content="Kai Tanner · Briefings · THE WANG REPORT">
   <meta name="twitter:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
@@ -78,19 +78,19 @@
 
   <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/thumbs/dev-chatterjee.jpg" alt="DC"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
-        <span class="br-section-tag">SPORTS</span>
-        <span class="br-journalist-name">Dev Chatterjee</span>
-        <span class="br-journalist-role">Senior Correspondent</span>
-        <span class="br-entry-date">Wednesday, July 15, 2026</span>
+        <span class="br-section-tag">CYBER INTEL</span>
+        <span class="br-journalist-name">Kai Tanner</span>
+        <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
+        <span class="br-entry-date">Monday, July 20, 2026</span>
       </div>
     </div>
     <div class="br-body">
-      <p>Kawhi Leonard's endorsement deal problem just became two problems, which in the NBA's ongoing quest to prove tampering is real but unprosecutable feels almost like a franchise strategy at this point. The New York Times reports the league's investigation into Leonard's Aspiration marketing deal, the one that conveniently collapsed the same year Aspiration itself collapsed into fraud charges, has widened to a second arrangement, meaning the Clippers now have two separate paper trails to explain rather than one. Ballmer built an $18 billion arena in Inglewood on the promise that his roster was assembled the ordinary way. The league office would very much like to keep believing that too.</p>
-        <p>Meanwhile in Dallas, the Mavericks are conducting the offseason equivalent of asking out your ex's whole friend group: floated LeBron after the Anthony Davis trade, now linked to Joel Embiid, all while Dusty May fills out a coaching staff for a roster that may not exist yet by October. Nico Harrison traded away Luka Doncic for win-now pieces and is discovering that win-now pieces keep wanting new agents. The Kawhi file and the Dallas rumor mill are the same story wearing different jerseys, teams paying the toll for treating a championship roster like a Wall Street deal instead of a sports team, and finding out later isn't a discount.</p>
+      <p>SonicWall's advisory for the SMA 1000 series describes exploitation of two zero-days as following &quot;public disclosure.&quot; The Shodan-indexed exploitation timeline that The Hacker News cites this week shows the same threat actor achieving root access on unpatched appliances before any patch existed, meaning the vulnerable population was compromised while SonicWall's own documentation was still calling the flaws undocumented. This is not a patch-lag story. It is a pre-disclosure exploitation window that SonicWall's advisory language obscures by using &quot;recently disclosed&quot; to describe zero-days that were, by definition, not disclosed to anyone before an unnamed threat actor started using them.</p>
+        <p>The control that would have changed the outcome is not a faster patch cycle, it is network-level isolation of SMA 1000 management interfaces from the internet, which several APAC financial-services deployments already run behind jump hosts precisely because SSL-VPN appliances have carried root-access CVEs in three of the last four years. Firms still exposing SMA 1000 admin interfaces directly should assume compromise predates today's patch, not the other way around, and treat July 20, 2026 as the day to start forensic review, not the day the exposure began.</p>
     </div>
-    <div class="br-margin-note">The second Aspiration thread needs its own name and date, not folded into the first as an undifferentiated bad look for Ballmer. Once Embiid or LeBron is confirmed to Dallas the desk should run the cap sheet and dead money next to it, the joke is good but the ledger is what makes Nico's job actually be at risk.<span class="br-margin-sig">-- WR</span></div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Weak.</span> The piece asserts SonicWall's advisory language obscures a pre-disclosure window but never establishes the Shodan-indexed timeline actually precedes the disclosure date rather than merely predating patch availability, so the central claim rests on an inference the piece treats as established fact. It also names jump-host isolation as the counterfactual control without addressing why SMA 1000 deployments expose admin interfaces directly in the first place, which is the actual failure being described.<span class="br-margin-sig">-- WR</span></div>
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
