@@ -51,11 +51,11 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Jul 19</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Jul 20</span></div>
   </div>
-  <div class="briefing-take-body"><p>Inc Ransomware's chaining of the two SonicWall SMA zero-days gets root on the appliance, which means the actor sits below the point where the appliance's own logging can see it. SonicWall's advisory frames the pair as &quot;vulnerabilities allowing unauthorized access.&quot; Root-level code execution on a VPN gateway is not unauthorized access in the sense a compliance officer means when filling out a breach questionnaire. It is the ability to rewrite the thing that would have told you a breach happened.</p><p>The appliance in question is the same SMA product line whose earlier CVEs have shown up in Mandiant's and CISA's advisories as edge-device persistence points precisely because SMA boxes sit outside the telemetry most SOCs actually monitor: no EDR agent runs on the appliance itself, so root there is root nobody is watching. The control that would have changed this outcome is not patching velocity, which nobody in an active Inc campaign gets right in time anyway. It is treating SMA and equivalent VPN gateways as untrusted network segments with their own out-of-band log shipping, the same design principle HKMA's TM-G-1 already expects of internet-facing infrastructure carrying customer data. Firms that segmented the gateway logs before July 19, 2026 have an audit trail. The rest are relying on SonicWall's own box to tell them what happened inside it.</p></div>
-  <div class="briefing-take-note">The piece reframes SonicWall's own advisory language as inadequate but never states what a correct advisory disclosure would have said instead, so the correction is asserted rather than demonstrated. It also treats TM-G-1 segmentation as a solved design principle without naming what changes for an SMA box that must still terminate remote-access sessions. <span class="briefing-take-note-by">-- WR</span></div>
-  <a href="briefings/2026-07-19-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <div class="briefing-take-body"><p>SonicWall's advisory for the SMA 1000 series describes exploitation of two zero-days as following &quot;public disclosure.&quot; The Shodan-indexed exploitation timeline that The Hacker News cites this week shows the same threat actor achieving root access on unpatched appliances before any patch existed, meaning the vulnerable population was compromised while SonicWall's own documentation was still calling the flaws undocumented. This is not a patch-lag story. It is a pre-disclosure exploitation window that SonicWall's advisory language obscures by using &quot;recently disclosed&quot; to describe zero-days that were, by definition, not disclosed to anyone before an unnamed threat actor started using them.</p><p>The control that would have changed the outcome is not a faster patch cycle, it is network-level isolation of SMA 1000 management interfaces from the internet, which several APAC financial-services deployments already run behind jump hosts precisely because SSL-VPN appliances have carried root-access CVEs in three of the last four years. Firms still exposing SMA 1000 admin interfaces directly should assume compromise predates today's patch, not the other way around, and treat July 20, 2026 as the day to start forensic review, not the day the exposure began.</p></div>
+  <div class="briefing-take-note">The piece asserts SonicWall's advisory language obscures a pre-disclosure window but never establishes the Shodan-indexed timeline actually precedes the disclosure date rather than merely predating patch availability, so the central claim rests on an inference the piece treats as established fact. It also names jump-host isolation as the counterfactual control without addressing why SMA 1000 deployments expose admin interfaces directly in the first place, which is the actual failure being described. <span class="briefing-take-note-by">-- WR</span></div>
+  <a href="briefings/2026-07-20-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -76,13 +76,14 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/sonicwall-sma-zero-days-exploited.html" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall VPN Zero Days Exploited For Root Access Before Patch</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 19</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html" target="_blank" rel="noopener"><span class="hub-w-title">Critical NGINX Flaw Lets Attackers Crash Servers, Run Code</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-surge-in-acr-stealer-attacks-on-customers/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Warns Of Surge In Password Stealing Malware Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 18</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/update-now-7-zip-fixes-rce-flaw-exploitable-with-malicious-archives/" target="_blank" rel="noopener"><span class="hub-w-title">7-Zip Patches Flaw Exploitable With Booby Trapped Archives</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 19</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/wordpress-core-wp2shell-rce-flaws-get-public-exploits-patch-now/" target="_blank" rel="noopener"><span class="hub-w-title">WordPress Core RCE Exploits Public, Patch Immediately</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 19</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html" target="_blank" rel="noopener"><span class="hub-w-title">Russian State Hackers Trick Ukrainians Into Self Infecting</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 19</span></span></a>
-    <a class="hub-w-item" href="https://cyberscoop.com/ai-cybersecurity-harness-autonomous-hacking/" target="_blank" rel="noopener"><span class="hub-w-title">Security Experts Say It's The Harness, Not The Model</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/" target="_blank" rel="noopener"><span class="hub-w-title">Autonomous AI Agent Hacks Hugging Face, Steals Datasets And Credentials</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/critical-servicenow-code-execution-flaw-now-exploited-in-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Critical ServiceNow Flaw Under Active Attack Right Now</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/russian-intelligence-hacks-ip-cameras.html" target="_blank" rel="noopener"><span class="hub-w-title">Russian Spies Hijack IP Cameras To Track NATO Military Shipments</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/worlds-largest-ai-model-repository.html" target="_blank" rel="noopener"><span class="hub-w-title">Irony Alert: World's Top AI Model Hub Breached By Its Own Kind</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/" target="_blank" rel="noopener"><span class="hub-w-title">Hacker Wipes Romania's Entire Land Registry Database</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html" target="_blank" rel="noopener"><span class="hub-w-title">Critical Nginx Bug Lets Attackers Crash Servers, Run Code</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/" target="_blank" rel="noopener"><span class="hub-w-title">Researcher Finds $500k WordPress Exploit Using GPT5.6 And $25</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-abuse-vipnet-software-to-target-russian-govt-agencies/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Hijack Russian Encryption Software To Hit Gov Agencies</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 19</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -108,6 +109,28 @@
     </div>
   </div>
   <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 20. Updated daily.</div></div>
+
+  <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
+  <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Zscaler</span>
+    <span class="hub-kv-line">Zscaler Shares Head for Worst Drop Ever as Evercore Sees Narrative Shift</span>
+    <span class="hub-kv-date">Jul 19</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">Palo Alto Networks Hits Record High After $421 Price Target Upgrade</span>
+    <span class="hub-kv-date">Jul 19</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">CrowdStrike Stock Nears Record High as Recurring Revenue, Margins Strengthen</span>
+    <span class="hub-kv-date">Jul 19</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">AI Security Tools</span>
+    <span class="hub-kv-line">Beacon Security Raises $13M to Push AI Agents Into Cyber Defense</span>
+    <span class="hub-kv-date">Jul 19</span>
+  </a></div>
 
   <div class="hub-index"><a href="cyber-intel/">Cyber Scorecard</a> | <a href="cve/">CVE Feed</a> | <a href="cyber-vendors.html">Vendor Watch</a> | <a href="cyber-column/">Column Archive</a></div>
 
