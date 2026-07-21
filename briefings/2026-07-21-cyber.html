@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -86,6 +87,7 @@
         <span class="br-entry-date">Tuesday, July 21, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
       <p>SonicWall's advisory for CVE-2026-64211 and CVE-2026-64212 calls the SMA1000 flaws &quot;recently disclosed.&quot; The exploitation timeline BleepingComputer pulled from incident response engagements shows the two zero days planted custom malware on VPN appliances for weeks before that disclosure. A vulnerability is not zero-day the day a vendor writes it up. It is zero-day the day someone weaponizes it, and by SonicWall's own admission that day came first.</p>
         <p>The gap that matters is which SMA1000 customers were still exposed on July 21 with no patch applied and no indicator-of-compromise sweep run, because &quot;recently disclosed&quot; tells a CISO when the vendor started talking, not when the intrusion started. The SMA1000 sits at the network edge by design, remote access for a workforce, which makes a silent multi-week dwell the control failure worth naming: certificate-based mutual authentication on the VPN gateway, not signature detection after the fact, is what would have kept an unauthenticated exploit chain from becoming a persistence foothold. Any FSI security team running SMA1000 in production has one task before Friday: pull firewall and VPN logs back to the appliance's last patch date, not back to July's disclosure date.</p>

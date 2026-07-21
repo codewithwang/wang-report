@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -86,6 +87,7 @@
         <span class="br-entry-date">Sunday, July 19, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
       <p>The architecture of Kimi 3's benchmark claims is straightforward once you separate what's been measured from what's been shipped. Moonshot AI says Kimi 3 is closing the gap with Anthropic's Opus 4.8 on published evals, the standard tests that score a model's reasoning and coding output against a fixed answer key. That's a claim about capability: what the model does in a benchmark harness with no paying customer on the other end. What it says nothing about is deployment, meaning which enterprises have actually wired Kimi 3 into a production system, signed a contract, and cleared it with a compliance team. Anthropic's actual position rests on the second thing, not the first. Claude runs inside enterprise contracts at named banks and software vendors across Hong Kong and Singapore, each one a deployment that took months of security review to land and that a company won't rip out because a Chinese lab closed a benchmark gap on a leaderboard.</p>
         <p>The bilateral constraint underneath this is compute geography, not model quality. Kimi 3 trains on Ascend 910B clusters inside the PRC, the chip Huawei built specifically because BIS October 2023 controls block Nvidia's H100 and newer parts from PRC-bound shipment. Whatever Kimi 3 scores on a benchmark, it scores it on hardware that cannot access the same interconnect bandwidth or batch-size economics as Opus 4.8's training run, and Moonshot has no Bay Area-style enterprise deployment surface generating the recurring revenue that funds the next training cycle the way Claude's API contracts do for Anthropic. The gap that matters isn't the eval score published this week. It's whether Moonshot can convert a closing benchmark number into deployment revenue before its next training run needs it, and on current compute constraints, that conversion has no clear date on the calendar.</p>

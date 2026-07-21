@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -86,6 +87,7 @@
         <span class="br-entry-date">Monday, July 20, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
       <p>SonicWall's advisory for the SMA 1000 series describes exploitation of two zero-days as following &quot;public disclosure.&quot; The Shodan-indexed exploitation timeline that The Hacker News cites this week shows the same threat actor achieving root access on unpatched appliances before any patch existed, meaning the vulnerable population was compromised while SonicWall's own documentation was still calling the flaws undocumented. This is not a patch-lag story. It is a pre-disclosure exploitation window that SonicWall's advisory language obscures by using &quot;recently disclosed&quot; to describe zero-days that were, by definition, not disclosed to anyone before an unnamed threat actor started using them.</p>
         <p>The control that would have changed the outcome is not a faster patch cycle, it is network-level isolation of SMA 1000 management interfaces from the internet, which several APAC financial-services deployments already run behind jump hosts precisely because SSL-VPN appliances have carried root-access CVEs in three of the last four years. Firms still exposing SMA 1000 admin interfaces directly should assume compromise predates today's patch, not the other way around, and treat July 20, 2026 as the day to start forensic review, not the day the exposure began.</p>
