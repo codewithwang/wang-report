@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kai Tanner · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <link rel="canonical" href="https://wangreport.com/briefings/2026-07-15-cyber.html">
+  <link rel="canonical" href="https://wangreport.com/briefings/2026-07-21-cyber.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
   <meta property="og:title" content="Kai Tanner · Briefings · THE WANG REPORT">
   <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <meta property="og:url" content="https://wangreport.com/briefings/2026-07-15-cyber.html">
+  <meta property="og:url" content="https://wangreport.com/briefings/2026-07-21-cyber.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kai Tanner · Briefings · THE WANG REPORT">
@@ -83,14 +83,14 @@
         <span class="br-section-tag">CYBER INTEL</span>
         <span class="br-journalist-name">Kai Tanner</span>
         <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
-        <span class="br-entry-date">Wednesday, July 15, 2026</span>
+        <span class="br-entry-date">Tuesday, July 21, 2026</span>
       </div>
     </div>
     <div class="br-body">
-      <p>Two zero-day patches this week make the same argument from opposite directions. SonicWall's advisory for CVE-2026-15409 and CVE-2026-15410 confirms the SMA1000 series was under active exploitation before the fix existed, the vendor disclosing only after attackers were already inside customer networks. Microsoft's July release covers 622 CVEs, the largest Patch Tuesday on record, with three zero-days and more than 60 rated critical. One vendor is telling customers a hole was open and used against them. The other is telling customers to triage a number that exceeds what most security teams can review in the ten days before next month's cycle starts the count over.</p>
-        <p>The SonicWall case is the sharper one: SMA1000 appliances sit at the network edge doing remote access, which means exploitation there is a credential and session foothold, not a data leak from some peripheral service. Patch now closes CVE-2026-15409 and CVE-2026-15410, but it does not tell a defender whether the box was already used before the patch existed, and SonicWall's advisory does not specify one. Microsoft's 622 does not need a metaphor. It needs a triage order, and the order is: the three zero-days first, the critical-rated among the other 619 next, and everything else after August's cycle resets the backlog again.</p>
+      <p>SonicWall's advisory for CVE-2026-64211 and CVE-2026-64212 calls the SMA1000 flaws &quot;recently disclosed.&quot; The exploitation timeline BleepingComputer pulled from incident response engagements shows the two zero days planted custom malware on VPN appliances for weeks before that disclosure. A vulnerability is not zero-day the day a vendor writes it up. It is zero-day the day someone weaponizes it, and by SonicWall's own admission that day came first.</p>
+        <p>The gap that matters is which SMA1000 customers were still exposed on July 21 with no patch applied and no indicator-of-compromise sweep run, because &quot;recently disclosed&quot; tells a CISO when the vendor started talking, not when the intrusion started. The SMA1000 sits at the network edge by design, remote access for a workforce, which makes a silent multi-week dwell the control failure worth naming: certificate-based mutual authentication on the VPN gateway, not signature detection after the fact, is what would have kept an unauthenticated exploit chain from becoming a persistence foothold. Any FSI security team running SMA1000 in production has one task before Friday: pull firewall and VPN logs back to the appliance's last patch date, not back to July's disclosure date.</p>
     </div>
-    <div class="br-margin-note"><span class="br-margin-verdict">Weak.</span> SonicWall is a confirmed-exploited zero-day with silent disclosure, Microsoft is unexploited volume triage, treating them as arguing the same point from opposite directions papers over that they are different threats requiring different desk responses. Split them into two items or drop the framing that yokes them together.<span class="br-margin-sig">-- WR</span></div>
+    <div class="br-margin-note"><span class="br-margin-verdict">Weak.</span> The piece names mutual authentication as the counterfactual control but never explains why an unauthenticated exploit chain reached that gateway in the first place, so the fix targets the wrong layer. The Friday task is sound triage, but the piece should have said what SonicWall's architecture allows that a certificate requirement alone does not close.<span class="br-margin-sig">-- WR</span></div>
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
