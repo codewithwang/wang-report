@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Tuesday, July 21, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">45</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">65%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">4%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">0</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">41</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">3</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">70%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">5%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">55</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,11 +51,11 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Jul 20</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Tue, Jul 21</span></div>
   </div>
-  <div class="briefing-take-body"><p>SonicWall's advisory for the SMA 1000 series describes exploitation of two zero-days as following &quot;public disclosure.&quot; The Shodan-indexed exploitation timeline that The Hacker News cites this week shows the same threat actor achieving root access on unpatched appliances before any patch existed, meaning the vulnerable population was compromised while SonicWall's own documentation was still calling the flaws undocumented. This is not a patch-lag story. It is a pre-disclosure exploitation window that SonicWall's advisory language obscures by using &quot;recently disclosed&quot; to describe zero-days that were, by definition, not disclosed to anyone before an unnamed threat actor started using them.</p><p>The control that would have changed the outcome is not a faster patch cycle, it is network-level isolation of SMA 1000 management interfaces from the internet, which several APAC financial-services deployments already run behind jump hosts precisely because SSL-VPN appliances have carried root-access CVEs in three of the last four years. Firms still exposing SMA 1000 admin interfaces directly should assume compromise predates today's patch, not the other way around, and treat July 20, 2026 as the day to start forensic review, not the day the exposure began.</p></div>
-  <div class="briefing-take-note">The piece asserts SonicWall's advisory language obscures a pre-disclosure window but never establishes the Shodan-indexed timeline actually precedes the disclosure date rather than merely predating patch availability, so the central claim rests on an inference the piece treats as established fact. It also names jump-host isolation as the counterfactual control without addressing why SMA 1000 deployments expose admin interfaces directly in the first place, which is the actual failure being described. <span class="briefing-take-note-by">-- WR</span></div>
-  <a href="briefings/2026-07-20-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <div class="briefing-take-body"><p>SonicWall's advisory for CVE-2026-64211 and CVE-2026-64212 calls the SMA1000 flaws &quot;recently disclosed.&quot; The exploitation timeline BleepingComputer pulled from incident response engagements shows the two zero days planted custom malware on VPN appliances for weeks before that disclosure. A vulnerability is not zero-day the day a vendor writes it up. It is zero-day the day someone weaponizes it, and by SonicWall's own admission that day came first.</p><p>The gap that matters is which SMA1000 customers were still exposed on July 21 with no patch applied and no indicator-of-compromise sweep run, because &quot;recently disclosed&quot; tells a CISO when the vendor started talking, not when the intrusion started. The SMA1000 sits at the network edge by design, remote access for a workforce, which makes a silent multi-week dwell the control failure worth naming: certificate-based mutual authentication on the VPN gateway, not signature detection after the fact, is what would have kept an unauthenticated exploit chain from becoming a persistence foothold. Any FSI security team running SMA1000 in production has one task before Friday: pull firewall and VPN logs back to the appliance's last patch date, not back to July's disclosure date.</p></div>
+  <div class="briefing-take-note">The piece names mutual authentication as the counterfactual control but never explains why an unauthenticated exploit chain reached that gateway in the first place, so the fix targets the wrong layer. The Friday task is sound triage, but the piece should have said what SonicWall's architecture allows that a certificate requirement alone does not close. <span class="briefing-take-note-by">-- WR</span></div>
+  <a href="briefings/2026-07-21-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,62 +77,62 @@
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
     <a class="hub-w-item" href="https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/" target="_blank" rel="noopener"><span class="hub-w-title">Hacker Wipes Romania's Entire Land Registry Database</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/sonicwall-sma1000-flaws-exploited-as-zero-days-to-push-custom-malware/" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall Zero Days Exploited For Weeks To Plant Malware On VPNs</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/russian-intelligence-hacks-ip-cameras.html" target="_blank" rel="noopener"><span class="hub-w-title">Russian Spies Hijack IP Cameras To Track NATO Military Convoys</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/sonicwall-sma1000-flaws-exploited-as-zero-days-to-push-custom-malware/" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall Zero Days Exploited For Weeks To Plant Malware</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
     <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/" target="_blank" rel="noopener"><span class="hub-w-title">Hugging Face Says Autonomous AI Agent Hacked Its Network</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/wp2shell-millions-wordpress-sites-remote-takeover" target="_blank" rel="noopener"><span class="hub-w-title">WP2Shell Bug Combo Opens Millions Of WordPress Sites To Takeover</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-steal-237-million-in-crypto-from-ostium-in-off-chain-attack/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Steal $23.7 Million In Crypto From Ostium Vault</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/russian-intelligence-hacks-ip-cameras.html" target="_blank" rel="noopener"><span class="hub-w-title">Russian Spies Hijack IP Cameras To Watch NATO Military Convoys</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/russian-speaking-hacker-uses-google.html" target="_blank" rel="noopener"><span class="hub-w-title">Russian Hacker Uses Google Gemini CLI To Run Dental Clinic Botnet</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/" target="_blank" rel="noopener"><span class="hub-w-title">Researcher Finds $500k WordPress Exploit Using GPT5.6 And $25</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html" target="_blank" rel="noopener"><span class="hub-w-title">7-Zip Flaw Lets Booby-Trapped XZ Archives Run Code On Extraction</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/endpoint-security/attackers-combo-evasion-tactics-bec-phishing" target="_blank" rel="noopener"><span class="hub-w-title">BEC Attackers Combine Fileless Tricks To Dodge Detection</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/cisos-feel-heat-ai-risk" target="_blank" rel="noopener"><span class="hub-w-title">AI Adoption Pressure Pushes CISOs Toward The Exit</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/wp2shell-millions-wordpress-sites-remote-takeover" target="_blank" rel="noopener"><span class="hub-w-title">WP2Shell Flaw Puts Millions Of WordPress Sites Wide Open</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-attacks-now-target-ai-model-data-with-ransomware/" target="_blank" rel="noopener"><span class="hub-w-title">JadePuffer AI Agent Now Deploys Ransomware On Model Data</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/russian-speaking-hacker-uses-google.html" target="_blank" rel="noopener"><span class="hub-w-title">Russian Hacker Uses Google Gemini To Run Botnet, Targets Dental Clinics</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html" target="_blank" rel="noopener"><span class="hub-w-title">New 7 Zip Flaw Lets Crafted Archives Run Code On Extraction</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/endpoint-security/attackers-combo-evasion-tactics-bec-phishing" target="_blank" rel="noopener"><span class="hub-w-title">BEC Phishing Gangs Combine Evasion Tricks To Beat Detection</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
+    <a class="hub-w-item" href="https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/" target="_blank" rel="noopener"><span class="hub-w-title">Exploit Brokers Pay $500k For WordPress Bugs, He Found One With GPT5.6 And $25</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 20</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/cisos-feel-heat-ai-risk" target="_blank" rel="noopener"><span class="hub-w-title">CISOs Feel The Heat Over AI Risk, Many Weigh Quitting</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
+    <span class="hub-row-key">HIGH 8.6</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20230" target="_blank" rel="noopener">Cisco Unified Communications Manager Server-Side Request Forgery</a>
+      <div class="hub-row-meta">CVE-2026-20230 &middot; <b>KEV</b> listed Jun 25 &middot; EPSS 42%</div>
+    </div>
+  </div>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.1</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">Fortinet FortiSandbox OS Command Injection</a>
+      <div class="hub-row-meta">CVE-2026-25089 &middot; <b>KEV</b> listed Jul 16 &middot; EPSS 36%</div>
+    </div>
+  </div>
+  <div class="hub-row">
     <span class="hub-row-key">MED 5.3</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56164" target="_blank" rel="noopener">Microsoft SharePoint Server Elevation of Privilege Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-56164 &middot; <b>KEV</b> listed Jul 14 &middot; OT</div>
+      <div class="hub-row-meta">CVE-2026-56164 &middot; <b>KEV</b> listed Jul 14 &middot; EPSS 6% &middot; OT</div>
     </div>
   </div>
-  <div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-58644" target="_blank" rel="noopener">Microsoft SharePoint Remote Code Execution Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-58644 &middot; <b>KEV</b> listed Jul 16</div>
-    </div>
-  </div>
-  <div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46817" target="_blank" rel="noopener">Oracle Corporation Oracle Payments Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-46817 &middot; <b>KEV</b> listed Jul 15</div>
-    </div>
-  </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 20. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 21. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Zscaler</span>
-    <span class="hub-kv-line">Zscaler Shares Head for Worst Drop Ever as Evercore Sees Narrative Shift</span>
-    <span class="hub-kv-date">Jul 19</span>
+    <span class="hub-kv-key">SentinelOne</span>
+    <span class="hub-kv-line">Ex SentinelOne Execs Raise $100M for Stealth AI Security Startup Neo</span>
+    <span class="hub-kv-date">Jul 20</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Hits Record High After $421 Price Target Upgrade</span>
-    <span class="hub-kv-date">Jul 19</span>
+    <span class="hub-kv-key">Zscaler</span>
+    <span class="hub-kv-line">Zscaler Flags Claude Chat Malware Campaign Targeting Macs</span>
+    <span class="hub-kv-date">Jul 20</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">CrowdStrike</span>
-    <span class="hub-kv-line">CrowdStrike Stock Nears Record High as Recurring Revenue, Margins Strengthen</span>
-    <span class="hub-kv-date">Jul 19</span>
+    <span class="hub-kv-line">CrowdStrike to Acquire XM Cyber IP as CRWD Hits 52 Week High</span>
+    <span class="hub-kv-date">Jul 20</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Beacon Security Raises $13M to Push AI Agents Into Cyber Defense</span>
-    <span class="hub-kv-date">Jul 19</span>
+    <span class="hub-kv-line">Ex SentinelOne Executives Raise $100M From Stealth for AI Agent Security Startup Neo</span>
+    <span class="hub-kv-date">Jul 20</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>

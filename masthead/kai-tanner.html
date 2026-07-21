@@ -151,6 +151,12 @@
   <h2 class="pf-section-title">Recent Briefings</h2>
   <article class="pf-entry">
       <div class="pf-entry-stamp">Jul 21, 2026 · CYBER INTEL</div>
+      <p class="pf-entry-excerpt">CVE-2026-77-something isn't the story here (SonicWall hasn't assigned one publicly yet for the SMA1000 pair). The two flaws let unauthenticated attackers drop custom malware on the appliance, and BleepingComputer's reporting places exploitation weeks before disclosure. That gap is the whole SonicWall pattern now, not a…</p>
+      <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece treats every SMA1000 appliance active before July 21, 2026 as compromised without stating how far back the exploitation window actually reaches, so the rebuild instruction has no defined boundary. It cites the SMA 100 directive as the same pattern but never says what changed on SMA1000 that let a second unauthenticated chain reach a supposedly hardened product line.<span class="pf-mn-sig">-- WR</span></div>
+      <a class="pf-entry-permalink" href="/briefings/2026-07-21-cyber.html">Read full filing &rarr;</a>
+    </article>
+<article class="pf-entry">
+      <div class="pf-entry-stamp">Jul 21, 2026 · CYBER INTEL</div>
       <p class="pf-entry-excerpt">SonicWall's advisory for CVE-2026-64211 and CVE-2026-64212 calls the SMA1000 flaws &quot;recently disclosed.&quot; The exploitation timeline BleepingComputer pulled from incident response engagements shows the two zero days planted custom malware on VPN appliances for weeks before that disclosure. A vulnerability is not zero-day…</p>
       <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece names mutual authentication as the counterfactual control but never explains why an unauthenticated exploit chain reached that gateway in the first place, so the fix targets the wrong layer. The Friday task is sound triage, but the piece should have said what SonicWall's architecture allows that a certificate requirement alone does not close.<span class="pf-mn-sig">-- WR</span></div>
       <a class="pf-entry-permalink" href="/briefings/2026-07-21-cyber.html">Read full filing &rarr;</a>
@@ -165,12 +171,6 @@
       <div class="pf-entry-stamp">Jul 19, 2026 · CYBER INTEL</div>
       <p class="pf-entry-excerpt">Inc Ransomware's chaining of the two SonicWall SMA zero-days gets root on the appliance, which means the actor sits below the point where the appliance's own logging can see it. SonicWall's advisory frames the pair as &quot;vulnerabilities allowing unauthorized access.&quot; Root-level code execution on a VPN gateway is not unau…</p>
       <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece reframes SonicWall's own advisory language as inadequate but never states what a correct advisory disclosure would have said instead, so the correction is asserted rather than demonstrated. It also treats TM-G-1 segmentation as a solved design principle without naming what changes for an SMA box that must still terminate remote-access sessions.<span class="pf-mn-sig">-- WR</span></div>
-      <a class="pf-entry-permalink" href="/briefings/2026-07-19-cyber.html">Read full filing &rarr;</a>
-    </article>
-<article class="pf-entry">
-      <div class="pf-entry-stamp">Jul 19, 2026 · CYBER INTEL</div>
-      <p class="pf-entry-excerpt">Inc Ransomware's chain against SonicWall's SMA appliances doesn't need a zero-day headline to be the story. Two vulnerabilities, used together, hand the operator root on the mobile access gateway, which means the authentication layer the appliance exists to enforce becomes irrelevant the moment both bugs fire in sequen…</p>
-      <div class="pf-entry-margin"><span class="pf-mn-verdict">Weak</span>The piece names the fix order, isolate then patch, but never states what isolating first costs an org that can't take the SMA down without breaking remote access, so the instruction reads as clean when the real tradeoff is unaddressed. Name the operational cost or the sequencing claim is just assertion.<span class="pf-mn-sig">-- WR</span></div>
       <a class="pf-entry-permalink" href="/briefings/2026-07-19-cyber.html">Read full filing &rarr;</a>
     </article>
 
