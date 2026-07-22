@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Wednesday, July 22, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">41</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">3</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">70%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">5%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">55</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">28</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">67%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">5%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">0</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Tue, Jul 21</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Wed, Jul 22</span></div>
   </div>
-  
-  <div class="briefing-take-body"><p>SonicWall's advisory for CVE-2026-64211 and CVE-2026-64212 calls the SMA1000 flaws &quot;recently disclosed.&quot; The exploitation timeline BleepingComputer pulled from incident response engagements shows the two zero days planted custom malware on VPN appliances for weeks before that disclosure. A vulnerability is not zero-day the day a vendor writes it up. It is zero-day the day someone weaponizes it, and by SonicWall's own admission that day came first.</p><p>The gap that matters is which SMA1000 customers were still exposed on July 21 with no patch applied and no indicator-of-compromise sweep run, because &quot;recently disclosed&quot; tells a CISO when the vendor started talking, not when the intrusion started. The SMA1000 sits at the network edge by design, remote access for a workforce, which makes a silent multi-week dwell the control failure worth naming: certificate-based mutual authentication on the VPN gateway, not signature detection after the fact, is what would have kept an unauthenticated exploit chain from becoming a persistence foothold. Any FSI security team running SMA1000 in production has one task before Friday: pull firewall and VPN logs back to the appliance's last patch date, not back to July's disclosure date.</p></div>
-  <div class="briefing-take-note">The piece names mutual authentication as the counterfactual control but never explains why an unauthenticated exploit chain reached that gateway in the first place, so the fix targets the wrong layer. The Friday task is sound triage, but the piece should have said what SonicWall's architecture allows that a certificate requirement alone does not close. <span class="briefing-take-note-by">-- WR</span></div>
-  <a href="briefings/2026-07-21-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">SonicWall and PAN-OS VPN Flaws Were Live Before Anyone Told Customers</div>
+  <div class="briefing-take-body"><p>Arctic Wolf says Qilin is breaching networks through a PAN-OS GlobalProtect authentication bypass, and separately, two SonicWall SMA1000 vulnerabilities were run as zero-days against customer appliances for weeks before either vendor's disclosure caught up. Both cases follow the same shape: a VPN gateway sitting on the network perimeter, exploited in the field, patched only after someone outside the vendor noticed the traffic. Custom malware went onto the SonicWall boxes during that window. The GlobalProtect bypass gave Qilin the initial foothold it needed before ransomware ever touched a file server.</p><p>Neither disclosure names a date range for when exploitation actually started, only when it was caught. For a CISO running either product, the test isn't whether the patch is applied. It's whether SMA1000 and GlobalProtect logs from the unpatched period get pulled and checked for the indicators Arctic Wolf and the SonicWall advisory already published, because a patched appliance and a clean appliance are not the same claim.</p></div>
+  <div class="briefing-take-note">The piece states the actionable test in the second paragraph but leads with a summary of two vendor disclosures for a paragraph and a half before getting there, so the CISO instruction is buried rather than framed first. It also treats the GlobalProtect foothold and the SonicWall zero-day window as one shape without noting that only one of the two has published indicators to check logs against, which changes what 'pull and check' means for each product. <span class="briefing-take-note-by">-- WR</span></div>
+  <a href="briefings/2026-07-22-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,65 +77,43 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html" target="_blank" rel="noopener"><span class="hub-w-title">SharePoint Zero Day Under Active Attack After Public Exploit Leaks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" target="_blank" rel="noopener"><span class="hub-w-title">Google Ships Gemini 3.6 Flash Built to Hunt Software Vulnerabilities</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/new-bit2watt-attack-could-let-cloud.html" target="_blank" rel="noopener"><span class="hub-w-title">New Attack Lets Cloud Tenants Threaten Power Grids With No Exploit</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-now-exploited-in-ransomware-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Qilin Ransomware Gang Storms Networks Through Palo Alto VPN Hole</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/sonicwall-sma1000-flaws-exploited-as-zero-days-to-push-custom-malware/" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall VPN Zero Days Exploited for Weeks Before Anyone Noticed</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/wp2shell-millions-wordpress-sites-remote-takeover" target="_blank" rel="noopener"><span class="hub-w-title">Millions of WordPress Sites Wide Open as WP2Shell Exploits Spread</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/est-e-lauder-discloses-data-breach-via-oracle-e-business-flaw/" target="_blank" rel="noopener"><span class="hub-w-title">Estee Lauder Breach Traced Back to Oracle Flaw in HR System</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/google-launches-gemini-35-flash-cyber.html" target="_blank" rel="noopener"><span class="hub-w-title">DeepMind's New Gemini Cyber Model Finds and Fixes Flaws Itself</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/choose-wisely-ai-generated-coding-risk-varies" target="_blank" rel="noopener"><span class="hub-w-title">AI Generated Code Carries 15 Vulnerabilities on Average, Study Finds</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/remediating-vulnerabilities-llms-ivanti-automation" target="_blank" rel="noopener"><span class="hub-w-title">Ivanti Bets on LLMs to Automate Vulnerability Remediation</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://postquantum.com/security-pqc/anssi-pqc-certification-2027/" target="_blank" rel="noopener"><span class="hub-w-title">France to Bar Non Quantum Safe Products From Certification in 2027</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 22</span></span></a>
-    <a class="hub-w-item" href="https://www.404media.co/apple-fixes-hide-my-email-vulnerability-after-404-media-coverage/" target="_blank" rel="noopener"><span class="hub-w-title">Apple Patches Hide My Email Flaw After Reporters Come Calling</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI's AI Models Escape Sandbox, Attack Hugging Face To Cheat Benchmark</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-langflow-rce-flaw/" target="_blank" rel="noopener"><span class="hub-w-title">CISA Orders Emergency Patch On Actively Exploited Langflow Flaw</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/openai-says-its-ai-models-hacked-hugging-face-during-testing/" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Confirms GPT 5.6 Sol Hacked Hugging Face In Testing</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html" target="_blank" rel="noopener"><span class="hub-w-title">Poisoned Web Page Hijacks AWS Coding Agent, Runs Attacker's Code</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/hacker-ai-jailbreaks-offensive-attack-platform" target="_blank" rel="noopener"><span class="hub-w-title">Hacker Weaponizes Jailbroken AI Models Into Offensive Attack Platform</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/fakegit-campaign-uses-7-600-github-repos-to-push-smartloader-malware/" target="_blank" rel="noopener"><span class="hub-w-title">FakeGit Campaign Floods 7,600 GitHub Repos With Malware Loader</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/trojanized-newtonsoftjson-fork-hides.html" target="_blank" rel="noopener"><span class="hub-w-title">Trojanized Json Library Rigs Live Games From Inside NuGet</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/data-privacy/eu-financial-institutions-cookie-trackers" target="_blank" rel="noopener"><span class="hub-w-title">EU Banks Leak Customer Data To Ad Platforms Via Cookie Trackers</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.techradar.com/vpn/vpn-privacy-security/vpns-are-lawful-technical-tools-says-eu-court-in-landmark-anne-frank-copyright-ruling" target="_blank" rel="noopener"><span class="hub-w-title">EU Court Rules VPNs Are Lawful In Landmark Copyright Case</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://krebsonsecurity.com/2026/07/lg-to-ban-residential-proxies-from-smart-tv-apps/" target="_blank" rel="noopener"><span class="hub-w-title">LG To Ban Residential Proxy Apps From Its Smart TVs</span><span class="hub-w-meta"><span class="hub-w-src">KrebsOnSecurity</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/ransomware-is-accelerating-not-ai" target="_blank" rel="noopener"><span class="hub-w-title">Ransomware Surges As Ecosystem Fragments, Not Because Of AI</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" target="_blank" rel="noopener"><span class="hub-w-title">Google Ships Gemini 3.5 And 3.6 Flash Cyber Models</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 21</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key">HIGH 8.6</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20230" target="_blank" rel="noopener">Cisco Unified Communications Manager Server-Side Request Forgery</a>
-      <div class="hub-row-meta">CVE-2026-20230 &middot; <b>KEV</b> listed Jun 25 &middot; EPSS 42%</div>
-    </div>
-  </div>
-  <div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 9.1</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">Fortinet FortiSandbox OS Command Injection</a>
-      <div class="hub-row-meta">CVE-2026-25089 &middot; <b>KEV</b> listed Jul 16 &middot; EPSS 36%</div>
-    </div>
-  </div>
-  <div class="hub-row">
     <span class="hub-row-key">MED 5.3</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56164" target="_blank" rel="noopener">Microsoft SharePoint Server Elevation of Privilege Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-56164 &middot; <b>KEV</b> listed Jul 14 &middot; EPSS 6% &middot; OT</div>
+      <div class="hub-row-meta">CVE-2026-56164 &middot; <b>KEV</b> listed Jul 14 &middot; OT</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 21. Updated daily.</div></div>
-
-  <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
-  <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Wall Street Supersizes Price Targets on Okta and Fortinet Ahead of 2026</span>
-    <span class="hub-kv-date">Jul 21</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">SentinelOne</span>
-    <span class="hub-kv-line">Ex SentinelOne Execs Raise $100M for Stealth AI Security Startup Neo</span>
-    <span class="hub-kv-date">Jul 20</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Wall Street Supersizes Price Targets on Okta, Fortinet as Cyber Stocks Eye 2026</span>
-    <span class="hub-kv-date">Jul 21</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Zscaler</span>
-    <span class="hub-kv-line">Zscaler Flags Claude Chat Malware Campaign Hitting Macs</span>
-    <span class="hub-kv-date">Jul 20</span>
-  </a></div>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-58644" target="_blank" rel="noopener">Microsoft SharePoint Remote Code Execution Vulnerability</a>
+      <div class="hub-row-meta">CVE-2026-58644 &middot; <b>KEV</b> listed Jul 16</div>
+    </div>
+  </div>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46817" target="_blank" rel="noopener">Oracle Corporation Oracle Payments Vulnerability</a>
+      <div class="hub-row-meta">CVE-2026-46817 &middot; <b>KEV</b> listed Jul 15</div>
+    </div>
+  </div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 22. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
   <div class="hub-module">
