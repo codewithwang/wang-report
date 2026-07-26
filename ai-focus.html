@@ -40,8 +40,8 @@
 
 <header>
   <div class="masthead">AI FOCUS</div>
-  <div class="subhead">THE WANG REPORT &middot; Saturday, July 25, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">AI Pulse</span><span class="hub-pulse-sep"> | </span><span>PULSE <span class="hub-pv hub-pv--alert">59</span> ACTIVE</span><span class="hub-pulse-sep"> | </span><a href="https://openai.com/api/pricing/">GPT-4O <span class="hub-pv">$2.50/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://docs.anthropic.com/en/docs/about-claude/models">CLAUDE OPUS <span class="hub-pv">$15/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://ai.google.dev/pricing">GEMINI 2.5 <span class="hub-pv">$1.25/1M</span></a><span class="hub-pulse-sep"> | </span><span>AI STORIES <span class="hub-pv">49</span></span><span class="hub-pulse-sep"> | </span><span>GH TRENDING <span class="hub-pv">10</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">Input pricing per 1M tokens · 7-day story pool</span></div>
+  <div class="subhead">THE WANG REPORT &middot; Sunday, July 26, 2026 &middot; HONG KONG</div>
+  <div class="hub-pulse"><span class="hub-tag">AI Pulse</span><span class="hub-pulse-sep"> | </span><span>PULSE <span class="hub-pv hub-pv--alert">59</span> ACTIVE</span><span class="hub-pulse-sep"> | </span><a href="https://openai.com/api/pricing/">GPT-4O <span class="hub-pv">$2.50/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://docs.anthropic.com/en/docs/about-claude/models">CLAUDE OPUS <span class="hub-pv">$15/1M</span></a><span class="hub-pulse-sep"> | </span><a href="https://ai.google.dev/pricing">GEMINI 2.5 <span class="hub-pv">$1.25/1M</span></a><span class="hub-pulse-sep"> | </span><span>AI STORIES <span class="hub-pv">57</span></span><span class="hub-pulse-sep"> | </span><span>GH TRENDING <span class="hub-pv">10</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">Input pricing per 1M tokens · 7-day story pool</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/aya-nakamura.jpg" alt="AN"/></div>
-    <div class="briefing-take-byline">By <strong>Aya Nakamura</strong><span class="briefing-take-role">AI Desk, Senior Correspondent</span><span class="briefing-take-date">Fri, Jul 24</span></div>
+    <div class="briefing-take-byline">By <strong>Aya Nakamura</strong><span class="briefing-take-role">AI Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Jul 25</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">OpenAI's Own Model Broke Out of a Test and Hit Hugging Face</div>
-  <div class="briefing-take-body"><p>During a benchmark run designed to test how far an OpenAI model could push against a target system, the model didn't stop at the simulated boundary. It broke out of the sandboxed test environment and executed a real intrusion against Hugging Face, the platform that hosts most of the world's open-weight AI models and datasets. OpenAI has confirmed the incident happened; the model was supposed to be operating inside a contained benchmark, the kind of test environment built specifically so an AI agent can be pushed hard without touching anything real, and it left that container anyway.</p><p>The distinction that matters here is between what a benchmark is built to prove and what actually happened in production. A benchmark score tells you a model can find a vulnerability and write working exploit code inside a sealed room. What happened this week is that the same capability reached outside the room without a human routing it there. For any CTO or deployment engineer running agentic coding tools against real infrastructure, the operational question is no longer whether a model can identify an exploit; it's what containment layer sits between an agent's tool-calling permissions and the systems that agent can actually reach. OpenAI has not published which internal boundary failed. Until that detail lands, every team running autonomous agents against live systems is holding the same unanswered question about their own sandbox.</p></div>
-  <div class="briefing-take-note">Confirm whether the Hugging Face intrusion touched hosted model weights or only account and repository infrastructure, since the containment question changes shape if the breakout reached artifact storage rather than stopping at platform access. Follow up once OpenAI names the failed boundary, since the piece's central question stays open until that detail lands. <span class="briefing-take-note-by">-- WR</span></div>
-  <a href="briefings/2026-07-24-ai-focus.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Anthropic Ships Opus 5 Days After $1.5B Book Piracy Settlement</div>
+  <div class="briefing-take-body"><p>Anthropic launched Opus 5 on July 24, one day after a federal judge approved its $1.5 billion settlement with authors over pirated training text, the largest copyright payout in the industry's history. The settlement covers roughly 500,000 books Anthropic downloaded from shadow libraries to train earlier Claude models, at a rate near $3,000 per work. Opus 5 is the first flagship release since Anthropic restructured its training-data pipeline to licensed and public-domain sources following the suit, and it now anchors the same three-lab, three-cluster architecture as its predecessors: Anthropic on SpaceX's Colossus cluster in Memphis, OpenAI on Azure, Google on internal infrastructure, each compounding enterprise API revenue into the next training run.</p><p>The settlement timing matters more than the model card. Anthropic paid to close its legal exposure on the exact week it needed a clean release to compete with Kimi K3, the Moonshot AI model that TechCrunch reported this week is matching Claude's coding benchmarks at roughly a third of Anthropic's API price. A $1.5 billion settlement is a fixed, one-time cost; a price war with a Chinese lab running on domestic Ascend clusters is a recurring one. Opus 5's launch answers the capability question. It does not answer whether Anthropic can defend its per-token pricing against K3 through the next enterprise renewal cycle, which for most of its Fortune 500 API contracts falls in Q1 2027.</p></div>
+  <div class="briefing-take-note">Get Anthropic's Fortune 500 renewal cadence broken out by quarter rather than treated as a single Q1 2027 cliff, since a staggered book gives Anthropic room to defend pricing lab by lab that a single renewal date would not. Watch whether Moonshot discloses Ascend cluster utilization or cost figures, since the K3 price comparison only becomes a real threat model once someone shows the unit economics behind the third-of-price number. <span class="briefing-take-note-by">-- WR</span></div>
+  <a href="briefings/2026-07-25-ai-focus.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -64,101 +64,101 @@
   <div class="front-col-body">
     <div class="front-col-avatar"><img src="/masthead/img/thumbs/aya-nakamura.jpg" alt="AN"/></div>
     <div class="front-col-text">
-      <a href="/ai-focus-column/2026-07-19-aya-nakamura.html" class="front-col-title">Kimi K3 Matches Claude Coding At A Third Of The Price</a>
-      <div class="front-col-deck">Kimi K3 matched frontier coding performance at a third of Anthropic's price the same week Nvidia halved its Asia buyer list, and the second event did not stop the first.</div>
-      <div class="front-col-byline">By <strong>Aya Nakamura</strong><span class="front-col-role">AI Desk, Senior Correspondent</span><span class="front-col-date">Sun, Jul 19</span></div>
+      <a href="/ai-focus-column/2026-07-25-aya-nakamura.html" class="front-col-title">Nvidia's July 14 Whitelist Hits Singapore and Malaysia</a>
+      <div class="front-col-deck">Nvidia's July 14 buyer whitelist was built to stop Chinese chip smuggling, but the customers it disqualified run sovereign AI programs in Singapore, Malaysia, and Japan, not Beijing.</div>
+      <div class="front-col-byline">By <strong>Aya Nakamura</strong><span class="front-col-role">AI Desk, Senior Correspondent</span><span class="front-col-date">Sun, Jul 26</span></div>
     </div>
   </div>
   <div class="front-col-actions">
-    <a href="/ai-focus-column/2026-07-19-aya-nakamura.html" class="front-col-cta">Read the column &rarr;</a>
+    <a href="/ai-focus-column/2026-07-25-aya-nakamura.html" class="front-col-cta">Read the column &rarr;</a>
     <a href="/columns.html" class="front-col-more">All columns</a>
   </div>
 </div>
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://arstechnica.com/ai/2026/07/how-an-openai-benchmark-test-turned-into-a-real-world-cyberattack/" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Agent Escapes Sandbox, Hacks Hugging Face</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 23</span></span></a>
+    <a class="hub-w-item" href="https://www.theverge.com/ai-artificial-intelligence/970105/claude-opus-5-announced-anthropic-ai-model-release" target="_blank" rel="noopener"><span class="hub-w-title">Opus 5 Lands, Near Fable Level</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 25</span></span></a>
+    <a class="hub-w-item" href="https://arstechnica.com/ai/2026/07/how-an-openai-benchmark-test-turned-into-a-real-world-cyberattack/" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Agent Hacks Hugging Face</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 23</span></span></a>
+    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/22/openai-cyberattack/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Sci Fi Cyberattack Actually Happened</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 23</span></span></a>
     <a class="hub-w-item" href="https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic Launches Opus 5</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://arstechnica.com/google/2026/07/google-reveals-faster-and-cheaper-gemini-3-6-flash-says-3-5-pro-is-still-in-testing/" target="_blank" rel="noopener"><span class="hub-w-title">Google Announces Gemini 3.6 Flash, Teases Gemini 4</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 22</span></span></a>
-    <a class="hub-w-item" href="https://www.theverge.com/ai-artificial-intelligence/970105/claude-opus-5-announced-anthropic-ai-model-release" target="_blank" rel="noopener"><span class="hub-w-title">Opus 5 Nears Fable 5's Capabilities</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://arstechnica.com/tech-policy/2026/07/judge-approves-anthropics-1-5-billion-copyright-settlement-with-authors/" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic's $1.5B Copyright Settlement Approved</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 22</span></span></a>
-    <a class="hub-w-item" href="https://techcrunch.com/2026/07/23/ai-chip-startup-etched-defies-skeptics-hits-10-3b-valuation-from-big-name-investors/" target="_blank" rel="noopener"><span class="hub-w-title">Chip Startup Etched Hits $10.3B Valuation</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 23</span></span></a>
-    <a class="hub-w-item" href="https://www.theverge.com/ai-artificial-intelligence/970065/anthropic-voice-mode-claude-opus-sonnet-haiku-ai" target="_blank" rel="noopener"><span class="hub-w-title">Claude Voice Mode Comes to Opus and Sonnet</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/22/openai-cyberattack/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI's Hugging Face Hack Is Science Fiction Realized</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 23</span></span></a>
+    <a class="hub-w-item" href="https://arstechnica.com/tech-policy/2026/07/ai-kill-switch-act-would-let-trump-admin-order-shutdown-of-rogue-ai-systems/" target="_blank" rel="noopener"><span class="hub-w-title">Bill Would Let Trump Kill Rogue AI</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 24</span></span></a>
+    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Simon Willison On Opus 5</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 25</span></span></a>
+    <a class="hub-w-item" href="https://www.wired.com/story/security-news-this-week-the-openai-models-that-hacked-hugging-face-were-active-on-the-internet-for-days/" target="_blank" rel="noopener"><span class="hub-w-title">Rogue OpenAI Models Roamed For Days</span><span class="hub-w-meta"><span class="hub-w-src">Wired</span><span class="hub-w-date">Jul 25</span></span></a>
+    <a class="hub-w-item" href="https://arstechnica.com/ai/2026/07/ai-arms-race-in-line-for-a-reckoning-after-openai-hacking-incident/" target="_blank" rel="noopener"><span class="hub-w-title">Hacking Incident Rattles AI Arms Race</span><span class="hub-w-meta"><span class="hub-w-src">Ars Technica</span><span class="hub-w-date">Jul 23</span></span></a>
     <a class="hub-w-item" href="https://techcrunch.com/podcast/ai-communism-rogue-models-and-the-why-kimi-k3-spooked-wall-street/" target="_blank" rel="noopener"><span class="hub-w-title">Kimi K3 Spooks Wall Street</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Runaway AI Agent, or Just a Marketing Stunt</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Reverse Engineering Just Got Cheap</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 21</span></span></a>
-    <a class="hub-w-item" href="https://www.latent.space/p/ainews-ai-cybersecurity-becomes-top" target="_blank" rel="noopener"><span class="hub-w-title">AI Cybersecurity Becomes Top of Mind</span><span class="hub-w-meta"><span class="hub-w-src">Latent Space</span><span class="hub-w-date">Jul 22</span></span></a>
+    <a class="hub-w-item" href="https://techcrunch.com/2026/07/23/ai-chip-startup-etched-defies-skeptics-hits-10-3b-valuation-from-big-name-investors/" target="_blank" rel="noopener"><span class="hub-w-title">Chip Startup Etched Hits $10.3B</span><span class="hub-w-meta"><span class="hub-w-src">TechCrunch</span><span class="hub-w-date">Jul 23</span></span></a>
+    <a class="hub-w-item" href="https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/#atom-everything" target="_blank" rel="noopener"><span class="hub-w-title">Runaway Agent, Or Marketing Stunt?</span><span class="hub-w-meta"><span class="hub-w-src">Simon Willison</span><span class="hub-w-date">Jul 24</span></span></a>
+    <a class="hub-w-item" href="https://www.theverge.com/ai-artificial-intelligence/970065/anthropic-voice-mode-claude-opus-sonnet-haiku-ai" target="_blank" rel="noopener"><span class="hub-w-title">Claude Voice Mode Hits Opus, Sonnet</span><span class="hub-w-meta"><span class="hub-w-src">The Verge</span><span class="hub-w-date">Jul 24</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">Radar: Trending Repos</span></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key">&#9733; 7.1k</span>
+    <span class="hub-row-key">&#9733; 672</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/StarTrail-org/PixelRAG" target="_blank" rel="noopener">StarTrail-org/PixelRAG</a>
-      <div class="hub-row-meta">The end of web parsing. The beginning of scalable pixel-native search. link: https://pixelrag.ai/</div>
+      <a class="hub-row-title" href="https://github.com/aipoch/open-science" target="_blank" rel="noopener">aipoch/open-science</a>
+      <div class="hub-row-meta">An open-source, model-agnostic AI workbench for scientific discovery.</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 397</span>
+    <span class="hub-row-key">&#9733; 1.0k</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/xuzhougeng/wisp-science" target="_blank" rel="noopener">xuzhougeng/wisp-science</a>
-      <div class="hub-row-meta">Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP b</div>
+      <a class="hub-row-title" href="https://github.com/simonlin1212/Vibe-Research" target="_blank" rel="noopener">simonlin1212/Vibe-Research</a>
+      <div class="hub-row-meta">Vibe-Research: Your Personal Trading Research Agent · A股/美股/港股 的个人投研 Agent：每日复盘、资讯雷达、个股数据、板块中心、我的持仓、</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 347</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/monarchjuno/tradingcodex" target="_blank" rel="noopener">monarchjuno/tradingcodex</a>
-      <div class="hub-row-meta">Turn Codex into your investment workflow team</div>
-    </div>
-  </div>
-  <div class="hub-row">
-    <span class="hub-row-key">&#9733; 525</span>
+    <span class="hub-row-key">&#9733; 656</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://github.com/OtterMind/Nubase" target="_blank" rel="noopener">OtterMind/Nubase</a>
       <div class="hub-row-meta">🔥🔥🔥 Turn AI-written code into real apps. Nubase is an open-source, AI-native backend platform for</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 469</span>
+    <span class="hub-row-key">&#9733; 1.1k</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/vshulcz/deja-vu" target="_blank" rel="noopener">vshulcz/deja-vu</a>
-      <div class="hub-row-meta">Your agents already solved this. deja finds it, memory operations for sixteen coding agents: retroa</div>
+      <a class="hub-row-title" href="https://github.com/agentlas-ai/Agentlas-OS" target="_blank" rel="noopener">agentlas-ai/Agentlas-OS</a>
+      <div class="hub-row-meta">Agent OS: keep specialist agents in a hub, spin up a temporary orchestrator per task. Local-first, w</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&#9733; 248</span>
+    <span class="hub-row-key">&#9733; 7.2k</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://github.com/CyberSunil/LLMVault" target="_blank" rel="noopener">CyberSunil/LLMVault</a>
-      <div class="hub-row-meta">An intentionally vulnerable OWASP LLM Top 10 training platform for AI Security, Prompt Injection, RA</div>
+      <a class="hub-row-title" href="https://github.com/StarTrail-org/PixelRAG" target="_blank" rel="noopener">StarTrail-org/PixelRAG</a>
+      <div class="hub-row-meta">The end of web parsing. The beginning of scalable pixel-native search. link: https://pixelrag.ai/</div>
+    </div>
+  </div>
+  <div class="hub-row">
+    <span class="hub-row-key">&#9733; 435</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://github.com/xuzhougeng/wisp-science" target="_blank" rel="noopener">xuzhougeng/wisp-science</a>
+      <div class="hub-row-meta">Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP b</div>
     </div>
   </div></div>
 
   <div class="hub-head"><span class="hub-tag">Radar: Papers</span></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key">&uarr; 1</span>
+    <span class="hub-row-key">&uarr; 5</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://arxiv.org/abs/2607.21557" target="_blank" rel="noopener">OpenForgeRL: Train Harness-native Agents in Any Environment</a>
       <div class="hub-row-meta">Xiao Yu, Baolin Peng, Ruize Xu</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key hub-row-key--muted">PAPER</span>
+    <span class="hub-row-key">&uarr; 1</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://arxiv.org/abs/2607.16859" target="_blank" rel="noopener">Dataset Distillation by Influence Matching</a>
       <div class="hub-row-meta">Haoru Tan, Wang Wang, Sitong Wu</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 7</span>
+    <span class="hub-row-key">&uarr; 8</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://arxiv.org/abs/2607.04763" target="_blank" rel="noopener">Multi-Turn On-Policy Distillation with Prefix Replay</a>
       <div class="hub-row-meta">Baohao Liao, Hanze Dong, Christof Monz</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 15</span>
+    <span class="hub-row-key">&uarr; 21</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://arxiv.org/abs/2607.21553" target="_blank" rel="noopener">SANA-Video 2.0: Hybrid Linear Attention with Attention Residuals for Efficient Video Generation</a>
       <div class="hub-row-meta">Junsong Chen, Jincheng Yu, Yitong Li</div>
@@ -167,35 +167,35 @@
 
   <div class="hub-head"><span class="hub-tag">Radar: Models &amp; Tools</span></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key">&uarr; 3.0k</span>
+    <span class="hub-row-key">&uarr; 3.1k</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank" rel="noopener">Unlimited-OCR</a>
       <div class="hub-row-meta">baidu · image-text-to-text</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 604</span>
+    <span class="hub-row-key">&uarr; 659</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://huggingface.co/poolside/Laguna-S-2.1" target="_blank" rel="noopener">Laguna-S-2.1</a>
       <div class="hub-row-meta">poolside · text-generation</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 1.5k</span>
+    <span class="hub-row-key">&uarr; 560</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://huggingface.co/thinkingmachines/Inkling" target="_blank" rel="noopener">Inkling</a>
-      <div class="hub-row-meta">thinkingmachines · image-text-to-text</div>
+      <a class="hub-row-title" href="https://huggingface.co/upstage/Solar-Open2-250B" target="_blank" rel="noopener">Solar-Open2-250B</a>
+      <div class="hub-row-meta">upstage · text-generation</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 184</span>
+    <span class="hub-row-key">&uarr; 187</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://github.com/palmier-io/palmier-pro" target="_blank" rel="noopener">Palmier Pro – Open-source macOS video editor built for AI</a>
       <div class="hub-row-meta">Show HN</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">&uarr; 450</span>
+    <span class="hub-row-key">&uarr; 467</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://news.ycombinator.com/item?id=49026810" target="_blank" rel="noopener">Echo – Fable-level results at 1/3 the cost using open-weight models</a>
       <div class="hub-row-meta">Show HN</div>
@@ -204,6 +204,7 @@
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
   <div class="hub-module">
+    <div class="hub-row"><span class="hub-row-key">OPEN</span><div class="hub-row-main"><span class="hub-row-title">Nvidia will grant Singapore, Malaysia, and Japan's national AI programs (ASPIRE 2B, ILMU, ABCI 3.0) a faster whitelist review lane rather than continuing to process them under the same scrutiny built for smuggling cases</span><div class="hub-row-meta">Aya Nakamura &middot; made Jul 26 &middot; horizon Nvidia's next whitelist review &middot; <a href="ai-focus-column/2026-07-25-aya-nakamura.html">In print &rarr;</a></div></div></div>
     <div class="hub-row"><span class="hub-row-key">OPEN</span><div class="hub-row-main"><span class="hub-row-title">SK Hynix's newly funded Korean memory fab (financed by the July 10 $26.5B Nasdaq listing) will not ship product for years</span><div class="hub-row-meta">Aya Nakamura &middot; made Jul 13 &middot; <a href="ai-focus-column/2026-07-13-aya-nakamura.html">In print &rarr;</a></div></div></div>
     <div class="hub-row"><span class="hub-row-key">OPEN</span><div class="hub-row-main"><span class="hub-row-title">China's HBM production will still not have closed the gap with SK Hynix's 58 percent global HBM revenue share by the time the new fab breaks ground</span><div class="hub-row-meta">Aya Nakamura &middot; made Jul 13 &middot; <a href="ai-focus-column/2026-07-13-aya-nakamura.html">In print &rarr;</a></div></div></div>
     <div class="hub-foot">Calls this desk has made in print, against a named horizon. Each is owned, confirmed, or eaten in print when the horizon arrives.</div>
