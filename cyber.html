@@ -40,8 +40,8 @@
 
 <header>
   <div class="masthead">CYBER</div>
-  <div class="subhead">THE WANG REPORT &middot; Sunday, July 26, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">53</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">5</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">76%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">6%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">78</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="subhead">THE WANG REPORT &middot; Tuesday, July 28, 2026 &middot; HONG KONG</div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">40</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">5</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">71%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">6%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">0</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Jul 25</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Jul 27</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">CertiGhost Exploit Lets Any AD User Forge a Domain Controller Certificate</div>
-  <div class="briefing-take-body"><p>Researchers H0j3n and Aniq Fakhrul published a working exploit on July 24 that lets a low-privileged Active Directory user request a certificate binding to a Domain Controller's identity, then authenticate as that machine against any service that trusts the certificate authority. The technique, dubbed CertiGhost, does not require compromising an existing DC or planting malware. It abuses certificate template logic that Active Directory Certificate Services has shipped by default for years, the same enrollment surface that produced the ESC1 through ESC8 escalation paths documented since 2021.</p><p>The fix is template-level, not patch-level. There is no CVE tied to this release because the behavior is Windows working as configured, and Microsoft's guidance since the original PKI escalation research has been to audit template permissions rather than wait for a security update. Any AD administrator who has not run PSPKIAudit or Certipy against their certificate authority since ESC8 became public should treat July 24 as the day that gap stopped being theoretical. The control that closes it is enrollment restriction on Domain Controller templates, not a patch Tuesday entry.</p></div>
-  <div class="briefing-take-note">The piece treats template audit as sufficient closure but never states what happens to DCs whose templates already show the vulnerable enrollment permissions, that population needs remediation before the audit finding is a fix. It also borrows ESC1 through ESC8 as precedent without noting CertiGhost's target is the DC's own identity rather than a service account, which changes blast radius, not just technique lineage. <span class="briefing-take-note-by">-- WR</span></div>
-  <a href="briefings/2026-07-25-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Cl0p Targets PTC Windchill, Attack Automation Enters Post-Exploitation</div>
+  <div class="briefing-take-body"><p>Cl0p, tracked elsewhere as FIN11, Lace Tempest, and Graceful Spider, is exploiting unpatched PTC Windchill and FlexPLM deployments exposed to the internet, according to The Hacker News. The pattern matches Cl0p's 2023 MOVEit run and its 2024 Cleo campaign: find an edge file-transfer or PLM platform with a remotely exploitable flaw, hit every internet-facing instance before patch adoption catches up, then negotiate ransom off the stolen files rather than deployed encryptors. Windchill and FlexPLM sit inside manufacturing and engineering supply chains, holding product design data that doesn't show up in a typical breach-notification template built around names and card numbers.</p><p>The same week, BleepingComputer reported a threat actor running the open-source Hermes AI agent in unattended &quot;YOLO&quot; mode to automate post-exploitation against Thailand's Ministry of Finance, a mode that skips the human confirmation step before the agent executes commands. Cl0p's operators still script their own post-exploitation. The Thai Finance Ministry intrusion didn't need to. The distance between those two facts is now a procurement question for anyone running Windchill: patch cadence on PLM platforms has historically trailed patch cadence on Windows Server by months, and that gap is the one an unattended agent doesn't need scheduled downtime to exploit.</p></div>
+  
+  <a href="briefings/2026-07-27-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,63 +77,43 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/" target="_blank" rel="noopener"><span class="hub-w-title">AI Agent Set Loose, Used to Automate Attack on Thai Finance Ministry</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cloud-security/default-azure-automation-setting-cross-tenant-identity-takeover" target="_blank" rel="noopener"><span class="hub-w-title">Default Azure Flaw Enabled Cross Tenant Identity Takeover</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html" target="_blank" rel="noopener"><span class="hub-w-title">North Korean Hackers Profile Crypto Wallets in Zoom Phishing Kit</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/cl0p-affiliates-target-internet-exposed.html" target="_blank" rel="noopener"><span class="hub-w-title">Cl0p Ransom Gang Exploiting Unpatched PTC Windchill Systems</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/fastjson-1x-rce-vulnerability-targeted.html" target="_blank" rel="noopener"><span class="hub-w-title">Alibaba's Fastjson Under Active Attack, No Patch Available</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/vatican-official-prayer-app-leaks-700k-pii" target="_blank" rel="noopener"><span class="hub-w-title">Vatican Prayer App Leaks PII of 700,000 Users</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/incorrigible-ai-models-resist-rehabilitation" target="_blank" rel="noopener"><span class="hub-w-title">Rogue OpenAI Agent Hacked Hugging Face, Researchers Warn</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/malicious-sites-use-javascript-to-build-malware-in-browser-memory/" target="_blank" rel="noopener"><span class="hub-w-title">Fake Crypto Sites Assemble Malware Inside Browser Memory</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 25</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/microsoft/microsoft-blames-massive-microsoft-365-outage-on-maintenance-bug/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Blames Massive 365 Outage on Maintenance Bug</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 24</span></span></a>
-    <a class="hub-w-item" href="https://blog.adafruit.com/2026/03/05/tiles-security-is-so-bad-its-a-feature-for-stalkers/" target="_blank" rel="noopener"><span class="hub-w-title">Tile Tracker's Security So Bad It Helps Stalkers, Researchers Say</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 26</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers target US firms in FastJson RCE zero-day attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/arista-patches-velocloud-orchestrator-zero-day-exploited-in-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Arista patches VeloCloud Orchestrator zero-day exploited in attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/new-dysphoria-ddos-botnet-spreads-to-200k-devices-worldwide/" target="_blank" rel="noopener"><span class="hub-w-title">New Dysphoria DDoS botnet spreads to 200k devices worldwide</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cloud-security/confused-deputy-flaws-google-cloud-microsoft-azure" target="_blank" rel="noopener"><span class="hub-w-title">'Confused Deputy' Flaws Persist in Google Cloud, Microsoft Azure</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/fbi-breaking-affiliate-trust-lockbit-takedown" target="_blank" rel="noopener"><span class="hub-w-title">FBI: Breaking Affiliate Trust Sped Along LockBit's Takedown</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/nvidia-forms-37-member-open-secure-ai.html" target="_blank" rel="noopener"><span class="hub-w-title">NVIDIA Forms 37-Member Open Secure AI Alliance and Open-Sources NOOA Framework</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/threat-intelligence/adversaries-do-not-need-zero-day-they-read-your-rulebook" target="_blank" rel="noopener"><span class="hub-w-title">Adversaries Don't Need a Zero-Day, They Read Your Rulebook</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/dysphoria-iot-botnet-adds-blockchain-c2.html" target="_blank" rel="noopener"><span class="hub-w-title">Dysphoria IoT Botnet Adds Blockchain C2 and Victim Relays After JackSkid Disruption</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/public-exploit-released-for-patched.html" target="_blank" rel="noopener"><span class="hub-w-title">Public Exploit Released for Patched vBulletin Pre-Auth Code Execution Flaw</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 27</span></span></a>
+    <a class="hub-w-item" href="https://www.theverge.com/games/967174/steam-game-malware-cryptostealer-arrest" target="_blank" rel="noopener"><span class="hub-w-title">Bitcoin trail, Google cookies and Uber Eats orders help tie man to Steam malware</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/" target="_blank" rel="noopener"><span class="hub-w-title">MAI-Cyber-1-Flash inside MDASH</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 28</span></span></a>
+    <a class="hub-w-item" href="https://eaton-works.com/2026/07/27/my-eicher-hack/" target="_blank" rel="noopener"><span class="hub-w-title">Exploiting Volvo/Eicher's fleet platform to gain control over all users/vehicles</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 27</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
+    <span class="hub-row-key">MED 5.3</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">WordPress Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-63030 &middot; <b>KEV</b> listed Jul 21 &middot; EPSS 98%</div>
-    </div>
-  </div>
-  <div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 10.0</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56290" target="_blank" rel="noopener">joomlack.fr Page Builder CK extension for Joomla Unrestricted File Upload</a>
-      <div class="hub-row-meta">CVE-2026-56290 &middot; <b>KEV</b> listed Jul 7 &middot; EPSS 83%</div>
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56164" target="_blank" rel="noopener">Microsoft SharePoint Server Elevation of Privilege Vulnerability</a>
+      <div class="hub-row-meta">CVE-2026-56164 &middot; <b>KEV</b> listed Jul 14 &middot; OT</div>
     </div>
   </div>
   <div class="hub-row">
     <span class="hub-row-key hub-row-key--alert">CRIT 10.0</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56291" target="_blank" rel="noopener">balbooa.com Balbooa Forms extension for Joomla Unrestricted File Upload</a>
-      <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
+      <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 25. Updated daily.</div></div>
-
-  <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
-  <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Google SecOps</span>
-    <span class="hub-kv-line">Google Acquires Mandiant, Reshaping Its Security Portfolio</span>
-    <span class="hub-kv-date">Jul 24</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Posts Biggest Earnings Beat Ever on AI Threat Demand</span>
-    <span class="hub-kv-date">Jul 24</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Zscaler to Acquire Symmetry Systems, Doubling Down on Zero Trust for AI Agents</span>
-    <span class="hub-kv-date">Jul 24</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Splunk</span>
-    <span class="hub-kv-line">Splunk Zero-Day Hits CVSS 9.8, CISA Gives Agencies 3 Days to Patch</span>
-    <span class="hub-kv-date">Jul 24</span>
-  </a></div>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 10.0</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56290" target="_blank" rel="noopener">joomlack.fr Page Builder CK extension for Joomla Unrestricted File Upload</a>
+      <div class="hub-row-meta">CVE-2026-56290 &middot; <b>KEV</b> listed Jul 7</div>
+    </div>
+  </div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 27. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
   <div class="hub-module">
