@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Thursday, July 30, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">27</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">1</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">7%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">0</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">42</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">75%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">71</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Jul 27</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Thu, Jul 30</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Cl0p Targets PTC Windchill, Attack Automation Enters Post-Exploitation</div>
-  <div class="briefing-take-body"><p>Cl0p, tracked elsewhere as FIN11, Lace Tempest, and Graceful Spider, is exploiting unpatched PTC Windchill and FlexPLM deployments exposed to the internet, according to The Hacker News. The pattern matches Cl0p's 2023 MOVEit run and its 2024 Cleo campaign: find an edge file-transfer or PLM platform with a remotely exploitable flaw, hit every internet-facing instance before patch adoption catches up, then negotiate ransom off the stolen files rather than deployed encryptors. Windchill and FlexPLM sit inside manufacturing and engineering supply chains, holding product design data that doesn't show up in a typical breach-notification template built around names and card numbers.</p><p>The same week, BleepingComputer reported a threat actor running the open-source Hermes AI agent in unattended &quot;YOLO&quot; mode to automate post-exploitation against Thailand's Ministry of Finance, a mode that skips the human confirmation step before the agent executes commands. Cl0p's operators still script their own post-exploitation. The Thai Finance Ministry intrusion didn't need to. The distance between those two facts is now a procurement question for anyone running Windchill: patch cadence on PLM platforms has historically trailed patch cadence on Windows Server by months, and that gap is the one an unattended agent doesn't need scheduled downtime to exploit.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Coordinated Attack Knocks Out 30 Minnesota Water Utilities</div>
+  <div class="briefing-take-body"><p>Hackers took operational technology offline at more than 30 Minnesota community water systems on July 26 and 27, prompting the Minnesota IT Services agency to activate statewide cybersecurity incident response. Braham, Plymouth, and South St. Paul are among the systems named in the disclosure. Water treatment OT typically sits behind a single internet-facing HMI or a remote-access product installed for vendor maintenance, and thirty simultaneous outages across unrelated municipal systems is not what an isolated intrusion looks like. It is what a shared vulnerability in one product looks like, hit once and replayed across every customer running it.</p><p>MNIT has not published which remote-access product or HMI vendor sits behind the affected systems, and until that name surfaces, every water utility running the same unpatched interface is still exposed on the same clock the first thirty were. The Cybersecurity and Infrastructure Security Agency has spent three years telling water utilities to pull default credentials and internet-facing HMIs off Ovarro TBox and Unitronics controllers after Iranian-linked intrusions in 2023 and 2024. The control that would have changed the outcome here is the same one: take the remote interface off the public internet before the next disclosure names it instead of MNIT.</p></div>
   
-  <a href="briefings/2026-07-27-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-07-30-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,62 +77,61 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Knock Out 30 Minnesota Water Utilities In Coordinated OT Attack</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 29</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html" target="_blank" rel="noopener"><span class="hub-w-title">Minnesota Water Plant Goes Offline As Statewide Cyber Response Activated</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 29</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/" target="_blank" rel="noopener"><span class="hub-w-title">Russian Hackers Exploit Exchange OWA Zero Day For Long Term Mailbox Access</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 30</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Cisco Warns Firewall Manager Credential Flaw Exploited In Zero Day Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 30</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Knock Out 30+ Minnesota Water Utilities In Coordinated Strike</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 29</span></span></a>
     <a class="hub-w-item" href="https://thehackernews.com/2026/07/ruflo-mcp-flaw-lets-unauthenticated.html" target="_blank" rel="noopener"><span class="hub-w-title">Max Severity Flaw In Claude Code Harness Lets Attackers Poison AI Memory</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 29</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/threat-intelligence/se-asian-cybercriminal-syndicates-global-power" target="_blank" rel="noopener"><span class="hub-w-title">SE Asian Cybercrime Syndicates Traffic Victims From 80 Countries, $88B Haul</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 30</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html" target="_blank" rel="noopener"><span class="hub-w-title">Minnesota Water Plant Goes Fully Offline As Statewide Response Triggered</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 29</span></span></a>
     <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/patch-resistant-rufroot-flaw-malicious-ai-agent-swarms" target="_blank" rel="noopener"><span class="hub-w-title">Patch Resistant Flaw Can Unleash Malicious AI Agent Swarms</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 29</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/researchers-show-single-malicious.html" target="_blank" rel="noopener"><span class="hub-w-title">Single Malicious Webpage Visit Can Compromise Tor Browser, Researchers Show</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 29</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/openai-rogue-model-claims-more-victims-beyond-hugging-face" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI's Rogue Model Claims More Victims Beyond Hugging Face</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 30</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/flaw-exposes-data-centers-server-takeover" target="_blank" rel="noopener"><span class="hub-w-title">Thousands Of Data Center Controllers Open To Remote Takeover</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 29</span></span></a>
-    <a class="hub-w-item" href="https://prilik.com/blog/post/automating-ac-nyc/" target="_blank" rel="noopener"><span class="hub-w-title">Turning A Dumb AC Unit Smart Without Losing Your Security Deposit</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Jul 30</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/" target="_blank" rel="noopener"><span class="hub-w-title">Russian State Hackers Exploit Exchange Zero-Day For Long-Term Mailbox Access</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 30</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Cisco Firewall Manager Zero-Day Exploited With Hardcoded Credentials</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Jul 30</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/hugging-face-hack-lessons-cyber-defenders" target="_blank" rel="noopener"><span class="hub-w-title">Hugging Face Hack: The Lessons Cyber Defenders Need Now</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 30</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/07/researchers-show-single-malicious.html" target="_blank" rel="noopener"><span class="hub-w-title">One Malicious Webpage Visit Can Compromise Tor Browser, Researchers Show</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 29</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key">MED 5.3</span>
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56164" target="_blank" rel="noopener">Microsoft SharePoint Server Elevation of Privilege Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-56164 &middot; <b>KEV</b> listed Jul 14 &middot; OT</div>
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">WordPress Vulnerability</a>
+      <div class="hub-row-meta">CVE-2026-63030 &middot; <b>KEV</b> listed Jul 21 &middot; EPSS 98%</div>
     </div>
   </div>
   <div class="hub-row">
     <span class="hub-row-key hub-row-key--alert">CRIT 10.0</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-16812" target="_blank" rel="noopener">VeloCloud Orchestrator OS Command Injection</a>
-      <div class="hub-row-meta">CVE-2026-16812 &middot; <b>KEV</b> listed Jul 27</div>
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56290" target="_blank" rel="noopener">joomlack.fr Page Builder CK extension for Joomla Unrestricted File Upload</a>
+      <div class="hub-row-meta">CVE-2026-56290 &middot; <b>KEV</b> listed Jul 7 &middot; EPSS 83%</div>
     </div>
   </div>
   <div class="hub-row">
     <span class="hub-row-key hub-row-key--alert">CRIT 10.0</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56291" target="_blank" rel="noopener">balbooa.com Balbooa Forms extension for Joomla Unrestricted File Upload</a>
-      <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10</div>
+      <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 29. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 30. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Cyera Acquires Oasis Security for $1B in AI Agent Defense Push</span>
+    <span class="hub-kv-line">Cyera Buys Oasis Security for $1 Billion to Lock Down AI Agent Identities</span>
     <span class="hub-kv-date">Jul 29</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Uncovers Work Panel, a Turnkey SaaS Platform for Vishing Crews</span>
+    <span class="hub-kv-line">Okta Posts Q1 FY2027 Earnings: Here's What Moved the Stock</span>
     <span class="hub-kv-date">Jul 29</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Qilin Ransomware Targets Palo Alto Networks VPNs Alongside Fortinet, Citrix, Check Point</span>
-    <span class="hub-kv-date">Jul 28</span>
+    <span class="hub-kv-line">Palo Alto, CrowdStrike Drawn Into Scrutiny Over 'Unprecedented' OpenAI Cyberattack</span>
+    <span class="hub-kv-date">Jul 30</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Zscaler</span>
-    <span class="hub-kv-line">Zscaler and Schwarz Digits Launch Sovereign Zero Trust SASE Platform in Germany</span>
-    <span class="hub-kv-date">Jul 28</span>
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">OpenAI's 'Unprecedented' Cyberattack Puts CrowdStrike Back in the Spotlight</span>
+    <span class="hub-kv-date">Jul 30</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
