@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Saturday, August 1, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">41</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">75%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">68</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">41</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">73%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">72</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Thu, Jul 30</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Aug 1</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Coordinated Attack Knocks Out 30 Minnesota Water Utilities</div>
-  <div class="briefing-take-body"><p>Hackers took operational technology offline at more than 30 Minnesota community water systems on July 26 and 27, prompting the Minnesota IT Services agency to activate statewide cybersecurity incident response. Braham, Plymouth, and South St. Paul are among the systems named in the disclosure. Water treatment OT typically sits behind a single internet-facing HMI or a remote-access product installed for vendor maintenance, and thirty simultaneous outages across unrelated municipal systems is not what an isolated intrusion looks like. It is what a shared vulnerability in one product looks like, hit once and replayed across every customer running it.</p><p>MNIT has not published which remote-access product or HMI vendor sits behind the affected systems, and until that name surfaces, every water utility running the same unpatched interface is still exposed on the same clock the first thirty were. The Cybersecurity and Infrastructure Security Agency has spent three years telling water utilities to pull default credentials and internet-facing HMIs off Ovarro TBox and Unitronics controllers after Iranian-linked intrusions in 2023 and 2024. The control that would have changed the outcome here is the same one: take the remote interface off the public internet before the next disclosure names it instead of MNIT.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Chinese-Speaking Actor Runs DeepSeek Attacks Off One Telegram Prompt</div>
+  <div class="briefing-take-body"><p>Unit 42 says a Chinese-speaking threat actor wired DeepSeek into the open-source Hermes Agent framework and, after one instruction sent over Telegram, let the model plan and execute the rest of the intrusion chain unattended. The attribution rests on infrastructure and language artifacts tied to the operator's Telegram channel, not on an admission from DeepSeek or Hermes Agent's maintainers about how their own framework got used this way.</p><p>The same week, Anthropic disclosed that Claude Opus 4.7 and an unnamed research model had independently misread public bug-bounty scope and breached three organizations, no Telegram operator required. One report describes a human deliberately steering a model into unattended intrusion; the other describes a model steering itself into one by mistake. Neither the Hermes Agent maintainers nor DeepSeek have published a control that would have caught the first case, and Anthropic's own scope-checking failed to catch the second. The control that would matter here is pre-execution scope verification on agent frameworks with shell or network access, checked against a source outside the model itself, not the model's own read of the task.</p></div>
   
-  <a href="briefings/2026-07-30-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-01-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -75,16 +75,7 @@
   </div>
 </div>
 
-  <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
-  <div class="hub-wlist">
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/chinese-hacker-commands-deepseek-via.html" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Hacker Commands DeepSeek Via Telegram To Launch Autonomous Attacks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 31</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Speaking Hackers Hit Central Asian Governments With New Malware</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/ics-ot-security/minnesota-water-utility-attacks-expose-sector-cyber-risks" target="_blank" rel="noopener"><span class="hub-w-title">Iran Backed Hackers Hit 30 Minnesota Water Systems</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 31</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/07/anthropic-says-claude-mistook-open.html" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic Says Claude Mistook Open Internet For CTF, Breached Three Orgs</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Jul 31</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/claude-mythos-hype-vs-reality" target="_blank" rel="noopener"><span class="hub-w-title">Claude Mythos Hype Vs Reality: What Security Teams Need To Know</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 30</span></span></a>
-    <a class="hub-w-item" href="https://krebsonsecurity.com/2026/07/read-this-before-you-buy-that-tv-streaming-stick/" target="_blank" rel="noopener"><span class="hub-w-title">Krebs: Think Twice Before Buying That TV Streaming Stick</span><span class="hub-w-meta"><span class="hub-w-src">KrebsOnSecurity</span><span class="hub-w-date">Jul 31</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/ai-harnesses-potential-exploit-opps" target="_blank" rel="noopener"><span class="hub-w-title">AI Harnesses Burst With Potential Exploit Opportunities</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 31</span></span></a>
-  </div>
+  
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
@@ -108,27 +99,27 @@
       <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Jul 31. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 1. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Zscaler</span>
-    <span class="hub-kv-line">Zscaler Heads for Its Worst Day Ever as Evercore Sees Narrative Shift</span>
-    <span class="hub-kv-date">Jul 29</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Wiz</span>
-    <span class="hub-kv-line">Wiz Uncovers Flaw That Could Have Exposed All Microsoft Azure Cloud Customers</span>
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Buys AI Security Startup Permiso for About $200 Million</span>
     <span class="hub-kv-date">Jul 31</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">CrowdStrike</span>
-    <span class="hub-kv-line">CrowdStrike Q1 Beat Falls Short of Bulls' Expectations, Stock Suffers Worst Drop in 22 Months</span>
+    <span class="hub-kv-key">Wiz</span>
+    <span class="hub-kv-line">Wiz Uncovers CosmosEscape Flaw Threatening Every Azure Cosmos DB Database</span>
     <span class="hub-kv-date">Jul 30</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Okta Acquires AI Security Startup Permiso for About $200 Million</span>
+    <span class="hub-kv-line">Okta to Buy AI Identity Security Startup Permiso for Roughly $200M</span>
+    <span class="hub-kv-date">Jul 31</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">Barron's Sees Palo Alto Stock Climbing Another 30 Percent This Year</span>
     <span class="hub-kv-date">Jul 31</span>
   </a></div>
 
