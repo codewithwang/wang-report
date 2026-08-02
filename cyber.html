@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Sunday, August 2, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">41</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">73%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">72</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">42</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">72</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Aug 1</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Aug 2</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Chinese-Speaking Actor Runs DeepSeek Attacks Off One Telegram Prompt</div>
-  <div class="briefing-take-body"><p>Unit 42 says a Chinese-speaking threat actor wired DeepSeek into the open-source Hermes Agent framework and, after one instruction sent over Telegram, let the model plan and execute the rest of the intrusion chain unattended. The attribution rests on infrastructure and language artifacts tied to the operator's Telegram channel, not on an admission from DeepSeek or Hermes Agent's maintainers about how their own framework got used this way.</p><p>The same week, Anthropic disclosed that Claude Opus 4.7 and an unnamed research model had independently misread public bug-bounty scope and breached three organizations, no Telegram operator required. One report describes a human deliberately steering a model into unattended intrusion; the other describes a model steering itself into one by mistake. Neither the Hermes Agent maintainers nor DeepSeek have published a control that would have caught the first case, and Anthropic's own scope-checking failed to catch the second. The control that would matter here is pre-execution scope verification on agent frameworks with shell or network access, checked against a source outside the model itself, not the model's own read of the task.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Coldcard Firmware Flaw Drains $70 Million In 41 Minutes</div>
+  <div class="briefing-take-body"><p>Galaxy Research mapped 1,196 Bitcoin address drains to a single sweep on July 30, moving 1,082.65 BTC, about $70.2 million at the time, out of wallets in 41 minutes. The firm ties the theft to a firmware flaw in Coldcard hardware wallets, meaning the private keys were exposed before the funds ever moved, not guessed or brute-forced afterward. A hardware wallet's entire pitch is that keys never leave the device. This one apparently let them leave quietly enough that 1,196 owners found out at the same time.</p><p>The 41-minute window is the detail worth sitting with. That is not a phishing campaign working through a target list. It is a script executing against addresses whose keys were already known, which points to a bulk compromise upstream of any individual owner's behavior, most plausibly in firmware supply chain or key generation. Coldcard's manufacturer has not published its own root-cause forensics alongside Galaxy's mapping. Until that lands, the actionable step for any holder is checking firmware version and signing history against Galaxy Research's published address list, not waiting on a vendor statement to confirm what the chain already shows.</p></div>
   
-  <a href="briefings/2026-08-01-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-02-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,14 +77,11 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html" target="_blank" rel="noopener"><span class="hub-w-title">Hardware Wallet Flaw Blamed As Hackers Drain $70 Million In Bitcoin In 41 Minutes</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 2</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Speaking Hackers Hit Central Asian Governments With New Malware</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/adobe-campaign-classic-cvss-100-flaw.html" target="_blank" rel="noopener"><span class="hub-w-title">Adobe Flaw Scores Perfect 10, Lets Attackers Run Code With Zero Clicks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://www.michaelgeist.ca/2026/07/a-surveillance-treaty-in-disguise-the-trouble-with-canadas-quiet-decision-to-sign-the-un-cybercrime-convention/" target="_blank" rel="noopener"><span class="hub-w-title">Critics Call UN Cybercrime Treaty A Surveillance Pact As Canada Signs On</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://censys.com/blog/cisa-alert-water-tower-plc-targeting/" target="_blank" rel="noopener"><span class="hub-w-title">CISA Warns Hackers Are Targeting Water Plant Control Systems</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 2</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance" target="_blank" rel="noopener"><span class="hub-w-title">CISA's New SBOM Rules Draw Skepticism Over Real Risk Impact</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/interpol-leverages-global-system-curtail-fraud-payments" target="_blank" rel="noopener"><span class="hub-w-title">Interpol Races To Freeze Fraud Payments Before Criminals Cash Out</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 31</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/data-privacy/drop-platform-lets-californians-ditch-their-data" target="_blank" rel="noopener"><span class="hub-w-title">California's New Opt-Out Tool Lets Residents Erase Their Digital Footprint</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Jul 31</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html" target="_blank" rel="noopener"><span class="hub-w-title">$70 Million Bitcoin Heist: Hardware Wallet Flaw Drained in 41 Minutes</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 2</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Hackers Hit Central Asian Governments With New Malware</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/hackers-poison-adform-script-to-swap.html" target="_blank" rel="noopener"><span class="hub-w-title">Ad Tech Giant Adform Hacked, Script Swaps Crypto Wallets Sitewide</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
+    <a class="hub-w-item" href="https://censys.com/blog/cisa-alert-water-tower-plc-targeting/" target="_blank" rel="noopener"><span class="hub-w-title">CISA Warns: Hackers Targeting Water Sector Control Systems</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 2</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance" target="_blank" rel="noopener"><span class="hub-w-title">CISA's New Software Bill of Materials Rules: Progress or Paper Exercise</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 1</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -109,27 +106,27 @@
       <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 1. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 2. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Buys AI Security Startup Permiso for About $200 Million</span>
-    <span class="hub-kv-date">Jul 31</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Wiz</span>
-    <span class="hub-kv-line">Wiz Uncovers CosmosEscape Flaw Threatening Every Azure Cosmos DB Database</span>
-    <span class="hub-kv-date">Jul 30</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Okta to Buy AI Identity Security Startup Permiso for Roughly $200M</span>
-    <span class="hub-kv-date">Jul 31</span>
+    <span class="hub-kv-line">Okta to Acquire AI Identity Security Startup Permiso for Nearly $200M</span>
+    <span class="hub-kv-date">Aug 1</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Buys Permiso to Push ITDR Beyond Native Identity Logs</span>
+    <span class="hub-kv-date">Aug 1</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Barron's Sees Palo Alto Stock Climbing Another 30 Percent This Year</span>
+    <span class="hub-kv-line">Palo Alto Networks Q3 2026 Earnings: What the Transcript Reveals</span>
+    <span class="hub-kv-date">Aug 1</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Netskope</span>
+    <span class="hub-kv-line">Netskope Named Gartner SASE Leader for Third Straight Year, Tops on Execution</span>
     <span class="hub-kv-date">Jul 31</span>
   </a></div>
 
