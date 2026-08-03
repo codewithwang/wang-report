@@ -40,8 +40,8 @@
 
 <header>
   <div class="masthead">CYBER</div>
-  <div class="subhead">THE WANG REPORT &middot; Sunday, August 2, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">42</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">72</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="subhead">THE WANG REPORT &middot; Monday, August 3, 2026 &middot; HONG KONG</div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">38</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">1</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">72</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Aug 2</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Aug 3</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Coldcard Firmware Flaw Drains $70 Million In 41 Minutes</div>
-  <div class="briefing-take-body"><p>Galaxy Research mapped 1,196 Bitcoin address drains to a single sweep on July 30, moving 1,082.65 BTC, about $70.2 million at the time, out of wallets in 41 minutes. The firm ties the theft to a firmware flaw in Coldcard hardware wallets, meaning the private keys were exposed before the funds ever moved, not guessed or brute-forced afterward. A hardware wallet's entire pitch is that keys never leave the device. This one apparently let them leave quietly enough that 1,196 owners found out at the same time.</p><p>The 41-minute window is the detail worth sitting with. That is not a phishing campaign working through a target list. It is a script executing against addresses whose keys were already known, which points to a bulk compromise upstream of any individual owner's behavior, most plausibly in firmware supply chain or key generation. Coldcard's manufacturer has not published its own root-cause forensics alongside Galaxy's mapping. Until that lands, the actionable step for any holder is checking firmware version and signing history against Galaxy Research's published address list, not waiting on a vendor statement to confirm what the chain already shows.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">N-able's N-central Patch Failed, Attackers Kept Access</div>
+  <div class="briefing-take-body"><p>N-able said attackers exploited an authentication bypass in N-central, its remote monitoring and management platform, to gain administrative control over servers used to manage customer endpoints. The company shipped a fix. The attackers came back in anyway, which means the patch closed the entry point they used the first time, not the one they used the second. N-central sits in the position every RMM tool sits in: one compromised instance gives an intruder standing access to every downstream client network the managed service provider touches, which is why CISA has flagged RMM platforms as a named priority since the 2023 wave of similar intrusions.</p><p>For the managed service providers running N-central, the question isn't whether N-able's second fix works. It's whether they can tell the difference between &quot;patched&quot; and &quot;attacker no longer has the specific foothold we found.&quot; Those aren't the same claim, and N-able's own admission that the first fix was incomplete is the evidence that nobody, including the vendor, had verified they were the same. The control that would have changed this outcome is credential rotation and session invalidation across every N-central-managed endpoint after the first disclosure, not a wait for patch two.</p></div>
   
-  <a href="briefings/2026-08-02-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-03-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,11 +77,14 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html" target="_blank" rel="noopener"><span class="hub-w-title">Hardware Wallet Flaw Drains $70 Million In Bitcoin In 41 Minutes</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 2</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/hackers-poison-adform-script-to-swap.html" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Poison Ad Script To Hijack Crypto Wallets Across Sites</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/adobe-campaign-classic-cvss-100-flaw.html" target="_blank" rel="noopener"><span class="hub-w-title">Adobe Patches Perfect 10.0 Flaw, No Clicks Needed To Hijack Servers</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 1</span></span></a>
-    <a class="hub-w-item" href="https://www.msn.com/en-us/technology/cybersecurity/apple-tightens-bug-reporting-as-ai-floods-security-teams/ar-AA29fmHE" target="_blank" rel="noopener"><span class="hub-w-title">AI Flood Of Bogus Bug Reports Forces Apple To Slam The Door</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 2</span></span></a>
-    <a class="hub-w-item" href="https://finance.yahoo.com/technology/ai/articles/microsoft-ai-cybersecurity-push-could-160912618.html?fr=sycsrp_catchall" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Bets Big On AI As Next Cybersecurity Growth Engine</span><span class="hub-w-meta"><span class="hub-w-src">yahoo news</span><span class="hub-w-date">Aug 1</span></span></a>
+    <a class="hub-w-item" href="https://www.theaustralian.com.au/nation/aemo-warns-ai-actors-lift-cyber-threat-to-national-power-grid/news-story/ef8ca411f8267ed672aaa384ada5aa92" target="_blank" rel="noopener"><span class="hub-w-title">AI Hackers Now Threaten Australia's Power Grid</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 2</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Hackers Deploy Ghostblade Malware On iPhones</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 3</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html" target="_blank" rel="noopener"><span class="hub-w-title">N-able Servers Hijacked Again, First Patch Failed</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 3</span></span></a>
+    <a class="hub-w-item" href="https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/" target="_blank" rel="noopener"><span class="hub-w-title">AI Hallucinated A Bug, Then Got A Real CVE</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 3</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/pnld-breach-exposes-uk-police-and.html" target="_blank" rel="noopener"><span class="hub-w-title">UK Police Contact Data Dumped On Dark Web</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 3</span></span></a>
+    <a class="hub-w-item" href="https://www.npr.org/2026/08/03/nx-s1-5814724/cybersecurity-ai-hackers-chatgpt-mythos-tech" target="_blank" rel="noopener"><span class="hub-w-title">Surviving The New Era Of AI Powered Cybercrime</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 3</span></span></a>
+    <a class="hub-w-item" href="https://www.forbes.com/sites/victordey/2026/08/03/horizon3-raises-250-million-as-cybersecuritys-next-war-goes-ai-vs-ai/" target="_blank" rel="noopener"><span class="hub-w-title">Horizon3 Raises $250M For AI Vs AI Cyber War</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 3</span></span></a>
+    <a class="hub-w-item" href="https://securityboulevard.com/2026/08/escape-joins-openais-trusted-access-for-cyber-tac-to-advance-ai-powered-offensive-security/" target="_blank" rel="noopener"><span class="hub-w-title">Escape Joins OpenAI's Offensive Security Program</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 3</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -110,24 +113,24 @@
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">Palo Alto Networks Q3 2026 Earnings: What the Call Revealed</span>
+    <span class="hub-kv-date">Aug 2</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Okta to Acquire AI Identity Security Startup Permiso for Nearly $200M</span>
-    <span class="hub-kv-date">Aug 1</span>
+    <span class="hub-kv-line">Zenity Raises $125M to Scale AI Agent Security</span>
+    <span class="hub-kv-date">Aug 3</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Buys Permiso to Push ITDR Beyond Native Identity Logs</span>
-    <span class="hub-kv-date">Aug 1</span>
+    <span class="hub-kv-line">Okta Puts $200M Behind AI Agent Identity Threat Detection</span>
+    <span class="hub-kv-date">Aug 2</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Q3 2026 Earnings: What the Transcript Reveals</span>
-    <span class="hub-kv-date">Aug 1</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Netskope</span>
-    <span class="hub-kv-line">Netskope Named Gartner SASE Leader for Third Straight Year, Tops on Execution</span>
-    <span class="hub-kv-date">Jul 31</span>
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">CrowdStrike's Fal.Con 2026 Sells Out Early as AI Security Demand Surges</span>
+    <span class="hub-kv-date">Aug 3</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
