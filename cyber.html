@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Tuesday, August 4, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">38</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">1</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">8%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">72</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">42</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">9%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">71</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Aug 3</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Tue, Aug 4</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">N-able's N-central Patch Failed, Attackers Kept Access</div>
-  <div class="briefing-take-body"><p>N-able said attackers exploited an authentication bypass in N-central, its remote monitoring and management platform, to gain administrative control over servers used to manage customer endpoints. The company shipped a fix. The attackers came back in anyway, which means the patch closed the entry point they used the first time, not the one they used the second. N-central sits in the position every RMM tool sits in: one compromised instance gives an intruder standing access to every downstream client network the managed service provider touches, which is why CISA has flagged RMM platforms as a named priority since the 2023 wave of similar intrusions.</p><p>For the managed service providers running N-central, the question isn't whether N-able's second fix works. It's whether they can tell the difference between &quot;patched&quot; and &quot;attacker no longer has the specific foothold we found.&quot; Those aren't the same claim, and N-able's own admission that the first fix was incomplete is the evidence that nobody, including the vendor, had verified they were the same. The control that would have changed this outcome is credential rotation and session invalidation across every N-central-managed endpoint after the first disclosure, not a wait for patch two.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">CrowdStrike Names AI Both Weapon And Target</div>
+  <div class="briefing-take-body"><p>CrowdStrike's Adam Meyers told ZDNet this week that &quot;AI is not just the tool or weapon that is being used, but it is also the attack surface.&quot; The claim arrives four days after Anthropic published its own account of last month's incidents in which Claude was used to breach real-world systems, attributing the compromises to over-permissioning and unrestricted internet access on the deployment side, not a flaw in the model itself. Separately, researchers reported a Chinese-speaking actor running a DeepSeek agent against a security firm's own infrastructure, attempting to compromise more than 1,200 hosts for proxyjacking. Meyers names the pattern; Anthropic and the DeepSeek campaign supply the evidence for where in the stack it actually sits.</p><p>The distinction matters for anyone budgeting a 2027 security review around &quot;AI risk&quot; as a single line item. Anthropic's post-mortem points at access control and network egress, the same controls that stop a compromised service account regardless of what is calling it. The DeepSeek case points at agent orchestration exposed to the open internet, not the model weights. A CISO reading Meyers' quote and reaching for an AI-specific vendor tool should first check whether the internet-facing agent endpoints in their own environment carry the scoped credentials and egress limits Anthropic says were missing in July.</p></div>
   
-  <a href="briefings/2026-08-03-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-04-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -75,19 +75,7 @@
   </div>
 </div>
 
-  <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
-  <div class="hub-wlist">
-    <a class="hub-w-item" href="https://finance.yahoo.com/technology/ai/articles/horizon3-raises-250-million-cybersecuritys-132402235.html" target="_blank" rel="noopener"><span class="hub-w-title">Cybersecurity's Next War Is AI Vs. AI, Founder Says Humans On Sidelines</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 3</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/chinese-actor-deepseek-ai-agent-attack-security-firm" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Actor Weaponizes Deepseek AI Agent To Attack Security Firm</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 3</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/inc-ransomware-emerges-as-dominant.html" target="_blank" rel="noopener"><span class="hub-w-title">Inc Ransomware Dominates As Gang Exploits SonicWall VPN Flaws</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://www.zdnet.com/article/ai-is-cyber-weapon-and-massive-target-crowdstrike-warns/" target="_blank" rel="noopener"><span class="hub-w-title">CrowdStrike Warns AI Is Now Both Cyber Weapon And Prime Target</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 3</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Hackers Deploy Ghostblade Spyware On Iphones Via Leaked Exploit Kit</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 3</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/google-password-manager-attacks-could.html" target="_blank" rel="noopener"><span class="hub-w-title">Google Password Manager Flaw Lets Malware Hijack Passkeys Silently</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://www.securityweek.com/river-bank-says-hackers-deleted-data-stolen-in-ransomware-attack/" target="_blank" rel="noopener"><span class="hub-w-title">River Bank Says Hackers Confirm Deletion Of Stolen Ransomware Data</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 3</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/anthropic-ai-issues-result-security-gaps" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic Says Claude Attacks Came From Security Gaps, Not The Model</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/attackers-exploit-n-able-patch-bypass-flaw" target="_blank" rel="noopener"><span class="hub-w-title">Attackers Exploit N-able Patch Bypass To Seize RMM Servers</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/" target="_blank" rel="noopener"><span class="hub-w-title">Are Those SQLite Critical CVEs Real, Or LLM Slop</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 3</span></span></a>
-  </div>
+  
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
@@ -111,27 +99,27 @@
       <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 2. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 4. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Q3 2026 Earnings: What the Call Revealed</span>
-    <span class="hub-kv-date">Aug 2</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Zenity Raises $125M to Scale AI Agent Security</span>
+    <span class="hub-kv-line">Cyera to Acquire Oasis Security for $1B in AI Agent Security Push</span>
     <span class="hub-kv-date">Aug 3</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Puts $200M Behind AI Agent Identity Threat Detection</span>
-    <span class="hub-kv-date">Aug 2</span>
+    <span class="hub-kv-line">Okta Acquires Permiso to Strengthen Identity Threat Detection</span>
+    <span class="hub-kv-date">Aug 4</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">CrowdStrike</span>
-    <span class="hub-kv-line">CrowdStrike's Fal.Con 2026 Sells Out Early as AI Security Demand Surges</span>
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">Palo Alto Networks Slips in Gartner's 2026 SASE Rankings as Netskope, Cato Gain Ground</span>
+    <span class="hub-kv-date">Aug 3</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Netskope</span>
+    <span class="hub-kv-line">Netskope Tops Gartner's 2026 SASE Rankings as Cato Surges, Palo Alto Slips</span>
     <span class="hub-kv-date">Aug 3</span>
   </a></div>
 
