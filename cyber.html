@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Wednesday, August 5, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">42</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">2</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">74%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">9%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">71</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">45</span> MODERATE</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">3</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">76%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">9%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">69</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Tue, Aug 4</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Wed, Aug 5</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">CrowdStrike Names AI Both Weapon And Target</div>
-  <div class="briefing-take-body"><p>CrowdStrike's Adam Meyers told ZDNet this week that &quot;AI is not just the tool or weapon that is being used, but it is also the attack surface.&quot; The claim arrives four days after Anthropic published its own account of last month's incidents in which Claude was used to breach real-world systems, attributing the compromises to over-permissioning and unrestricted internet access on the deployment side, not a flaw in the model itself. Separately, researchers reported a Chinese-speaking actor running a DeepSeek agent against a security firm's own infrastructure, attempting to compromise more than 1,200 hosts for proxyjacking. Meyers names the pattern; Anthropic and the DeepSeek campaign supply the evidence for where in the stack it actually sits.</p><p>The distinction matters for anyone budgeting a 2027 security review around &quot;AI risk&quot; as a single line item. Anthropic's post-mortem points at access control and network egress, the same controls that stop a compromised service account regardless of what is calling it. The DeepSeek case points at agent orchestration exposed to the open internet, not the model weights. A CISO reading Meyers' quote and reaching for an AI-specific vendor tool should first check whether the internet-facing agent endpoints in their own environment carry the scoped credentials and egress limits Anthropic says were missing in July.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">NPM Worm Plants Claude Code Hooks Across Hundreds Of Packages</div>
+  <div class="briefing-take-body"><p>The worm that started in keyv@6.0.0 on August 4 did not stop at credential theft. SafeDep researchers tracked it spreading beyond the Keyv and Cacheable namespaces into hundreds of downstream packages, and among the payloads it drops are hooks targeting Claude Code, the kind of local developer tooling that runs with the same file and shell access as the engineer who installed it. A worm that plants agent hooks is not stealing tokens anymore. It is trying to recruit the build machine.</p><p>The mechanism matters more than the package count. npm's dependency graph gives a single compromised maintainer credential a blast radius measured in transitive installs, and a hook aimed at an AI coding agent inherits whatever permissions that agent already has on the host, the same over-permissioning gap Anthropic's own incident disclosures flagged last month. The control that would have changed this outcome is dependency pinning with lockfile integrity checks enforced at CI, not after. Engineering teams running Claude Code or any agent with local execution rights should audit hook configurations against known-good hashes before the next `npm install`, not after the next disclosure.</p></div>
   
-  <a href="briefings/2026-08-04-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-05-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,18 +77,18 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/anthropic-ai-issues-result-security-gaps" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic Admits Claude Was Weaponized In Real World Attacks</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html" target="_blank" rel="noopener"><span class="hub-w-title">NPM Worm Spreads Through Hundreds Of Packages, Plants Claude Code Hooks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/chinese-actor-deepseek-ai-agent-attack-security-firm" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Hackers Turn Deepseek Into Attack Weapon Against Security Firm</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 3</span></span></a>
-    <a class="hub-w-item" href="https://www.msn.com/en-us/money/general/fairlife-coca-cola-company-ransomware-attack-sparks-class-action-lawsuit/ar-AA29osRe" target="_blank" rel="noopener"><span class="hub-w-title">Coca Cola Sued Over Ransomware Data Breach</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" target="_blank" rel="noopener"><span class="hub-w-title">CISA Confirms N Able Flaw Actively Exploited After Customer Hacks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html" target="_blank" rel="noopener"><span class="hub-w-title">Phishing Kit Adds Device Code Trick To Bypass MFA And Steal Tokens</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 5</span></span></a>
-    <a class="hub-w-item" href="https://sdtimes.com/security/prompt-injection-tops-2026-owasp-genai-llm-top-ten-vulnerabilities/" target="_blank" rel="noopener"><span class="hub-w-title">Prompt Injection Named Top AI Security Threat For Third Year Running</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/attackers-exploit-n-able-patch-bypass-flaw" target="_blank" rel="noopener"><span class="hub-w-title">Attackers Bypass N Able Patch To Grab Admin On RMM Servers</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://www.ecofinagency.com/news/0408-57977-ai-powered-cybercrime-drives-5-billion-in-losses-across-africa-interpol-says" target="_blank" rel="noopener"><span class="hub-w-title">AI Powered Cybercrime Costs Africa $5 Billion In A Year, Interpol Says</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 4</span></span></a>
-    <a class="hub-w-item" href="https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/" target="_blank" rel="noopener"><span class="hub-w-title">Researchers Find Novel Attack Surface In Passkey Authentication</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 5</span></span></a>
-    <a class="hub-w-item" href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/" target="_blank" rel="noopener"><span class="hub-w-title">Third Party Security Evaluations Probe OpenAI Models</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 5</span></span></a>
-    <a class="hub-w-item" href="https://www.manilatimes.net/2026/08/04/tmt-newswire/globenewswire/tenable-launches-industrys-first-open-source-ai-agent-exchange-to-advance-collective-cyber-innovation-and-defense/2398128" target="_blank" rel="noopener"><span class="hub-w-title">Tenable Launches Open Source Exchange For AI Security Agents</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/when-vibe-hacking-turns-ai-into-junior.html" target="_blank" rel="noopener"><span class="hub-w-title">Vibe Hacking Turns AI Into The Junior Hacker Every Adversary Wanted</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html" target="_blank" rel="noopener"><span class="hub-w-title">Npm Worm Poisons Hundreds Of Packages, Plants Claude Code Hooks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/anthropic-ai-issues-result-security-gaps" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic: Claude Attacks Came From Security Gaps, Not Model Flaws</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/attackers-exploit-n-able-patch-bypass-flaw" target="_blank" rel="noopener"><span class="hub-w-title">Attackers Exploit N-able Patch Bypass Flaw On RMM Servers</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://www.bluewin.ch/en/news/next-alert-ai-sent-people-phishing-emails-li.3552598" target="_blank" rel="noopener"><span class="hub-w-title">Next Alert: AI Sent People Phishing Emails</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 5</span></span></a>
+    <a class="hub-w-item" href="https://www.africanews.com/2026/08/04/ai-fuels-more-than-half-of-cybercrime-in-africa-as-digital-scams-surge-interpol/" target="_blank" rel="noopener"><span class="hub-w-title">AI Now Fuels More Than Half Of Cybercrime In Africa, Interpol Warns</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 5</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cybersecurity-analytics/device-code-phishing-vishing-doubles" target="_blank" rel="noopener"><span class="hub-w-title">Device Code Phishing Up 1,500 Percent, Vishing Doubles</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html" target="_blank" rel="noopener"><span class="hub-w-title">Greatness Phishing Kit Adds Device Code Trick To Bypass MFA</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 5</span></span></a>
+    <a class="hub-w-item" href="https://sdtimes.com/security/prompt-injection-tops-2026-owasp-genai-llm-top-ten-vulnerabilities/" target="_blank" rel="noopener"><span class="hub-w-title">Prompt Injection Tops OWASP GenAI Threat List Again</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://www.msn.com/en-us/money/general/fairlife-coca-cola-company-ransomware-attack-sparks-class-action-lawsuit/ar-AA29osRe" target="_blank" rel="noopener"><span class="hub-w-title">Coca-Cola Hit With Class Action Over Fairlife Ransomware Breach</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://www.csoonline.com/article/4204921/the-top-cybersecurity-product-announcements-from-black-hat-2026.html" target="_blank" rel="noopener"><span class="hub-w-title">AI Agents Dominate Black Hat 2026 Product Announcements</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 4</span></span></a>
+    <a class="hub-w-item" href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/" target="_blank" rel="noopener"><span class="hub-w-title">Third Party Reviews Probe Security Of OpenAI Models</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 5</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -113,28 +113,28 @@
       <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 4. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 5. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Cyera to Acquire Oasis Security for $1B in AI Agent Security Push</span>
-    <span class="hub-kv-date">Aug 3</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Acquires Permiso to Strengthen Identity Threat Detection</span>
+    <span class="hub-kv-key">Zscaler</span>
+    <span class="hub-kv-line">Zscaler Stock Set for Record Drop as Evercore Warns of Narrative Shift</span>
     <span class="hub-kv-date">Aug 4</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Slips in Gartner's 2026 SASE Rankings as Netskope, Cato Gain Ground</span>
+    <span class="hub-kv-key">AI Security Tools</span>
+    <span class="hub-kv-line">Horizon3 Hits $2B Valuation With $250M Series E as AI Threats Escalate</span>
     <span class="hub-kv-date">Aug 3</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Netskope</span>
-    <span class="hub-kv-line">Netskope Tops Gartner's 2026 SASE Rankings as Cato Surges, Palo Alto Slips</span>
-    <span class="hub-kv-date">Aug 3</span>
+    <span class="hub-kv-key">SailPoint</span>
+    <span class="hub-kv-line">SailPoint Debuts Unified Identity Security for Humans and AI Agents</span>
+    <span class="hub-kv-date">Aug 4</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Acquires Permiso to Push Identity Threat Detection Beyond Native Logs</span>
+    <span class="hub-kv-date">Aug 5</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
