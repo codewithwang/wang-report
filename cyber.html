@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Saturday, August 8, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">50</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">4</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">80%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">9%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">66</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">50</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">4</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">79%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">10%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">70</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Wed, Aug 5</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Aug 8</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">NPM Worm Plants Claude Code Hooks Across Hundreds Of Packages</div>
-  <div class="briefing-take-body"><p>The worm that started in keyv@6.0.0 on August 4 did not stop at credential theft. SafeDep researchers tracked it spreading beyond the Keyv and Cacheable namespaces into hundreds of downstream packages, and among the payloads it drops are hooks targeting Claude Code, the kind of local developer tooling that runs with the same file and shell access as the engineer who installed it. A worm that plants agent hooks is not stealing tokens anymore. It is trying to recruit the build machine.</p><p>The mechanism matters more than the package count. npm's dependency graph gives a single compromised maintainer credential a blast radius measured in transitive installs, and a hook aimed at an AI coding agent inherits whatever permissions that agent already has on the host, the same over-permissioning gap Anthropic's own incident disclosures flagged last month. The control that would have changed this outcome is dependency pinning with lockfile integrity checks enforced at CI, not after. Engineering teams running Claude Code or any agent with local execution rights should audit hook configurations against known-good hashes before the next `npm install`, not after the next disclosure.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Guilty Plea Confirms Snowflake Hacker's 165-Company Breach Count</div>
+  <div class="briefing-take-body"><p>The Canadian national behind the 2024 Snowflake extortion campaign pleaded guilty this week to computer fraud and conspiracy charges tied to more than 165 organizations, closing the loop on an intrusion set that ran on stolen credentials rather than exploited code. No CVE anchors this one. The access came from infostealer logs harvesting Snowflake customer credentials that lacked multi-factor authentication, then bulk data extraction across every tenant using them, Ticketmaster and AT&amp;T among the named victims. The prosecution's count, 165 breaches from one credential set, is the artifact that matters more than the plea itself.</p><p>Snowflake's own position throughout was that the platform had not been breached, only customer accounts with weak authentication. The guilty plea does not disturb that distinction, and it should not. What it confirms is the scale a single missing control produces when it is missing at scale: every one of the 165 victims was reachable through the same fix, mandatory multi-factor authentication on data-warehouse accounts, which Snowflake made default for new accounts only after the campaign became public. For a CISO auditing SaaS data platforms this month, the sentencing hearing date, not yet set, is less useful than the question of which vendor accounts in the environment still allow password-only access to bulk export.</p></div>
   
-  <a href="briefings/2026-08-05-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-08-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,18 +77,18 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/meta-ai-escapes-lab-hacking-joyride" target="_blank" rel="noopener"><span class="hub-w-title">Meta's AI Escapes Sandbox in Three Week Hacking Spree</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Metabase Zero Day Exploited to Steal Customer Data</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/" target="_blank" rel="noopener"><span class="hub-w-title">3.8 Million Hit In Unlimited Technology Systems Breach</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cloud-security/researcher-claims-control-chatgpt-secure-sandbox" target="_blank" rel="noopener"><span class="hub-w-title">Researcher Claims Control Of ChatGPT's Secure Sandbox</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/levi-strauss-and-co-says-hackers-stole-corporate-data-in-cyberattack/" target="_blank" rel="noopener"><span class="hub-w-title">Levi's Confirms Hackers Stole Corporate Data</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html" target="_blank" rel="noopener"><span class="hub-w-title">Extortion Group Vishes Personal Phones To Steal SaaS Data</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/microsoft-365-aitm-phishing-hijacks.html" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft 365 Phishing Wave Hijacks Payroll And Finance Mail</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/18-year-old-linux-sctp-flaw-could-let.html" target="_blank" rel="noopener"><span class="hub-w-title">18 Year Old Linux Flaw Lets Attackers Root Host From Container</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://www.aol.com/articles/ai-experts-panicking-terrifying-era-163003000.html" target="_blank" rel="noopener"><span class="hub-w-title">Experts Warn Of Terrifying New Era Of Rogue AI Hacking</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://www.msn.com/en-us/technology/artificial-intelligence/meta-artificial-intelligence-is-the-latest-ai-technology-to-hack-another-company-during-testing/ar-AA29zk8p" target="_blank" rel="noopener"><span class="hub-w-title">Meta AI Hacks Another Company During Testing</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://krebsonsecurity.com/2026/08/canadian-man-pleads-guilty-in-snowflake-extortions/" target="_blank" rel="noopener"><span class="hub-w-title">Snowflake Extortion Hacker Pleads Guilty To 165 Breaches</span><span class="hub-w-meta"><span class="hub-w-src">KrebsOnSecurity</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://www.msn.com/en-us/technology/artificial-intelligence/ai-generated-security-patches-fall-short-of-actually-solving-all-the-problems-they-were-meant-to-fix/ar-AA29CSb8" target="_blank" rel="noopener"><span class="hub-w-title">AI Generated Security Patches Often Fail To Fix Bugs</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 7</span></span></a>
+    <a class="hub-w-item" href="https://www.theregister.com/security/2026/08/07/water-system-controllers-dont-belong-on-the-internet-says-ex-nsa-chief-after-suspected-iran-attacks/5285070" target="_blank" rel="noopener"><span class="hub-w-title">Ex NSA Chief: Water Systems Don't Belong Online</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Metabase Zero Day Exploited To Steal Customer Data</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/" target="_blank" rel="noopener"><span class="hub-w-title">3.8 Million Hit In Healthcare Software Breach</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://www.securityweek.com/critical-one-click-vulnerability-in-atlassians-rovo-ai-exposed-enterprise-data/" target="_blank" rel="noopener"><span class="hub-w-title">One Click Flaw In Atlassian's AI Tool Exposed Company Data</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/north-carolina-ports-confirms-cyberattack-disrupting-operations/" target="_blank" rel="noopener"><span class="hub-w-title">Cyberattack Disrupts North Carolina Port Operations</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 7</span></span></a>
+    <a class="hub-w-item" href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/" target="_blank" rel="noopener"><span class="hub-w-title">Officials Weigh Next Frontier Of Critical Cyber Threats</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://www.bloomberg.com/news/articles/2026-08-06/us-military-s-cyber-command-unit-grapples-with-cluster-of-deaths-by-suicide" target="_blank" rel="noopener"><span class="hub-w-title">Cyber Command Unit Reels From Suicide Cluster</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://seekingalpha.com/article/4933326-bug-battle-tested-cybersecurity-stocks-look-strong-despite-ai-threats" target="_blank" rel="noopener"><span class="hub-w-title">Cybersecurity Stocks Hold Strong Despite AI Threats</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 7</span></span></a>
+    <a class="hub-w-item" href="https://www.msn.com/en-us/technology/artificial-intelligence/ai-generated-security-patches-fall-short-of-actually-solving-all-the-problems-they-were-meant-to-fix/ar-AA29CSb8" target="_blank" rel="noopener"><span class="hub-w-title">AI Generated Security Patches Fail To Fix The Problem</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 7</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/application-security/ai-generated-patches-fail-half-time" target="_blank" rel="noopener"><span class="hub-w-title">Study: AI Patches Fail Half The Time</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 8</span></span></a>
+    <a class="hub-w-item" href="https://www.techrepublic.com/article/runaway-ai-agents-cyberattacks-and-power-shifts-define-the-week-in-tech/" target="_blank" rel="noopener"><span class="hub-w-title">Rogue AI Agents Add To This Week's Cyber Chaos</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 7</span></span></a>
+    <a class="hub-w-item" href="https://www.msn.com/en-us/news/us/coweta-city-leaders-hope-to-recover-some-documents-after-ransomware-attack/ar-AA29Cp2T" target="_blank" rel="noopener"><span class="hub-w-title">Georgia City Fights To Recover Files After Ransomware Hit</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 7</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -113,28 +113,28 @@
       <div class="hub-row-meta">CVE-2026-50522 &middot; <b>KEV</b> listed Jul 22 &middot; EPSS 76%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 7. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 8. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Obsidian Security Lands $85M Series D to Police Rogue AI Agents</span>
-    <span class="hub-kv-date">Aug 5</span>
+    <span class="hub-kv-key">Palo Alto Networks</span>
+    <span class="hub-kv-line">China Opens Formal Cybersecurity Review of Palo Alto Networks Products</span>
+    <span class="hub-kv-date">Aug 7</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Netskope</span>
+    <span class="hub-kv-line">Netskope Stock Craters 19% as Analysts Slash Price Targets</span>
+    <span class="hub-kv-date">Aug 7</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">SailPoint</span>
-    <span class="hub-kv-line">SailPoint Unifies Identity Security Across Human, Machine and AI Agents</span>
-    <span class="hub-kv-date">Aug 4</span>
+    <span class="hub-kv-line">SailPoint Unifies Identity Security For Human And AI Agents</span>
+    <span class="hub-kv-date">Aug 7</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">SentinelOne</span>
-    <span class="hub-kv-line">SentinelOne CEO Cashes Out: $1M+ Share Sale as Stock Hits 52 Week High</span>
-    <span class="hub-kv-date">Aug 5</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Stock Surges 89% in Three Months, Hits All Time High</span>
-    <span class="hub-kv-date">Aug 4</span>
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Bets Big on Nonhuman Identity as Next Growth Frontier</span>
+    <span class="hub-kv-date">Aug 8</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
