@@ -40,8 +40,8 @@
 
 <header>
   <div class="masthead">CYBER</div>
-  <div class="subhead">THE WANG REPORT &middot; Sunday, August 9, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">50</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">4</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">79%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">10%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">70</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="subhead">THE WANG REPORT &middot; Monday, August 10, 2026 &middot; HONG KONG</div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">50</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">4</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">80%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">10%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">65</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Aug 8</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Aug 9</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Guilty Plea Confirms Snowflake Hacker's 165-Company Breach Count</div>
-  <div class="briefing-take-body"><p>The Canadian national behind the 2024 Snowflake extortion campaign pleaded guilty this week to computer fraud and conspiracy charges tied to more than 165 organizations, closing the loop on an intrusion set that ran on stolen credentials rather than exploited code. No CVE anchors this one. The access came from infostealer logs harvesting Snowflake customer credentials that lacked multi-factor authentication, then bulk data extraction across every tenant using them, Ticketmaster and AT&amp;T among the named victims. The prosecution's count, 165 breaches from one credential set, is the artifact that matters more than the plea itself.</p><p>Snowflake's own position throughout was that the platform had not been breached, only customer accounts with weak authentication. The guilty plea does not disturb that distinction, and it should not. What it confirms is the scale a single missing control produces when it is missing at scale: every one of the 165 victims was reachable through the same fix, mandatory multi-factor authentication on data-warehouse accounts, which Snowflake made default for new accounts only after the campaign became public. For a CISO auditing SaaS data platforms this month, the sentencing hearing date, not yet set, is less useful than the question of which vendor accounts in the environment still allow password-only access to bulk export.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Metabase Zero-Day Lets Attackers Steal Customer Data Unauthenticated</div>
+  <div class="briefing-take-body"><p>Metabase disclosed this week that a maximum-severity SQL injection flaw in its business intelligence software was exploited in the wild before a patch existed. The vulnerability let an attacker query connected databases directly, no login required, and Framework and Tally have both confirmed customer data was taken from their hosted Metabase instances. Metabase's advisory frames the fix as a routine update. The exploitation timeline it discloses alongside that advisory shows attackers were already inside customer databases before the CVE existed to name what was happening.</p><p>Business intelligence tools sit on live database credentials by design, which is what makes an unauthenticated SQL injection there worse than the same bug in a marketing site. Framework and Tally are the first named victims. They will not be the last, because Metabase instances are dashboard products, and dashboards get exposed to the internet by teams who never expected a login page to hide a SQL parser underneath. The control that would have stopped this was network segmentation between Metabase and its underlying databases, not a faster patch cycle. Check whether that segmentation exists before Monday standup.</p></div>
   
-  <a href="briefings/2026-08-08-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-09-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -75,64 +75,52 @@
   </div>
 </div>
 
-  <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
-  <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.securityweek.com/critical-one-click-vulnerability-in-atlassians-rovo-ai-exposed-enterprise-data/" target="_blank" rel="noopener"><span class="hub-w-title">One Click Exposes Enterprise Data In Atlassian AI Assistant Flaw</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html" target="_blank" rel="noopener"><span class="hub-w-title">Metabase Zero Day Grants Admin Access With No Login Required</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html" target="_blank" rel="noopener"><span class="hub-w-title">Rovo AI Tricked Into Leaking Jira And Confluence Data To Attackers</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Metabase SQL Injection Zero Day Used To Steal Customer Data</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html" target="_blank" rel="noopener"><span class="hub-w-title">CISA Flags Kemp LoadMaster Flaw After 792 Exploit Attempts</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/" target="_blank" rel="noopener"><span class="hub-w-title">Health Software Breach Hits 3.8 Million People</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.cnbc.com/2026/08/08/hugging-face-ai-hack-cybersecurity-black-hat.html" target="_blank" rel="noopener"><span class="hub-w-title">Hugging Face Hack Marks Start Of Dangerous AI Cyber Era</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/north-carolina-ports-confirms-cyberattack-disrupting-operations/" target="_blank" rel="noopener"><span class="hub-w-title">Cyberattack Disrupts North Carolina Port Operations</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 7</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/ai-generated-patches-fail-half-time" target="_blank" rel="noopener"><span class="hub-w-title">Study Finds AI Generated Patches Fail Half The Time</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 8</span></span></a>
-    <a class="hub-w-item" href="https://www.bloomberg.com/news/articles/2026-08-06/us-military-s-cyber-command-unit-grapples-with-cluster-of-deaths-by-suicide" target="_blank" rel="noopener"><span class="hub-w-title">Cyber Command Unit Grapples With Cluster Of Suicides</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 8</span></span></a>
-  </div>
+  
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
     <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">WordPress Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-63030 &middot; <b>KEV</b> listed Jul 21 &middot; EPSS 98%</div>
-    </div>
-  </div>
-  <div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 10.0</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-56291" target="_blank" rel="noopener">balbooa.com Balbooa Forms extension for Joomla Unrestricted File Upload</a>
-      <div class="hub-row-meta">CVE-2026-56291 &middot; <b>KEV</b> listed Jul 10 &middot; EPSS 76%</div>
+      <div class="hub-row-meta">CVE-2026-63030 &middot; <b>KEV</b> listed Jul 21 &middot; EPSS 96%</div>
     </div>
   </div>
   <div class="hub-row">
     <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522" target="_blank" rel="noopener">Microsoft SharePoint Remote Code Execution Vulnerability</a>
-      <div class="hub-row-meta">CVE-2026-50522 &middot; <b>KEV</b> listed Jul 22 &middot; EPSS 76%</div>
+      <div class="hub-row-meta">CVE-2026-50522 &middot; <b>KEV</b> listed Jul 22 &middot; EPSS 77%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 8. Updated daily.</div></div>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.1</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">Fortinet FortiSandbox OS Command Injection</a>
+      <div class="hub-row-meta">CVE-2026-25089 &middot; <b>KEV</b> listed Jul 16 &middot; EPSS 74%</div>
+    </div>
+  </div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 9. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">SentinelOne</span>
+    <span class="hub-kv-line">SentinelOne CEO: We Need to Redesign Compute Itself to Stop Rogue AI Agents</span>
+    <span class="hub-kv-date">Aug 7</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">China Opens Formal Cybersecurity Review of Palo Alto Networks Products</span>
-    <span class="hub-kv-date">Aug 7</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Netskope</span>
-    <span class="hub-kv-line">Netskope Stock Craters 19% as Analysts Slash Price Targets</span>
-    <span class="hub-kv-date">Aug 7</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">SailPoint</span>
-    <span class="hub-kv-line">SailPoint Unifies Identity Security For Human And AI Agents</span>
-    <span class="hub-kv-date">Aug 7</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Bets Big on Nonhuman Identity as Next Growth Frontier</span>
+    <span class="hub-kv-line">Palo Alto Networks Faces Chinese Government Security Review</span>
     <span class="hub-kv-date">Aug 8</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Zscaler</span>
+    <span class="hub-kv-line">Zscaler Stock Jumps 9.6% on European Sovereign Cloud, AI Security Expansion</span>
+    <span class="hub-kv-date">Aug 7</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">CrowdStrike Stock Up 83% in 2026: What the XM Cyber Deal Means for Growth</span>
+    <span class="hub-kv-date">Aug 7</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
