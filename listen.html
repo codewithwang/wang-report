@@ -82,7 +82,7 @@
       eps.sort(function (a, b) { return a.published < b.published ? 1 : -1; });
       var html = eps.map(function (e) {
         var date = e.key.slice(0, 10);
-        var who = NAMES[e.anchor] || e.anchor;
+        var who = (NAMES[e.anchor] || e.anchor) + (e.number ? ' #' + e.number : '');
         var mins = Math.floor(e.duration / 60) + ':' + String(e.duration % 60).padStart(2, '0');
         return '<div class="ep-row">' +
           '<div class="ep-meta">' + esc(date) + ' &middot; ' + esc(who) + ' &middot; ' + mins + '</div>' +
