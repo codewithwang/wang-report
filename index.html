@@ -85,6 +85,15 @@
   .bc-stamp { display: block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
     letter-spacing: 1.5px; color: #cc0000; text-transform: uppercase; margin-top: 9px; }
   .bc-name { display: block; font-size: 15px; color: #111; margin-top: 3px; }
+  .bc-typo { display: flex; align-items: center; justify-content: center; height: 130px;
+    background: #0B1F3A; font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 34px; color: #f0f0ec; letter-spacing: 3px; }
+  .bc-tile.bc-playing .bc-play { background: rgba(204,0,0,.75); }
+  .bc-tile.bc-playing .bc-play::after { border: none; width: 4px; height: 14px; left: 14px; top: 12px;
+    background: #fff; box-shadow: 8px 0 0 #fff; }
+  .bc-listen { margin-top: 2px; }
+  .bc-listen a { font-family: Arial, sans-serif; font-size: 11px; color: #0B1F3A; text-decoration: none; }
+  .bc-listen a:hover { text-decoration: underline; }
 
   .desk-row { display: flex; align-items: center; gap: 11px; padding: 9px 0;
     border-bottom: 1px solid #f0f0f0; text-decoration: none; }
@@ -206,34 +215,44 @@
 <body>
 <div class="nav-bar"><a href="index.html" class="nav-active">Main</a> | <a href="wire.html" class="">Wire</a> | <a href="issue.html" class="">The Issue</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
 <nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="science.html" class="nav-desk-link">Science</a></div></nav>
-<nav class="nav-desks nav-feats" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+<nav class="nav-desks nav-feats" aria-label="Features"><div class="nav-desks-inner"><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="listen.html" class="nav-desk-link">Listen</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
 <header>
   <div class="masthead"><a href="index.html" style="color:inherit;text-decoration:none;">THE WANG REPORT</a></div>
   <div class="subhead">Friday, August 21, 2026 &middot; HONG KONG</div>
-  <div class="pulse-bar"><span class="wx-inline">HK &middot; LIGHT RAIN &middot; 29&deg;C (27&ndash;32) &middot; 82% HUM</span><span class="pb-sep"> | </span><a href="geopolitical.html">THREAT <b>32</b> ELEVATED</a><span class="pb-sep"> | </span><a href="hk-finance.html">MARKET RISK <b>50</b> MODERATE</a><span class="pb-sep"> | </span><a href="cyber.html">CYBER <b>56</b> ELEVATED</a><span class="pb-sep"> | </span><a href="ai-focus.html">AI PULSE <b>59</b> ACTIVE</a><span class="pb-sep"> | </span><a href="stocks.html">STOCKS NVDA <b>-3.9%</b> AAPL <b>+0.5%</b></a></div>
+  <div class="pulse-bar"><span class="wx-inline">HK &middot; LIGHT RAIN &middot; 29&deg;C (27&ndash;32) &middot; 81% HUM</span><span class="pb-sep"> | </span><a href="geopolitical.html">THREAT <b>32</b> ELEVATED</a><span class="pb-sep"> | </span><a href="hk-finance.html">MARKET RISK <b>50</b> MODERATE</a><span class="pb-sep"> | </span><a href="cyber.html">CYBER <b>56</b> ELEVATED</a><span class="pb-sep"> | </span><a href="ai-focus.html">AI PULSE <b>59</b> ACTIVE</a><span class="pb-sep"> | </span><a href="stocks.html">STOCKS NVDA <b>-3.9%</b> AAPL <b>+0.5%</b></a></div>
 </header>
 <div class="rulebar"><hr class="rule"><hr class="rule-thin"></div>
 <div class="layout">
 <aside class="rail rail-left">
   <div class="rail-title">The Broadcast</div>
-  <a class="bc-tile" href="#edition-morning">
+  <a class="bc-tile" href="#edition-morning" data-bc="charmaine">
   <span class="bc-imgwrap">
     <img src="/masthead/img/feed/charmaine-lo-wide.jpg" alt="" loading="lazy">
     <span class="bc-play"></span>
-    <span class="bc-dur">04:12</span>
+    <span class="bc-dur">·</span>
   </span>
   <span class="bc-stamp">Morning Brief · Updated 07:31 HKT</span>
   <span class="bc-name">Charmaine Lo</span>
 </a>
-  <a class="bc-tile" href="#edition-evening">
+  <a class="bc-tile" href="#edition-evening" data-bc="maarten">
   <span class="bc-imgwrap">
     <img src="/masthead/img/feed/maarten-bakker-wide.jpg" alt="" loading="lazy">
     <span class="bc-play"></span>
-    <span class="bc-dur">03:47</span>
+    <span class="bc-dur">·</span>
   </span>
   <span class="bc-stamp">Evening Brief · Updated 07:31 HKT</span>
   <span class="bc-name">Maarten Bakker</span>
 </a>
+  <a class="bc-tile" href="#edition-morning" data-bc="walter">
+  <span class="bc-imgwrap">
+    <span class="bc-typo">W.W.</span>
+    <span class="bc-play"></span>
+    <span class="bc-dur">·</span>
+  </span>
+  <span class="bc-stamp">The Synthesis · Updated 07:31 HKT</span>
+  <span class="bc-name">Walter Wang</span>
+</a>
+  <div class="bc-listen"><a href="listen.html">All episodes &amp; subscribe →</a></div>
 </aside>
 <main class="feed">
 <input class="search" id="search" type="search" placeholder="Search today's report" aria-label="Search">
@@ -247,23 +266,32 @@
 <button class="chip" data-filter="hk">Local</button>
 <button class="chip" data-filter="sports">Sports</button></nav>
 <div class="bc-strip">
-  <a class="bc-tile" href="#edition-morning">
+  <a class="bc-tile" href="#edition-morning" data-bc="charmaine">
   <span class="bc-imgwrap">
     <img src="/masthead/img/feed/charmaine-lo-wide.jpg" alt="" loading="lazy">
     <span class="bc-play"></span>
-    <span class="bc-dur">04:12</span>
+    <span class="bc-dur">·</span>
   </span>
   <span class="bc-stamp">Morning Brief · Updated 07:31 HKT</span>
   <span class="bc-name">Charmaine Lo</span>
 </a>
-  <a class="bc-tile" href="#edition-evening">
+  <a class="bc-tile" href="#edition-evening" data-bc="maarten">
   <span class="bc-imgwrap">
     <img src="/masthead/img/feed/maarten-bakker-wide.jpg" alt="" loading="lazy">
     <span class="bc-play"></span>
-    <span class="bc-dur">03:47</span>
+    <span class="bc-dur">·</span>
   </span>
   <span class="bc-stamp">Evening Brief · Updated 07:31 HKT</span>
   <span class="bc-name">Maarten Bakker</span>
+</a>
+  <a class="bc-tile" href="#edition-morning" data-bc="walter">
+  <span class="bc-imgwrap">
+    <span class="bc-typo">W.W.</span>
+    <span class="bc-play"></span>
+    <span class="bc-dur">·</span>
+  </span>
+  <span class="bc-stamp">The Synthesis · Updated 07:31 HKT</span>
+  <span class="bc-name">Walter Wang</span>
 </a>
 </div>
 <article class="card hero" data-desk="walter" id="walter">
@@ -602,6 +630,43 @@
     const d = document.getElementById(id);
     if (d) d.open = !d.open;
   }));
+
+  // The Broadcast: hydrate tiles from the audio manifest. One shared player,
+  // one tile playing at a time. Fetch failure leaves the tiles as plain links.
+  (function () {
+    const tiles = document.querySelectorAll('[data-bc]');
+    if (!tiles.length) return;
+    fetch('https://audio.wangreport.com/episodes.json')
+      .then(r => r.json())
+      .then(eps => {
+        const latest = {};
+        eps.forEach(e => {
+          if (!latest[e.anchor] || e.published > latest[e.anchor].published) latest[e.anchor] = e;
+        });
+        const player = document.createElement('audio');
+        player.preload = 'none';
+        document.body.appendChild(player);
+        let current = null;
+        const stop = () => { if (current) current.classList.remove('bc-playing'); current = null; };
+        player.addEventListener('ended', stop);
+        tiles.forEach(t => {
+          const ep = latest[t.getAttribute('data-bc')];
+          if (!ep) return;
+          const d = t.querySelector('.bc-dur');
+          if (d) d.textContent = Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0');
+          t.addEventListener('click', ev => {
+            ev.preventDefault();
+            if (current === t && !player.paused) { player.pause(); stop(); return; }
+            stop();
+            player.src = ep.url;
+            player.play();
+            t.classList.add('bc-playing');
+            current = t;
+          });
+        });
+      })
+      .catch(() => {});
+  })();
 </script>
 </body>
 </html>
