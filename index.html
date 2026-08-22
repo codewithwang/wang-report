@@ -654,6 +654,18 @@
           if (!ep) return;
           const d = t.querySelector('.bc-dur');
           if (d) d.textContent = Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0');
+          // Stamp reflects the episode's own publish time (the static build
+          // stamps every tile with the editions timestamp, which is only true
+          // for the evening anchors). "New" marks a brief under 12h old.
+          const st = t.querySelector('.bc-stamp');
+          if (st && ep.published) {
+            const pub = new Date(ep.published);
+            const label = st.textContent.split('·')[0].trim();
+            const hkt = pub.toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Hong_Kong' });
+            const day = pub.toLocaleString('en-US', { weekday: 'short', timeZone: 'Asia/Hong_Kong' });
+            const fresh = Date.now() - pub.getTime() < 12 * 3600 * 1000;
+            st.textContent = label + ' · ' + day + ' ' + hkt + ' HKT' + (fresh ? ' · New' : '');
+          }
           t.addEventListener('click', ev => {
             ev.preventDefault();
             if (current === t && !player.paused) { player.pause(); stop(); return; }
