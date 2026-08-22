@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Saturday, August 22, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">56</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">6</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">82%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">19%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">47</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">59</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">81%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">19%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">45</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Fri, Aug 21</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Aug 22</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Zimbra RCE Exploited While Citrix Patches Gateway Bypass</div>
-  <div class="briefing-take-body"><p>CERT Polska confirmed active exploitation of a critical Zimbra Collaboration Suite remote code execution flaw this week, giving attackers mail-server access without credentials. The same week, Citrix shipped fixes for two NetScaler ADC and Gateway flaws, one a critical authentication bypass that lets an attacker skip the login prompt entirely. Two vendors, two authentication layers, both breached from the front door rather than picked open.</p><p>The pattern connects to CISA's parallel warning this week: 361 networks breached in five days, with a new three-day patch window mandated for enterprise flaws under active exploitation. Zimbra and NetScaler sit exactly in that category, internet-facing, authentication-adjacent, and now both under public advisories with working exploit code in circulation. The control that would have changed the outcome is the one CISA just wrote a deadline around: patch within three days of an advisory naming a flaw as actively exploited, not on the next scheduled maintenance window.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Rust Supply Chain Attack Hit Crates With 245 Million Downloads</div>
+  <div class="briefing-take-body"><p>A maintainer account on crates.io was compromised and used to publish malicious versions of three widely used Rust crates, adding a typosquatted dependency to the build chain before the Rust Project pulled the releases. The combined download count on the affected crates runs to 245 million, which is not a measure of how many builds pulled the poisoned version, only a measure of how many builds trusted the account that got taken over. Package registries verify the publisher's credentials. Nothing downstream verifies the code.</p><p>The pattern matches the Rust Foundation's existing guidance on npm-style typosquatting, published after prior registry incidents on other language ecosystems, and crates.io still relies on maintainer 2FA as opt-in rather than mandatory for high-download packages. Any CI pipeline pinning these crates by version tag rather than checksum pulled the malicious build automatically on the next `cargo update`. The control that would have changed the outcome is mandatory hardware-key 2FA on publish rights for crates above a download threshold, a policy crates.io has not adopted as of August 22, 2026.</p></div>
   
-  <a href="briefings/2026-08-21-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-22-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,18 +77,18 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.bangkokpost.com/world/3305600/more-than-153000-students-staff-affected-in-canvas-data-breach-privacy-watchdog" target="_blank" rel="noopener"><span class="hub-w-title">153,000 HK Students, Staff Hit In Canvas Data Breach</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-trueconf-server-flaws/" target="_blank" rel="noopener"><span class="hub-w-title">CISA Orders Feds To Patch Actively Exploited TrueConf Flaws</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/microsoft/microsoft-warns-of-max-severity-entra-id-flaw-exploited-in-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Warns Max Severity Entra ID Flaw Exploited In Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.webpronews.com/moveit-zero-day-breach-exposes-data-of-2500-organizations-worldwide" target="_blank" rel="noopener"><span class="hub-w-title">MOVEit Zero Day Exposes 2,500 Organizations Worldwide</span><span class="hub-w-meta"><span class="hub-w-src">qwant news</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/gitlab-cve-2026-19478-comes-under.html" target="_blank" rel="noopener"><span class="hub-w-title">GitLab Flaw Under Active Attack Days After Disclosure</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" target="_blank" rel="noopener"><span class="hub-w-title">Rust Supply Chain Attack Hits Crates With 245 Million Downloads</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://finance.yahoo.com/technology/ai/articles/ai-now-attacking-machine-speed-145536820.html" target="_blank" rel="noopener"><span class="hub-w-title">AI Now Attacks At Machine Speed, Warns Top Tech CEO</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.cio.com/article/4212163/ransomware-takes-aim-at-enterprise-resilience-2.html" target="_blank" rel="noopener"><span class="hub-w-title">Ransomware Gangs Pivot To Business Disruption Tactics</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/cisco-patches-nine-crosswork-and-secure.html" target="_blank" rel="noopener"><span class="hub-w-title">Cisco Patches Nine Flaws, Five Score A Perfect 10.0</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hundreds-of-leaked-aws-keys-give-full-control-over-corporate-accounts/" target="_blank" rel="noopener"><span class="hub-w-title">9,300 Leaked AWS Keys Still Give Full Account Control</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/openai-adds-controls-already" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Adds Controls After Hugging Face Incident</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/pakistan-transparent-tribe-afghan-cyberattacks" target="_blank" rel="noopener"><span class="hub-w-title">Pakistan's Transparent Tribe Refreshes Toolset For Afghan Attacks</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 20</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/microsoft/microsoft-warns-of-max-severity-entra-id-flaw-exploited-in-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Patches Max Severity Entra ID Flaw Already Under Attack</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.msn.com/en-us/technology/artificial-intelligence/a-fully-ai-run-ransomware-attack-has-been-recorded-and-experts-say-everyday-users-are-next/ar-AA2aG2WU" target="_blank" rel="noopener"><span class="hub-w-title">First Fully AI Run Ransomware Attack Recorded, Everyday Users Next</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html" target="_blank" rel="noopener"><span class="hub-w-title">Entra ID Bug Scores Perfect 10, Remote Code Execution Possible</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hundreds-of-leaked-aws-keys-give-full-control-over-corporate-accounts/" target="_blank" rel="noopener"><span class="hub-w-title">9,300 Leaked AWS Keys Still Active, Give Full Account Control</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/gitlab-cve-2026-19478-comes-under.html" target="_blank" rel="noopener"><span class="hub-w-title">GitLab Flaw Exploited Within Days of Disclosure</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" target="_blank" rel="noopener"><span class="hub-w-title">Rust Supply Chain Hit: 245 Million Downloads Exposed to Build Malware</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-trueconf-server-flaws/" target="_blank" rel="noopener"><span class="hub-w-title">CISA Orders Feds To Patch Exploited TrueConf Server Flaws</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://finance.yahoo.com/technology/ai/articles/ai-now-attacking-machine-speed-145536820.html" target="_blank" rel="noopener"><span class="hub-w-title">AI Now Attacks at Machine Speed, Says Top Tech CEO</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/application-security/openai-adds-controls-already" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Adds Controls That Should Have Been There Already</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.webpronews.com/moveit-zero-day-breach-exposes-data-of-2500-organizations-worldwide" target="_blank" rel="noopener"><span class="hub-w-title">MOVEit Zero Day Fallout Hits 2,500 Organizations Worldwide</span><span class="hub-w-meta"><span class="hub-w-src">qwant news</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/delta-flight-disrupted-wi-fi-hack" target="_blank" rel="noopener"><span class="hub-w-title">Delta Flight Disrupted by Wi-Fi Hack, Editors Reveal</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/perimeter/new-custody-framework-constrains-ai-agents-inside-network" target="_blank" rel="noopener"><span class="hub-w-title">New Framework Aims To Cage Rogue AI Agents on the Network</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 21</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -96,7 +96,7 @@
     <span class="hub-row-key hub-row-key--alert">CRIT 9.3</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-72529" target="_blank" rel="noopener">TrueConf Server Missing Authentication</a>
-      <div class="hub-row-meta">CVE-2026-72529 &middot; <b>KEV</b> listed Aug 20 &middot; EPSS 0% &middot; OT</div>
+      <div class="hub-row-meta">CVE-2026-72529 &middot; <b>KEV</b> listed Aug 20 &middot; EPSS 1% &middot; OT</div>
     </div>
   </div>
   <div class="hub-row">
@@ -113,27 +113,27 @@
       <div class="hub-row-meta">CVE-2026-9198 &middot; <b>KEV</b> listed Aug 4 &middot; EPSS 17%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 21. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 22. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Hackers Weaponize OpenClaw AI Agents to Spread Malware, Drain Crypto Wallets</span>
-    <span class="hub-kv-date">Aug 20</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">SailPoint</span>
-    <span class="hub-kv-line">Morgan Stanley: SailPoint Poised to Win as Agentic Identity Security Shifts to Platforms</span>
-    <span class="hub-kv-date">Aug 20</span>
+    <span class="hub-kv-key">Wiz</span>
+    <span class="hub-kv-line">Massive Supply Chain Breach Leaks Terabytes of Sensitive Data From Major Organizations</span>
+    <span class="hub-kv-date">Aug 21</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Morgan Stanley: Okta Positioned to Win as Identity Security Goes Agentic</span>
+    <span class="hub-kv-line">Morgan Stanley: Okta, Palo Alto, SailPoint Winners as Agentic Identity Shifts to Platforms</span>
     <span class="hub-kv-date">Aug 20</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks and NTT Data Sign Global Alliance to Target $1B in AI Security Sales by 2029</span>
+    <span class="hub-kv-line">Palo Alto Networks and NTT Data Ink $1B AI Security Alliance With New Managed Offerings</span>
+    <span class="hub-kv-date">Aug 21</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">CrowdStrike CTO Departure Raises Questions on AI Security Leadership</span>
     <span class="hub-kv-date">Aug 20</span>
   </a></div>
 
