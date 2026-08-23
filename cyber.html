@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Sunday, August 23, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">59</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">81%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">19%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">45</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">59</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">81%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">19%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">42</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sat, Aug 22</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Sun, Aug 23</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Rust Supply Chain Attack Hit Crates With 245 Million Downloads</div>
-  <div class="briefing-take-body"><p>A maintainer account on crates.io was compromised and used to publish malicious versions of three widely used Rust crates, adding a typosquatted dependency to the build chain before the Rust Project pulled the releases. The combined download count on the affected crates runs to 245 million, which is not a measure of how many builds pulled the poisoned version, only a measure of how many builds trusted the account that got taken over. Package registries verify the publisher's credentials. Nothing downstream verifies the code.</p><p>The pattern matches the Rust Foundation's existing guidance on npm-style typosquatting, published after prior registry incidents on other language ecosystems, and crates.io still relies on maintainer 2FA as opt-in rather than mandatory for high-download packages. Any CI pipeline pinning these crates by version tag rather than checksum pulled the malicious build automatically on the next `cargo update`. The control that would have changed the outcome is mandatory hardware-key 2FA on publish rights for crates above a download threshold, a policy crates.io has not adopted as of August 22, 2026.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Leaked AWS Keys From 2022 Are Still Live In 2026</div>
+  <div class="briefing-take-body"><p>BleepingComputer's review of public code repositories found more than 9,300 AWS access keys exposed between August 2022 and August 2026 that remain valid today, each one capable of full account takeover under whatever IAM policy it was issued with. The keys turned up hardcoded in commits, CI config, and mobile app binaries, some four years old, none rotated. AWS access keys do not expire on their own. A key committed in 2022 works in 2026 unless someone deletes it, which is the entire finding.</p><p>The gap is between what AWS's shared responsibility model assumes and what a four-year-old commit history actually does. AWS scans public repositories for exposed keys and notifies account owners, a control that has existed since 2015. It caught these commits. It did not make anyone rotate the keys. For a CISO whose org has any engineering team with GitHub access, the actionable item is not a scan, it is a mandate: 90-day key rotation enforced by IAM policy (MaxSessionDuration and credential-expiry conditions), not by a ticket someone can snooze for four years.</p></div>
   
-  <a href="briefings/2026-08-22-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-08-23-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,16 +77,11 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hundreds-of-leaked-aws-keys-give-full-control-over-corporate-accounts/" target="_blank" rel="noopener"><span class="hub-w-title">9,300 Leaked AWS Keys Still Active, Give Attackers Full Account Control</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/microsoft-defenders-own-driver-can-be.html" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Defender's Own Driver Can Be Weaponized To Kill Security Software</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-trueconf-server-flaws/" target="_blank" rel="noopener"><span class="hub-w-title">CISA Orders Feds To Patch Actively Exploited TrueConf Flaws</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/14-trojanized-npm-packages-drop-redc2.html" target="_blank" rel="noopener"><span class="hub-w-title">Trojanized Npm Packages Drop AI-Assisted Linux Backdoor</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 22</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/" target="_blank" rel="noopener"><span class="hub-w-title">Car Head Units Hijacked By Botnet Malware Hidden In Update App</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 22</span></span></a>
-    <a class="hub-w-item" href="https://www.reuters.com/world/how-texas-student-blew-whistle-rogue-ai-hacking-attempt-2026-08-20/" target="_blank" rel="noopener"><span class="hub-w-title">Student Blows Whistle On Rogue AI Hacking Attempt</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/owasp-flags-top-ai-skill-risks-security-blueprint" target="_blank" rel="noopener"><span class="hub-w-title">OWASP Debuts Top 10 AI Skill Risks In New Security Blueprint</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 22</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/application-security/openai-adds-controls-already" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Adds Security Controls It Should Have Had All Along</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 21</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/tiktok-agrees-to-400-million-settlement.html" target="_blank" rel="noopener"><span class="hub-w-title">TikTok To Pay $400 Million Over Child Privacy Violations</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 22</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/cyber-pros-help-city-hall" target="_blank" rel="noopener"><span class="hub-w-title">Cyber Pros Called On To Help Defend Under-Funded City Halls</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Aug 21</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/14-trojanized-npm-packages-drop-redc2.html" target="_blank" rel="noopener"><span class="hub-w-title">Trojanized Npm Packages Deliver AI Powered Linux Backdoor</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 22</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/new-synkloader-malware-pushed-in-microsoft-teams-phishing-campaign/" target="_blank" rel="noopener"><span class="hub-w-title">Fake Lock Screen Malware Spreads Through Teams Phishing</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 22</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/named-pipes-under-attack-securing-windows-interprocess-communication/" target="_blank" rel="noopener"><span class="hub-w-title">Securing Windows Named Pipes From Interprocess Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 22</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/" target="_blank" rel="noopener"><span class="hub-w-title">Car Head Units Hijacked Into Proxy Botnet Via Update App</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 22</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/tiktok-agrees-to-400-million-settlement.html" target="_blank" rel="noopener"><span class="hub-w-title">TikTok Pays $400 Million To Settle Child Privacy Case</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 22</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -108,31 +103,31 @@
     <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-9198" target="_blank" rel="noopener">Unauthenticated Remote Code Execution via Auto-Login Bypass and Code Validation</a>
-      <div class="hub-row-meta">CVE-2026-9198 &middot; <b>KEV</b> listed Aug 4 &middot; EPSS 17%</div>
+      <div class="hub-row-meta">CVE-2026-9198 &middot; <b>KEV</b> listed Aug 4 &middot; EPSS 19%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 22. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Aug 23. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Wiz</span>
-    <span class="hub-kv-line">Massive Supply Chain Breach Leaks Terabytes of Sensitive Data From Major Organizations</span>
-    <span class="hub-kv-date">Aug 21</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Morgan Stanley: Okta, Palo Alto, SailPoint Winners as Agentic Identity Shifts to Platforms</span>
-    <span class="hub-kv-date">Aug 20</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks and NTT Data Ink $1B AI Security Alliance With New Managed Offerings</span>
+    <span class="hub-kv-line">Palo Alto Networks and NTT Data Chase $1B in Joint AI Security Sales</span>
     <span class="hub-kv-date">Aug 21</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">CrowdStrike</span>
-    <span class="hub-kv-line">CrowdStrike CTO Departure Raises Questions on AI Security Leadership</span>
-    <span class="hub-kv-date">Aug 20</span>
+    <span class="hub-kv-line">CrowdStrike CTO Exit Raises Questions on AI Security Push</span>
+    <span class="hub-kv-date">Aug 22</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Zscaler</span>
+    <span class="hub-kv-line">KeyBanc Raises Zscaler Price Target on Strong Security Spend Outlook</span>
+    <span class="hub-kv-date">Aug 21</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">AI Security Tools</span>
+    <span class="hub-kv-line">Palo Alto Networks and NTT Data Ink Global Alliance for Secure AI Transformation</span>
+    <span class="hub-kv-date">Aug 23</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
