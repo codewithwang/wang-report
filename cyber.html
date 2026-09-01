@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Mon, Aug 31</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Tue, Sep 1</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Anthropic Says Malware Is Draining Hijacked Claude Accounts</div>
-  <div class="briefing-take-body"><p>Anthropic told users this week that infostealer malware running on their PCs had harvested active Claude session tokens, handing attackers working logins that skip authentication entirely. A session token is not a password. It is the thing a password produces after login, which means the standard advice, &quot;your credentials weren't compromised,&quot; is technically true and operationally useless: the attacker is already inside the session, spending the victim's usage allotment as their own.</p><p>The fix that actually closes this is server-side session revocation tied to device fingerprint changes, not a password reset, because the credential was never the thing that moved. Anthropic has not said how many accounts were hit or which infostealer family did it. Enterprise customers running Claude through SSO should ask their security team, this week, whether session tokens are bound to a single device or portable to whichever machine holds the cookie.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Fire Ant Blinded Cisco Router Logs While Spying on Networks</div>
+  <div class="briefing-take-body"><p>Researchers tracking Fire Ant found an active GRE tunnel interface on a Cisco IOS XR router that no running configuration explained, the kind of artifact that only exists if someone built it outside the audit trail designed to catch it. The group had already pivoted off a VMware hypervisor campaign into TACACS+ authentication systems, meaning the same intrusion that hijacked the routing plane also touched the system deciding who gets administrative access to it. Two footholds, one operator. Cisco's advisories on IOS XR describe hardening steps. Neither one covers a GRE tunnel with no corresponding config line, because that's not a configuration weakness, it's a logging integrity failure.</p><p>The control that would have changed this outcome is configuration drift detection independent of the device's own logs, something that diffs running state against a known-good baseline rather than trusting the router to report on itself. Fire Ant's move only works because the router is both the compromised asset and the sole witness. For a network operations team, the fix isn't a patch, it's a second source of truth that doesn't live on the box Fire Ant already owns. Cisco has not published a CVE tied to this specific GRE tunnel technique as of September 1, 2026.</p></div>
   
-  <a href="briefings/2026-08-31-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-09-01-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,18 +77,18 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/china-linked-fire-ant-hijacks-cisco.html" target="_blank" rel="noopener"><span class="hub-w-title">China's Fire Ant Hijacks Cisco Routers, Blinds Security Logs</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/doj-corrects-china-hacking-claim-says.html" target="_blank" rel="noopener"><span class="hub-w-title">DoJ Walks Back China Hacking Claim: Agencies Were Targets, Not Victims</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://gizmodo.com/bank-of-england-governor-warns-ai-represents-threat-to-the-global-economy-2000804936" target="_blank" rel="noopener"><span class="hub-w-title">BoE Governor: AI Poses Threat to Global Economy</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/chinese-fire-ant-hackers-turn-cisco-routers-into-spying-platforms/" target="_blank" rel="noopener"><span class="hub-w-title">Fire Ant Turns Cisco Routers Into Chinese Spying Platforms</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html" target="_blank" rel="noopener"><span class="hub-w-title">Ransomware Gang Weaponizes Cursor AI to Breach Networks</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/berlin-confirms-data-theft-after-rhysida-ransomware-attack-claims/" target="_blank" rel="noopener"><span class="hub-w-title">Berlin Confirms Data Theft After Rhysida Ransomware Attack</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://finance.yahoo.com/technology/ai/articles/boe-chief-warns-ai-cyber-222954590.html" target="_blank" rel="noopener"><span class="hub-w-title">BoE Chief Sounds Alarm on AI Cyber Risks</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://www.hstoday.us/subject-matter-areas/cybersecurity/state-cyber-leaders-face-growing-ai-threats-budget-pressure-study-finds/" target="_blank" rel="noopener"><span class="hub-w-title">State Cyber Leaders Warn: AI Threats Outpacing Budgets</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 31</span></span></a>
-    <a class="hub-w-item" href="https://www.kaaltv.com/news/cybersecurity-experts-issue-warning-after-winona-county-pays-128k-following-ransomware-attack/" target="_blank" rel="noopener"><span class="hub-w-title">County Pays $128k Ransom, Experts Warn It Could Happen Again</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Sep 1</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/anthropic-users-infostealer-attacks-session-thefts" target="_blank" rel="noopener"><span class="hub-w-title">Infostealers Hit Anthropic Users, Steal Claude Sessions</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 1</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Warns of TerminalFix Attacks Using Reverse Tunnels</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 1</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/model-knowing-rules-is-not-security-control" target="_blank" rel="noopener"><span class="hub-w-title">OpenAI Postmortem: AI Rules Are Not Security Controls</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 1</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/chinese-fire-ant-hackers-turn-cisco-routers-into-spying-platforms/" target="_blank" rel="noopener"><span class="hub-w-title">Chinese Fire Ant Hackers Turn Cisco Routers Into Spy Platforms</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://conventuslaw.com/report/completing-the-jigsaw-pcpd-supplements-hong-kongs-ai-regulatory-framework-with-agentic-ai-guidance/" target="_blank" rel="noopener"><span class="hub-w-title">Hong Kong Privacy Watchdog Issues New Agentic AI Rules</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/anthropic-users-infostealer-attacks-session-thefts" target="_blank" rel="noopener"><span class="hub-w-title">Anthropic Users Hit By Infostealers, Claude Sessions Hijacked</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 1</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/china-linked-fire-ant-hijacks-cisco.html" target="_blank" rel="noopener"><span class="hub-w-title">China Linked Fire Ant Blinds Security Logs, Steals Router Credentials</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://gizmodo.com/bank-of-england-governor-warns-ai-represents-threat-to-the-global-economy-2000804936" target="_blank" rel="noopener"><span class="hub-w-title">Bank Of England Chief Warns AI Threatens Global Economy</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html" target="_blank" rel="noopener"><span class="hub-w-title">Ransomware Gang Weaponizes Cursor AI To Breach Ten Targets</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels/" target="_blank" rel="noopener"><span class="hub-w-title">Microsoft Warns Of TerminalFix Attacks Deploying Reverse Tunnels</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 1</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/threat-intelligence/terminalfix-campaign-weaponizes-powershell-enterprise-attacks" target="_blank" rel="noopener"><span class="hub-w-title">TerminalFix Campaign Weaponizes PowerShell In Enterprise Attacks</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 1</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/08/weekly-recap-chinese-spy-proxy-ai.html" target="_blank" rel="noopener"><span class="hub-w-title">Weekly Recap: Chinese Spy Proxy, Router Backdoors, Rogue AI Agents</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/berlin-confirms-data-theft-after-rhysida-ransomware-attack-claims/" target="_blank" rel="noopener"><span class="hub-w-title">Berlin Confirms Data Theft After Rhysida Ransomware Claims</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 31</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/cronos-blockchain-restarts-after-74-million-tectonic-exploit/" target="_blank" rel="noopener"><span class="hub-w-title">Cronos Blockchain Restarts After $74 Million Exploit</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 1</span></span></a>
+    <a class="hub-w-item" href="https://federalnewsnetwork.com/cybersecurity/2026/08/cisa-vulnerability-directive-designed-to-buy-back-time-against-hackers/" target="_blank" rel="noopener"><span class="hub-w-title">CISA's New Directive Aims To Buy Back Time Against Hackers</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Aug 31</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -117,23 +117,23 @@
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Stock Jumps 23% as Firm Raises 2027 Outlook on AI Agent Security Demand</span>
-    <span class="hub-kv-date">Aug 30</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">SentinelOne</span>
-    <span class="hub-kv-line">SentinelOne Shares Slide After Guidance Cut</span>
+    <span class="hub-kv-line">SentinelOne Shares Sink After Guidance Cut Despite AI Growth</span>
     <span class="hub-kv-date">Aug 30</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">CrowdStrike</span>
-    <span class="hub-kv-line">CrowdStrike Raises Full Year Guidance as AI Security Demand Fuels Record Quarter</span>
-    <span class="hub-kv-date">Aug 30</span>
+    <span class="hub-kv-line">CrowdStrike's ARR Surge Sparks Rating Upgrade as AI Multiplier Thesis Plays Out</span>
+    <span class="hub-kv-date">Aug 31</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Elastic Security</span>
-    <span class="hub-kv-line">Elastic Stock Jumps 16% On AI Fueled Beat, Raises FY27 Revenue Guidance</span>
+    <span class="hub-kv-key">AI Security Tools</span>
+    <span class="hub-kv-line">CrowdStrike Hits Record High as Fal.Con Unveils Google Cloud Deal, AI Agent Push</span>
+    <span class="hub-kv-date">Sep 1</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Launches Agent SSO to Bring Identity Control to AI Agents</span>
     <span class="hub-kv-date">Aug 30</span>
   </a></div>
 
