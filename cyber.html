@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Thursday, September 3, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">51</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">4</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">87%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">23%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">44</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">62</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">86%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">23%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">45</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Tue, Sep 1</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Thu, Sep 3</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">Fire Ant Blinded Cisco Router Logs While Spying on Networks</div>
-  <div class="briefing-take-body"><p>Researchers tracking Fire Ant found an active GRE tunnel interface on a Cisco IOS XR router that no running configuration explained, the kind of artifact that only exists if someone built it outside the audit trail designed to catch it. The group had already pivoted off a VMware hypervisor campaign into TACACS+ authentication systems, meaning the same intrusion that hijacked the routing plane also touched the system deciding who gets administrative access to it. Two footholds, one operator. Cisco's advisories on IOS XR describe hardening steps. Neither one covers a GRE tunnel with no corresponding config line, because that's not a configuration weakness, it's a logging integrity failure.</p><p>The control that would have changed this outcome is configuration drift detection independent of the device's own logs, something that diffs running state against a known-good baseline rather than trusting the router to report on itself. Fire Ant's move only works because the router is both the compromised asset and the sole witness. For a network operations team, the fix isn't a patch, it's a second source of truth that doesn't live on the box Fire Ant already owns. Cisco has not published a CVE tied to this specific GRE tunnel technique as of September 1, 2026.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">SonicWall SMA Zero-Days Chained for VPN Takeover</div>
+  <div class="briefing-take-body"><p>SonicWall shipped patches this week for two zero-day vulnerabilities in its SMA 1000 series Secure Mobile Access appliances, already chained together in active exploitation to achieve unauthenticated remote code execution. The SMA 1000 sits at the network edge by design, terminating VPN sessions before anything reaches internal authentication. That is precisely why a pre-auth chain on it is not a routine patch cycle item.</p><p>This is the second SonicWall edge-device zero-day disclosure of the summer, following earlier attacks on a different pair of flaws in the same product line. For a CISO who patched the last SonicWall advisory and moved on, the relevant control is not the update queue. It is whether SMA 1000 appliances still need to be internet-facing at all, given two zero-day chains on the same product line inside one quarter.</p></div>
   
-  <a href="briefings/2026-09-01-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-09-03-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,18 +77,18 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.foxnews.com/opinion/ai-cyberattack-could-turn-off-americas-lights-before-washington-understands-why" target="_blank" rel="noopener"><span class="hub-w-title">AI Cyberattack Could Kill America's Power Grid Before Anyone Notices</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall Zero Days Actively Exploited in Chained VPN Attack</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall SMA Flaws Enable Unauthenticated Remote Code Execution</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html" target="_blank" rel="noopener"><span class="hub-w-title">Malicious Git Configs Can Hijack Claude, Codex and Cursor Agents</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Forge Admin Tokens in JFrog Artifactory Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/old-unpatched-flaws-attackers-philippines-nuclear-agency" target="_blank" rel="noopener"><span class="hub-w-title">Attackers Breach Philippines Nuclear Agency, Steal Reactor Data</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/" target="_blank" rel="noopener"><span class="hub-w-title">FBI Probes Dark Web Sale of 153 Million Drivers Licenses</span><span class="hub-w-meta"><span class="hub-w-src">KrebsOnSecurity</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyber-risk/stronger-security-drives-ransomware-groups-to-recruit-from-within" target="_blank" rel="noopener"><span class="hub-w-title">Ransomware Groups Turn to Recruiting Insiders as Defenses Harden</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 2</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html" target="_blank" rel="noopener"><span class="hub-w-title">Google, Anthropic and OpenAI Unveil Cyber AI Defense Models</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://finance.yahoo.com/technology/ai/articles/why-crowdstrike-crwd-building-ai-230823447.html" target="_blank" rel="noopener"><span class="hub-w-title">CrowdStrike Launches Cyber Superintelligence Lab for AI Defense</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 1</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-exploit-sangoma-switchvox-flaw-to-deploy-reverse-shells/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Exploit Sangoma VoIP Flaw to Deploy Reverse Shells</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/wordpress-backup-plugin-flaw-exposes-millions-of-sites-to-takeover-attacks/" target="_blank" rel="noopener"><span class="hub-w-title">WordPress Backup Plugin Flaw Exposes Millions of Sites</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/old-unpatched-flaws-attackers-philippines-nuclear-agency" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Loot Philippines Nuclear Agency, Steal Reactor Data</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/critical-langflow-flaw-exploited-attacks-rise" target="_blank" rel="noopener"><span class="hub-w-title">Critical Langflow Bug Under Active Attack As AI Platform Targeted</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html" target="_blank" rel="noopener"><span class="hub-w-title">Zero Day Duo Hits SonicWall VPNs, Attack Chain Feared</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall Zero Days Enable Unauthenticated Takeover</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/" target="_blank" rel="noopener"><span class="hub-w-title">Hackers Forge Admin Tokens In JFrog Artifactory Attacks</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/" target="_blank" rel="noopener"><span class="hub-w-title">153 Million Drivers Licenses For Sale On Dark Web</span><span class="hub-w-meta"><span class="hub-w-src">KrebsOnSecurity</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/dropbox-accounts-breached-through-lenovo-email-verification-flaw/" target="_blank" rel="noopener"><span class="hub-w-title">Dropbox Accounts Breached Via Lenovo Verification Hole</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/sality-botnet-infrastructure-dismantled-in-joint-global-takedown/" target="_blank" rel="noopener"><span class="hub-w-title">Global Takedown Dismantles Sality Botnet Infrastructure</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html" target="_blank" rel="noopener"><span class="hub-w-title">Google, Anthropic, OpenAI Race Out Cyber AI Models</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/" target="_blank" rel="noopener"><span class="hub-w-title">Google Ships Gemini 3.8 Flash Cyber For Defenders</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html" target="_blank" rel="noopener"><span class="hub-w-title">Rogue Git Configs Trick Claude, Codex, Cursor Into Running Attacker Code</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 2</span></span></a>
+    <a class="hub-w-item" href="https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero" target="_blank" rel="noopener"><span class="hub-w-title">Six Curl CVEs Surface After OpenAI, Anthropic Miss Them</span><span class="hub-w-meta"><span class="hub-w-src">HackerNews</span><span class="hub-w-date">Sep 2</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
@@ -113,27 +113,27 @@
       <div class="hub-row-meta">CVE-2026-72898 &middot; <b>KEV</b> listed Aug 11 &middot; EPSS 82%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Sep 2. Updated daily.</div></div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Sep 3. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Stock Jumps 19% on Blowout Earnings, AI Agent Security Demand</span>
-    <span class="hub-kv-date">Sep 1</span>
-  </a>
-  <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Networks Buys Console to Push Deeper Into Agentic Security</span>
-    <span class="hub-kv-date">Sep 1</span>
+    <span class="hub-kv-line">Palo Alto Beats on Earnings, AI Demand, but Stock Sinks on Guidance Jitters</span>
+    <span class="hub-kv-date">Sep 2</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">CrowdStrike</span>
-    <span class="hub-kv-line">CrowdStrike Launches Falcon Guardian to Police AI Agents at the Endpoint</span>
-    <span class="hub-kv-date">Sep 1</span>
+    <span class="hub-kv-key">Netskope</span>
+    <span class="hub-kv-line">Netskope Stock Surges 14% on Q2 Beat, Raised Guidance</span>
+    <span class="hub-kv-date">Sep 3</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
-    <span class="hub-kv-line">Palo Alto Networks Buys Console to Bolt On Agentic AI Security</span>
+    <span class="hub-kv-line">HiddenLayer Raises $100M Series B to Scale AI Agent Security</span>
+    <span class="hub-kv-date">Sep 2</span>
+  </a>
+  <a class="hub-kv-row" href="cyber-vendors.html">
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Hits Stunning $200 Price Target on AI Agent Growth Bet</span>
     <span class="hub-kv-date">Sep 1</span>
   </a></div>
 
