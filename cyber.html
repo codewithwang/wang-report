@@ -41,7 +41,7 @@
 <header>
   <div class="masthead">CYBER</div>
   <div class="subhead">THE WANG REPORT &middot; Friday, September 4, 2026 &middot; HONG KONG</div>
-  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">62</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">86%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">23%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">45</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
+  <div class="hub-pulse"><span class="hub-tag">Cyber Intel</span><span class="hub-pulse-sep"> | </span><a href="cve/">INDEX <span class="hub-pv hub-pv--alert">62</span> ELEVATED</a><span class="hub-pulse-sep"> | </span><span>KEV 7D <span class="hub-pv">7</span></span><span class="hub-pulse-sep"> | </span><span>CRIT/HIGH <span class="hub-pv">86%</span></span><span class="hub-pulse-sep"> | </span><span>APAC-FSI <span class="hub-pv">23%</span></span><span class="hub-pulse-sep"> | </span><span>EPSS HEAT <span class="hub-pv">47</span></span><span class="hub-pulse-sep"> | </span><span class="hub-pulse-note">NVD + CISA KEV · 250 CVEs</span></div>
 </header>
 <div class="hub-rulebar"><hr class="hub-rule"><hr class="hub-rule-thin"></div>
 
@@ -51,12 +51,12 @@
   <div class="briefing-take-eyebrow"><span class="briefing-take-stamp">From the desk</span> <span class="briefing-take-sep">&middot;</span> <span class="briefing-take-label">Daily take</span></div>
   <div class="briefing-take-head">
     <div class="briefing-take-avatar has-photo"><img src="masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
-    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Thu, Sep 3</span></div>
+    <div class="briefing-take-byline">By <strong>Kai Tanner</strong><span class="briefing-take-role">Cyber Intel Desk, Senior Correspondent</span><span class="briefing-take-date">Fri, Sep 4</span></div>
   </div>
-  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">SonicWall SMA Zero-Days Chained for VPN Takeover</div>
-  <div class="briefing-take-body"><p>SonicWall shipped patches this week for two zero-day vulnerabilities in its SMA 1000 series Secure Mobile Access appliances, already chained together in active exploitation to achieve unauthenticated remote code execution. The SMA 1000 sits at the network edge by design, terminating VPN sessions before anything reaches internal authentication. That is precisely why a pre-auth chain on it is not a routine patch cycle item.</p><p>This is the second SonicWall edge-device zero-day disclosure of the summer, following earlier attacks on a different pair of flaws in the same product line. For a CISO who patched the last SonicWall advisory and moved on, the relevant control is not the update queue. It is whether SMA 1000 appliances still need to be internet-facing at all, given two zero-day chains on the same product line inside one quarter.</p></div>
+  <div class="briefing-take-title" style="font-family:Georgia,'Times New Roman',serif;font-size:1.25em;font-weight:bold;line-height:1.3;margin:2px 0 10px;">AI Agents Ran A Ten-Hour Breach Across Cloud, Identity, CI/CD</div>
+  <div class="briefing-take-body"><p>The incident researchers disclosed on September 2 ran a multi-agent frontier AI system against a single enterprise target and moved from initial access to full compromise of cloud infrastructure, identity systems, and the CI/CD pipeline in under ten hours, chaining more than 50 MITRE ATT&amp;CK techniques along the way. Dark Reading's writeup calls the comparison point a &quot;two-week attack,&quot; the kind of timeline a human red team or intrusion crew needs to do equivalent reconnaissance, lateral movement, and privilege escalation by hand. The AI system produced an 80-page audit trail of its own actions. That log is the artifact worth reading before the vendor summary: it names which of the 50-plus techniques chained into privilege escalation on identity infrastructure, and identity is the layer that turns a single compromised account into control of everything downstream.</p><p>No named CISA advisory or CVE accompanies this one yet, which is itself the finding. A technique count and a ten-hour clock are not the same as a patchable flaw, and a security team briefing its board on September 4 cannot point to a single control that would have stopped this the way MFA stops a credential-stuffing run. The closest available lever is detection speed: an environment tuned to flag CI/CD pipeline changes and identity privilege escalations within minutes, not the hours a ten-hour compressed attack still needs to complete each stage, is the only control category that scales to machine-speed intrusion. Boards asking &quot;are we exposed to this&quot; this week should be asking their SOC how fast that specific alert fires, not whether they have a patch to apply.</p></div>
   
-  <a href="briefings/2026-09-03-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
+  <a href="briefings/2026-09-04-cyber.html" class="briefing-take-perma">Permalink &rarr;</a> <a href="briefings/" class="briefing-take-perma">All takes &rarr;</a>
 </div>
 
   <div class="front-col-teaser">
@@ -77,29 +77,22 @@
 
   <div class="hub-head"><span class="hub-tag">The Watch-List</span><a class="hub-head-link" href="wire.html">Full wire &rarr;</a></div>
   <div class="hub-wlist">
-    <a class="hub-w-item" href="https://www.msn.com/en-us/news/other/agentic-ransomware-took-down-enterprise-in-ten-hours-ai-left-80-page-audit/ar-AA2bul9f" target="_blank" rel="noopener"><span class="hub-w-title">Agentic AI Ransomware Takes Down Enterprise In Ten Hours</span><span class="hub-w-meta"><span class="hub-w-src">duckduckgo news</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://www.reuters.com/world/us/fbi-says-it-is-investigating-report-that-millions-us-drivers-licenses-exposed-2026-09-02/" target="_blank" rel="noopener"><span class="hub-w-title">FBI Probes Breach Exposing Millions Of Driver's Licenses</span><span class="hub-w-meta"><span class="hub-w-src">reuters</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall Zero Days Under Active Exploit, No Fix Yet</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/ai-machine-speed-2-week-attack-10-hours" target="_blank" rel="noopener"><span class="hub-w-title">Frontier AI Compresses Two Week Attack Into 10 Hours</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
     <a class="hub-w-item" href="https://www.cpomagazine.com/cyber-security/cyber-attack-hits-cardiac-device-maker-boston-scientific-disrupting-global-operations/" target="_blank" rel="noopener"><span class="hub-w-title">Cyber Attack Cripples Cardiac Device Maker Boston Scientific</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/09/pegasus-zero-click-spyware-exploit.html" target="_blank" rel="noopener"><span class="hub-w-title">Pegasus Spyware Infects Phone Of Serbian Protest Leader</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html" target="_blank" rel="noopener"><span class="hub-w-title">Thomson Reuters Court Breach May Have Exposed SSNs, Sealed Files</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.reuters.com/world/us/fbi-says-it-is-investigating-report-that-millions-us-drivers-licenses-exposed-2026-09-02/" target="_blank" rel="noopener"><span class="hub-w-title">FBI Probes Sale Of Millions Of Driver's Licenses On Dark Web</span><span class="hub-w-meta"><span class="hub-w-src">reuters</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html" target="_blank" rel="noopener"><span class="hub-w-title">Thomson Reuters Court Breach May Have Exposed SSNs, Sealed Records</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce" target="_blank" rel="noopener"><span class="hub-w-title">SonicWall Zero Days Under Active Attack, No Patch Yet</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.darkreading.com/cyberattacks-data-breaches/ai-machine-speed-2-week-attack-10-hours" target="_blank" rel="noopener"><span class="hub-w-title">AI Machine Speed Compresses Two Week Attack Into 10 Hours</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
     <a class="hub-w-item" href="https://thehackernews.com/2026/09/critical-cisco-nexus-9000-flaw-lets.html" target="_blank" rel="noopener"><span class="hub-w-title">Cisco Nexus 9000 Flaw Lets Hackers Run Code As Root</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://www.computerweekly.com/news/366650080/Financial-firms-face-vulnerability-bottlenecks-from-frontier-AI" target="_blank" rel="noopener"><span class="hub-w-title">FCA Warns AI Is Finding Bugs Faster Than Banks Can Patch</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 3</span></span></a>
-    <a class="hub-w-item" href="https://www.insurancebusinessmag.com/us/news/cyber/thomson-reuters-court-data-breach-is-a-reminder-of-a-risk-clients-think-someone-else-is-managing-588546.aspx" target="_blank" rel="noopener"><span class="hub-w-title">Court Data Breach Shows Clients Can't Outsource The Risk</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://thehackernews.com/2026/09/pegasus-zero-click-spyware-exploit.html" target="_blank" rel="noopener"><span class="hub-w-title">Pegasus Spyware Infects iPhone Of Serbian Protest Leader</span><span class="hub-w-meta"><span class="hub-w-src">The Hacker News</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/french-hospital-fined-500-000-after-breach-exposes-data-of-727-000/" target="_blank" rel="noopener"><span class="hub-w-title">French Hospital Fined €500,000 After Breach Exposes 727,000 Patients</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 4</span></span></a>
+    <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/your-employees-password-appeared-in-an-infostealer-log-now-what/" target="_blank" rel="noopener"><span class="hub-w-title">Employee Password Leaked In Infostealer Log: Now What?</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.computerweekly.com/news/366650080/Financial-firms-face-vulnerability-bottlenecks-from-frontier-AI" target="_blank" rel="noopener"><span class="hub-w-title">UK Regulator Warns Frontier AI Outpacing Banks' Ability To Patch</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 3</span></span></a>
+    <a class="hub-w-item" href="https://www.msspalert.com/brief/ai-leaders-discuss-escalating-cyber-risks-and-the-need-for-ai-powered-defense" target="_blank" rel="noopener"><span class="hub-w-title">Nvidia, Intel, OpenAI Chiefs Sound Alarm On Agentic AI Threats</span><span class="hub-w-meta"><span class="hub-w-src">bing news</span><span class="hub-w-date">Sep 3</span></span></a>
     <a class="hub-w-item" href="https://www.bleepingcomputer.com/news/security/coders-registry-infrastructure-compromised-to-push-malicious-modules/" target="_blank" rel="noopener"><span class="hub-w-title">Coder's Registry Hijacked To Push Credential Stealing Modules</span><span class="hub-w-meta"><span class="hub-w-src">BleepingComputer</span><span class="hub-w-date">Sep 4</span></span></a>
-    <a class="hub-w-item" href="https://www.darkreading.com/threat-intelligence/breeze-comet-brazilian-global-financial-systems" target="_blank" rel="noopener"><span class="hub-w-title">Brazil's Top Hacker Crew Tears Into Financial Systems</span><span class="hub-w-meta"><span class="hub-w-src">Dark Reading</span><span class="hub-w-date">Sep 3</span></span></a>
   </div>
 
   <div class="hub-head"><span class="hub-tag">CVE Spotlight</span><a class="hub-head-link" href="cve/">Full feed &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
-    <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-63077" target="_blank" rel="noopener">JetBrains TeamCity Unsafe Deserialization</a>
-      <div class="hub-row-meta">CVE-2026-63077 &middot; <b>KEV</b> listed Aug 5 &middot; EPSS 88%</div>
-    </div>
-  </div>
-  <div class="hub-row">
     <span class="hub-row-key hub-row-key--alert">CRIT 9.8</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-60004" target="_blank" rel="noopener">Gitea Code Injection</a>
@@ -113,18 +106,25 @@
       <div class="hub-row-meta">CVE-2026-72898 &middot; <b>KEV</b> listed Aug 11 &middot; EPSS 82%</div>
     </div>
   </div>
-  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Sep 3. Updated daily.</div></div>
+  <div class="hub-row">
+    <span class="hub-row-key hub-row-key--alert">CRIT 9.3</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="https://nvd.nist.gov/vuln/detail/CVE-2026-72529" target="_blank" rel="noopener">TrueConf Server Missing Authentication</a>
+      <div class="hub-row-meta">CVE-2026-72529 &middot; <b>KEV</b> listed Aug 20 &middot; EPSS 2% &middot; OT</div>
+    </div>
+  </div>
+  <div class="hub-foot">Ranked by CISA KEV status, APAC financial-services and OT relevance, CVSS, and EPSS exploit probability. Source: NVD + CISA KEV, updated Sep 4. Updated daily.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Vendor Watch</span><a class="hub-head-link" href="cyber-vendors.html">All 16 vendors &rarr;</a></div>
   <div class="hub-module"><a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Palo Alto Networks</span>
-    <span class="hub-kv-line">Palo Alto Beats on Earnings, AI Demand, but Stock Sinks on Guidance Jitters</span>
-    <span class="hub-kv-date">Sep 2</span>
+    <span class="hub-kv-key">Okta</span>
+    <span class="hub-kv-line">Okta Lifts Full Year Outlook as AI Agents Drive Demand</span>
+    <span class="hub-kv-date">Sep 4</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Netskope</span>
-    <span class="hub-kv-line">Netskope Stock Surges 14% on Q2 Beat, Raised Guidance</span>
-    <span class="hub-kv-date">Sep 3</span>
+    <span class="hub-kv-key">CrowdStrike</span>
+    <span class="hub-kv-line">CrowdStrike Guides for 24.6% ARR Growth Through FY28 at Fal.Con</span>
+    <span class="hub-kv-date">Sep 4</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
     <span class="hub-kv-key">AI Security Tools</span>
@@ -132,9 +132,9 @@
     <span class="hub-kv-date">Sep 2</span>
   </a>
   <a class="hub-kv-row" href="cyber-vendors.html">
-    <span class="hub-kv-key">Okta</span>
-    <span class="hub-kv-line">Okta Hits Stunning $200 Price Target on AI Agent Growth Bet</span>
-    <span class="hub-kv-date">Sep 1</span>
+    <span class="hub-kv-key">Zscaler</span>
+    <span class="hub-kv-line">Zscaler Posts 25% ARR Growth, Cuts 3% of Workforce Amid AI Push</span>
+    <span class="hub-kv-date">Sep 3</span>
   </a></div>
 
   <div class="hub-head"><span class="hub-tag">On the Record</span></div>
