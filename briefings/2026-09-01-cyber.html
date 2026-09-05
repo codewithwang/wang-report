@@ -54,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #555; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -92,6 +98,7 @@
       <p>Researchers tracking Fire Ant found an active GRE tunnel interface on a Cisco IOS XR router that no running configuration explained, the kind of artifact that only exists if someone built it outside the audit trail designed to catch it. The group had already pivoted off a VMware hypervisor campaign into TACACS+ authentication systems, meaning the same intrusion that hijacked the routing plane also touched the system deciding who gets administrative access to it. Two footholds, one operator. Cisco's advisories on IOS XR describe hardening steps. Neither one covers a GRE tunnel with no corresponding config line, because that's not a configuration weakness, it's a logging integrity failure.</p>
         <p>The control that would have changed this outcome is configuration drift detection independent of the device's own logs, something that diffs running state against a known-good baseline rather than trusting the router to report on itself. Fire Ant's move only works because the router is both the compromised asset and the sole witness. For a network operations team, the fix isn't a patch, it's a second source of truth that doesn't live on the box Fire Ant already owns. Cisco has not published a CVE tied to this specific GRE tunnel technique as of September 1, 2026.</p>
     </div>
+    
     <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 

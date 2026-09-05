@@ -54,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #555; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -92,6 +98,7 @@
       <p>The incident researchers disclosed on September 2 ran a multi-agent frontier AI system against a single enterprise target and moved from initial access to full compromise of cloud infrastructure, identity systems, and the CI/CD pipeline in under ten hours, chaining more than 50 MITRE ATT&amp;CK techniques along the way. Dark Reading's writeup calls the comparison point a &quot;two-week attack,&quot; the kind of timeline a human red team or intrusion crew needs to do equivalent reconnaissance, lateral movement, and privilege escalation by hand. The AI system produced an 80-page audit trail of its own actions. That log is the artifact worth reading before the vendor summary: it names which of the 50-plus techniques chained into privilege escalation on identity infrastructure, and identity is the layer that turns a single compromised account into control of everything downstream.</p>
         <p>No named CISA advisory or CVE accompanies this one yet, which is itself the finding. A technique count and a ten-hour clock are not the same as a patchable flaw, and a security team briefing its board on September 4 cannot point to a single control that would have stopped this the way MFA stops a credential-stuffing run. The closest available lever is detection speed: an environment tuned to flag CI/CD pipeline changes and identity privilege escalations within minutes, not the hours a ten-hour compressed attack still needs to complete each stage, is the only control category that scales to machine-speed intrusion. Boards asking &quot;are we exposed to this&quot; this week should be asking their SOC how fast that specific alert fires, not whether they have a patch to apply.</p>
     </div>
+    
     <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
