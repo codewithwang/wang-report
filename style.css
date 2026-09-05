@@ -1488,3 +1488,48 @@ a.hub-row-title:hover { color: var(--desk-accent); }
 
 /* Nav collapsed to two tiers (2026-09-05): desks, then feature pages after a gap */
 .nav-desks .nav-desk-gap { display: inline-block; width: 18px; }
+
+/* ── Desk as resource (2026-09-05) ─────────────────────────────────────────── */
+.hub-resource .hub-head { margin-top: 40px; }
+.hub-desk { margin-top: 26px; }
+.hub-people { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; }
+.hub-person { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.hub-face { width: 64px; height: 64px; object-fit: cover; border: 1px solid #ddd; }
+.hub-person-text { display: flex; flex-direction: column; }
+.hub-person-name { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; color: var(--wr-ink); }
+.hub-person-zh { font-size: 13px; color: #777; letter-spacing: 2px; margin-left: 4px; }
+.hub-person-role { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--desk-accent); margin-top: 3px; }
+.hub-person:hover .hub-person-name { color: var(--desk-accent); }
+.hub-promise { font-size: 19px; line-height: 1.5; font-style: italic; color: #333; margin: 18px 0 0;
+  padding-left: 14px; border-left: 3px solid var(--desk-accent); }
+.hub-latest { margin-top: 22px; padding: 10px 0; border-top: 1px solid var(--desk-rule); border-bottom: 1px solid var(--desk-rule);
+  font-size: 14.5px; line-height: 1.5; color: #222; }
+.hub-latest > a { font-family: Georgia, serif; font-weight: bold; color: var(--wr-ink); text-decoration: none; }
+.hub-latest > a:hover { color: var(--desk-accent); }
+.hub-latest-meta { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #777; margin-left: 6px; }
+.hub-latest-meta a { color: #555; text-decoration: none; }
+.hub-latest-meta a:hover { color: var(--desk-accent); }
+.hub-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-top: 12px; }
+.hub-stat { display: flex; flex-direction: column; padding: 12px 12px 10px; background: #fff; border: 1px solid #ddd; text-decoration: none; }
+.hub-stat-n { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; line-height: 1; color: var(--desk-accent); }
+.hub-stat-n.hub-stat--alert { color: var(--wr-seal); }
+.hub-stat-n.hub-stat--ink { color: var(--wr-ink); }
+.hub-stat-n.hub-stat--muted { color: #667; }
+.hub-stat-s { font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #667; margin-left: 6px; }
+.hub-stat-l { font-family: 'Courier New', Courier, monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #555; margin-top: 8px; }
+.hub-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+@media (max-width: 560px) { .hub-tools { grid-template-columns: 1fr; } }
+.hub-tool { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; background: #fff; border: 1px solid #ddd; text-decoration: none; }
+.hub-tool:hover { border-color: var(--desk-accent); }
+.hub-tool-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; color: var(--wr-ink); }
+.hub-tool-desc { font-size: 14px; line-height: 1.5; color: #444; }
+.hub-tool-go { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: var(--desk-accent); margin-top: 4px; }
+.hub-archive { margin-top: 8px; }
+.hub-arch { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--desk-rule); text-decoration: none; }
+.hub-arch:last-child { border-bottom: none; }
+.hub-arch-date { font-family: 'Courier New', Courier, monospace; font-size: 10px; color: var(--desk-faint); min-width: 52px; flex-shrink: 0; }
+.hub-arch-title { flex: 1; font-family: Georgia, serif; font-size: 15px; color: #222; }
+.hub-arch:hover .hub-arch-title { color: var(--desk-accent); }
+.hub-arch-by { font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #999; flex-shrink: 0; }
+.hub-theses .hub-thesis { font-size: 16px; line-height: 1.55; color: #222; margin: 0 0 12px; padding-left: 12px; border-left: 2px solid var(--desk-rule); }
