@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editions · THE WANG REPORT</title>
+<link rel="canonical" href="https://wangreport.com/edition/">
+<link rel="stylesheet" href="/style.css">
+<style>
+  a { color: inherit; }
+  .ed-wrap { max-width: 720px; margin: 0 auto; padding: 0 16px 80px; }
+  .ed-banner { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    border-bottom: 3px solid #000; padding: 18px 0 8px; margin-top: 4px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #B0241E; }
+  .ed-banner .ed-when { color: #555; font-weight: normal; letter-spacing: 1px; }
+  .ed-banner a { color: #555; text-decoration: none; font-weight: normal; letter-spacing: 1px; }
+  .ed-banner a:hover { color: #B0241E; }
+  .ed-speaker { display: flex; align-items: center; gap: 14px; margin: 22px 0 14px; }
+  .ed-face { width: 64px; height: 64px; object-fit: cover; border: 1px solid #ddd; }
+  .ed-name { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 19px; color: #0B1F3A; }
+  .ed-name .zh { font-size: 13px; color: #666; margin-left: 6px; letter-spacing: 2px; }
+  .ed-role { display: block; font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: #B0241E; margin-top: 3px; }
+  h1.ed-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 34px; line-height: 1.15; font-weight: 700; color: #0B1F3A; margin: 6px 0 12px; }
+  .ed-deck { font-size: 19px; line-height: 1.45; color: #333; font-style: italic; margin: 0 0 18px; }
+  figure.ed-lead { margin: 0 0 20px; }
+  figure.ed-lead img { width: 100%; max-height: 420px; object-fit: cover; display: block; border: 1px solid #ddd; }
+  figure.ed-lead figcaption { font-family: Arial, sans-serif; font-size: 10px; color: #888; margin-top: 5px; letter-spacing: .5px; }
+  .ed-body p { font-size: 18px; line-height: 1.65; color: #111; margin: 0 0 18px; }
+  .ed-body p:first-child::first-letter { font-family: 'Playfair Display', Georgia, serif; font-size: 3.2em; float: left; line-height: .85; padding: 4px 8px 0 0; color: #0B1F3A; }
+  a.ed-ref { color: #0B1F3A; text-decoration: none; border-bottom: 1px solid #B0241E; }
+  a.ed-ref:hover { color: #B0241E; }
+  .ed-listen { display: flex; align-items: center; gap: 12px; margin: 22px 0 8px; padding: 12px 14px; background: #fff; border: 1px solid #ddd; }
+  .ed-play { width: 38px; height: 38px; border-radius: 50%; background: #0B1F3A; position: relative; flex: 0 0 auto; cursor: pointer; }
+  .ed-play::after { content: ""; position: absolute; left: 15px; top: 11px; border-left: 11px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+  .ed-listen.playing .ed-play::after { border: none; width: 4px; height: 14px; left: 13px; top: 12px; background: #fff; box-shadow: 8px 0 0 #fff; }
+  .ed-listen-text { font-family: Arial, sans-serif; font-size: 12px; color: #333; line-height: 1.4; }
+  .ed-listen-text a { color: #0B1F3A; }
+  .ed-listen-dur { color: #888; }
+  .ed-block { margin-top: 44px; }
+  .ed-block-title { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: #0B1F3A; border-top: 3px solid #000; padding-top: 10px; margin: 0 0 18px; }
+  .ed-block-sub { font-weight: normal; color: #888; letter-spacing: 1px; margin-left: 8px; }
+  .seg { padding: 18px 0 20px; border-bottom: 1px solid #ddd; }
+  .seg-standing { opacity: .92; }
+  .seg-head { display: flex; align-items: center; gap: 10px; }
+  .seg-face { width: 44px; height: 44px; object-fit: cover; border: 1px solid #ddd; }
+  .seg-name { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; color: #0B1F3A; }
+  .seg-role { display: block; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: #777; margin-top: 2px; }
+  .seg-throw { font-size: 16.5px; line-height: 1.5; font-style: italic; color: #333; margin: 12px 0 8px; padding-left: 12px; border-left: 3px solid #B0241E; }
+  h2.seg-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; line-height: 1.25; margin: 6px 0 6px; }
+  h2.seg-headline a { text-decoration: none; color: #0B1F3A; }
+  h2.seg-headline a:hover { color: #B0241E; }
+  .seg-dek { font-size: 16px; line-height: 1.5; color: #444; margin: 0 0 10px; }
+  .seg-more summary { list-style: none; cursor: pointer; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: #B0241E; }
+  .seg-more summary::-webkit-details-marker { display: none; }
+  .seg-more summary::after { content: " \2192"; }
+  .seg-more[open] summary::after { content: " \2191"; }
+  .seg-body { margin-top: 12px; }
+  .seg-body p { font-size: 16.5px; line-height: 1.6; color: #111; margin: 0 0 14px; }
+  .seg-links { margin-top: 10px; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .seg-links a { color: #777; text-decoration: none; margin-right: 14px; }
+  .seg-links a:hover { color: #B0241E; }
+  .wp { padding: 10px 0; border-bottom: 1px solid #eee; }
+  .wp-head { font-family: Georgia, serif; font-size: 16px; font-weight: bold; color: #0B1F3A; text-decoration: none; }
+  .wp-head:hover { color: #B0241E; }
+  .wp-src { font-family: Arial, sans-serif; font-size: 10px; color: #888; letter-spacing: .5px; margin-left: 6px; }
+  .wp-gloss { font-size: 15px; line-height: 1.5; color: #444; margin: 4px 0 0; }
+  .cmp { padding: 7px 0; border-bottom: 1px solid #eee; font-size: 14.5px; }
+  .cmp a { color: #0B1F3A; text-decoration: none; }
+  .cmp a:hover { color: #B0241E; }
+  .cmp-outlet { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: #B0241E; margin-right: 8px; }
+  .sun-title { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.2; color: #0B1F3A; text-decoration: none; }
+  .sun-title:hover { color: #B0241E; }
+  .sun-dek { font-size: 16px; line-height: 1.5; color: #444; font-style: italic; margin: 8px 0 14px; }
+  .sun-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  @media (max-width: 520px) { .sun-cols { grid-template-columns: 1fr; } }
+  .sun-col { display: block; text-decoration: none; padding: 10px 12px; background: #fff; border: 1px solid #ddd; }
+  .sun-col-author { display: block; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: #B0241E; }
+  .sun-col-title { display: block; font-family: Georgia, serif; font-size: 15px; font-weight: bold; color: #0B1F3A; margin-top: 3px; line-height: 1.3; }
+  .sun-cta { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
+  .dk-row { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+  .dk { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: Arial, sans-serif; font-size: 12px; color: #333; }
+  .dk:hover { color: #B0241E; }
+  .dk-face { width: 34px; height: 34px; object-fit: cover; border: 1px solid #ddd; }
+  .dk-text { color: #777; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; font-weight: bold; }
+  .ed-foot { margin-top: 44px; padding-top: 14px; border-top: 1px solid #ccc; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #888; line-height: 2; }
+  .ed-foot a { color: #555; text-decoration: none; }
+  .ed-foot a:hover { color: #B0241E; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #555; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.6; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
+  @media (max-width: 600px) { h1.ed-headline { font-size: 27px; } .ed-body p { font-size: 17px; } .ed-deck { font-size: 17px; } }
+</style>
+</head><body>
+<div class="nav-bar"><a href="/index.html" class="nav-active">Edition</a> | <a href="/issue.html" class="">The Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/science.html" class="nav-desk-link">Science</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+<header><div class="masthead"><a href="/index.html" style="color:inherit;text-decoration:none;">THE WANG REPORT</a></div><div class="subhead">EDITIONS &middot; HONG KONG</div></header>
+<main class="ed-wrap"><section class="ed-block"><h3 class="ed-block-title">Every edition</h3><div class="wp"><span class="cmp-outlet">Morning Edition &middot; Saturday, September 5, 2026</span><br><a class="wp-head" href="/edition/2026-09-05-am.html">Betis Beat Madrid While Two Commanders Reopened A Channel</a><p class="wp-gloss">A Bernabeu upset dominated the scoreboard, but the week's real story was the PLA and US restoring the contact line built for the moment nobody wants to reach.</p></div></section></main>
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
+  THE WANG REPORT &copy; 2026
+  <br>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <br>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
+</div>
+</body></html>
