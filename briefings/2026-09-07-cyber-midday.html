@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>45 Owners Left Holding Out At Wang Fuk Court · Cheung Kwok-keung · THE WANG REPORT</title>
+  <title>JetBrains Tells Cadence Customers To Rotate Everything · Kai Tanner · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <link rel="canonical" href="https://wangreport.com/briefings/2026-08-31-hk-desk.html">
+  <link rel="canonical" href="https://wangreport.com/briefings/2026-09-07-cyber-midday.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
-  <meta property="og:title" content="45 Owners Left Holding Out At Wang Fuk Court · Cheung Kwok-keung · THE WANG REPORT">
+  <meta property="og:title" content="JetBrains Tells Cadence Customers To Rotate Everything · Kai Tanner · THE WANG REPORT">
   <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
-  <meta property="og:url" content="https://wangreport.com/briefings/2026-08-31-hk-desk.html">
+  <meta property="og:url" content="https://wangreport.com/briefings/2026-09-07-cyber-midday.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="45 Owners Left Holding Out At Wang Fuk Court · Cheung Kwok-keung · THE WANG REPORT">
+  <meta name="twitter:title" content="JetBrains Tells Cadence Customers To Rotate Everything · Kai Tanner · THE WANG REPORT">
   <meta name="twitter:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
@@ -84,20 +84,21 @@
 
   <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
     <div class="br-byline-row">
-      <div class="br-avatar"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt="CK"/></div>
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
       <div class="br-byline-text">
-        <span class="br-section-tag">HK DESK</span>
-        <span class="br-journalist-name">Cheung Kwok-keung</span>
-        <span class="br-journalist-role">HK Desk, Senior Correspondent</span>
-        <span class="br-entry-date">Monday, August 31, 2026</span>
+        <span class="br-section-tag">CYBER INTEL</span>
+        <span class="br-journalist-name">Kai Tanner</span>
+        <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
+        <span class="br-entry-date">Monday, September 7, 2026</span>
       </div>
     </div>
-    <div class="br-title">45 Owners Left Holding Out At Wang Fuk Court</div>
+    <div class="br-title">JetBrains Tells Cadence Customers To Rotate Everything</div>
     <div class="br-body">
-      <p>Ninety-seven percent. That is not a majority, that is basically everyone. Out of the owners left in the burned-out blocks of Wang Fuk Court, all but 45 have taken the government's buyout and signed the papers. The authorities have now put a deadline on the table for the rest: take the deal now, or the government moves ahead without you.</p>
-        <p>Look, I get holding out. Your home burned down in April, you lost people, you lost photos, you lost the flat you paid off over twenty years, and now some official is handing you a number and a form. Of course some people want to sit with that a bit longer. But 97 percent of your neighbours have already said yes, and the project cannot rebuild a site with forty-five empty question marks sitting in the middle of it. The government has picked a date. After that date, holding out stops being a negotiating position and starts being the only thing left standing in the way.</p>
+      <p>JetBrains is telling Cadence users to revoke and rotate all credentials after attackers exploited a recently disclosed critical vulnerability in TeamCity, the CI/CD server JetBrains sells to run build and deployment pipelines. The advisory does not specify which CVE, but the pattern is the one TeamCity has produced twice before: an unauthenticated remote-code-execution flaw in the on-premises server, exploited before the patch window closed, with the CI/CD server's own credential store as the payoff. A build server holds the keys to everything it deploys. That is the design.</p>
+        <p>For a Hong Kong or Singapore bank running Cadence-adjacent tooling in its software supply chain, this lands squarely on HKMA's third-party risk management expectations and the vendor risk assessment obligations under SFC's own technology circulars: a compromised CI/CD credential store is exactly the scenario those frameworks assume a firm has already inventoried, not one it discovers from a vendor's rotate-everything email. AWS credentials sitting in a build server's memory or config, reachable by anyone who popped the server, is the finding a continuous exposure programme should have flagged before JetBrains did. If your renewal register cannot say which of your CI/CD platforms hold live cloud credentials, you don't have an inventory, you have a hope.</p>
+        <p>No identity or endpoint vendor swap fixes this. The control that would have changed the outcome is credential scoping: short-lived, narrowly-permissioned AWS tokens issued per build job rather than long-lived keys sitting in a CI server's secret store, so a TeamCity compromise yields nothing durable to rotate.</p>
     </div>
-    
+    <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://thehackernews.com/2026/09/attackers-breached-jetbrains-cadence.html" rel="noopener" target="_blank">JetBrains Breach Exposes AWS Credentials Via Unpatched TeamCity Flaw</a> <span class="take-source-meta">(thehackernews.com)</span></li></ul></div>
     <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
