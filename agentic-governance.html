@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AGENTIC GOVERNANCE · THE WANG REPORT</title>
+  <meta name="description" content="How organisations are governing AI agents: the platform vendors, tooling, observability, architecture choices, named case studies, skepticism and rules, captured daily by The Wang Report AI and Cyber desks.">
+  <link rel="canonical" href="https://wangreport.com/agentic-governance.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="AGENTIC GOVERNANCE · THE WANG REPORT">
+  <meta property="og:description" content="How organisations are governing AI agents: the platform vendors, tooling, observability, architecture choices, named case studies, skepticism and rules, captured daily by The Wang Report AI and Cyber desks.">
+  <meta property="og:url" content="https://wangreport.com/agentic-governance.html">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AGENTIC GOVERNANCE · THE WANG REPORT">
+  <meta name="twitter:description" content="How organisations are governing AI agents: the platform vendors, tooling, observability, architecture choices, named case studies, skepticism and rules, captured daily by The Wang Report AI and Cyber desks.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body class="desk-ai desk-resource">
+
+<div class="nav-bar"><a href="index.html" class="">Edition</a> | <a href="issue.html" class="">Sunday Issue</a> | <a href="wire.html" class="">Wire</a> | <a href="listen.html" class="">Listen</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link nav-desk-active">AI</a><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance</a><a href="hk-local.html" class="nav-desk-link">Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="science.html" class="nav-desk-link">Science</a><span class="nav-desk-gap"></span><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+
+<header>
+  <div class="masthead">AGENTIC GOVERNANCE</div>
+  <div class="subhead">The Wang Report &middot; AI Desk with the Cyber Intel Desk &middot; Hong Kong</div>
+</header>
+
+<main class="hub hub-resource">
+  <section class="hub-desk">
+    <p class="hub-promise">The flywheel: how organisations are governing the AI agents they run, captured every day from the platform vendors, the security blogs and the practitioner press, and sorted by what each item is. What Microsoft, AWS, Google, OpenAI and Salesforce shipped; the tooling for governing agents; the tracking and observability that makes them auditable; the architecture choice between hosted, self-hosted and third-party agents; how named organisations actually do it; the evidence that it fails; and the rules that bind it. 17 items in the last 45 days. Each line says what it tells a firm running agents. Related: the <a href="cyber.html">Cyber desk</a>, the <a href="ai-focus.html">AI desk</a>, and the agentic governance theme in What Keeps the C-Suite Awake.</p>
+  </section>
+
+  <div class="hub-head"><span class="hub-tag">The bigs</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 4</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.salesforce.com/blog/trust-security-at-dreamforce-2026/" target="_blank" rel="noopener">Trust &amp; Security at Dreamforce 2026</a><div class="hub-row-meta">Salesforce positions trust and security controls as the core theme for governing its agentic platform.</div><div class="hub-row-meta">Salesforce &middot; Salesforce</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Sep 2</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/security/agentic-security-detection-and-response-at-machine-speed/" target="_blank" rel="noopener">Agentic security: Detection and response at machine speed</a><div class="hub-row-meta">AWS frames autonomous agents authenticating on behalf of users as the biggest security shift since cloud adoption.</div><div class="hub-row-meta">AWS Security &middot; AWS</div></div></div></div>
+
+  <div class="hub-head"><span class="hub-tag">Tooling</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Aug 18</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/security/implement-custom-authentication-for-tools-integration-using-request-lambda-interceptor-in-agentcore-gateway/" target="_blank" rel="noopener">Implement custom authentication for tools integration using request Lambda interceptor in AgentCore Gateway</a><div class="hub-row-meta">AgentCore Gateway lets enterprises bolt legacy auth onto agent tool integrations via a Lambda interceptor.</div><div class="hub-row-meta">AWS Security &middot; AWS Bedrock AgentCore</div></div></div></div>
+
+  <div class="hub-head"><span class="hub-tag">Tracking and observability</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 4</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/" target="_blank" rel="noopener">Designing lifecycle policies for AgentCore memory</a><div class="hub-row-meta">Explains how to prune and audit long-running agent memory to limit compliance exposure from stale data.</div><div class="hub-row-meta">AWS Machine Learning &middot; AWS Bedrock AgentCore</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Sep 1</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/tokenomics-at-scale-how-jamf-built-real-time-spend-enforcement-for-amazon-bedrock/" target="_blank" rel="noopener">Tokenomics at scale: How Jamf built real-time spend enforcement for Amazon Bedrock</a><div class="hub-row-meta">Jamf built real-time per-user spend enforcement to stop agent and model usage from running away on cost.</div><div class="hub-row-meta">AWS Machine Learning &middot; Jamf / AWS Bedrock</div></div></div></div>
+
+  <div class="hub-head"><span class="hub-tag">Architecture: hosted, self-hosted, third party</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 3</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/migrate-agentic-workloads-to-amazon-bedrock-agentcore/" target="_blank" rel="noopener">Migrate agentic workloads to Amazon Bedrock AgentCore</a><div class="hub-row-meta">Walks through moving an agent from notebook prototype to a governed production runtime with gateway and memory controls.</div><div class="hub-row-meta">AWS Machine Learning &middot; AWS Bedrock AgentCore</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Sep 3</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-building-agentic-automations-with-amazon-quick-automate/" target="_blank" rel="noopener">Best practices for building agentic automations with Amazon Quick Automate</a><div class="hub-row-meta">Lays out design principles for agentic automations including human-in-the-loop review and observability.</div><div class="hub-row-meta">AWS Machine Learning &middot; AWS Quick Automate</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Sep 3</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.salesforce.com/blog/3-signs-youve-outgrown-a-single-agent/" target="_blank" rel="noopener">3 Signs You’ve Outgrown a Single Agent</a><div class="hub-row-meta">Salesforce guidance on when a single-agent design breaks down and multi-agent orchestration is needed.</div><div class="hub-row-meta">Salesforce &middot; Salesforce</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Aug 27</span><div class="hub-row-main"><a class="hub-row-title" href="https://techcommunity.microsoft.com/t5/microsoft-security-events/ask-microsoft-anything-secure-multi-tenant-environments-with/ec-p/4550554#M2666" target="_blank" rel="noopener">Ask Microsoft Anything: Secure multi-tenant environments with Microsoft Entra Tenant Governance</a><div class="hub-row-meta">Entra Tenant Governance centralizes policy control across tenants, relevant as agents proliferate identities.</div><div class="hub-row-meta">Microsoft Tech Community &middot; Microsoft</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Aug 27</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/security/extend-amazon-bedrock-guardrails-to-tool-interactions-using-the-strands-agents-sdk/" target="_blank" rel="noopener">Extend Amazon Bedrock Guardrails to Tool Interactions Using the Strands Agents SDK</a><div class="hub-row-meta">Bedrock Guardrails now cover tool calls, not just model outputs, closing a gap agents create outside the model boundary.</div><div class="hub-row-meta">AWS Security &middot; AWS</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Aug 19</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/security/propagate-user-authorization-context-in-ai-agents-with-amazon-bedrock-agentcore/" target="_blank" rel="noopener">Propagate user authorization context in AI agents with Amazon Bedrock AgentCore</a><div class="hub-row-meta">AgentCore propagates the requesting user's identity into agent tool calls so agents cannot over-fetch data.</div><div class="hub-row-meta">AWS Security &middot; AWS Bedrock AgentCore</div></div></div></div>
+
+  <div class="hub-head"><span class="hub-tag">How others do it</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 4</span><div class="hub-row-main"><a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/how-intuit-built-an-agentic-disaster-recovery-assistant-with-amazon-bedrock/" target="_blank" rel="noopener">How Intuit built an agentic disaster recovery assistant with Amazon Bedrock</a><div class="hub-row-meta">Intuit built an agent that runs production disaster-recovery failovers with every action audited and policy-checked.</div><div class="hub-row-meta">AWS Machine Learning &middot; Intuit</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Sep 1</span><div class="hub-row-main"><a class="hub-row-title" href="https://openai.com/index/gilbert-tobin" target="_blank" rel="noopener">How law firm Gilbert + Tobin governs and scales AI with OpenAI</a><div class="hub-row-meta">Law firm describes the governance structure and human accountability it uses to scale agents firm-wide.</div><div class="hub-row-meta">OpenAI &middot; Gilbert + Tobin / OpenAI</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Aug 25</span><div class="hub-row-main"><a class="hub-row-title" href="https://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect" target="_blank" rel="noopener">Why Ramp built its own in-house coding agent, Inspect</a><div class="hub-row-meta">Ramp built its own in-house coding agent rather than rely on frontier labs, citing control advantages.</div><div class="hub-row-meta">Pragmatic Engineer &middot; Ramp</div></div></div></div>
+
+  <div class="hub-head"><span class="hub-tag">Skepticism</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 4</span><div class="hub-row-main"><a class="hub-row-title" href="https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/" target="_blank" rel="noopener">OpenAI's rogue agents were caught communicating via public wikis</a><div class="hub-row-meta">Documents OpenAI agents coordinating unexpectedly via a public wiki, an accidental multi-agent security incident.</div><div class="hub-row-meta">Simon Willison &middot; OpenAI</div></div></div>
+<div class="hub-row"><span class="hub-row-key">Aug 27</span><div class="hub-row-main"><a class="hub-row-title" href="https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/" target="_blank" rel="noopener">Breaking Claude Code Opus 5 Auto Mode</a><div class="hub-row-meta">Shows Claude Code's autonomous mode can be manipulated by prompt injection despite built-in safeguards.</div><div class="hub-row-meta">Simon Willison &middot; Anthropic</div></div></div></div>
+
+  <div class="hub-head"><span class="hub-tag">Regulation and standards</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 7</span><div class="hub-row-main"><a class="hub-row-title" href="https://aiassemblylines.com/post/agentic-ai-governance-enterprise-framework" target="_blank" rel="noopener">How Do Enterprises Govern AI Agents? A 5-Layer Agentic AI Governance Framework</a><div class="hub-row-meta">Lays out a five-layer framework for defining, monitoring and controlling what agents are authorized to do.</div><div class="hub-row-meta">search (brave)</div></div></div></div>
+
+</main>
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
+  THE WANG REPORT &copy; 2026
+  <br>
+  <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Sunday Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
+  <br>
+  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis.html">Morning Synthesis</a> | <a href="how-its-made.html">How It's Made</a>
+</div>
+
+</body>
+</html>
