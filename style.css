@@ -1679,3 +1679,14 @@ h2.seg-headline a:hover { color: var(--wr-seal); }
   .hub-stat { flex-basis: 30%; }
   .ed-body p { font-size: 17px; }
 }
+
+/* Flashpoint map (Geopolitical desk v2, 2026-09-07). The SVG is an instrument,
+   not a box: no border, land in the desk wash, dots in the desk accent. */
+.hub-map { display: block; width: 100%; height: auto; margin: 2px 0 6px; }
+.hub-map-land { fill: color-mix(in srgb, var(--desk-accent) 9%, #fff); stroke: color-mix(in srgb, var(--desk-accent) 35%, #fff); stroke-width: 0.6; }
+.hub-map-dot circle { fill: #9a9a9a; stroke: #fff; stroke-width: 1.5; }
+.hub-map-dot--watch circle { fill: #fff; stroke: var(--desk-accent); stroke-width: 2.2; }
+.hub-map-dot--moved circle { fill: var(--desk-accent); stroke: #fff; stroke-width: 1.5; }
+.hub-map-dot text { font-family: var(--wr-meta); font-size: 11px; font-weight: 700; fill: var(--wr-ink); paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+.hub-map a:hover circle { stroke: var(--wr-ink); }
+.hub-latest--next { margin-top: 0; border-top: none; }
