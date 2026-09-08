@@ -4,116 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HK Kids Calendar · THE WANG REPORT</title>
-  <meta name="description" content="Curated calendar of kid-friendly events, open days, and activities in Hong Kong.">
+  <meta name="description" content="Things to do with children in Hong Kong: LCSD family and library programmes, museum and open days, seasonal events, each with its source and date.">
   <link rel="canonical" href="https://wangreport.com/hkkidscalendar/index.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
   <meta property="og:title" content="HK Kids Calendar · THE WANG REPORT">
-  <meta property="og:description" content="Curated calendar of kid-friendly events, open days, and activities in Hong Kong.">
+  <meta property="og:description" content="Things to do with children in Hong Kong: LCSD family and library programmes, museum and open days, seasonal events, each with its source and date.">
   <meta property="og:url" content="https://wangreport.com/hkkidscalendar/index.html">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HK Kids Calendar · THE WANG REPORT">
-  <meta name="twitter:description" content="Curated calendar of kid-friendly events, open days, and activities in Hong Kong.">
+  <meta name="twitter:description" content="Things to do with children in Hong Kong: LCSD family and library programmes, museum and open days, seasonal events, each with its source and date.">
   <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  /* Palette nudged toward the site scheme (bone/ink/seal-red) 2026-07-18:
-     --text/--link now sit in the ink family instead of near-black/generic
-     blue; --meta/--dim now sit in the house muted family instead of
-     generic grays. --dim is also the hard contrast floor for the
-     "distance fade" below (see fade-N comment). */
-  --bg:#F9F8F6;--text:#0B1F3A;--link:#0B1F3A;--visited:#663366;
-  --meta:#5A6470;--dim:#8A8A85;--border:#C8C0B0;--rule:#e0e0d8;--mono:'Courier New',Courier,monospace;
-}
-html,body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.65}
-body{max-width:820px;margin:0 auto;padding:16px 18px 80px}
-a{color:var(--link);text-decoration:underline}
-a:visited{color:var(--visited)}
-a:hover{text-decoration:none}
-.masthead{border-bottom:3px double #1a1a1a;padding-bottom:8px;margin-bottom:12px}
-.site-title{font-family:var(--mono);font-size:clamp(18px,4vw,26px);font-weight:bold;letter-spacing:1px;text-transform:uppercase}
-.site-sub{font-family:var(--mono);font-size:11px;color:var(--meta);text-transform:uppercase;letter-spacing:2px;margin-top:2px}
-.masthead-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:6px}
-.site-meta{font-family:var(--mono);font-size:11px;color:var(--meta)}
-.refresh-btn{font-family:var(--mono);font-size:11px;background:none;border:1px solid var(--border);color:var(--link);cursor:pointer;padding:2px 8px}
-.refresh-btn:hover{background:#f0f0e8}
-.cal-switch{font-family:var(--mono);font-size:12px;letter-spacing:1px;margin-top:6px;text-transform:uppercase;color:#555}
-.cal-switch-on{color:#111;font-weight:bold;border-bottom:2px solid #111}
-.cal-switch a{color:#0b5bd3;text-decoration:none;font-weight:bold}
-.cal-switch a:hover{text-decoration:underline}
-.filter-bar{font-family:var(--mono);font-size:12px;margin:10px 0 14px;border-bottom:1px solid var(--rule);padding-bottom:8px;line-height:1.8}
-.filter-bar span{color:var(--meta);margin-right:4px}
-.f-btn{display:inline;background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0;margin:0 4px 0 0;text-decoration:underline}
-.f-btn::before{content:'['}
-.f-btn::after{content:']'}
-.f-btn.active{color:#B0241E;font-weight:bold;text-decoration:none}
-.f-btn:hover{color:#333}
-#count-line{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:10px}
-.week-header{font-family:var(--mono);font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--text);
-  border-top:1px solid var(--border);margin:18px 0 8px;padding-top:6px}
-.event-row{padding:8px 0 8px 0;border-bottom:1px dotted var(--rule)}
-.event-row.past{opacity:0.87}
-.event-row.hidden{display:none}
-/* Distance fade: the further out the week group, the grayer the row.
-   Floor raised 2026-07-18 so the palest tier never renders lighter than
-   --dim (#8A8A85) on the --bg (#F9F8F6) page, dates were reading as
-   near-invisible at the old 0.55/0.68 opacities. */
-.event-row.fade-1{opacity:0.97}
-.event-row.fade-2{opacity:0.93}
-.event-row.fade-3{opacity:0.90}
-.event-row.fade-4{opacity:0.87}
-.event-meta{font-family:var(--mono);font-size:11px;color:var(--meta);margin-bottom:2px}
-.event-cat{text-transform:lowercase;margin-right:8px}
-.event-ages{margin-left:8px;color:#7a6b45}
-.event-title{font-size:14px;font-weight:bold;line-height:1.4}
-.event-title a{color:var(--text);text-decoration:none}
-.event-title a:visited{color:#333}
-.event-title a:hover{color:var(--link);text-decoration:underline}
-.event-venue{font-size:13px;color:var(--meta);margin-top:1px}
-.event-cost{font-family:var(--mono);font-size:11px;color:#555;margin-left:8px}
-.event-desc{font-size:13px;color:#333;margin-top:3px;line-height:1.5}
-.event-reg{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:2px}
-.event-link{font-family:var(--mono);font-size:11px;margin-top:3px}
-.event-link a::before{content:'→ '}
-.always-on{margin-top:28px}
-.ao-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0}
-.ao-item{padding:8px 12px 8px 0;border-bottom:1px dotted var(--rule)}
-.ao-cat{font-family:var(--mono);font-size:10px;text-transform:lowercase;color:var(--meta)}
-.ao-title{font-weight:bold;font-size:13px}
-.ao-title a{color:var(--text);text-decoration:none}
-.ao-title a:hover{color:var(--link);text-decoration:underline}
-.ao-location{font-size:12px;color:var(--meta)}
-.ao-desc{font-size:12px;color:#444;margin-top:2px;line-height:1.45}
-.ao-cost{font-family:var(--mono);font-size:11px;color:#555}
-.ao-ages{font-family:var(--mono);font-size:10px;color:#7a6b45}
-.cal-wrap{font-family:var(--mono);font-size:12px;border:1px solid var(--border);display:inline-block;padding:8px 10px;margin-bottom:14px;background:var(--bg)}
-.cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.cal-nav-btn{background:none;border:none;font:inherit;cursor:pointer;color:var(--link);padding:0 4px;font-size:13px}
-.cal-nav-btn:hover{color:#333}
-.cal-month-label{font-weight:bold;text-transform:uppercase;letter-spacing:1px;font-size:11px}
-.cal-grid{display:grid;grid-template-columns:repeat(7,28px);gap:1px 0}
-.cal-dh{text-align:center;color:var(--meta);font-size:10px;padding:2px 0}
-.cal-cell{width:28px;height:22px;text-align:center;line-height:22px;cursor:default;color:var(--meta);font-size:11px}
-.cal-cell.has-events{color:var(--text);cursor:pointer;text-decoration:underline;font-weight:bold}
-.cal-cell.has-events:hover{color:var(--link)}
-.cal-cell.today{background:#B0241E;color:var(--bg)}
-.cal-cell.today.has-events{background:#B0241E;color:var(--bg)}
-.cal-cell.selected{background:var(--link);color:#fff}
-.cal-cell.selected.today{background:var(--link);color:#fff}
-.cal-clear{font-size:10px;color:var(--link);cursor:pointer;text-decoration:underline;text-align:right;margin-top:3px;display:none}
-.cal-clear.visible{display:block}
-.footer{margin-top:32px;padding-top:10px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--meta)}
-.footer a{color:var(--meta)}
-.no-events{font-family:var(--mono);font-size:13px;color:var(--meta);padding:20px 0;text-align:center}
-@media(max-width:480px){body{padding:12px 12px 60px}.site-title{font-size:16px}}</style>
+.cal-skip{position:absolute;left:-999px;top:8px;background:var(--wr-ink);color:#fff;padding:10px 14px;font-family:var(--wr-meta);font-size:14px;z-index:5}
+.cal-skip:focus{left:12px;outline:3px solid var(--wr-seal)}
+.cal-switch{font-family:var(--wr-meta);font-size:14px;margin:8px 0 0}
+.cal-switch a{color:var(--wr-ink)}
+.cal-filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 6px}
+.cal-fgroup{font-family:var(--wr-meta);font-size:13px;color:var(--wr-slate);width:100%;margin-top:6px}
+.cal-f{min-height:44px;padding:8px 14px;border:1px solid var(--wr-ink);background:#fff;color:var(--wr-ink);font-family:var(--wr-meta);font-size:14px;line-height:1.2;cursor:pointer;border-radius:0}
+.cal-f[aria-pressed="true"]{background:var(--wr-ink);color:#fff}
+.cal-f[aria-pressed="true"]::before{content:"\2713\00a0"}
+.cal-f:focus-visible,.cal-list a:focus-visible,.cal-switch a:focus-visible{outline:3px solid var(--wr-seal);outline-offset:2px}
+.cal-count{font-family:var(--wr-meta);font-size:14px;color:var(--wr-slate);margin:8px 0 0}
+.cal-list{list-style:none;margin:0;padding:0}
+.cal .hub-row{align-items:flex-start;gap:12px;padding:12px 0}
+.cal .hub-row-key{font-family:var(--wr-meta);font-size:13px;font-weight:600;color:var(--wr-ink);min-width:88px;line-height:1.4;padding-top:2px}
+.cal .hub-row-key--muted{color:var(--wr-slate)}
+.cal .hub-row-title{font-family:var(--wr-text);font-size:17px;font-weight:600;line-height:1.35;color:var(--wr-ink);text-decoration:none}
+.cal a.hub-row-title:hover{text-decoration:underline}
+.cal .hub-row-meta{font-family:var(--wr-meta);font-size:13px;color:var(--wr-slate);line-height:1.5;margin-top:3px}
+.cal .hub-row-meta b{font-weight:600;color:var(--wr-ink)}
+.cal .cal-desc{font-family:var(--wr-text);font-size:14px;line-height:1.5;color:#333;margin-top:4px}
+.cal .cal-src{font-family:var(--wr-meta);font-size:13px;color:var(--wr-slate);margin-top:3px}
+.cal .cal-src a{color:inherit}
+.cal .cal-empty{font-family:var(--wr-meta);font-size:14px;color:var(--wr-slate);padding:10px 0}
+.cal .hub-row[hidden]{display:none}
+.cal-cat a{color:var(--wr-ink);text-decoration:none}
+.cal .hub-foot{font-size:13px}
+@media (max-width:420px){.cal .hub-row-key{min-width:74px}}
+</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
@@ -124,294 +61,643 @@ a:hover{text-decoration:none}
     gtag('config', 'G-HHENRPSK4D');
   </script>
 </head>
-<body>
+<body class="desk-hk-local desk-resource cal">
+<a class="cal-skip" href="#list">Skip to the list</a>
 <div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/science.html" class="nav-desk-link">Science</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link nav-desk-active">Calendars</a></div></nav>
-<div class="masthead">
-  <div class="masthead-row">
-    <div>
-      <div class="site-title">HK Kids Calendar</div>
-      <div class="site-sub">The Wang Report &mdash; Kids Activities &amp; Open Days</div>
-      <div class="cal-switch">calendar: <a href="/hk-adults-calendar/">&larr; adults</a> &middot; <span class="cal-switch-on">kids</span></div>
-    </div>
-    <div style="text-align:right">
-      <div class="site-meta">Updated: Tue, 8 Sept 2026</div>
-      <div class="site-meta">0 events in the next 8 weeks</div>
-    </div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+
+<header>
+  <div class="masthead"><h1 style="font:inherit;margin:0">KIDS CALENDAR</h1></div>
+  <div class="subhead">The Wang Report &middot; HK Desk &middot; Sep 8</div>
+</header>
+
+<main class="hub hub-resource" id="main">
+  <p class="hub-promise">What is on for children in Hong Kong, by date, with the venue, the price and the source on every row. Library and cultural programmes come straight from the LCSD open-data feed; the rest from the family sites the desk reads, labelled as such.</p>
+  <p class="cal-switch">Calendar: <strong>kids</strong> &middot; <a href="/hk-adults-calendar/">adults</a></p>
+
+  <div class="cal-filters" role="group" aria-label="Filter the list">
+  <button type="button" class="cal-f" data-kind="free" data-val="1" aria-pressed="false">Free</button>
+  <span class="cal-fgroup">Area</span><button type="button" class="cal-f" data-kind="area" data-val="Hong Kong Island" aria-pressed="false">Hong Kong Island</button><button type="button" class="cal-f" data-kind="area" data-val="Islands" aria-pressed="false">Islands</button><button type="button" class="cal-f" data-kind="area" data-val="Kowloon" aria-pressed="false">Kowloon</button><button type="button" class="cal-f" data-kind="area" data-val="New Territories" aria-pressed="false">New Territories</button>
+  <span class="cal-fgroup">Category</span><button type="button" class="cal-f" data-kind="cat" data-val="Libraries" aria-pressed="false">Libraries</button><button type="button" class="cal-f" data-kind="cat" data-val="Classes and Workshops" aria-pressed="false">Classes and Workshops</button><button type="button" class="cal-f" data-kind="cat" data-val="Music" aria-pressed="false">Music</button><button type="button" class="cal-f" data-kind="cat" data-val="Exhibitions" aria-pressed="false">Exhibitions</button><button type="button" class="cal-f" data-kind="cat" data-val="Festivals and Markets" aria-pressed="false">Festivals and Markets</button><button type="button" class="cal-f" data-kind="cat" data-val="Chinese Opera" aria-pressed="false">Chinese Opera</button>
+  <span class="cal-fgroup">Ages</span><button type="button" class="cal-f" data-kind="age" data-val="6 to 12" aria-pressed="false">6 to 12</button><button type="button" class="cal-f" data-kind="age" data-val="All ages" aria-pressed="false">All ages</button><button type="button" class="cal-f" data-kind="age" data-val="Teens" aria-pressed="false">Teens</button>
+  <span class="cal-fgroup"></span><button type="button" class="cal-f" id="cal-clear">Clear filters</button>
+</div>
+<p class="cal-count" id="cal-count" aria-live="polite">60 events listed, Sep 8 to Oct 13.</p>
+
+  <div id="list"></div>
+  <section id="weekend" aria-labelledby="weekend-h">
+  <div class="hub-head"><span class="hub-tag" id="weekend-h">This Weekend</span><span class="hub-head-link">Sep 12 to Sep 13</span></div>
+  <ol class="cal-list"><li class="hub-row" data-cat="Libraries" data-area="Islands" data-free="1" data-age="All ages" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-15">Sep 15</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=991" target="_blank" rel="noopener">Book Display - Guides for New Parents</a>
+    <div class="hub-row-meta">Mui Wo Public Library &middot; Islands &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=991" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
   </div>
-</div>
-
-<div class="filter-bar">
-  <span>show:</span>
-  <button class="f-btn active" data-cat="all">all</button>
-  <button class="f-btn" data-cat="Arts &amp; Culture">arts &amp; culture</button>
-  <button class="f-btn" data-cat="Museum">museum</button>
-  <button class="f-btn" data-cat="Government Open Day">open days</button>
-  <button class="f-btn" data-cat="Transport Experience">transport</button>
-  <button class="f-btn" data-cat="Indoor Playground">playgrounds</button>
-  <button class="f-btn" data-cat="Arts &amp; Crafts">crafts</button>
-  <button class="f-btn" data-cat="Baby &amp; Toddler">baby &amp; toddler</button>
-  <button class="f-btn" data-cat="Seasonal Event">seasonal</button>
-</div>
-
-<div class="cal-wrap" id="cal-widget">
-  <div class="cal-nav">
-    <button class="cal-nav-btn" id="cal-prev">&#9664;</button>
-    <span class="cal-month-label" id="cal-label"></span>
-    <button class="cal-nav-btn" id="cal-next">&#9654;</button>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Islands" data-free="1" data-age="All ages" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-19">Sep 19</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=996" target="_blank" rel="noopener">Family Storytelling</a>
+    <div class="hub-row-meta">10:00, 11:15 &middot; Tung Chung Public Library &middot; Islands &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Organised by Outlying Islands Women's Association, supported by Hong Kong Public Libraries</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=996" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
   </div>
-  <div class="cal-grid" id="cal-grid"></div>
-  <div class="cal-clear" id="cal-clear">&#215; show all dates</div>
-</div>
+</li>
+<li class="hub-row" data-cat="Exhibitions" data-area="Hong Kong Island" data-free="1" data-age="Teens" data-date="2026-09-08">
+  <span class="hub-row-key"><time datetime="2026-09-08">Sep 8</time> to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1032" target="_blank" rel="noopener">Roving Exhibition on Winning Entries (Hong Kong) of &quot;4．23 World Book Day Creative Competition&quot; in 2026 - &quot;Blissful Moments Between Pages&quot; - Junior Secondary Category (Chinese)</a>
+    <div class="hub-row-meta">Lockhart Road Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages Teens &middot; Exhibitions</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1032" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Exhibitions" data-area="New Territories" data-free="1" data-age="Teens" data-date="2026-09-08">
+  <span class="hub-row-key"><time datetime="2026-09-08">Sep 8</time> to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1045" target="_blank" rel="noopener">Roving Exhibition on Winning Entries (Shenzhen) of “4．23 World Book Day Creative Competition” in 2026 , “Blissful Moments Between Pages” - Junior Secondary Category</a>
+    <div class="hub-row-meta">Yuen Long Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages Teens &middot; Exhibitions</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1045" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories, Hong Kong Island, Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-19">Sep 19</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1044" target="_blank" rel="noopener">Storytelling for Children</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Tin Shui Wai North Public Library; Siu Sai Wan Public Library; Kowloon City Public Library and 11 more &middot; New Territories, Hong Kong Island, Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1044" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories, Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-19">Sep 19</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1015" target="_blank" rel="noopener">Storytelling for Children (Cantonese)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Lek Yuen Public Library; Ap Lei Chau Public Library; Pok Fu Lam Public Library &middot; New Territories, Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1015" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Islands" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-12">Sep 12</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=996" target="_blank" rel="noopener">Storytelling for Children (English)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Tung Chung Public Library &middot; Islands &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=996" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-19">Sep 19</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1033" target="_blank" rel="noopener">Storytelling for Children (in Cantonese)</a>
+    <div class="hub-row-meta">3:30, 4:30 &middot; Wong Nai Chung Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1033" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Music" data-area="New Territories" data-free="1" data-age="Teens" data-date="2026-09-12">
+  <span class="hub-row-key"><time datetime="2026-09-12">Sat, Sep 12</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="https://flashexchange.org.hk/" target="_blank" rel="noopener">The Youth Music Festival 2026</a>
+    <div class="hub-row-meta">11:00 to 17:00 &middot; Sha Tin Town Hall (Plaza) &middot; New Territories &middot; <b>Free</b> &middot; ages Teens &middot; Music</div>
+    <div class="cal-desc">Presented by Hong Kong Flash Exchange Association</div>
+    <div class="cal-src"><a href="https://flashexchange.org.hk/" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Classes and Workshops" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-13">Sep 13</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1028" target="_blank" rel="noopener">Parent-child Storytelling Workshops about “A Cultural Journey Through China: Prosperous Sui and Tang Dynasties” (Conducted in Cantonese, for children aged 4-12 with one of the parents)</a>
+    <div class="hub-row-meta">2:30, 4:00 &middot; Tsuen Wan Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Classes and Workshops</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1028" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-20">Sep 20</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">Storytelling for Children</a>
+    <div class="hub-row-meta">3:00, 4:00 &middot; Tuen Mun Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Islands" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-20">Sep 20</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=996" target="_blank" rel="noopener">Storytelling for Children (Cantonese)</a>
+    <div class="hub-row-meta">11:00, 12:00 &middot; Tung Chung Public Library &middot; Islands &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=996" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-20">Sep 20</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1001" target="_blank" rel="noopener">Storytelling for Children (Putonghua)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; North Kwai Chung Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1001" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li></ol>
+  <p class="cal-empty cal-none" hidden>No events match the filters in this section.</p>
+</section>
+  <section id="week" aria-labelledby="week-h">
+  <div class="hub-head"><span class="hub-tag" id="week-h">Next Seven Days</span><span class="hub-head-link">Sep 8 to Sep 15</span></div>
+  <ol class="cal-list"><li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-08">
+  <span class="hub-row-key"><time datetime="2026-09-08">Sep 8</time> to <time datetime="2026-09-22">Sep 22</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Exploring e-Reading (Junior)</a>
+    <div class="hub-row-meta">4:00 &middot; Tuen Mun Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island, New Territories" data-free="1" data-age="All ages" data-date="2026-09-08">
+  <span class="hub-row-key"><time datetime="2026-09-08">Tue, Sep 8</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=80" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Introduction to Self-services / e-Reading / Digital Collections (Junior)</a>
+    <div class="hub-row-meta">5:00 &middot; Smithfield Public Library; Tai Po Public Library &middot; Hong Kong Island, New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=80" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Music" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-11">
+  <span class="hub-row-key"><time datetime="2026-09-11">Fri, Sep 11</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="https://www.art-mate.net/tc/doc/98634" target="_blank" rel="noopener">Hong Kong Cultural Centre Free Organ Concert: Pipe Organ Through East and West - Under the Storytelling Moon</a>
+    <div class="hub-row-meta">20:00 &middot; Hong Kong Cultural Centre (Concert Hall) &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Music</div>
+    <div class="cal-desc">Programme Johann Sebastian Bach (1685 , 1750) Prelude and Fugue in C minor, BWV 546 I. Prelude Sigfrid Karg-Elert (1877 , 1933) Three New Impressions, Op. 142 I. Stimmen der Nacht Gabriel Pierné (1863 , 1937) Trois Pièces, Op. 29 II. Cantil</div>
+    <div class="cal-src"><a href="https://www.art-mate.net/tc/doc/98634" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li></ol>
+  <p class="cal-empty cal-none" hidden>No events match the filters in this section.</p>
+</section>
+  <section id="later" aria-labelledby="later-h">
+  <div class="hub-head"><span class="hub-tag" id="later-h">Later</span><span class="hub-head-link">to Oct 13</span></div>
+  <ol class="cal-list"><li class="hub-row" data-cat="Music" data-area="Kowloon" data-free="0" data-age="Teens" data-date="2026-09-19">
+  <span class="hub-row-key"><time datetime="2026-09-19">Sat, Sep 19</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="https://www.facebook.com/brassdebravissimo" target="_blank" rel="noopener">Bravissimo Youth Winds: Wind Dialogues</a>
+    <div class="hub-row-meta">19:30 &middot; Ngau Chi Wan Civic Centre (Cultural Activities Hall) &middot; Kowloon &middot; $120 &middot; ages Teens &middot; Music</div>
+    <div class="cal-desc">Presented by Brass De Bravissimo. Only for Age 3 or above</div>
+    <div class="cal-src"><a href="https://www.facebook.com/brassdebravissimo" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8 &middot; Tickets from 2026-08-21 00:00:00.000</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Music" data-area="New Territories" data-free="0" data-age="All ages" data-date="2026-09-19">
+  <span class="hub-row-key"><time datetime="2026-09-19">Sep 19</time> to <time datetime="2026-09-20">Sep 20</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="https://www.actorsfamily.hk/" target="_blank" rel="noopener">Chinese Culture Festival 2026: 'Pan Yu Lin' by Actors' Family</a>
+    <div class="hub-row-meta">19:30, 14:30 &middot; Kwai Tsing Theatre (Auditorium) &middot; New Territories &middot; $520 $400 $280 &middot; ages All ages &middot; Music</div>
+    <div class="cal-desc">Celebrating the life of Pan Yulin,China’s first female Westernstyle painter,this musical integrates drama, music, dance, visual art, and multimedia. It traces her journey from studying under Hong Ye, attending Shanghai’s Academy of Fine Art</div>
+    <div class="cal-src"><a href="https://www.actorsfamily.hk/" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8 &middot; Tickets from 2026-04-14 00:00:00.000</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Festivals and Markets" data-area="Hong Kong Island" data-free="0" data-age="6 to 12" data-date="2026-09-19">
+  <span class="hub-row-key"><time datetime="2026-09-19">Sep 19</time> to <time datetime="2026-09-27">Sep 27</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="https://zuniseason.org.hk/en/programme/5-elements-east-west-2026/" target="_blank" rel="noopener">Sheung Wan Civic Centre Venue Partnership Scheme: Chinese Culture Festival 2026: Children Arts Tech Music Theatre 〝5 Elements East West〞</a>
+    <div class="hub-row-meta">11:00, 16:00 &middot; Sheung Wan Civic Centre (Theatre) &middot; Hong Kong Island &middot; $340, $240* &middot; ages 6 to 12 &middot; Festivals and Markets</div>
+    <div class="cal-desc">5 Elements East West blends the interpretation of the Five Elements with the culture of the Central and Western District, leading you to discover the hidden Five Elements secrets hidden in Sheung Wan’s nooks and crannies. The theatrical per</div>
+    <div class="cal-src"><a href="https://zuniseason.org.hk/en/programme/5-elements-east-west-2026/" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8 &middot; Tickets from 2026-04-14 00:00:00.000</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Chinese Opera" data-area="Kowloon" data-free="0" data-age="6 to 12" data-date="2026-09-21">
+  <span class="hub-row-key"><time datetime="2026-09-21">Mon, Sep 21</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="https://www.lcsd.gov.hk/clpss/en/search/culture/DetailForm.do?id=185968" target="_blank" rel="noopener">Children's Cancer Foundation Charity Night</a>
+    <div class="hub-row-meta">19:15 &middot; Hong Kong Cultural Centre (Concert Hall) &middot; Kowloon &middot; $1000, $500, $360, $200, $100 &middot; ages 6 to 12 &middot; Chinese Opera</div>
+    <div class="cal-desc">Presented by Kam Yim Tong Cantonese Opera</div>
+    <div class="cal-src"><a href="https://www.lcsd.gov.hk/clpss/en/search/culture/DetailForm.do?id=185968" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li></ol>
+  <p class="cal-empty cal-none" hidden>No events match the filters in this section.</p>
+</section>
+  <section id="ongoing" aria-labelledby="ongoing-h">
+  <div class="hub-head"><span class="hub-tag" id="ongoing-h">Ongoing</span><span class="hub-head-link">started earlier, still running</span></div>
+  <ol class="cal-list"><li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-03">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-10">Sep 10</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1003" target="_blank" rel="noopener">Smart•Stylish•Fresh Experience Series - Introduction to Self-services / e-Reading / Digital Collections (Junior)</a>
+    <div class="hub-row-meta">6:00, 7:00 &middot; Tsing Yi Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1003" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-02">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-16">Sep 16</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1002" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Introduction to Self-services / e-Reading / Digital Collections (Junior)</a>
+    <div class="hub-row-meta">6:00, 7:00 &middot; South Kwai Chung Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1002" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="All ages" data-date="2026-09-04">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-18">Sep 18</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1042" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Introduction to Self-services/e-Reading/Digital Collections (Junior)</a>
+    <div class="hub-row-meta">4:00 &middot; Yau Ma Tei Public Library; Po On Road Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Jointly organised with the Hok Hoi Library</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1042" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories, Kowloon" data-free="1" data-age="All ages" data-date="2026-09-04">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-18">Sep 18</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Self-services with Ease (Junior)</a>
+    <div class="hub-row-meta">4:00 &middot; Tuen Mun Public Library; Kowloon Public Library &middot; New Territories, Kowloon &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="All ages" data-date="2026-09-04">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-18">Sep 18</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1022" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Self-services with Ease / Exploring e-Reading (Junior)</a>
+    <div class="hub-row-meta">3:00, 4:00 &middot; Aberdeen Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1022" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-07">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-21">Sep 21</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1030" target="_blank" rel="noopener">Smart・Stylish・Fresh Experience Series - Introduction to Self-services / e-Reading / Digital Collections (Junior)</a>
+    <div class="hub-row-meta">3:30 &middot; Tai Hing Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1030" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Exhibitions" data-area="New Territories" data-free="1" data-age="6 to 12, Teens" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-24">Sep 24</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=107337" target="_blank" rel="noopener">Roving Exhibition on Winning Entries of “Reading Supernova” of Reading Programme for Children and Youth in 2024-25</a>
+    <div class="hub-row-meta">Yuen Chau Kok Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12, Teens &middot; Exhibitions</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=107337" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12, Teens" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-26">Sep 26</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1020" target="_blank" rel="noopener">“Monthly Meeting of Joyful Reading” of Reading Programme for Children and Youth - Care for Animals (Family)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Po On Road Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12, Teens &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1020" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories, Kowloon, Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-26">Sep 26</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1045" target="_blank" rel="noopener">Storytelling for Children</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Yuen Long Public Library; San Po Kong Public Library; Kowloon Public Library and 10 more &middot; New Territories, Kowloon, Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1045" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories, Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-26">Sep 26</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1017" target="_blank" rel="noopener">Storytelling for Children (Cantonese)</a>
+    <div class="hub-row-meta">10:30, 11:30 &middot; Sha Tin Public Library; Yuen Chau Kok Public Library; Ma On Shan Public Library and 1 more &middot; New Territories, Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1017" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon, Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-26">Sep 26</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1042" target="_blank" rel="noopener">Storytelling for Children (English)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Yau Ma Tei Public Library; City Hall Public Library; Chai Wan Public Library &middot; Kowloon, Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1042" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-26">Sep 26</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1032" target="_blank" rel="noopener">Storytelling for Children (in English)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; Lockhart Road Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1032" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-05">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-26">Sep 26</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1002" target="_blank" rel="noopener">Storytelling for Children (Putonghua)</a>
+    <div class="hub-row-meta">2:00, 3:00 &middot; South Kwai Chung Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1002" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Classes and Workshops" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-27">Sep 27</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=77" target="_blank" rel="noopener">Parent-child Storytelling Workshops: Chinese Myth and Mystery (Conducted in Cantonese, for children aged 4 , 7 with one of their parents)</a>
+    <div class="hub-row-meta">11:00, 12:00 &middot; Hong Kong Central Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Classes and Workshops</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=77" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon, New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-27">Sep 27</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1021" target="_blank" rel="noopener">Storytelling for Children</a>
+    <div class="hub-row-meta">10:30, 11:30 &middot; Un Chau Street Public Library; Tsz Wan Shan Public Library; Tseung Kwan O Public Library and 12 more &middot; Kowloon, New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1021" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories, Islands" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-27">Sep 27</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1043" target="_blank" rel="noopener">Storytelling for Children (Cantonese)</a>
+    <div class="hub-row-meta">11:00, 12:00 &middot; Ping Shan Tin Shui Wai Public Library; Cheung Chau Public Library; Sha Tin Public Library &middot; New Territories, Islands &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1043" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island, New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-06">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-27">Sep 27</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1025" target="_blank" rel="noopener">Storytelling for Children (English)</a>
+    <div class="hub-row-meta">11:00, 12:00 &middot; Stanley Public Library; Tsing Yi Public Library &middot; Hong Kong Island, New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1025" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-07">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-28">Sep 28</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1001" target="_blank" rel="noopener">Smart•Stylish•Fresh Experience Series - Introduction to Self-services / e-Reading / Digital Collections (Junior)</a>
+    <div class="hub-row-meta">6:00, 7:00 &middot; North Kwai Chung Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1001" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1017" target="_blank" rel="noopener">Adult Library - Tips for Parenting</a>
+    <div class="hub-row-meta">Sha Tin Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1017" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="All ages" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=98300" target="_blank" rel="noopener">Book Display - Child Care</a>
+    <div class="hub-row-meta">Fanling South Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages All ages &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=98300" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=77" target="_blank" rel="noopener">Book Display - Children’s Library , Magic of Friendships</a>
+    <div class="hub-row-meta">Hong Kong Central Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=77" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1002" target="_blank" rel="noopener">Children’s Book Display - Amazing Dinosaurs</a>
+    <div class="hub-row-meta">South Kwai Chung Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1002" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1011" target="_blank" rel="noopener">Children’s Book Display - Bedtime Stories</a>
+    <div class="hub-row-meta">Sha Tau Kok Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1011" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1013" target="_blank" rel="noopener">Children’s Book Display - Brain Teasers and Puzzle</a>
+    <div class="hub-row-meta">Sai Kung Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1013" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=987" target="_blank" rel="noopener">Children’s Book Display - Brainstorming</a>
+    <div class="hub-row-meta">Quarry Bay Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=987" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=998" target="_blank" rel="noopener">Children’s Book Display - Children’s Library , “History of China”</a>
+    <div class="hub-row-meta">Kowloon Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=998" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1028" target="_blank" rel="noopener">Children’s Book Display - Children’s Library , Sports World</a>
+    <div class="hub-row-meta">Tsuen Wan Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1028" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1029" target="_blank" rel="noopener">Children’s Book Display - Chinese Ethical Stories</a>
+    <div class="hub-row-meta">Butterfly Estate Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1029" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">Children’s Book Display - Chinese Folktales</a>
+    <div class="hub-row-meta">Tuen Mun Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1031" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1022" target="_blank" rel="noopener">Children’s Book Display - Comic Books</a>
+    <div class="hub-row-meta">Aberdeen Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1022" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1044" target="_blank" rel="noopener">Children’s Book Display - Cosmic Quest</a>
+    <div class="hub-row-meta">Tin Shui Wai North Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1044" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=49553" target="_blank" rel="noopener">Children’s Book Display - Cybersecurity</a>
+    <div class="hub-row-meta">Shek Kip Mei Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=49553" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1008" target="_blank" rel="noopener">Children’s Book Display - Earth Protection</a>
+    <div class="hub-row-meta">Shui Wo Street Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1008" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1015" target="_blank" rel="noopener">Children’s Book Display - Engineering Miracles</a>
+    <div class="hub-row-meta">Lek Yuen Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1015" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1009" target="_blank" rel="noopener">Children’s Book Display - Ethical Stories</a>
+    <div class="hub-row-meta">Shun Lee Estate Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1009" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=220778" target="_blank" rel="noopener">Children’s Book Display - Exercise for Kids</a>
+    <div class="hub-row-meta">Sham Shui Po Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=220778" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1039" target="_blank" rel="noopener">Children’s Book Display - Exploring Marine World</a>
+    <div class="hub-row-meta">Fa Yuen Street Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1039" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Kowloon" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1005" target="_blank" rel="noopener">Children’s Book Display - Fairy Tales</a>
+    <div class="hub-row-meta">Lei Yue Mun Public Library &middot; Kowloon &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1005" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="Hong Kong Island" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=79" target="_blank" rel="noopener">Children’s Book Display - Four Seasons</a>
+    <div class="hub-row-meta">Shek Tong Tsui Public Library &middot; Hong Kong Island &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=79" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li>
+<li class="hub-row" data-cat="Libraries" data-area="New Territories" data-free="1" data-age="6 to 12" data-date="2026-09-01">
+  <span class="hub-row-key hub-row-key--muted">to <time datetime="2026-09-30">Sep 30</time></span>
+  <div class="hub-row-main">
+    <a class="hub-row-title" href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1030" target="_blank" rel="noopener">Children’s Book Display - Fun Moral Stories</a>
+    <div class="hub-row-meta">Tai Hing Public Library &middot; New Territories &middot; <b>Free</b> &middot; ages 6 to 12 &middot; Libraries</div>
+    <div class="cal-desc">Presented by Hong Kong Public Libraries (LCSD)</div>
+    <div class="cal-src"><a href="http://www.hkpl.gov.hk/en/extension-activities/all-events/search?lib_id=1030" target="_blank" rel="noopener">LCSD open data</a>, read Sep 8</div>
+  </div>
+</li></ol>
+  <p class="cal-empty cal-none" hidden>No events match the filters in this section.</p>
+</section>
 
-<div id="count-line"></div>
-<div id="events-list"></div>
+  <section id="bycat" aria-labelledby="bycat-h">
+  <div class="hub-head"><span class="hub-tag" id="bycat-h">By Category</span></div>
+  <ol class="cal-list"><li class="hub-row cal-cat"><span class="hub-row-key"><time datetime="2026-09-08">next Sep 8</time></span><div class="hub-row-main"><a class="hub-row-title" href="#cat=Libraries" data-setcat="Libraries">Libraries</a><div class="hub-row-meta">79 listed &middot; 79 free</div></div></li>
+<li class="hub-row cal-cat"><span class="hub-row-key"><time datetime="2026-09-08">next Sep 8</time></span><div class="hub-row-main"><a class="hub-row-title" href="#cat=Classes%20and%20Workshops" data-setcat="Classes and Workshops">Classes and Workshops</a><div class="hub-row-meta">8 listed &middot; 2 free</div></div></li>
+<li class="hub-row cal-cat"><span class="hub-row-key"><time datetime="2026-09-08">next Sep 8</time></span><div class="hub-row-main"><a class="hub-row-title" href="#cat=Music" data-setcat="Music">Music</a><div class="hub-row-meta">7 listed &middot; 5 free</div></div></li>
+<li class="hub-row cal-cat"><span class="hub-row-key"><time datetime="2026-09-08">next Sep 8</time></span><div class="hub-row-main"><a class="hub-row-title" href="#cat=Exhibitions" data-setcat="Exhibitions">Exhibitions</a><div class="hub-row-meta">3 listed &middot; 3 free</div></div></li>
+<li class="hub-row cal-cat"><span class="hub-row-key"><time datetime="2026-09-19">next Sep 19</time></span><div class="hub-row-main"><a class="hub-row-title" href="#cat=Festivals%20and%20Markets" data-setcat="Festivals and Markets">Festivals and Markets</a><div class="hub-row-meta">1 listed</div></div></li>
+<li class="hub-row cal-cat"><span class="hub-row-key"><time datetime="2026-09-21">next Sep 21</time></span><div class="hub-row-main"><a class="hub-row-title" href="#cat=Chinese%20Opera" data-setcat="Chinese Opera">Chinese Opera</a><div class="hub-row-meta">1 listed</div></div></li></ol>
+  <div class="hub-foot">Tap a category to filter the lists above.</div>
+  </section>
 
-<div class="always-on">
-  <div class="week-header">&#9472;&#9472;&#9472; Always Open &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
-  <div class="ao-grid" id="always-on-grid"></div>
-</div>
+  <section id="always" aria-labelledby="always-h">
+  <div class="hub-head"><span class="hub-tag" id="always-h">Always Open</span></div>
+  <ol class="cal-list"><li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.legolanddiscoverycentre.com/hong-kong/en/" target="_blank" rel="noopener">LEGOLAND Discovery Centre</a><div class="hub-row-meta">K11 MUSEA, TST &middot; From ~HK$240 &middot; ages 3-6 6-12</div><div class="cal-desc">30,000 sq ft LEGO playground. 4D Studio, Kingdom Quest, Merlin's Apprentice. Ages 3–10.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://kiztopia.com.hk/" target="_blank" rel="noopener">Kiztopia (5 Locations)</a><div class="hub-row-meta">Sha Tin, Wan Chai, TKO, AIRSIDE, Olympian City &middot; From HK$158/hr &middot; ages 0-3 3-6 6-12</div><div class="cal-desc">Award-winning edutainment. Up to 18 themed zones per location.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.epiclandhk.com/" target="_blank" rel="noopener">EpicLand Kai Tak</a><div class="hub-row-meta">Kai Tak Sports Park &middot; Paid &middot; ages 0-3 3-6 6-12</div><div class="cal-desc">14,000 sqft. Slides, ball pits, trampolines, mini-golf, laser tag.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.ryze.com.hk/" target="_blank" rel="noopener">Ryze Trampoline Park</a><div class="hub-row-meta">Quarry Bay &middot; From ~HK$180/hr &middot; ages 6-12</div><div class="cal-desc">Extreme jumping, foam pits, dodgeball, ninja courses. Ages 6+.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.kaitaksportspark.com.hk/venue/17" target="_blank" rel="noopener">Playfield 5, Kai Tak</a><div class="hub-row-meta">Kai Tak Sports Park (MTR Exit D) &middot; Free &middot; ages 3-6 6-12</div><div class="cal-desc">Free outdoor playground. Ziplines, trampolines, water play, sand, climbing wall.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.lcsd.gov.hk/en/facilities/facilitieslist.html" target="_blank" rel="noopener">GO PARK Sai Sha</a><div class="hub-row-meta">Sai Kung &middot; Free &middot; ages 3-6 6-12</div><div class="cal-desc">Outdoor playgrounds, pool, cycling, sports courts.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://hk.science.museum/" target="_blank" rel="noopener">Hong Kong Science Museum</a><div class="hub-row-meta">TST East &middot; HK$20 (free students) &middot; ages 3-6 6-12</div><div class="cal-desc">500+ interactive exhibits. 70%+ hands-on.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.lcsd.gov.hk/CE/Museum/Space/en/home/index.html" target="_blank" rel="noopener">Hong Kong Space Museum</a><div class="hub-row-meta">TST &middot; HK$10 (free students) &middot; ages 3-6 6-12</div><div class="cal-desc">Dome planetarium. Astronomy exhibits. Omnimax &amp; 3D films.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://hk.heritage.museum/en/web/hm/museums/railway.html" target="_blank" rel="noopener">Hong Kong Railway Museum</a><div class="hub-row-meta">Tai Po Market &middot; Free &middot; ages 0-3 3-6 6-12</div><div class="cal-desc">Free. Historic station, locomotives, coaches. Kids love the outdoor tracks.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://hkac.org.hk/en/kids_corner/" target="_blank" rel="noopener">HK Arts Centre, Kids Corner</a><div class="hub-row-meta">Wan Chai &middot; Paid &middot; ages 6-12</div><div class="cal-desc">Ceramics, painting, performing arts. Ages 5+. Term-based.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.klook.com/en-HK/activity/120210-kids-pottery-trial-class-under-the-stone-ceramics-workshop/" target="_blank" rel="noopener">Under The Stone, Kids Pottery</a><div class="hub-row-meta">Sai Ying Pun &middot; From ~HK$380 &middot; ages 6-12</div><div class="cal-desc">Weekend pottery for kids 6–12.</div></div></li>
+<li class="hub-row"><span class="hub-row-key hub-row-key--muted">Always on</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.bfriendbaumhaus.com/" target="_blank" rel="noopener">Baumhaus Family Centre</a><div class="hub-row-meta">Multiple locations &middot; Term-based &middot; ages 0-3</div><div class="cal-desc">Music-based playgroup for babies &amp; toddlers. Trial sessions.</div></div></li></ol>
+  <div class="hub-foot">Permanent venues the desk keeps on the list; check each venue's page for hours and prices.</div>
+  </section>
 
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div>
-<div class="footer">
-  THE WANG REPORT &mdash; HK KIDS CALENDAR &nbsp;|&nbsp;
-  <a href="/hk-adults-calendar/">HK ADULTS CALENDAR</a> &nbsp;|&nbsp;
-  <a href="/index.html">MAIN</a>
+  <div class="hub-foot"> Sources: <a href="https://data.gov.hk/en-data/dataset/hk-lcsd-event-event-cultural" target="_blank" rel="noopener">LCSD open data</a>: 156 listed, read Sep 8 &middot; <a href="https://www.lcsd.gov.hk/en/whats-on/index.html" target="_blank" rel="noopener">LCSD Events</a> (aggregator): 0 listed (fetch failed: HTTP 404). 99 programmes within 35 days after grouping repeats across venues, 60 shown (the lists are capped, the filters narrow them); every row names its source and the day the desk read it. Dates and prices come from the sources as published; nothing is inferred. Back to the <a href="/hk-local.html">HK Desk</a> or the <a href="/hk-adults-calendar/">Adults Calendar</a>.</div>
+</main>
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
+  THE WANG REPORT &copy; 2026
+  <br>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
+  <br>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 <script>
 (function(){
-const EVENTS    = [{"emoji":"🐱","title":"WestK FunFest 2026","startDate":"2026-03-19","endDate":"2026-04-12","time":"Various","location":"West Kowloon Cultural District","description":"120+ programmes: giant 10m inflatable cat (purrs when touched!), puppet theatre, baby music, dance, outdoor arts, FunFest Market.","cost":"Free entry (50%+ free), some ticketed","registration":"Tickets via westk.hk.","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.westk.hk/en/events/westkfunfest"},{"emoji":"👶","title":"WestK FunFest: Bob Marley for Babies","startDate":"2026-03-19","endDate":"2026-04-12","time":"Check schedule","location":"West Kowloon Cultural District","description":"Multi-sensory musical experience for infants up to 36 months.","cost":"Ticketed","registration":"Via West Kowloon website.","category":"Baby & Toddler","ages":"0-3","url":"https://www.westk.hk/en/events/westkfunfest"},{"emoji":"🍦","title":"Central Yards Edible Art Fair","startDate":"2026-03-26","endDate":"2026-04-05","time":"10am – 10pm","location":"Central Harbourfront Event Space","description":"10 immersive art galleries paired with edible surprises. Interactive.","cost":"From HK$800 family (2A+2K). Under 2 free.","registration":"Tickets at edibleartfair.com.","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.edibleartfair.com/"},{"emoji":"✈️","title":"Government Flying Service Open Day","startDate":"2026-03-29","endDate":null,"time":"All day","location":"Government Flying Service, Kai Tak","description":"Helicopter displays, equipment demos, VR experiences, flight simulator, game booths.","cost":"Free","registration":"Ballot-based. Register via GFS website.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.gfs.gov.hk/"},{"emoji":"🥚","title":"Discovery Bay Easter Egg Hunt","startDate":"2026-04-03","endDate":"2026-04-04","time":"Check schedule","location":"Tai Pak Beach, Discovery Bay","description":"19th annual. Ages 3–10 hunt eggs for 50,000+ prizes. DB Plaza Inflatable Funland through Apr 6.","cost":"Check DB website","registration":"Via Discovery Bay website.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.discoverybay.com.hk/"},{"emoji":"🌿","title":"Kadoorie Farm: Family Forest Eggscape","startDate":"2026-04-03","endDate":"2026-04-07","time":"Opening hours (closed Apr 4)","location":"Kadoorie Farm, Tai Po","description":"Stamp hunt through farm grounds to restore a Magic Egg. Visit animals and farmland.","cost":"Farm admission applies","registration":"Check kfbg.org.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.kfbg.org/"},{"emoji":"🚀","title":"Noah's Ark: Dream Intern Easter","startDate":"2026-04-03","endDate":"2026-04-12","time":"Check schedule","location":"Noah's Ark, Ma Wan Park","description":"Job simulations: firefighting, spacecraft piloting. Giant Rocket Slides.","cost":"Park admission","registration":"Check noahsark.com.hk.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.noahsark.com.hk/"},{"emoji":"🏖️","title":"Gold Coast Easter Playground","startDate":"2026-04-03","endDate":"2026-04-06","time":"Check schedule","location":"Gold Coast, Tuen Mun","description":"50,000 sq ft Easter playground. Egg hunt, Giant Egg Roll, carnival games, workshops.","cost":"Check website","registration":"Via Gold Coast website.","category":"Seasonal Event","ages":"3-6 6-12","url":"https://www.goldcoast.com.hk/"},{"emoji":"🔐","title":"Correctional Services Museum Open Day","startDate":"2026-04-11","endDate":null,"time":"All day","location":"Correctional Services Museum & Community Education Centre","description":"Museum tour, drill displays, equipment demos, working dog shows, VR experiences.","cost":"Free","registration":"Ballot-based. Register via CSD website.","category":"Government Open Day","ages":"6-12","url":"https://www.csd.gov.hk/"},{"emoji":"🚑","title":"Civil Aid Service HQ Open Day","startDate":"2026-04-11","endDate":null,"time":"All day","location":"Civil Aid Service Headquarters","description":"First aid demos, rescue drills, equipment displays, game booths.","cost":"Free","registration":"No tickets required, walk in.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.cas.gov.hk/"},{"emoji":"🚌","title":"KMB Depot Tour, Kowloon Bay (Apr 11)","startDate":"2026-04-11","endDate":null,"time":"10am, 12pm, or 2pm sessions","location":"KMB Kowloon Bay Depot, 9 Wang Kwong Rd","description":"Tour bus depot, bus wash, antique buses, maintenance education. Certificate & souvenirs. Cantonese.","cost":"HK$165 per person","registration":"Book at design1933.hk.","category":"Transport Experience","ages":"3-6 6-12","url":"https://www.design1933.hk/default/depot-tour.html"},{"emoji":"🎵","title":"WestK FunFest: Mushroom Fantasy","startDate":"2026-04-11","endDate":"2026-04-12","time":"Check schedule","location":"Xiqu Centre, West Kowloon","description":"Interactive theatrical performance.","cost":"Ticketed","registration":"Via West Kowloon website.","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.westk.hk/en/events/westkfunfest"},{"emoji":"👮","title":"\"Little Grape\" Police Park Open Day","startDate":"2026-04-12","endDate":null,"time":"All day","location":"Harcourt Garden, Admiralty (near Police HQ)","description":"Anti-scam themed park with police activities, game booths, photo ops. No tickets needed.","cost":"Free","registration":"No tickets required, walk in.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.police.gov.hk/"},{"emoji":"🔥","title":"Fire & Ambulance Services Academy Open Day","startDate":"2026-04-12","endDate":null,"time":"All day","location":"Fire & Ambulance Services Academy, Tseung Kwan O","description":"Flag-raising, fire & ambulance parade, live rescue demos, fire behaviour training, hazmat demo, fire dog show.","cost":"Free","registration":"Ballot-based. Register via HKFSD app. Max 4 tickets.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.hkfsd.gov.hk/eng/education/events/"},{"emoji":"🛂","title":"Immigration Service Open Day","startDate":"2026-04-18","endDate":null,"time":"All day","location":"Immigration Service Institute of Training & Development","description":"Behind-the-scenes training facility tour, drills, demos, equipment, game booths.","cost":"Free","registration":"Register Mar 23-30 via Immigration Dept website. Ballot-based.","category":"Government Open Day","ages":"6-12","url":"https://www.immd.gov.hk/"},{"emoji":"🎪","title":"Customs & Excise Department Open Day","startDate":"2026-04-18","endDate":null,"time":"All day","location":"HK Customs College, Tuen Mun","description":"National security exhibitions, carnival games, Dragon & Lion Dance, detector dogs, firearms display. Free shuttle buses from Tuen Mun & Tsuen Wan.","cost":"Free","registration":"Register Mar 30 – Apr 1. Ballot results Apr 10.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.customs.gov.hk/en/customs-announcement/whats-new/index_id_177.html"},{"emoji":"🚌","title":"KMB Depot Tour, Kowloon Bay (Apr 18)","startDate":"2026-04-18","endDate":null,"time":"10am, 12pm, or 2pm sessions","location":"KMB Kowloon Bay Depot, 9 Wang Kwong Rd","description":"Tour bus depot, bus wash, antique buses, maintenance education. Certificate & souvenirs. Cantonese.","cost":"HK$165 per person","registration":"Book at design1933.hk. All need tickets incl. infants.","category":"Transport Experience","ages":"3-6 6-12","url":"https://www.design1933.hk/default/depot-tour.html"},{"emoji":"📖","title":"Hong Kong Reading Week 2026, Parent-Child Activities at Hong Kong Reading+","startDate":"2026-04-18","endDate":"2026-04-26","time":"Various","location":"New Town Plaza, Sha Tin","description":"HKPL hosts parent-child reading sessions and handicraft workshops at the 2026 Hong Kong Reading+ fair; families can explore library electronic resources alongside author sharing sessions and parent-child workshops organised by the Hong Kong Publishing Federation.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"🏥","title":"Auxiliary Medical Service HQ Open Day","startDate":"2026-04-19","endDate":null,"time":"All day","location":"Auxiliary Medical Service Headquarters","description":"First aid demos, ambulance displays, equipment, VR experiences, game booths.","cost":"Free","registration":"No tickets required, walk in.","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.ams.gov.hk/"},{"emoji":"📚","title":"Hong Kong Reading Week 2026","startDate":"2026-04-20","endDate":"2026-04-26","time":"Various","location":"Public Libraries and community venues, Hong Kong (citywide)","description":"An annual citywide celebration encouraging children and families to discover the joy of reading, with storytelling sessions, reading challenges, and activities at public libraries across Hong Kong.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.hkpl.gov.hk/"},{"emoji":"📖","title":"Hong Kong Reading Week 2026, Parent-Child Activities","startDate":"2026-04-20","endDate":"2026-04-26","time":"Check website","location":"New Town Plaza, Sha Tin","description":"HKPL runs parent-child reading sessions and handicraft workshops as part of Reading Week 2026 (theme: Delight/LIBRARY). Families can explore library e-resources, attend author sharing sessions, and join hands-on workshops.","cost":"Check website","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📖","title":"Hong Kong Reading Week 2026, Parent-Child Workshops at New Town Plaza","startDate":"2026-04-20","endDate":"2026-04-26","time":"Various","location":"New Town Plaza, Sha Tin","description":"Hong Kong Public Libraries hosts handicraft workshops and parent-child reading activities as part of Reading Week 2026; the Hong Kong Publishing Federation runs parallel author sharing sessions and parent-child workshops at the same venue.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📖","title":"Hong Kong Reading Week 2026, Reading+ at New Town Plaza","startDate":"2026-04-21","endDate":"2026-04-26","time":"Various","location":"New Town Plaza, Sha Tin","description":"Parent-child reading activities, handicraft workshops, author sharing sessions, and family workshops as part of Hong Kong Reading Week. The HKPL also showcases electronic library resources on-site.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📚","title":"Hong Kong Reading Week 2026","startDate":"2026-04-22","endDate":"2026-04-26","time":"Various","location":"Hong Kong Public Libraries, multiple locations citywide","description":"Around 470 reading activities across public library branches under the theme 'Delight/LIBRARY', designed to nurture reading habits in all ages. Activities include programmes encouraging children to explore books and share the joy of reading.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"Check website"},{"emoji":"🌸","title":"On Flowers: Selected Paintings and Poems by Chao Shao-an","startDate":"2026-04-22","endDate":null,"time":"Various","location":"Hong Kong Heritage Museum, Sha Tin","description":"Exhibition of over 30 floral paintings by Lingnan School master Chao Shao-an, paired with poetic inscriptions. A hands-on 'Petals and Ink' handmade gift card workshop lets participants create floral-themed cards to share with family and friends.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"6-12","url":"Check website"},{"emoji":"📚","title":"Joyful Family Reading Carnival","startDate":"2026-04-23","endDate":null,"time":"Various","location":"East Kowloon Cultural Centre, Kowloon","description":"Children's book authors Amy Chai and Kathy Chan join artiste Poon Fong-fong to share stories with children; kids can retell stories through drawing and transform their artwork into animations using augmented reality projected onto a video wall.","cost":"Free","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📖","title":"Hong Kong Reading Week 2026, Parent-Child Activities at New Town Plaza","startDate":"2026-04-23","endDate":"2026-04-26","time":"Various","location":"New Town Plaza, Sha Tin","description":"Hong Kong Public Libraries hosts parent-child reading activities and handicraft workshops at the 2026 Hong Kong Reading+ fair, with author sharing sessions and interactive children's workshops also offered by the Hong Kong Publishing Federation.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📚","title":"Hong Kong Reading Week 2026, Parent-Child Workshops at New Town Plaza","startDate":"2026-04-24","endDate":"2026-04-26","time":"Various","location":"New Town Plaza, Sha Tin","description":"Handicraft workshops and parent-child reading activities run by Hong Kong Public Libraries as part of Reading Week 2026. Also features author sharing sessions and interactive displays encouraging kids to explore books.","cost":"Free","registration":"Walk-in","category":"Arts & Crafts","ages":"0-3 3-6 6-12","url":"Check LCSD website"},{"emoji":"🚌","title":"KMB Depot Tour, Sha Tin (Apr 25)","startDate":"2026-04-25","endDate":null,"time":"10am, 12pm, or 2pm sessions","location":"KMB Sha Tin Depot","description":"Tour bus depot, bus wash, antique buses, maintenance education. Certificate & souvenirs. Cantonese. Deep tour option at 2:30pm (HK$298).","cost":"HK$165 (standard) / HK$298 (deep tour)","registration":"Book at design1933.hk. Sells out fast.","category":"Transport Experience","ages":"3-6 6-12","url":"https://www.design1933.hk/default/depot-tour.html"},{"emoji":"🏆","title":"4.23 World Book Day Creative Competition Exhibition","startDate":"2026-04-25","endDate":"2026-05-03","time":"Various","location":"Exhibition Gallery, Hong Kong Central Library, Causeway Bay","description":"Winning artworks by students from Guangdong, Hong Kong, and Macao on the theme 'Blissful Moments Between Pages' are on display. Prize presentation ceremony held on the opening day.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"🎡","title":"ImagineLand Outdoor Music Carnival","startDate":"2026-04-25","endDate":"2026-04-26","time":"All day","location":"Hong Kong Cultural Centre Piazza & Salisbury Garden Central Lawn, Tsim Sha Tsui","description":"Free outdoor carnival with live music stages, art installations including the Pop Unboxed showcase, and a Funarts Corner for daytime family fun along the Victoria Harbour waterfront.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎨","title":"World Book Day Creative Competition Exhibition","startDate":"2026-04-25","endDate":"2026-05-03","time":"Check website","location":"Exhibition Gallery, Hong Kong Central Library, Causeway Bay","description":"Student artworks from Guangdong, Hong Kong and Macao on the theme 'Blissful Moments Between Pages' are on display; the prize presentation ceremony takes place on the opening day.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"🎡","title":"ImagineLand, Hong Kong Pop Culture Festival Outdoor Carnival","startDate":"2026-04-25","endDate":"2026-04-26","time":"All day (daytime and evening programmes)","location":"Hong Kong Cultural Centre Piazza & Salisbury Garden Central Lawn, Tsim Sha Tsui","description":"Free outdoor carnival with live music on two stages, pop art installations, and a Funarts Corner for families. Evening programme includes an outdoor film screening under the stars along the Victoria Harbour waterfront.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🏺","title":"Prosperity and Magnificence, Civilisation of the Sui and Tang Dynasties in Shaanxi Province","startDate":"2026-04-25","endDate":"2026-08-24","time":"Museum hours","location":"Hong Kong Museum of History, Tsim Sha Tsui","description":"Over 165 cultural relics from Shaanxi museums, including a white pottery dancing horse, painted dancer figurines, and gold reliquaries, bring Tang dynasty court life to life; 18 pieces are grade-one national treasures.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"6-12","url":"https://hk.history.museum"},{"emoji":"🏺","title":"Prosperity and Magnificence – Civilisation of the Sui and Tang Dynasties in Shaanxi Province","startDate":"2026-04-25","endDate":"2026-08-24","time":"All day","location":"Hong Kong Museum of History, Tsim Sha Tsui","description":"Over 165 artefacts including 18 grade-one national treasures bring the grandeur of the Tang dynasty to life, from painted dancing figurines to gold reliquaries. Free admission for all visitors.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"6-12","url":"https://hk.history.museum"},{"emoji":"🏛️","title":"Prosperity and Magnificence: Civilisation of the Sui and Tang Dynasties in Shaanxi Province","startDate":"2026-04-25","endDate":"2026-08-24","time":"Museum hours","location":"Hong Kong Museum of History, Tsim Sha Tsui","description":"Over 165 pieces/sets of cultural relics from more than 10 Shaanxi museums, including 18 grade-one national treasures such as a painted dancing figurine, white pottery horse, and gold reliquary. Kids can experience the splendour of ancient Tang dynasty court life through rare artefacts.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"6-12","url":"https://hk.history.museum"},{"emoji":"📚","title":"Hong Kong Reading Week Fun Day at HKCL","startDate":"2026-04-25","endDate":"2026-04-26","time":"Various","location":"Hong Kong Central Library, Causeway Bay","description":"Two days of family activities including magic workshops by Harry Wong, sand painting performances and workshops, and interactive sessions with guide dogs. The 'Miniature World of Hong Kong' exhibition and 'The Happiness Explorer' interactive book-recommender device are also on offer.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"🐕","title":"Pop-up Library @ Hong Kong Reading Week – Festival Walk","startDate":"2026-04-25","endDate":null,"time":"11am–7pm","location":"Festival Walk, Kowloon Tong","description":"Live storytelling by Story Ambassadors, a virtual-reality journey through literary classics, and book-reading sessions with professional therapy dogs in a pop-up library setting.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"🏛️","title":"Prosperity and Magnificence: Civilisation of the Sui and Tang Dynasties in Shaanxi","startDate":"2026-04-25","endDate":"2026-08-24","time":"All day","location":"Hong Kong Museum of History, Tsim Sha Tsui","description":"Over 165 artefacts from Shaanxi museums, including 18 grade-one national treasures such as a painted Tang dancer figurine and a white pottery dancing horse, tracing the grandeur of the Sui and Tang dynasties.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"6-12","url":"https://hk.history.museum"},{"emoji":"🎨","title":"ImagineLand – Funarts Corner & Pop Unboxed Outdoor Installation","startDate":"2026-04-25","endDate":"2026-04-26","time":"Daytime (check schedule)","location":"Hong Kong Cultural Centre Piazza & Salisbury Garden, Tsim Sha Tsui","description":"Outdoor installations and a Funarts Corner at the waterfront, featuring a 'Ten Brothers' art-toy showcase inspired by the classic folktale, film-themed photo spots, and street-style young musician performances.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🖼️","title":"The Hong Kong Jockey Club Series: Meet Mona Lisa & Portraying the Renaissance","startDate":"2026-04-30","endDate":null,"time":"Check website","location":"Hong Kong Heritage Museum, Sha Tin","description":"A multimedia immersive experience centred on the Mona Lisa alongside Renaissance treasures. Older children can explore Renaissance art and history through engaging exhibits.","cost":"Check website","registration":"Check website","category":"Museum","ages":"6-12","url":null},{"emoji":"🎩","title":"The Cat in the Hat","startDate":"2026-05-14","endDate":"2026-05-17","time":"2pm, 4:30pm or 5pm (varies by day)","location":"Rita Tong Liu Drama Theatre, Hong Kong Academy for Performing Arts, Wan Chai","description":"A 50-minute theatrical stage show based on the beloved Dr. Seuss classic. Children above age 3 may have the chance to meet the Cat in the Hat after the performance.","cost":"Check website","registration":"Book via URBTIX or HKAPA website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkapa.edu/"},{"emoji":"🚒","title":"New Territories North Disaster and Emergency Preparedness Day","startDate":"2026-05-17","endDate":null,"time":"All day","location":"New Territories North","description":"A community disaster and emergency preparedness day run by the Hong Kong Fire Services Department. Children can learn about fire safety and emergency response.","cost":"Free","registration":"Check website","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.hkfsd.gov.hk"},{"emoji":"🏺","title":"Proudly from Canton: The Muwen Tang Collection of Cantonese and Export Art","startDate":"2026-05-28","endDate":null,"time":"Museum hours","location":"Hong Kong Museum of Art, Tsim Sha Tsui","description":"Over 120 sets of Qing-dynasty Cantonese treasures, painted enamels, silverware, fans, ivory carvings and timepieces, tracing centuries of East-West trade and craftsmanship. A rich visual introduction to Guangdong's artistic heritage.","cost":"Check website","registration":"Walk-in","category":"Arts & Culture","ages":"6-12","url":"https://www.hkma.museum"},{"emoji":"🎵","title":"Hong Kong Youth Symphonic Band Annual Concert, Peter and the Wolf | Music Speaks, Stories Unfold","startDate":"2026-05-30","endDate":null,"time":"Check website","location":"Check website","description":"The Hong Kong Youth Symphonic Band performs Prokofiev's Peter and the Wolf, a beloved orchestral tale that narrates a story through instruments, a natural entry point for children into classical music.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🎵","title":"Hong Kong Youth Symphonic Band Annual Concert: Peter and the Wolf, Music Speaks, Stories Unfold","startDate":"2026-05-30","endDate":null,"time":"Check website","location":"Check website","description":"The Hong Kong Youth Symphonic Band performs Prokofiev's beloved children's classic Peter and the Wolf, bringing the story to life through live orchestral music.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🔬","title":"Hong Kong Science Museum Reopening","startDate":"2026-06-05","endDate":null,"time":"Check website","location":"Hong Kong Science Museum, Tsim Sha Tsui East","description":"The Hong Kong Science Museum reopens to the public following temporary closure. Features permanent and visiting interactive science and technology exhibits for families.","cost":"Check website","registration":"Walk-in","category":"Museum","ages":"3-6 6-12","url":"Check website"},{"emoji":"🏮","title":"10th Anniversary Fun Day@HK ICH Centre","startDate":"2026-06-13","endDate":"2026-06-14","time":"All day","location":"Hong Kong Intangible Cultural Heritage Centre, Sam Tung Uk Museum, Tsuen Wan","description":"Two-day cultural celebration showcasing diverse ethnic heritage through live ICH performances (Cantonese opera, unicorn dance, Nepali Teej) and free hands-on craft workshops. Kids can try patterned band weaving, make diffuser stones with auspicious animal designs, and stamp 10th anniversary postcards.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/en/ich/"},{"emoji":"🐴","title":"Journey of the Horse: A Legacy of Arts and Culture Light Show","startDate":"2026-06-13","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum (dome façade), Tsim Sha Tsui","description":"A looping 3-minute light projection on the Space Museum's iconic dome weaving horse imagery with intangible cultural heritage elements, Cantonese opera, calligraphy, and traditional festivals. Free to view from the Tsim Sha Tsui waterfront promenade.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"6-12","url":"https://hk.space.museum"},{"emoji":"🚒","title":"Yau Tsim Mong District Emergency Preparedness Event Day 2026 cum Tsim Sha Tsui Fire Station Open Day","startDate":"2026-06-14","endDate":null,"time":"Check website","location":"Tsim Sha Tsui Fire Station, Yau Tsim Mong","description":"Annual Fire Services Department open day featuring emergency preparedness activities and a chance to explore Tsim Sha Tsui Fire Station up close.","cost":"Check website","registration":"Check website","category":"Government Open Day","ages":"3-6 6-12","url":""},{"emoji":"🐴","title":"Journey of the Horse: A Legacy of Arts and Culture Light Show","startDate":"2026-06-14","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum, Tsim Sha Tsui","description":"A looping light projection onto the iconic dome façade of the Space Museum blending horse-themed museum exhibits, astronomy, and intangible cultural heritage elements including Cantonese opera, traditional festive celebrations, and blown sugar techniques.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🐴","title":"Journey of the Horse: A Legacy of Arts and Culture, Light Show","startDate":"2026-06-14","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum (dome façade), Tsim Sha Tsui","description":"A looping 3-minute light projection on the Space Museum's iconic dome showcasing horses, astronomy, and intangible cultural heritage elements including Cantonese opera and traditional festive celebrations. Free to watch from the outside plaza.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🐴","title":"Journey of the Horse: A Legacy of Arts and Culture Light Show","startDate":"2026-06-16","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum, Tsim Sha Tsui","description":"Free outdoor light projection show on the Space Museum's iconic dome façade, weaving horse-themed museum exhibits with astronomy and intangible cultural heritage elements including Cantonese opera and traditional festive imagery. The looping three-minute display offers an immersive visual feast for families passing through Tsim Sha Tsui.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🐴","title":"Journey of the Horse: A Legacy of Arts and Culture Light Show","startDate":"2026-06-17","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum (dome façade), Tsim Sha Tsui","description":"A free nightly light projection onto the Space Museum's dome weaving horse-themed museum exhibits with astronomy and intangible cultural heritage elements including Cantonese opera and blown sugar art. The looping 3-minute show is part of Hong Kong ICH Month 2026 (event originally started June 11).","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🐎","title":"Journey of the Horse: A Legacy of Arts and Culture Light Show","startDate":"2026-06-20","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum, Tsim Sha Tsui","description":"A free outdoor light projection onto the Space Museum's iconic dome blending horse imagery with intangible cultural heritage elements including Cantonese opera, traditional festive scenes, and astronomy. The three-minute show loops continuously.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎑","title":"ICH Cuisine Carnival","startDate":"2026-06-20","endDate":"2026-06-21","time":"Check website","location":"Oil Street Art Space, North Point","description":"Hands-on demonstrations and workshops in traditional food-making techniques including rice dumplings, egg tarts, moon cakes and HK-style milk tea. Also features ICH game booths, face painting, dragon dance and Nanyin performances.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🐴","title":"Journey of the Horse Light Show","startDate":"2026-06-20","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum (dome façade), Tsim Sha Tsui","description":"Free outdoor light projection show looping every ~3 minutes on the Space Museum's iconic dome, weaving together horse imagery, astronomy, Cantonese opera and other intangible cultural heritage elements. Runs nightly until June 24.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚒","title":"Tsuen Wan District Disaster and Emergency Preparedness Carnival 2026","startDate":"2026-06-21","endDate":"2026-06-21","time":"Check website","location":"Tsuen Wan District","description":"A Fire Services Department public education carnival on disaster and emergency preparedness. Children can learn about emergency response through interactive carnival-style activities.","cost":"Check website","registration":"Check website","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.hkfsd.gov.hk/eng/publicity/event.html"},{"emoji":"🐎","title":"Journey of the Horse: A Legacy of Arts and Culture Light Show","startDate":"2026-06-21","endDate":"2026-06-24","time":"8:15pm–10pm","location":"Hong Kong Space Museum, Tsim Sha Tsui","description":"A free outdoor light projection on the iconic dome of the Hong Kong Space Museum blending horse imagery, astronomy and intangible cultural heritage into an immersive evening visual show. Families can watch from the Tsim Sha Tsui waterfront promenade.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🛝","title":"TuniTuni Tai Koo, Fourth Center Opening","startDate":"2026-06-26","endDate":null,"time":"Check website","location":"TuniTuni, Tai Koo","description":"TuniTuni opens its fourth Hong Kong indoor play centre in Tai Koo, offering a dedicated soft-play and activity space for babies and young children.","cost":"Check website","registration":"Check website","category":"Indoor Playground","ages":"0-3 3-6","url":"https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVdIBswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVQ"},{"emoji":"🏃","title":"TuniTuni Tai Koo Grand Opening","startDate":"2026-06-26","endDate":null,"time":"Check website","location":"Tai Koo, Hong Kong Island","description":"TuniTuni opens its fourth Hong Kong centre in Tai Koo, offering indoor active play for young children. Expect climbing, slides, and structured play zones across their signature format.","cost":"Check website","registration":"Check website","category":"Indoor Playground","ages":"0-3 3-6","url":"https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVdIBswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVQ"},{"emoji":"🎠","title":"TuniTuni Hong Kong Fourth Centre Opening, Tai Koo","startDate":"2026-06-26","endDate":null,"time":"Check website","location":"TuniTuni Tai Koo, Tai Koo","description":"TuniTuni opens its fourth Hong Kong indoor play centre in Tai Koo, expanding its soft-play and activity zones for young children. Families can visit on and after opening day.","cost":"Check website","registration":"Check website","category":"Indoor Playground","ages":"0-3 3-6 6-12","url":"https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVdIBswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVQ?oc=5"},{"emoji":"🎪","title":"TuniTuni Tai Koo, Fourth Centre Opening","startDate":"2026-06-26","endDate":null,"time":"Check website","location":"Tai Koo, Hong Kong Island","description":"TuniTuni opens its fourth Hong Kong location in Tai Koo, offering an indoor play environment for young children with structured play zones and age-appropriate activities.","cost":"Check website","registration":"Check website","category":"Indoor Playground","ages":"0-3 3-6","url":"https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVdIBswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVQ?oc=5"},{"emoji":"🛝","title":"TuniTuni Hong Kong, New Tai Koo Centre Opening","startDate":"2026-06-26","endDate":null,"time":"Check website","location":"Tai Koo, Eastern District","description":"TuniTuni opens its fourth Hong Kong location in Tai Koo, offering its signature indoor play environment for young children. Check the venue for opening-day activities and admission details.","cost":"Check website","registration":"Check website","category":"Indoor Playground","ages":"0-3 3-6","url":"https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVdIBswFBVV95cUxNSmRwTExFXzdyX3FycndOQ3N4bE0tWnFZWW9tYjBfUFVXT3ZRb05XbVlHVG9EeHFYdjFDVmVqQmZjN1VpakNPTkU4cE1XME44MEcxaHpoUmV2bGJNR1c2YXJGNmdYREV4Yno4Mlg0Mm1fNlVyNF9qN05yT3BsWGZDN2FlbnZ1SDlFS1gzYXV4Ul9GcXV1WnpQaG1RcmJRTzk5X2hvSG04V0swR1dYcEl6TjVRVQ?oc=5"},{"emoji":"🐒","title":"Journeys to the West: Cinematic Dialogues Across Time","startDate":"2026-06-27","endDate":"2026-07-11","time":"Various","location":"East Kowloon Cultural Centre, Kowloon Bay; Hong Kong Film Archive, Sai Wan Ho","description":"Six classic film adaptations of Journey to the West spanning different eras, including 4K-restored Stephen Chow comedies and Shaw Brothers spectacles with the Monkey King. Best suited to older children already familiar with the story.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"6-12","url":null},{"emoji":"🎨","title":"M+ Interactive Family Exhibition","startDate":"2026-06-27","endDate":null,"time":"Various","location":"M+, West Kowloon","description":"An interactive and family-friendly exhibition at M+ museum encouraging children and adults to play and explore together through hands-on activities.","cost":"Check website","registration":"Check website","category":"Museum","ages":"3-6 6-12","url":"https://www.mplus.org.hk"},{"emoji":"🎭","title":"Encountering Chinese Culture, Performing Arts Carnival","startDate":"2026-06-28","endDate":"2026-06-28","time":"2pm","location":"L3 Atrium, Metroplaza, Kwai Fong","description":"Free community carnival featuring Kunqu opera excerpts with interactive movement segments, Inner Mongolian throat singing, and traditional Chinese dance. Kids can try basic Kunqu stylised movements guided by performers.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎭","title":"Chinese Culture Festival 2026, \"Encountering Chinese Culture\" Performing Arts Carnival","startDate":"2026-06-28","endDate":"2026-06-28","time":"Check website","location":"Kwai Fong","description":"A performing arts carnival celebrating Chinese culture, suitable for families with children to experience traditional arts and performances.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.info.gov.hk/gia/general/202606/22/P2026062200558.htm"},{"emoji":"🎭","title":"\"Encountering Chinese Culture\" Performing Arts Carnival","startDate":"2026-06-28","endDate":"2026-06-28","time":"2pm","location":"L3 Atrium, Metroplaza, Kwai Fong","description":"Free community carnival featuring Chinese opera, Mongolian music, throat singing, and dance performances. Includes an interactive Kunqu opera segment where families can try traditional stylised movements with performers.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/en/ccf2026/"},{"emoji":"🎭","title":"Encountering Chinese Culture Performing Arts Carnival","startDate":"2026-06-28","endDate":"2026-06-28","time":"2pm onwards","location":"L3 Atrium, Metroplaza, Kwai Fong","description":"Free outdoor carnival featuring Kunqu opera performances with an interactive segment where families can learn basic traditional movements guided by performers. Also includes music and dance showcasing Chinese intangible cultural heritage.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎭","title":"Encountering Chinese Culture – Performing Arts Carnival","startDate":"2026-06-28","endDate":"2026-06-28","time":"2pm onwards","location":"L3 Atrium, Metroplaza, Kwai Fong","description":"Free outdoor arts carnival featuring Kunqu opera, Mongolian music, and dance performances with an interactive segment where families can learn basic Kunqu movements with the performers.","cost":"Free","registration":"Walk-in","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎉","title":"Free Use of Leisure and Cultural Facilities, HKSAR 29th Anniversary","startDate":"2026-07-01","endDate":"2026-07-01","time":"All day","location":"Various leisure and cultural facilities, Hong Kong","description":"Government leisure and cultural facilities are open free of charge to celebrate the 29th anniversary of the establishment of the HKSAR. Families can visit parks, sports centres, museums, and cultural venues at no cost.","cost":"Free","registration":"Walk-in","category":"Seasonal Event","ages":"0-3 3-6 6-12","url":"https://www.info.gov.hk/gia/general/202606/09/P2026060900636.htm"},{"emoji":"🚇","title":"July 1 Free Public Transport","startDate":"2026-07-01","endDate":"2026-07-01","time":"All day","location":"Citywide, Hong Kong","description":"On SAR Establishment Day, public transport (MTR, buses, ferries) runs free for all passengers. A cost-free day for families to explore the city.","cost":"Free","registration":"Walk-in","category":"Transport Experience","ages":"0-3 3-6 6-12","url":"https://news.google.com/rss/articles/CBMioAFBVV95cUxNQmJmeHlvQm5LOGVGdzUzeVpKcUFBQ2EweFRKVjlPclhLeWN5NkplNjZIY054VFdRcXJuMUdCZmFab0hSYkJCcV9RamtQN3M5bklOak1EdmpFLWdQSS11QUhwT1pHQkNzem92eXdPM1A4TFBIWFFNSzVxNW4xRkxucFVxLVBYRURGQkpicDNxUThIM3NhNU9LbEhTNXRsc2NZ?oc=5"},{"emoji":"🏛️","title":"July 1 Free Museum Admission","startDate":"2026-07-01","endDate":"2026-07-01","time":"Museum opening hours","location":"Various government museums, Hong Kong","description":"Government-run museums waive admission fees on SAR Establishment Day. Kids can explore science, history, and art exhibits at no cost.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"0-3 3-6 6-12","url":"https://news.google.com/rss/articles/CBMioAFBVV95cUxNQmJmeHlvQm5LOGVGdzUzeVpKcUFBQ2EweFRKVjlPclhLeWN5NkplNjZIY054VFdRcXJuMUdCZmFab0hSYkJCcV9RamtQN3M5bklOak1EdmpFLWdQSS11QUhwT1pHQkNzem92eXdPM1A4TFBIWFFNSzVxNW4xRkxucFVxLVBYRURGQkpicDNxUThIM3NhNU9LbEhTNXRsc2NZ?oc=5"},{"emoji":"🏛️","title":"July 1 SAR Day, Free Museums & Public Transport","startDate":"2026-07-01","endDate":null,"time":"All day","location":"Government museums and public transport, Hong Kong","description":"On Hong Kong SAR Establishment Day, government-run museums offer free admission and public transport runs free for all passengers, a great day to bring kids to science, history, or space museums.","cost":"Free","registration":"Walk-in","category":"Museum","ages":"0-3 3-6 6-12","url":"https://news.google.com/rss/articles/CBMioAFBVV95cUxNQmJmeHlvQm5LOGVGdzUzeVpKcUFBQ2EweFRKVjlPclhLeWN5NkplNjZIY054VFdRcXJuMUdCZmFab0hSYkJCcV9SamtQN3M5bklOak1EdmpFLWdQSS11QUhwT1pHQkNzem92eXdPM1A0TFBIWFFNSzVxNW4xRkxucFVxLVBYRURGQkpicDNxUThIM3NhNU9LbEhTNXRsc2NZ?oc=5"},{"emoji":"🎉","title":"July 1 Freebies: Free Transport, Museums, and Dining Perks","startDate":"2026-07-01","endDate":"2026-07-01","time":"All day","location":"Various venues, Hong Kong","description":"On Hong Kong SAR Establishment Day, families can enjoy free public transport, free museum entry, and dining perks across the city. A great low-cost day out for kids of all ages.","cost":"Free","registration":"Walk-in","category":"Government Open Day","ages":"0-3 3-6 6-12","url":"https://news.google.com/rss/articles/CBMioAFBVV95cUxNQmJmeHlvQm5LOGVGdzUzeVpKcUFBQ2EweFRKVjlPclhLeWN5NkplNjZIY054VFdRcXJuMUdCZmFab0hSYkJCcV9SamtQN3M5bklOak1EdmpFLWdQSS11QUhwT1pHQkNzem92eXdPM1A0TFBIWFFNSzVxNW4xRkxucFVxLVBYRURGQkpicDNxUThIM3NhNU9LbEhTNXRsc2NZ?oc=5"},{"emoji":"🏛️","title":"Electoral Information Centre Open Day – 29th Anniversary of HKSAR Establishment","startDate":"2026-07-01","endDate":"2026-07-01","time":"Check website","location":"Electoral Information Centre, Hong Kong","description":"A public open day celebrating the 29th anniversary of the establishment of the HKSAR. Families can learn about Hong Kong's electoral system and civic institutions.","cost":"Free","registration":"Walk-in","category":"Government Open Day","ages":"6-12","url":"https://www.info.gov.hk/gia/general/202406/24/P2026062400517.htm"},{"emoji":"🚀","title":"Starchitects (International Arts Carnival)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"LCSD venue, Hong Kong (Check website for exact venue)","description":"UK's Motionhouse presents an acrobatic theatre production themed around space exploration, combining digital projection, anti-gravity choreography and aerial acrobatics for a fantastical outer-space journey. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from 2026-05-15; check LCSD website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚀","title":"Starchitects, International Arts Carnival","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check LCSD website, Hong Kong","description":"Acrobatic theatre by UK's Motionhouse blending digital projection, anti-gravity choreography and aerial acrobatics on a space exploration theme. Winner of Best Family Arts Activity at the UK Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from 2026-05-15 via LCSD","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚀","title":"Starchitects (International Arts Carnival opening)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Venue TBC, check LCSD website","description":"Award-winning acrobatic theatre by UK's Motionhouse combining digital projection, anti-gravity choreography and aerial acrobatics for a fantastical outer-space journey. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale 2026-05-15 via LCSD","category":"Arts & Culture","ages":"6-12","url":null},{"emoji":"🚀","title":"Starchitects, International Arts Carnival Opening","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Venue TBC, check IAC listings, Hong Kong","description":"UK company Motionhouse brings an acrobatic theatre production about space exploration, combining digital projection, anti-gravity choreography and aerial acrobatics. Winner of the Best Family Arts Activity award at the UK's Fantastic for Families Awards 2023.","cost":"Ticketed, on sale from 2026-05-15","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚀","title":"International Arts Carnival – Starchitects (Opening Programme)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check website (IAC venue, Hong Kong)","description":"Award-winning UK acrobatic theatre production by Motionhouse combining digital projection, anti-gravity choreography and aerial acrobatics for a fantastical outer-space journey on stage. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Ticketed – check website","registration":"Tickets on sale from 2026-05-15 via LCSD / URBTIX","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🚀","title":"Starchitects – Motionhouse (International Arts Carnival)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check website, Hong Kong","description":"Award-winning UK acrobatic theatre production themed around space exploration, blending digital projection, anti-gravity choreography and aerial acrobatics into a fantastical family show. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from May 15 via LCSD","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🚀","title":"Starchitects – International Arts Carnival","startDate":"2026-07-10","endDate":"2026-07-12","time":"Check website","location":"LCSD venue, Hong Kong (TBC)","description":"UK acrobatic theatre company Motionhouse combines digital projection, anti-gravity choreography and aerial acrobatics in a fantastical outer-space journey. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from 15 May via LCSD ticketing","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🚀","title":"Starchitects (IAC Opening) – Motionhouse","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check website (Hong Kong)","description":"UK acrobatic theatre production combining digital projection, anti-gravity choreography and aerial acrobatics in a space-exploration story. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from 2026-05-15","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🚀","title":"Starchitects – Acrobatic Theatre (International Arts Carnival Opening)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check website (LCSD venue, Hong Kong)","description":"UK company Motionhouse presents an award-winning acrobatic theatre show themed around space exploration, combining digital projection, anti-gravity choreography and aerial acrobatics. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from 15 May 2026 via URBTIX; check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkiac.gov.hk"},{"emoji":"🚀","title":"IAC: Starchitects by Motionhouse (UK)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check website, Hong Kong","description":"Award-winning acrobatic theatre production themed around space exploration, blending digital projection, anti-gravity choreography, and aerial acrobatics into a fantastical stage journey. Winner of Best Family Arts Activity at the UK's Fantastic for Families Awards 2023.","cost":"Ticketed","registration":"Tickets on sale from 2026-05-15; check LCSD website","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🚀","title":"International Arts Carnival – Starchitects (Motionhouse, UK)","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check website, Hong Kong","description":"Acrobatic theatre by UK's Motionhouse blending digital projection, anti-gravity choreography and aerial acrobatics into a fantastical outer-space journey on stage. Winner of the Fantastic for Families Award 2023.","cost":"Check website","registration":"Tickets on sale from 2026-05-15, Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚀","title":"Starchitects – International Arts Carnival Opening","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"Check LCSD website for venue, Hong Kong","description":"Award-winning acrobatic theatre by UK's Motionhouse combining digital projection, anti-gravity choreography and aerial acrobatics on a space-exploration theme. Winner of Best Family Arts Activity at the Fantastic for Families Awards 2023.","cost":"Check website","registration":"Tickets on sale from 2026-05-15 via LCSD","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚀","title":"International Arts Carnival: Starchitects","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"TBC, LCSD venue, Hong Kong","description":"UK company Motionhouse brings an award-winning acrobatic theatre show about space exploration, combining aerial acrobatics, anti-gravity choreography, and digital projection. Winner of Best Family Arts Activity at the UK Fantastic for Families Awards 2023.","cost":"Ticketed, check LCSD website","registration":"Tickets on sale from 2026-05-15 via LCSD","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎪","title":"International Arts Carnival 2026","startDate":"2026-07-10","endDate":null,"time":"Various","location":"Various venues, Hong Kong","description":"Over 100 performances spanning acrobatics, dance, music and theatre from UK, Spain, Canada, Korea and Hong Kong artists. Includes an interactive show specifically for toddlers aged 1–3 (Canada's Théâtre Motus 'Tree') and multiple award-winning family productions.","cost":"Ticketed (varies by show)","registration":"Tickets on sale from May 15 via LCSD ticketing","category":"Arts & Culture","ages":"0-3 3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🚀","title":"Starchitects by Motionhouse – IAC Opening Show","startDate":"2026-07-10","endDate":"2026-07-12","time":"Various","location":"To be confirmed, Hong Kong","description":"UK company Motionhouse presents an acrobatic theatre production about space exploration combining digital projection, anti-gravity choreography and aerial acrobatics. Hong Kong premiere of the winner of Best Family Arts Activity at the 2023 Fantastic for Families Awards (UK).","cost":"Ticketed","registration":"Tickets on sale from May 15 via LCSD ticketing","category":"Arts & Culture","ages":"6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"🎬","title":"Summer Family Cine Fest","startDate":"2026-07-11","endDate":"2026-08-16","time":"Various","location":"Hong Kong Film Archive; Hong Kong City Hall; Hong Kong Science Museum; Hong Kong Space Museum","description":"Over 40 family film screenings featuring animated stories about friendship, courage and adventure, including new international titles about animals, ocean conservation and family secrets. Part of the International Arts Carnival.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":null},{"emoji":"🎬","title":"Summer Family Cine Fest (International Arts Carnival)","startDate":"2026-07-11","endDate":"2026-08-16","time":"Various","location":"Hong Kong Film Archive / Hong Kong City Hall / Hong Kong Science Museum / Hong Kong Space Museum","description":"Over 40 family film screenings featuring animated and children's features from around the world, including new titles about animals, adventure and friendship. Part of the LCSD International Arts Carnival.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkiac.gov.hk"},{"emoji":"🎬","title":"Summer Family Cine Fest 2026","startDate":"2026-07-11","endDate":"2026-08-16","time":"Various","location":"Hong Kong Film Archive (Sai Wan Ho), Hong Kong City Hall, Hong Kong Science Museum (Tsim Sha Tsui), Hong Kong Space Museum (Tsim Sha Tsui)","description":"Over 40 family film screenings including animated animal adventures like Mumbo Jumbo, Tummy Tom 2, The Last Whale Singer and Miss Moxy. Part of the International Arts Carnival.","cost":"Check website","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"Check website"},{"emoji":"🎬","title":"Summer of Light: Cinema in Motion","startDate":"2026-07-11","endDate":"2026-07-12","time":"Various","location":"Sai Wan Ho Civic Centre, Sai Wan Ho","description":"Kids can join a sea world light painting workshop, make fan masks decorated with colourful sea creatures, and watch a curated selection of animated short films. Mix of ticketed workshops and free drop-in zones.","cost":"Free (some ticketed workshops)","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/fp/en/listing.html?id=94"},{"emoji":"🚒","title":"Sai Kung District Emergency Preparedness Event Day cum Po Lam Fire Station Open Day 2026","startDate":"2026-07-12","endDate":null,"time":"Check website","location":"Po Lam Fire Station, Sai Kung","description":"Families can tour the fire station, view fire engines and rescue equipment, and learn emergency preparedness and fire safety tips through interactive displays.","cost":"Free","registration":"Check website","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.hkfsd.gov.hk"},{"emoji":"📚","title":"Summer Library Festival 2026 – Stone Houses Family Garden Outreach Activities","startDate":"2026-07-25","endDate":"2026-07-26","time":"Check website","location":"Stone Houses Family Garden, Kowloon City","description":"Parents and children can join guided outreach activities organised with Q plus A Art Foundation as part of the Summer Library Festival, held at this Grade III historic building site.","cost":"Free","registration":"Check website","category":"Arts & Crafts","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📚","title":"Summer Library Festival 2026 – Outreach Activities at Stone Houses Family Garden","startDate":"2026-07-25","endDate":"2026-07-26","time":"Check website","location":"Stone Houses Family Garden, Kowloon City","description":"Guided activities organised by the Hong Kong Public Libraries with Q plus A Art Foundation as part of the Summer Library Festival, held at this Grade III historic building site.","cost":"Free","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📚","title":"Summer Library Festival 2026 Outreach Activities at Stone Houses Family Garden","startDate":"2026-07-25","endDate":"2026-07-26","time":"Check website","location":"Stone Houses Family Garden, Kowloon City","description":"Parent-child outreach activities including guided experiences organised by the Hong Kong Public Libraries in collaboration with Q plus A Art Foundation, part of the Summer Library Festival 2026.","cost":"Check website","registration":"Check website","category":"Arts & Crafts","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk"},{"emoji":"📚","title":"Summer Library Festival 2026, Storytelling & Parent-Child Workshops","startDate":"2026-07-25","endDate":"2026-08-31","time":"Various","location":"Hong Kong Public Libraries (various districts) and Stone Houses Family Garden, Kowloon City","description":"Storytelling workshops (Train of Harmony, Train of Dream, Train of Discovery) combine stories, games and creative activities for parents and children; parent-child craft and STEAM workshops let kids make dried flower lamps, pipe cleaner flowers, wishing bottles, and 3D-printed marine life models.","cost":"Check website","registration":"Check website","category":"Arts & Crafts","ages":"3-6 6-12","url":"https://www.hkpl.gov.hk"},{"emoji":"📚","title":"Summer Library Festival 2026, Stone Houses Family Garden Outreach Activities","startDate":"2026-07-25","endDate":"2026-07-26","time":"Check website","location":"Stone Houses Family Garden, Kowloon City","description":"Guided outreach activities for families organised with Q plus A Art Foundation as part of the Summer Library Festival, featuring storytelling and creative activities for parents and children.","cost":"Check website","registration":"Check website","category":"Arts & Crafts","ages":"3-6 6-12","url":""},{"emoji":"🎵","title":"Summer Resonance, Hong Kong Youth Music Camp Concert (Yuen Long)","startDate":"2026-07-26","endDate":null,"time":"3pm","location":"Yuen Long Theatre Auditorium, Yuen Long","description":"Over 400 young musicians perform Chinese and Western music including choral, Chinese orchestra, and symphony repertoire. Features works by Berlioz, Lo Leung-fai, and Kallman.","cost":"$80, $100 or $130","registration":"Book via URBTIX at www.urbtix.hk or call 3166 1288","category":"Arts & Culture","ages":"6-12","url":"https://www.urbtix.hk"},{"emoji":"🎶","title":"Summer Resonance, Hong Kong Youth Music Camp Concert (City Hall)","startDate":"2026-08-02","endDate":null,"time":"3pm","location":"Hong Kong City Hall Concert Hall, Central","description":"Junior String Orchestra, Symphonic Band, and Chinese Orchestra perform pieces including Vivaldi's Four Seasons and John Williams' Star Wars suite. Part of the International Arts Carnival summer programme.","cost":"$80, $100 or $130","registration":"Book via URBTIX at www.urbtix.hk or call 3166 1288","category":"Arts & Culture","ages":"6-12","url":"https://www.urbtix.hk"},{"emoji":"🚒","title":"District Disaster and Emergency Preparedness Event Day (Cheung Sha Wan Un Chau Estate)","startDate":"2026-08-09","endDate":null,"time":"Check website","location":"Un Chau Estate, Cheung Sha Wan","description":"Fire Services Department community open day with emergency preparedness demonstrations and activities for families.","cost":"Free","registration":"Check website","category":"Government Open Day","ages":"3-6 6-12","url":"https://www.hkfsd.gov.hk/eng/events.html"},{"emoji":"🎭","title":"Fantastic Fairy Tales","startDate":"2026-08-14","endDate":"2026-08-16","time":"Check website","location":"Sheung Wan Civic Centre Theatre, Sheung Wan","description":"A UK-produced music-and-film programme combining live music, storytelling and animated screenings of fairy tales, with interactive elements letting children explore how instruments can tell stories.","cost":"$180 (adults), $120 (children)","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkiac.gov.hk/2026/en/fairytales.html#fringe"},{"emoji":"🎭","title":"Fantastic Fairy Tales (UK) – International Arts Carnival","startDate":"2026-08-14","endDate":"2026-08-16","time":"Various","location":"Sheung Wan Civic Centre Theatre, Sheung Wan","description":"A UK music-and-animation show blending live original score, actors' performances, and animated screenings into a heartwarming world of fairy tales, with interactive elements letting kids explore how instruments tell stories.","cost":"$120 (children) / $180 (adults)","registration":"Check website","category":"Arts & Culture","ages":"3-6 6-12","url":"https://www.hkiac.gov.hk/2026/en/fairytales.html#fringe"}];
-const ALWAYS_ON = [{"emoji":"🧱","title":"LEGOLAND Discovery Centre","location":"K11 MUSEA, TST","description":"30,000 sq ft LEGO playground. 4D Studio, Kingdom Quest, Merlin's Apprentice. Ages 3–10.","cost":"From ~HK$240","ages":"3-6 6-12","url":"https://www.legolanddiscoverycentre.com/hong-kong/en/"},{"emoji":"🎈","title":"Kiztopia (5 Locations)","location":"Sha Tin, Wan Chai, TKO, AIRSIDE, Olympian City","description":"Award-winning edutainment. Up to 18 themed zones per location.","cost":"From HK$158/hr","ages":"0-3 3-6 6-12","url":"https://kiztopia.com.hk/"},{"emoji":"🎢","title":"EpicLand Kai Tak","location":"Kai Tak Sports Park","description":"14,000 sqft. Slides, ball pits, trampolines, mini-golf, laser tag.","cost":"Paid","ages":"0-3 3-6 6-12","url":"https://www.epiclandhk.com/"},{"emoji":"🚀","title":"Ryze Trampoline Park","location":"Quarry Bay","description":"Extreme jumping, foam pits, dodgeball, ninja courses. Ages 6+.","cost":"From ~HK$180/hr","ages":"6-12","url":"https://www.ryze.com.hk/"},{"emoji":"🦎","title":"Playfield 5, Kai Tak","location":"Kai Tak Sports Park (MTR Exit D)","description":"Free outdoor playground. Ziplines, trampolines, water play, sand, climbing wall.","cost":"Free","ages":"3-6 6-12","url":"https://www.kaitaksportspark.com.hk/venue/17"},{"emoji":"🌳","title":"GO PARK Sai Sha","location":"Sai Kung","description":"Outdoor playgrounds, pool, cycling, sports courts.","cost":"Free","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/en/facilities/facilitieslist.html"},{"emoji":"🔬","title":"Hong Kong Science Museum","location":"TST East","description":"500+ interactive exhibits. 70%+ hands-on.","cost":"HK$20 (free students)","ages":"3-6 6-12","url":"https://hk.science.museum/"},{"emoji":"🌌","title":"Hong Kong Space Museum","location":"TST","description":"Dome planetarium. Astronomy exhibits. Omnimax & 3D films.","cost":"HK$10 (free students)","ages":"3-6 6-12","url":"https://www.lcsd.gov.hk/CE/Museum/Space/en/home/index.html"},{"emoji":"🚂","title":"Hong Kong Railway Museum","location":"Tai Po Market","description":"Free. Historic station, locomotives, coaches. Kids love the outdoor tracks.","cost":"Free","ages":"0-3 3-6 6-12","url":"https://hk.heritage.museum/en/web/hm/museums/railway.html"},{"emoji":"🎨","title":"HK Arts Centre, Kids Corner","location":"Wan Chai","description":"Ceramics, painting, performing arts. Ages 5+. Term-based.","cost":"Paid","ages":"6-12","url":"https://hkac.org.hk/en/kids_corner/"},{"emoji":"🏺","title":"Under The Stone, Kids Pottery","location":"Sai Ying Pun","description":"Weekend pottery for kids 6–12.","cost":"From ~HK$380","ages":"6-12","url":"https://www.klook.com/en-HK/activity/120210-kids-pottery-trial-class-under-the-stone-ceramics-workshop/"},{"emoji":"🧸","title":"Baumhaus Family Centre","location":"Multiple locations","description":"Music-based playgroup for babies & toddlers. Trial sessions.","cost":"Term-based","ages":"0-3","url":"https://www.bfriendbaumhaus.com/"}];
-const TODAY = new Date().toISOString().slice(0,10);
-
-function fmt(d){
-  if(!d) return '';
-  const [y,m,day]=d.split('-');
-  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return months[+m-1]+' '+parseInt(day);
-}
-
-function fmtRange(s,e){
-  if(!e||e===s) return fmt(s);
-  const [sy,sm]=s.split('-'), [ey,em]=e.split('-');
-  if(sm===em) return fmt(s)+'\u2013'+parseInt(e.split('-')[2]);
-  return fmt(s)+'\u2013'+fmt(e);
-}
-
-function weekLabel(date){
-  const d=new Date(date+'T00:00:00');
-  const t=new Date(TODAY+'T00:00:00');
-  const diff=Math.floor((d-t)/(86400000));
-  if(diff<0) return 'Past';
-  if(diff<7) return 'This week';
-  if(diff<14) return 'Next week';
-  if(diff<21) return 'In 2 weeks';
-  if(diff<35) return 'In 3\u20134 weeks';
-  return 'Later';
-}
-
-const WEEK_ORDER=['This week','Next week','In 2 weeks','In 3\u20134 weeks','Later','Past'];
-// Distance fade: further-out week groups render grayer so near-term reads first.
-const WEEK_FADE={'This week':'','Next week':' fade-1','In 2 weeks':' fade-2','In 3\u20134 weeks':' fade-3','Later':' fade-4','Past':' past'};
-
-let activeCat='all';
-let activeDate=null;
-
-const DAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];
-let calYear=new Date().getFullYear();
-let calMonth=new Date().getMonth();
-
-function eventDatesSet(){
-  const s=new Set();
-  EVENTS.forEach(e=>{
-    if(!e.startDate) return;
-    const start=new Date(e.startDate+'T00:00:00');
-    const end=e.endDate?new Date(e.endDate+'T00:00:00'):start;
-    for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1)) s.add(d.toISOString().slice(0,10));
-  });
-  const horizon=new Date(TODAY+'T00:00:00');
-  horizon.setDate(horizon.getDate()+56);
-  ALWAYS_ON.forEach(a=>{
-    if(!a.recurringDays||!a.recurringDays.length) return;
-    const cur=new Date(TODAY+'T00:00:00');
-    while(cur<=horizon){
-      if(a.recurringDays.includes(cur.getDay())) s.add(cur.toISOString().slice(0,10));
-      cur.setDate(cur.getDate()+1);
-    }
-  });
-  return s;
-}
-
-function renderCal(){
-  const evtDates=eventDatesSet();
-  const label=new Date(calYear,calMonth,1).toLocaleString('en-GB',{month:'long',year:'numeric'});
-  document.getElementById('cal-label').textContent=label.toUpperCase();
-  const grid=document.getElementById('cal-grid');
-  let html='';
-  DAYS.forEach(d=>{ html+='<div class="cal-dh">'+d+'</div>'; });
-  const firstDay=new Date(calYear,calMonth,1);
-  let startOffset=(firstDay.getDay()+6)%7;
-  for(let i=0;i<startOffset;i++) html+='<div class="cal-cell"></div>';
-  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
-  for(let day=1;day<=daysInMonth;day++){
-    const ds=calYear+'-'+String(calMonth+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
-    const isToday=ds===TODAY;
-    const hasEvt=evtDates.has(ds);
-    const isSel=ds===activeDate;
-    let cls='cal-cell';
-    if(hasEvt) cls+=' has-events';
-    if(isToday) cls+=' today';
-    if(isSel) cls+=' selected';
-    if(hasEvt) html+='<div class="'+cls+'" data-date="'+ds+'">'+day+'</div>';
-    else html+='<div class="'+cls+'">'+day+'</div>';
-  }
-  grid.innerHTML=html;
-  grid.querySelectorAll('.cal-cell.has-events').forEach(cell=>{
-    cell.addEventListener('click',function(){
-      const d=this.dataset.date;
-      if(activeDate===d){ activeDate=null; }
-      else { activeDate=d; }
-      renderCal();
-      render();
-      document.getElementById('cal-clear').className='cal-clear'+(activeDate?' visible':'');
-    });
-  });
-}
-
-document.getElementById('cal-prev').addEventListener('click',function(){
-  calMonth--; if(calMonth<0){calMonth=11;calYear--;} renderCal();
-});
-document.getElementById('cal-next').addEventListener('click',function(){
-  calMonth++; if(calMonth>11){calMonth=0;calYear++;} renderCal();
-});
-document.getElementById('cal-clear').addEventListener('click',function(){
-  activeDate=null; renderCal(); render();
-  this.className='cal-clear';
-});
-renderCal();
-
-function render(){
-  const filtered=EVENTS.filter(e=>{
-    if(activeCat!=='all'&&e.category!==activeCat) return false;
-    if(activeDate){
-      const end=e.endDate||e.startDate;
-      if(activeDate<e.startDate||activeDate>end) return false;
-    }
-    return true;
-  });
-
-  if(activeDate){
-    const dow=new Date(activeDate+'T00:00:00').getDay();
-    ALWAYS_ON.forEach(a=>{
-      if(!a.recurringDays||!a.recurringDays.includes(dow)) return;
-      if(activeCat!=='all'&&a.category!==activeCat) return;
-      filtered.push({
-        title: a.title,
-        emoji: a.emoji,
-        startDate: activeDate,
-        endDate: null,
-        time: 'Recurring',
-        location: a.location,
-        description: a.description,
-        cost: a.cost,
-        ages: a.ages,
-        registration: 'Walk-in / check website',
-        category: a.category,
-        url: a.url,
-        _recurring: true,
-      });
-    });
-    document.querySelector('.always-on').style.display='none';
-  } else {
-    document.querySelector('.always-on').style.display='';
-  }
-
-  filtered.sort((a,b)=>{
-    const ap=a.startDate<TODAY, bp=b.startDate<TODAY;
-    if(ap!==bp) return ap?1:-1;
-    return a.startDate.localeCompare(b.startDate);
-  });
-
-  const groups={};
-  for(const e of filtered){
-    const wl=weekLabel(e.startDate);
-    if(!groups[wl]) groups[wl]=[];
-    groups[wl].push(e);
-  }
-
-  const upcoming=filtered.filter(e=>(e.endDate||e.startDate)>=TODAY);
-  document.getElementById('count-line').textContent=
-    upcoming.length+' event'+(upcoming.length!==1?'s':'')+' shown'+(activeCat!=='all'?' in '+activeCat:'');
-
-  let html='';
-  for(const wk of WEEK_ORDER){
-    const grp=groups[wk];
-    if(!grp||grp.length===0) continue;
-    const firstDate=grp[0].startDate;
-    const lastDate=grp[grp.length-1].startDate;
-    let weekRange='';
-    if(firstDate!==lastDate) weekRange=' \u00b7 '+fmt(firstDate)+'\u2013'+fmt(lastDate);
-    html+='<div class="week-header">\u2500\u2500\u2500 '+wk.toUpperCase()+weekRange+' \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500</div>';
-    const fade=WEEK_FADE[wk]||'';
-    for(const e of grp){
-      const isPast=(e.endDate||e.startDate)<TODAY;
-      const cat=(e.category||'').toLowerCase();
-      const dateStr=fmtRange(e.startDate,e.endDate);
-      const timeStr=e.time&&e.time!=='Various'&&e.time!=='All day'?' \u00b7 '+e.time:'';
-      const safeUrl=(e.url||'').replace(/&amp;/g,'&');
-      const titleText=(e.emoji?e.emoji+' ':'')+e.title;
-      html+='<div class="event-row'+(isPast?' past':fade)+'">';
-      const recurTag=e._recurring?' <span style="font-family:var(--mono);font-size:10px;color:var(--dim);border:1px solid var(--rule);padding:0 3px">recurring</span>':'';
-      const agesTag=e.ages?'<span class="event-ages">ages '+esc(e.ages)+'</span>':'';
-      html+='<div class="event-meta"><span class="event-cat">'+esc(cat)+'</span><span>'+esc(dateStr)+timeStr+'</span>'+agesTag+recurTag+'</div>';
-      html+='<div class="event-title">'+(safeUrl?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(titleText)+'</a>':esc(titleText))+'</div>';
-      html+='<div class="event-venue">'+esc(e.location||'')+'<span class="event-cost">'+esc(e.cost||'')+'</span></div>';
-      if(e.description) html+='<div class="event-desc">'+esc(e.description)+'</div>';
-      if(e.registration&&e.registration!=='Check website') html+='<div class="event-reg">'+esc(e.registration)+'</div>';
-      html+='</div>';
-    }
-  }
-
-  if(html==='') html='<div class="no-events">No events found for this filter.</div>';
-  document.getElementById('events-list').innerHTML=html;
-
-  let aoHtml='';
-  const aoFiltered=activeCat==='all'?ALWAYS_ON:ALWAYS_ON.filter(a=>!a.category||a.category===activeCat);
-  for(const a of aoFiltered){
-    const safeUrl=(a.url||'').replace(/&amp;/g,'&');
-    const aoTitle=(a.emoji?a.emoji+' ':'')+a.title;
-    aoHtml+='<div class="ao-item">';
-    if(a.category) aoHtml+='<div class="ao-cat">'+esc(a.category.toLowerCase())+'</div>';
-    aoHtml+='<div class="ao-title">'+(safeUrl&&safeUrl!='#'?'<a href="'+esc(safeUrl)+'" target="_blank">'+esc(aoTitle)+'</a>':esc(aoTitle))+'</div>';
-    aoHtml+='<div class="ao-location">'+esc(a.location||'')+'</div>';
-    aoHtml+='<div class="ao-desc">'+esc(a.description||'')+'</div>';
-    if(a.cost) aoHtml+='<div class="ao-cost">'+esc(a.cost)+'</div>';
-    if(a.ages) aoHtml+='<div class="ao-ages">ages '+esc(a.ages)+'</div>';
-    aoHtml+='</div>';
-  }
-  if(aoFiltered.length===0) aoHtml='<div style="font-family:monospace;font-size:12px;color:var(--dim);padding:8px 0">No always-on venues in this category.</div>';
-  document.getElementById('always-on-grid').innerHTML=aoHtml;
-}
-
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-
-document.querySelectorAll('.f-btn').forEach(btn=>{
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
-    this.classList.add('active');
-    const raw=this.dataset.cat;
-    activeCat=raw.replace(/&amp;/g,'&');
-    activeDate=null;
-    document.getElementById('cal-clear').className='cal-clear';
-    renderCal();
-    render();
-  });
-});
-
-render();
+  var state={free:false,area:null,cat:null,age:null};
+  var rows=Array.prototype.slice.call(document.querySelectorAll('.cal-list .hub-row[data-date]'));
+  var btns=Array.prototype.slice.call(document.querySelectorAll('.cal-f[data-kind]'));
+  function readHash(){var h=location.hash.replace(/^#/,'');state={free:false,area:null,cat:null,age:null};h.split('&').forEach(function(p){if(!p)return;var kv=p.split('=');var k=decodeURIComponent(kv[0]);var v=kv.length>1?decodeURIComponent(kv[1].replace(/\+/g,' ')):'';if(k==='free')state.free=true;else if(k==='area'||k==='cat'||k==='age')state[k]=v;});}
+  function writeHash(){var parts=[];if(state.free)parts.push('free');['area','cat','age'].forEach(function(k){if(state[k])parts.push(k+'='+encodeURIComponent(state[k]));});var h='#'+parts.join('&');if(h==='#')h='#list';if(location.hash!==h)history.replaceState(null,'',h);}
+  function apply(){var n=0;rows.forEach(function(r){var ok=true;if(state.free&&r.getAttribute('data-free')!=='1')ok=false;if(state.area&&r.getAttribute('data-area').indexOf(state.area)<0)ok=false;if(state.cat&&r.getAttribute('data-cat')!==state.cat)ok=false;if(state.age&&r.getAttribute('data-age').indexOf(state.age)<0)ok=false;r.hidden=!ok;if(ok)n++;});
+    btns.forEach(function(b){var k=b.getAttribute('data-kind'),v=b.getAttribute('data-val');b.setAttribute('aria-pressed',(k==='free'?state.free:state[k]===v)?'true':'false');});
+    Array.prototype.forEach.call(document.querySelectorAll('section[id]'),function(s){var list=s.querySelector('.cal-list');var none=s.querySelector('.cal-none');if(!list||!none)return;var vis=list.querySelectorAll('.hub-row:not([hidden])').length;none.hidden=!(vis===0&&list.querySelectorAll('.hub-row[data-date]').length>0);});
+    var any=state.free||state.area||state.cat||state.age;var c=document.getElementById('cal-count');if(c)c.textContent=n+' event'+(n===1?'':'s')+(any?' match the filters':' listed')+'.';}
+  btns.forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-kind'),v=b.getAttribute('data-val');if(k==='free')state.free=!state.free;else state[k]=(state[k]===v)?null:v;writeHash();apply();});});
+  var clr=document.getElementById('cal-clear');if(clr)clr.addEventListener('click',function(){state={free:false,area:null,cat:null,age:null};writeHash();apply();});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-setcat]'),function(a){a.addEventListener('click',function(ev){ev.preventDefault();state.cat=a.getAttribute('data-setcat');writeHash();apply();document.getElementById('list').scrollIntoView();});});
+  window.addEventListener('hashchange',function(){readHash();apply();});
+  readHash();apply();
 })();
-
 </script>
 </body>
 </html>

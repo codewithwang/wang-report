@@ -97,31 +97,27 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
   .hr-ff-jockey, .hr-ff-trainer { grid-column: 2 / -1; font-size: 11px; padding-left: 0; }
   .hr-ff-trainer { color: #999; }
 }
-.hx-panel { border: 2px solid #0B1F3A; margin: 14px auto; max-width: 1240px; background: #fff; font-family: Georgia, 'Times New Roman', serif; }
-.hx-panel-head { background: #0B1F3A; color: #F4F1E8; font-family: Georgia, serif; font-size: 19px; padding: 7px 14px; display: flex; justify-content: space-between; align-items: baseline; }
-.hx-panel-head .hx-updated { font-family: Georgia, serif; font-size: 11px; opacity: 0.85; }
-.hx-cols { display: grid; grid-template-columns: 1.4fr 1fr; }
-.hx-block { padding: 14px 18px; border-right: 1px solid #C8C0B0; min-width: 0; }
-.hx-block:last-child { border-right: none; }
-.hx-block-title { font-size: 12px; font-weight: bold; letter-spacing: 0.5px; color: #B0241E; border-bottom: 1px solid #C8C0B0; padding-bottom: 6px; margin-bottom: 10px; }
-.hx-bet-row { padding: 8px 0; border-bottom: 1px dotted #e2ddd0; }
-.hx-bet-row:last-child { border-bottom: none; }
-.hx-bet-line { font-size: 14px; color: #1a1a1a; }
-.hx-bet-thesis { font-size: 12.5px; color: #666; font-style: italic; margin-top: 2px; }
-.hx-bet-conf { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 0.5px; color: #555; margin-top: 2px; }
-.hx-conf-max { color: #B0241E; font-weight: bold; }
-.hx-bet-conf-why { font-family: Georgia, serif; font-size: 12px; font-style: italic; color: #777; letter-spacing: normal; }
-.hx-ledger-row { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; }
-.hx-net-pos { color: #006400; font-weight: bold; }
-.hx-net-neg { color: #8b0000; font-weight: bold; }
-.hx-empty { font-size: 14px; font-style: italic; color: #777; padding: 6px 0; }
-.hx-foot { font-size: 11px; color: #888; text-align: center; padding: 10px 14px; border-top: 1px solid #e2ddd0; }
-.hx-foot a { color: #666; }
-@media (max-width: 640px) {
-  .hx-cols { grid-template-columns: 1fr; }
-  .hx-block { border-right: none; border-bottom: 1px solid #C8C0B0; }
-  .hx-block:last-child { border-bottom: none; }
-}</style>
+.hx-panel { border-top: 3px solid #000; margin: 14px auto 28px; max-width: 1240px; background: #fff; font-family: var(--wr-text); }
+.hx-panel-head { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0 6px; font-family: var(--wr-text); font-size: 13px; font-weight: 600; }
+.hx-panel-head .hx-updated { font-family: var(--wr-meta); font-size: 11px; font-weight: 400; color: var(--wr-slate); }
+.hx-cols { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0 28px; }
+.hx-block { min-width: 0; }
+.hx-block-title { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); border-bottom: 1px solid #ddd; padding: 8px 0 6px; margin-bottom: 4px; }
+.hx-row { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ddd; align-items: flex-start; }
+.hx-row:last-child { border-bottom: none; }
+.hx-key { font-family: var(--wr-meta); font-size: 11px; font-weight: 600; min-width: 92px; padding-top: 3px; color: var(--wr-ink); }
+.hx-key--pass { color: var(--wr-slate); font-weight: 400; }
+.hx-key--alert { color: var(--wr-seal); }
+.hx-main { flex: 1; min-width: 0; }
+.hx-slip { font-family: var(--wr-text); font-size: 16px; font-weight: 600; color: var(--wr-ink); line-height: 1.4; }
+.hx-meta { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 3px; line-height: 1.5; }
+.hx-ledger-row { display: flex; justify-content: space-between; font-family: var(--wr-meta); font-size: 12px; padding: 5px 0; border-bottom: 1px solid #eee; }
+.hx-net-pos { color: #1f6f3f; font-weight: 600; }
+.hx-net-neg { color: var(--wr-seal); font-weight: 600; }
+.hx-empty { font-family: var(--wr-meta); font-size: 12px; color: var(--wr-slate); padding: 6px 0; }
+.hx-foot { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); padding: 10px 0 0; line-height: 1.5; }
+.hx-foot a { color: inherit; }
+@media (max-width: 640px) { .hx-cols { grid-template-columns: 1fr; } }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
@@ -135,7 +131,7 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
 <body>
 
 <div class="hr-nav"><div class="nav-bar"><a href="index.html" class="">Edition</a> | <a href="issue.html" class="">Sunday Issue</a> | <a href="wire.html" class="">Wire</a> | <a href="listen.html" class="">Listen</a> | <a href="masthead.html" class="">Masthead</a> | <a href="about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance</a><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="hk-local.html" class="nav-desk-link">Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="science.html" class="nav-desk-link">Science</a><span class="nav-desk-gap"></span><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="hkjc-read.html" class="nav-desk-link nav-desk-active">HKJC Read</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="cyber.html" class="nav-desk-link">Cyber</a><a href="ai-focus.html" class="nav-desk-link">AI</a><a href="geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="hk-finance.html" class="nav-desk-link">Finance</a><a href="hk-local.html" class="nav-desk-link">Local</a><a href="sports.html" class="nav-desk-link">Sports</a><a href="life.html" class="nav-desk-link">Life</a><a href="science.html" class="nav-desk-link">Science</a><span class="nav-desk-gap"></span><a href="stocks.html" class="nav-desk-link">Stocks</a><a href="hkjc-read.html" class="nav-desk-link nav-desk-active">HKJC Read</a><a href="dads.html" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="hr-wrap">
   <div class="hr-masthead">
@@ -155,31 +151,23 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
     </div>
   </div>
 
-  <p class="hr-explainer">The HKJC Read is the Wang Report's twice-weekly data-journalism feature on Hong Kong horse racing. It publishes race-day mornings before the first post at Sha Tin (Sunday) or Happy Valley (Wednesday), analyzing the field and the institutional context using the publication's data tooling. Alongside the analysis it runs the HK$200 Exercise, a tracked paper-betting experiment: a notional HK$200 per meeting, split across two bets derived from the field breakdown, graded in public once results are official. It is not betting advice.</p>
+  <p class="hr-explainer">The HKJC Read is the Wang Report's twice-weekly data-journalism feature on Hong Kong horse racing. It publishes race-day mornings before the first post at Sha Tin (Sunday) or Happy Valley (Wednesday), analyzing the field and the institutional context using the publication's data tooling. Alongside the analysis it runs the HK$200 Exercise, a tracked paper-betting record: one pick for every race, logged before the first post with the horse number, the bet and the reasons, HK$200 a pick in confidence order until the week's HK$1,000 is used, the rest logged as passes, every pick settled in public against HKJC's official dividends. It is not betting advice.</p>
   
 <div class="hx-panel">
-  <div class="hx-panel-head"><span>The HK$200 Exercise</span><span class="hx-updated">Sha Tin &middot; Sep 6, 2026</span></div>
+  <div class="hx-panel-head"><span>The HK$200 Exercise</span><span class="hx-updated">Happy Valley &middot; Wed, Sep 9</span></div>
   <div class="hx-cols">
-    <div class="hx-block hx-block-left"><div class="hx-block-title">This Meeting (2 Bets, HK$100 Each)</div>
-      <div class="hx-bet-row">
-        <div class="hx-bet-line">R3 &middot; KA YING RISING &middot; Win &middot; HK$100</div>
-        <div class="hx-bet-thesis">Unbeaten in six starts with a rating gap of 20lb or more over the rest of this field.</div>
-        <div class="hx-bet-conf"><span class="hx-conf-max">Confidence 5/5</span> &middot; <span class="hx-bet-conf-why">A perfect record and a rating advantage this size over the entire field is about as clean a case as this sport produces.</span></div>
-      </div>
-      <div class="hx-bet-row">
-        <div class="hx-bet-line">R5 &middot; ISLAND BUDDY &middot; Place &middot; HK$100</div>
-        <div class="hx-bet-thesis">Three straight 3rd-placed runs at the top rating in the race, with Teetan continuing the booking.</div>
-        <div class="hx-bet-conf"><span>Confidence 4/5</span> &middot; <span class="hx-bet-conf-why">The rating and a genuinely consistent recent line (3-3-3) reinforce each other here.</span></div>
-      </div></div>
+    <div class="hx-block hx-block-left"><div class="hx-block-title">Preview card: Happy Valley, Wed, Sep 9 &middot; 3 placed at HK$200 against HK$600 for this meeting &middot; going not yet stated &middot; sunny periods and one or two showers, 27 to 31C, rain low &middot; final picks at 07:30 on race day</div><div class="hx-row"><span class="hx-key">R8 Win</span><div class="hx-main"><div class="hx-slip">Bet of the night. Race 8, No. 3 Motor, Win, HK$200</div><div class="hx-meta">confidence 4/5 &middot; off 22:50 &middot; 1200M Turf &middot; Wan Chai Handicap</div><div class="hx-meta">Rated 75, top of the field; last three runs 1, 3, 1; draw 9 of 12, a wide draw for a Happy Valley sprint; rating up 8 since the last run; K Teetan (a leading rider) for W K Mo; 70 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key">R5 Win</span><div class="hx-main"><div class="hx-slip">Race 5, No. 1 Definitive, Win, HK$200</div><div class="hx-meta">confidence 4/5 &middot; off 21:10 &middot; 1650M Turf &middot; Central Handicap</div><div class="hx-meta">Rated 79, top of the field; last three runs 1, 3, 5; draw 10 of 12, a wide draw at Happy Valley; rating up 6 since the last run; L Ferraris (a leading rider) for D Eustace; 77 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key">R1 Place</span><div class="hx-main"><div class="hx-slip">Race 1, No. 6 Always Fluke, Place, HK$200</div><div class="hx-meta">confidence 3/5 &middot; off 19:05 &middot; 1200M Turf &middot; Admiralty Handicap</div><div class="hx-meta">Rated 35, mid-field; last three runs 3, 2, 6; draw 4 of 12, a middle draw for a Happy Valley sprint; rating down 3 since the last run; C Y Ho (a leading rider) for W Y So; 74 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key hx-key--pass">R2 pass</span><div class="hx-main"><div class="hx-slip">Race 2, No. 1 Mighty Steed, Place, pass</div><div class="hx-meta">confidence 3/5 &middot; off 19:35 &middot; 1650M Turf &middot; Kwun Tong Handicap</div><div class="hx-meta">Rated 60, top of the field; last three runs 7, 2, 12; draw 4 of 10, an inside draw at Happy Valley; Z Purton (a leading rider) for K W Lui; 59 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key hx-key--pass">R7 pass</span><div class="hx-main"><div class="hx-slip">Race 7, No. 1 Robot Lucky Star, Place, pass</div><div class="hx-meta">confidence 3/5 &middot; off 22:15 &middot; 1200M Turf &middot; Tsim Sha Tsui Handicap</div><div class="hx-meta">Rated 60, top of the field; last three runs 7, 5, 4; draw 2 of 12, an inside draw for a Happy Valley sprint; rating down 1 since the last run; Z Purton (a leading rider) for M Newnham; 63 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key hx-key--pass">R3 pass</span><div class="hx-main"><div class="hx-slip">Race 3, No. 3 Swagger Bro, Place, pass</div><div class="hx-meta">confidence 2/5 &middot; off 20:05 &middot; 1200M Turf &middot; Admiralty Handicap</div><div class="hx-meta">Rated 38, top of the field; last three runs 5, 6, 3; draw 6 of 12, a middle draw for a Happy Valley sprint; rating down 3 since the last run; A Badel (a leading rider) for J Richards; 70 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key hx-key--pass">R4 pass</span><div class="hx-main"><div class="hx-slip">Race 4, No. 2 Sky Deep, Place, pass</div><div class="hx-meta">confidence 2/5 &middot; off 20:35 &middot; 1650M Turf &middot; Kwun Tong Handicap</div><div class="hx-meta">Rated 57, top of the field; last three runs 2, 5, 2; draw 1 of 11, an inside draw at Happy Valley; rating down 1 since the last run; E C W Wong (-3) for C Fownes; 56 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div><div class="hx-row"><span class="hx-key hx-key--pass">R6 pass</span><div class="hx-main"><div class="hx-slip">Race 6, No. 2 Beauty Show, Place, pass</div><div class="hx-meta">confidence 1/5 &middot; off 21:45 &middot; 1000M Turf &middot; Kowloon Tong Handicap</div><div class="hx-meta">Rated 54, top of the field; last three runs 2, 2, 7; draw 6 of 12, a middle draw for a Happy Valley sprint; rating up 1 since the last run; Z Purton (a leading rider) for F C Lor; 63 days since the last run; going not yet stated by HKJC; forecast sunny periods and one or two showers, 27 to 31C, rain low.</div></div></div></div>
     <div class="hx-block hx-block-right">
-    <div class="hx-block-title">The Ledger</div>
-    <div class="hx-ledger-row"><span>Staked</span><span>HK$400</span></div>
-    <div class="hx-ledger-row"><span>Returned</span><span>HK$0</span></div>
-    <div class="hx-ledger-row"><span>Net</span><span class="hx-net-neg">HK$-400</span></div>
-    <div class="hx-ledger-row"><span>Record</span><span>0W-0L</span></div>
-    <div class="hx-ledger-row"><span>Meetings</span><span>2</span></div></div>
+    <div class="hx-block-title">The ledger, placed picks only</div>
+    <div class="hx-ledger-row"><span>Staked</span><span>HK$200</span></div>
+    <div class="hx-ledger-row"><span>Returned</span><span>HK$105</span></div>
+    <div class="hx-ledger-row"><span>Net</span><span class="hx-net-neg">-HK$95</span></div>
+    <div class="hx-ledger-row"><span>Record</span><span>1 won, 1 lost</span></div>
+    <div class="hx-ledger-row"><span>Passes would have made</span><span>+HK$0</span></div>
+    <div class="hx-ledger-row"><span>Meetings</span><span>1 settled</span></div>
+    <div class="hx-block-title">Last meeting: Sha Tin, Sun, Sep 6 &middot; -HK$95 on HK$200</div><div class="hx-row"><span class="hx-key">R3 won HK$5</span><div class="hx-main"><div class="hx-slip">Bet of the night. Race 3, No. 1 Ka Ying Rising, Win, HK$100</div><div class="hx-meta">confidence 5/5 &middot; The Hksar Chief Executive'S Cup (Handicap) &middot; dividend 10.5 per HK$10</div><div class="hx-meta">Unbeaten in six starts with a rating gap of 20lb or more over the rest of this field.</div></div></div><div class="hx-row"><span class="hx-key hx-key--alert">R5 lost -HK$100</span><div class="hx-main"><div class="hx-slip">Race 5, No. 1 Island Buddy, Place, HK$100</div><div class="hx-meta">confidence 4/5 &middot; Edinburgh Handicap</div><div class="hx-meta">Three straight 3rd-placed runs at the top rating in the race, with Teetan continuing the booking.</div></div></div></div>
   </div>
-  <div class="hx-foot">Not betting advice. A paper exercise tracked in public.</div>
+  <div class="hx-foot">A paper exercise, no real money and no claimed edge. One pick per race from a fixed rule: official rating against the field, the last three placings, the rating change, the draw against course and distance, a fixed list of leading riders and yards, days since the last run, the going as HKJC states it and the Observatory's forecast. Confidence is the gap to the second horse, held at 3 when the going is off or rain is likely. HK$200 a pick in confidence order until the week's HK$1000 is used; the rest are passes, settled all the same; a Wednesday meeting takes at most HK$600 so the weekend is never left empty. Cards and dividends: HKJC. Weather: Hong Kong Observatory open data.</div>
 </div>
   <div class="hr-section">
     <div class="hr-section-title">Today's Read</div>
@@ -1120,7 +1108,7 @@ body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Rom
   <br>
   <a href="index.html">Main</a> &middot; <a href="wire.html">Wire</a> &middot; <a href="issue.html">The Sunday Issue</a> &middot; <a href="masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical.html">Geopolitical</a> &middot; <a href="hk-finance.html">Finance & Risk</a> &middot; <a href="cyber.html">Cyber</a> &middot; <a href="ai-focus.html">AI</a> &middot; <a href="hk-local.html">HK Local</a> &middot; <a href="sports.html">Sports</a> &middot; <a href="life.html">Life</a></span>
   <br>
-  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis.html">Morning Synthesis</a> | <a href="how-its-made.html">How It's Made</a>
+  <a href="about.html">About</a> | <a href="editorial-standards.html">Editorial Standards</a> | <a href="privacy.html">Privacy</a> | <a href="corrections.html">Corrections</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis.html">Morning Synthesis</a> | <a href="how-its-made.html">How It's Made</a>
 </div>
 
 
