@@ -6,7 +6,7 @@
   <title>Kai Tanner · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-07-01-cyber.html">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -53,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -66,8 +73,8 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/stocks.html" class="nav-desk-link">Stocks</a></div></nav></div>
+<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -85,12 +92,14 @@
         <span class="br-entry-date">Wednesday, July 1, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
       <p>No prior references found in the codebase; writing the briefing directly from the news items provided.</p>
         <p>CISA's advisory this week confirms ransomware crews are exploiting CVE-2026-21841, the BlueHammer flaw in Windows' RRAS service, to gain initial access before deploying encryptors. Separately, Horizon3.ai and watchTowr researchers report a maximum-severity SimpleHelp remote-access flaw (CVE-2026-24419, CVSS 10.0) now being used to drop Djinn Stealer, a credential harvester built specifically to pull tokens from cloud consoles and AI coding assistants rather than browser password stores. SimpleHelp is remote-support software, the kind an MSP runs with domain-wide reach into client networks. A flaw in it is not an endpoint problem. It is a supply chain problem wearing a help-desk badge.</p>
         <p>Aflac's Wednesday filing that its Japan subsidiary was breached via a vendor-facing system, and the Tata Electronics leak that exposed pre-release iPhone 18 component specs, are the same failure mode running through two industries: the compromise entered through a party that had legitimate, provisioned access, not through a perimeter gap. The MITRE ATT&amp;CK technique underneath both the SimpleHelp exploitation and the Aflac vendor breach is T1199, trusted relationship abuse, and no web application firewall or endpoint detection tool sitting on the primary network was ever going to see it coming through that door. The control that would have changed the outcome is scoped, time-boxed access for third-party remote tools, not another layer of detection on top of standing privileged access. CISA's advisory names July 21 as the deadline for federal agencies to patch CVE-2026-21841 under its binding operational directive; enterprises without that deadline hanging over them have no equivalent forcing function, which is precisely why Djinn Stealer's operators picked SimpleHelp instances to hit first.</p>
     </div>
-    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The T1199 thread through SimpleHelp and Aflac is the piece. Pair with tomorrow's vendor-risk desk item if one runs.<span class="br-margin-sig">-- WR</span></div>
+    
+    <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
@@ -99,9 +108,9 @@
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
   <br>
-  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 </body>

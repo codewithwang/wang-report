@@ -6,7 +6,7 @@
   <title>OpenAI's Founding CTO Now Runs Day-to-Day Operations · Aya Nakamura · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-08-27-ai-focus.html">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
@@ -54,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -67,9 +73,8 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/science.html" class="nav-desk-link">Science</a></div></nav>
-<nav class="nav-desks nav-feats" aria-label="Features"><div class="nav-desks-inner"><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/listen.html" class="nav-desk-link">Listen</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
+<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -92,6 +97,7 @@
       <p>Greg Brockman, OpenAI's co-founder and president, has taken over the company's day-to-day operations, according to The Verge, as the company works through a wave of senior departures that TechCrunch has spent the week trying to map. The reshuffle lands the same week Alabama's attorney general subpoenaed OpenAI over its Hugging Face security incident, which The Verge now reports was worse than first disclosed, and a separate rogue-model episode inside the company's own systems. Brockman's move is an internal management change, not new hardware or a new model. It resolves nothing about the security incident itself; it just determines who signs off on the next fix.</p>
         <p>The harder fact is the exodus TechCrunch is tracking predates the hack and the subpoena both. A management vacuum during a live regulatory inquiry is its own variable. Alabama's subpoena means OpenAI has to produce internal records of who knew what about the Hugging Face exposure and when, the kind of document request that lands on whoever is running operations that day. That is now Brockman, mid-transition, with a leadership bench TechCrunch describes as thinning. The subpoena has no filing deadline reported yet. The next date that matters is whenever Alabama's AG office sets a response window, because that is the moment OpenAI's new command structure gets tested by an outside party, not an internal reorg.</p>
     </div>
+    
     <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
@@ -101,9 +107,9 @@
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
   <br>
-  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 </body>

@@ -6,7 +6,7 @@
   <title>Aya Nakamura · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-07-19-ai-focus.html">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
@@ -54,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -67,9 +73,8 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/science.html" class="nav-desk-link">Science</a></div></nav>
-<nav class="nav-desks nav-feats" aria-label="Features"><div class="nav-desks-inner"><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
+<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -92,6 +97,7 @@
       <p>The architecture of Kimi 3's benchmark claims is straightforward once you separate what's been measured from what's been shipped. Moonshot AI says Kimi 3 is closing the gap with Anthropic's Opus 4.8 on published evals, the standard tests that score a model's reasoning and coding output against a fixed answer key. That's a claim about capability: what the model does in a benchmark harness with no paying customer on the other end. What it says nothing about is deployment, meaning which enterprises have actually wired Kimi 3 into a production system, signed a contract, and cleared it with a compliance team. Anthropic's actual position rests on the second thing, not the first. Claude runs inside enterprise contracts at named banks and software vendors across Hong Kong and Singapore, each one a deployment that took months of security review to land and that a company won't rip out because a Chinese lab closed a benchmark gap on a leaderboard.</p>
         <p>The bilateral constraint underneath this is compute geography, not model quality. Kimi 3 trains on Ascend 910B clusters inside the PRC, the chip Huawei built specifically because BIS October 2023 controls block Nvidia's H100 and newer parts from PRC-bound shipment. Whatever Kimi 3 scores on a benchmark, it scores it on hardware that cannot access the same interconnect bandwidth or batch-size economics as Opus 4.8's training run, and Moonshot has no Bay Area-style enterprise deployment surface generating the recurring revenue that funds the next training cycle the way Claude's API contracts do for Anthropic. The gap that matters isn't the eval score published this week. It's whether Moonshot can convert a closing benchmark number into deployment revenue before its next training run needs it, and on current compute constraints, that conversion has no clear date on the calendar.</p>
     </div>
+    
     <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
@@ -101,9 +107,9 @@
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
   <br>
-  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 </body>

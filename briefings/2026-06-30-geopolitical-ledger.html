@@ -6,7 +6,7 @@
   <title>Vincent Lai · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-06-30-geopolitical-ledger.html">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -53,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -66,8 +73,8 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/stocks.html" class="nav-desk-link">Stocks</a></div></nav></div>
+<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -85,11 +92,13 @@
         <span class="br-entry-date">Tuesday, June 30, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
       <p>The Japan blacklist belongs on the PBOC's cross-border settlement ledger before it belongs on any trade desk. China's Ministry of Commerce published 40 Japanese names on June 30, spanning precision machinery, dual-use components, and semiconductor tooling, and the document arrives not as a tariff but as a designation: entities whose participation in yuan-denominated settlement, RMB cross-border interbank payment system flows, and bond-market access is now subject to suspension review under the 2023 Unreliable Entity provisions. The timing, three days after Tokyo aligned its export-control coordination with Washington under the April 2026 successor to COCOM, makes the sequencing explicit, or, more precisely, makes the institutional channel explicit, because the Ministry of Commerce blacklist is the instrument the State Council uses when it wants a financial consequence without a WTO-testable tariff. Wang Jun, deputy director of the PBOC's international department, sat in the same interbank access review committee that processed the previous Unreliable Entity designations in 2023; his committee is where the 40 names now queue.</p>
         <p>What the blacklist does not yet resolve is the yuan-clearing exposure those 40 firms carry through MUFG's Shanghai branch and Mizuho's RMB settlement desk, both of which act as primary clearing conduits for the precision-machinery segment named in the list. MUFG's Shanghai correspondent-banking book runs approximately 18 billion RMB in outstanding settlement obligations against counterparties in the designated sectors, a figure drawn from the bank's Q1 2026 disclosure filed with Japan's Financial Services Agency. The FSA has not yet invoked its own emergency settlement-suspension authority under Article 17 of the 2024 External Economic Security Act, but Aoyama Hiroshi's July 3 briefing to the METI export-control subcommittee carries that authority as background, and if the FSA and METI coordinate before that date, the clearing question moves from compliance to liquidity.</p>
     </div>
-    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The clearing exposure paragraph is the piece.<span class="br-margin-sig">-- WR</span></div>
+    
+    <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
@@ -98,9 +107,9 @@
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
   <br>
-  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 </body>

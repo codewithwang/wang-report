@@ -6,7 +6,7 @@
   <title>Aya Nakamura · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-06-27-ai-focus.html">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -53,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -66,8 +73,8 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance & Risk</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">HK Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/stocks.html" class="nav-desk-link">Stocks</a></div></nav></div>
+<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -82,14 +89,16 @@
         <span class="br-section-tag">AI FOCUS</span>
         <span class="br-journalist-name">Aya Nakamura</span>
         <span class="br-journalist-role">AI Desk, Senior Correspondent</span>
-        <span class="br-entry-date">Sunday, June 28, 2026</span>
+        <span class="br-entry-date">Saturday, June 27, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
-      <p>OpenAI filed the Jalapeño inference chip into production this week alongside Broadcom, and the announcement landed as a compute-independence claim: a custom ASIC designed to run GPT-class inference without Nvidia H100 or B200 NVL72 hardware. The gap between that claim and the deployment record is the read. Broadcom's ASIC tape-out schedule runs twelve to eighteen months from commit to volume silicon, and OpenAI has disclosed no hyperscale colocation agreement in APAC -- not in Singapore's Tuas data-centre corridor, not in Tokyo's Inzai cluster, not in the Hsinchu-adjacent capacity Nvidia and TSMC supply-chain partners have pre-positioned. The Jalapeño is a roadmap chip. OpenAI's inference load this quarter still runs on Azure's B200 NVL72 racks.</p>
-        <p>The White House request to delay GPT-5.6's release sits in the same structural frame. The delay is not a safety intervention in any named risk class -- no named evaluator, no named benchmark threshold, no export-control item number attaches to it. It is a sequencing signal: the administration prefers to control the announcement cadence of frontier-class US model releases while Broadcom's ASIC production schedule, Amazon's USD 13 billion India infrastructure commitment, and BIS controls on H100 and A100 exports to non-ally jurisdictions all remain unsettled. GPT-5.6 scores above 90 on GPQA-Diamond in OpenAI's own evals and was staged for June release; the delay pushes the public deployment window into Q3 2026, by which time Broadcom and OpenAI expect first Jalapeño silicon for internal testing. Whether that silicon reaches volume before PRC labs running on Ascend 910C clusters close the GPQA gap is the constraint the delay has not resolved.</p>
+      <p>Anthropic's formal complaint to the Commerce Department names Alibaba Cloud specifically, alleging that fine-tuned derivatives of Claude 3 Sonnet are circulating inside Alibaba's Qwen development pipeline under Modelscope attribution that strips the original model card. The claim is unverified by Anthropic's own published technical evidence, but if accurate it would mean the October 2023 BIS Entity List controls that were meant to constrain PRC access to frontier weights have a gap at the application layer: a PRC-domiciled hyperscaler can derive capability from a weight-restricted US model without moving a single H100 across a border.</p>
+        <p>The structural problem is simpler than Anthropic's press posture suggests. Claude 3 Sonnet was released under a commercial license with API access available to any registered Alibaba Cloud enterprise account before Anthropic's own terms of service were tightened in March 2025. Alibaba Cloud operates 86 availability zones globally, including Singapore (AZ ap-southeast-1), where a contracting entity can route inference traffic without triggering US-jurisdiction review. The Qwen 2.5 72B model card, published on Hugging Face in September 2024, cites &quot;proprietary instruction-tuning data&quot; without a training-data provenance statement that would satisfy the EU AI Act Article 53 disclosure standard, which applies to Alibaba's Amsterdam and Frankfurt zones as of August 2025. Anthropic's demand that Commerce punish Alibaba will land on a desk at BIS that has no existing enforcement instrument for post-hoc fine-tuning claims; the closest applicable rule, Export Administration Regulation part 734.9 (deemed export), addresses knowledge transfer to foreign nationals inside the US, not weight derivation in Singapore by a PRC-domiciled firm. The first enforcement action under any new instrument cannot arrive before Q1 2027 given BIS's current rulemaking backlog.</p>
     </div>
-    <div class="br-margin-note"><span class="br-margin-verdict">Strong.</span> The gap between the compute-independence claim and the deployment record is exactly the right frame, and the Jalapeño-as-roadmap-chip read will hold through Q3.<span class="br-margin-sig">-- WR</span></div>
+    
+    <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
@@ -98,9 +107,9 @@
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
   <br>
-  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 </body>

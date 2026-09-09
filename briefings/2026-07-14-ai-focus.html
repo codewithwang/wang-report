@@ -6,7 +6,7 @@
   <title>Aya Nakamura · Briefings · THE WANG REPORT</title>
   <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-07-14-ai-focus.html">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
@@ -40,6 +40,7 @@
   .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
   .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
   .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
   .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
   .br-body p:last-child { margin-bottom: 0; }
   .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
@@ -53,6 +54,12 @@
 
   .br-wrap { padding-top: 20px; }
   .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
   .br-back:hover { color: #0B1F3A; }</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <!-- Google tag (gtag.js) -->
@@ -66,9 +73,8 @@
 </head>
 <body>
 
-<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Main</a> | <a href="/wire.html" class="">Wire</a> | <a href="/issue.html" class="">The Issue</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/life.html" class="nav-desk-link">Life</a><a href="/science.html" class="nav-desk-link">Science</a></div></nav>
-<nav class="nav-desks nav-feats" aria-label="Features"><div class="nav-desks-inner"><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
+<div class="br-nav"><div class="nav-bar"><a href="/index.html" class="">Edition</a> | <a href="/issue.html" class="">Sunday Issue</a> | <a href="/wire.html" class="">Wire</a> | <a href="/listen.html" class="">Listen</a> | <a href="/masthead.html" class="">Masthead</a> | <a href="/about.html" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber.html" class="nav-desk-link">Cyber</a><a href="/ai-focus.html" class="nav-desk-link">AI</a><a href="/geopolitical.html" class="nav-desk-link">Geopolitical</a><a href="/hk-finance.html" class="nav-desk-link">Finance</a><a href="/hk-local.html" class="nav-desk-link">Local</a><a href="/sports.html" class="nav-desk-link">Sports</a><a href="/science.html" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks.html" class="nav-desk-link">Stocks</a><a href="/hkjc-read.html" class="nav-desk-link">HKJC Read</a><a href="/dads.html" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
 
 <div class="br-wrap">
   <a class="br-back" href="/briefings.html">&larr; All Briefings</a>
@@ -86,12 +92,13 @@
         <span class="br-entry-date">Tuesday, July 14, 2026</span>
       </div>
     </div>
+    
     <div class="br-body">
-      <p>No lawsuit filing today, so I'll read the mispriced signal in Nadella's warning and the SK Hynix follow-through.</p>
-        <p>Satya Nadella's warning to enterprise customers this week names a specific failure mode: companies bolting AI agents onto workflows without redesigning the underlying process, then blaming the model when output quality drops. That is not a caution about capability, it is a caution about deployment discipline, and it lands four days after Fidji Simo's exit left OpenAI's enterprise contract relationships (the Microsoft 365 Copilot pipeline chief among them) without a named owner. Nadella runs the distribution layer GPT-5.6 ships through. When the company that owns the interface between the model and 400 million paid Microsoft 365 seats says the failure is on the deployment side, that is a Redmond product-org read, not a model-capability critique, and it is the read that determines whether GPT-5.6's default-model status inside Copilot survives the next contract renewal cycle.</p>
-        <p>SK Hynix priced its $26.5 billion Nasdaq listing this week on the same premise Vincent Lai's Bond Connect reporting keeps surfacing from the other side of the strait: HBM3E memory, not GPU allocation, is the binding constraint on how fast Nvidia's Blackwell-generation racks actually ship. The IPO prospectus commits SK Hynix to new fabrication capacity, but fabs built in Icheon or Cheongju take 18 to 24 months to reach yield, not quarters. Until that capacity lands, every hyperscaler placing B200 NVL72 orders, Microsoft's Azure buildout for OpenAI included, is bottlenecked by Korean memory supply before it is bottlenecked by Taiwan Semiconductor's CoWoS packaging line in Hsinchu. That is the queue Nadella's enterprise customers are standing in without knowing it.</p>
+      <p>Beijing's stated ambition to lead in AI has always run into one hard number: whether it can print the memory chips to feed it. SK Hynix's $26.5 billion listing on the New York Stock Exchange, the largest foreign IPO in US history, closed last week with a specific ask attached from US lawmakers pushing the Korean firm to build new fabs on American soil rather than in Icheon or Cheongju. High-bandwidth memory, the stacked chip that sits next to a GPU and feeds it data fast enough to keep the processor busy, is currently a two-vendor market: SK Hynix and Samsung. Nvidia's B200 and GB200 systems cannot run without it. So the listing is not just a Korean capital-markets story. It is a referendum on which side of the export-control line that memory supply ends up parked on.</p>
+        <p>The mechanism is simple once you see it: China does not need Washington to ban an H200 shipment if Seoul never builds the memory to pair with it. October 2023 BIS controls already keep Nvidia's most advanced silicon out of PRC data centers, but the tighter constraint by 2026 is upstream of the chip ban entirely. SK Hynix supplies roughly half of global HBM output, and if US pressure succeeds in relocating new fab capacity to Indiana or Ohio, the marginal wafer that would have gone to a Wuxi or Chongqing packaging line instead lands under American jurisdiction from the moment it's fabricated. Beijing can ease its own import caps on Nvidia hardware, as it did this month, and it will not matter if the memory to run that hardware at scale increasingly gets built somewhere the US Commerce Department can reach before the chip ever ships. The number to watch is how much of SK Hynix's post-IPO capex, disclosed in its next quarterly filing, gets committed to US fab construction versus expansion at home.</p>
     </div>
-    <div class="br-margin-note">The renewal-cycle stake on GPT-5.6's default status is the sharper claim here; hold it against the actual Copilot contract calendar, not Nadella's remarks alone. The HBM lead-time argument should be checked against whether hyperscalers hold Samsung or Micron allocations that soften the SK Hynix chokepoint.<span class="br-margin-sig">-- WR</span></div>
+    
+    <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
   </div>
 
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
@@ -100,9 +107,9 @@
 <div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards.html">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/life.html">Life</a></span>
+  <a href="/index.html">Main</a> &middot; <a href="/wire.html">Wire</a> &middot; <a href="/issue.html">The Sunday Issue</a> &middot; <a href="/masthead.html">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical.html">Geopolitical</a> &middot; <a href="/hk-finance.html">Finance & Risk</a> &middot; <a href="/cyber.html">Cyber</a> &middot; <a href="/ai-focus.html">AI</a> &middot; <a href="/hk-local.html">HK Local</a> &middot; <a href="/sports.html">Sports</a> &middot; <a href="/science.html">Science & Health</a></span>
   <br>
-  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
+  <a href="/about.html">About</a> | <a href="/editorial-standards.html">Editorial Standards</a> | <a href="/privacy.html">Privacy</a> | <a href="/corrections.html">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis.html">Morning Synthesis</a> | <a href="/how-its-made.html">How It's Made</a>
 </div>
 
 </body>
