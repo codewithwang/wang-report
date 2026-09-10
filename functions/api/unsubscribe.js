@@ -33,18 +33,35 @@ export async function onRequestGet({ request, env }) {
     links: HOME_LINKS,
   });
 
-  if (!email || !/^[0-9a-f]{32}$/.test(token)) {
-    // Say nothing about whether the address exists.
-    return asJson ? json({ ok: true, status: 'removed' }) : done;
-  }
+  // A link that does not check out is NOT reported as a removal (fixed
+  // 2026-09-10 after a local test: the endpoint used to answer "removed" to
+  // every request, so a reader whose link had been wrapped or truncated by
+  // their mail client would be told they were off the list and then keep
+  // receiving the Brief). The wording is identical whether the address is
+  // absent or the token is wrong, so nothing here can be used to test whether
+  // an address is on the list.
+  const notValid = () => asJson
+    ? json({ ok: false, status: 'not-removed', error: 'that unsubscribe link is not valid' }, 400)
+    : page({
+        title: 'Link not valid',
+        heading: 'That unsubscribe link is not valid',
+        lines: [
+          'Nothing was changed. Mail clients sometimes wrap or shorten a long link, so the surest fix is to open the most recent Executive Brief and click the unsubscribe line at the bottom of it.',
+          'Or write one line to <a href="mailto:editor@wangreport.com">editor@wangreport.com</a> and a person will take the address off by hand, same day.',
+        ],
+        status: 400,
+        links: HOME_LINKS,
+      });
+
+  if (!email || !/^[0-9a-f]{32}$/.test(token)) return notValid();
 
   const raw = await kv.get(`sub:${email}`);
-  if (raw) {
-    let record;
-    try { record = JSON.parse(raw); } catch { record = null; }
-    if (record && record.unsubscribe_token === token) await kv.delete(`sub:${email}`);
-  }
+  if (!raw) return notValid();
+  let record;
+  try { record = JSON.parse(raw); } catch { record = null; }
+  if (!record || record.unsubscribe_token !== token) return notValid();
 
+  await kv.delete(`sub:${email}`);
   return asJson ? json({ ok: true, status: 'removed' }) : done;
 }
 
