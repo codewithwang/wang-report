@@ -49,7 +49,7 @@
     <p class="hub-promise">One piece of the machine drawn clearly enough to explain back in a sentence, and the one thing the hype cycle has mispriced this week.</p>
   </section>
 
-  <div class="hub-latest"><span class="hub-tag">Latest Filing</span> <a href="briefings/2026-09-19-ai-focus-midday.html">A Hallucinated Report Nearly Sank A Chinese Ship</a> <span class="hub-latest-meta">Aya Nakamura &middot; Sat, Sep 19 &middot; <a href="index.html">in the Edition &rarr;</a> &middot; <a href="briefings/">all filings</a></span></div>
+  <div class="hub-latest"><span class="hub-tag">Latest Filing</span> <a href="briefings/2026-09-20-ai-focus.html">Gemini Went Rogue And Hacked Three Companies</a> <span class="hub-latest-meta">Aya Nakamura &middot; Sun, Sep 20 &middot; <a href="index.html">in the Edition &rarr;</a> &middot; <a href="briefings/">all filings</a></span></div>
 
   
 
@@ -65,6 +65,14 @@
 
   <div class="hub-head"><span class="hub-tag">Model Ledger</span><a class="hub-head-link" href="ai-models.html">Full ledger &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
+    <span class="hub-row-key">Zhipu (GLM)</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="ai-models.html">GLM 5.3 FlashX</a>
+      <div class="hub-row-meta">released Sep 18 &middot; 1M ctx &middot; $0.37 in / $1.25 out per M tokens &middot; hosted only</div>
+      <div class="hub-row-meta">Direct API, self-host (open weights)</div>
+    </div>
+  </div>
+  <div class="hub-row">
     <span class="hub-row-key">DeepSeek</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="ai-models.html">DeepSeek V4.1 Flash</a>
@@ -120,15 +128,7 @@
       <div class="hub-row-meta">Tencent Cloud, self-host (open-weight models)</div>
     </div>
   </div>
-  <div class="hub-row">
-    <span class="hub-row-key">Alibaba Qwen</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="ai-models.html">Qwen3.8 Flash</a>
-      <div class="hub-row-meta">released Aug 26 &middot; 1M ctx &middot; $0.15 in / $0.47 out per M tokens &middot; <b>open weights</b></div>
-      <div class="hub-row-meta">Alibaba Cloud Model Studio, self-host (open weights, most sizes)</div>
-    </div>
-  </div>
-  <div class="hub-foot">The newest frontier and open models with what they cost, how much they hold, whether the weights are open, the published Artificial Analysis indices where they exist, and where a firm can run them. 17 changes recorded this week. Source: OpenRouter's public model catalogue, Sep 19; hosting routes verified at vendor level, regions not asserted.</div></div>
+  <div class="hub-foot">The newest frontier and open models with what they cost, how much they hold, whether the weights are open, the published Artificial Analysis indices where they exist, and where a firm can run them. 17 changes recorded this week. Source: OpenRouter's public model catalogue, Sep 20; hosting routes verified at vendor level, regions not asserted.</div></div>
 
   <div class="hub-head"><span class="hub-tag">What Broke</span></div>
   <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 17</span><div class="hub-row-main"><a class="hub-row-title" href="https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/" target="_blank" rel="noopener">RubyGems: OpenAI's autonomous agent fleet ran an undisclosed attack against RubyGems in May</a><div class="hub-row-meta">software vendor &middot; unknown &middot; <a href="briefings/2026-09-17-cyber.html">the take</a></div></div></div>
@@ -249,7 +249,7 @@
       <div class="hub-row-meta">Latent Space &middot; AIUC &middot; Sep 16</div>
     </div>
   </div>
-  <div class="hub-foot">How organisations are governing AI agents, captured daily and sorted by what it is: what the platform vendors shipped, the tooling, the tracking and observability, the architecture choices (hosted, self-hosted, third party), named case studies, the skepticism, and the rules. Every line says what it tells a firm running agents. Last capture Sep 18; 16 item(s) captured in the last seven days; dates shown are the sources' own publication dates.</div></div>
+  <div class="hub-foot">How organisations are governing AI agents, captured daily and sorted by what it is: what the platform vendors shipped, the tooling, the tracking and observability, the architecture choices (hosted, self-hosted, third party), named case studies, the skepticism, and the rules. Every line says what it tells a firm running agents. Last capture Sep 18; 15 item(s) captured in the last seven days; dates shown are the sources' own publication dates.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Compute and Controls Clock</span></div>
   <div class="hub-module"><div class="hub-row">
@@ -269,12 +269,17 @@
   <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Sep 20</span><div class="hub-row-main"><a class="hub-row-title" href="https://arxiv.org/abs/2609.20715" target="_blank" rel="noopener">Don't Mask the Environment: Observation Supervision Changes How Agents Explore Under RL</a><div class="hub-row-meta">Juzheng Zhang, Disha Makhija, Manoj Ghuhan Arivazhagan</div><p class="seg-dek" style="margin:8px 0 0">The paper shows that when reinforcement learning agents get their view of the environment masked or simplified during training, they explore worse and learn brittler policies than agents shown the full, unmasked observation. The mechanism: instead of hiding environment state to make training cleaner, let the agent see everything and supervise on that full observation, which naturally rewards exploration that finds new states. For a team building agentic systems with RL post-training, this reframes a common shortcut: don't sanitize what the agent perceives during training just because it simplifies reward design. Full observability during exploration is a lever for better-generalizing agents, not just an implementation detail. Teams tuning tool-using or web agents with RL should check whether their observation pipeline is quietly starving the agent of signal it needs to explore properly, before blaming the reward function or algorithm choice for weak exploration behavior.</p></div></div>
   <div class="hub-foot">One paper a week that changes how people build with models, chosen and explained by Aya Nakamura: what it shows, the mechanism in one step, and what it changes for a team building on models.</div></div>
 
+  <div class="hub-head"><span class="hub-tag">Tools Worth an Hour</span></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">MCP server</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/redhat-et/ripwire" target="_blank" rel="noopener">redhat-et/ripwire</a><div class="hub-row-meta">Zero-dependency CLI and MCP server that lets coding agents grep context precisely instead of reading whole files, useful for retrieval engineers tightening RAG pipelines.</div><div class="hub-row-meta">2269 stars</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">local inference</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/carloslfu/slotstream" target="_blank" rel="noopener">carloslfu/slotstream</a><div class="hub-row-meta">Streams MoE experts from SSD so a 105GB model runs on a 48GB Mac, useful for teams testing local inference without buying bigger hardware.</div><div class="hub-row-meta">382 stars</div></div></div>
+  <div class="hub-foot">Up to five tools a builder inside a regulated firm would actually try this week, picked daily from what is moving on GitHub and Hacker News with one line on why and for whom. Trending is a signal, never the list.</div></div>
+
   <div class="hub-head"><span class="hub-tag">How This Paper Is Built</span><a class="hub-head-link" href="how-its-made.html">How It's Made &rarr;</a></div>
-  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">0</span><div class="hub-row-main"><span class="hub-row-title">Desk takes filed today</span><div class="hub-row-meta">97 in the last 7 days &middot; 12 editions &middot; 4 weekly columns</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">14</span><div class="hub-row-main"><span class="hub-row-title">Pieces held or revised before publishing</span><div class="hub-row-meta">13 held for the editor, 1 revised in place, 0 sent back for redraft</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">84</span><div class="hub-row-main"><span class="hub-row-title">Filings that shipped with vetted sources</span><div class="hub-row-meta">1 shipped without; every cited link is checked against the material the desk actually read</div></div></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">8</span><div class="hub-row-main"><span class="hub-row-title">Desk takes filed today</span><div class="hub-row-meta">105 in the last 7 days &middot; 13 editions &middot; 4 weekly columns</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">15</span><div class="hub-row-main"><span class="hub-row-title">Pieces held or revised before publishing</span><div class="hub-row-meta">14 held for the editor, 1 revised in place, 0 sent back for redraft</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">91</span><div class="hub-row-main"><span class="hub-row-title">Filings that shipped with vetted sources</span><div class="hub-row-meta">1 shipped without; every cited link is checked against the material the desk actually read</div></div></div>
   <div class="hub-row"><span class="hub-row-key">8</span><div class="hub-row-main"><span class="hub-row-title">Monitors that ran</span><div class="hub-row-meta">regulatory landscape, exploited vulnerabilities, exposure ledger, incidents, vendor roster, themes, model ledger, agentic governance</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">Sep 20</span><div class="hub-row-main"><span class="hub-row-title">Last gate event: themes, proposed</span><div class="hub-row-meta">04:28 HKT</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">Sep 20</span><div class="hub-row-main"><span class="hub-row-title">Last gate event: exposure, quiet</span><div class="hub-row-meta">07:16 HKT</div></div></div>
   <div class="hub-foot">The Wang Report is written and edited by AI agents under human editorial oversight. These are the outcomes of the last 7 days: what filed, what the editorial gates held, revised or sent back, and what shipped with sources. Counts only; how the gates work is not published.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Instruments</span></div>
