@@ -31,23 +31,31 @@
 </header>
 <main class="ed-wrap">
   <div class="ed-banner">
-    <span>Evening Edition <span class="ed-when">&middot; 18:06 HKT</span></span>
-    <span><a href="/edition/2026-09-11-am.html">&larr; Morning Edition</a> &middot; <a href="/edition/">All editions</a></span>
+    <span>Evening Summary <span class="ed-when">&middot; 18:06 HKT</span></span>
+    <span><a href="/edition/2026-09-11-am.html">&larr; Morning Summary</a> &middot; <a href="/edition/">All editions</a></span>
   </div>
   <div class="ed-speaker">
     <img class="ed-face" src="/masthead/img/feed/maarten-bakker-sq.jpg" alt="" loading="lazy">
-    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Edition</span></div>
+    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Summary</span></div>
   </div>
-  <h1 class="ed-headline">Cisco Firewall Console Bug Is Under Attack By Three Crews</h1>
-  <p class="ed-deck">A management-plane bypass in Cisco's firewall console is already running in production for ransomware and state hackers alike, a day after this desk covered the same box's other flaw.</p>
-  <figure class="ed-lead"><img src="/img/edition/2026-09-11-pm-bb4c64e787.jpg" alt=""><figcaption>Photo: bleepingcomputer.com</figcaption></figure>
-  <div class="ed-body">
+  <p class="ed-greet">Good evening. Here's what happened today.</p>
+  <ul class="ed-hits"><li><a href="/briefings/2026-09-11-cyber-pm.html">Cisco FMC Auth Bypass Is Being Run By Ransomware And State Crews Alike</a> <span class="ed-hit-gloss">Kai Tanner has the Talos telemetry: three separate operators running the Cisco FMC bypass before most customers read the bulletin.</span></li>
+<li><a href="/briefings/2026-09-11-geopolitical-pm.html">Taiwan's Foreign Minister Tours Europe Without Beijing's Sign-Off</a> <span class="ed-hit-gloss">Mei Chen on the European visit Beijing didn't manage to cancel, and why that silence is the story.</span></li>
+<li><a href="/briefings/2026-09-11-geopolitical-ledger-midday.html">China's Coast Guard Escalates Faster Than Its Diplomats Manage</a> <span class="ed-hit-gloss">Vincent Lai clocks Beijing's Coast Guard moving faster than its own foreign ministry can script it.</span></li>
+<li><a href="/briefings/2026-09-11-hk-desk-pm.html">MTR Graffiti Suspects Caught Trying To Fly Out</a> <span class="ed-hit-gloss">Cheung Kwok-keung on two MTR graffiti suspects whose airport getaway lasted about as long as the spray paint.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">Cisco Firewall Console Bug Is Under Attack By Three Crews</h1>
+    <p class="ed-deck">A management-plane bypass in Cisco's firewall console is already running in production for ransomware and state hackers alike, a day after this desk covered the same box's other flaw.</p>
+    <figure class="ed-lead"><img src="/img/edition/2026-09-11-pm-bb4c64e787.jpg" alt="" loading="lazy"><figcaption>Photo: bleepingcomputer.com</figcaption></figure>
+    <div class="ed-body">
 <p>Yesterday evening this desk led with a Cisco firewall flaw already under attack. Tonight the update is not that it got patched. Cisco Talos confirmed three separate operators, some criminal, some state sponsored, are running CVE-2026-20079 against Secure Firewall Management Center right now, and FMC is not one box on the network. It is the console that pushes policy to every firewall it manages, so a bypass there does not compromise a device. It compromises the fleet.</p>
 <p><a class="ed-ref" href="/briefings/2026-09-11-cyber-pm.html">Kai Tanner</a>'s desk has the telemetry. Cisco's advisory reads like routine disclosure with a patch attached. Talos is seeing three unrelated crews already inside before most customers finished the bulletin. Check Point patched two similarly rated VPN flaws the same week, unauthenticated paths into its own management products. Two vendors, the same pattern: the thing under attack is the control plane, not the traffic it was built to filter. For a Hong Kong or Singapore bank, that is not an abstraction, it is a scheduling problem. Tanner's filing is the one to read before the next change window, not after.</p>
 <p>Elsewhere, <a class="ed-ref" href="/briefings/2026-09-11-geopolitical-pm.html">Mei Chen</a>'s desk has a Taiwanese foreign minister touring Europe without a canceled meeting in sight. <a class="ed-ref" href="/briefings/2026-09-11-geopolitical-ledger-midday.html">Vincent Lai</a> has the Coast Guard outrunning the foreign ministry's messaging discipline near Scarborough Shoal. And <a class="ed-ref" href="/briefings/2026-09-11-hk-desk-pm.html">Cheung Kwok-keung</a>'s dispatch on two MTR graffiti suspects arrested at the airport is the lightest thing in tonight's file, a break on a night the wire is otherwise Gulf oil and Senate hearings on AI extinction risk.</p>
 <p>For any firm running this stack, the vulnerability that matters this quarter is not the one in the box facing the internet. It is the one in the console that manages the boxes, because that is where a single credential now buys an entire firewall estate instead of one appliance. Confirming FMC is patched and that its management interface is not reachable from outside the network takes an afternoon.</p>
 <p>HKMA's TM-G-1 and MAS's technology risk guidelines both expect perimeter controls patched on a schedule. The BIS said this week that scheduled patching is too slow against AI-accelerated exploitation. Measured against either standard, an unpatched, internet-reachable FMC console is a finding, not a footnote, and the alternative to fixing it this week is explaining to a regulator why three different attackers found the console before the security team did.</p>
-  </div>
+    </div>
+  </details>
   <div class="ed-listen" data-bc="maarten">
     <span class="ed-play" role="button" aria-label="Play"></span>
     <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen.html">All episodes and how to subscribe &rarr;</a></span>

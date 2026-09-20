@@ -31,22 +31,32 @@
 </header>
 <main class="ed-wrap">
   <div class="ed-banner">
-    <span>Evening Edition <span class="ed-when">&middot; 18:08 HKT</span></span>
-    <span><a href="/edition/2026-09-14-am.html">&larr; Morning Edition</a> &middot; <a href="/edition/">All editions</a></span>
+    <span>Evening Summary <span class="ed-when">&middot; 18:08 HKT</span></span>
+    <span><a href="/edition/2026-09-14-am.html">&larr; Morning Summary</a> &middot; <a href="/edition/">All editions</a></span>
   </div>
   <div class="ed-speaker">
     <img class="ed-face" src="/masthead/img/feed/maarten-bakker-sq.jpg" alt="" loading="lazy">
-    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Edition</span></div>
+    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Summary</span></div>
   </div>
-  <h1 class="ed-headline">GitLab Flaw Under Active Attack, Banks Race To Patch</h1>
-  <p class="ed-deck">CISA confirms hackers are already exploiting a maximum severity GitLab bug days after HKCERT's warning, turning a patch cycle into a live incident.</p>
-  <figure class="ed-lead"><img src="/img/edition/2026-09-14-pm-582b1bc457.jpg" alt=""><figcaption>Photo: bleepingcomputer.com</figcaption></figure>
-  <div class="ed-body">
+  <p class="ed-greet">Good evening. Here's what happened today.</p>
+  <ul class="ed-hits"><li><a href="/briefings/2026-09-14-cyber-pm.html">GitLab Max-Severity Flaw Now Under Active Exploitation</a> <span class="ed-hit-gloss">Kai Tanner's desk has the exploit chain: why a compromised GitLab server hands attackers your CI/CD pipeline, not just a login.</span></li>
+<li><a href="/briefings/2026-09-14-hk-desk-pm.html">700 Cards Hit In Weekend iPhone Order Scam</a> <span class="ed-hit-gloss">Cheung Kwok-keung on the 700 fraudulent iPhone 18 Pro orders that beat the launch day queue.</span></li>
+<li><a href="/briefings/2026-09-14-hk-finance-pm.html">iPhone Fraud Wave Lands On Banks, Not Apple</a> <span class="ed-hit-gloss">Rachel Lam explains why Hong Kong's card issuing banks, not Apple, own the compliance obligation here.</span></li>
+<li><a href="/briefings/2026-09-14-sports-pm.html">Man City Beat Ten Men Down To Themselves And Win Anyway</a> <span class="ed-hit-gloss">Dev Chatterjee on how City stayed unbeaten a man down, and the thirteen club empire that makes one red card irrelevant.</span></li>
+<li><a href="/briefings/2026-09-14-geopolitical-pm.html">China Threatens Xi's US Visit Over Taiwan Arms</a> <span class="ed-hit-gloss">Beijing has now threatened cancellation twice in one week, and the second warning names the mechanism instead of just the outcome.</span></li>
+<li><a href="/briefings/2026-09-14-geopolitical-ledger-midday.html">China's Arms-Sale Threat Puts PBOC On A Clock</a> <span class="ed-hit-gloss">Beijing's summit threat is a diplomatic signal, but the desk with the actual deadline sits inside the central bank, not the foreign ministry.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">GitLab Flaw Under Active Attack, Banks Race To Patch</h1>
+    <p class="ed-deck">CISA confirms hackers are already exploiting a maximum severity GitLab bug days after HKCERT's warning, turning a patch cycle into a live incident.</p>
+    <figure class="ed-lead"><img src="/img/edition/2026-09-14-pm-582b1bc457.jpg" alt="" loading="lazy"><figcaption>Photo: bleepingcomputer.com</figcaption></figure>
+    <div class="ed-body">
 <p>GitLab shipped patches for a set of vulnerabilities that HKCERT's September 14 bulletin described as carrying remote code execution risk, sensitive information disclosure, and cross site scripting. Then CISA said the hard part out loud: hackers are already exploiting the maximum severity flaw in the wild. That is the claim that matters this week, because it is the difference between a bank's patch cycle counting as done and counting as too slow.</p>
 <p>The mechanism is unglamorous. GitLab instances are development infrastructure, so a working exploit does not just compromise a server, it compromises whatever that server had permission to push, merge, or deploy. Source code repositories, CI/CD pipeline credentials, and secrets stored in pipeline variables all sit behind that same authentication layer. <a class="ed-ref" href="/briefings/2026-09-14-cyber-pm.html">Kai Tanner</a>'s desk lays out the split that decides who feels this first: GitLab.com's SaaS customers have the vendor patching on its own clock, while self managed instances, common across APAC banks and enterprises, are on their own clock against a vulnerability CISA says is already being used.</p>
 <p>Elsewhere, a different kind of infrastructure failure landed on Hong Kong banks this weekend. <a class="ed-ref" href="/briefings/2026-09-14-hk-desk-pm.html">Cheung Kwok-keung</a>'s desk has the number: more than 700 credit cards were used to order the new iPhone 18 Pro without the owners' knowledge, fraudulent orders placed online over the launch weekend using stolen card numbers rather than stolen phones. <a class="ed-ref" href="/briefings/2026-09-14-hk-finance-pm.html">Rachel Lam</a>'s desk has the part that matters for anyone in compliance: nearly 700 unauthorised transactions in one window is a pattern, not 700 isolated disputes, and Hong Kong's card issuing banks, not Apple, carry the obligation to treat a clustered fraud signal as a control failure to investigate, not a customer education exercise.</p>
 <p>A GitLab server and a payment rail are both infrastructure that other systems trust by default, and in both cases the entity holding the obligation is not the one everyone is instinctively blaming. GitLab is not the bank running the exposed instance. Apple is not the regulated entity in the card chain. The organisations actually on the clock this week are the ones whose names are on the banking license and the system administrator login, and neither gets to wait for someone else to fix it first.</p>
-  </div>
+    </div>
+  </details>
   <div class="ed-listen" data-bc="maarten">
     <span class="ed-play" role="button" aria-label="Play"></span>
     <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen.html">All episodes and how to subscribe &rarr;</a></span>

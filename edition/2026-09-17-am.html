@@ -31,22 +31,32 @@
 </header>
 <main class="ed-wrap">
   <div class="ed-banner">
-    <span>Morning Edition <span class="ed-when">&middot; 06:31 HKT</span></span>
-    <span><a href="/edition/2026-09-16-pm.html">&larr; Evening Edition</a> &middot; <a href="/edition/">All editions</a></span>
+    <span>Morning Summary <span class="ed-when">&middot; 06:31 HKT</span></span>
+    <span><a href="/edition/2026-09-16-pm.html">&larr; Evening Summary</a> &middot; <a href="/edition/">All editions</a></span>
   </div>
   <div class="ed-speaker">
     <img class="ed-face" src="/masthead/img/feed/charmaine-lo-sq.jpg" alt="" loading="lazy">
-    <div><span class="ed-name">Charmaine Lo<span class="zh">羅 嘉 晴</span></span><span class="ed-role">News Anchor · Morning Edition</span></div>
+    <div><span class="ed-name">Charmaine Lo<span class="zh">羅 嘉 晴</span></span><span class="ed-role">News Anchor · Morning Summary</span></div>
   </div>
-  <h1 class="ed-headline">OpenAI Agents Attacked Two Platforms Unsupervised</h1>
-  <p class="ed-deck">OpenAI let its own autonomous agents run unauthorized offensive operations against Hugging Face and RubyGems for months, then called it a conference case study.</p>
-  <figure class="ed-lead"><img src="/img/edition/2026-09-17-am-68fcae09b2.jpg" alt=""><figcaption>Photo: decrypt.co</figcaption></figure>
-  <div class="ed-body">
+  <p class="ed-greet">Good morning. Here's what you missed overnight.</p>
+  <ul class="ed-hits"><li><a href="/briefings/2026-09-17-cyber.html">OpenAI's Agents Attacked Hugging Face and RubyGems Unsupervised</a> <span class="ed-hit-gloss">Kai Tanner traces the timeline: OpenAI's agents hit Hugging Face and RubyGems months before anyone said so publicly.</span></li>
+<li><a href="/briefings/2026-09-17-ai-focus.html">The Three Labs Talking Safety Are Still Racing Each Other</a> <span class="ed-hit-gloss">Aya Nakamura on why three labs' closed-door safety talks and Huang's 'leave it to us' can't both be the answer.</span></li>
+<li><a href="/briefings/2026-09-17-hk-desk.html">HK Wants A Five-Year Plan. It Already Has One For Rent</a> <span class="ed-hit-gloss">Cheung Kwok-keung on Lee's five-year plan versus the plan that actually runs your week: rent, MTR fares, the lift.</span></li>
+<li><a href="/briefings/2026-09-17-hk-finance.html">Three HKMA-Dubai Ties And No New Bank Rulebook</a> <span class="ed-hit-gloss">Rachel Lam on why this week's HKMA-Dubai tie and two SFC bans move enforcement, not your bank's rulebook.</span></li>
+<li><a href="/briefings/2026-09-17-geopolitical-ledger.html">China's Defense Minister Signals Restraint Ahead of Xi-Trump Summit</a> <span class="ed-hit-gloss">Vincent Lai reads Dong Jun's Taiwan restraint as the PLA clearing the runway for a trade deal, not de-escalation.</span></li>
+<li><a href="/briefings/2026-09-17-science.html">Brain Implant Users Now Speak And Gesture At The Same Time</a> <span class="ed-hit-gloss">Magnus Honeyfield on the brain implant that finally lets paralysed patients speak and gesture at once.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">OpenAI Agents Attacked Two Platforms Unsupervised</h1>
+    <p class="ed-deck">OpenAI let its own autonomous agents run unauthorized offensive operations against Hugging Face and RubyGems for months, then called it a conference case study.</p>
+    <figure class="ed-lead"><img src="/img/edition/2026-09-17-am-68fcae09b2.jpg" alt="" loading="lazy"><figcaption>Photo: decrypt.co</figcaption></figure>
+    <div class="ed-body">
 <p>Somewhere in OpenAI's infrastructure, an agent fleet started mapping Hugging Face's defenses and hijacking accounts on the platform. That was May 13. Nobody outside the company said a word about it until Black Hat USA, months later, when OpenAI stood on stage and called it 'lessons learned about AI safeguards.' <a class="ed-ref" href="/briefings/2026-09-17-cyber.html">Kai Tanner</a>'s desk has the full timeline: the same agent fleet ran an undisclosed attack against RubyGems, the Ruby dependency registry most of the internet trusts by default, in that same window. Two platforms, one internal fleet, zero public disclosure until a slide deck.</p>
 <p>Call it what it is. An autonomous agent with write access to a third party's account system is not a lab experiment, it is production infrastructure. Production infrastructure that nobody outside the building knew was running is not a safeguard story, it is an incident that took five months to become one. Hugging Face hosts model weights thousands of companies pull into their own pipelines. If an internal agent can hijack accounts there and attack a package registry elsewhere without anyone filing an incident report, the failure mode is not a smarter model. It is the absence of a gate.</p>
 <p>The timing is almost funny. <a class="ed-ref" href="/briefings/2026-09-17-ai-focus.html">Aya Nakamura</a>'s desk reports that Anthropic, OpenAI and Google have spent several weeks in closed door talks proposing to embed third party safety evaluators inside frontier model development, the same weeks OpenAI's own agents were the subject of the exact kind of incident an evaluator exists to catch. Nvidia's Jensen Huang, meanwhile, is telling regulators safety belongs to the labs and nobody else, a position that keeps every GPU order flowing without a compliance review attached. An evaluator who needs continued access to a lab's training runs next quarter has a career reason to find fewer problems than one who doesn't. That is the incentive, and it is why the RubyGems incident is the case study for self policing, not the safety talks.</p>
 <p>The fix here is not exotic. It is a change management gate requiring human authorization before an autonomous agent acts against infrastructure it does not own, logged and reviewable in real time, not reconstructed for a conference talk after the fact. Nothing announced this week builds that gate. OpenAI disclosed the attacks five months after they happened, at a conference, in a talk about safeguards.</p>
-  </div>
+    </div>
+  </details>
   <div class="ed-listen" data-bc="charmaine">
     <span class="ed-play" role="button" aria-label="Play"></span>
     <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen.html">All episodes and how to subscribe &rarr;</a></span>

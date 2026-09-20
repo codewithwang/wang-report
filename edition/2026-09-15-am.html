@@ -31,21 +31,31 @@
 </header>
 <main class="ed-wrap">
   <div class="ed-banner">
-    <span>Morning Edition <span class="ed-when">&middot; 06:26 HKT</span></span>
-    <span><a href="/edition/2026-09-14-pm.html">&larr; Evening Edition</a> &middot; <a href="/edition/">All editions</a></span>
+    <span>Morning Summary <span class="ed-when">&middot; 06:26 HKT</span></span>
+    <span><a href="/edition/2026-09-14-pm.html">&larr; Evening Summary</a> &middot; <a href="/edition/">All editions</a></span>
   </div>
   <div class="ed-speaker">
     <img class="ed-face" src="/masthead/img/feed/charmaine-lo-sq.jpg" alt="" loading="lazy">
-    <div><span class="ed-name">Charmaine Lo<span class="zh">羅 嘉 晴</span></span><span class="ed-role">News Anchor · Morning Edition</span></div>
+    <div><span class="ed-name">Charmaine Lo<span class="zh">羅 嘉 晴</span></span><span class="ed-role">News Anchor · Morning Summary</span></div>
   </div>
-  <h1 class="ed-headline">GitLab And Gitea Bugs Put Repos Under Siege</h1>
-  <p class="ed-deck">A perfect-score GitLab flaw and active Gitea exploitation across six countries mean the code repository, not the perimeter firewall, is this week's real attack surface.</p>
-  <figure class="ed-lead"><img src="/img/edition/2026-09-15-am-00fa355c36.jpg" alt=""><figcaption>Photo: darkreading.com</figcaption></figure>
-  <div class="ed-body">
+  <p class="ed-greet">Good morning. Here's what you missed overnight.</p>
+  <ul class="ed-hits"><li><a href="/briefings/2026-09-15-cyber.html">GitLab's Perfect-Score Path Traversal Hits Two Repo Platforms At Once</a> <span class="ed-hit-gloss">Kai Tanner has the full picture on GitLab's perfect-score flaw and the Gitea bug already being exploited in six countries.</span></li>
+<li><a href="/briefings/2026-09-15-geopolitical.html">Beijing Uses Claude AI To Probe Taiwan's Defenses</a> <span class="ed-hit-gloss">Mei Chen reports Beijing used Claude to automate reconnaissance against Taiwan's defense networks, running underneath this week's summit diplomacy.</span></li>
+<li><a href="/briefings/2026-09-15-geopolitical-ledger.html">China's War-Footing Order Lands On A PLA Procurement Ledger</a> <span class="ed-hit-gloss">Vincent Lai reads China's war-footing order as a procurement instruction to state planners, not a message timed for Washington.</span></li>
+<li><a href="/briefings/2026-09-15-hk-finance.html">SFC Bans, Suspends, Skips the Disclosure Story</a> <span class="ed-hit-gloss">Rachel Lam on a quiet enforcement week at the SFC and the one deadline, 31 May 2026, that the silence doesn't excuse.</span></li>
+<li><a href="/briefings/2026-09-15-science.html">A Second Brain Implant Finally Reads Imagined Speech</a> <span class="ed-hit-gloss">Magnus Honeyfield on a wireless implant that produced fluent speech from imagined words alone, no attempted articulation required.</span></li>
+<li><a href="/briefings/2026-09-15-sports.html">Erling Haaland Sets Manchester Derby Scoring Record</a> <span class="ed-hit-gloss">Dev Chatterjee on Haaland's derby scoring record, and the two VAR officials stood down in the same 90 minutes.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">GitLab And Gitea Bugs Put Repos Under Siege</h1>
+    <p class="ed-deck">A perfect-score GitLab flaw and active Gitea exploitation across six countries mean the code repository, not the perimeter firewall, is this week's real attack surface.</p>
+    <figure class="ed-lead"><img src="/img/edition/2026-09-15-am-00fa355c36.jpg" alt="" loading="lazy"><figcaption>Photo: darkreading.com</figcaption></figure>
+    <div class="ed-body">
 <p>The number to sit with is ten, as in a perfect 10.0 CVSS score, and it belongs to CVE-2026-85706, a path traversal flaw in GitLab Community and Enterprise Edition. Path traversal means an unauthenticated request can walk out of the web root and read whatever the GitLab process can see: source code, CI/CD secrets, SSH keys, deployment tokens sitting in commit history nobody scrubbed. CISA issued its own alert. HKCERT's bulletin the same week bundles it with separate GitLab flaws enabling remote code execution and cross-site scripting, so an exposed instance this week faces all three at once.</p>
 <p>What showed up alongside it is why this is a story and not a routine patch note. The Hacker News reported a suspected Chinese group tracked as Red Heron already exploiting a Gitea remote code execution bug live, thirteen organizations breached across six countries. Different product, different vendor, same category of target: internet-facing code repository infrastructure that most security teams still file under internal tooling rather than perimeter defense. <a class="ed-ref" href="/briefings/2026-09-15-cyber.html">Kai Tanner</a>'s Cyber Intel desk has the full audit trail: GitLab is disclosed with no confirmed exploitation yet, Red Heron's Gitea campaign is already running.</p>
 <p>A self-hosted GitLab instance is not an internal dev tool this week. It's a server holding the keys to production, and Red Heron has already shown what happens to the version of this bug that gets exploited before anyone patches. Patch on the assumption that the disclosure and the exploitation report arrive in the wrong order, because for Gitea's thirteen victims, they already did.</p>
-  </div>
+    </div>
+  </details>
   <div class="ed-listen" data-bc="charmaine">
     <span class="ed-play" role="button" aria-label="Play"></span>
     <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen.html">All episodes and how to subscribe &rarr;</a></span>

@@ -31,22 +31,31 @@
 </header>
 <main class="ed-wrap">
   <div class="ed-banner">
-    <span>Evening Edition <span class="ed-when">&middot; 18:07 HKT</span></span>
-    <span><a href="/edition/2026-09-16-am.html">&larr; Morning Edition</a> &middot; <a href="/edition/">All editions</a></span>
+    <span>Evening Summary <span class="ed-when">&middot; 18:07 HKT</span></span>
+    <span><a href="/edition/2026-09-16-am.html">&larr; Morning Summary</a> &middot; <a href="/edition/">All editions</a></span>
   </div>
   <div class="ed-speaker">
     <img class="ed-face" src="/masthead/img/feed/maarten-bakker-sq.jpg" alt="" loading="lazy">
-    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Edition</span></div>
+    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Summary</span></div>
   </div>
-  <h1 class="ed-headline">Cisco Root Flaw Exploited, No Patch Timeline Set</h1>
-  <p class="ed-deck">CISA confirmed active exploitation of a critical Cisco email gateway flaw, and Hong Kong bank compliance desks are now running on the KEV clock, not Cisco's.</p>
-  
-  <div class="ed-body">
+  <p class="ed-greet">Good evening. Here's what happened today.</p>
+  <ul class="ed-hits"><li><a href="/briefings/2026-09-16-cyber-pm.html">Cisco Patches Email Gateway Bug It Rates Critical</a> <span class="ed-hit-gloss">Kai Tanner breaks down the mechanism: an unauthenticated SQL injection that reaches root on a box that faces the open internet by design.</span></li>
+<li><a href="/briefings/2026-09-16-hk-finance-pm.html">Cisco's Root-Access Flaw Sets the Real Patch Clock</a> <span class="ed-hit-gloss">Rachel Lam maps the Cisco flaw against HKMA's TM-G-1 framework and the scam alerts already landing in Hong Kong inboxes.</span></li>
+<li><a href="/briefings/2026-09-16-geopolitical-pm.html">Beijing Rehearses Total War While Washington Counts Drones</a> <span class="ed-hit-gloss">Mei Chen reads China's mobilization law against the Pentagon's Taiwan drone plan as two sides provisioning for the same war.</span></li>
+<li><a href="/briefings/2026-09-16-hk-desk-pm.html">Government Pays You HK$30,000 To Have A Second Baby</a> <span class="ed-hit-gloss">Cheung Kwok-keung on John Lee's HK$30,000 baby bonus and the housing wait cut that actually moves the needle.</span></li>
+<li><a href="/briefings/2026-09-16-sports-pm.html">Adam Silver Says He Missed the Red Flags in $12.5 Billion Lakers Sale</a> <span class="ed-hit-gloss">Dev Chatterjee on Adam Silver admitting the league's vetting missed an FBI probe before the $12.5 billion Lakers sale closed.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">Cisco Root Flaw Exploited, No Patch Timeline Set</h1>
+    <p class="ed-deck">CISA confirmed active exploitation of a critical Cisco email gateway flaw, and Hong Kong bank compliance desks are now running on the KEV clock, not Cisco's.</p>
+    
+    <div class="ed-body">
 <p>Cisco's Secure Email Gateway has a SQL injection flaw, CVE-2026-76461, that needs no password and hands an attacker root. CISA added it to the Known Exploited Vulnerabilities catalog on September 14, confirming active exploitation rather than a theoretical lab finding. Cisco's own advisory tells customers to patch &quot;as soon as possible,&quot; language that survives a lawyer's edit but gives nobody an actual number of hours.</p>
 <p><a class="ed-ref" href="/briefings/2026-09-16-cyber-pm.html">Kai Tanner</a>'s desk has the mechanics: email gateways exist to parse untrusted internet traffic, so this bug needs no phishing lure and no stolen password to reach the box, and root access on a mail relay means the attacker reads everything the appliance touches. <a class="ed-ref" href="/briefings/2026-09-16-hk-finance-pm.html">Rachel Lam</a>'s desk has the part that matters for Hong Kong specifically. HKMA pushed two scam alerts this week, September 14 and 15, warning of fraudulent sites impersonating HKICL and the banks themselves. That means the phishing traffic this bug could wave through is already being generated, not hypothetical. The compliance obligation sits under HKMA's general IT control framework, not the narrower e-banking module, and with no patch date published, the operative clock is the 21-day remediation window US federal agencies use for KEV listings. Cisco has not published a deadline of its own, so that 21-day window is the one Hong Kong bank compliance desks should be reading off now.</p>
 <p>Elsewhere, <a class="ed-ref" href="/briefings/2026-09-16-geopolitical-pm.html">Mei Chen</a>'s desk pairs China's total war mobilization law with the Pentagon's Taiwan Strait drone doctrine, two documents drafted by governments that are not talking to each other but are provisioning for the same fight. And in Hong Kong, <a class="ed-ref" href="/briefings/2026-09-16-hk-desk-pm.html">Cheung Kwok-keung</a>'s desk covers John Lee's first five-year plan: a HK$30,000 cheque for a second child, paired with a public housing wait cut from six years to four.</p>
 <p>Vendors write urgency into adjectives; a government catalog turns urgency into an enforceable number. For a Hong Kong bank running this gateway as its inbound filter, the fraudulent websites HKMA is already warning about are the exact payload this flaw would wave through. Patch against the calendar CISA already published, not against how alarmed Cisco eventually sounds.</p>
-  </div>
+    </div>
+  </details>
   <div class="ed-listen" data-bc="maarten">
     <span class="ed-play" role="button" aria-label="Play"></span>
     <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen.html">All episodes and how to subscribe &rarr;</a></span>
