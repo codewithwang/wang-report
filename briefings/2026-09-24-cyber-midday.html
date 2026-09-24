@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check Point Patches Fourth VPN Flaw in Six Months · Kai Tanner · THE WANG REPORT</title>
+  <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
+  <link rel="canonical" href="https://wangreport.com/briefings/2026-09-24-cyber-midday">
+  <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="Check Point Patches Fourth VPN Flaw in Six Months · Kai Tanner · THE WANG REPORT">
+  <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
+  <meta property="og:url" content="https://wangreport.com/briefings/2026-09-24-cyber-midday">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Check Point Patches Fourth VPN Flaw in Six Months · Kai Tanner · THE WANG REPORT">
+  <meta name="twitter:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F4EFE6; color: #0B1F3A; font-family: Georgia, 'Times New Roman', serif; }
+  .br-nav { border-bottom: 1px solid #C8C0B0; }
+  .br-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
+  .br-masthead { text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #5A6470; padding: 24px 0 4px; text-transform: uppercase; }
+  .br-rule { border: none; border-top: 3px solid #0B1F3A; margin: 0 0 4px; }
+  .br-rule-thin { border: none; border-top: 1px solid #C8C0B0; margin: 4px 0 32px; }
+  .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #C8C0B0; }
+  .br-entry:last-child { border-bottom: none; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
+  .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
+  .br-body p:last-child { margin-bottom: 0; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
+  .br-permalink:hover { color: #0B1F3A; }
+  .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #5A6470; padding: 60px 0; }
+  .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #5A6470; text-align: center; margin-top: 40px; letter-spacing: 1px; }
+  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #C8C0B0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #5A6470; }
+  .br-margin-verdict { font-weight: 600; color: #0B1F3A; margin-right: 2px; }
+  .br-margin-sig { font-style: normal; font-weight: 700; color: #5A6470; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
+
+  .br-wrap { padding-top: 20px; }
+  .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
+  .br-back:hover { color: #0B1F3A; }</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Check Point Patches Fourth VPN Flaw in Six Months","description":"CVE-2026-93616 scores a perfect path traversal on the same Quantum Security Management console Check Point has patched three times since April, while a separate pre-auth RCE in its VPN gateway is already being exploited.","datePublished":"2026-09-24T04:50:49.040Z","dateModified":"2026-09-24T04:50:49.040Z","mainEntityOfPage":"https://wangreport.com/briefings/2026-09-24-cyber-midday","url":"https://wangreport.com/briefings/2026-09-24-cyber-midday","image":["https://wangreport.com/img/og-default.png","https://wangreport.com/masthead/img/kai-tanner.png"],"articleSection":"CYBER INTEL","inLanguage":"en","isAccessibleForFree":true,"creditText":"AI-assisted editorial by The Wang Report","publishingPrinciples":"https://wangreport.com/editorial-standards","publisher":{"@type":"NewsMediaOrganization","@id":"https://wangreport.com/#organization","name":"The Wang Report","url":"https://wangreport.com","logo":{"@type":"ImageObject","url":"https://wangreport.com/img/og-default.png","width":1200,"height":630}},"author":{"@type":"Person","@id":"https://wangreport.com/masthead/kai-tanner#person","name":"Kai Tanner","jobTitle":"Cyber Intel Desk, Senior Correspondent","url":"https://wangreport.com/masthead/kai-tanner","worksFor":{"@id":"https://wangreport.com/#organization"},"disambiguatingDescription":"An authored editorial persona of The Wang Report; briefings under this byline are produced by AI under human editorial direction."}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body>
+
+<div class="br-nav"><div class="nav-bar"><a href="/" class="">Edition</a> | <a href="/issue" class="">Sunday Issue</a> | <a href="/wire" class="">Wire</a> | <a href="/listen" class="">Listen</a> | <a href="/masthead" class="">Masthead</a> | <a href="/about" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber" class="nav-desk-link">Cyber</a><a href="/ai-focus" class="nav-desk-link">AI</a><a href="/geopolitical" class="nav-desk-link">Geopolitical</a><a href="/hk-finance" class="nav-desk-link">Finance</a><a href="/hk-local" class="nav-desk-link">Local</a><a href="/sports" class="nav-desk-link">Sports</a><a href="/science" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks" class="nav-desk-link">Stocks</a><a href="/hkjc-read" class="nav-desk-link">HKJC Read</a><a href="/dads" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav></div>
+
+<div class="br-wrap">
+  <a class="br-back" href="/briefings">&larr; All Briefings</a>
+  <div class="br-masthead">Briefings</div>
+  <hr class="br-rule">
+  <hr class="br-rule-thin">
+
+  <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
+    <div class="br-byline-row">
+      <div class="br-avatar"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt="KT"/></div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">CYBER INTEL</span>
+        <span class="br-journalist-name">Kai Tanner</span>
+        <span class="br-journalist-role">Cyber Intel Desk, Senior Correspondent</span>
+        <span class="br-entry-date">Thursday, September 24, 2026</span>
+      </div>
+    </div>
+    <div class="br-title">Check Point Patches Fourth VPN Flaw in Six Months</div>
+    <div class="br-body">
+      <p>Check Point disclosed CVE-2026-93616 on September 22, a path traversal vulnerability in Quantum Security Management scoring 9.8 on CVSS, alongside confirmation that CVE-2026-85102, a pre-authentication remote code execution flaw in the same product line's VPN certificate handling, is under active exploitation. CISA added both to its Known Exploited Vulnerabilities catalog within a week of each other. The EPSS score on the path traversal sits at 2 percent, low relative to its severity rating, which is the gap worth reading: a critical-rated bug the exploitation-prediction models do not yet expect anyone to bother with, sitting on a management console that talks to every gateway an APAC bank has deployed.</p>
+        <p>The Quantum Security Management console is the administrative layer that pushes policy to Check Point's distributed VPN gateways, so a path traversal there does not compromise one appliance, it compromises whatever the console is trusted to configure. Combine that with a pre-auth RCE already being exploited on the gateway side and a bank running Check Point has two live disclosures on the same product family in the same week, one theoretical and one not. The people who inherit this are the network engineers who scheduled last week's manual hotfix for CVE-2026-85102 and are now told there is a second one. Check Point's public advisory language calls the pair &quot;critical vulnerabilities,&quot; which is accurate and also the least informative thing that could be said about a management-plane bug versus a gateway RCE with attackers already in it.</p>
+        <p>Check Point is the named vendor on both flaws, and Quantum Security Management and the Security Gateway VPN module are the two products implicated, the console patched proactively and the gateway patched after exploitation was already confirmed. That ordering, gateway compromised first and disclosed with an active-exploitation warning, console flaw disclosed a week later before anyone has weaponized it, is the only fact that tells you which one to treat as the emergency.</p>
+    </div>
+    <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/check-point-warns-of-hackers-exploiting-security-gateway-vpn-rce-flaw/" rel="noopener" target="_blank">Hackers Actively Exploiting Check Point VPN Zero Day</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-93616" rel="noopener" target="_blank">CVE-2026-93616 (NVD)</a> <span class="take-source-meta">(nvd.nist.gov)</span></li></ul></div>
+    <aside class="wr-sub" style="margin:36px 0 8px;padding:16px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;font-family:Arial,sans-serif">
+  <div style="font-size:14px;color:#0B1F3A;font-weight:bold;margin-bottom:4px">The Executive Brief, once a month</div>
+  <div style="font-size:13px;color:#555;margin-bottom:10px">What the Cyber desk's registers added up to over the month, for people running regulated firms in Asia. One email, first Monday. <a href="/subscribe" style="color:#B0241E">What arrives</a></div>
+  <form method="post" action="/api/subscribe" style="display:flex;flex-wrap:wrap;gap:8px">
+    <input type="hidden" name="note" value="inline:briefings/2026-09-24-cyber-midday">
+    <label for="wr-sub-email" style="position:absolute;left:-9999px">Email address</label>
+    <input id="wr-sub-email" name="email" type="email" autocomplete="email" required spellcheck="false" placeholder="you@firm.com" style="flex:1 1 220px;max-width:340px;font-size:16px;padding:10px;border:1px solid #999;background:#fff;color:#222">
+    <button type="submit" style="min-height:44px;font-size:14px;padding:10px 18px;color:#fff;background:#0B1F3A;border:1px solid #0B1F3A;cursor:pointer">Send me the brief</button>
+  </form>
+</aside>
+    <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
+  </div>
+
+  <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
+</div>
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><div class="footer">
+  THE WANG REPORT &copy; 2026
+  <br>
+  <a href="/">Main</a> &middot; <a href="/wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="/masthead">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical">Geopolitical</a> &middot; <a href="/hk-finance">Finance & Risk</a> &middot; <a href="/cyber">Cyber</a> &middot; <a href="/ai-focus">AI</a> &middot; <a href="/hk-local">HK Local</a> &middot; <a href="/sports">Sports</a> &middot; <a href="/science">Science & Health</a></span>
+  <br>
+  <a href="/about">About</a> | <a href="/editorial-standards">Editorial Standards</a> | <a href="/privacy">Privacy</a> | <a href="/corrections">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis">Morning Synthesis</a> | <a href="/how-its-made">How It's Made</a>
+</div>
+
+</body>
+</html>
