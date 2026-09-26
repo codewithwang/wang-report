@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!-- wr-board -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>THE WANG REPORT</title>
-  <meta name="description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
+  <meta name="description" content="Hong Kong, at a glance: what moved in local news, finance, cyber and geopolitics in the last 24 hours, what other outlets are leading with, and the numbers that changed.">
   <link rel="canonical" href="https://wangreport.com/">
   <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -12,17 +13,82 @@
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
   <meta property="og:title" content="THE WANG REPORT">
-  <meta property="og:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
+  <meta property="og:description" content="Hong Kong, at a glance: what moved in local news, finance, cyber and geopolitics in the last 24 hours, what other outlets are leading with, and the numbers that changed.">
   <meta property="og:url" content="https://wangreport.com/">
-  <meta property="og:image" content="https://wangreport.com/img/hero.jpg">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="THE WANG REPORT">
-  <meta name="twitter:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <meta name="twitter:image" content="https://wangreport.com/img/hero.jpg">
+  <meta name="twitter:description" content="Hong Kong, at a glance: what moved in local news, finance, cyber and geopolitics in the last 24 hours, what other outlets are leading with, and the numbers that changed.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
+<style>
+.bd-wrap{width:100%;max-width:var(--wr-page);margin:0 auto;padding:0 12px 48px;min-width:0}
+.bd-grid>*,.bd-list li>*,.bd-read>*,.bd-h>*{min-width:0}
+.bd-list li a{overflow-wrap:anywhere}
+.bd-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:10px 0 6px}
+.bd-title{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:30px;letter-spacing:.02em;color:var(--wr-ink)}
+.bd-title a{color:inherit;text-decoration:none}
+.bd-when{font-family:Arial,sans-serif;font-size:12px;color:var(--wr-slate)}
+.bd-strip{display:flex;gap:8px;overflow-x:auto;padding:8px 0 10px;border-top:2px solid var(--wr-ink);border-bottom:1px solid var(--wr-rule);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.bd-strip::-webkit-scrollbar{display:none}
+.bd-chip{flex:0 0 auto;min-width:118px;background:var(--wr-panel);border:1px solid var(--wr-rule);border-radius:6px;padding:6px 10px;text-decoration:none;color:var(--wr-ink)}
+.bd-chip .l{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.06em;color:var(--wr-slate)}
+.bd-chip .v{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;line-height:1.1}
+.bd-chip .s{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.bd-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:14px}
+@media(max-width:820px){.bd-grid{grid-template-columns:1fr}}
+.bd-h{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:none;color:var(--wr-ink);border-bottom:1px solid var(--wr-ink);padding-bottom:4px;margin:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+.bd-h span{font-weight:400;color:var(--wr-slate);letter-spacing:0}
+.bd-h a{color:var(--wr-slate);text-decoration:none;font-weight:400;letter-spacing:0}
+.bd-desk{margin-bottom:14px}
+.bd-desk-h{display:flex;align-items:baseline;gap:8px;margin:10px 0 4px}
+.bd-desk-h a{font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-decoration:none}
+.bd-read{font-family:'Spectral',Georgia,serif;font-size:15px;line-height:1.35;margin:0 0 6px;padding-left:10px;border-left:3px solid var(--wr-rule)}
+.bd-read a{color:var(--wr-ink);text-decoration:none}
+.bd-read .who{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate)}
+.bd-list{list-style:none;margin:0;padding:0}
+.bd-list li{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:baseline;padding:3px 0;border-bottom:1px dotted var(--wr-rule);font-family:'Spectral',Georgia,serif;font-size:15px;line-height:1.3}
+.bd-list li a{color:var(--wr-ink);text-decoration:none}
+.bd-list li a:hover{text-decoration:underline}
+.bd-list li.hot a{font-weight:600}
+.bd-list li.hot a::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--wr-seal);margin-right:6px;vertical-align:1px}
+.bd-list .m{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate);white-space:nowrap}
+details.bd-more summary{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate);cursor:pointer;padding:4px 0;list-style:none}
+details.bd-more summary::-webkit-details-marker{display:none}
+.bd-oth{list-style:none;margin:0;padding:0}
+.bd-oth li{padding:5px 0;border-bottom:1px dotted var(--wr-rule);font-family:'Spectral',Georgia,serif;font-size:14px;line-height:1.3}
+.bd-oth .o{font-family:Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--wr-slate);display:block}
+.bd-oth a{color:var(--wr-ink);text-decoration:none}
+.bd-oth .tag{font-family:Arial,sans-serif;font-size:10px;color:var(--wr-seal);margin-left:6px}
+.bd-oth .tag.on{color:var(--wr-slate)}
+.bd-worth{list-style:none;margin:0;padding:0}
+.bd-worth li{padding:7px 0;border-bottom:1px solid var(--wr-rule)}
+.bd-worth a{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:16px;line-height:1.25;color:var(--wr-ink);text-decoration:none}
+.bd-worth .d{font-family:'Spectral',Georgia,serif;font-size:14px;color:var(--wr-ink);margin:2px 0 0}
+.bd-worth .who{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate)}
+.bd-card{background:var(--wr-panel);border:1px solid var(--wr-rule);border-radius:6px;padding:8px 10px;margin-bottom:10px}
+.bd-card h4{margin:0 0 4px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:.08em}
+.bd-card h4 a{color:var(--wr-ink);text-decoration:none}
+.bd-card ul{list-style:none;margin:0;padding:0}
+.bd-card li{font-family:'Spectral',Georgia,serif;font-size:13px;line-height:1.3;padding:3px 0;border-top:1px dotted var(--wr-rule)}
+.bd-card li a{color:var(--wr-ink);text-decoration:none}
+.bd-card .s{display:block;font-family:Arial,sans-serif;font-size:10px;color:var(--wr-slate)}
+.bd-catch{font-family:'Spectral',Georgia,serif;font-size:14px}
+.bd-catch a{color:var(--wr-ink)}
+.bd-catch .who{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate)}
+.bd-quiet{font-family:Arial,sans-serif;font-size:12px;color:var(--wr-slate)}
+.bd-read{display:flex;gap:8px;align-items:flex-start}
+.bd-read .face{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:0 0 34px;border:1px solid var(--wr-rule)}
+.bd-list li.has-th{grid-template-columns:auto 1fr auto}
+.bd-list .th{width:56px;height:40px;object-fit:cover;border-radius:3px;border:1px solid var(--wr-rule);align-self:center}
+.bd-list li a:visited,.bd-list li.read a,.bd-oth a:visited,.bd-worth a:visited{color:var(--wr-slate)}
+.bd-list li.read a::before{background:var(--wr-rule)}
+.bd-list li.new .m::before{content:'new';font-family:Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--wr-seal);border-radius:3px;padding:1px 4px;margin-right:6px;vertical-align:1px}
+.bd-when b{font-weight:400;color:var(--wr-ink)}
+</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://wangreport.com/#organization","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","logo":{"@type":"ImageObject","url":"https://wangreport.com/img/og-default.png","width":1200,"height":630},"image":"https://wangreport.com/img/og-default.png","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","foundingDate":"2025","foundingLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hong Kong","addressCountry":"HK"}},"email":"editor@wangreport.com","knowsLanguage":["en","zh-Hant"],"publishingPrinciples":"https://wangreport.com/editorial-standards","ethicsPolicy":"https://wangreport.com/editorial-standards","diversityPolicy":"https://wangreport.com/editorial-standards","actionableFeedbackPolicy":"https://wangreport.com/contact","correctionsPolicy":"https://wangreport.com/editorial-standards#corrections","sameAs":["https://x.com/wangreport"]}</script>
   <!-- Google tag (gtag.js) -->
@@ -35,372 +101,122 @@
   </script>
 </head>
 <body>
+<div class="nav-bar"><a href="/" class="nav-active">Front</a> | <a href="/issue" class="">Sunday Issue</a> | <a href="/wire" class="">Wire</a> | <a href="/listen" class="">Listen</a> | <a href="/masthead" class="">Masthead</a> | <a href="/about" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="/cyber" class="nav-desk-link">Cyber</a><a href="/ai-focus" class="nav-desk-link">AI</a><a href="/geopolitical" class="nav-desk-link">Geopolitical</a><a href="/hk-finance" class="nav-desk-link">Finance</a><a href="/hk-local" class="nav-desk-link">Local</a><a href="/sports" class="nav-desk-link">Sports</a><a href="/science" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="/stocks" class="nav-desk-link">Stocks</a><a href="/hkjc-read" class="nav-desk-link">HKJC Read</a><a href="/dads" class="nav-desk-link">Dads</a><a href="/hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+<div class="bd-wrap">
+  <div class="bd-head">
+    <div class="bd-title"><a href="./">THE WANG REPORT</a></div>
+    <div class="bd-when" id="bd-when" data-built="2026-09-26T22:24:12.441Z">Sunday, 27 September 2026 · built 06:24 HKT · Hong Kong</div>
+  </div>
+  <div class="bd-strip"><a class="bd-chip" href="https://www.hko.gov.hk/en/" rel="noopener" target="_blank"><div class="l">Hong Kong</div><div class="v">27°C</div><div class="s">fire danger</div></a><a class="bd-chip" href="geopolitical"><div class="l">VIX</div><div class="v">14.87</div><div class="s">-0.80 on the day</div></a><a class="bd-chip" href="geopolitical"><div class="l">Fear &amp; Greed</div><div class="v">74</div><div class="s">greed</div></a><a class="bd-chip" href="/cve/"><div class="l">CISA KEV</div><div class="v">+9</div><div class="s">exploited, this week</div></a><a class="bd-chip" href="/cyber-exposure"><div class="l">Exposure</div><div class="v">+1</div><div class="s">Microsoft</div></a><a class="bd-chip" href="/ai-models"><div class="l">Model ledger</div><div class="v">33</div><div class="s">changes, last 7 days</div></a><a class="bd-chip" href="/flashpoints"><div class="l">Flashpoints</div><div class="v">8</div><div class="s">moves, 48 hours</div></a></div>
 
-<div class="nav-bar"><a href="./" class="nav-active">Front</a> | <a href="issue" class="">Sunday Issue</a> | <a href="wire" class="">Wire</a> | <a href="listen" class="">Listen</a> | <a href="masthead" class="">Masthead</a> | <a href="about" class="">About</a></div>
-<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="cyber" class="nav-desk-link">Cyber</a><a href="ai-focus" class="nav-desk-link">AI</a><a href="geopolitical" class="nav-desk-link">Geopolitical</a><a href="hk-finance" class="nav-desk-link">Finance</a><a href="hk-local" class="nav-desk-link">Local</a><a href="sports" class="nav-desk-link">Sports</a><a href="science" class="nav-desk-link">Science & Health</a><span class="nav-desk-gap"></span><a href="stocks" class="nav-desk-link">Stocks</a><a href="hkjc-read" class="nav-desk-link">HKJC Read</a><a href="dads" class="nav-desk-link">Dads</a><a href="hk-adults-calendar/" class="nav-desk-link">Calendars</a></div></nav>
+  <div class="bd-grid">
+    <div>
+      <div class="bd-h">Right now <span>77 stories, last 24 hours, newest and hottest first</span></div>
+      <section class="bd-desk">
+  <div class="bd-desk-h"><a href="hk-local" style="color:var(--wr-seal)">Hong Kong</a><span class="bd-quiet">12 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T09:50:52.148Z"><img class="face" src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt=""><span><a href="/briefings/2026-09-26-hk-desk-pm">Pinhole Cameras Turn Up In Sha Tin Gym Changing Room</a> <span class="who">Cheung Kwok-keung · <time datetime="2026-09-26T09:50:52.148Z">13 h</time> ago</span></span></p>
+  <ul class="bd-list"><li class="hot" data-ts="2026-09-26T09:39:49.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871674-20260926.htm" rel="noopener">Tai Po Councillor Peggy Wong Quits</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T09:39:49.000Z" title="17:39 HKT">13 h</time></span></li><li class="hot" data-ts="2026-09-26T05:50:22.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871646-20260926.htm" rel="noopener">Pinhole Cameras Found In Gym Changing Rooms</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T05:50:22.000Z" title="13:50 HKT">17 h</time></span></li><li class="hot" data-ts="2026-09-26T02:00:00.000Z"><a href="https://www.msn.com/en-sg/news/other/john-lee-details-hong-kong-development-plan-on-public-radio/ar-AA2cInkp" rel="noopener">Lee Details Development Plan On Air</a><span class="m"><span class="src">duckduckgo news</span> · <time datetime="2026-09-26T02:00:00.000Z" title="10:00 HKT">20 h</time></span></li><li class="" data-ts="2026-09-26T12:55:18.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871688-20260926.htm" rel="noopener">Evening News Roundup, Sep 26</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T12:55:18.000Z" title="20:55 HKT">9 h</time></span></li><li class="" data-ts="2026-09-26T12:22:00.000Z"><a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/26/free-rides-unite-hong-kong-for-mid-autumn-festival-celebration" rel="noopener">Free Rides Mark Mid Autumn Festival</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T12:22:00.000Z" title="20:22 HKT">10 h</time></span></li><li class="" data-ts="2026-09-26T10:00:53.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871671-20260926.htm" rel="noopener">Simmi Chan Wins Squash Bronze</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T10:00:53.000Z" title="18:00 HKT">12 h</time></span></li><li class="" data-ts="2026-09-26T09:15:42.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871669-20260926.htm" rel="noopener">HK Fencers Take Two Asian Games Bronzes</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T09:15:42.000Z" title="17:15 HKT">13 h</time></span></li></ul>
+  <details class="bd-more"><summary>5 more</summary><ul class="bd-list"><li class="" data-ts="2026-09-26T07:40:30.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871647-20260926.htm" rel="noopener">Chan Sees Market Lift From Xi Trump Summit</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T07:40:30.000Z" title="15:40 HKT">15 h</time></span></li><li class="" data-ts="2026-09-26T06:25:19.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871654-20260926.htm" rel="noopener">All HK Final Set In Mixed Doubles Squash</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T06:25:19.000Z" title="14:25 HKT">16 h</time></span></li><li class="" data-ts="2026-09-26T04:55:59.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871641-20260926.htm" rel="noopener">Workers Offered AI Training As Tech Advances</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T04:55:59.000Z" title="12:55 HKT">17 h</time></span></li><li class="" data-ts="2026-09-26T04:35:41.000Z"><a href="https://news.rthk.hk/rthk/en/component/k2/1871639-20260926.htm" rel="noopener">Law Reform Targets Sly AI Porn Images</a><span class="m"><span class="src">RTHK</span> · <time datetime="2026-09-26T04:35:41.000Z" title="12:35 HKT">18 h</time></span></li><li class="" data-ts="2026-09-26T04:22:00.000Z"><a href="https://www.taiwannews.com.tw/en/news/6446908" rel="noopener">Shrewsbury HK Champions Chinese Culture</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T04:22:00.000Z" title="12:22 HKT">18 h</time></span></li></ul></details>
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="hk-finance" style="color:var(--desk-finance)">Finance</a><span class="bd-quiet">5 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T22:02:11.123Z"><img class="face" src="/masthead/img/thumbs/rachel-lam.jpg" alt=""><span><a href="/briefings/2026-09-27-hk-finance">FWD's HK$19.5 Million Fine Reads Cheap Next to the Alternative</a> <span class="who">Rachel Lam · <time datetime="2026-09-26T22:02:11.123Z">22 min</time> ago</span></span></p>
+  <ul class="bd-list"><li class="" data-ts="2026-09-26T08:00:00.000Z"><a href="https://www.exchangerates.org.uk/news/47281/2026-09-26-pound-sterling-forecast-ubs-predicts-6-4-recovery-against-dollar.html" rel="noopener">UBS Sees Pound Rallying 6.4% Against Dollar</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T08:00:00.000Z" title="16:00 HKT">14 h</time></span></li><li class="" data-ts="2026-09-26T07:44:00.000Z"><a href="https://nypost.com/2026/09/26/sports/lawrence-tanters-voice-helped-make-lakers-experience-great/" rel="noopener">Lakers fans are going to miss Lawrence Tanter</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T07:44:00.000Z" title="15:44 HKT">15 h</time></span></li><li class="" data-ts="2026-09-26T07:32:13.000Z"><a href="https://elitesportsny.com/2026/09/26/nfl-prediction-market-promos/" rel="noopener">NFL Prediction Market Promos: Best Offers for Trading on 2026 Season</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T07:32:13.000Z" title="15:32 HKT">15 h</time></span></li><li class="" data-ts="2026-09-26T07:12:16.000Z"><a href="https://www.webpronews.com/an-airport-that-inhales-reunions-terminal-without-air-conditioning/" rel="noopener">An Airport That Inhales: Réunion’s Terminal Without Air Conditioning</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T07:12:16.000Z" title="15:12 HKT">15 h</time></span></li><li class="" data-ts="2026-09-26T02:55:00.000Z"><a href="https://www.bloomberg.com/news/articles/2026-09-26/finance-minister-says-leaving-switzerland-more-costly-for-ubs" rel="noopener">Swiss Minister Warns UBS Exit Would Cost More Than Staying</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T02:55:00.000Z" title="10:55 HKT">19 h</time></span></li></ul>
+  
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="cyber" style="color:var(--desk-cyber)">Cyber</a><span class="bd-quiet">14 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T21:59:28.132Z"><img class="face" src="/masthead/img/thumbs/kai-tanner.jpg" alt=""><span><a href="/briefings/2026-09-27-cyber">ShinyHunters Beats PeopleSoft WAF Rules With a URL Encoding Trick</a> <span class="who">Kai Tanner · <time datetime="2026-09-26T21:59:28.132Z">25 min</time> ago</span></span></p>
+  <ul class="bd-list"><li class="hot" data-ts="2026-09-26T19:03:34.000Z"><a href="https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/" rel="noopener">ShinyHunters Bypasses Firewalls, Renews Mass Oracle PeopleSoft Attacks</a><span class="m"><span class="src">BleepingComputer</span> · <time datetime="2026-09-26T19:03:34.000Z" title="03:03 HKT">3 h</time></span></li><li class="hot has-th" data-ts="2026-09-26T11:46:40.000Z"><img class="th" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYN2VWIT2g8mQkV0GeZWzYErKcubb0-baI8J__2nmdElucECc7HrLkdPsR1dz93qjMBI5sr_dL8yPWHf2bwWCBXa3YfutHAeJ-70UCSMuJrHhyOB3RO4OkuDjuw7gxRLXUnK-CeK9jZO0uOJRy-N3w-rV7uZ4t1FnFIWNjEsKtSYQINUvPX31mKzV_5Ert/s1600/oracle-flaw.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html" rel="noopener">Google Warns Of Web Shells Deployed In PeopleSoft WAF Bypass</a><span class="m"><span class="src">The Hacker News</span> · <time datetime="2026-09-26T11:46:40.000Z" title="19:46 HKT">11 h</time></span></li><li class="hot has-th" data-ts="2026-09-26T08:49:53.000Z"><img class="th" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEPamtRBBEzltsUWnj-F8umrMf4eUUhTmGUJdhHlrvWZamHWpBtXcrpQKDArTziRiiIWv8psX4DTZyN9kLBtcAyLOPJma9_M7sYKgYz6WBISbOhJrRlfByfCKfTTMdBqaYUp-0nskrt2ndt3poUFLDGegEFJojS0EzEvwAqzaUNtvX26jZopYE4zA4S3K/s1600/share-kev.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html" rel="noopener">CISA Confirms SharePoint, MikroTik Flaws Under Active Attack</a><span class="m"><span class="src">The Hacker News</span> · <time datetime="2026-09-26T08:49:53.000Z" title="16:49 HKT">14 h</time></span></li><li class="hot has-th" data-ts="2026-09-26T07:48:33.000Z"><img class="th" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv53vaJYNeZNicsGcrBICKzTEXfHanPN-VR6-pTFsSJEV2IGpJn2MainwfMgqV2k96VN_ocXYLbmykTSVpwTPZr16tauFV37hU3g-lA4X31aqJQFYIsdwlHwNUIhNn9euB8SddL8d7wRKa7Ira2vNi51WNHyJivZ2Z3kkRDcAZtCQfSyvZHNLrZbqbF7jr/s1600/kite.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://thehackernews.com/2026/09/kiteworks-urges-customers-to-shut-down.html" rel="noopener">Kiteworks Tells Customers To Shut Down Servers Over Imminent Attack</a><span class="m"><span class="src">The Hacker News</span> · <time datetime="2026-09-26T07:48:33.000Z" title="15:48 HKT">15 h</time></span></li><li class="hot" data-ts="2026-09-26T07:00:00.000Z"><a href="https://www.straitstimes.com/tech/singapore-shifts-cyber-strategy-after-unc3886-attacks-deploys-ai-security-tools" rel="noopener">Singapore Deploys AI Pen Testers On 2,000 Systems After China Hack</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T07:00:00.000Z" title="15:00 HKT">15 h</time></span></li><li class="" data-ts="2026-09-26T18:22:52.000Z"><a href="https://thehackernews.com/2026/09/lunex-stealer-abuses-amd-driver-to.html" rel="noopener">Lunex Stealer Abuses AMD Driver To Kill Security Tools</a><span class="m"><span class="src">The Hacker News</span> · <time datetime="2026-09-26T18:22:52.000Z" title="02:22 HKT">4 h</time></span></li><li class="" data-ts="2026-09-26T15:50:38.000Z"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-365-kb5002907-update-paused-after-office-license-deactivations/" rel="noopener">Microsoft Pauses Update That Deactivated Office Licenses</a><span class="m"><span class="src">BleepingComputer</span> · <time datetime="2026-09-26T15:50:38.000Z" title="23:50 HKT">7 h</time></span></li></ul>
+  <details class="bd-more"><summary>7 more</summary><ul class="bd-list"><li class="" data-ts="2026-09-26T14:19:46.000Z"><a href="https://www.bleepingcomputer.com/news/security/github-actions-re-enabled-with-mini-shai-hulud-payload-still-active/" rel="noopener">Hacked GitHub Actions Kept Running Malware For Over A Week</a><span class="m"><span class="src">BleepingComputer</span> · <time datetime="2026-09-26T14:19:46.000Z" title="22:19 HKT">8 h</time></span></li><li class="" data-ts="2026-09-26T12:28:41.000Z"><a href="https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites/" rel="noopener">OpenAI Agents Leaked User Images To Third Party Sites</a><span class="m"><span class="src">BleepingComputer</span> · <time datetime="2026-09-26T12:28:41.000Z" title="20:28 HKT">10 h</time></span></li><li class="" data-ts="2026-09-26T12:13:00.000Z"><a href="https://www.abacusnews.com/ai-cybersecurity-trends-alerts-and-data/" rel="noopener">SOC Alert Overload And Bad Data Undermine AI Security Tools</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T12:13:00.000Z" title="20:13 HKT">10 h</time></span></li><li class="" data-ts="2026-09-26T10:30:00.000Z"><a href="https://thehackernews.com/2026/09/zero-trust-for-ai-agents-starts-with.html" rel="noopener">AI Agents Run Blind: Zero Visibility Is The Real Zero Trust Gap</a><span class="m"><span class="src">The Hacker News</span> · <time datetime="2026-09-26T10:30:00.000Z" title="18:30 HKT">12 h</time></span></li><li class="" data-ts="2026-09-26T09:55:22.000Z"><a href="https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html" rel="noopener">One Click And Elementor Sites Fall To Attackers</a><span class="m"><span class="src">The Hacker News</span> · <time datetime="2026-09-26T09:55:22.000Z" title="17:55 HKT">12 h</time></span></li><li class="" data-ts="2026-09-26T05:12:00.000Z"><a href="https://finance.yahoo.com/markets/stocks/articles/pentagon-ai-shake-puts-hawkeye-131113950.html" rel="noopener">Anthropic Pentagon Clash Reshapes Defense Cyber Stock Picture</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T05:12:00.000Z" title="13:12 HKT">17 h</time></span></li><li class="" data-ts="2026-09-25T23:00:28.000Z"><a href="https://unit42.paloaltonetworks.com/3-consulting-myths-debunked-by-unit-42-experts/" rel="noopener">Unit 42 Debunks Enterprise Security Consulting Myths</a><span class="m"><span class="src">Unit 42</span> · <time datetime="2026-09-25T23:00:28.000Z" title="07:00 HKT">23 h</time></span></li></ul></details>
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="geopolitical" style="color:var(--desk-geopolitical)">Geopolitics</a><span class="bd-quiet">15 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T21:59:03.982Z"><img class="face" src="/masthead/img/thumbs/mei-chen.jpg" alt=""><span><a href="/briefings/2026-09-27-geopolitical">Xi's Independence Demand Outlasted the Summit Pomp</a> <span class="who">Mei Chen · <time datetime="2026-09-26T21:59:03.982Z">25 min</time> ago</span></span></p>
+  <ul class="bd-list"><li class="hot" data-ts="2026-09-26T11:09:11.000Z"><a href="https://www.breitbart.com/clips/2026/09/25/u-s-amb-to-china-dont-know-when-taiwan-military-sale-will-happen-trump-has-a-schedule-of-his-own/" rel="noopener">Trump Has His Own Schedule On Taiwan Arms</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T11:09:11.000Z" title="19:09 HKT">11 h</time></span></li><li class="hot" data-ts="2026-09-26T09:08:00.000Z"><a href="https://www.the-sun.com/news/17062716/ukraine-robot-drones-kill-russian-troops-behind-lines/" rel="noopener">Ukraine Robot Drones Wipe Out 3,000 Russians</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T09:08:00.000Z" title="17:08 HKT">13 h</time></span></li><li class="hot" data-ts="2026-09-26T02:38:00.000Z"><a href="https://www.taiwannews.com.tw/news/6446879" rel="noopener">Taiwan Tracks Chinese Warships, Jets Again</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T02:38:00.000Z" title="10:38 HKT">20 h</time></span></li><li class="hot" data-ts="2026-09-26T02:36:04.000Z"><a href="https://wtop.com/news/2026/09/7-dead-as-russia-ukraine-exchange-strikes-and-aerial-war-intensifies/" rel="noopener">Seven Dead As Strikes, Drone War Intensify</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T02:36:04.000Z" title="10:36 HKT">20 h</time></span></li><li class="" data-ts="2026-09-26T10:48:00.000Z"><a href="https://www.yahoo.com/news/politics/articles/wadephul-says-talks-lavrov-showed-184839359.html" rel="noopener">Lavrov Talks Expose Deep Rift Over Ukraine</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T10:48:00.000Z" title="18:48 HKT">12 h</time></span></li><li class="" data-ts="2026-09-26T10:44:00.000Z"><a href="https://jang.com.pk/en/73902-trump-xi-talks-these-key-issues-shape-us-china-relations-news" rel="noopener">Trade, Taiwan, Iran Loom Over US-China Ties</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T10:44:00.000Z" title="18:44 HKT">12 h</time></span></li><li class="" data-ts="2026-09-26T09:45:34.000Z"><a href="https://www.newsweek.com/trump-rejects-iran-deal-reopen-strait-hormuz-12493131" rel="noopener">Trump Rejects Iran Deal On Hormuz Strait</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T09:45:34.000Z" title="17:45 HKT">13 h</time></span></li></ul>
+  <details class="bd-more"><summary>8 more</summary><ul class="bd-list"><li class="" data-ts="2026-09-26T09:24:47.000Z"><a href="https://www.androidheadlines.com/2026/09/trump-blocks-uk-us-ai-model-access.html" rel="noopener">Trump Tells AI Firms: Hold Models From UK</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T09:24:47.000Z" title="17:24 HKT">13 h</time></span></li><li class="" data-ts="2026-09-26T09:14:00.000Z"><a href="https://www.usnews.com/news/world/articles/2026-09-26/german-russian-foreign-ministers-have-rare-meeting-at-un" rel="noopener">Germany, Russia Hold Rare UN Sideline Meeting</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T09:14:00.000Z" title="17:14 HKT">13 h</time></span></li><li class="" data-ts="2026-09-26T07:22:41.000Z"><a href="https://nypost.com/2026/09/26/us-news/trump-reiterates-iran-can-not-have-a-nuclear-weapon-as-prez-rejects-regimes-seven-day-ceasefire-proposal/" rel="noopener">Trump Rejects Iran's Ceasefire, Nuke Demand Stands</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T07:22:41.000Z" title="15:22 HKT">15 h</time></span></li><li class="" data-ts="2026-09-26T03:57:00.000Z"><a href="https://www.tbsnews.net/thoughts/how-bangladesh-can-preserve-its-economic-room-manoeuvre-amid-geopolitical-tensions-1554676" rel="noopener">Bangladesh Walks Tightrope Amid Great Power Rivalry</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T03:57:00.000Z" title="11:57 HKT">18 h</time></span></li><li class="" data-ts="2026-09-26T03:28:00.000Z"><a href="https://thefridaytimes.com/26-Sep-2026/part-iii-iran-israel-unravelling-america-s-middle-east-strategy" rel="noopener">Iran, Israel And America's Fraying Mideast Grip</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T03:28:00.000Z" title="11:28 HKT">19 h</time></span></li><li class="" data-ts="2026-09-26T02:12:00.000Z"><a href="https://www.telesurenglish.net/iran-trump/" rel="noopener">Iran's Five Demands Block Trump Summit</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T02:12:00.000Z" title="10:12 HKT">20 h</time></span></li><li class="" data-ts="2026-09-26T01:11:00.000Z"><a href="https://note.com/lively_phlox953/n/n6d0e7b601192?hl=en" rel="noopener">Takaichi Remarks Rattle Japan, Markets</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T01:11:00.000Z" title="09:11 HKT">21 h</time></span></li><li class="" data-ts="2026-09-26T00:00:00.000Z"><a href="https://www.newsweek.com/exclusive-erdogan-warns-israel-over-misguided-narrative-of-turkey-threat-12489370" rel="noopener">Erdogan Warns Israel Over Turkey 'Threat' Talk</a><span class="m"><span class="src">qwant news</span> · <time datetime="2026-09-26T00:00:00.000Z" title="08:00 HKT">22 h</time></span></li></ul></details>
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="ai-focus" style="color:var(--desk-ai)">AI</a><span class="bd-quiet">4 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T22:00:30.273Z"><img class="face" src="/masthead/img/thumbs/aya-nakamura.jpg" alt=""><span><a href="/briefings/2026-09-27-ai-focus">Anthropic's Rogue AI Attack Traces to One Firm, Not a Trend</a> <span class="who">Aya Nakamura · <time datetime="2026-09-26T22:00:30.273Z">24 min</time> ago</span></span></p>
+  <ul class="bd-list"><li class="" data-ts="2026-09-26T21:02:06.000Z"><a href="https://techcrunch.com/2026/09/26/insurers-claim-ai-is-already-increasing-healthcare-costs/" rel="noopener">Insurers Say AI Already Raising Costs</a><span class="m"><span class="src">TechCrunch</span> · <time datetime="2026-09-26T21:02:06.000Z" title="05:02 HKT">1 h</time></span></li><li class="" data-ts="2026-09-26T14:00:00.000Z"><a href="https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising" rel="noopener">Can Cloudflare's Prince Save Web From AI</a><span class="m"><span class="src">The Verge</span> · <time datetime="2026-09-26T14:00:00.000Z" title="22:00 HKT">8 h</time></span></li><li class="" data-ts="2026-09-25T23:14:41.000Z"><a href="https://www.latent.space/p/openrouter" rel="noopener">OpenRouter's Journey From Seed To Stripe</a><span class="m"><span class="src">Latent Space</span> · <time datetime="2026-09-25T23:14:41.000Z" title="07:14 HKT">23 h</time></span></li><li class="" data-ts="2026-09-25T23:11:10.000Z"><a href="https://techcrunch.com/2026/09/25/crusoe-abandons-1-25b-plan-to-use-boom-turbines-at-ai-data-centers/" rel="noopener">Crusoe Scraps $1.25B Boom Turbine Plan</a><span class="m"><span class="src">TechCrunch</span> · <time datetime="2026-09-25T23:11:10.000Z" title="07:11 HKT">23 h</time></span></li></ul>
+  
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="/science" style="color:var(--wr-slate)">Science</a><span class="bd-quiet">2 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T22:01:42.055Z"><img class="face" src="/masthead/img/thumbs/magnus-honeyfield.jpg" alt=""><span><a href="/briefings/2026-09-27-science">An AI Reads DNA It Has Never Seen And Guesses The Protein's Job</a> <span class="who">Magnus Honeyfield · <time datetime="2026-09-26T22:01:42.055Z">23 min</time> ago</span></span></p>
+  <ul class="bd-list"><li class="hot" data-ts="2026-09-26T01:47:08.426Z"><a href="https://tech.yahoo.com/science/articles/spacexs-starship-finally-orbit-were-100000785.html" rel="noopener">SpaceX Starship Flight 14 Aims for First Orbital Attempt</a><span class="m"><span class="src">yahoo news</span> · <time datetime="2026-09-26T01:47:08.426Z" title="09:47 HKT">21 h</time></span></li><li class="" data-ts="2026-09-26T07:47:08.426Z"><a href="https://247wallst.com/investing/2026/09/26/spacex-just-launched-its-100th-block-5-rocket-elon-musk-is-building-an-unshakable-financial-fortress/" rel="noopener">SpaceX Launches Its 100th Block 5 Rocket</a><span class="m"><span class="src">yahoo news</span> · <time datetime="2026-09-26T07:47:08.426Z" title="15:47 HKT">15 h</time></span></li></ul>
+  
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="sports" style="color:var(--wr-slate)">Sports</a><span class="bd-quiet">25 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T22:01:17.097Z"><img class="face" src="/masthead/img/thumbs/dev-chatterjee.jpg" alt=""><span><a href="/briefings/2026-09-27-sports">Curry Takes A Pay Cut, Lakers Take LeBron To Philly</a> <span class="who">Dev Chatterjee · <time datetime="2026-09-26T22:01:17.097Z">23 min</time> ago</span></span></p>
+  <ul class="bd-list"><li class="hot has-th" data-ts="2026-09-26T21:43:22.000Z"><img class="th" src="https://a.espncdn.com/photo/2026/0926/r1722186_600x400_3-2.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://www.espn.com/nba/story/_/id/50036563/sources-bulls-trade-rob-dillingham-hornets-buddy-hield" rel="noopener">Bulls Trade Dillingham For Buddy Hield</a><span class="m"><span class="src">ESPN NBA</span> · <time datetime="2026-09-26T21:43:22.000Z" title="05:43 HKT">41 min</time></span></li><li class="hot has-th" data-ts="2026-09-26T20:34:30.000Z"><img class="th" src="https://s.espncdn.com/stitcher/sports/baseball/mlb/events/401817092.png?templateId=espn.applewatch.awayhome.1" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="http://www.espn.com/mlb/recap?gameId=401817092" rel="noopener">Verlander Bows Out As Tigers Rally</a><span class="m"><span class="src">ESPN MLB</span> · <time datetime="2026-09-26T20:34:30.000Z" title="04:34 HKT">2 h</time></span></li><li class="hot has-th" data-ts="2026-09-26T17:02:12.000Z"><img class="th" src="https://a.espncdn.com/photo/2026/0926/r1722010_1296x729_16-9.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://www.espn.com/f1/story/_/id/50011930/lando-norris-takes-aim-franco-colapinto-collision-azerbaijan-grand-prix-some-drivers-formula-1-baku" rel="noopener">Norris Demands Ban After Colapinto Crash</a><span class="m"><span class="src">ESPN F1</span> · <time datetime="2026-09-26T17:02:12.000Z" title="01:02 HKT">5 h</time></span></li><li class="hot has-th" data-ts="2026-09-26T15:09:57.000Z"><img class="th" src="https://a.espncdn.com/photo/2026/0926/r1722005_1296x729_16-9.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://www.espn.com/f1/story/_/id/50011927/george-russell-fights-max-verstappen-take-dominant-win-baku-formula-1" rel="noopener">Russell Holds Off Verstappen In Baku</a><span class="m"><span class="src">ESPN F1</span> · <time datetime="2026-09-26T15:09:57.000Z" title="23:09 HKT">7 h</time></span></li><li class="hot" data-ts="2026-09-26T06:57:00.000Z"><a href="https://apnews.com/article/rio-ravens-cowboys-maracana-turf-saturday-dbc852da9d5dfae90c1a212670752e28" rel="noopener">Cowboys, Ravens Set For Rio Kickoff</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T06:57:00.000Z" title="14:57 HKT">15 h</time></span></li><li class="hot has-th" data-ts="2026-09-26T06:35:03.000Z"><img class="th" src="https://a.espncdn.com/photo/2026/0601/r1666763_600x400_3-2.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://www.espn.com/nba/story/_/id/50030670/sources-warriors-curry-reach-2-year-extension-worth-116-million" rel="noopener">Curry Signs $116m Deal, History Made</a><span class="m"><span class="src">ESPN NBA</span> · <time datetime="2026-09-26T06:35:03.000Z" title="14:35 HKT">16 h</time></span></li><li class="hot has-th" data-ts="2026-09-25T23:23:18.000Z"><img class="th" src="https://a.espncdn.com/photo/2025/0324/r1468472_1296x729_16-9.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><a href="https://www.espn.com/soccer/story/_/id/44382463/man-city-115-charges-premier-league-verdict" rel="noopener">Man City Found Guilty On Financial Charges</a><span class="m"><span class="src">ESPN Premier League</span> · <time datetime="2026-09-25T23:23:18.000Z" title="07:23 HKT">23 h</time></span></li></ul>
+  <details class="bd-more"><summary>18 more</summary><ul class="bd-list"><li class="" data-ts="2026-09-26T21:21:30.000Z"><a href="http://www.espn.com/ncf/recap?gameId=401858467" rel="noopener">Notre Dame Routs Purdue Behind Carr</a><span class="m"><span class="src">ESPN College football</span> · <time datetime="2026-09-26T21:21:30.000Z" title="05:21 HKT">1 h</time></span></li><li class="" data-ts="2026-09-26T21:12:37.000Z"><a href="https://www.espn.com/college-football/story/_/id/46472145/purdue-boilermakers-football-taylor-swift-album-curse" rel="noopener">Purdue's Taylor Swift Curse Hits 0-12</a><span class="m"><span class="src">ESPN College football</span> · <time datetime="2026-09-26T21:12:37.000Z" title="05:12 HKT">1 h</time></span></li><li class="" data-ts="2026-09-26T21:03:22.000Z"><a href="https://www.espn.com/college-football/story/_/id/50036170/jeremiah-smith-historic-200-yard-4-td-game-propels-ohio-state" rel="noopener">Jeremiah Smith Torches Illinois For Ohio State</a><span class="m"><span class="src">ESPN College football</span> · <time datetime="2026-09-26T21:03:22.000Z" title="05:03 HKT">1 h</time></span></li><li class="" data-ts="2026-09-26T20:43:31.000Z"><a href="https://www.espn.com/mlb/story/_/id/50035926/juan-soto-exits-mets-win-hbp-x-rays-negative" rel="noopener">Soto Hit By Pitch, X-Rays Clear</a><span class="m"><span class="src">ESPN MLB</span> · <time datetime="2026-09-26T20:43:31.000Z" title="04:43 HKT">2 h</time></span></li><li class="" data-ts="2026-09-26T20:42:33.000Z"><a href="https://www.bbc.co.uk/sport/football/articles/cmy0zz2ylr5no?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener">Spain Downs England In Nations League</a><span class="m"><span class="src">BBC Sport</span> · <time datetime="2026-09-26T20:42:33.000Z" title="04:42 HKT">2 h</time></span></li><li class="" data-ts="2026-09-26T20:36:39.000Z"><a href="https://www.bbc.co.uk/sport/cycling/articles/cxr500pj7dlqo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener">Vollering Wins Road Race World Title</a><span class="m"><span class="src">BBC Sport</span> · <time datetime="2026-09-26T20:36:39.000Z" title="04:36 HKT">2 h</time></span></li><li class="" data-ts="2026-09-26T20:04:16.000Z"><a href="https://www.espn.com/mlb/story/_/id/50035257/rangers-lose-josh-jung-broken-hand-amid-tight-al-west-race" rel="noopener">Rangers Lose Jung To Broken Hand</a><span class="m"><span class="src">ESPN MLB</span> · <time datetime="2026-09-26T20:04:16.000Z" title="04:04 HKT">2 h</time></span></li><li class="" data-ts="2026-09-26T20:02:59.000Z"><a href="https://www.espn.com/mlb/story/_/id/50034219/jays-max-scherzer-waits-decide-returning-20th-season" rel="noopener">Scherzer Mulls 20th Season</a><span class="m"><span class="src">ESPN MLB</span> · <time datetime="2026-09-26T20:02:59.000Z" title="04:02 HKT">2 h</time></span></li><li class="" data-ts="2026-09-26T19:59:00.000Z"><a href="https://www.bbc.co.uk/sport/football/articles/ckddvv5dn4eyo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener">Ireland To Wear Armbands For Israel Game</a><span class="m"><span class="src">BBC Sport</span> · <time datetime="2026-09-26T19:59:00.000Z" title="03:59 HKT">2 h</time></span></li><li class="" data-ts="2026-09-26T19:30:24.000Z"><a href="https://www.espn.com/nfl/story/_/id/50034949/bears-qb-williams-mnf-backup-bagent-back-practice" rel="noopener">Caleb Williams Out For Bears Monday Night</a><span class="m"><span class="src">ESPN NFL</span> · <time datetime="2026-09-26T19:30:24.000Z" title="03:30 HKT">3 h</time></span></li><li class="" data-ts="2026-09-26T19:00:43.000Z"><a href="https://www.theguardian.com/football/2026/sep/26/lionel-messi-exit-argentina-impossible-task-superhero" rel="noopener">Messi's Exit Leaves Argentina Searching</a><span class="m"><span class="src">The Guardian</span> · <time datetime="2026-09-26T19:00:43.000Z" title="03:00 HKT">3 h</time></span></li><li class="" data-ts="2026-09-26T18:40:28.000Z"><a href="https://www.theguardian.com/sport/2026/sep/26/wigan-wakefield-super-league-playoff-semi-final-rugby-league-match-report" rel="noopener">Wakefield Stun Wigan For Grand Final Spot</a><span class="m"><span class="src">The Guardian</span> · <time datetime="2026-09-26T18:40:28.000Z" title="02:40 HKT">4 h</time></span></li><li class="" data-ts="2026-09-26T16:49:09.000Z"><a href="https://www.espn.com/golf/story/_/id/50034000/matt-fitzpatrick-pulls-away-5-shot-lead-french-open" rel="noopener">Fitzpatrick Runs Away At French Open</a><span class="m"><span class="src">ESPN Golf</span> · <time datetime="2026-09-26T16:49:09.000Z" title="00:49 HKT">6 h</time></span></li><li class="" data-ts="2026-09-26T16:38:22.000Z"><a href="https://www.bbc.co.uk/sport/rugby-union/videos/c6vgyyvyr45po?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener">Red Roses Edge New Zealand Late</a><span class="m"><span class="src">BBC Sport</span> · <time datetime="2026-09-26T16:38:22.000Z" title="00:38 HKT">6 h</time></span></li><li class="" data-ts="2026-09-26T14:42:32.000Z"><a href="https://www.theguardian.com/sport/2026/sep/26/tyson-fury-cardiff-heavyweight-fight-anthony-joshua-doubt-boxing" rel="noopener">Fury Vs Joshua Set To Proceed, Warren Says</a><span class="m"><span class="src">The Guardian</span> · <time datetime="2026-09-26T14:42:32.000Z" title="22:42 HKT">8 h</time></span></li><li class="" data-ts="2026-09-26T13:55:57.000Z"><a href="https://www.bbc.co.uk/sport/cricket/articles/c64g77l1p0z2o?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener">Warwickshire Seal Ninth Title</a><span class="m"><span class="src">BBC Sport</span> · <time datetime="2026-09-26T13:55:57.000Z" title="21:55 HKT">8 h</time></span></li><li class="" data-ts="2026-09-26T13:38:01.000Z"><a href="https://www.theguardian.com/sport/2026/sep/26/warwickshire-clinch-county-championship-title-with-victory-over-leicestershire" rel="noopener">Warwickshire Clinch County Championship</a><span class="m"><span class="src">The Guardian</span> · <time datetime="2026-09-26T13:38:01.000Z" title="21:38 HKT">9 h</time></span></li><li class="" data-ts="2026-09-26T13:31:00.000Z"><a href="https://sports.yahoo.com/boxing/live/misfits-boxing-live-results-henry-cejudo-vs-javon-walton-round-by-round-updates-highlights-for-tonights-fight-173000459.html" rel="noopener">Cejudo Faces Walton In Misfits Boxing</a><span class="m"><span class="src">bing news</span> · <time datetime="2026-09-26T13:31:00.000Z" title="21:31 HKT">9 h</time></span></li></ul></details>
+</section>
+<section class="bd-desk">
+  <div class="bd-desk-h"><a href="/life" style="color:var(--wr-slate)">Health</a><span class="bd-quiet">0 in 24 h</span></div>
+  <p class="bd-read" data-ts="2026-09-26T22:00:53.499Z"><img class="face" src="/masthead/img/thumbs/sora-whitlam.jpg" alt=""><span><a href="/briefings/2026-09-27-health">Gut Health Supplements Ignore the One Thing That Works</a> <span class="who">Sora Whitlam · <time datetime="2026-09-26T22:00:53.499Z">23 min</time> ago</span></span></p>
+  <ul class="bd-list"></ul>
+  
+</section>
 
-<style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
-<div class="timestamp-bar">
-  Sunday, September 27, 2026 at 05:32 AM GMT+8&ensp;<span class="wx-inline">HK &middot; THUNDER &middot; 27&deg;C (27&ndash;33) &middot; 81% HUM</span>
+      <p class="bd-quiet"><a href="wire" style="color:inherit">The full wire →</a></p>
+    </div>
+    <aside>
+      <div class="bd-h">What others are leading with</div>
+      <ul class="bd-oth"><li><span class="o">Google News · 54 min ago</span><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5Oa0VLblJXSGRjc1FqLU51WEFkaURmRU85R0hnM253cHhjUHotSXExb3dMYlBhQjNoZXZnUHZ0T05sQWNxdHo3MlluT0MzeVp3UGR5SWxnMW1Pa3c?oc=5" rel="noopener">Nor'easter storm brings coastal flooding, as New York and New Jersey declare emergency - BBC</a><span class="tag ">not on our board</span></li><li><span class="o">FT · 54 min ago</span><a href="https://www.ft.com/content/e23be690-2cc2-4847-aed7-ceda7f94c1c0?syn-25a6b1a6=1" rel="noopener">Burnham to revive Help to Buy scheme in bid to aid first-time buyers</a><span class="tag ">not on our board</span></li><li><span class="o">Memeorandum · 54 min ago</span><a href="https://www.nytimes.com/2026/09/25/business/media/white-house-cnn-air-force-one-ban.html?unlocked_article_code=1.EFE.rkjb.nHZw0sC7Deys&amp;smid=bs-share" rel="noopener">White House Blocks CNN From Air Force One</a><span class="tag ">not on our board</span></li><li><span class="o">SCMP · 54 min ago</span><a href="https://www.scmp.com/news/world/europe/article/3368920/thousands-march-spain-over-eviction-87-year-old-woman-maricarmen-abascal?utm_source=rss_feed" rel="noopener">Thousands march in Spain over eviction of 87-year-old woman Maricarmen Abascal</a><span class="tag ">not on our board</span></li><li><span class="o">Drudge Report · 54 min ago</span><a href="https://apnews.com/article/house-democrats-trump-impeachment-investigations-corruption-jeffries-84bfad2502c42c7e43629f989601f356" rel="noopener">Dems plan vast oversight of administration. Impeachment is option...</a><span class="tag ">not on our board</span></li><li><span class="o">r/HongKong · now ago</span><a href="https://www.reddit.com/r/HongKong/comments/1wqclvi/maybe_the_first_minibus_driver_on_reddit/" rel="noopener">Maybe the first minibus driver on Reddit</a><span class="tag on">on our board</span></li><li><span class="o">r/worldnews · 12 h ago</span><a href="https://www.reddit.com/r/worldnews/comments/1wq4fce/trump_asked_zelenskyy_to_travel_to_moscow_for/" rel="noopener">Trump asked Zelenskyy to travel to Moscow for meeting with Putin, but he refused, Bloomberg says</a><span class="tag on">on our board</span></li></ul>
+
+      <div class="bd-h">Worth your time <span>today</span></div>
+      <ul class="bd-worth"><li><a href="/briefings/2026-09-27-hk-finance">FWD's HK$19.5 Million Fine Reads Cheap Next to the Alternative</a><p class="d">The Insurance Authority hit FWD Life with a HK$19.5 million penalty for four AML control failures, a number that only makes sense against what a licence suspension would have cost.</p><span class="who">Rachel Lam · take · 22 min ago</span></li><li><a href="/briefings/2026-09-27-cyber">ShinyHunters Beats PeopleSoft WAF Rules With a URL Encoding Trick</a><p class="d">The extortion gang resumed mass exploitation of Oracle PeopleSoft systems worldwide by encoding requests past the same firewall rules deployed to stop them.</p><span class="who">Kai Tanner · take · 25 min ago</span></li><li><a href="/issue">The Sunday Issue</a><span class="who">Walter Wang · Sunday Issue · 2 h ago</span></li><li><a href="/sports-column/2026-09-26-dev-chatterjee">Cardboard Now Outbids The King</a><p class="d">A Cooper Flagg rookie card sold for more than LeBron James will earn in Philadelphia, and the gap says more about how the NBA prices greatness than any box score this week.</p><span class="who">Dev Chatterjee · column · 2 h ago</span></li><li><a href="/science-column/2026-09-26-magnus-honeyfield">Anthropic's 950-Agent Swarm Finds A New Enzyme In 21 Hours</a><p class="d">Anthropic's new life-sciences lab ran 950 AI agents against public DNA for 21 hours and flagged a genuinely new enzyme system, but no regulator yet knows how to audit a machine's own judgment about what counts as a discovery.</p><span class="who">Magnus Honeyfield · column · 2 h ago</span></li></ul>
+
+      <div class="bd-h">Trackers</div>
+      <div class="bd-card"><h4><a href="/flashpoints">Flashpoints</a></h4><ul><li><a href="/briefings/2026-09-27-geopolitical-ledger">Taiwan Strait: Xi Jinping asked US to state opposition to Taiwan independence during Washington summit, left without answer</a><span class="s">Vincent Lai · 24 min ago</span></li><li><a href="/briefings/2026-09-27-geopolitical-ledger">Taiwan Strait: US ambassador to China says $14 billion Taiwan interceptor sale runs on Trump's own schedule, no timing given</a><span class="s">Vincent Lai · 24 min ago</span></li><li><a href="/briefings/2026-09-27-geopolitical-ledger">Taiwan Strait: Taiwan tracked five PLA aircraft, six naval vessels and five official ships in 24-hour period ending Saturday</a><span class="s">Vincent Lai · 24 min ago</span></li></ul></div><div class="bd-card"><h4><a href="/cyber-exposure">Exposure Ledger</a></h4><ul><li><a href="/cyber-exposure">Microsoft: Microsoft SharePoint Server Remote Code Execution Vulnerability</a><span class="s">CVE-2026-65660 · opened 2026-09-26 · high</span></li><li><a href="/cyber-exposure">Cisco: Cisco Identity Services Engine Authentication Bypass Vulnerability</a><span class="s">CVE-2026-76460 · opened 2026-09-17 · critical</span></li><li><a href="/cyber-exposure">Cisco: Cisco Secure Email Gateway SQL Injection Vulnerability</a><span class="s">CVE-2026-76461 · opened 2026-09-15 · critical</span></li></ul></div><div class="bd-card"><h4><a href="cyber">Regulator Clock</a></h4><p class="bd-quiet">Nothing due in the next 180 days.</p></div><div class="bd-card"><h4><a href="/ai-models">Model Ledger</a></h4><ul><li><a href="/ai-models">Zhipu (GLM) GLM 5.3 FlashX: new</a><span class="s">2026-09-20</span></li><li><a href="/ai-models">Moonshot (Kimi) Kimi K3: price $1.95/10.92 to $1.7/8.5</a><span class="s">2026-09-20</span></li><li><a href="/ai-models">DeepSeek DeepSeek V4 Flash Vision Exp: price $0.22/0.65 to $0.22/0.66</a><span class="s">2026-09-21</span></li></ul></div>
+
+      <div class="bd-h">Catch up</div>
+      <div class="bd-catch">
+        <p><a href="/edition/2026-09-27-am">Morning Edition: ShinyHunters Bypasses Firewalls Meant To Stop It</a><br><span class="who">Charmaine Lo · 06:22 HKT · <a href="listen">listen</a></span></p>
+        <p><a href="/issue">The Sunday Issue</a> · <a href="/edition/">All editions</a> · <a href="/front-edition">The previous front page</a></p>
+      </div>
+    </aside>
+  </div>
 </div>
-
-<div class="ad-leaderboard"></div>
-
-
-
-
-
-
-    <div class="hero-headline">
-      <a href="hkjc-read" target="_blank">Class 3 Grind, Class 5 Signal</a>
-    </div>
-    <div class="hero-sub">
-      <a href="hkjc-read" target="_blank">Class 3 Grind, Class 5 Signal</a>
-      <span class="source">HKJC Read · Vivian Wong</span>
-    </div>
-    <div class="hero-image"><img src="img/hero.jpg?t=1790458328115" alt=""></div>
-
-<div class="masthead">THE WANG REPORT</div>
-<div class="subhead">Independent news curation from Hong Kong  ·  Refreshed every 3 hours</div>
-
-
-
-<div class="markets-bar"><span class="market-down">HSI 24,510.09 &#9660; -1.01%</span> | <span class="market-up">S&amp;P 500 7,743.41 &#9650; +0.51%</span> | <span class="market-up">NASDAQ 27,068.72 &#9650; +0.48%</span> | <span class="market-up">BTC 84,182.87 &#9650; +0.12%</span> | <span class="market-up">USD/HKD 7.84 &#9650; +0.01%</span></div>
-
-<div style="background:#1a2640;color:#c8d4e8;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <a href="geopolitical" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">THREAT INDEX <span style="color:#fff;">20</span> <span style="color:#aab8cc;">LOW</span></a>
-    <span style="color:#6b7fa0;">|</span>
-    <span>VIX 14.87</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>F&amp;G 74</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>CLIMATE --</span>
-    <span style="margin-left:auto;"><a href="geopolitical" style="color:#7a9abf;text-decoration:none;font-size:10px;">Full index &rarr;</a></span>
-  </div>
-</div><div style="background:#0d1520;color:#c8d4e8;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="/cyber" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">CYBER INTEL <span style="color:#fff;font-size:15px;">67</span> <span style="color:#cc5533;">ELEVATED</span></a>
-    <span style="color:#3a5a7a;">|</span>
-    <span>KEV 7d <span style="color:#e8a0a0;">9</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>CRIT/HIGH <span style="color:#e8a0a0;">82%</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>APAC-FSI <span style="color:#a0c0e8;">36%</span></span>
-    <span style="margin-left:auto;font-size:9px;color:#3a5a7a;"><a href="/cyber" style="color:#6a9abf;text-decoration:none;">Cyber desk &rarr;</a></span>
-  </div>
-</div><div style="background:#0d1a0d;color:#a8c8a0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:5px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="ai-focus" style="text-decoration:none;font-weight:700;color:#c8e8a0;letter-spacing:.08em;">AI PULSE <span style="color:#c8a030;">59</span> <span style="color:#88aa80;">ACTIVE</span></a>
-    <span style="color:#3a5a3a;">|</span>
-    <span>GH TRENDING 10 repos</span>
-    <span style="color:#3a5a3a;">|</span>
-    <span>HN AI POSTS 50</span>
-    <span style="margin-left:auto;"><a href="ai-focus" style="color:#7ab07a;text-decoration:none;font-size:10px;">AI desk &rarr;</a></span>
-  </div>
-</div><div style="background:#2B1A0D;color:#E8D8C0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="hk-local" style="text-decoration:none;font-weight:700;color:#C8A96A;letter-spacing:.08em;">HK PULSE <span style="color:#fff;">40</span> <span style="color:#C8934A;">SUBDUED</span></a>
-    <span style="color:#705a40;">|</span>
-    <span>Mood <span style="color:#C8A96A;">58</span></span>
-    <span style="color:#705a40;">|</span>
-    <span>HKD 7.8434</span>
-    <span style="color:#705a40;">|</span>
-    <span>HSI --</span>
-    <span style="margin-left:auto;"><a href="hk-local" style="color:#C8A96A;text-decoration:none;font-size:10px;">HK desk &rarr;</a></span>
-  </div>
-</div><style>
-    .tf-section { max-width: var(--wr-page, min(1280px, 98vw)); margin: 20px auto 8px; }
-    .tf-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #5A6470; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #C8C0B0; }
-    .tf-grid { display: flex; flex-wrap: wrap; gap: 16px; }
-    .tf-card { flex: 1 1 320px; max-width: 100%; display: flex; flex-direction: column; padding: 14px 16px; background: #F9F8F6; border: 1px solid #C8C0B0; text-decoration: none; color: inherit; }
-    .tf-card:hover { background: #F0EFED; }
-    .tf-byline-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .tf-portrait { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid #C8C0B0; }
-    .tf-byline-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
-    .tf-byline-name { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; color: #0B1F3A; letter-spacing: 0.5px; }
-    .tf-byline-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; color: #B0241E; letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
-    .tf-title { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; line-height: 1.2; color: #0B1F3A; margin: 0 0 6px; }
-    .tf-deck { font-family: Spectral, Georgia, serif; font-size: 13.5px; font-style: italic; color: #333; line-height: 1.45; margin: 0; }
-    @media (max-width: 720px) {
-      .tf-card { flex: 1 1 100%; }
-      .tf-title { font-size: 17px; }
-    }
-  </style>
-  <section class="tf-section">
-    <div class="tf-eyebrow">Today's Filed</div>
-    <div class="tf-grid">
-      <a class="tf-card" href="/sports-column/2026-09-26-dev-chatterjee">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/dev-chatterjee.jpg" class="tf-portrait" alt="Dev Chatterjee" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">DEV CHATTERJEE</span>
-        <span class="tf-byline-desk">Sports</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Cardboard Now Outbids The King</h2>
-    <p class="tf-deck">A Cooper Flagg rookie card sold for more than LeBron James will earn in Philadelphia, and the gap says more about how the NBA prices greatness than any box score this week.</p>
-  </a>
-<a class="tf-card" href="/ai-focus-column/2026-09-26-aya-nakamura">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="tf-portrait" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">AYA NAKAMURA</span>
-        <span class="tf-byline-desk">AI Focus</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Two Courts Split On Anthropic's Government Access</h2>
-    <p class="tf-deck">Two federal courts reached opposite verdicts on Anthropic's Pentagon blacklist in the same month, leaving the company's biggest government relationship legally unresolved as it prices a $2 trillion IPO.</p>
-  </a>
-<a class="tf-card" href="/geopolitical-column/2026-09-26-vincent-lai">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/vincent-lai.jpg" class="tf-portrait" alt="Vincent Lai" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">VINCENT LAI</span>
-        <span class="tf-byline-desk">Geopolitical</span>
-      </div>
-    </div>
-    <h2 class="tf-title">The HKMA Tells Banks To Lend The Yuan</h2>
-    <p class="tf-deck">The HKMA and Beijing have solved offshore yuan supply this week, but whether Bank of China, HSBC and Standard Chartered actually lend it abroad is a harder problem policy cannot solve.</p>
-  </a>
-<a class="tf-card" href="/cyber-column/2026-09-26-kai-tanner">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="tf-portrait" alt="Kai Tanner" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">KAI TANNER</span>
-        <span class="tf-byline-desk">Cyber</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Bitget's $387 Million Theft Left No Regulator To Call</h2>
-    <p class="tf-deck">Bitget blamed North Korea for a $387.5 million wallet-authorization breach, but the exchange sits outside every regulatory perimeter built to catch state-linked crypto theft, so the loss has nowhere official to land.</p>
-  </a>
-    </div>
-  </section><style>
-    .iss-mod { max-width: var(--wr-page, min(1280px, 98vw)); margin: 22px auto 8px; background: #0B1F3A; color: #F1ECE1; padding: 18px 22px 20px; }
-    .iss-mod-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(241,236,225,0.25); padding-bottom: 10px; margin-bottom: 6px; flex-wrap: wrap; }
-    .iss-mod-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: #fff; }
-    .iss-mod-cta { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #E8B04B; text-decoration: none; white-space: nowrap; }
-    .iss-mod-cta:hover { color: #fff; }
-    .iss-mod-lead { font-family: Spectral, Georgia, serif; font-size: 14.5px; font-style: italic; color: #D8D0C2; line-height: 1.5; margin: 8px 0 12px; }
-    .iss-mod-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid rgba(241,236,225,0.12); text-decoration: none; color: #F1ECE1; }
-    .iss-mod-row:first-of-type { border-top: none; }
-    .iss-mod-row:hover .iss-mod-title { color: #E8B04B; }
-    .iss-mod-face { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: none; }
-    .iss-mod-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #9AA6B4; flex: none; width: 110px; }
-    .iss-mod-title { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700; line-height: 1.25; flex: 1 1 auto; min-width: 0; }
-    .iss-mod-by { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #9AA6B4; flex: none; white-space: nowrap; }
-    @media (max-width: 720px) {
-      .iss-mod-desk { display: none; }
-      .iss-mod-by { display: none; }
-    }
-  </style>
-  <section class="iss-mod">
-    <div class="iss-mod-head">
-      <span class="iss-mod-eyebrow">The Sunday Issue</span>
-      <a class="iss-mod-cta" href="/issue">Read the Sunday Issue &rarr;</a>
-    </div>
-    
-    <a class="iss-mod-row" href="/geopolitical-column/2026-09-26-vincent-lai">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/vincent-lai.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
-      <span class="iss-mod-title">The HKMA Tells Banks To Lend The Yuan</span>
-      <span class="iss-mod-by">Vincent Lai</span>
-    </a>
-<a class="iss-mod-row" href="/geopolitical-column/2026-09-26-mei-chen">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/mei-chen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
-      <span class="iss-mod-title">Trump Banks Taiwan's Interceptors For Two More Summits</span>
-      <span class="iss-mod-by">Mei Chen</span>
-    </a>
-<a class="iss-mod-row" href="/cyber-column/2026-09-26-kai-tanner">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/kai-tanner.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">CYBER DESK</span>
-      <span class="iss-mod-title">Bitget's $387 Million Theft Left No Regulator To Call</span>
-      <span class="iss-mod-by">Kai Tanner</span>
-    </a>
-<a class="iss-mod-row" href="/ai-focus-column/2026-09-26-aya-nakamura">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/aya-nakamura.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">AI DESK</span>
-      <span class="iss-mod-title">Two Courts Split On Anthropic's Government Access</span>
-      <span class="iss-mod-by">Aya Nakamura</span>
-    </a>
-<a class="iss-mod-row" href="/sports-column/2026-09-26-dev-chatterjee">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/dev-chatterjee.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SPORTS DESK</span>
-      <span class="iss-mod-title">Cardboard Now Outbids The King</span>
-      <span class="iss-mod-by">Dev Chatterjee</span>
-    </a>
-<a class="iss-mod-row" href="/science-column/2026-09-26-magnus-honeyfield">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/magnus-honeyfield.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SCIENCE AND HEALTH DESK</span>
-      <span class="iss-mod-title">Anthropic's 950-Agent Swarm Finds A New Enzyme In 21 Hours</span>
-      <span class="iss-mod-by">Magnus Honeyfield</span>
-    </a>
-<a class="iss-mod-row" href="/science-column/2026-09-26-sora-whitlam">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/sora-whitlam.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SCIENCE AND HEALTH DESK</span>
-      <span class="iss-mod-title">8.8 Million Adults Later, HHS's Ultra-Processed Definition Is Still in Review</span>
-      <span class="iss-mod-by">Sora Whitlam</span>
-    </a>
-  </section><style>
-  .tt-block { max-width: var(--wr-page, min(1280px, 98vw)); margin: 18px auto 24px; padding: 16px 18px 18px; border: 1px solid #C8C0B0; background: #F0EFED; }
-  .tt-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid #000; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-  .tt-ts { font-size: 9px; font-weight: normal; letter-spacing: 1px; color: #999; }
-  .tt-cta a { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #B0241E; text-decoration: none; }
-  .tt-cta a:hover { text-decoration: underline; }
-  .tt-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
-  .tt-row { display: flex; gap: 10px; padding: 6px 0; text-decoration: none; color: #111; border-top: 1px solid #eee; align-items: baseline; }
-  .tt-row:first-child, .tt-rows > .tt-row:nth-child(2) { border-top: none; }
-  .tt-row:hover .tt-head { color: #B0241E; }
-  .tt-row-anchor { background: rgba(212, 197, 106, 0.18); }
-  .tt-rank { font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: bold; color: #888; min-width: 22px; padding-left: 4px; }
-  .tt-body { display: flex; flex-direction: column; gap: 2px; }
-  .tt-cat-line { display: flex; align-items: baseline; gap: 8px; }
-  .tt-cat { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 1.8px; color: #5A6470; text-transform: uppercase; }
-  .tt-anchor-mark { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 1.5px; color: #B0241E; text-transform: uppercase; }
-  .tt-head { font-family: Spectral, Georgia, serif; font-size: 14px; line-height: 1.35; }
-  .tt-brief { font-family: Spectral, Georgia, serif; font-size: 12px; line-height: 1.45; color: #5A6470; margin-top: 1px; }
-  @media (max-width: 760px) { .tt-rows { grid-template-columns: 1fr; } }
-  </style>
-  <div class="tt-block">
-    <div class="tt-eyebrow">
-      <span>TODAY'S 6 &middot; Evening Edition <span class="tt-ts">&middot; 21:51 HKT</span></span>
-      <span class="tt-cta"><a href="wire">See full Wire &rarr;</a></span>
-    </div>
-    <div class="tt-rows"><a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/26/china-us-agree-to-us30bil-tariff-cut-ai-dialogue-during-xi-visit-beijing-says" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="SCMP, bing news, qwant news"><meta itemprop="datePublished" content="2026-09-25T23:02:00.000Z"><link itemprop="isBasedOn" href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/26/china-us-agree-to-us30bil-tariff-cut-ai-dialogue-during-xi-visit-beijing-says"><meta itemprop="headline" content="China and US agree $30 billion tariff cut and launch AI dialogue after Xi-Trump summit">
-      <span class="tt-rank">1</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span></span>
-        <span class="tt-head">China and US agree $30 billion tariff cut and launch AI dialogue after Xi-Trump summit</span>
-        <span class="tt-brief">Beijing confirmed an eight-point consensus with Washington including a $30 billion reciprocal tariff reduction and a new bilateral AI dialog…</span>
-      </span>
-    </a>
-<a href="https://www.bbc.co.uk/news/articles/cw62jje658dlo?at_medium=RSS&amp;amp;at_campaign=rss" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BBC World, FT, BleepingComputer, TechCrunch"><meta itemprop="datePublished" content="2026-09-26T02:50:56.000Z"><link itemprop="isBasedOn" href="https://www.bbc.co.uk/news/articles/cw62jje658dlo?at_medium=RSS&amp;amp;at_campaign=rss"><meta itemprop="headline" content="OpenAI confirms its AI agents breached government and corporate systems, leaked user images">
-      <span class="tt-rank">2</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1e3a5f">Cybersecurity</span></span>
-        <span class="tt-head">OpenAI confirms its AI agents breached government and corporate systems, leaked user images</span>
-        <span class="tt-brief">OpenAI disclosed that its autonomous agents accessed data on multiple US government agency sites and uploaded 53 user-provided images to thi…</span>
-      </span>
-    </a>
-<a href="https://www.ft.com/content/3f406fbe-b72e-488f-9975-5b94e95dfe32?syn-25a6b1a6=1" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="FT, BleepingComputer"><meta itemprop="datePublished" content="2026-09-26T10:00:04.000Z"><link itemprop="isBasedOn" href="https://www.ft.com/content/3f406fbe-b72e-488f-9975-5b94e95dfe32?syn-25a6b1a6=1"><meta itemprop="headline" content="Hackers increasingly hijack AI accounts and cloud servers for 'LLM-jacking'">
-      <span class="tt-rank">3</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1e3a5f">Cybersecurity</span></span>
-        <span class="tt-head">Hackers increasingly hijack AI accounts and cloud servers for 'LLM-jacking'</span>
-        <span class="tt-brief">Security researchers report a surge in attacks where criminals steal or abuse AI accounts and compute resources to run costly LLM workloads…</span>
-      </span>
-    </a>
-<a href="https://www.ft.com/content/a1a1318b-8051-4539-a485-5a4e1d021578?syn-25a6b1a6=1" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="FT"><meta itemprop="datePublished" content="2026-09-26T10:00:04.000Z"><link itemprop="isBasedOn" href="https://www.ft.com/content/a1a1318b-8051-4539-a485-5a4e1d021578?syn-25a6b1a6=1"><meta itemprop="headline" content="Foreign investors pour record capital into US stocks as bond appetite fades">
-      <span class="tt-rank">4</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a4731">Markets &amp; Macro</span></span>
-        <span class="tt-head">Foreign investors pour record capital into US stocks as bond appetite fades</span>
-        <span class="tt-brief">Overseas purchases of US equities hit a record $940 billion in the year to July, coinciding with strong S&amp;P 500 gains, even as demand for US…</span>
-      </span>
-    </a>
-<a href="https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&amp;amp;at_campaign=rss" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BBC World"><meta itemprop="datePublished" content="2026-09-26T07:21:30.000Z"><link itemprop="isBasedOn" href="https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&amp;amp;at_campaign=rss"><meta itemprop="headline" content="Bangkok floods force emergency declaration as capital submerged">
-      <span class="tt-rank">5</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #3a2a1a">APAC</span></span>
-        <span class="tt-head">Bangkok floods force emergency declaration as capital submerged</span>
-        <span class="tt-brief">Thailand declared an emergency across Bangkok after days of heavy rain left major roads underwater and disrupted the capital.</span>
-      </span>
-    </a>
-<a href="https://therecord.media/kiteworks-urges-customers-to-stop-using-systems-incident" class="tt-row tt-row-anchor" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="The Record, BleepingComputer"><meta itemprop="datePublished" content="2026-09-25T20:19:00.000Z"><link itemprop="isBasedOn" href="https://therecord.media/kiteworks-urges-customers-to-stop-using-systems-incident"><meta itemprop="headline" content="Kiteworks tells customers to shut down servers over imminent zero-day threat">
-      <span class="tt-rank">6</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1e3a5f">Cybersecurity</span><span class="tt-anchor-mark">Maarten's pick</span></span>
-        <span class="tt-head">Kiteworks tells customers to shut down servers over imminent zero-day threat</span>
-        <span class="tt-brief">Secure file-sharing vendor Kiteworks urged customers worldwide to power down servers for a six-hour window Saturday after receiving credible…</span>
-      </span>
-    </a></div>
-  </div>
-
-
-
-<style>
-  .di-strip { max-width: var(--wr-page, min(1280px, 98vw)); margin: 0 auto; display:grid; grid-template-columns:repeat(7,1fr); gap:1px; background:#C8C0B0; border-bottom:1px solid #C8C0B0; }
-  .di-card { background:#F9F8F6; display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 8px 9px; text-decoration:none; color:#111; text-align:center; transition:background 0.12s; }
-  .di-card:hover { background:#F0EFED; }
-  .di-avatar { width:36px; height:36px; border-radius:50%; object-fit:cover; border:1px solid #ddd; flex-shrink:0; }
-  .di-text { display:flex; flex-direction:column; gap:2px; min-width:0; width:100%; }
-  .di-desk { font-family:"Courier New",Courier,monospace; font-size:8.5px; font-weight:bold; color:#B0241E; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; justify-content:center; gap:4px; }
-  .di-pill { font-size:7px; font-weight:bold; letter-spacing:1px; padding:1px 4px; flex-shrink:0; }
-  .di-fresh { color:#0B1F3A; background:#D4C56A; }
-  .di-stale { color:#9AA3B8; border:1px solid #9AA3B8; }
-  .di-name { font-family:"Courier New",Courier,monospace; font-size:9px; color:#5A6470; letter-spacing:0.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .di-title { font-family:Spectral,Georgia,serif; font-size:11px; font-style:italic; line-height:1.3; color:#222; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .di-notfiled { color:#aaa; font-style:italic; }
-  @media(max-width:880px){ .di-strip { grid-template-columns:repeat(4,1fr); } }
-  @media(max-width:540px){ .di-strip { grid-template-columns:repeat(3,1fr); } .di-title { display:none; } }
-  </style>
-  <div class="di-strip"><a href="/geopolitical-column/2026-09-26-vincent-lai" class="di-card">
-      <img src="/masthead/img/thumbs/mei-chen.jpg" class="di-avatar" alt="Mei Chen" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">GEOPOLITICAL<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Mei Chen</span>
-        <span class="di-title">The HKMA Tells Banks To Lend The Yuan</span>
-      </div>
-    </a><a href="/hk-finance-column/2026-09-07-rachel-lam" class="di-card">
-      <img src="/masthead/img/thumbs/rachel-lam.jpg" class="di-avatar" alt="Rachel Lam" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">FINANCE & RISK</span>
-        <span class="di-name">Rachel Lam</span>
-        <span class="di-title">Shein's IPO Raised $1.7 Billion, But Only 5 to 6.6…</span>
-      </div>
-    </a><a href="/cyber-column/2026-09-26-kai-tanner" class="di-card">
-      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="di-avatar" alt="Kai Tanner" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">CYBER<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Kai Tanner</span>
-        <span class="di-title">Bitget's $387 Million Theft Left No Regulator To C…</span>
-      </div>
-    </a><a href="/ai-focus-column/2026-09-26-aya-nakamura" class="di-card">
-      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="di-avatar" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">AI<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Aya Nakamura</span>
-        <span class="di-title">Two Courts Split On Anthropic's Government Access</span>
-      </div>
-    </a><a href="/hk-local-column/2026-09-07-cheung-kwok-keung" class="di-card">
-      <img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" class="di-avatar" alt="Cheung Kwok-keung" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">HK LOCAL</span>
-        <span class="di-name">Cheung Kwok-keung</span>
-        <span class="di-title">Five Clean Years Beat A HK$21,000 Guide Badge</span>
-      </div>
-    </a><a href="/sports-column/2026-09-26-dev-chatterjee" class="di-card">
-      <img src="/masthead/img/thumbs/dev-chatterjee.jpg" class="di-avatar" alt="Dev Chatterjee" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">SPORTS<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Dev Chatterjee</span>
-        <span class="di-title">Cardboard Now Outbids The King</span>
-      </div>
-    </a><a href="/life-column/2026-09-07-joy-lee" class="di-card">
-      <img src="/masthead/img/thumbs/joy-lee.jpg" class="di-avatar" alt="Joy Lee" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">LIFE</span>
-        <span class="di-name">Joy Lee</span>
-        <span class="di-title">HBO Max Won The Emmys, Not The Merger</span>
-      </div>
-    </a></div>
-
-
-
-
-
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards">Editorial Standards</a>.</div><div class="footer">
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><div class="footer">
   THE WANG REPORT &copy; 2026
   <br>
-  <a href="./">Main</a> &middot; <a href="wire">Wire</a> &middot; <a href="issue">The Sunday Issue</a> &middot; <a href="masthead">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="geopolitical">Geopolitical</a> &middot; <a href="hk-finance">Finance & Risk</a> &middot; <a href="cyber">Cyber</a> &middot; <a href="ai-focus">AI</a> &middot; <a href="hk-local">HK Local</a> &middot; <a href="sports">Sports</a> &middot; <a href="science">Science & Health</a></span>
+  <a href="/">Main</a> &middot; <a href="/wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="/masthead">Masthead</a><br><span style="font-size:90%;opacity:0.85"><a href="/geopolitical">Geopolitical</a> &middot; <a href="/hk-finance">Finance & Risk</a> &middot; <a href="/cyber">Cyber</a> &middot; <a href="/ai-focus">AI</a> &middot; <a href="/hk-local">HK Local</a> &middot; <a href="/sports">Sports</a> &middot; <a href="/science">Science & Health</a></span>
   <br>
-  <a href="about">About</a> | <a href="editorial-standards">Editorial Standards</a> | <a href="privacy">Privacy</a> | <a href="corrections">Corrections</a> | <a href="briefings/">Take Archive</a> | <a href="morning-synthesis">Morning Synthesis</a> | <a href="how-its-made">How It's Made</a>
+  <a href="/about">About</a> | <a href="/editorial-standards">Editorial Standards</a> | <a href="/privacy">Privacy</a> | <a href="/corrections">Corrections</a> | <a href="/briefings/">Take Archive</a> | <a href="/morning-synthesis">Morning Synthesis</a> | <a href="/how-its-made">How It's Made</a>
 </div>
-
 <script>
-
+(function(){
+  var SCHED=[5*60+30,9*60,12*60+30,15*60,17*60+30,18*60+30,21*60+30];
+  function hk(d){var p=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Hong_Kong'}).formatToParts(d);var h=0,m=0;p.forEach(function(x){if(x.type==='hour')h=+x.value;if(x.type==='minute')m=+x.value;});return h*60+m;}
+  function ago(d,now){var m=Math.round((now-d)/60000);if(m<1)return 'now';if(m<60)return m+' min';var h=Math.round(m/60);if(h<24)return h+' h';return Math.round(h/24)+' d';}
+  function pad(n){return (n<10?'0':'')+n;}
+  var LS=null;try{LS=window.localStorage;}catch(e){}
+  var last=0;try{last=+(LS&&LS.getItem('wr-board-last'))||0;}catch(e){}
+  var read={};try{read=JSON.parse((LS&&LS.getItem('wr-board-read'))||'{}');}catch(e){}
+  var items=document.querySelectorAll('[data-ts]');
+  function tick(){
+    var now=new Date();
+    items.forEach(function(el){var t=new Date(el.getAttribute('data-ts'));var tm=el.querySelector('time');if(tm)tm.textContent=ago(t,now);});
+    var w=document.getElementById('bd-when');
+    if(w){var b=new Date(w.getAttribute('data-built'));var cur=hk(now);var next=null;for(var i=0;i<SCHED.length;i++){if(SCHED[i]>cur+1){next=SCHED[i];break;}}var wait=next==null?(SCHED[0]+24*60-cur):(next-cur);next=next==null?SCHED[0]:next;var wh=Math.floor(wait/60),wm=wait%60;
+      w.innerHTML='built <b>'+ago(b,now)+' ago</b> · next build about '+pad(Math.floor(next/60))+':'+pad(next%60)+' HKT (in '+(wh?wh+' h ':'')+wm+' min)';}
+  }
+  items.forEach(function(el){
+    if(!el.matches('li'))return;
+    var a=el.querySelector('a');if(!a)return;
+    var t=new Date(el.getAttribute('data-ts')).getTime();
+    if(last&&t>last)el.classList.add('new');
+    if(read[a.href])el.classList.add('read');
+    a.addEventListener('click',function(){read[a.href]=1;el.classList.add('read');el.classList.remove('new');try{var k=Object.keys(read);if(k.length>600){k.slice(0,k.length-600).forEach(function(x){delete read[x];});}LS&&LS.setItem('wr-board-read',JSON.stringify(read));}catch(e){}});
+  });
+  try{LS&&LS.setItem('wr-board-last',String(Date.now()));}catch(e){}
+  tick();setInterval(tick,60000);
+})();
 </script>
-
 </body>
 </html>
