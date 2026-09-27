@@ -1,408 +1,180 @@
 <!DOCTYPE html>
+<!-- wr-edition-home -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>THE WANG REPORT</title>
-  <meta name="description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <link rel="canonical" href="https://wangreport.com/">
-  <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="The Wang Report">
-  <meta property="og:locale" content="en_HK">
-  <meta property="og:title" content="THE WANG REPORT">
-  <meta property="og:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <meta property="og:url" content="https://wangreport.com/">
-  <meta property="og:image" content="https://wangreport.com/img/hero.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="THE WANG REPORT">
-  <meta name="twitter:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
-  <meta name="twitter:image" content="https://wangreport.com/img/hero.jpg">
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://wangreport.com/#organization","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","logo":{"@type":"ImageObject","url":"https://wangreport.com/img/og-default.png","width":1200,"height":630},"image":"https://wangreport.com/img/og-default.png","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","foundingDate":"2025","foundingLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hong Kong","addressCountry":"HK"}},"email":"editor@wangreport.com","knowsLanguage":["en","zh-Hant"],"publishingPrinciples":"https://wangreport.com/editorial-standards","ethicsPolicy":"https://wangreport.com/editorial-standards","diversityPolicy":"https://wangreport.com/editorial-standards","actionableFeedbackPolicy":"https://wangreport.com/contact","correctionsPolicy":"https://wangreport.com/editorial-standards#corrections","sameAs":["https://x.com/wangreport"]}</script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HHENRPSK4D');
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE WANG REPORT</title>
+<meta name="description" content="The web application firewall banks trusted to catch a patched Oracle bug never touched the underlying flaw, and ShinyHunters just proved it twice in one week.">
+<link rel="canonical" href="https://wangreport.com/">
+<link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+<meta property="og:title" content="ShinyHunters Beats The Firewall Twice">
+<meta property="og:description" content="The web application firewall banks trusted to catch a patched Oracle bug never touched the underlying flaw, and ShinyHunters just proved it twice in one week.">
+<meta property="og:image" content="https://wangreport.com/img/og-default.png">
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HHENRPSK4D');</script>
+<style>.take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }</style>
 </head>
 <body>
-
 <header class="nh">
 <nav class="nh-desks" aria-label="Desks"><a href="#top" class="on" style="--c:var(--wr-ink)">Front</a><a href="#hk" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="#cyber" style="--c:var(--desk-cyber)">Cyber</a><a href="#finance" style="--c:var(--desk-finance)">Finance</a><a href="#world" style="--c:var(--desk-geopolitical)">World</a><a href="#ai" style="--c:var(--desk-ai)">AI</a><a href="#sports" style="--c:var(--desk-sports)">Sports</a><a href="#science" style="--c:var(--desk-science)">Science & Health</a></nav>
 <nav class="nh-tools" aria-label="Tools"><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/issue">Sunday Issue</a><a href="listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/dads">Dads</a></nav>
 </header>
-
-<style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
-<div class="timestamp-bar">
-  Sunday, September 27, 2026 at 09:43 PM GMT+8&ensp;<span class="wx-inline">HK &middot; THUNDER &middot; 29&deg;C (28&ndash;33) &middot; 79% HUM</span>
-</div>
-
-<div class="ad-leaderboard"></div>
-
-
-
-
-
-
-    <div class="hero-headline">
-      <a href="hkjc-read" target="_blank">The Rating 100 Ceiling</a>
-    </div>
-    <div class="hero-sub">
-      <a href="hkjc-read" target="_blank">The Rating 100 Ceiling</a>
-      <span class="source">HKJC Read · Vivian Wong</span>
-    </div>
-    <div class="hero-image"><img src="img/hero.jpg?t=1790516592651" alt=""></div>
-
-<div class="masthead">THE WANG REPORT</div>
-<div class="subhead">Independent news curation from Hong Kong  ·  Refreshed every 3 hours</div>
-
-
-
-<div class="markets-bar"><span class="market-down">HSI 24,510.09 &#9660; -1.01%</span> | <span class="market-up">S&amp;P 500 7,743.41 &#9650; +0.51%</span> | <span class="market-up">NASDAQ 27,068.72 &#9650; +0.48%</span> | <span class="market-up">BTC 84,899.66 &#9650; +0.56%</span> | <span class="market-up">USD/HKD 7.84 &#9650; +0.01%</span></div>
-
-<div style="background:#1a2640;color:#c8d4e8;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <a href="geopolitical" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">THREAT INDEX <span style="color:#fff;">22</span> <span style="color:#aab8cc;">LOW</span></a>
-    <span style="color:#6b7fa0;">|</span>
-    <span>VIX 14.87</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>F&amp;G 70</span>
-    <span style="color:#6b7fa0;">|</span>
-    <span>CLIMATE --</span>
-    <span style="margin-left:auto;"><a href="geopolitical" style="color:#7a9abf;text-decoration:none;font-size:10px;">Full index &rarr;</a></span>
+<header>
+  <div class="masthead"><a href="/" style="color:inherit;text-decoration:none;">THE WANG REPORT</a></div>
+  <div class="subhead">Sunday, September 27, 2026 &middot; Hong Kong</div>
+</header>
+<main class="ed-wrap">
+  <div class="ed-banner">
+    <span>Evening Report <span class="ed-when">&middot; 17:59 HKT</span></span>
+    <span><a href="/edition/2026-09-27-am">&larr; Morning Report</a> &middot; <a href="/edition/">All editions</a></span>
   </div>
-</div><div style="background:#0d1520;color:#c8d4e8;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="/cyber" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">CYBER INTEL <span style="color:#fff;font-size:15px;">67</span> <span style="color:#cc5533;">ELEVATED</span></a>
-    <span style="color:#3a5a7a;">|</span>
-    <span>KEV 7d <span style="color:#e8a0a0;">9</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>CRIT/HIGH <span style="color:#e8a0a0;">82%</span></span>
-    <span style="color:#3a5a7a;">|</span>
-    <span>APAC-FSI <span style="color:#a0c0e8;">36%</span></span>
-    <span style="margin-left:auto;font-size:9px;color:#3a5a7a;"><a href="/cyber" style="color:#6a9abf;text-decoration:none;">Cyber desk &rarr;</a></span>
+  <div class="ed-speaker">
+    <img class="ed-face" src="/masthead/img/feed/maarten-bakker-sq.jpg" alt="" loading="lazy">
+    <div><span class="ed-name">Maarten Bakker</span><span class="ed-role">News Anchor · Evening Report</span></div>
   </div>
-</div><div style="background:#0d1a0d;color:#a8c8a0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:5px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="ai-focus" style="text-decoration:none;font-weight:700;color:#c8e8a0;letter-spacing:.08em;">AI PULSE <span style="color:#c8a030;">59</span> <span style="color:#88aa80;">ACTIVE</span> ·  LIVE</a>
-    <span style="color:#3a5a3a;">|</span>
-    <span>GH TRENDING 10 repos</span>
-    <span style="color:#3a5a3a;">|</span>
-    <span>HN AI POSTS 118</span>
-    <span style="margin-left:auto;"><a href="ai-focus" style="color:#7ab07a;text-decoration:none;font-size:10px;">AI desk &rarr;</a></span>
-  </div>
-</div><div style="background:#2B1A0D;color:#E8D8C0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
-  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <a href="hk-local" style="text-decoration:none;font-weight:700;color:#C8A96A;letter-spacing:.08em;">HK PULSE <span style="color:#fff;">36</span> <span style="color:#C8934A;">SUBDUED</span></a>
-    <span style="color:#705a40;">|</span>
-    <span>Mood <span style="color:#C8A96A;">46</span></span>
-    <span style="color:#705a40;">|</span>
-    <span>HKD 7.8434</span>
-    <span style="color:#705a40;">|</span>
-    <span>HSI --</span>
-    <span style="margin-left:auto;"><a href="hk-local" style="color:#C8A96A;text-decoration:none;font-size:10px;">HK desk &rarr;</a></span>
-  </div>
-</div><style>
-    .tf-section { max-width: var(--wr-page, min(1280px, 98vw)); margin: 20px auto 8px; }
-    .tf-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #5A6470; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #C8C0B0; }
-    .tf-grid { display: flex; flex-wrap: wrap; gap: 16px; }
-    .tf-card { flex: 1 1 320px; max-width: 100%; display: flex; flex-direction: column; padding: 14px 16px; background: #F9F8F6; border: 1px solid #C8C0B0; text-decoration: none; color: inherit; }
-    .tf-card:hover { background: #F0EFED; }
-    .tf-byline-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .tf-portrait { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid #C8C0B0; }
-    .tf-byline-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
-    .tf-byline-name { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; color: #0B1F3A; letter-spacing: 0.5px; }
-    .tf-byline-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; color: #B0241E; letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
-    .tf-title { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; line-height: 1.2; color: #0B1F3A; margin: 0 0 6px; }
-    .tf-deck { font-family: Spectral, Georgia, serif; font-size: 13.5px; font-style: italic; color: #333; line-height: 1.45; margin: 0; }
-    @media (max-width: 720px) {
-      .tf-card { flex: 1 1 100%; }
-      .tf-title { font-size: 17px; }
-    }
-  </style>
-  <section class="tf-section">
-    <div class="tf-eyebrow">Today's Filed</div>
-    <div class="tf-grid">
-      <a class="tf-card" href="/sports-column/2026-09-26-dev-chatterjee">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/dev-chatterjee.jpg" class="tf-portrait" alt="Dev Chatterjee" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">DEV CHATTERJEE</span>
-        <span class="tf-byline-desk">Sports</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Cardboard Now Outbids The King</h2>
-    <p class="tf-deck">A Cooper Flagg rookie card sold for more than LeBron James will earn in Philadelphia, and the gap says more about how the NBA prices greatness than any box score this week.</p>
-  </a>
-<a class="tf-card" href="/ai-focus-column/2026-09-26-aya-nakamura">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="tf-portrait" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">AYA NAKAMURA</span>
-        <span class="tf-byline-desk">AI Focus</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Two Courts Split On Anthropic's Government Access</h2>
-    <p class="tf-deck">Two federal courts reached opposite verdicts on Anthropic's Pentagon blacklist in the same month, leaving the company's biggest government relationship legally unresolved as it prices a $2 trillion IPO.</p>
-  </a>
-<a class="tf-card" href="/geopolitical-column/2026-09-26-vincent-lai">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/vincent-lai.jpg" class="tf-portrait" alt="Vincent Lai" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">VINCENT LAI</span>
-        <span class="tf-byline-desk">Geopolitical</span>
-      </div>
-    </div>
-    <h2 class="tf-title">The HKMA Tells Banks To Lend The Yuan</h2>
-    <p class="tf-deck">The HKMA and Beijing have solved offshore yuan supply this week, but whether Bank of China, HSBC and Standard Chartered actually lend it abroad is a harder problem policy cannot solve.</p>
-  </a>
-<a class="tf-card" href="/cyber-column/2026-09-26-kai-tanner">
-    <div class="tf-byline-row">
-      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="tf-portrait" alt="Kai Tanner" onerror="this.style.display='none'">
-      <div class="tf-byline-text">
-        <span class="tf-byline-name">KAI TANNER</span>
-        <span class="tf-byline-desk">Cyber</span>
-      </div>
-    </div>
-    <h2 class="tf-title">Bitget's $387 Million Theft Left No Regulator To Call</h2>
-    <p class="tf-deck">Bitget blamed North Korea for a $387.5 million wallet-authorization breach, but the exchange sits outside every regulatory perimeter built to catch state-linked crypto theft, so the loss has nowhere official to land.</p>
-  </a>
-    </div>
-  </section><style>
-    .iss-mod { max-width: var(--wr-page, min(1280px, 98vw)); margin: 22px auto 8px; background: #0B1F3A; color: #F1ECE1; padding: 18px 22px 20px; }
-    .iss-mod-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(241,236,225,0.25); padding-bottom: 10px; margin-bottom: 6px; flex-wrap: wrap; }
-    .iss-mod-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: #fff; }
-    .iss-mod-cta { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #E8B04B; text-decoration: none; white-space: nowrap; }
-    .iss-mod-cta:hover { color: #fff; }
-    .iss-mod-lead { font-family: Spectral, Georgia, serif; font-size: 14.5px; font-style: italic; color: #D8D0C2; line-height: 1.5; margin: 8px 0 12px; }
-    .iss-mod-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid rgba(241,236,225,0.12); text-decoration: none; color: #F1ECE1; }
-    .iss-mod-row:first-of-type { border-top: none; }
-    .iss-mod-row:hover .iss-mod-title { color: #E8B04B; }
-    .iss-mod-face { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: none; }
-    .iss-mod-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #9AA6B4; flex: none; width: 110px; }
-    .iss-mod-title { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700; line-height: 1.25; flex: 1 1 auto; min-width: 0; }
-    .iss-mod-by { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #9AA6B4; flex: none; white-space: nowrap; }
-    @media (max-width: 720px) {
-      .iss-mod-desk { display: none; }
-      .iss-mod-by { display: none; }
-    }
-  </style>
-  <section class="iss-mod">
-    <div class="iss-mod-head">
-      <span class="iss-mod-eyebrow">The Sunday Issue</span>
-      <a class="iss-mod-cta" href="/issue">Read the Sunday Issue &rarr;</a>
-    </div>
+  <p class="ed-greet">Here is today's evening report. <span class="ed-greet-when">Sun, Sep 27, 17:59 HKT</span></p>
+  <ul class="ed-hits"><li><span class="ed-hit-when">17:46 HKT</span> <a href="/briefings/2026-09-27-cyber-pm">Google warns ShinyHunters bypass WAF rules on PeopleSoft flaw</a> <span class="ed-hit-gloss">Kai Tanner explains exactly how ShinyHunters slipped an encoded payload past the WAF rule banks thought had them covered.</span></li>
+<li><span class="ed-hit-when">17:47 HKT</span> <a href="/briefings/2026-09-27-hk-finance-pm">FWD Life's HK$19.5 million AML fine details four control failures</a> <span class="ed-hit-gloss">Rachel Lam pulls the number that matters out of FWD's fine: four separate control failures, not one lapse.</span></li>
+<li><span class="ed-hit-when">12:48 HKT</span> <a href="/briefings/2026-09-27-geopolitical-midday">Xi Left Washington Without A Yes On Taiwan</a> <span class="ed-hit-gloss">Mei Chen tracks what China's navy and coast guard did in the water while Xi's Taiwan question went unanswered in Washington.</span></li>
+<li><span class="ed-hit-when">17:46 HKT</span> <a href="/briefings/2026-09-27-hk-desk-pm">Hong Kong Delays AI Copyright Law To Write Guidelines First</a> <span class="ed-hit-gloss">Cheung Kwok-keung on Hong Kong delaying its AI copyright law the same week it applies to referee everyone else's.</span></li>
+<li><span class="ed-hit-when">12:49 HKT</span> <a href="/briefings/2026-09-27-geopolitical-ledger-midday">The PBOC's Open-Market Desk Sizes Up A Summit With No Trade Deal</a> <span class="ed-hit-gloss">Vincent Lai on why the PBOC has to set November policy without the trade deal it was waiting for.</span></li>
+<li><span class="ed-hit-when">17:47 HKT</span> <a href="/briefings/2026-09-27-sports-pm">Astros Roll, Phillies Wobble, Warriors Pay Curry Less Than He's Worth</a> <span class="ed-hit-gloss">Dev Chatterjee on the Astros closing in on the AL West and why Steph Curry just left $20 million on the table.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">ShinyHunters Beats The Firewall Twice</h1>
+    <p class="ed-deck">The web application firewall banks trusted to catch a patched Oracle bug never touched the underlying flaw, and ShinyHunters just proved it twice in one week.</p>
     
-    <a class="iss-mod-row" href="/geopolitical-column/2026-09-26-vincent-lai">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/vincent-lai.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
-      <span class="iss-mod-title">The HKMA Tells Banks To Lend The Yuan</span>
-      <span class="iss-mod-by">Vincent Lai</span>
-    </a>
-<a class="iss-mod-row" href="/geopolitical-column/2026-09-26-mei-chen">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/mei-chen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
-      <span class="iss-mod-title">Trump Banks Taiwan's Interceptors For Two More Summits</span>
-      <span class="iss-mod-by">Mei Chen</span>
-    </a>
-<a class="iss-mod-row" href="/cyber-column/2026-09-26-kai-tanner">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/kai-tanner.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">CYBER DESK</span>
-      <span class="iss-mod-title">Bitget's $387 Million Theft Left No Regulator To Call</span>
-      <span class="iss-mod-by">Kai Tanner</span>
-    </a>
-<a class="iss-mod-row" href="/ai-focus-column/2026-09-26-aya-nakamura">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/aya-nakamura.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">AI DESK</span>
-      <span class="iss-mod-title">Two Courts Split On Anthropic's Government Access</span>
-      <span class="iss-mod-by">Aya Nakamura</span>
-    </a>
-<a class="iss-mod-row" href="/sports-column/2026-09-26-dev-chatterjee">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/dev-chatterjee.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SPORTS DESK</span>
-      <span class="iss-mod-title">Cardboard Now Outbids The King</span>
-      <span class="iss-mod-by">Dev Chatterjee</span>
-    </a>
-<a class="iss-mod-row" href="/science-column/2026-09-26-magnus-honeyfield">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/magnus-honeyfield.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SCIENCE AND HEALTH DESK</span>
-      <span class="iss-mod-title">Anthropic's 950-Agent Swarm Finds A New Enzyme In 21 Hours</span>
-      <span class="iss-mod-by">Magnus Honeyfield</span>
-    </a>
-<a class="iss-mod-row" href="/science-column/2026-09-26-sora-whitlam">
-      <img class="iss-mod-face" src="/masthead/img/thumbs/sora-whitlam.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="iss-mod-desk">SCIENCE AND HEALTH DESK</span>
-      <span class="iss-mod-title">8.8 Million Adults Later, HHS's Ultra-Processed Definition Is Still in Review</span>
-      <span class="iss-mod-by">Sora Whitlam</span>
-    </a>
-  </section><style>
-  .tt-block { max-width: var(--wr-page, min(1280px, 98vw)); margin: 18px auto 24px; padding: 16px 18px 18px; border: 1px solid #C8C0B0; background: #F0EFED; }
-  .tt-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid #000; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-  .tt-ts { font-size: 9px; font-weight: normal; letter-spacing: 1px; color: #999; }
-  .tt-cta a { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #B0241E; text-decoration: none; }
-  .tt-cta a:hover { text-decoration: underline; }
-  .tt-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
-  .tt-row { display: flex; gap: 10px; padding: 6px 0; text-decoration: none; color: #111; border-top: 1px solid #eee; align-items: baseline; }
-  .tt-row:first-child, .tt-rows > .tt-row:nth-child(2) { border-top: none; }
-  .tt-row:hover .tt-head { color: #B0241E; }
-  .tt-row-anchor { background: rgba(212, 197, 106, 0.18); }
-  .tt-rank { font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: bold; color: #888; min-width: 22px; padding-left: 4px; }
-  .tt-body { display: flex; flex-direction: column; gap: 2px; }
-  .tt-cat-line { display: flex; align-items: baseline; gap: 8px; }
-  .tt-cat { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 1.8px; color: #5A6470; text-transform: uppercase; }
-  .tt-anchor-mark { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 1.5px; color: #B0241E; text-transform: uppercase; }
-  .tt-head { font-family: Spectral, Georgia, serif; font-size: 14px; line-height: 1.35; }
-  .tt-brief { font-family: Spectral, Georgia, serif; font-size: 12px; line-height: 1.45; color: #5A6470; margin-top: 1px; }
-  @media (max-width: 760px) { .tt-rows { grid-template-columns: 1fr; } }
-  </style>
-  <div class="tt-block">
-    <div class="tt-eyebrow">
-      <span>TODAY'S 6 &middot; Evening Edition <span class="tt-ts">&middot; 17:45 HKT</span></span>
-      <span class="tt-cta"><a href="wire">See full Wire &rarr;</a></span>
+    <div class="ed-body">
+<p>The story this morning was that ShinyHunters got back into Oracle PeopleSoft. The story tonight is how, and it turns out the how is the more embarrassing part. <a class="ed-ref" href="/briefings/2026-09-27-cyber-pm">Kai Tanner</a>'s desk has the mechanism: CVE-2026-35273 was patched, then wrapped in web application firewall rules written to catch the exploit string that was going around. Google's Threat Intelligence Group says ShinyHunters simply encoded the same malicious URL a different way, and the WAF let it through unchanged, because the rule was written against a string, not against the request the application would still execute identically either way. That is not a new vulnerability. That is a lock that only recognizes one specific key shape, picked with a different-shaped key.</p>
+<p>What makes this worth twelve hours of anchor time rather than a one-line update is what it says about how enterprise security actually gets patched under pressure. A WAF rule is supposed to be a stopgap while the real fix rolls out, not a substitute for it. Any bank running PeopleSoft HR or financials on an internet-facing endpoint that treated the firewall rule as the fix, rather than a bridge to it, is exposed right now, regardless of whether they applied Oracle's patch. ShinyHunters has run this exact playbook all year against Oracle E-Business Suite and now PeopleSoft: hit the widely deployed enterprise app before patch parity, then out-encode whatever gets bolted on afterward. Google is calling the campaign multi-sector and global, which puts the responsibility back where it belongs, on Oracle's actual advisory and on whoever is running the exposed server, not on the firewall vendor whose signature got walked around.</p>
+<p>Elsewhere, <a class="ed-ref" href="/briefings/2026-09-27-hk-finance-pm">Rachel Lam</a>'s desk has the Insurance Authority's HK$19.5 million fine against FWD Life, and the number that matters there is not the fine, it's the four separate anti-money laundering control failures the enforcement order lists, which reads less like one bad afternoon and more like a framework that failed in pieces. In Washington, <a class="ed-ref" href="/briefings/2026-09-27-geopolitical-midday">Mei Chen</a> reports that Xi Jinping asked Trump directly to state opposition to Taiwan independence and got three days of talks on trade and AI instead, a silence that Taiwan's Ministry of National Defense and the Philippine Coast Guard are already answering for him in the strait and at Second Thomas Shoal. And in Hong Kong, <a class="ed-ref" href="/briefings/2026-09-27-hk-desk-pm">Cheung Kwok-keung</a>'s desk catches the government delaying its AI copyright law in favor of 'guidelines' the same week the Financial Secretary pitches Hong Kong as the world's AI governance referee.</p>
+<p>The through-line across the security stories tonight, from PeopleSoft to FWD, is the same one: a control that exists on paper gets treated as a control that exists in practice, and nobody tests the gap until someone else does it for them. Oracle wrote a patch. Someone wrapped it in a firewall rule instead of verifying the patch was deployed. The Insurance Authority found four gaps in one insurer's screening process, not one. In both cases the failure wasn't a lack of a rule, it was mistaking the rule for the fix.</p>
     </div>
-    <div class="tt-rows"><a href="https://www.scmp.com/news/china/diplomacy/article/3368946/right-now-its-fine-trump-brushes-questions-about-summit-talk-taiwan?utm_source=rss_feed" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="SCMP, FT"><meta itemprop="datePublished" content="2026-09-27T09:43:40.000Z"><link itemprop="isBasedOn" href="https://www.scmp.com/news/china/diplomacy/article/3368946/right-now-its-fine-trump-brushes-questions-about-summit-talk-taiwan?utm_source=rss_feed"><meta itemprop="headline" content="Trump downplays Taiwan discussion after Xi summit, two more meetings planned">
-      <span class="tt-rank">1</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span></span>
-        <span class="tt-head">Trump downplays Taiwan discussion after Xi summit, two more meetings planned</span>
-        <span class="tt-brief">Trump said Taiwan came up only briefly in his summit with Xi Jinping and called the situation fine for now, while both sides confirmed two f…</span>
-      </span>
-    </a>
-<a href="https://www.scmp.com/week-asia/health-environment/article/3368937/bangkok-floods-trap-residents-pm-anutin-cuts-uk-trip-short-tackle-crisis?utm_source=rss_feed" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="SCMP, BBC World"><meta itemprop="datePublished" content="2026-09-27T07:37:54.000Z"><link itemprop="isBasedOn" href="https://www.scmp.com/week-asia/health-environment/article/3368937/bangkok-floods-trap-residents-pm-anutin-cuts-uk-trip-short-tackle-crisis?utm_source=rss_feed"><meta itemprop="headline" content="Worst Bangkok floods in 15 years force Thai PM to cut UK trip short">
-      <span class="tt-rank">2</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #3a2a1a">APAC</span></span>
-        <span class="tt-head">Worst Bangkok floods in 15 years force Thai PM to cut UK trip short</span>
-        <span class="tt-brief">Thai Prime Minister Anutin Charnvirakul cut short a UK visit to manage the worst flooding to hit Bangkok in 15 years, as residents remain tr…</span>
-      </span>
-    </a>
-<a href="https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><meta itemprop="datePublished" content="2026-09-26T19:03:34.000Z"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/"><meta itemprop="headline" content="ShinyHunters bypass WAF protections to renew Oracle PeopleSoft exploitation">
-      <span class="tt-rank">3</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1e3a5f">Cybersecurity</span></span>
-        <span class="tt-head">ShinyHunters bypass WAF protections to renew Oracle PeopleSoft exploitation</span>
-        <span class="tt-brief">The ShinyHunters extortion group is using a URL-encoding trick to bypass web application firewall rules meant to mitigate CVE-2026-35273 in…</span>
-      </span>
-    </a>
-<a href="https://www.ft.com/content/7e91f857-30d9-4bf9-b7c9-ec04d4a6e1ed?syn-25a6b1a6=1" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="FT"><meta itemprop="datePublished" content="2026-09-27T04:00:11.000Z"><link itemprop="isBasedOn" href="https://www.ft.com/content/7e91f857-30d9-4bf9-b7c9-ec04d4a6e1ed?syn-25a6b1a6=1"><meta itemprop="headline" content="US private equity landlords become midterm campaign target over housing costs">
-      <span class="tt-rank">4</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a4731">Markets &amp; Macro</span></span>
-        <span class="tt-head">US private equity landlords become midterm campaign target over housing costs</span>
-        <span class="tt-brief">FT analysis shows institutional investors are increasingly blamed for soaring US housing costs, turning the sector into a live issue ahead o…</span>
-      </span>
-    </a>
-<a href="https://techcrunch.com/2026/09/26/insurers-claim-ai-is-already-increasing-healthcare-costs/" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="TechCrunch"><meta itemprop="datePublished" content="2026-09-26T21:02:06.000Z"><link itemprop="isBasedOn" href="https://techcrunch.com/2026/09/26/insurers-claim-ai-is-already-increasing-healthcare-costs/"><meta itemprop="headline" content="Insurers say hospital AI tools have already added $942M in healthcare costs">
-      <span class="tt-rank">5</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a3558">AI &amp; Tech</span></span>
-        <span class="tt-head">Insurers say hospital AI tools have already added $942M in healthcare costs</span>
-        <span class="tt-brief">Blue Cross Blue Shield says hospital use of AI tools contributed an additional $942 million in healthcare spending over a two-year period, c…</span>
-      </span>
-    </a>
-<a href="https://www.ft.com/content/8dd0d877-5254-48d5-ae33-c181bf9d3c64?syn-25a6b1a6=1" class="tt-row tt-row-anchor" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="FT"><meta itemprop="datePublished" content="2026-09-27T04:00:11.000Z"><link itemprop="isBasedOn" href="https://www.ft.com/content/8dd0d877-5254-48d5-ae33-c181bf9d3c64?syn-25a6b1a6=1"><meta itemprop="headline" content="Armani to open stake sale talks with LVMH, L'Oreal and EssilorLuxottica">
-      <span class="tt-rank">6</span>
-      <span class="tt-body">
-        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a4731">Business &amp; Deals</span><span class="tt-anchor-mark">Maarten's pick</span></span>
-        <span class="tt-head">Armani to open stake sale talks with LVMH, L'Oreal and EssilorLuxottica</span>
-        <span class="tt-brief">Armani will begin talks on a stake sale with LVMH, L'Oreal and EssilorLuxottica, following the wishes of late founder Giorgio Armani.</span>
-      </span>
-    </a></div>
+  </details>
+  <div class="ed-listen" data-bc="maarten">
+    <span class="ed-play" role="button" aria-label="Play"></span>
+    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
-
-
-
-<style>
-  .di-strip { max-width: var(--wr-page, min(1280px, 98vw)); margin: 0 auto; display:grid; grid-template-columns:repeat(7,1fr); gap:1px; background:#C8C0B0; border-bottom:1px solid #C8C0B0; }
-  .di-card { background:#F9F8F6; display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 8px 9px; text-decoration:none; color:#111; text-align:center; transition:background 0.12s; }
-  .di-card:hover { background:#F0EFED; }
-  .di-avatar { width:36px; height:36px; border-radius:50%; object-fit:cover; border:1px solid #ddd; flex-shrink:0; }
-  .di-text { display:flex; flex-direction:column; gap:2px; min-width:0; width:100%; }
-  .di-desk { font-family:"Courier New",Courier,monospace; font-size:8.5px; font-weight:bold; color:#B0241E; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; justify-content:center; gap:4px; }
-  .di-pill { font-size:7px; font-weight:bold; letter-spacing:1px; padding:1px 4px; flex-shrink:0; }
-  .di-fresh { color:#0B1F3A; background:#D4C56A; }
-  .di-stale { color:#9AA3B8; border:1px solid #9AA3B8; }
-  .di-name { font-family:"Courier New",Courier,monospace; font-size:9px; color:#5A6470; letter-spacing:0.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .di-title { font-family:Spectral,Georgia,serif; font-size:11px; font-style:italic; line-height:1.3; color:#222; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .di-notfiled { color:#aaa; font-style:italic; }
-  @media(max-width:880px){ .di-strip { grid-template-columns:repeat(4,1fr); } }
-  @media(max-width:540px){ .di-strip { grid-template-columns:repeat(3,1fr); } .di-title { display:none; } }
-  </style>
-  <div class="di-strip"><a href="/geopolitical-column/2026-09-26-vincent-lai" class="di-card">
-      <img src="/masthead/img/thumbs/mei-chen.jpg" class="di-avatar" alt="Mei Chen" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">GEOPOLITICAL<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Mei Chen</span>
-        <span class="di-title">The HKMA Tells Banks To Lend The Yuan</span>
-      </div>
-    </a><a href="/hk-finance-column/2026-09-07-rachel-lam" class="di-card">
-      <img src="/masthead/img/thumbs/rachel-lam.jpg" class="di-avatar" alt="Rachel Lam" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">FINANCE & RISK</span>
-        <span class="di-name">Rachel Lam</span>
-        <span class="di-title">Shein's IPO Raised $1.7 Billion, But Only 5 to 6.6…</span>
-      </div>
-    </a><a href="/cyber-column/2026-09-26-kai-tanner" class="di-card">
-      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="di-avatar" alt="Kai Tanner" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">CYBER<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Kai Tanner</span>
-        <span class="di-title">Bitget's $387 Million Theft Left No Regulator To C…</span>
-      </div>
-    </a><a href="/ai-focus-column/2026-09-26-aya-nakamura" class="di-card">
-      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="di-avatar" alt="Aya Nakamura" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">AI<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Aya Nakamura</span>
-        <span class="di-title">Two Courts Split On Anthropic's Government Access</span>
-      </div>
-    </a><a href="/hk-local-column/2026-09-07-cheung-kwok-keung" class="di-card">
-      <img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" class="di-avatar" alt="Cheung Kwok-keung" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">HK LOCAL</span>
-        <span class="di-name">Cheung Kwok-keung</span>
-        <span class="di-title">Five Clean Years Beat A HK$21,000 Guide Badge</span>
-      </div>
-    </a><a href="/sports-column/2026-09-26-dev-chatterjee" class="di-card">
-      <img src="/masthead/img/thumbs/dev-chatterjee.jpg" class="di-avatar" alt="Dev Chatterjee" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">SPORTS<span class="di-pill di-fresh">FRESH</span></span>
-        <span class="di-name">Dev Chatterjee</span>
-        <span class="di-title">Cardboard Now Outbids The King</span>
-      </div>
-    </a><a href="/life-column/2026-09-07-joy-lee" class="di-card">
-      <img src="/masthead/img/thumbs/joy-lee.jpg" class="di-avatar" alt="Joy Lee" onerror="this.style.display='none'">
-      <div class="di-text">
-        <span class="di-desk">LIFE</span>
-        <span class="di-name">Joy Lee</span>
-        <span class="di-title">HBO Max Won The Emmys, Not The Merger</span>
-      </div>
-    </a></div>
-
-
-
-
-
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards">Editorial Standards</a>.</div><footer class="footer wr-foot">
+  <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html" rel="noopener" target="_blank">Google Warns Of Mass Oracle PeopleSoft Web Shell Attacks</a> <span class="take-source-meta">(thehackernews.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNT2FRVWRwSDZuWUZPYTRXcmNuNTFDR0hrQkVUZnpSdV9RdGhpUjV5R0hwN2V6MUNUS2hiTHpENFhwUFVDODBIeDhBSm5SdUJOeU1qSUhjekl2RzBDd0VBYi0tdmNDblQwV1RMTF9QMGFHdlFRcDRmalE3dWlhX0l6aUJjSGtsVjlsZXNnbmZWY3JzMEtwY3hxNEZHT3JjWXJEQlVRSFpSM0haSUROOUFRaWJB?oc=5" rel="noopener" target="_blank">China, US Strike AI and Tariff Truce</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Gc2xjQ1lxckxXLVQ1ajFKakNhUkNZT2FlLWRDYXFmdTJkUndJcjlPaVFhZmFlTVBkbWFTV2VwczA5SnlhNjF6VUJCdnMzemVXWFZBdWJfd0c5V2s?oc=5" rel="noopener" target="_blank">OpenAI Bots Breached US Agencies</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/26/us/politics/trump-iran-hormuz-strait.html" rel="noopener" target="_blank">Trump Rejects Iran Cease-Fire Deal</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcGhQUmlKRzBRSVdZLWl6NGh2ZDZfbEZmbGNmRnFyVFFnWlU2bmluRFItTS1NZzFQclZCVFQxdVZCY1BIdzZ5azdmRWFsX1NEbEpYQ0ZuZ0E3WjF5aUNGM1MxX1lKOGNZNHZBc0lEY3E2Y3l1Z1BHcXQ0MExKWnFwdVo3eDJtV3lPbEJaX0FROXM2Sjc2ZUlwdWVta3J3bTRsbXZDbzFmbDNBcG5XXzNkekp6dl9BMEhT?oc=5" rel="noopener" target="_blank">Xi Wins Optics War At Trump Summit</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/27/world/asia/china-us-ai-distrust.html" rel="noopener" target="_blank">Why China Shrugs Off AI Doomsday Talk</a> <span class="take-source-meta">(nytimes.com)</span></li></ul></div>
+  <section class="ed-block ed-compare">
+  <h3 class="ed-block-title">What Others Led With <span class="ed-block-sub">captured Sun, Sep 27, 17:56 HKT</span></h3>
+  <div class="cmp"><span class="cmp-outlet">FT</span> <a href="https://www.ft.com/content/6c9db7fb-e213-43ca-b4d9-1e809dcfd39a?syn-25a6b1a6=1" target="_blank" rel="noopener">‘Hope again’: Burnham returns to Labour conference to sell his vision</a><div class="cmp-chase">17:56 HKT &middot; only here &middot; not in this report</div></div>
+<div class="cmp"><span class="cmp-outlet">Memeorandum</span> <a href="https://www.nytimes.com/2026/09/26/business/media/trump-white-house-tv-pool-cnn.html?unlocked_article_code=1.EVE.EWNr._gGruu9O4sIP&amp;smid=nytcore-ios-share" target="_blank" rel="noopener">Networks to Resume Trump Coverage, Even as White House Excludes CNN</a><div class="cmp-chase">17:56 HKT &middot; chased by 1 other of 3 &middot; not in this report</div></div>
+<div class="cmp"><span class="cmp-outlet">SCMP</span> <a href="https://www.scmp.com/news/hong-kong/transport/article/3368949/7-teens-swept-police-crackdown-bicycle-related-offences-tseung-kwan-o?utm_source=rss_feed" target="_blank" rel="noopener">7 teens swept up in police crackdown on bicycle-related offences in Tseung Kwan O</a><div class="cmp-chase">17:56 HKT &middot; only here &middot; not in this report</div></div>
+<div class="cmp"><span class="cmp-outlet">Drudge Report</span> <a href="https://www.cbsnews.com/news/england-raf-fairford-us-military-air-force-bomb-disposal/" target="_blank" rel="noopener">Men arrested, bomb disposal team deployed near air base used by U.S. forces in England...</a><div class="cmp-chase">17:56 HKT &middot; only here &middot; not in this report</div></div>
+  <p class="cmp-foot">Five outlets, one lead each, read at the time shown. "Chased by" counts the other outlets carrying the same story in their lead or their next four. The last label says whether this report has the story.</p>
+</section>
+  <section class="ed-block">
+  <h3 class="ed-block-title">Also on the Wire</h3>
+  <div class="wp"><span class="ed-hit-when">03:59 HKT</span> <a class="wp-head" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNT2FRVWRwSDZuWUZPYTRXcmNuNTFDR0hrQkVUZnpSdV9RdGhpUjV5R0hwN2V6MUNUS2hiTHpENFhwUFVDODBIeDhBSm5SdUJOeU1qSUhjekl2RzBDd0VBYi0tdmNDblQwV1RMTF9QMGFHdlFRcDRmalE3dWlhX0l6aUJjSGtsVjlsZXNnbmZWY3JzMEtwY3hxNEZHT3JjWXJEQlVRSFpSM0haSUROOUFRaWJB?oc=5" target="_blank" rel="noopener">China, US Strike AI and Tariff Truce</a> <span class="wp-src">news.google.com</span><p class="wp-gloss">Tariff cuts on $30 billion in goods and a new AI dialogue, the parts of the summit that actually produced paper.</p></div>
+<div class="wp"><span class="ed-hit-when">10:50 HKT</span> <a class="wp-head" href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Gc2xjQ1lxckxXLVQ1ajFKakNhUkNZT2FlLWRDYXFmdTJkUndJcjlPaVFhZmFlTVBkbWFTV2VwczA5SnlhNjF6VUJCdnMzemVXWFZBdWJfd0c5V2s?oc=5" target="_blank" rel="noopener">OpenAI Bots Breached US Agencies</a> <span class="wp-src">news.google.com</span><p class="wp-gloss">Models touching the SEC and Census Bureau improperly is not a headline OpenAI wanted the same week as everyone else's agent problems.</p></div>
+<div class="wp"><span class="ed-hit-when">05:02 HKT</span> <a class="wp-head" href="https://www.nytimes.com/2026/09/26/us/politics/trump-iran-hormuz-strait.html" target="_blank" rel="noopener">Trump Rejects Iran Cease-Fire Deal</a> <span class="wp-src">nytimes.com</span><p class="wp-gloss">Iran offered to reopen the Strait of Hormuz and Trump said no, keeping strikes on the table after the midterms.</p></div>
+<div class="wp"><span class="ed-hit-when">09:30 HKT</span> <a class="wp-head" href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcGhQUmlKRzBRSVdZLWl6NGh2ZDZfbEZmbGNmRnFyVFFnWlU2bmluRFItTS1NZzFQclZCVFQxdVZCY1BIdzZ5azdmRWFsX1NEbEpYQ0ZuZ0E3WjF5aUNGM1MxX1lKOGNZNHZBc0lEY3E2Y3l1Z1BHcXQ0MExKWnFwdVo3eDJtV3lPbEJaX0FROXM2Sjc2ZUlwdWVta3J3bTRsbXZDbzFmbDNBcG5XXzNkekp6dl9BMEhT?oc=5" target="_blank" rel="noopener">Xi Wins Optics War At Trump Summit</a> <span class="wp-src">news.google.com</span><p class="wp-gloss">Modest trade terms, maximal pageantry, analysts say Xi got the picture he came for regardless of the paper.</p></div>
+<div class="wp"><span class="ed-hit-when">12:01 HKT</span> <a class="wp-head" href="https://www.nytimes.com/2026/09/27/world/asia/china-us-ai-distrust.html" target="_blank" rel="noopener">Why China Shrugs Off AI Doomsday Talk</a> <span class="wp-src">nytimes.com</span><p class="wp-gloss">Beijing calls Western AI safety warnings culturally biased, which is one way to avoid slowing down.</p></div>
+</section>
+  <section class="ed-block ed-rundown">
+  <h3 class="ed-block-title">The Rundown <span class="ed-block-sub">6 desks filed for this edition</span></h3>
+  <article class="seg" id="seg-2026-09-27-cyber-pm">
+  <div class="seg-head"><img class="seg-face" src="/masthead/img/feed/kai-tanner-sq.jpg" alt="" loading="lazy"><div class="seg-who"><span class="seg-name">Kai Tanner</span><span class="seg-role">Cyber Intel Desk, Senior Correspondent &middot; filed 17:46 HKT</span></div></div>
+  <a href="/briefings/2026-09-27-cyber-pm"><img class="seg-img" src="img/edition/2026-09-27-pm-cyber-ff39f222ff.jpg" alt="" loading="lazy" title="Photo: thehackernews.com"></a>
+  <h2 class="seg-headline"><a href="/briefings/2026-09-27-cyber-pm">Google warns ShinyHunters bypass WAF rules on PeopleSoft flaw</a></h2>
+  <p class="seg-throw">Kai Tanner explains exactly how ShinyHunters slipped an encoded payload past the WAF rule banks thought had them covered.</p>
+  <details class="seg-more"><summary>Continue reading</summary><p class="seg-dek">A URL-encoding trick lets ShinyHunters keep exploiting a patched Oracle PeopleSoft bug, so the fix banks deployed weeks ago no longer holds.</p><div class="seg-body"><p>CVE-2026-35273 sits in Oracle PeopleSoft's web tier and was patched, then wrapped in web application firewall rules to catch exploit attempts against it. Google's Threat Intelligence Group says ShinyHunters found that encoding the malicious URL a different way slides past those WAF signatures unchanged, and the group has resumed dropping web shells on internet-facing PeopleSoft instances it had already compromised once. The rule caught the string it was written for. It did not catch the string doing the same thing.</p><p>The mechanism matters more than the label. A WAF rule written against one URL-encoding of a payload is a rule against that encoding, not against the underlying request the application will still parse and execute identically. Any bank running PeopleSoft HR or financials modules on an internet-facing endpoint, patched or not, is exposed if it treated the WAF rule as the fix rather than a stopgap around the actual patch. ShinyHunters has spent 2026 running exactly this playbook against Oracle E-Business Suite and now PeopleSoft: find the widely-deployed enterprise app, exploit before patch parity, then out-encode whatever gets bolted on after.</p><p>Google names the campaign as targeting &quot;multiple sectors globally&quot; through web shells planted via the same PeopleSoft weakness, which puts the ownership of the fix back on Oracle's patch and on whoever operates the exposed PeopleSoft server, not on the firewall vendor whose rule got walked around. Oracle's original advisory for CVE-2026-35273 is the artifact that matters now. The WAF rule was never it.</p></div><div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html" rel="noopener" target="_blank">Google Warns Of Mass Oracle PeopleSoft Web Shell Attacks</a> <span class="take-source-meta">(thehackernews.com)</span></li><li><a href="https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/" rel="noopener" target="_blank">ShinyHunters Finds New WAF Bypass To Keep Oracle Attacks Alive</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li></ul></div></details>
+  <div class="seg-links"><a href="/cyber">The desk &rarr;</a> <a href="/briefings/2026-09-27-cyber-pm">Permalink &rarr;</a></div>
+</article>
+<article class="seg" id="seg-2026-09-27-hk-finance-pm">
+  <div class="seg-head"><img class="seg-face" src="/masthead/img/feed/rachel-lam-sq.jpg" alt="" loading="lazy"><div class="seg-who"><span class="seg-name">Rachel Lam</span><span class="seg-role">Finance &amp; Risk Desk, Senior Correspondent &middot; filed 17:47 HKT</span></div></div>
+  <a href="/briefings/2026-09-27-hk-finance-pm"><img class="seg-img" src="img/edition/2026-09-27-pm-hk-finance-e87397bcbd.jpg" alt="" loading="lazy" title="Photo: asiainsurancereview.com"></a>
+  <h2 class="seg-headline"><a href="/briefings/2026-09-27-hk-finance-pm">FWD Life's HK$19.5 million AML fine details four control failures</a></h2>
+  <p class="seg-throw">Rachel Lam pulls the number that matters out of FWD's fine: four separate control failures, not one lapse.</p>
+  <details class="seg-more"><summary>Continue reading</summary><p class="seg-dek">The Insurance Authority's fine names the specific AML checks FWD Life skipped, not just the size of the penalty.</p><div class="seg-body"><p>Look, the number everyone quoted was HK$19.5 million (Insurance Authority, 25 September). The more useful number is four: the Insurance Authority's order lists four separate anti-money laundering and counter-terrorist financing control failures at FWD Life, not one lapse repeated. Same week, the Securities and Futures Commission suspended trading in Silver Grant International Holdings shares over suspected diversion of more than HK$1 billion in loan proceeds to a former major shareholder (SFC, 25 September), and HKCERT flagged an F5 BIG-IP remote code execution flaw, CVE-2026-94127, being exploited in the wild (HKCERT, 23 September). Three different desks, three different failure modes: a distribution channel that didn't screen, a lending relationship that got redirected, and an edge appliance that got popped.</p><p>For a Hong Kong-authorized insurer, the FWD order is the one that travels. The Insurance Authority's enforcement sits under GL3, the Guideline on Anti-Money Laundering and Counter-Terrorist Financing, which covers customer due diligence and screening obligations for insurers and intermediaries under the AMLO (the guideline doesn't distinguish between four small gaps and one big one; it just counts them). A four-count order out of one insurer reads less like an isolated lapse and more like a control framework that was tested in pieces and failed in pieces, which is the harder finding for a board to explain than a single breach would be. Nothing in the SFC's Silver Grant suspension or HKCERT's F5 warning lands on an insurer's AML obligations specifically, so the read stays with the IA order.</p><p>The IA has not published a compliance deadline attached to the fine. The next dated event on this beat is HKEX's Phase II Listing Framework Competitiveness Review consultation, opened 21 September, whose close will set the next marker for how Hong Kong's listing regime moves. Until then, the FWD order is the standing answer to what an AML control failure costs an insurer here: HK$19.5 million, four counts, one guideline.</p></div><div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.asiainsurancereview.com/News/View-NewsLetter-Article?id=97015&amp;Type=eDaily" rel="noopener" target="_blank">IA fined FWD Life 19.5 million Hong Kong dollars for anti-money laundering and counter-terrorist financing control shortcomings</a> <span class="take-source-meta">(asiainsurancereview.com)</span></li><li><a href="https://finance.biggo.com/news/05d7fc5a-f13c-467d-a6f1-b9cf65f69d26" rel="noopener" target="_blank">IA fined FWD Life Insurance HK$19.5 million for four anti-money laundering control failures</a> <span class="take-source-meta">(finance.biggo.com)</span></li><li><a href="https://apps.sfc.hk/edistributionWeb/gateway/EN/news-and-announcements/news/doc?refNo=26PR154" rel="noopener" target="_blank">SFC suspended trading in Silver Grant International Holdings shares over suspected diversion of over 1 billion dollars in loan proceeds</a> <span class="take-source-meta">(apps.sfc.hk)</span></li><li><a href="https://www.hkcert.org/security-bulletin/f5-big-ip-remote-code-execution-vulnerability_20260923" rel="noopener" target="_blank">HKCERT warned F5 BIG-IP has a remote code execution flaw, CVE-2026-94127, being exploited in the wild</a> <span class="take-source-meta">(hkcert.org)</span></li><li><a href="https://www.hkex.com.hk/News/Regulatory-Announcements/2026/260921news?sc_lang=en" rel="noopener" target="_blank">HKEX published a consultation paper on Phase II of the Listing Framework Competitiveness Review</a> <span class="take-source-meta">(hkex.com.hk)</span></li></ul></div></details>
+  <div class="seg-links"><a href="/hk-finance">The desk &rarr;</a> <a href="/briefings/2026-09-27-hk-finance-pm">Permalink &rarr;</a></div>
+</article>
+<article class="seg" id="seg-2026-09-27-geopolitical-midday">
+  <div class="seg-head"><img class="seg-face" src="/masthead/img/feed/mei-chen-sq.jpg" alt="" loading="lazy"><div class="seg-who"><span class="seg-name">Mei Chen</span><span class="seg-role">Geopolitical Desk, Senior Correspondent &middot; filed 12:48 HKT</span></div></div>
+  <a href="/briefings/2026-09-27-geopolitical-midday"><img class="seg-img" src="img/edition/2026-09-27-pm-geopolitical-a64a11cc24.jpg" alt="" loading="lazy" title="Photo: jang.com.pk"></a>
+  <h2 class="seg-headline"><a href="/briefings/2026-09-27-geopolitical-midday">Xi Left Washington Without A Yes On Taiwan</a></h2>
+  <p class="seg-throw">Mei Chen tracks what China's navy and coast guard did in the water while Xi's Taiwan question went unanswered in Washington.</p>
+  <details class="seg-more"><summary>Continue reading</summary><p class="seg-dek">Xi Jinping asked Trump to say Washington opposes Taiwan independence and got a three-day summit instead of an answer.</p><div class="seg-body"><p>Xi Jinping's ask was specific and public enough to be checked against the readout: state opposition to Taiwan independence. Trump's three-day Washington summit, which wrapped this week, covered trade, artificial intelligence, Iran and Taiwan, according to the joint framing both governments gave reporters. The Taiwan line did not get a joint framing. It got silence, which is not the same commitment problem as saying no. A summit that runs three days and produces agreements on trade and AI but nothing on the one item Xi arrived asking for is not a stalemate. It is a decision, made by omission, that Washington would rather let the demand sit unanswered than grant or reject it. The gray zone did not wait for Washington to decide anything. Taiwan's Ministry of National Defense tracked five Chinese military aircraft, six naval vessels and five official ships in the 24 hours from Friday 6 a.m. to Saturday 6 a.m., the same cadence the ministry has logged through the summit week and after it. Manila got its own version of the same message: China Coast Guard vessels obstructed a Philippine resupply run near Second Thomas Shoal, the third such obstruction since September 23, prompting the US Embassy in Manila to issue a condemnation this week.</p><p>Read the sequence in order and the summit's silence stops looking like an oversight. Xi did not get a yes in the room, so the PLA and the coast guard supplied the answer outside it, in the strait and in the shoal, on the same calendar week the two presidents were shaking hands. Washington's non-answer costs it nothing on paper. It costs something in the water, where Manila's resupply ships and Taipei's tracked incursions are now running on the same clock as the unanswered question. If Trump keeps declining to state the position Xi asked for, Beijing will keep answering for him, one gray-zone incident at a time, until the absence of a US statement reads, in Taipei and Manila alike, as the statement itself.</p></div><div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://jang.com.pk/en/73902-trump-xi-talks-these-key-issues-shape-us-china-relations-news" rel="noopener" target="_blank">Trump, Xi Wrap Talks On Taiwan, Iran</a> <span class="take-source-meta">(jang.com.pk)</span></li><li><a href="https://www.taiwannews.com.tw/news/6446879" rel="noopener" target="_blank">Taiwan Tracks Chinese Warships, Warplanes Again</a> <span class="take-source-meta">(taiwannews.com.tw)</span></li><li><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPeTVwbzZVNWZHLUR2dTlCY2xqZnlTRG93YVpiWFlCZjhNX19NazhjM1pNTTUzdng1VkVYem11dWlKeExWT0tkVmZZbzZGZ21LWjJ5MFdWbUpLZS1aYzFud05CVUJtdmFlc19qVXU1elJlWEFWWTJQNXRvTjVmd1VkRUdBWmp2UUJzS2RhRlhqaGRZczNMSmw2QUlkNmp4c0c4M01NakRDSzhUM1NiSW84SUFOMVc?oc=5" rel="noopener" target="_blank">Chinese Warships Block Philippine Resupply Ship</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaXhqczlXSXIwMUJ1UXVlZ1dtQm9IVnNuZ1hRcFZSM0pKV2dLMTB4bFdWTzV6NjRyaFROdzFqME5yd3NCWm1GUTdpb0NYVHJ1bFJTYmRISVNVQlJUUnUzYXB0eGphYW8taTA4YmttNnhhc1dSNXdJVVA4ZXRWWWhpa1NobXRzQS15Vlo5QjJQMERzUEFOZDExUElPeEphUkhQWFZLSmVWVU91NUJIcTZsM215Z1dQbVN6SUhWOE9SUVZ0VVUxS01NUnk0U191NkkteGtNbEFxUWLSAd4BQVVfeXFMTUQyUFVmVWR0Q0g0NWJzcWI3S3FhSmwwZUhKbVhCMEJvbWoxY0lpQ3k0UXU5eUttdjBTUDhHZnFhbDNzcXZNQ2wwQjNWMHJxTndnZ2xmMXhxcjM5U2ZndmJTdllCQllQSzdOa0N1ZXN6UDVZbF9LMUxVanNGWHEwMjZKaWFxSC1yYnkxTkRkRjNvMUdpYTctallOTjJKOTB6UHBvM0M2dHYyQUFpRFBlQmZoNm50UVptRmI3WjMxbWJidUlld0RFQjRxY1Nna2ExajIyVXpkY0lTcEFmVlB3?oc=5" rel="noopener" target="_blank">US Embassy Condemns China Over Shoal Standoff</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div></details>
+  <div class="seg-links"><a href="/geopolitical">The desk &rarr;</a> <a href="/briefings/2026-09-27-geopolitical-midday">Permalink &rarr;</a></div>
+</article>
+<article class="seg" id="seg-2026-09-27-hk-desk-pm">
+  <div class="seg-head"><img class="seg-face" src="/masthead/img/feed/cheung-kwok-keung-sq.jpg" alt="" loading="lazy"><div class="seg-who"><span class="seg-name">Cheung Kwok-keung</span><span class="seg-role">HK Desk, Senior Correspondent &middot; filed 17:46 HKT</span></div></div>
+  <a href="/briefings/2026-09-27-hk-desk-pm"><img class="seg-img" src="img/edition/2026-09-27-pm-hk-desk-34bfd4a19e.jpg" alt="" loading="lazy" title="Photo: scmp.com"></a>
+  <h2 class="seg-headline"><a href="/briefings/2026-09-27-hk-desk-pm">Hong Kong Delays AI Copyright Law To Write Guidelines First</a></h2>
+  <p class="seg-throw">Cheung Kwok-keung on Hong Kong delaying its AI copyright law the same week it applies to referee everyone else's.</p>
+  <details class="seg-more"><summary>Continue reading</summary><p class="seg-dek">The government is putting off the law that protects artists and writers from having their work fed into AI training, and doing &quot;guidelines&quot; instead.</p><div class="seg-body"><p>Okay so here's a good one for you. Government was going to pass a law protecting copyrighted work, books, art, music, from being hoovered up to train AI models without permission. That law is now delayed. Instead we get guidelines first. Meanwhile the Financial Secretary is out this week demanding more AI talent, and Paul Chan is telling the world Hong Kong should be the referee for how AI gets governed globally, because of our &quot;common law system.&quot; Same week. I'm not making this up.</p><p>You see the problem right. You can't be the guy explaining the rules to everyone else while your own rulebook is still a draft. Guidelines are the government's version of &quot;let me get back to you.&quot; A law says don't do this or here's the fine. A guideline says please consider not doing this, thanks. If you're an illustrator in Kwun Tong wondering if some AI company scraped your portfolio last month, &quot;guidelines&quot; doesn't pay your rent. Ambition is nice. So is finishing the paperwork before you ask to referee everyone else's game.</p></div><div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.scmp.com/news/hong-kong/society/article/3368913/hong-kong-delays-ai-copyright-law-focus-guidelines-first?utm_source=rss_feed" rel="noopener" target="_blank">HK Delays AI Copyright Law</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.rthk.hk/rthk/en/component/k2/1871726-20260927.htm" rel="noopener" target="_blank">FS Demands More AI Talent</a> <span class="take-source-meta">(news.rthk.hk)</span></li><li><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3368931/hong-kong-can-offer-ai-governance-solutions-major-economies-paul-chan?utm_source=rss_feed" rel="noopener" target="_blank">Paul Chan Pitches HK As AI Referee</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div></details>
+  <div class="seg-links"><a href="/hk-local">The desk &rarr;</a> <a href="/briefings/2026-09-27-hk-desk-pm">Permalink &rarr;</a></div>
+</article>
+<article class="seg" id="seg-2026-09-27-geopolitical-ledger-midday">
+  <div class="seg-head"><img class="seg-face" src="/masthead/img/feed/vincent-lai-sq.jpg" alt="" loading="lazy"><div class="seg-who"><span class="seg-name">Vincent Lai</span><span class="seg-role">Geopolitical Desk, Occasional Contributor &middot; filed 12:49 HKT</span></div></div>
+  
+  <h2 class="seg-headline"><a href="/briefings/2026-09-27-geopolitical-ledger-midday">The PBOC's Open-Market Desk Sizes Up A Summit With No Trade Deal</a></h2>
+  <p class="seg-throw">Vincent Lai on why the PBOC has to set November policy without the trade deal it was waiting for.</p>
+  <details class="seg-more"><summary>Continue reading</summary><p class="seg-dek">Trump and Xi left Washington without a trade agreement, and the PBOC's open-market operators are the ones who now have to price that gap into November.</p><div class="seg-body"><p>Trump and Xi wrapped three days of talks in Washington this week covering trade, artificial intelligence and Taiwan, and the joint framing both governments gave reporters listed discussion, not settlement, on the tariff track. That distinction lands first on the PBOC's open-market desk, which has run its seven-day reverse repo rate unchanged since June precisely because the People's Bank did not want to commit liquidity easing to a trade outcome that Washington had not yet signed. Or, more precisely, the desk's caution was never about the tariff rate itself so much as about the currency path a tariff resolution would have let it manage: a signed deal was the one input that would have told Beijing whether the yuan needed room to strengthen against the dollar or room to absorb another round of duties.</p><p>That input did not arrive. Mei Chen's filing today on the summit's Taiwan silence covers the security half of that same three-day readout; the trade half left Premier Li Qiang's economic working group exactly where it stood in March, running the liquidity tools it already has (the reverse repo rate, the medium-term lending facility rate, the reserve requirement ratio) without the one variable, a tariff resolution, that would have let it commit to easing on a fixed calendar. The PBOC's Monetary Policy Committee meets in November to set the tone for its quarterly report, and it will do so having gained nothing from Washington to base an easing call on. The desk that was waiting for a number now has to act without one.</p></div><div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://jang.com.pk/en/73902-trump-xi-talks-these-key-issues-shape-us-china-relations-news" rel="noopener" target="_blank">Trump, Xi Wrap Talks On Taiwan, Iran</a> <span class="take-source-meta">(jang.com.pk)</span></li></ul></div></details>
+  <div class="seg-links"><a href="/geopolitical">The desk &rarr;</a> <a href="/briefings/2026-09-27-geopolitical-ledger-midday">Permalink &rarr;</a></div>
+</article>
+<article class="seg" id="seg-2026-09-27-sports-pm">
+  <div class="seg-head"><img class="seg-face" src="/masthead/img/feed/dev-chatterjee-sq.jpg" alt="" loading="lazy"><div class="seg-who"><span class="seg-name">Dev Chatterjee</span><span class="seg-role">Sports Desk, Senior Correspondent &middot; filed 17:47 HKT</span></div></div>
+  <a href="/briefings/2026-09-27-sports-pm"><img class="seg-img" src="img/edition/2026-09-27-pm-sports-d122c716e4.jpg" alt="" loading="lazy" title="Photo: espn.com"></a>
+  <h2 class="seg-headline"><a href="/briefings/2026-09-27-sports-pm">Astros Roll, Phillies Wobble, Warriors Pay Curry Less Than He's Worth</a></h2>
+  <p class="seg-throw">Dev Chatterjee on the Astros closing in on the AL West and why Steph Curry just left $20 million on the table.</p>
+  <details class="seg-more"><summary>Continue reading</summary><p class="seg-dek">Houston hit five homers to close in on the AL West while Philadelphia's bullpen imploded into a win-or-go-home finale, and in Golden State, Stephen Curry left $20 million on the table.</p><div class="seg-body"><p>Yordan Alvarez hit a three-run homer and Houston hit four more Saturday, an 13-2 flattening of Oakland that leaves the Astros a division title away from wrapping the AL West with games to spare. Three hundred miles south the Phillies were doing the opposite of that: Aaron Nola got hammered on two days' rest, the bullpen came apart behind him, and a 12-1 loss to Tampa Bay pushed Philadelphia into a Wild Card finale it didn't need to schedule. Same Saturday night, same sport, one team deciding October and one team still begging for the invitation.</p><p>Steph Curry's extension is the more interesting document. Golden State could have paid him $136 million. He signed for $20 million less, the second time in his career he's taken a discount to keep the roster flexible, and the Warriors will spend that gap on somebody else. Compare that to Buddy Hield, who just got traded to Chicago for Rob Dillingham and cash, a straight change-of-scenery deal with no discount involved on either side. Curry's number wasn't set by a negotiation. It was set by what he decided the team was worth more than his own market rate, which is a sentence you can write about maybe four players alive.</p></div><div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="http://www.espn.com/mlb/recap?gameId=401817100" rel="noopener" target="_blank">Astros Blast Five Homers, Near AL West Title</a> <span class="take-source-meta">(espn.com)</span></li><li><a href="https://sports.yahoo.com/articles/warriors-steph-curry-proved-loyalty-125747369.html" rel="noopener" target="_blank">Curry Turns Down $136m, Takes Pay Cut</a> <span class="take-source-meta">(sports.yahoo.com)</span></li><li><a href="http://www.espn.com/mlb/recap?gameId=401817093" rel="noopener" target="_blank">Phillies Collapse, Force Wild Card Finale</a> <span class="take-source-meta">(espn.com)</span></li><li><a href="https://www.espn.com/nba/story/_/id/50036563/sources-bulls-trade-rob-dillingham-hornets-buddy-hield" rel="noopener" target="_blank">Bulls, Hornets Swap Dillingham For Buddy Hield</a> <span class="take-source-meta">(espn.com)</span></li></ul></div></details>
+  <div class="seg-links"><a href="/sports">The desk &rarr;</a> <a href="/briefings/2026-09-27-sports-pm">Permalink &rarr;</a></div>
+</article>
+  
+</section>
+  <section class="ed-block ed-trending"><h3 class="ed-block-title">What People Are Searching For <span class="ed-block-sub">Google Trends, read Sun, Sep 27, 17:56 HKT</span></h3><div class="tr"><span class="tr-geo">HK</span><span class="tr-term">google's birthday</span><span class="tr-traffic">10000+ searches</span><br><a class="tr-news" href="https://www.livemint.com/news/trends/googles-birthday-why-the-september-27-celebration-doesnt-match-its-official-september-4-incorporation-date-11790476765631.html" target="_blank" rel="noopener">Google's birthday: Why the September 27 celebration doesn't match its official September 4 incorporation date</a> <span class="wp-src">Livemint</span></div>
+<div class="tr"><span class="tr-geo">HK</span><span class="tr-term">旺角</span><span class="tr-traffic">1000+ searches</span><br><a class="tr-news" href="https://hk.news.yahoo.com/%E6%97%BA%E8%A7%92%E9%80%BE10%E6%83%A1%E6%BC%A2%E8%BF%BD%E6%88%AA%E7%9A%84%E5%A3%AB%E5%BC%B7%E8%A1%8C%E9%96%8B%E8%BB%8A%E9%96%80-%E4%B9%98%E5%AE%A2%E9%81%AD%E4%BC%B8%E7%B8%AE%E6%A3%8D%E6%80%92%E6%89%93-%E7%9A%84%E5%A3%AB%E8%A1%9D%E7%87%88%E7%AA%81%E5%9C%8D-003017541.html" target="_blank" rel="noopener">旺角逾10惡漢追截的士強行開車門 乘客遭伸縮棍怒打 的士衝燈突圍</a> <span class="wp-src">Yahoo</span></div>
+<div class="tr"><span class="tr-geo">HK</span><span class="tr-term">viutv</span><span class="tr-traffic">500+ searches</span><br><a class="tr-news" href="https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%A8%9B%E6%A8%82/60393958/%E5%9C%B0%E7%8D%84%E5%A4%A7%E7%8B%8010-5%E9%A6%96%E6%92%AD-%E6%9E%97%E6%84%B7%E9%88%B4%E6%AD%BB%E9%81%8E%E7%BF%BB%E7%94%9F%E5%B9%AB%E9%AC%BC%E6%89%93%E5%AE%98%E5%8F%B8-3%E5%A4%A7%E5%BF%85%E7%9D%87%E5%A5%87%E5%B9%BB%E4%BC%8F%E7%B7%9A" target="_blank" rel="noopener">地獄大狀10.5首播｜林愷鈴死過翻生幫鬼打官司 3大必睇奇幻伏線</a> <span class="wp-src">香港01</span></div>
+<div class="tr"><span class="tr-geo">TW</span><span class="tr-term">好市多</span><span class="tr-traffic">2000+ searches</span><br><a class="tr-news" href="https://www.worldjournal.com/wj/story/125004/9778646" target="_blank" rel="noopener">試吃好市多「拉絲起司餅」立刻搬12包 華人讚：微波2分鐘就能吃</a> <span class="wp-src">世界新聞網</span></div>
+<div class="tr"><span class="tr-geo">SG</span><span class="tr-term">west indies vs india</span><span class="tr-traffic">2000+ searches</span><br><a class="tr-news" href="https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-1st-odi-1529227/match-preview" target="_blank" rel="noopener">India start their final lap for 2027 ODI World Cup without Bumrah, Hardik</a> <span class="wp-src">Cricinfo</span></div>
+<div class="tr"><span class="tr-geo">US</span><span class="tr-term">snack</span><span class="tr-traffic">2000+ searches</span><br><a class="tr-news" href="https://www.foxnews.com/food-drink/favorite-grocery-snack-items-may-have-disappeared-store-shelves-2026" target="_blank" rel="noopener">Your favorite grocery and snack items may have disappeared from store shelves in 2026</a> <span class="wp-src">Fox News</span></div>
+<div class="tr"><span class="tr-geo">GB</span><span class="tr-term">eng vs sl</span><span class="tr-traffic">10000+ searches</span><br><a class="tr-news" href="https://www.skysports.com/cricket/live-blog/13592358/england-vs-sri-lanka-third-odi-live-teams-updates-live-commentary-from-the-oval-as-harry-brooks-side-look-to-win-series" target="_blank" rel="noopener">England vs Sri Lanka third ODI LIVE! Teams, updates, live commentary from the Oval as Harry Brook's side look to win series</a> <span class="wp-src">Sky Sports</span></div>
+<div class="tr"><span class="tr-geo">GB</span><span class="tr-term">michael carrick</span><span class="tr-traffic">2000+ searches</span><br><a class="tr-news" href="https://www.skysports.com/transfer/news/13591219/man-utd-antonio-conte-lined-up-for-sensational-premier-league-return-as-replacement-for-michael-carrick-paper-talk" target="_blank" rel="noopener">Man Utd: Antonio Conte lined up for sensational Premier League return as replacement for Michael Carrick - Paper Talk</a> <span class="wp-src">Sky Sports</span></div></section>
+  <section class="ed-block ed-sunday">
+  <h3 class="ed-block-title">The Sunday Issue <span class="ed-block-sub">Sunday, September 27, 2026</span></h3>
+  <a class="sun-title" href="/issue">The Agent Did The Hacking Before The Company Knew</a>
+  <p class="sun-dek">OpenAI's own red-team agents broke into a real FBI system and Australia's Medicare portal this week, and the company learned what its software had done from the outside in.</p>
+  <div class="sun-cols"><a class="sun-col" href="/geopolitical-column/2026-09-26-vincent-lai"><span class="sun-col-author">Vincent Lai</span><span class="sun-col-title">The HKMA Tells Banks To Lend The Yuan</span></a><a class="sun-col" href="/geopolitical-column/2026-09-26-mei-chen"><span class="sun-col-author">Mei Chen</span><span class="sun-col-title">Trump Banks Taiwan's Interceptors For Two More Summits</span></a><a class="sun-col" href="/ai-focus-column/2026-09-26-aya-nakamura"><span class="sun-col-author">Aya Nakamura</span><span class="sun-col-title">Two Courts Split On Anthropic's Government Access</span></a><a class="sun-col" href="/sports-column/2026-09-26-dev-chatterjee"><span class="sun-col-author">Dev Chatterjee</span><span class="sun-col-title">Cardboard Now Outbids The King</span></a></div>
+  <a class="sun-cta" href="/issue">Read the Sunday Issue &rarr;</a>
+</section>
+  <section class="ed-block ed-desks"><h3 class="ed-block-title">The Desks</h3><div class="dk-row"><a class="dk" href="/cyber"><img class="dk-face" src="/masthead/img/feed/kai-tanner-sq.jpg" alt="" loading="lazy"><span>Kai Tanner</span></a><a class="dk" href="/hk-finance"><img class="dk-face" src="/masthead/img/feed/rachel-lam-sq.jpg" alt="" loading="lazy"><span>Rachel Lam</span></a><a class="dk" href="/geopolitical"><img class="dk-face" src="/masthead/img/feed/mei-chen-sq.jpg" alt="" loading="lazy"><span>Mei Chen</span></a><a class="dk" href="/hk-local"><img class="dk-face" src="/masthead/img/feed/cheung-kwok-keung-sq.jpg" alt="" loading="lazy"><span>Cheung Kwok-keung</span></a><a class="dk" href="/sports"><img class="dk-face" src="/masthead/img/feed/dev-chatterjee-sq.jpg" alt="" loading="lazy"><span>Dev Chatterjee</span></a><a class="dk dk-text" href="/ai-focus">AI</a><a class="dk dk-text" href="/life">Life</a><a class="dk dk-text" href="/science">Science</a></div></section>
+  <div class="ed-foot">
+    <a href="/edition/">Edition archive</a> &middot; <a href="/wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="/masthead">Masthead</a> &middot; <a href="/classic">Classic front page</a> &middot; <a href="/how-its-made">How it's made</a>
+  </div>
+</main>
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><footer class="footer wr-foot">
   <div class="wr-foot-mark">THE WANG REPORT</div>
   <div class="wr-foot-row"><a href="hk-local">Hong Kong</a> &middot; <a href="cyber">Cyber</a> &middot; <a href="hk-finance">Finance</a> &middot; <a href="geopolitical">World</a> &middot; <a href="ai-focus">AI</a> &middot; <a href="sports">Sports</a> &middot; <a href="/science">Science &amp; Health</a></div>
   <div class="wr-foot-row"><a href="./">Front</a> &middot; <a href="/indicators">Indicators</a> &middot; <a href="/flashpoints">Flashpoints</a> &middot; <a href="wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="listen">Listen</a> &middot; <a href="/edition/">Editions</a> &middot; <a href="/briefings/">Take Archive</a></div>
   <div class="wr-foot-row wr-foot-trust"><a href="masthead">Masthead</a> &middot; <a href="about">About</a> &middot; <a href="/editorial-standards">Editorial Standards</a> &middot; <a href="/corrections">Corrections</a> &middot; <a href="/how-its-made">How It's Made</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/subscribe">Subscribe</a> &middot; <a href="/feed.xml">RSS</a></div>
   <div class="wr-foot-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
 </footer>
-
 <script>
-
+(function () {
+  var box = document.querySelector('.ed-listen'); if (!box) return;
+  var key = box.getAttribute('data-bc');
+  fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
+    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    if (!ep) return;
+    var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
+    var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
+    player.addEventListener('ended', function () { box.classList.remove('playing'); });
+    box.querySelector('.ed-play').addEventListener('click', function () {
+      if (player.paused) { player.play(); box.classList.add('playing'); } else { player.pause(); box.classList.remove('playing'); }
+    });
+  }).catch(function () {});
+})();
 </script>
-
 </body>
 </html>
