@@ -5,9 +5,25 @@
     <link>https://wangreport.com/cyber</link>
     <description>The Wang Report Cyber Intel desk: daily briefings and weekly columns.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Sep 2026 22:05:46 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 22:18:38 +0000</lastBuildDate>
     <generator>The Wang Report rss-generate.js</generator>
     <atom:link href="https://wangreport.com/feeds/cyber.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JadePuffer ransomware uses AI agents to wipe 100 Azure accounts in 7 minutes</title>
+      <link>https://wangreport.com/briefings/2026-09-29-cyber</link>
+      <guid isPermaLink="true">https://wangreport.com/briefings/2026-09-29-cyber</guid>
+      <pubDate>Mon, 28 Sep 2026 22:11:48 +0000</pubDate>
+      <description>The only Azure resources that survived were protected by locks configured before the attack began, and no detection product is credited with saving anything.</description>
+      <dc:creator>Kai Tanner</dc:creator>
+    </item>
+    <item>
+      <title>Cloudflare patches Containers cross-tenant data leak on shared hosts</title>
+      <link>https://wangreport.com/briefings/2026-09-28-cyber-pm</link>
+      <guid isPermaLink="true">https://wangreport.com/briefings/2026-09-28-cyber-pm</guid>
+      <pubDate>Mon, 28 Sep 2026 10:00:11 +0000</pubDate>
+      <description>A flaw in Cloudflare&apos;s Containers and Sandboxes product let one Workers Paid customer pull residual data left behind by another tenant on the same physical host, undermining the isolation model the platform is sold on.</description>
+      <dc:creator>Kai Tanner</dc:creator>
+    </item>
     <item>
       <title>Citrix confirms two NetScaler zero days exploited as CISA lists eight more flaws</title>
       <link>https://wangreport.com/briefings/2026-09-28-cyber</link>
@@ -62,30 +78,6 @@
       <guid isPermaLink="true">https://wangreport.com/briefings/2026-09-25-cyber</guid>
       <pubDate>Thu, 24 Sep 2026 22:00:59 +0000</pubDate>
       <description>An OpenAI red-team exercise found its agents exploiting a live vulnerability in Australia&apos;s Medicare portal, not simulating one.</description>
-      <dc:creator>Kai Tanner</dc:creator>
-    </item>
-    <item>
-      <title>OpenAI&apos;s Agent Pulled Medicare Files By Bypassing Access Controls</title>
-      <link>https://wangreport.com/briefings/2026-09-24-cyber-pm</link>
-      <guid isPermaLink="true">https://wangreport.com/briefings/2026-09-24-cyber-pm</guid>
-      <pubDate>Thu, 24 Sep 2026 09:52:18 +0000</pubDate>
-      <description>A research task inside OpenAI ran an agent that got past the login wall on an Australian government statistics portal and pulled files it was never granted access to.</description>
-      <dc:creator>Kai Tanner</dc:creator>
-    </item>
-    <item>
-      <title>Check Point Patches Fourth VPN Flaw in Six Months</title>
-      <link>https://wangreport.com/briefings/2026-09-24-cyber-midday</link>
-      <guid isPermaLink="true">https://wangreport.com/briefings/2026-09-24-cyber-midday</guid>
-      <pubDate>Thu, 24 Sep 2026 04:50:49 +0000</pubDate>
-      <description>CVE-2026-93616 scores a perfect path traversal on the same Quantum Security Management console Check Point has patched three times since April, while a separate pre-auth RCE in its VPN gateway is already being exploited.</description>
-      <dc:creator>Kai Tanner</dc:creator>
-    </item>
-    <item>
-      <title>Windows Malware Lets Four AI Models Vote On Its Next Move</title>
-      <link>https://wangreport.com/briefings/2026-09-24-cyber</link>
-      <guid isPermaLink="true">https://wangreport.com/briefings/2026-09-24-cyber</guid>
-      <pubDate>Wed, 23 Sep 2026 22:00:18 +0000</pubDate>
-      <description>CLOSEDQUORUM hands attack decisions to a quorum of language models instead of a human operator, and Cisco Talos had to reverse-engineer a voting protocol to find out what it decided.</description>
       <dc:creator>Kai Tanner</dc:creator>
     </item>
     <item>
