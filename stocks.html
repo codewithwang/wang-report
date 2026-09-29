@@ -35,13 +35,32 @@
 </head>
 <body>
 
-<header class="nh">
-<nav class="nh-desks" aria-label="Desks"><a href="./" class="" style="--c:var(--wr-ink)">Front</a><a href="hk-local" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="cyber" style="--c:var(--desk-cyber)">Cyber</a><a href="hk-finance" class="on" style="--c:var(--desk-finance)">Finance</a><a href="geopolitical" style="--c:var(--desk-geopolitical)">World</a><a href="ai-focus" style="--c:var(--desk-ai)">AI</a><a href="sports" style="--c:var(--desk-sports)">Sports</a><a href="/science" style="--c:var(--desk-science)">Science & Health</a></nav>
-<nav class="nh-tools" aria-label="Tools"><a href="/edition/latest">Edition</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/issue">Sunday Issue</a><a href="listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="hkjc-read">HKJC</a><a href="/stocks" class="on">Stocks</a><a href="/dads">Dads</a></nav>
-</header>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="./">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance" class="on" style="--h:#1E5C46">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture</a>
+<h4>More</h4><a href="/edition/latest">Today's edition</a><a href="listen">Listen</a><a href="/issue">The Sunday Issue</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/hk-adults-calendar/">Calendars</a><a href="/dads">Dads</a><a href="/board">Everything (the full Board)</a><a href="/how-its-made">How it is made</a></div></div>
 
 <div class="timestamp-bar">
-  Tuesday, September 29, 2026 at 12:57 PM GMT+8
+  Tuesday, September 29, 2026 at 06:21 PM GMT+8
 </div>
 
 <div class="ad-leaderboard"></div>
@@ -61,7 +80,7 @@
     <div class="briefing-take-avatar has-photo"><img src="/masthead/img/thumbs/charmaine-lo.jpg" alt="CL"/></div>
     <div class="briefing-take-byline">By <strong>Charmaine Lo</strong><span class="briefing-take-role">News Anchor</span><span class="briefing-take-date">Tue, Sep 29</span></div>
   </div>
-  <div class="briefing-take-body"><p>The index feed came through blank today, so there are no official closing levels to read, and nothing on rates either. The one clean read on the broad market is the S&amp;P 500 fund in the portfolio, which slipped about 1 percent as a slide in Meta pulled the index lower. One large company did a lot of the market's work on a bad day.</p><p>Inside the portfolio's sectors, the mood is mixed but busy. Technology, the concentrated core of the book, had the loudest day. Nvidia approved a record buyback, the largest increase in its history. AMD agreed to buy Fei-Fei Li's World Labs in a big bet on physical AI. Apple absorbed a multibillion-dollar jury verdict over haptic patents. Adobe pointed to a coming surge in ChatGPT traffic to retail sites this holiday season. Elsewhere, Amazon drew a buy call on its AI spending, Lululemon signed Lewis Hamilton for its outerwear push, and Citizens raised its Okta target on AI security demand.</p><p>On the names in focus, her advisors continue to favor trimming Nvidia, the largest position, in three tranches over several weeks. The first tranche would fund a new Berkshire Hathaway Class B stake. Next on their list is healthcare exposure through UnitedHealth or Johnson &amp; Johnson, plus international diversification through VXUS. They also want firm rules on SoundHound and Unusual Machines: no adds, half off on a double, full exit if the thesis breaks. On Intel, the advice is to cut or commit, with no limbo. Nvidia announces a record buyback, and the advisors answer by scheduling the sale. Some would call that discipline. Others would call it the most polite way yet to say thank you and goodbye.</p></div>
+  <div class="briefing-take-body"><p>Index levels are missing from today's tape. The S&amp;P 500, Nasdaq and Hang Seng all read n/a, and no rate or economic data arrived with them, so the mood comes from the headlines. Nvidia announced a buyback billed as the biggest in market history. Meta's weakness dragged the broad index lower, with VOO down 1.0%. Apple was hit with a $5.7 billion patent bill.</p><p>*CL*</p><p>The portfolio is mostly a technology book, and that is where today's movement sits. Nvidia's buyback and AMD's $8.2 billion purchase of World Labs, which sent AMD shares down 4%, both landed in semiconductors. The book also carries a leveraged semiconductor fund, so those moves count for more here than in most portfolios. Consumer cyclicals had a quieter day: Amazon won an AWS deal with CSL, and Lululemon signed Chris Lee and Lewis Hamilton for its outerwear line. Citizens lifted its Okta target to $225. Adobe is projecting a record US holiday online shopping season. The Vanguard S&amp;P 500 ETF, the index holding, slipped with the market.</p><p>*CL*</p><p>Nvidia is the name in focus, and the advisors have discussed trimming it toward a smaller share of the portfolio, in three tranches over four to six weeks, with the first funding a new Berkshire Hathaway Class B position. They have also discussed adding healthcare through UNH or JNJ and international exposure through VXUS. For SoundHound and Unusual Machines they suggest hard rules: no adds, half off on a double, a full exit if the thesis breaks. Intel needs a decision, cut or commit. A company that buys back $150 billion of its own stock and a portfolio that wants to hold less of it are, at least, in agreement about something.</p></div>
 </div>
 
 <div class="masthead" style="margin-top:24px;">WANG REPORT VIEW</div>
@@ -77,140 +96,140 @@
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:700;">Avoid</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">North America demand is stalling and competition is rising. Marketing pushes rarely fix that.</td>
-  </tr>
-<tr>
-    <td style="padding:6px 10px;font-weight:600;">NVIDIA <span style="color:#8A8478;font-weight:400;">NVDA</span></td>
-    <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
-    <td style="padding:6px 10px;color:#6A645C;">Held</td>
-    <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Dominant franchise and huge buyback, but the book is overloaded with semiconductor exposure.</td>
-  </tr>
-<tr>
-    <td style="padding:6px 10px;font-weight:600;">AMD <span style="color:#8A8478;font-weight:400;">AMD</span></td>
-    <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
-    <td style="padding:6px 10px;color:#6A645C;">Held</td>
-    <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Strong AI roadmap, but an $8.2B acquisition adds integration risk on a rich valuation.</td>
+    <td style="padding:6px 10px;color:#4A453E;">North America demand is fading and competition is rising, so marketing may not restore growth.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Intel <span style="color:#8A8478;font-weight:400;">INTC</span></td>
     <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">A 33% spike prices in the turnaround. Foundry execution is still unproven.</td>
+    <td style="padding:6px 10px;color:#4A453E;">A 33% spike prices in a foundry turnaround still unproven on margins.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Palantir <span style="color:#8A8478;font-weight:400;">PLTR</span></td>
-    <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
+    <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">High</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Excellent execution and government demand, but the multiple is extreme and leaves no cushion.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Excellent execution, but a 77% run leaves valuation extreme and unforgiving.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">SoundHound AI <span style="color:#8A8478;font-weight:400;">SOUN</span></td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:700;">Avoid</span> <span style="color:#A8A29A;font-size:10px;">High</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Small revenue base, heavy cash burn, and falling analyst targets signal weak fundamentals.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Small revenue base, heavy cash burn, and a shrinking analyst conviction.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Unusual Machines <span style="color:#8A8478;font-weight:400;">UMAC</span></td>
-    <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:700;">Avoid</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
+    <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:700;">Avoid</span> <span style="color:#A8A29A;font-size:10px;">High</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Speculative micro-cap drone play driven by politics and headlines rather than earnings.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Speculative drone micro-cap with thin revenue and reliance on political tailwinds.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Micron <span style="color:#8A8478;font-weight:400;">MU</span></td>
     <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Memory upcycle is strong, but the stock is near peak sentiment ahead of earnings.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Memory is cyclical and a $100 billion rally into earnings leaves little margin for error.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Direxion Semiconductor Bull 3X <span style="color:#8A8478;font-weight:400;">SOXL</span></td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:700;">Avoid</span> <span style="color:#A8A29A;font-size:10px;">High</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#B0241E;font-weight:600;">Diverges</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Triple leverage on already concentrated semiconductors creates volatility decay and severe drawdown risk.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Triple leverage decay and volatility compound an already heavy semiconductor concentration.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Berkshire Hathaway (Class B) <span style="color:#8A8478;font-weight:400;">BRK.B</span></td>
     <td style="padding:6px 10px;"><span style="color:#4A8A6A;font-weight:700;">Add</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Watchlist</td>
     <td style="padding:6px 10px;"><span style="color:#2D6B4A;font-weight:600;">WR would add</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Fortress balance sheet, diversified earnings, and defensive ballast for a tech-heavy book.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Defensive, cash-rich compounder that diversifies a growth-heavy book at a fair price.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Meta Platforms <span style="color:#8A8478;font-weight:400;">META</span></td>
     <td style="padding:6px 10px;"><span style="color:#2D6B4A;font-weight:700;">Buy</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Watchlist</td>
     <td style="padding:6px 10px;"><span style="color:#2D6B4A;font-weight:600;">WR would add</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">A 27% drawdown offers a discounted entry for a highly profitable ad franchise.</td>
+    <td style="padding:6px 10px;color:#4A453E;">A 17% drop on spending worries resets valuation for a strong ad engine.</td>
+  </tr>
+<tr>
+    <td style="padding:6px 10px;font-weight:600;">NVIDIA <span style="color:#8A8478;font-weight:400;">NVDA</span></td>
+    <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
+    <td style="padding:6px 10px;color:#6A645C;">Held</td>
+    <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:600;">Watch</span></td>
+    <td style="padding:6px 10px;color:#4A453E;">Dominant AI franchise with a large buyback, but the book is already overloaded with semis.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">HK Government iBond <span style="color:#8A8478;font-weight:400;">1149</span></td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Government-backed inflation-linked bond gives stable income and ballast against equity-heavy tech exposure.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Government-backed inflation-linked bond gives ballast and steady income against equity-heavy tech exposure.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Amazon <span style="color:#8A8478;font-weight:400;">AMZN</span></td>
     <td style="padding:6px 10px;"><span style="color:#4A8A6A;font-weight:700;">Add</span> <span style="color:#A8A29A;font-size:10px;">High</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">AWS growth and retail margin expansion show AI capex converting to earnings at reasonable valuation.</td>
+    <td style="padding:6px 10px;color:#4A453E;">AWS AI demand and retail margin gains drive durable earnings growth at reasonable valuation.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Okta <span style="color:#8A8478;font-weight:400;">OKTA</span></td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Low</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Identity demand is steady, but growth re-acceleration remains unproven despite bullish target raises.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Identity demand is steady and AI security helps, but growth re-acceleration remains unproven.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Apple <span style="color:#8A8478;font-weight:400;">AAPL</span></td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Durable services and buyback support, but hardware growth is slow and valuation is full.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Services and buybacks anchor earnings, but hardware growth is slow and valuation is full.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Adobe <span style="color:#8A8478;font-weight:400;">ADBE</span></td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Low</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Cheap and cash generative, but generative AI competition clouds the creative moat.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Cheap and cash generative, but generative AI competition threatens creative software pricing power.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Vanguard S&amp;P 500 ETF <span style="color:#8A8478;font-weight:400;">VOO</span></td>
-    <td style="padding:6px 10px;"><span style="color:#2D6B4A;font-weight:700;">Buy</span> <span style="color:#A8A29A;font-size:10px;">High</span></td>
+    <td style="padding:6px 10px;"><span style="color:#4A8A6A;font-weight:700;">Add</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Low-cost diversified core holding that offsets the portfolio's single-stock and sector concentration.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Cheap diversified core that offsets the book's heavy single-name and sector concentration.</td>
   </tr>
 <tr>
-    <td style="padding:6px 10px;font-weight:600;">CrowdStrike <span style="color:#8A8478;font-weight:400;">CRWD</span></td>
+    <td style="padding:6px 10px;font-weight:600;">AMD <span style="color:#8A8478;font-weight:400;">AMD</span></td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Best-in-class endpoint platform with strong retention, but the valuation leaves little room for error.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Data center GPU share gains are real, but the acquisition price is steep.</td>
+  </tr>
+<tr>
+    <td style="padding:6px 10px;font-weight:600;">CrowdStrike <span style="color:#8A8478;font-weight:400;">CRWD</span></td>
+    <td style="padding:6px 10px;"><span style="color:#2D6B4A;font-weight:700;">Buy</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
+    <td style="padding:6px 10px;color:#6A645C;">Held</td>
+    <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
+    <td style="padding:6px 10px;color:#4A453E;">Category leader with strong recurring revenue, and legal overhang is easing.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Vanguard Energy ETF <span style="color:#8A8478;font-weight:400;">VDE</span></td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:700;">Hold</span> <span style="color:#A8A29A;font-size:10px;">Low</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Held</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Energy gives diversification away from tech and offers a yield, but the commodity outlook is cyclical.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Energy hedges inflation and geopolitical shocks, but earnings depend on oil prices.</td>
   </tr>
 <tr>
     <td style="padding:6px 10px;font-weight:600;">Tesla <span style="color:#8A8478;font-weight:400;">TSLA</span></td>
     <td style="padding:6px 10px;"><span style="color:#C8934A;font-weight:700;">Trim</span> <span style="color:#A8A29A;font-size:10px;">Medium</span></td>
     <td style="padding:6px 10px;color:#6A645C;">Watchlist</td>
     <td style="padding:6px 10px;"><span style="color:#8A8478;font-weight:600;">Aligned</span></td>
-    <td style="padding:6px 10px;color:#4A453E;">Valuation assumes autonomy and robotics success, while the core auto business is weakening.</td>
+    <td style="padding:6px 10px;color:#4A453E;">Valuation rests on autonomy optionality while core auto margins and sales stay pressured.</td>
   </tr></tbody>
 </table>
 <div style="font-family:'Courier New',monospace;font-size:9px;color:#A8A29A;margin-top:8px;padding:0 10px;">The Wang Report's own view, generated independently and reconciled against the portfolio. Full sheet maintained separately. Not investment advice.</div>
@@ -224,73 +243,70 @@
   <div class="column"><div class="section-divider">HK Government iBond <span style="color:#8A8478;font-weight:normal;">1149</span></div>
       <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div>
       <div class="section-divider">Apple <span style="color:#8A8478;font-weight:normal;">AAPL</span></div>
-      <article class="story red"><a href="https://finance.yahoo.com/technology/articles/apple-hit-5-7-billion-125500297.html" target="_blank">Apple Hit With $5.7 Billion Jury Verdict Over Haptic Patents</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://www.digitaltrends.com/computing/apple-moves-quickly-to-fix-iphone-18-pro-face-id-failures-but-ios-27-0-1-may-not-have-patched-everything/" target="_blank">iPhone 18 Pro Face ID Failures Prompt Quick Fix, but iOS 27.0.1 May Not Cover Everything</a><span class="source-block">Digital Trends</span></article>
-      <article class="story"><a href="https://gizmodo.com/the-apple-next-vision-pro-is-reportedly-on-life-support-2000817916" target="_blank">Next Vision Pro Reportedly on Life Support</a><span class="source-block">Gizmodo</span></article>
-      <article class="story"><a href="https://www.aol.com/articles/apple-341-above-consensus-still-141749000.html" target="_blank">Apple at $341: Above Consensus, but Balance Sheet May Cap a Re-Rating</a><span class="source-block">AOL</span></article>
+      <article class="story red"><a href="https://www.msn.com/en-us/news/other/apple-ordered-to-pay-57bn-after-losing-vibration-tech-patent-suit/ar-AA2d7jZW" target="_blank">Apple Slapped With $5.7 Billion Bill After Losing Taptic Engine Patent Fight</a><span class="source-block">BBC on MSN</span></article>
+      <article class="story"><a href="https://www.techjuice.pk/apple-iphone-18-pro-rebooting-bug-ios-27-fix-coming/" target="_blank">iOS 27.0.1 Lands to Squash iPhone 18 Pro Rebooting Bug</a><span class="source-block">TechJuice</span></article>
+      <article class="story"><a href="https://www.techrepublic.com/article/news-apple-smart-glasses-2027-vision-pro-redesign/" target="_blank">Apple Smart Glasses Could Finally Arrive in 2027</a><span class="source-block">TechRepublic</span></article>
+      <article class="story"><a href="https://www.aol.com/articles/apple-341-above-consensus-still-141749000.html" target="_blank">Apple at $341 Sits Above Consensus, but Balance Sheet Could Cap a Re-Rating</a><span class="source-block">AOL</span></article>
       <div class="section-divider">Adobe <span style="color:#8A8478;font-weight:normal;">ADBE</span></div>
-      <article class="story red"><a href="https://cryptobriefing.com/adobe-chatgpt-holiday-shopping-forecast/" target="_blank">Adobe: ChatGPT Traffic to Retail Sites Set to Surge 130% This Holiday Season</a><span class="source-block">Crypto Briefing</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/news/other/adobe-expects-record-us-holiday-online-shopping-this-year/ar-AA2d7o5l" target="_blank">Adobe Forecasts Record US Holiday Online Shopping</a><span class="source-block">The Wall Street Journal on MSN</span></article>
-      <article class="story"><a href="https://www.nhl.com/news/adobe-nhl-partner-to-deliver-ai-powered-fan-experience" target="_blank">Adobe Scores NHL Deal for AI-Powered Fan Experience</a><span class="source-block">National Hockey League</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/adobe-rollercoaster-ride-continues-buying-112606117.html" target="_blank">Adobe Stock's Rollercoaster Ride Raises Question of Who's Buying</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story red"><a href="https://www.msn.com/en-us/technology/ecommerce/adobe-expects-record-us-holiday-online-shopping-this-year/ar-AA2d7o5l" target="_blank">Adobe Projects Record US Holiday Online Shopping Haul</a><span class="source-block">The Wall Street Journal on MSN</span></article>
+      <article class="story"><a href="https://cryptobriefing.com/adobe-chatgpt-holiday-shopping-forecast/" target="_blank">Adobe: ChatGPT Traffic to Retail Sites Set to Surge 130% This Holiday Season</a><span class="source-block">Crypto Briefing</span></article>
+      <article class="story"><a href="https://www.nhl.com/news/adobe-nhl-partner-to-deliver-ai-powered-fan-experience" target="_blank">Adobe Lands NHL Deal for AI-Powered Fan Experience</a><span class="source-block">National Hockey League</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/adobe-rollercoaster-ride-continues-buying-112606117.html" target="_blank">Adobe's Rollercoaster Ride Continues as Investors Weigh Whether to Buy</a><span class="source-block">Yahoo Finance</span></article>
       <div class="section-divider">Intel <span style="color:#8A8478;font-weight:normal;">INTC</span></div>
-      <article class="story red"><a href="https://coincentral.com/intel-intc-stock-jumps-33-as-tan-says-demand-outpaces-supply/" target="_blank">Intel Stock Rockets 33% as Tan Says Demand Outpaces Supply</a><span class="source-block">CoinCentral</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/technology/ai/articles/sk-hynix-finding-opportunity-intels-111502313.html" target="_blank">SK Hynix Eyes a Slice of Intel's $100 Billion U.S. Chipmaking Push</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://stockstotrade.com/news/intel-corporation-intc-news-2026_09_28-2/" target="_blank">Intel Slips as Apple Drifts Further Away From the Chipmaker</a><span class="source-block">stockstotrade</span></article>
+      <article class="story red"><a href="https://coincentral.com/intel-intc-stock-jumps-33-as-tan-says-demand-outpaces-supply/" target="_blank">Intel Rockets 33% as Lip-Bu Tan Says Demand Outpaces Supply</a><span class="source-block">CoinCentral</span></article>
+      <article class="story"><a href="https://invezz.com/news/2026/09/29/intel-stock-has-erased-nearly-10-in-two-days-is-the-great-comeback-trade-breaking/" target="_blank">Intel Erases Nearly 10% in Two Days: Is the Comeback Trade Cracking?</a><span class="source-block">Invezz</span></article>
       <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/intc-amd-avgo-chip-stocks-090819892.html" target="_blank">Chip Stocks Lead Slide as Renewed U.S.-Iran Tensions Hammer Tech</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://stockstotrade.com/news/intel-corporation-intc-news-2026_09_28-2/" target="_blank">Intel Slips as Apple Edges Further Away</a><span class="source-block">stockstotrade</span></article>
       <div class="section-divider">SoundHound AI <span style="color:#8A8478;font-weight:normal;">SOUN</span></div>
-      <article class="story red"><a href="https://www.theglobeandmail.com/investing/markets/stocks/SOUN/pressreleases/4844055/soundhound-ai-stock-target-cut-to-6-as-analyst-stays-neutral/" target="_blank">SoundHound Price Target Slashed to $6 as Analyst Sits on the Fence</a><span class="source-block">The Globe and Mail</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/technology/ai/articles/innodata-vs-soundhound-ai-technology-204701377.html" target="_blank">Innodata or SoundHound: Which AI Stock Deserves Your Money in 2026?</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/technology/artificial-intelligence/soundhound-vs-bigbear-ai-which-ai-stock-is-the-better-buy-now/ar-AA2d8g2h" target="_blank">SoundHound vs. BigBear.ai: Zacks Picks a Side in the AI Stock Showdown</a><span class="source-block">Zacks.com on MSN</span></article>
+      <article class="story red"><a href="https://www.theglobeandmail.com/investing/markets/stocks/SOUN/pressreleases/4844055/soundhound-ai-stock-target-cut-to-6-as-analyst-stays-neutral/" target="_blank">SoundHound Price Target Slashed to $6 as Analyst Stays Neutral</a><span class="source-block">The Globe and Mail</span></article>
+      <article class="story"><a href="https://www.kobaran.com/innodata-stock-vs-soundhound-ai-profits-and-cash-burn-split-two-ai-bets/" target="_blank">Profits vs. Cash Burn: Innodata and SoundHound Split the AI Trade</a><span class="source-block">kobaran.com</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/technology/artificial-intelligence/soundhound-vs-bigbear-ai-which-ai-stock-is-the-better-buy-now/ar-AA2d8g2h" target="_blank">SoundHound Squares Off With BigBear.ai in Battle of Small-Cap AI Bets</a><span class="source-block">Zacks.com on MSN</span></article>
       <div class="section-divider">Micron <span style="color:#8A8478;font-weight:normal;">MU</span></div>
-      <article class="story red"><a href="https://www.forbes.com/sites/jimosman/2026/09/28/micron-stock-earnings-may-show-why-100-billion-wont-save-the-rally/" target="_blank">Micron Earnings Loom: Can a $100 Billion Bet Keep the Rally Alive?</a><span class="source-block">Forbes</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/micron-post-earnings-estimate-hikes-162711418.html" target="_blank">Morgan Stanley Warns Micron's Post-Earnings Estimate Hikes May Lag Past Quarters</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/news/other/microns-279-rally-may-not-be-over-baird-says-agentic-ai-could-drive-chip-stock-to-new-heights/ar-AA2d8xry" target="_blank">Baird Says Micron's 279% Rally Has Room to Run on Agentic AI</a><span class="source-block">International Business Times on MSN</span></article>
-      <article class="story"><a href="https://www.fool.com/investing/2026/09/28/sandisk-jumped-22-the-day-after-micron-s-last-report-micron-reports-again-wednesday/" target="_blank">Sandisk Jumped 22% After Micron's Last Report, Now Micron Reports Again</a><span class="source-block">The Motley Fool</span></article></div>
+      <article class="story red"><a href="https://www.forbes.com/sites/jimosman/2026/09/28/micron-stock-earnings-may-show-why-100-billion-wont-save-the-rally/" target="_blank">Micron Earnings Loom: Why a $100 Billion Rally May Not Hold</a><span class="source-block">Forbes</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/micron-post-earnings-estimate-hikes-162711418.html" target="_blank">Morgan Stanley Warns Micron's Post-Earnings Estimate Hikes May Lag</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://coincentral.com/micron-mu-stock-drops-2-after-openais-surprise-pause-analysts-weigh-in/" target="_blank">Micron Slips 2% as OpenAI's Surprise Pause Rattles AI Memory Trade</a><span class="source-block">CoinCentral</span></article>
+      <article class="story"><a href="https://www.fool.com/investing/2026/09/28/sandisk-jumped-22-the-day-after-micron-s-last-report-micron-reports-again-wednesday/" target="_blank">Sandisk Surged 22% After Micron's Last Report, Wednesday Is Round Two</a><span class="source-block">The Motley Fool</span></article></div>
 <div class="column"><div class="section-divider">Amazon <span style="color:#8A8478;font-weight:normal;">AMZN</span></div>
-      <article class="story red"><a href="https://www.aol.com/articles/amazon-ai-capex-paying-off-122811000.html" target="_blank">Amazon's AI Capex Is Paying Off, and One Analyst Is Buying</a><span class="source-block">AOL</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/news/other/the-best-early-deals-from-amazon-s-prime-big-deal-days-sale/ar-AA2d90nj" target="_blank">Prime Big Deal Days Kicks Off With Early Deals Already Live</a><span class="source-block">The Wall Street Journal on MSN</span></article>
-      <article class="story"><a href="https://www.timesnownews.com/technology-science/amazon-great-indian-festival-2026-early-deals-are-live-top-discounts-bank-offers-and-more-article-156241900" target="_blank">Amazon Great Indian Festival Opens With Early Discounts and Bank Offers</a><span class="source-block">Times Now</span></article>
-      <article class="story"><a href="https://www.androidauthority.com/amazon-fire-tv-stick-4k-2026-images-3716296/" target="_blank">Leak Reveals Next Fire TV Stick 4K</a><span class="source-block">Android Authority</span></article>
+      <article class="story red"><a href="https://finance.yahoo.com/technology/ai/articles/amazon-services-supply-ai-cloud-075535543.html" target="_blank">AWS Lands CSL Deal to Supply AI and Cloud Tech</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/news/other/the-best-early-deals-from-amazon-s-prime-big-deal-days-sale/ar-AA2d90nj" target="_blank">Prime Big Deal Days Kick Off With Early Discounts</a><span class="source-block">The Wall Street Journal on MSN</span></article>
+      <article class="story"><a href="https://mashable.com/tech/best-early-october-prime-day-amazon-device-deals-2026" target="_blank">Amazon Discounts Its Own Devices Ahead of October Sale</a><span class="source-block">Mashable</span></article>
       <div class="section-divider">Lululemon <span style="color:#8A8478;font-weight:normal;">LULU</span></div>
-      <article class="story"><a href="https://finance.yahoo.com/media-advertising/articles/exclusive-chris-lee-joins-lewis-010100914.html" target="_blank">Lululemon Taps Chris Lee and Lewis Hamilton for Outerwear Push</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://corporate.lululemon.com/newsroom/our-stories/2026/macklin-celebrini-joins-lululemon-as-its-newest-ambassador" target="_blank">Hockey Phenom Macklin Celebrini Signs On as Lululemon Ambassador</a><span class="source-block">lululemon</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/news/other/fall-weather-can-change-fast-these-lululemon-tights-will-help-you-stay-ready-for-all-of-it/ar-AA2d8BGM" target="_blank">Lululemon Tights Pitched for Unpredictable Fall Weather</a><span class="source-block">Runner's World on MSN</span></article>
+      <article class="story red"><a href="https://www.msn.com/en-us/sports/general/chris-lee-joins-lewis-hamilton-for-lululemon-latest-outerwear-campaign/ar-AA2d9oS8" target="_blank">Lululemon Taps Chris Lee and Lewis Hamilton to Front Outerwear Push</a><span class="source-block">WWD on MSN</span></article>
+      <article class="story"><a href="https://www.augustman.com/sg/fashion/from-leggings-lululemon-is-making-its-next-bet-outerwear/" target="_blank">Lululemon Wants Its Next Big Bet to Be Outerwear, Not Leggings</a><span class="source-block">August Man</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/news/other/fall-weather-can-change-fast-these-lululemon-tights-will-help-you-stay-ready-for-all-of-it/ar-AA2d8BGM" target="_blank">Lululemon Tights Pitched as Answer to Fickle Fall Weather</a><span class="source-block">Runner's World on MSN</span></article>
       <div class="section-divider">Vanguard S&amp;P 500 ETF <span style="color:#8A8478;font-weight:normal;">VOO</span></div>
-      <article class="story red"><a href="https://www.quiverquant.com/news/VOO+is+down+1.0%25+today%2C+on+META+stock+price+movement" target="_blank">VOO Slips 1% as Meta's Slide Drags the Index Lower</a><span class="source-block">quiverquant</span></article>
-      <article class="story"><a href="https://www.theglobeandmail.com/investing/markets/stocks/VOO-A/pressreleases/4832962/history-says-to-buy-stocks-right-now-before-it-s-too-late/" target="_blank">History Says Buy Stocks Now, But Is It Too Late?</a><span class="source-block">The Globe and Mail</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/money/top-stocks/if-you-d-invested-1-000-in-the-vanguard-s-p-500-etf-voo-10-years-ago-here-s-how-much-you-d-have-today/ar-AA2d7nyE" target="_blank">$1,000 in VOO a Decade Ago: What It Would Be Worth Today</a><span class="source-block">The Motley Fool on MSN</span></article>
+      <article class="story"><a href="https://www.quiverquant.com/news/VOO+is+down+1.0%25+today%2C+on+META+stock+price+movement" target="_blank">VOO Slips 1.0% as Meta Stock Drags the Index Lower</a><span class="source-block">quiverquant</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/money/top-stocks/if-you-d-invested-1-000-in-the-vanguard-s-p-500-etf-voo-10-years-ago-here-s-how-much-you-d-have-today/ar-AA2d7nyE" target="_blank">A $1,000 Bet on VOO a Decade Ago Has Grown Into a Tidy Sum</a><span class="source-block">The Motley Fool on MSN</span></article>
       <div class="section-divider">CrowdStrike <span style="color:#8A8478;font-weight:normal;">CRWD</span></div>
-      <article class="story red"><a href="https://tradersunion.com/news/financial-news/show/3548884-wall-street-oil-yields-ai-crowdstrike/" target="_blank">CrowdStrike Shakes Off DOJ Overhang as Wall Street Eyes Oil and Yields</a><span class="source-block">tradersunion</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/technology/ai/articles/panw-crwd-zs-lead-nasdaq-033828720.html" target="_blank">CrowdStrike, Palo Alto, Zscaler Lead Nasdaq-100 as Nvidia AI Agent Safety Push Lifts Cyber</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/could-derail-crowdstrike-stock-160807261.html" target="_blank">What Could Derail CrowdStrike Stock? The Risks Bulls Are Ignoring</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/crowdstrike-vs-okta-cybersecurity-stock-235730692.html" target="_blank">CrowdStrike or Okta: Which Cyber Stock Wins in 2026?</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story red"><a href="https://tradersunion.com/news/financial-news/show/3548884-wall-street-oil-yields-ai-crowdstrike/" target="_blank">CrowdStrike Shakes Off DOJ Overhang as Wall Street Waits on Oil and Yields</a><span class="source-block">tradersunion</span></article>
+      <article class="story"><a href="https://www.msn.com/en-in/money/top-stocks/panw-crwd-zs-lead-nasdaq-100-gains-as-nvidia-s-ai-agent-safety-push-security-scares-lift-cybersecurity-stocks/ar-AA2dasTU" target="_blank">CrowdStrike, Palo Alto, Zscaler Lead Nasdaq-100 as Nvidia's AI Agent Safety Push Lifts Cyber</a><span class="source-block">Asianet Newsable on MSN</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/could-derail-crowdstrike-stock-160807261.html" target="_blank">What Could Still Derail CrowdStrike Stock?</a><span class="source-block">Yahoo Finance</span></article>
       <div class="section-divider">Unusual Machines <span style="color:#8A8478;font-weight:normal;">UMAC</span></div>
-      <article class="story red"><a href="https://www.bnnbloomberg.ca/business/technology/2026/09/28/trump-jr-backed-unusual-machines-us-asset-manager-invest-us10m-in-canadas-draganfly-reuters-exclusive/" target="_blank">Trump Jr.-Backed Unusual Machines Wires $10M to Canada's Draganfly in Drone Tie-Up</a><span class="source-block">BNN Bloomberg</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/draganfly-announces-strategic-investment-unusual-114500765.html" target="_blank">Draganfly Lands Strategic Cash From Unusual Machines and a Top U.S. Fund</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://uk.finance.yahoo.com/news/unusual-machines-revenue-boom-drives-143500523.html" target="_blank">Unusual Machines' Revenue Surge: Can the Run Last?</a><span class="source-block">Yahoo Finance UK</span></article>
+      <article class="story red"><a href="https://www.bnnbloomberg.ca/business/technology/2026/09/28/trump-jr-backed-unusual-machines-us-asset-manager-invest-us10m-in-canadas-draganfly-reuters-exclusive/" target="_blank">Trump Jr.-Backed Unusual Machines Puts $10M Into Draganfly Alongside U.S. Asset Manager</a><span class="source-block">BNN Bloomberg</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/draganfly-secures-10-million-investment-133022508.html" target="_blank">Draganfly Lands $10M Strategic Stake From Unusual Machines and U.S. Fund</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://uk.finance.yahoo.com/news/unusual-machines-revenue-boom-drives-143500523.html" target="_blank">Unusual Machines' Revenue Surge Raises Question of What Comes Next</a><span class="source-block">Yahoo Finance UK</span></article>
       <div class="section-divider">Direxion Semiconductor Bull 3X <span style="color:#8A8478;font-weight:normal;">SOXL</span></div>
       <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div></div>
 <div class="column"><div class="section-divider">Okta <span style="color:#8A8478;font-weight:normal;">OKTA</span></div>
       <article class="story red"><a href="https://www.msn.com/en-in/technology/tech-companies/okta-s-ai-security-role-can-drive-durable-growth-re-acceleration-says-citizens-lifts-target-to-225/ar-AA2d7fdb" target="_blank">Citizens Lifts Okta Target to $225, Bets AI Security Drives Growth Re-Acceleration</a><span class="source-block">Asianet Newsable on MSN</span></article>
-      <article class="story"><a href="https://startupfortune.com/okta-ships-an-ai-agent-kill-switch-and-wall-street-immediately-raises-its-price-target/" target="_blank">Okta Ships AI Agent Kill Switch, Street Raises Price Target</a><span class="source-block">Startup Fortune</span></article>
+      <article class="story"><a href="https://startupfortune.com/okta-ships-an-ai-agent-kill-switch-and-wall-street-immediately-raises-its-price-target/" target="_blank">Okta Ships AI Agent Kill Switch, Wall Street Rushes to Raise Targets</a><span class="source-block">Startup Fortune</span></article>
       <article class="story"><a href="https://siliconangle.com/2026/09/28/okta-builds-shared-architecture-agent-runtime-security-oktane/" target="_blank">Okta Builds Shared Architecture for Agent Runtime Security</a><span class="source-block">SiliconANGLE</span></article>
-      <article class="story"><a href="https://uk.finance.yahoo.com/news/jim-cramer-t-stop-gushing-032835765.html" target="_blank">Cramer Gushes Over Okta, But Customer Retention Questions Linger</a><span class="source-block">Yahoo Finance UK</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/crowdstrike-vs-okta-cybersecurity-stock-235730692.html" target="_blank">CrowdStrike or Okta: Which Cyber Stock Is the Better Buy?</a><span class="source-block">Yahoo Finance</span></article>
       <div class="section-divider">NVIDIA <span style="color:#8A8478;font-weight:normal;">NVDA</span></div>
-      <article class="story red"><a href="https://www.news.com.au/finance/markets/nvidia-announces-historic-150-billion-share-buyback-tool-to-stop-ai-agents-going-rogue/news-story/ff812ecaf678791f8a7368e6f605536d" target="_blank">Nvidia Approves Record $150 Billion Buyback, Largest Increase in Company History</a><span class="source-block">news.com.au</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/news/other/nvidia-releases-ai-safety-software-it-says-could-have-stopped-hugging-face-hack/ar-AA2d6F5i" target="_blank">Nvidia Releases Safety Tool It Says Could Have Stopped Hugging Face Hack</a><span class="source-block">Reuters on MSN</span></article>
-      <article class="story"><a href="https://www.ft.com/content/d6a9f5df-08d0-4f80-ad2d-5d8a17e2cc82?syn-25a6b1a6=1" target="_blank">Nvidia Turns to Insurers to Spread Risk of AI Build-Out</a><span class="source-block">Financial Times</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/nvda-stock-climbs-nvidia-approves-122814405.html" target="_blank">NVDA Climbs as Buyback Lands</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story red"><a href="https://www.msn.com/en-us/news/other/nvidia-is-repurchasing-150-billion-of-stock-in-the-biggest-buyback-in-market-history/ar-AA2d7bht" target="_blank">Nvidia Unleashes $150 Billion Buyback, Biggest in Market History</a><span class="source-block">Insider on MSN</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/nvda-stock-climbs-nvidia-approves-122814405.html" target="_blank">NVDA Climbs After Board Approves Largest Buyback Increase in Company History</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/news/other/nvidia-launched-a-tool-designed-to-stop-ai-agents-from-going-rogue-heres-how-it-works/ar-AA2d8lq1" target="_blank">Nvidia Launches Tool to Stop AI Agents From Going Rogue</a><span class="source-block">Insider on MSN</span></article>
+      <article class="story"><a href="https://startupfortune.com/nvidia-is-quietly-pushing-ai-data-center-risk-onto-insurance-companies/" target="_blank">Nvidia Quietly Shifts AI Data Center Risk Onto Insurers</a><span class="source-block">Startup Fortune</span></article>
       <div class="section-divider">AMD <span style="color:#8A8478;font-weight:normal;">AMD</span></div>
-      <article class="story red"><a href="https://www.msn.com/en-us/money/general/amd-to-buy-fei-fei-li-s-world-labs-in-8-2-billion-bet-on-physical-ai/ar-AA2d8Wfh" target="_blank">AMD Buys Fei-Fei Li's World Labs for $8.2 Billion in Big Bet on Physical AI</a><span class="source-block">Reuters on MSN</span></article>
-      <article class="story"><a href="https://wccftech.com/amd-acquires-world-labs-for-8-2-billion-in-what-is-essentially-a-talent-grab-for-building-a-competitor-to-nvidias-cosmos-ai-model/" target="_blank">AMD's World Labs Deal Is a Talent Grab Aimed at Nvidia's Cosmos</a><span class="source-block">Wccftech</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/technology/ai/articles/amd-bolsters-ai-vision-8-213731913.html" target="_blank">AMD Shares Slide 4% as Investors Weigh the $8.2 Billion World Labs Price Tag</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://www.financialexpress.com/market/global-markets/godmother-of-ai-is-now-amds-chief-scientist-inside-the-8-2-billion-ai-bet/4349399/" target="_blank">Godmother of AI Becomes AMD's Chief Scientist</a><span class="source-block">The Financial Express</span></article>
+      <article class="story red"><a href="https://finance.yahoo.com/technology/ai/articles/amd-bolsters-ai-vision-8-213731913.html" target="_blank">AMD Pays $8.2 Billion for Fei-Fei Li's World Labs, Stock Slides 4%</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://www.msn.com/en-ca/technology/tech-companies/amd-to-buy-fei-fei-li-s-world-labs-in-8-2-billion-bet-on-physical-ai/ar-AA2d9bcj" target="_blank">AMD Bets Big on 'Physical AI' With World Labs Takeover as Nvidia Fight Intensifies</a><span class="source-block">Reuters on MSN</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/news/other/amd-stock-dips-overnight-after-8-2b-world-labs-deal-senior-exec-says-it-s-not-the-intent-to-compete-with-ai-customers/ar-AA2d9EMH" target="_blank">AMD Exec Says World Labs Deal Isn't Meant to Compete With Its Own AI Customers</a><span class="source-block">Stocktwits on MSN</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/technology/articles/market-chatter-nvidia-amd-lobby-094351723.html" target="_blank">Nvidia and AMD Lobby Trump Administration to Ease China Chip Export Curbs</a><span class="source-block">Yahoo Finance</span></article>
       <div class="section-divider">Palantir <span style="color:#8A8478;font-weight:normal;">PLTR</span></div>
-      <article class="story red"><a href="https://cryptobriefing.com/nvidia-anthropic-palantir-ceos-trump-ai-risks/" target="_blank">Nvidia, Anthropic, Palantir CEOs Summoned to Trump Lunch on AI Risks</a><span class="source-block">Crypto Briefing</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/money/top-stocks/michael-burry-swaps-mu-nbis-nvda-pltr-shorts-for-puts-says-ai-bubble-may-burst-sooner-than-later/ar-AA2d93pL" target="_blank">Burry Flips Palantir Short Into Puts, Warns AI Bubble Could Burst Soon</a><span class="source-block">Stocktwits on MSN</span></article>
+      <article class="story red"><a href="https://finance.yahoo.com/markets/stocks/articles/palantir-stock-77-since-june-120314223.html" target="_blank">Palantir Rips 77% Since June as Bulls Set $1,344 Target</a><span class="source-block">Yahoo Finance</span></article>
       <article class="story"><a href="https://www.middleeasteye.net/news/labour-conference-blocks-motion-cancel-palantir-contract-over-israeli-army-links" target="_blank">Labour Conference Blocks Motion to Cancel Palantir Contract Over Israeli Army Ties</a><span class="source-block">Middle East Eye</span></article>
-      <article class="story"><a href="https://www.reuters.com/business/activist-jana-pushes-fiserv-accelerate-cost-cuts-tap-palantir-2026-09-28/" target="_blank">Activist Jana Presses Fiserv to Cut Costs and Lean Harder on Palantir</a><span class="source-block">Reuters</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/money/top-stocks/michael-burry-swaps-mu-nbis-nvda-pltr-shorts-for-puts-says-ai-bubble-may-burst-sooner-than-later/ar-AA2d93pL" target="_blank">Burry Swaps Shorts for Puts on PLTR, Nvidia, Micron, Warns AI Bubble May Burst Soon</a><span class="source-block">Stocktwits on MSN</span></article>
+      <article class="story"><a href="https://www.reuters.com/business/activist-jana-pushes-fiserv-accelerate-cost-cuts-tap-palantir-2026-09-28/" target="_blank">Activist Jana Tells Fiserv to Cut Costs Faster and Bring In Palantir</a><span class="source-block">Reuters</span></article>
       <div class="section-divider">Vanguard Energy ETF <span style="color:#8A8478;font-weight:normal;">VDE</span></div>
       <div class="story" style="color:#666; font-style:italic; font-size:11px;">No recent news this cycle</div></div>
 </div>
@@ -301,19 +317,19 @@
 <div class="page-body">
 <div class="columns">
   <div class="column"><div class="section-divider">Berkshire Hathaway (Class B) <span style="color:#8A8478;font-weight:normal;">BRK.B</span></div>
-      <article class="story red"><a href="https://finance.yahoo.com/markets/stocks/articles/berkshire-stock-holds-near-505-064320795.html" target="_blank">Howard Buffett Takes the Chair at Berkshire: Here's What Changes</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://www.theglobeandmail.com/investing/markets/stocks/PGR/pressreleases/4838896/brkb-trading-at-a-discount-to-52-week-high-more-upside-left/" target="_blank">BRK.B Sits Below 52-Week High: Is There More Upside Left?</a><span class="source-block">The Globe and Mail</span></article>
-      <article class="story"><a href="https://www.ad-hoc-news.de/boerse/news/nachboerse/berkshire-hathaway-stock-at-usd-504-78-on-september-28-2026/70194172" target="_blank">Berkshire Class B Closes at $504.78 on September 28</a><span class="source-block">Ad Hoc News</span></article></div>
+      <article class="story red"><a href="https://finance.yahoo.com/markets/stocks/articles/berkshire-stock-holds-near-505-064320795.html" target="_blank">Howard Buffett Takes the Chair at Berkshire as Stock Holds Near $505</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://www.theglobeandmail.com/investing/markets/stocks/CB/pressreleases/4838896/brkb-trading-at-a-discount-to-52-week-high-more-upside-left/" target="_blank">Berkshire Sits Below 52-Week High: Is There More Upside Left?</a><span class="source-block">The Globe and Mail</span></article>
+      <article class="story"><a href="https://www.ad-hoc-news.de/boerse/news/nachboerse/berkshire-hathaway-stock-at-usd-504-78-on-september-28-2026/70194172" target="_blank">Berkshire B Shares Close Monday at $504.78</a><span class="source-block">Ad Hoc News</span></article></div>
 <div class="column"><div class="section-divider">Tesla <span style="color:#8A8478;font-weight:normal;">TSLA</span></div>
-      <article class="story red"><a href="https://www.ttnews.com/articles/tesla-semi-high-volume" target="_blank">Tesla Starts High-Volume Semi Production, Years Late</a><span class="source-block">Transport Topics</span></article>
-      <article class="story"><a href="https://www.msn.com/en-ca/autos/general/tesla-q3-delivery-forecasts-split-by-60-000-vehicles-ahead-of-friday-report/ar-AA2da3u7" target="_blank">Analysts Split by 60,000 Vehicles Ahead of Friday's Tesla Delivery Report</a><span class="source-block">Auto Igloo on MSN</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/tesla-pushes-roadster-event-oct-202025964.html" target="_blank">Tesla Pushes Roadster Event to Oct. 15: 'Can Only Be Held Outdoors'</a><span class="source-block">Yahoo Finance</span></article>
-      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/tesla-tsla-growing-warranty-bill-020857410.html" target="_blank">Tesla's Warranty Bill Keeps Growing, and Margins May Pay for It</a><span class="source-block">Yahoo Finance</span></article></div>
+      <article class="story red"><a href="https://eletric-vehicles.com/tesla/croatia-approves-tesla-fsd-weeks-after-regulator-said-it-would-wait/" target="_blank">Croatia Approves Tesla FSD Weeks After Regulator Said It Would Wait</a><span class="source-block">eletric-vehicles.com</span></article>
+      <article class="story"><a href="https://www.mirror.co.uk/news/uk-news/tesla-safety-warning-fire-risk-37712440" target="_blank">Tesla Issues Urgent Battery Warning Over Risk of Fire</a><span class="source-block">The Mirror</span></article>
+      <article class="story"><a href="https://coincentral.com/tesla-tsla-stock-roadster-reveal-set-for-thursday-before-delivery-report/" target="_blank">Roadster Reveal Set for Thursday Ahead of Delivery Report</a><span class="source-block">CoinCentral</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/markets/stocks/articles/tesla-begins-semitruck-deliveries-amid-172821098.html" target="_blank">Tesla Starts Semi Deliveries as EV Sales Slow</a><span class="source-block">Yahoo Finance</span></article></div>
 <div class="column"><div class="section-divider">Meta Platforms <span style="color:#8A8478;font-weight:normal;">META</span></div>
-      <article class="story red"><a href="https://www.msn.com/en-us/news/other/meta-the-conqueror-the-ai-titan-just-poached-mongodb-s-ceo-and-sent-its-stock-down-27/ar-AA2d8aVj" target="_blank">Meta Poaches MongoDB CEO For Enterprise AI Push as Stock Sinks 27%</a><span class="source-block">Insider on MSN</span></article>
-      <article class="story"><a href="https://techcrunch.com/2026/09/28/meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-lead-new-initiative/" target="_blank">Meta Launches Enterprise AI Platform, Hires CJ Desai to Run It</a><span class="source-block">TechCrunch</span></article>
-      <article class="story"><a href="https://www.msn.com/en-us/news/other/meta-stock-drops-again-what-happened-to-its-muse-boost/ar-AA2d6UFb" target="_blank">Muse AI Rally Cools as Meta Shares Slip</a><span class="source-block">Barron's on MSN</span></article>
-      <article class="story"><a href="https://www.msn.com/en-in/news/other/meta-taps-australias-firmus-for-ai-computing-capacity-in-southeast-asia/ar-AA2d9GLQ" target="_blank">Meta Taps Australia's Firmus for Southeast Asia AI Compute</a><span class="source-block">The Economic Times on MSN</span></article></div>
+      <article class="story red"><a href="https://www.msn.com/en-us/news/other/meta-the-conqueror-the-ai-titan-just-poached-mongodb-s-ceo-and-sent-its-stock-down-17/ar-AA2d8aVj" target="_blank">Meta Poaches MongoDB CEO CJ Desai for Enterprise AI Push, Stock Sinks 17%</a><span class="source-block">Insider on MSN</span></article>
+      <article class="story"><a href="https://timesofindia.indiatimes.com/technology/tech-news/meta-enters-new-business-focused-on-selling-ai-tools-to-enterprise-customers-takes-on-google-microsoft-and-openai-mark-zuckerberg-says-we-believe-superintelligence-will-/articleshow/134562465.cms" target="_blank">Meta Storms Enterprise AI Market, Taking On Google, Microsoft and OpenAI</a><span class="source-block">The Times of India</span></article>
+      <article class="story"><a href="https://finance.yahoo.com/technology/ai/articles/meta-platforms-signs-deal-southeast-075050688.html" target="_blank">Meta Signs Southeast Asia AI Capacity Deal With Firmus</a><span class="source-block">Yahoo Finance</span></article>
+      <article class="story"><a href="https://www.msn.com/en-us/technology/artificial-intelligence/meta-stock-is-at-a-crossroads-why-today-is-a-big-day/ar-AA2daZ7W" target="_blank">Meta Stock at a Crossroads as Investors Weigh AI Spending Bet</a><span class="source-block">Barron's on MSN</span></article></div>
 </div>
 </div>
 
