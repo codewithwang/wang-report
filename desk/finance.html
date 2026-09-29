@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- wr-simple -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finance · The Wang Report</title>
+<meta name="description" content="Hong Kong money, markets and the regulators who police them.">
+<link rel="canonical" href="https://wangreport.com/desk/finance">
+<link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+<link rel="icon" href="/img/favicon.ico"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HHENRPSK4D');</script>
+<style>
+:root{--bone:#F9F8F6;--ink:#0B1F3A;--seal:#B0241E;--rule:#E3DDD2;--slate:#5A6470;--panel:#F0EFED;--wr-bone:#F9F8F6;--wr-ink:#0B1F3A;--wr-seal:#B0241E;--wr-rule:#C8C0B0;--wr-slate:#5A6470;--wr-panel:#F0EFED;
+--desk-hk-local:#B0241E;--desk-finance:#1E5C46;--desk-cyber:#1D5F5A;--desk-geopolitical:#6B2430;--desk-ai:#3E356B;--desk-sports:#A05A1F;--desk-science:#2F5570;--desk-life:#8A6D1F}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);font:18px/1.55 'Spectral',Georgia,serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.top{position:sticky;top:0;z-index:20;background:rgba(249,248,246,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 8px}
+.mast{font:900 26px/1 'Playfair Display',Georgia,serif;white-space:nowrap}
+.more-btn{font:600 14px Arial,sans-serif;border:1px solid var(--ink);border-radius:999px;padding:7px 14px;background:none;color:var(--ink);cursor:pointer}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 10px;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;font:600 14px Arial,sans-serif;padding:6px 12px;border-radius:999px;color:var(--slate);background:var(--panel)}
+.tabs a.on{background:var(--hue,var(--ink));color:#fff}
+.sheet{display:none;position:fixed;inset:0;z-index:30;background:rgba(11,31,58,.35)}
+.sheet.open{display:block}
+.sheet-in{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:var(--bone);padding:22px 22px 40px;overflow-y:auto;box-shadow:-10px 0 30px rgba(0,0,0,.12)}
+.sheet-in h4{font:700 13px Arial,sans-serif;letter-spacing:.05em;color:var(--slate);margin:18px 0 6px}
+.sheet-in a{display:block;font-size:19px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.sheet-x{float:right;font:600 14px Arial,sans-serif;border:none;background:none;cursor:pointer;color:var(--slate)}
+.date{font:14px Arial,sans-serif;color:var(--slate);padding:18px 0 0}
+.kicker{font:700 13px Arial,sans-serif;letter-spacing:.04em;color:var(--hue,var(--seal))}
+.lead{display:grid;gap:22px;padding:22px 0 34px;border-bottom:1px solid var(--rule)}
+.lead img{width:100%;height:auto;display:block;border-radius:4px}
+.lead h1{font:700 32px/1.18 'Playfair Display',Georgia,serif;margin:8px 0 12px}
+.lead p{margin:0;color:#2b3a50;font-size:19px}
+.by{font:14px Arial,sans-serif;color:var(--slate);margin-top:14px}
+@media(min-width:860px){.lead{grid-template-columns:1.25fr 1fr;align-items:center}.lead h1{font-size:40px}}
+.sec{padding:30px 0;border-bottom:1px solid var(--rule)}
+.sec h2{font:700 15px Arial,sans-serif;letter-spacing:.04em;margin:0 0 14px}
+.five{list-style:none;margin:0;padding:0;counter-reset:n}
+.five li{counter-increment:n;display:grid;grid-template-columns:28px 1fr;padding:10px 0;border-top:1px solid var(--rule)}
+.five li::before{content:counter(n);font:700 15px 'Playfair Display',serif;color:var(--seal)}
+.five li span{font:13px Arial,sans-serif;color:var(--slate);margin-right:8px}
+.cards{display:grid;gap:26px;grid-template-columns:1fr 1fr}
+@media(min-width:1000px){.cards{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:699px){.cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cards::-webkit-scrollbar{display:none}.cards .card{flex:0 0 84%;scroll-snap-align:center}}
+.swipe-hint{display:none;font:13px Arial,sans-serif;color:var(--slate);margin:-4px 0 12px}
+@media(max-width:699px){.swipe-hint{display:block}}
+.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 6px 20px rgba(11,31,58,.05);display:flex;flex-direction:column}
+.card-img img{width:100%;aspect-ratio:1200/630;object-fit:cover;display:block}
+.card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.card h3{font:700 21px/1.25 'Playfair Display',Georgia,serif;margin:6px 0 10px}
+.card ul{list-style:none;margin:0 0 10px;padding:0}
+.card li{font-size:16px;line-height:1.4;padding:8px 0;border-top:1px solid var(--rule);color:#2b3a50}
+.card .go{margin-top:auto;font:700 14px Arial,sans-serif;color:var(--hue)}
+.more-row{padding:26px 0 46px;text-align:center}
+.more-row a{display:inline-block;margin:6px 6px;padding:12px 20px;border:1px solid var(--ink);border-radius:999px;font:600 15px Arial,sans-serif}
+.more-row a.primary{background:var(--ink);color:var(--bone)}
+.desk-head{padding:26px 0 4px}
+.desk-head h1{font:900 38px/1.1 'Playfair Display',Georgia,serif;margin:0;color:var(--hue)}
+.desk-head p{margin:6px 0 0;color:var(--slate);font-size:17px}
+.instr{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 0 var(--rule)}
+.latest{list-style:none;margin:0;padding:0}
+.latest li{padding:12px 0;border-top:1px solid var(--rule)}
+.latest li a{font-size:18px;line-height:1.4}
+.latest li span{display:block;font:13px Arial,sans-serif;color:var(--slate);margin-top:3px}
+.latest details summary{list-style:none;cursor:pointer;font:700 14px Arial,sans-serif;color:var(--hue);padding:14px 0}
+.earlier{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:700px){.earlier{grid-template-columns:1fr 1fr 1fr}}
+.earlier a{display:block}.earlier img{width:100%;aspect-ratio:1200/630;object-fit:cover;border-radius:6px;display:block}
+.earlier b{display:block;font:700 17px/1.3 'Playfair Display',serif;margin-top:8px}.earlier span{font:13px Arial,sans-serif;color:var(--slate)}
+@media(max-width:699px){.earlier a{display:grid;grid-template-columns:112px 1fr;column-gap:12px;align-items:start}.earlier img{grid-row:span 2;border-radius:4px}.earlier b{margin-top:0;font-size:16px}}
+.foot{font:13px Arial,sans-serif;color:var(--slate);text-align:center;padding:10px 0 40px}
+.foot a{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <div class="top-row"><a class="mast" href="/">The Wang Report</a><button class="more-btn" type="button" onclick="document.getElementById('sheet').classList.add('open')">More</button></div>
+  <nav class="tabs"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance" class="on" style="--hue:#1E5C46">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture</a></nav>
+</div></div>
+<div class="sheet" id="sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sheet-in">
+  <button class="sheet-x" type="button" onclick="document.getElementById('sheet').classList.remove('open')">Close</button>
+  <h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture</a>
+  <h4>More</h4><a href="/edition/latest">Today's edition</a><a href="/listen">Listen</a><a href="/issue">The Sunday Issue</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/hk-adults-calendar/">Calendars</a><a href="/dads">Dads</a><a href="/board">Everything (the full Board)</a><a href="/how-its-made">How it is made</a>
+</div></div>
+<main class="wrap" style="--hue:#1E5C46">
+  <div class="desk-head"><h1>Finance</h1><p>Hong Kong money, markets and the regulators who police them.</p></div>
+  <section class="lead">
+    <a href="/briefings/2026-09-29-hk-finance-midday"><img src="https://audio.wangreport.com/art/takes/2026-09-29-hk-finance-midday-2dcff.jpg" alt=""></a>
+    <div>
+      <span class="kicker">Rachel Lam · 2 h ago</span>
+      <h1><a href="/briefings/2026-09-29-hk-finance-midday">SFC and AFRC sign MoU extending cooperation to financial reporting of licensed firms and funds</a></h1>
+      <p>A licensed firm's accounts now have two regulators reading them, and only one of them has ever been mostly about accountants.</p>
+      <div class="by"><a href="/briefings/2026-09-29-hk-finance-midday" style="color:var(--hue);font-weight:700">Read the take &rarr;</a></div>
+    </div>
+  </section>
+  
+  <section class="sec"><h2>Latest</h2><ul class="latest"><li><a href="https://www.reuters.com/world/asia-pacific/hong-kong-lists-eight-etfs-tap-chinese-demand-overseas-assets-2026-09-28/" rel="noopener">Hong Kong Lists Eight ETFs to Tap Chinese Insurer Demand for Overseas Assets</a><span>Reuters · 14 h</span></li><li><a href="https://www.insurancebusinessmag.com/ca/news/breaking-news/manulife-brings-travel-insurance-quotes-directly-into-chatgpt-591526.aspx" rel="noopener">Manulife Puts Travel Insurance Quotes Inside ChatGPT, a Canadian First</a><span>insurancebusinessmag · 16 h</span></li><li><a href="https://gfmag.com/banking/125m-ubs-fine-signals-us-regulatory-shift/" rel="noopener">UBS Hit With $125M Fine As US Regulatory Posture Shifts</a><span>Global Finance Magazine · 23 h</span></li><li><a href="https://www.msn.com/en-ca/news/other/chinas-robotechnik-slides-in-hong-kong-debut-as-new-listings-trade-mixed/ar-AA2dailU" rel="noopener">RoboTechnik Slides in Hong Kong Debut as New Listings Trade Mixed</a><span>Reuters on MSN · 10 h</span></li><li><a href="https://www.manilatimes.net/2026/09/29/tmt-newswire/axa-ph-wins-multiple-quill-awards-for-campaigns/2434159" rel="noopener">AXA PH wins multiple Quill Awards for campaigns</a><span>The Manila Times · 14 h</span></li><li><a href="https://www.manilatimes.net/2026/09/29/tmt-newswire/media-outreach-newswire/bosera-hkex-krx-semiconductor-index-etf-listed-on-hkex/2434559" rel="noopener">Bosera HKEX KRX Semiconductor Index ETF Debuts on HKEX</a><span>manilatimes · 15 h</span></li><li><a href="https://www.thehansindia.com/business/mahindra-manulife-launches-equity-long-short-fund-1126727" rel="noopener">Mahindra Manulife Launches Equity Long-Short Fund</a><span>thehansindia · 16 h</span></li><li><a href="https://www.dimsumdaily.hk/mtr-carriage-fouling-sparks-hygiene-outcry-as-photos-show-suspected-excreta/" rel="noopener">Photos of Suspected Excreta in MTR Carriage Spark Hygiene Outcry</a><span>Dimsum Daily · 17 h</span></li></ul>
+    <details class="latest"><summary>8 more headlines</summary><ul class="latest"><li><a href="https://www.law360.com/articles/2527414/ubs-settlement-shows-cost-of-delayed-aml-fixes" rel="noopener">UBS AML Settlement Exposes Price Of Slow Compliance Fixes</a><span>law360 · 18 h</span></li><li><a href="https://apps.sfc.hk/edistributionWeb/gateway/EN/news-and-announcements/news/doc?refNo=26PR157" rel="noopener">SFC shares updates with securities industry on scam prevention and cybersecurity</a><span>SFC · 19 h</span></li><li><a href="https://en.sedaily.com/finance/2026/09/28/fubon-hyundai-lifes-h1-protection-type-new-contracts-jump" rel="noopener">Fubon Hyundai Life Protection Sales Surge 16.5% in First Half</a><span>en.sedaily · 20 h</span></li><li><a href="https://www.si.com/prediction-markets/promos/crypto-com-referral-code" rel="noopener">Crypto.com Referral Code: Up to $2,000 Bonus in September 2026</a><span>si · 20 h</span></li><li><a href="https://www.hkex.com.hk/News/News-Release/2026/2609282news?sc_lang=en" rel="noopener">HKEX Launches “A Place to Connect” Exhibition Celebrating 40 Years of Hong Kong’s Modern Stock Exchange</a><span>HKEX · 25 h</span></li><li><a href="https://apps.sfc.hk/edistributionWeb/gateway/EN/news-and-announcements/news/doc?refNo=26PR155" rel="noopener">New speech by Kelvin Wong: Remarks at SFC and Accounting and Financial Reporting Council’s MoU Signing Ceremony</a><span>SFC · 27 h</span></li><li><a href="https://apps.sfc.hk/edistributionWeb/gateway/EN/news-and-announcements/news/doc?refNo=26PR156" rel="noopener">SFC and AFRC extend regulatory cooperation to financial reporting of licensed firms and funds under new MoU</a><span>SFC · 27 h</span></li><li><a href="https://www.hkex.com.hk/News/News-Release/2026/260928news?sc_lang=en" rel="noopener">HKEX Welcomes Four New ETFs Tracking HKEX Cross-Market Indices</a><span>HKEX · 29 h</span></li></ul></details></section>
+  <section class="sec"><h2>Earlier from this desk</h2><div class="earlier"><a href="/briefings/2026-09-29-hk-finance"><img src="https://audio.wangreport.com/art/takes/2026-09-29-hk-finance-284a0-t.jpg" alt="" loading="lazy"><b>SFC suspends Silver Grant International shares over suspected diversion of over 1 billion dollars in loan proceeds</b><span>Rachel Lam · 8 h ago</span></a><a href="/briefings/2026-09-28-hk-finance-pm"><img src="https://audio.wangreport.com/art/takes/2026-09-28-hk-finance-pm-1d4be-t.jpg" alt="" loading="lazy"><b>Xiaomi backed robotics chip firm eyes $100 million Hong Kong IPO</b><span>Rachel Lam · 20 h ago</span></a><a href="/briefings/2026-09-28-hk-finance-midday"><img src="https://audio.wangreport.com/art/takes/2026-09-28-hk-finance-midday-1899e-t.jpg" alt="" loading="lazy"><b>Foreign banks circle UBS as Switzerland moves to weaken capital rule that forced the retreat</b><span>Rachel Lam · 26 h ago</span></a></div></section>
+  <p class="foot">Everything on this desk, in full: <a href="/board#finance">the Board</a></p>
+</main>
+
+</body>
+</html>
