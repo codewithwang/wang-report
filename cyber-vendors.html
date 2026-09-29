@@ -85,13 +85,32 @@
 </head>
 <body>
 
-<header class="nh">
-<nav class="nh-desks" aria-label="Desks"><a href="./" class="" style="--c:var(--wr-ink)">Front</a><a href="hk-local" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="cyber" class="on" style="--c:var(--desk-cyber)">Cyber</a><a href="hk-finance" style="--c:var(--desk-finance)">Finance</a><a href="geopolitical" style="--c:var(--desk-geopolitical)">World</a><a href="ai-focus" style="--c:var(--desk-ai)">AI</a><a href="sports" style="--c:var(--desk-sports)">Sports</a><a href="/science" style="--c:var(--desk-science)">Science & Health</a></nav>
-<nav class="nh-tools" aria-label="Tools"><a href="/edition/latest">Edition</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/issue">Sunday Issue</a><a href="listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/dads">Dads</a></nav>
-</header>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="./">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber" class="on" style="--h:#1D5F5A">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture</a>
+<h4>More</h4><a href="/edition/latest">Today's edition</a><a href="listen">Listen</a><a href="/issue">The Sunday Issue</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/hk-adults-calendar/">Calendars</a><a href="/dads">Dads</a><a href="/board">Everything (the full Board)</a><a href="/how-its-made">How it is made</a></div></div>
 
 <div class="timestamp-bar">
-  Tuesday, September 29, 2026 at 05:56 AM GMT+8
+  Wednesday, September 30, 2026 at 05:56 AM GMT+8
 </div>
 
 <div class="masthead">VENDOR WATCH</div>
@@ -101,235 +120,80 @@
 
 <section class="cvw-section">
   <div class="cvw-head-row">
-    <span class="cvw-section-sub">36 stories &middot; 25 vendors &middot; ranked by heat, hottest first per vendor</span>
+    <span class="cvw-section-sub">52 stories &middot; 25 vendors &middot; ranked by heat, hottest first per vendor</span>
   </div>
   <div class="cvw-group">
       <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Okta</span>
-        <span class="cvw-vendor-n">4 stories</span>
+        <span class="cvw-vendor-name">CrowdStrike</span>
+        <span class="cvw-vendor-n">5 stories</span>
       </div>
-      <a class="cvw-row cvw-row--hot" href="https://startupfortune.com/okta-ships-an-ai-agent-kill-switch-and-wall-street-immediately-raises-its-price-target/" target="_blank" rel="noopener">
+      <a class="cvw-row cvw-row--hot" href="https://tradersunion.com/news/financial-news/show/3548884-wall-street-oil-yields-ai-crowdstrike/" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Okta Ships AI Agent Kill Switch as Wall Street Lifts Price Targets</span>
-        <span class="cvw-meta">Startup Fortune &amp;middot; market-moving</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.msn.com/en-in/technology/tech-companies/okta-s-ai-security-role-can-drive-durable-growth-re-acceleration-says-citizens-lifts-target-to-225/ar-AA2d7fdb" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Citizens Lifts Okta Target to $225, Betting AI Security Role Reignites Growth</span>
-        <span class="cvw-meta">Asianet Newsable on MSN</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.msn.com/en-us/money/general/bank-of-america-raises-okta-stock-target-on-major-ai-opportunity/ar-AA2d4htu" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Bank of America Raises Okta Target on Agentic AI Opportunity</span>
-        <span class="cvw-meta">TheStreet on MSN</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.insidermonkey.com/news/okta-oktas-ai-agent-opportunity-is-expanding-is-the-stock-already-pricing-it-in-1844864/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Is Okta's AI Agent Upside Already Priced In?</span>
-        <span class="cvw-meta">Insider Monkey</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">AI Security Tools</span>
-        <span class="cvw-vendor-n">4 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://www.msn.com/en-us/news/other/nvidia-launches-new-platform-for-reining-in-rogue-ai-agents/ar-AA2d8Ivg" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">8</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Nvidia Launches Open Agent Safety Platform to Contain Rogue AI Agents from Testing to Deployment</span>
-        <span class="cvw-meta">TechCrunch on MSN &amp;middot; market-moving</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://cryptobriefing.com/anthropic-nvidia-agent-security-platform/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Anthropic Joins Nvidia to Build Open Standard for AI Agent Security</span>
-        <span class="cvw-meta">Crypto Briefing</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.republicworld.com/tech/openshell-and-sentry-watchdog-nvidia-launches-ai-security-system-after-openai-halts-advanced-models-over-rogue-agents-2026-09-28-137869" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Nvidia's OpenShell and Sentry Watchdog Arrive as OpenAI Pauses Advanced Models Over Rogue Agent Incidents</span>
-        <span class="cvw-meta">Republic World</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://siliconangle.com/2026/09/28/autoheal-raises-7-9m-to-evaluate-and-fix-ai-agents-with-ai-agents/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Autoheal Raises $7.9M to Use AI Agents to Test and Fix Other AI Agents</span>
-        <span class="cvw-meta">qwant news</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Microsoft</span>
-        <span class="cvw-vendor-n">3 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://www.techtimes.com/articles/328096/20260928/ai-ransomware-wiped-100-azure-accounts-7-minutes-only-pre-configured-locks-survived.htm" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">8</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>AI-Driven Ransomware Wipes 100 Azure Accounts in 7 Minutes, Only Pre-Set Locks Held</span>
-        <span class="cvw-meta">qwant news &amp;middot; market-moving</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://cybersecuritynews.com/trustsink-attack/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">TrustSink Attack Abuses Rogue MFA Provider to Siphon Entra Passwords at Legitimate Logins</span>
-        <span class="cvw-meta">Cyber Security News</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.techtimes.com/articles/328114/20260928/microsoft-copilot-autopilot-launches-openclaw-ai-framework-138-cves.htm" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Copilot Autopilot Debuts on OpenClaw Framework Carrying 138 CVEs</span>
-        <span class="cvw-meta">qwant news</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Zscaler</span>
-        <span class="cvw-vendor-n">2 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://tradersunion.com/news/stocks/show/3546334-zscaler-surges-4-29percent-today-on/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">8</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Zscaler Beats on Earnings but Guides Slower and Announces Restructuring</span>
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>CrowdStrike Sheds DOJ Overhang, Clearing a Major Regulatory Cloud</span>
         <span class="cvw-meta">tradersunion &amp;middot; market-moving</span>
       </span>
     </a>
-      <a class="cvw-row" href="https://finance.yahoo.com/markets/stocks/articles/zscaler-apos-arr-growth-focus-161201500.html" target="_blank" rel="noopener">
+      <a class="cvw-row" href="https://finance.yahoo.com/technology/ai/articles/crowdstrike-brings-falcon-platform-openai-173000306.html" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head">Wedbush Says ARR Growth Is the Number to Watch at Zscaler Investor Day</span>
+        <span class="cvw-head">CrowdStrike Puts Falcon Platform in the OpenAI Marketplace</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.webpronews.com/google-cloud-launches-ai-powered-security-agents-with-palo-alto-crowdstrike-and-mandiant/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Google Cloud Taps CrowdStrike, Palo Alto and Mandiant for AI Security Agents</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://finance.yahoo.com/markets/stocks/articles/crowdstrike-stock-112-over-past-172638766.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">CrowdStrike Stock Up 112% in a Year as AI Security Bet Pays Off</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://finance.yahoo.com/technology/ai/articles/did-falcon-partner-integrations-cloud-031125890.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">New Falcon Cloud and AI Integrations Reshape the CrowdStrike Investment Story</span>
         <span class="cvw-meta">Yahoo Finance</span>
       </span>
     </a>
     </div>
     <div class="cvw-group">
       <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Palo Alto Networks</span>
+        <span class="cvw-vendor-name">Cisco</span>
         <span class="cvw-vendor-n">4 stories</span>
       </div>
-      <a class="cvw-row cvw-row--hot" href="https://www.timothysykes.com/news/palo-alto-networks-inc-panw-news-2026_09_28/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <a class="cvw-row cvw-row--hot" href="https://www.msn.com/en-us/technology/artificial-intelligence/steve-eisman-says-ai-boom-is-for-real-as-cisco-growth-hits-18-here-s-what-could-derail-it/ar-AA2ddEiB" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Palo Alto Networks Launches New AI Defense Service, Stock Jumps</span>
-        <span class="cvw-meta">timothysykes</span>
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Cisco Growth Hits 18% as Eisman Calls the AI Boom 'For Real'</span>
+        <span class="cvw-meta">Benzinga on MSN &amp;middot; market-moving</span>
       </span>
     </a>
-      <a class="cvw-row" href="https://www.msn.com/en-us/news/other/palo-alto-s-ai-security-trio-could-fuel-a-growth-surge-btig-says/ar-AA2d8tkv" target="_blank" rel="noopener">
+      <a class="cvw-row" href="https://finance.yahoo.com/markets/stocks/articles/cisco-stock-slips-4-100-185246785.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Cisco Pivots to AgenticOps as 4,100 Daily Alerts Overwhelm Security Teams</span>
+        <span class="cvw-meta">Yahoo Finance</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.fierce-network.com/newswire/bell-and-cisco-take-aim-sovereign-ai-demand" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head">BTIG Says Palo Alto's AI Security Trio Could Fuel a Growth Surge</span>
-        <span class="cvw-meta">Benzinga on MSN</span>
+        <span class="cvw-head">Bell Canada and Cisco Team Up to Chase Sovereign AI Demand</span>
+        <span class="cvw-meta">Fierce Network</span>
       </span>
     </a>
-      <a class="cvw-row" href="https://finance.yahoo.com/technology/articles/palo-alto-networks-panw-brings-140823802.html" target="_blank" rel="noopener">
+      <a class="cvw-row" href="https://www.msn.com/en-us/technology/artificial-intelligence/exclusive-cisco-president-says-ai-will-create-more-jobs-than-it-eliminates-despite-tech-layoffs/ar-AA2ddsoc" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head">Palo Alto Extends Firewall Ecosystem to Industrial Edge Connectivity</span>
-        <span class="cvw-meta">bing news</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://finance.yahoo.com/markets/stocks/articles/analysts-raise-palo-alto-networks-124502958.html" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Analysts Lift PANW Price Targets Ahead of Next Earnings</span>
-        <span class="cvw-meta">bing news</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">SWIFT</span>
-        <span class="cvw-vendor-n">3 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://cryptobriefing.com/tech-giant-oracle-integrates-with-swift-blockchain-ledger-to-connect-banks-tokenized-deposits/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Oracle Plugs Into Swift's Blockchain Ledger to Link Banks' Tokenized Deposits</span>
-        <span class="cvw-meta">Crypto Briefing</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.prnewswire.com/news-releases/chainlink-is-enabling-financial-institutions-to-connect-to-swifts-blockchain-ledger-302891972.html" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Chainlink Gives Financial Institutions a Route Into Swift's Blockchain Ledger</span>
-        <span class="cvw-meta">bing news</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.pymnts.com/news/cross-border-payments/2026/swift-wants-to-make-x-border-payments-as-easy-as-domestic-ones/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Swift Pitches Cross-Border Payments That Feel as Easy as Domestic Ones</span>
-        <span class="cvw-meta">bing news</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Databricks</span>
-        <span class="cvw-vendor-n">3 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://technologymagazine.com/news/behind-databricks-and-ibm-buying-firms-to-secure-ai" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Databricks and IBM Buy Their Way Into AI Security</span>
-        <span class="cvw-meta">bing news</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.msn.com/en-us/news/other/databricks-ceo-says-ai-cyberattacks-are-moving-faster-than-humans-can-respond/ar-AA2d95H1" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Databricks CEO Warns AI Cyberattacks Now Outpace Human Response</span>
-        <span class="cvw-meta">Benzinga on MSN</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.msn.com/en-us/money/startup/acquisition-strategy-lessons-from-databricks-row-zero-deal/ar-AA2d7VCQ" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Databricks' Row Zero Deal Offers a Playbook for Acquisitions</span>
-        <span class="cvw-meta">Under30CEO on MSN</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">CrowdStrike</span>
-        <span class="cvw-vendor-n">3 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://tradersunion.com/news/financial-news/show/3548884-wall-street-oil-yields-ai-crowdstrike/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>CrowdStrike Shakes Off DOJ Overhang, Removing a Key Regulatory Risk</span>
-        <span class="cvw-meta">tradersunion</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.quiverquant.com/news/CrowdStrike+rises+as+earnings+momentum+and+new+partner+integrations+support+shares" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">CrowdStrike Climbs on Earnings Momentum and New Partner Integrations</span>
-        <span class="cvw-meta">quiverquant</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://finance.yahoo.com/technology/ai/articles/rising-ai-vulnerabilities-boost-crowdstrikes-150900757.html" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Rising AI Vulnerabilities Could Fuel CrowdStrike's Exposure Management Business</span>
-        <span class="cvw-meta">bing news</span>
+        <span class="cvw-head">Cisco President: AI Will Create More Jobs Than It Kills</span>
+        <span class="cvw-meta">ABC 7 San Francisco on MSN</span>
       </span>
     </a>
     </div>
@@ -338,85 +202,381 @@
         <span class="cvw-vendor-name">Broadcom / VMware</span>
         <span class="cvw-vendor-n">3 stories</span>
       </div>
-      <a class="cvw-row cvw-row--hot" href="https://www.crn.com/news/channel-news/2026/top-vmware-partner-insight-deauthorized-by-broadcom-in-north-america" target="_blank" rel="noopener">
+      <a class="cvw-row cvw-row--hot" href="https://www.sdxcentral.com/news/broadcom-boots-out-prized-vmware-partner-report/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Broadcom Cuts Loose Prized VMware Partner, Channel Turmoil Deepens</span>
+        <span class="cvw-meta">bing news &amp;middot; market-moving</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.comparethecloud.net/articles/renew-vmware-cloud-foundation-move-to-nutanix-or-migrate-to-proxmox-ve" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">VMware Renewal Crunch: Customers Weigh Nutanix and Proxmox Exits</span>
+        <span class="cvw-meta">Compare the Cloud</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://siliconangle.com/2026/09/29/omnissa-debuts-ai-agents-for-it-a-managed-cloud-pc-service-and-elara-for-ai-governance/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Omnissa Ships AI Agents and Elara Governance, Spun-Off Rival Sharpens Its Pitch</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Palo Alto Networks</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://finance.yahoo.com/markets/stocks/articles/palo-alto-networks-stock-rose-142849728.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Palo Alto Stock Climbs Nearly 5% as Nvidia's Agent Safety Platform Puts It in the Stack</span>
+        <span class="cvw-meta">Yahoo Finance</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.helpnetsecurity.com/2026/09/29/palo-alto-networks-nvidia-ai-agent-security/" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Broadcom Deauthorizes Top North American VMware Partner Insight, Deepening Channel Turmoil</span>
-        <span class="cvw-meta">CRN</span>
+        <span class="cvw-head">Palo Alto and Nvidia Team Up to Lock Down AI Agents</span>
+        <span class="cvw-meta">bing news</span>
       </span>
     </a>
-      <a class="cvw-row" href="https://www.ainvest.com/news/broadcom-marvell-ai-wave-cash-engines-2609/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <a class="cvw-row" href="https://www.msn.com/en-us/news/other/palo-alto-s-ai-security-trio-could-fuel-a-growth-surge-btig-says/ar-AA2d8tkv" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head">Broadcom and Marvell Ride the Same AI Wave With Very Different Cash Engines</span>
-        <span class="cvw-meta">ainvest</span>
+        <span class="cvw-head">BTIG Says Palo Alto's AI Security Trio Could Drive a Growth Surge</span>
+        <span class="cvw-meta">Benzinga on MSN</span>
       </span>
     </a>
-      <a class="cvw-row" href="https://uk.finance.yahoo.com/news/marvell-vs-broadcom-custom-ai-130933168.html" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <a class="cvw-row" href="https://www.timothysykes.com/news/palo-alto-networks-inc-panw-news-2026_09_28/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head">Custom AI Chip Face-Off: Marvell vs. Broadcom on Remaining Upside</span>
-        <span class="cvw-meta">Yahoo Finance UK</span>
-      </span>
-    </a>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Cisco</span>
-        <span class="cvw-vendor-n">3 stories</span>
-      </div>
-      <a class="cvw-row cvw-row--hot" href="https://www.zdnet.com/business/cisco-exec-on-on-prem-data-centers-resurgence/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Cisco Exec Says On-Prem Data Centers Are Back, Fueling Deep-Tech Hiring</span>
-        <span class="cvw-meta">duckduckgo news</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://blogs.cisco.com/industries/standardizing-for-scale-cisco-and-oak-view-groups-new-strategic-partnership" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Cisco and Oak View Group Standardize Venue Networking in New Partnership</span>
-        <span class="cvw-meta">Cisco</span>
-      </span>
-    </a>
-      <a class="cvw-row" href="https://www.financialexpress.com/business/news/the-foundation-will-define-what-comes-next-daisy-chittilapilly-president-cisco-india-amp-south-asia/4348436/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
-      <span class="cvw-text">
-        <span class="cvw-head">Cisco India Chief Outlines Foundation-First Strategy for South Asia</span>
-        <span class="cvw-meta">The Financial Express</span>
+        <span class="cvw-head">Palo Alto Launches New AI Defense Service</span>
+        <span class="cvw-meta">timothysykes</span>
       </span>
     </a>
     </div>
     <div class="cvw-group">
       <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Darktrace</span>
-        <span class="cvw-vendor-n">2 stories</span>
+        <span class="cvw-vendor-name">AI Security Tools</span>
+        <span class="cvw-vendor-n">4 stories</span>
       </div>
-      <a class="cvw-row cvw-row--hot" href="https://aijourn.com/darktrace-ceo-ed-jennings-ai-agents-insider-threat/" target="_blank" rel="noopener">
-      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <a class="cvw-row cvw-row--hot" href="https://www.notebookcheck.net/Nvidia-unveils-security-platform-for-monitoring-and-lightning-fast-isolation-of-AI-agents.1411100.0.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">8</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Darktrace CEO Warns the Next Insider Threat Is an AI Agent You Approved</span>
-        <span class="cvw-meta">aijourn</span>
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Nvidia Launches Open Agent Safety Platform With Hardware-Backed Isolation for Rogue AI Agents</span>
+        <span class="cvw-meta">bing news</span>
       </span>
     </a>
-      <a class="cvw-row" href="https://tech.yahoo.com/ai/articles/nvidia-built-kill-switch-ai-184603921.html" target="_blank" rel="noopener">
+      <a class="cvw-row" href="https://cryptobriefing.com/reco-raises-55m-ai-agent-security/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Reco Raises $55M as AI Agent Security Gets Crowded</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://siliconangle.com/2026/09/29/rig-security-launches-with-12m-to-watch-ai-agents-that-run-under-employees-accounts/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Rig Security Emerges With $12M to Police Agents Running Under Employee Accounts</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.manilatimes.net/2026/09/29/tmt-newswire/media-outreach-newswire/trendai-extends-the-nvidia-agent-safety-platform-with-threat-intelligence-and-full-ai-factory-security/2434747" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">TrendAI Extends Nvidia Agent Safety Platform With Threat Intel and AI Factory Security</span>
+        <span class="cvw-meta">The Manila Times</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Okta</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.heise.de/en/news/Who-is-allowed-to-do-what-Okta-wants-to-leash-AI-agents-11469468.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">7</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Okta Moves to Leash AI Agents With Identity-Based Access Controls</span>
+        <span class="cvw-meta">heise online</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://siliconangle.com/2026/09/28/okta-builds-shared-architecture-agent-runtime-security-oktane/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Okta Builds Shared Architecture for Agent Runtime Security</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.msn.com/en-us/money/top-stocks/okta-in-spotlight-as-morgan-stanley-ups-price-target-after-investor-event/ar-AA2dcyJS" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Morgan Stanley Raises Okta Price Target After Investor Event</span>
+        <span class="cvw-meta">Seeking Alpha on MSN</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://finance.yahoo.com/technology/ai/articles/okta-could-see-acceleration-increased-151914988.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Morgan Stanley: AI Safety Fears Could Accelerate Okta Growth</span>
+        <span class="cvw-meta">Yahoo Finance</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Wiz</span>
+        <span class="cvw-vendor-n">4 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://hackernoon.com/edr-wasnt-built-for-ephemeral-workloads-but-wizs-cnapp-looks-beyond-endpoints" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Wiz CNAPP Pushes Past Endpoints as EDR Struggles With Ephemeral Workloads</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.webpronews.com/google-cloud-launches-ai-powered-security-agents-with-palo-alto-crowdstrike-and-mandiant/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Google Cloud Debuts AI Security Agents With Palo Alto, CrowdStrike and Mandiant</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.fox44news.com/business/press-releases/cision/20260928CG57599/foresite-launches-managed-services-for-wiz-reaching-premier-tier-in-the-wiz-partner-alliance-services-program" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head">Nvidia Ships Kill Switch for Rogue AI Agents, Darktrace Cited in Agent Containment Race</span>
+        <span class="cvw-head">Foresite Hits Premier Tier in Wiz Partner Program With New Managed Services</span>
+        <span class="cvw-meta">yahoo news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://venturebeat.com/business/rig-security-emerges-from-stealth-to-define-identity-protection-in-the-agentic-era" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Rig Security Exits Stealth Targeting Identity Protection for Agentic AI</span>
         <span class="cvw-meta">yahoo news</span>
       </span>
     </a>
     </div>
     <div class="cvw-group">
       <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">SentinelOne</span>
-        <span class="cvw-vendor-n">1 story</span>
+        <span class="cvw-vendor-name">SWIFT</span>
+        <span class="cvw-vendor-n">3 stories</span>
       </div>
-      <a class="cvw-row cvw-row--hot" href="https://finance.yahoo.com/markets/stocks/articles/winners-losers-q2-sentinelone-nyse-211036273.html" target="_blank" rel="noopener">
+      <a class="cvw-row cvw-row--hot" href="https://usethebitcoin.com/news/oracle-swift-ledger-tokenized-deposit-infrastructure/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Oracle Plugs Banks Into Swift Ledger for Tokenized Deposit Payments</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.marketsmedia.com/chainlink-enables-institutions-to-connect-to-swifts-blockchain-ledger/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Chainlink Links Banks to Swift's Blockchain Ledger</span>
+        <span class="cvw-meta">Markets Media</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.pymnts.com/news/cross-border-payments/2026/swift-wants-to-make-x-border-payments-as-easy-as-domestic-ones/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Swift Pushes to Make Cross-Border Payments Feel Domestic</span>
+        <span class="cvw-meta">PYMNTS.com</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">SentinelOne</span>
+        <span class="cvw-vendor-n">3 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.ad-hoc-news.de/boerse/news/nebenwerte/sentinelone-stock-reports-20-6-percent-revenue-growth/70200303" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>SentinelOne Posts 20.6% Revenue Growth as Growth Story Holds</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.msn.com/en-us/video/other/how-sentinelone-s-1-16-billion-recurring-revenue-could-become-harder-to-cancel/vi-AA2aTC1O" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">SentinelOne's $1.16B Recurring Revenue Base: How Sticky Is It?</span>
+        <span class="cvw-meta">Rick Orford - Trading Stocks and Options For All on MSN</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://finance.yahoo.com/markets/stocks/articles/winners-losers-q2-sentinelone-nyse-211036273.html" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>SentinelOne Stock Stacked Against Cybersecurity Peers in Q2 Winners and Losers Scorecard</span>
-        <span class="cvw-meta">duckduckgo news</span>
+        <span class="cvw-head">SentinelOne Measured Against Cybersecurity Peers in Q2 Stock Scorecard</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Microsoft</span>
+        <span class="cvw-vendor-n">3 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.msspalert.com/brief/microsoft-defender-integrates-security-operations-center-capabilities-to-counter-ai-threats" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Microsoft Defender Gets AI-Threat Upgrades for Security Operations Teams</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.webpronews.com/meta-recruits-mongodbs-ceo-to-sell-ai-agents-straight-at-microsoft-and-salesforce/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Meta Recruits MongoDB's CEO to Take Its AI Agents Straight at Microsoft</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.thurrott.com/windows/342194/microsoft-starts-rolling-out-windows-11-version-26h2" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Windows 11 26H2 Begins Rolling Out as a Low-Disruption Update</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Databricks</span>
+        <span class="cvw-vendor-n">3 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.msn.com/en-us/news/other/databricks-ceo-says-ai-cyberattacks-are-moving-faster-than-humans-can-respond/ar-AA2d95H1" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Databricks CEO Warns AI Attacks Now Outpace Human Response</span>
+        <span class="cvw-meta">Benzinga on MSN</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.01net.it/trust3-ai-brings-secure-autonomous-ai-agents-to-microsoft-onelake/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Trust3 AI Brings Secure Agent Governance to Microsoft OneLake</span>
+        <span class="cvw-meta">01net</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.databricks.com/blog/your-data-your-storage-your-rules-2026-guide-storing-unity-catalog-managed-tables" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Databricks Publishes Guide to Storing Unity Catalog Managed Tables</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Zscaler</span>
+        <span class="cvw-vendor-n">3 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://news.futunn.com/en/post/1000301161/wedbush-maintains-zscaler-zsus-with-buy-rating-maintains-target-price" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Wedbush Holds Zscaler at Buy With $215 Price Target</span>
+        <span class="cvw-meta">Futubull News</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://www.ainvest.com/news/zscaler-defies-liquidity-crunch-top-trading-volume-analyst-optimism-2609/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Zscaler Tops Trading Volume Despite Thin Liquidity as Analysts Stay Bullish</span>
+        <span class="cvw-meta">ainvest</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://finance.yahoo.com/technology/ai/articles/where-could-zscalers-next-growth-221130637.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">Where Zscaler's Next Leg of Growth Could Come From</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Google SecOps</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.webpronews.com/google-cloud-launches-ai-powered-security-agents-with-palo-alto-crowdstrike-and-mandiant/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">6</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Google Cloud Rolls Out Agentic Security Suite With Palo Alto, CrowdStrike and Mandiant on Board</span>
+        <span class="cvw-meta">qwant news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Ping Identity</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://finance.yahoo.com/technology/ai/articles/ping-identity-launches-identity-agents-130000383.html" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Ping Identity Puts Identity Agents on Google Cloud Marketplace, Pushing Agentic Identity Into Enterprise Procurement</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Elastic Security</span>
+        <span class="cvw-vendor-n">2 stories</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.itnews.com.au/resource/ai-at-your-fingertips-how-elastic-ai-assistant-simplifies-cybersecurity-628334" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Elastic AI Assistant Pitched as Fast Lane for Security Analysts</span>
+        <span class="cvw-meta">iTnews</span>
+      </span>
+    </a>
+      <a class="cvw-row" href="https://cyprus-mail.com/2026/09/29/qradar-to-elastic-siem-migration-checklist-what-actually-matters-in-the-real-world" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head">QRadar to Elastic SIEM: What a Real Migration Checklist Demands</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">OneTrust</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://markets.businessinsider.com/news/stocks/onetrust-corie-governs-ai-agents-at-machine-speed-1036582451" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">5</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>OneTrust Launches CORIE to Govern AI Agents at Machine Speed</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">BeyondTrust</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">4</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>BeyondTrust Research Finds Amazon Bedrock AgentCore Flaws That Could Leak AWS Credentials</span>
+        <span class="cvw-meta">bing news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">Saviynt</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.manilatimes.net/2026/09/29/tmt-newswire/globenewswire/saviynt-appoints-michibumi-serizawa-to-lead-japans-ai-era-identity-security-growth/2434620" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Saviynt Names Michibumi Serizawa to Lead Japan Growth Push in AI-Era Identity Security</span>
+        <span class="cvw-meta">bing news</span>
       </span>
     </a>
     </div>
@@ -425,45 +585,30 @@
         <span class="cvw-vendor-name">Splunk</span>
         <span class="cvw-vendor-n">1 story</span>
       </div>
-      <a class="cvw-row cvw-row--hot" href="https://finance.yahoo.com/technology/articles/cscos-security-growth-accelerates-outpace-153500531.html?fr=sycsrp_catchall" target="_blank" rel="noopener">
+      <a class="cvw-row cvw-row--hot" href="https://www.dqindia.com/interview/agentic-ai-is-advancing-but-enterprises-still-need-human-control-prashant-chaudhary-splunk-12590546" target="_blank" rel="noopener">
       <span class="cvw-score"><span class="cvw-score-n">3</span><span class="cvw-score-cap">heat</span></span>
       <span class="cvw-text">
-        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Cisco Security Growth Accelerates, With Splunk Now in the Mix Against Datadog and CrowdStrike</span>
-        <span class="cvw-meta">yahoo news</span>
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>Splunk Exec Says Agentic AI Still Needs Human Control</span>
+        <span class="cvw-meta">duckduckgo news</span>
+      </span>
+    </a>
+    </div>
+    <div class="cvw-group">
+      <div class="cvw-vendor-hd">
+        <span class="cvw-vendor-name">CyberArk</span>
+        <span class="cvw-vendor-n">1 story</span>
+      </div>
+      <a class="cvw-row cvw-row--hot" href="https://www.comparethecloud.net/articles/cyberark-or-beyondtrust-for-uk-enterprise-privileged-access-which-wins-on-three" target="_blank" rel="noopener">
+      <span class="cvw-score"><span class="cvw-score-n">2</span><span class="cvw-score-cap">heat</span></span>
+      <span class="cvw-text">
+        <span class="cvw-head"><span class="cvw-hot-tag">HOT</span>CyberArk vs BeyondTrust: UK Enterprise PAM Three-Year Cost Showdown</span>
+        <span class="cvw-meta">Compare the Cloud</span>
       </span>
     </a>
     </div>
     <div class="cvw-group">
       <div class="cvw-vendor-hd">
         <span class="cvw-vendor-name">SailPoint</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">CyberArk</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Saviynt</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Ping Identity</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">BeyondTrust</span>
         <span class="cvw-vendor-n">0 stories</span>
       </div>
       <div class="cvw-empty-row">No recent news this cycle</div>
@@ -477,27 +622,6 @@
     </div>
     <div class="cvw-group">
       <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Wiz</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Google SecOps</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">Elastic Security</span>
-        <span class="cvw-vendor-n">0 stories</span>
-      </div>
-      <div class="cvw-empty-row">No recent news this cycle</div>
-    </div>
-    <div class="cvw-group">
-      <div class="cvw-vendor-hd">
         <span class="cvw-vendor-name">Claroty</span>
         <span class="cvw-vendor-n">0 stories</span>
       </div>
@@ -505,7 +629,7 @@
     </div>
     <div class="cvw-group">
       <div class="cvw-vendor-hd">
-        <span class="cvw-vendor-name">OneTrust</span>
+        <span class="cvw-vendor-name">Darktrace</span>
         <span class="cvw-vendor-n">0 stories</span>
       </div>
       <div class="cvw-empty-row">No recent news this cycle</div>
