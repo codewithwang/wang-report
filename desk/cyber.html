@@ -250,7 +250,285 @@ details.bd-read .t{font-size:18px;line-height:1.3}
 
 .bd-worth .body{font-family:'Spectral',Georgia,serif;font-size:14.5px;line-height:1.5;margin-top:6px}.bd-worth .body p{margin:0 0 8px}
 
-.instr .fp-panel{margin:0}</style>
+
+
+
+.hub-pulse { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+  letter-spacing: .04em; color: #444; padding: 6px 8px;
+  border-top: 2px solid var(--desk-accent); border-bottom: 1px solid var(--wr-rule);
+  max-width: var(--wr-page); margin: 0 auto; }
+
+.hub-pulse a { color: var(--wr-ink); text-decoration: none; }
+
+.hub-pulse a:hover { color: var(--desk-accent); text-decoration: underline; }
+
+.hub-pv { font-weight: bold; color: var(--desk-accent); }
+
+.hub-pv--alert { color: var(--wr-seal); }
+
+.hub-pv--ink { color: var(--wr-ink); }
+
+.hub-pv--muted { color: var(--wr-slate); }
+
+.hub-pulse-sep { color: var(--desk-faint); }
+
+.hub-pulse-note { color: var(--desk-faint); font-size: 9px; }
+ .hub-pulse-note { display: none; }
+
+
+.hub-rulebar { max-width: 732px; margin: 0 auto; padding: 0 16px; }
+
+.hub-rule { border: none; border-top: 3px solid #000; margin: 12px 0 0; }
+
+.hub-rule-thin { border: none; border-top: 1px solid #ccc; margin: 3px 0 0; }
+
+
+
+.hub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  border-bottom: 1px solid var(--desk-rule); padding-bottom: 6px; margin: 36px 0 4px; }
+
+.hub-tag { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
+  letter-spacing: 2.5px; color: var(--desk-accent); text-transform: uppercase; }
+
+.hub-head-link { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold;
+  letter-spacing: 1.5px; text-transform: uppercase; color: #667; text-decoration: none; white-space: nowrap; }
+
+.hub-head-link:hover { color: var(--desk-accent); }
+
+
+
+.hub-wlist { border-left: 2px solid var(--desk-accent); }
+
+.hub-w-item { display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 14px;
+  text-decoration: none; border-bottom: 1px solid var(--desk-rule); }
+
+.hub-w-item:last-child { border-bottom: none; }
+
+.hub-w-item:hover .hub-w-title { color: var(--desk-accent); }
+
+.hub-w-title { flex: 1; min-width: 0; font-size: 14.5px; line-height: 1.45; color: #222; }
+
+.hub-w-meta { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+
+.hub-w-src { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; color: #999; text-transform: uppercase; }
+
+.hub-w-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: var(--desk-faint); }
+
+
+
+.hub-row { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0;
+  border-bottom: 1px solid var(--desk-rule); }
+
+.hub-row:last-child { border-bottom: none; }
+
+.hub-row-key { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
+  color: var(--desk-accent); min-width: 84px; padding-top: 2px; }
+
+.hub-row-key--alert { color: var(--wr-seal); }
+
+.hub-row-key--muted { color: #667; }
+
+.hub-row-main { flex: 1; min-width: 0; }
+
+.hub-row-title { font-size: 14.5px; line-height: 1.4; color: #222; text-decoration: none; display: block; }
+
+a.hub-row-title:hover { color: var(--desk-accent); }
+
+.hub-row-meta { font-family: 'Courier New', Courier, monospace; font-size: 10px; color: var(--desk-faint); margin-top: 2px; }
+
+.hub-row-meta b { color: var(--desk-accent); font-weight: bold; }
+
+.hub-foot { font-family: 'Courier New', Courier, monospace; font-size: 9px; color: var(--desk-faint);
+  margin-top: 10px; line-height: 1.5; }
+
+
+
+.hub-kv-row { display: flex; align-items: baseline; gap: 12px; padding: 8px 0;
+  border-bottom: 1px solid var(--desk-rule); text-decoration: none; }
+
+.hub-kv-row:last-child { border-bottom: none; }
+
+.hub-kv-key { font-family: 'Courier New', Courier, monospace; font-size: 11px; font-weight: bold;
+  letter-spacing: .5px; color: var(--desk-accent); min-width: 122px; flex-shrink: 0; }
+
+.hub-kv-line { flex: 1; min-width: 0; font-size: 14px; line-height: 1.45; color: #222; }
+
+.hub-kv-row:hover .hub-kv-line { color: var(--desk-accent); }
+
+.hub-kv-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: var(--desk-faint); flex-shrink: 0; }
+
+
+
+.hub-index { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
+  font-weight: bold; letter-spacing: .04em; color: #444; padding: 8px 10px; margin-top: 40px;
+  border-top: 1px solid var(--desk-accent); border-bottom: 1px solid var(--desk-accent); }
+
+.hub-index a { color: var(--wr-ink); text-decoration: none; margin: 0 10px; white-space: nowrap; }
+
+.hub-index a:hover { color: var(--desk-accent); text-decoration: underline; }
+
+  .hub-kv-row { flex-wrap: wrap; gap: 4px 12px; }
+
+  .hub-kv-key { min-width: 0; }
+
+  .hub-kv-date { display: none; }
+
+  .hub-row-key { min-width: 70px; }
+
+
+
+.hub-resource { max-width: var(--wr-col); }
+
+.hub-resource .subhead { font-family: var(--wr-meta); text-transform: none; letter-spacing: 0; color: var(--wr-slate); }
+
+.hub-resource .hub-head { border-top: 3px solid #000; border-bottom: none; padding: 10px 0 0; margin: 44px 0 14px; }
+
+.hub-resource .hub-tag { font-family: var(--wr-text); font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--wr-ink); }
+
+.hub-resource .hub-head-link { font-family: var(--wr-meta); font-size: 11px; font-weight: normal; letter-spacing: 0; text-transform: none; color: var(--wr-slate); }
+
+.hub-resource .hub-head-link:hover { color: var(--wr-seal); }
+
+.hub-desk { margin-top: 26px; }
+
+.hub-people { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; }
+
+.hub-person { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+.hub-face { width: 64px; height: 64px; object-fit: cover; border: 1px solid #ddd; }
+
+.hub-person-text { display: flex; flex-direction: column; }
+
+.hub-person-name { font-family: var(--wr-display); font-size: 19px; color: var(--wr-ink); }
+
+.hub-person-zh { font-size: 13px; color: #666; letter-spacing: 2px; margin-left: 6px; }
+
+.hub-person-role { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 3px; }
+
+.hub-person:hover .hub-person-name { color: var(--wr-seal); }
+
+.hub-promise { font-family: var(--wr-text); font-size: 17px; line-height: 1.5; font-style: italic; color: #333; margin: 18px 0 0; padding-left: 12px; border-left: 3px solid var(--wr-seal); }
+
+.hub-latest { margin-top: 22px; padding: 10px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; font-family: var(--wr-text); font-size: 15px; line-height: 1.5; }
+
+.hub-latest .hub-tag { margin-right: 6px; }
+
+.hub-latest > a { font-family: var(--wr-text); font-size: 16px; font-weight: 600; color: var(--wr-ink); text-decoration: none; }
+
+.hub-latest > a:hover { color: var(--wr-seal); }
+
+.hub-latest-meta { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-left: 6px; }
+
+.hub-latest-meta a { color: var(--wr-slate); text-decoration: none; }
+
+.hub-latest-meta a:hover { color: var(--wr-seal); }
+
+.hub-stats { display: flex; flex-wrap: wrap; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+
+.hub-stat { flex: 1 1 110px; display: flex; flex-direction: column; padding: 12px 10px 10px; text-decoration: none; border-right: 1px solid #eee; }
+
+.hub-stat:last-child { border-right: none; }
+
+.hub-stat-n { font-family: var(--wr-display); font-size: 30px; line-height: 1; color: var(--wr-ink); }
+
+.hub-stat-n.hub-stat--alert { color: var(--wr-seal); }
+
+.hub-stat-s { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-left: 6px; }
+
+.hub-stat-l { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 8px; }
+
+.hub-resource .hub-foot { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 10px; line-height: 1.5; }
+
+.hub-resource .hub-row { border-bottom: 1px solid #ddd; }
+
+.hub-resource .hub-row-key { font-family: var(--wr-meta); font-size: 11px; font-weight: 600; color: var(--wr-ink); min-width: 92px; padding-top: 3px; }
+
+.hub-resource .hub-row-key--alert { color: var(--wr-seal); }
+
+.hub-resource .hub-row-key--muted { color: var(--wr-slate); }
+
+.hub-resource .hub-row-title { font-family: var(--wr-text); font-size: 16px; font-weight: 600; color: var(--wr-ink); }
+
+.hub-resource a.hub-row-title:hover { color: var(--wr-seal); }
+
+.hub-resource .hub-row-meta { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 3px; }
+
+.hub-resource .hub-row-meta b { color: var(--wr-seal); }
+
+.hub-resource .hub-kv-row { border-bottom: 1px solid #ddd; }
+
+.hub-resource .hub-kv-key { font-family: var(--wr-text); font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--wr-ink); min-width: 122px; }
+
+.hub-resource .hub-kv-line { font-family: var(--wr-text); font-size: 15px; color: #222; }
+
+.hub-resource .hub-kv-row:hover .hub-kv-line { color: var(--wr-seal); }
+
+.hub-resource .hub-kv-date { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); }
+
+.hub-tools { margin-top: 4px; }
+
+.hub-tool { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid #ddd; text-decoration: none; }
+
+.hub-tool-title { font-family: var(--wr-display); font-size: 18px; color: var(--wr-ink); }
+
+.hub-tool:hover .hub-tool-title { color: var(--wr-seal); }
+
+.hub-tool-desc { font-family: var(--wr-text); font-size: 15px; line-height: 1.5; color: #444; }
+
+.hub-tool-go { font-family: var(--wr-meta); font-size: 11px; font-weight: 600; color: var(--wr-seal); margin-top: 2px; }
+
+.hub-archive { margin-top: 8px; }
+
+.hub-arch { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid #ddd; text-decoration: none; }
+
+.hub-arch:last-child { border-bottom: none; }
+
+.hub-arch-date { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); min-width: 52px; flex-shrink: 0; }
+
+.hub-arch-title { flex: 1; font-family: var(--wr-text); font-size: 15px; font-weight: 600; color: var(--wr-ink); }
+
+.hub-arch:hover .hub-arch-title { color: var(--wr-seal); }
+
+.hub-arch-by { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); flex-shrink: 0; }
+
+.hub-theses .hub-thesis { font-family: var(--wr-text); font-size: 17px; line-height: 1.6; color: #111; margin: 0; padding: 10px 0; border-bottom: 1px solid #ddd; }
+
+.hub-theses .hub-thesis:last-of-type { border-bottom: none; }
+
+.hub-latest .hub-tag { display: block; margin: 0 0 4px; }
+
+.hub-latest > a { display: block; }
+
+.hub-latest-meta { display: block; margin: 4px 0 0; }
+
+  .hub-stat { flex-basis: 30%; }
+
+
+
+.hub-map { display: block; width: 100%; height: auto; margin: 2px 0 6px; }
+
+.hub-map-land { fill: color-mix(in srgb, var(--desk-accent) 9%, #fff); stroke: color-mix(in srgb, var(--desk-accent) 35%, #fff); stroke-width: 0.6; }
+
+.hub-map-dot circle { fill: #9a9a9a; stroke: #fff; stroke-width: 1.5; }
+
+.hub-map-dot--watch circle { fill: #fff; stroke: var(--desk-accent); stroke-width: 2.2; }
+
+.hub-map-dot--moved circle { fill: var(--desk-accent); stroke: #fff; stroke-width: 1.5; }
+
+.hub-map-dot text { font-family: var(--wr-meta); font-size: 11px; font-weight: 700; fill: var(--wr-ink); paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+
+.hub-map a:hover circle { stroke: var(--wr-ink); }
+
+.hub-latest--next { margin-top: 0; border-top: none; }
+
+
+.hub-notice { margin-top: 36px; padding-top: 12px; border-top: 1px solid #ddd; }
+
+.hub-notice a { color: inherit; }
+
+.hub-map-summary { font-family: var(--wr-text); font-size: 15px; line-height: 1.55; color: var(--wr-ink); margin: 0 0 10px; }
+:root{--desk-accent:var(--hue);--wr-meta:Arial,sans-serif}
+.instr{--desk-accent:#1D5F5A}.instr .fp-panel{margin:0}</style>
 </head>
 <body>
 <div class="top"><div class="wrap">
@@ -267,7 +545,7 @@ details.bd-read .t{font-size:18px;line-height:1.3}
   <section class="lead">
     <a href="/briefings/2026-09-29-cyber"><img src="https://audio.wangreport.com/art/takes/2026-09-29-cyber-280de.jpg" alt=""></a>
     <div>
-      <span class="kicker">Kai Tanner · 8 h ago</span>
+      <span class="kicker">Kai Tanner · 9 h ago</span>
       <h1><a href="/briefings/2026-09-29-cyber">JadePuffer ransomware uses AI agents to wipe 100 Azure accounts in 7 minutes</a></h1>
       <p>The only Azure resources that survived were protected by locks configured before the attack began, and no detection product is credited with saving anything.</p>
       <div class="by"><a href="/briefings/2026-09-29-cyber" style="color:var(--hue);font-weight:700">Read the take &rarr;</a></div>
@@ -279,7 +557,7 @@ details.bd-read .t{font-size:18px;line-height:1.3}
     <div class="cy-incs"><div class="fp-legend">Latest breaches <span><a href="/cyber">register</a></span></div><a class="cy-inc" href="/briefings/2026-09-25-cyber-pm"><b>Bitget</b> <span>technology</span> Suspected North Korean operators drained $351.6 million from hot and warm wallets <span>09-25</span></a><a class="cy-inc" href="/briefings/2026-09-25-cyber"><b>Australian Government Medicare Portal</b> <span>government</span> OpenAI red-team agent exploited a real flaw in Medicare portal, extracted data <span>09-25</span></a><a class="cy-inc" href="/briefings/2026-09-24-cyber-pm"><b>Medicare (Australian government statistics portal)</b> <span>government</span> OpenAI research agent bypassed access controls on Medicare portal, retrieved private files <span>09-24</span></a><a class="cy-inc" href="/briefings/2026-09-24-cyber"><b>unnamed retail sites (100+)</b> <span>retail</span> financially motivated actor used AI agent frameworks to run skimmers, stealing 600,000+ card records <span>09-24</span></a></div>
   </div></div></section>
   <section class="sec"><h2>Latest</h2><ul class="latest"><li><a href="https://therecord.media/shinyhunters-cyberattacks-oracle-mandiant" rel="noopener">ShinyHunters Exploit Oracle PeopleSoft Bug After Claiming FBI Jobs Site</a><span>The Record · 11 h</span></li><li><a href="https://thehackernews.com/2026/09/bitget-says-attacker-exploited-third.html" rel="noopener">Bitget Hit For $388 Million Through Third-Party Security Product Flaw</a><span>The Hacker News · 13 h</span></li><li><a href="https://therecord.media/us-uk-warn-of-citrix-netscaler-zero-day-bug" rel="noopener">US, UK Warn: Citrix NetScaler Zero-Days Under Active Attack</a><span>The Record · 14 h</span></li><li><a href="https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-ai-attacks-target-azure-destroy-cloud-resources/" rel="noopener">JadePuffer Agentic AI Attackers Wipe Azure Cloud Resources</a><span>BleepingComputer · 15 h</span></li><li><a href="https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/" rel="noopener">Ransomware Hits Japan's Keio Railway Group</a><span>bleepingcomputer · 22 h</span></li><li><a href="https://www.hkcert.org/security-bulletin/apache-tomcat-multiple-vulnerabilities_20260929" rel="noopener">HKCERT Warns Of Multiple Apache Tomcat Flaws</a><span>HKCERT · 4 h</span></li><li><a href="https://www.itnews.com.au/resource/ai-at-your-fingertips-how-elastic-ai-assistant-simplifies-cybersecurity-628334" rel="noopener">AI at your fingertips: How Elastic AI assistant simplifies cybersecurity</a><span>itnews · 9 h</span></li><li><a href="https://www.techmeme.com/260929/p1" rel="noopener">OpenAI apologizes for its AI models breaching Australian government websites, pledges cyber defense funding, and plans to form a task force as part of reforms</a><span>techmeme · 10 h</span></li></ul>
-    <details class="latest"><summary>17 more headlines</summary><ul class="latest"><li><a href="https://www.bleepingcomputer.com/news/security/times-car-confirms-data-breach-affecting-66-million-user-accounts/" rel="noopener">Times Car Confirms 6.6 Million Accounts Compromised</a><span>BleepingComputer · 10 h</span></li><li><a href="https://www.darkreading.com/identity-access-management-security/carbonato-botnet-ai-agent-hacked-docker-hosts" rel="noopener">Carbonato Botnet Plants AI Agent On Hacked Docker Hosts</a><span>Dark Reading · 10 h</span></li><li><a href="https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html" rel="noopener">Apple Patches CoreGraphics Flaw Used In Targeted Attacks</a><span>The Hacker News · 11 h</span></li><li><a href="https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/" rel="noopener">16,000 Supabase Databases Expose Passwords And Tokens</a><span>BleepingComputer · 12 h</span></li><li><a href="https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html" rel="noopener">NeedyMantis Malware Keeps Hackers Inside Breached Networks</a><span>The Hacker News · 12 h</span></li><li><a href="https://wtop.com/national/2026/09/openai-delays-latest-model-over-security-concerns-as-industry-faces-new-safety-pressures/" rel="noopener">OpenAI delays latest model over security concerns, as industry faces new safety pressures</a><span>wtop · 13 h</span></li><li><a href="https://www.darkreading.com/application-security/chrome-store-poper-blocker-spyware-downloaded-millions" rel="noopener">Chrome Store Spyware Poper Blocker Hits Millions</a><span>Dark Reading · 14 h</span></li><li><a href="https://www.arnnet.com.au/article/4227860/ai-driven-cyber-threats-could-see-businesses-lose-up-to-37b-by-2030.html" rel="noopener">AI-driven cyber threats could see businesses lose up to $37B by 2030</a><span>arnnet · 15 h</span></li><li><a href="https://www.businessday.co.za/companies/2026-09-29-cyber-defence-is-about-fighting-ai-with-ai-says-palo-alto-networks/" rel="noopener">Cybersecurity now about fighting AI with AI, says Palo Alto Networks</a><span>businessday · 15 h</span></li><li><a href="https://www.yahoo.com/news/us/articles/victims-columbus-ransomware-attack-win-233000095.html" rel="noopener">Columbus Ransomware Victims Score A Win</a><span>yahoo · 15 h</span></li><li><a href="https://krebsonsecurity.com/2026/09/dutch-police-arrest-reformed-hacker-in-shiny-hunters-investigation/" rel="noopener">Dutch Police Arrest Reformed Hacker In ShinyHunters Probe</a><span>KrebsOnSecurity · 15 h</span></li><li><a href="https://unit42.paloaltonetworks.com/netscaler-zero-days-exploited/" rel="noopener">Unit 42: NetScaler Zero-Days Exploited In The Wild</a><span>Unit 42 · 16 h</span></li><li><a href="https://thehackernews.com/2026/09/weekly-recap-387m-crypto-hack-citrix.html" rel="noopener">⚡ Weekly Recap: $387M Crypto Hack, Citrix Exploits, AI Agents Go Off-Script, and More Threats</a><span>The Hacker News · 17 h</span></li><li><a href="https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/" rel="noopener">80,000 Organizations Had AI Logins Stolen</a><span>BleepingComputer · 17 h</span></li><li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-81355" rel="noopener">Microsoft VHD Miniport Driver Remote Code Execution Bug</a><span>MSRC · 17 h</span></li><li><a href="https://therecord.media/poland-cyberattack-medical-medyc" rel="noopener">Polish Medical Software Provider Hacked, Patient Data Stolen</a><span>The Record · 17 h</span></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/winners-losers-q2-sentinelone-nyse-211036273.html?fr=sycsrp_catchall" rel="noopener">Winners And Losers Of Q2: SentinelOne (NYSE:S) Vs The Rest Of The Cybersecurity...</a><span>finance.yahoo · 17 h</span></li></ul></details></section>
+    <details class="latest"><summary>17 more headlines</summary><ul class="latest"><li><a href="https://www.bleepingcomputer.com/news/security/times-car-confirms-data-breach-affecting-66-million-user-accounts/" rel="noopener">Times Car Confirms 6.6 Million Accounts Compromised</a><span>BleepingComputer · 10 h</span></li><li><a href="https://www.darkreading.com/identity-access-management-security/carbonato-botnet-ai-agent-hacked-docker-hosts" rel="noopener">Carbonato Botnet Plants AI Agent On Hacked Docker Hosts</a><span>Dark Reading · 10 h</span></li><li><a href="https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html" rel="noopener">Apple Patches CoreGraphics Flaw Used In Targeted Attacks</a><span>The Hacker News · 11 h</span></li><li><a href="https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/" rel="noopener">16,000 Supabase Databases Expose Passwords And Tokens</a><span>BleepingComputer · 12 h</span></li><li><a href="https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html" rel="noopener">NeedyMantis Malware Keeps Hackers Inside Breached Networks</a><span>The Hacker News · 12 h</span></li><li><a href="https://wtop.com/national/2026/09/openai-delays-latest-model-over-security-concerns-as-industry-faces-new-safety-pressures/" rel="noopener">OpenAI delays latest model over security concerns, as industry faces new safety pressures</a><span>wtop · 13 h</span></li><li><a href="https://www.darkreading.com/application-security/chrome-store-poper-blocker-spyware-downloaded-millions" rel="noopener">Chrome Store Spyware Poper Blocker Hits Millions</a><span>Dark Reading · 14 h</span></li><li><a href="https://www.arnnet.com.au/article/4227860/ai-driven-cyber-threats-could-see-businesses-lose-up-to-37b-by-2030.html" rel="noopener">AI-driven cyber threats could see businesses lose up to $37B by 2030</a><span>arnnet · 15 h</span></li><li><a href="https://www.businessday.co.za/companies/2026-09-29-cyber-defence-is-about-fighting-ai-with-ai-says-palo-alto-networks/" rel="noopener">Cybersecurity now about fighting AI with AI, says Palo Alto Networks</a><span>businessday · 15 h</span></li><li><a href="https://www.yahoo.com/news/us/articles/victims-columbus-ransomware-attack-win-233000095.html" rel="noopener">Columbus Ransomware Victims Score A Win</a><span>yahoo · 15 h</span></li><li><a href="https://krebsonsecurity.com/2026/09/dutch-police-arrest-reformed-hacker-in-shiny-hunters-investigation/" rel="noopener">Dutch Police Arrest Reformed Hacker In ShinyHunters Probe</a><span>KrebsOnSecurity · 16 h</span></li><li><a href="https://unit42.paloaltonetworks.com/netscaler-zero-days-exploited/" rel="noopener">Unit 42: NetScaler Zero-Days Exploited In The Wild</a><span>Unit 42 · 16 h</span></li><li><a href="https://thehackernews.com/2026/09/weekly-recap-387m-crypto-hack-citrix.html" rel="noopener">⚡ Weekly Recap: $387M Crypto Hack, Citrix Exploits, AI Agents Go Off-Script, and More Threats</a><span>The Hacker News · 17 h</span></li><li><a href="https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/" rel="noopener">80,000 Organizations Had AI Logins Stolen</a><span>BleepingComputer · 17 h</span></li><li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-81355" rel="noopener">Microsoft VHD Miniport Driver Remote Code Execution Bug</a><span>MSRC · 17 h</span></li><li><a href="https://therecord.media/poland-cyberattack-medical-medyc" rel="noopener">Polish Medical Software Provider Hacked, Patient Data Stolen</a><span>The Record · 17 h</span></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/winners-losers-q2-sentinelone-nyse-211036273.html?fr=sycsrp_catchall" rel="noopener">Winners And Losers Of Q2: SentinelOne (NYSE:S) Vs The Rest Of The Cybersecurity...</a><span>finance.yahoo · 18 h</span></li></ul></details></section>
   <section class="sec"><h2>Earlier from this desk</h2><div class="earlier"><a href="/briefings/2026-09-28-cyber-pm"><img src="https://audio.wangreport.com/art/takes/2026-09-28-cyber-pm-1d4be-t.jpg" alt="" loading="lazy"><b>Cloudflare patches Containers cross-tenant data leak on shared hosts</b><span>Kai Tanner · 21 h ago</span></a><a href="/briefings/2026-09-28-cyber"><img src="https://audio.wangreport.com/art/takes/2026-09-28-cyber-14faf-t.jpg" alt="" loading="lazy"><b>Citrix confirms two NetScaler zero days exploited as CISA lists eight more flaws</b><span>Kai Tanner · 33 h ago</span></a><a href="/briefings/2026-09-27-cyber-pm"><img src="https://audio.wangreport.com/art/takes/2026-09-27-cyber-pm-14faf-t.jpg" alt="" loading="lazy"><b>Google warns ShinyHunters bypass WAF rules on PeopleSoft flaw</b><span>Kai Tanner · 45 h ago</span></a></div></section>
   <p class="foot">Everything on this desk, in full: <a href="/board#cyber">the Board</a></p>
 </main>
