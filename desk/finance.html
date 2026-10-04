@@ -15,7 +15,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HHENRPSK4D');</script>
 <style>
 :root{--bone:#F9F8F6;--ink:#0B1F3A;--seal:#B0241E;--rule:#E3DDD2;--slate:#5A6470;--panel:#F0EFED;--wr-bone:#F9F8F6;--wr-ink:#0B1F3A;--wr-seal:#B0241E;--wr-rule:#C8C0B0;--wr-slate:#5A6470;--wr-panel:#F0EFED;
---desk-hk-local:#B0241E;--desk-finance:#1E5C46;--desk-cyber:#1D5F5A;--desk-geopolitical:#6B2430;--desk-ai:#3E356B;--desk-sports:#A05A1F;--desk-science:#2F5570;--desk-life:#8A6D1F}
+--desk-culture:#9B3D6E;--desk-reddit:#5A6470;--desk-hk-local:#B0241E;--desk-finance:#1E5C46;--desk-cyber:#1D5F5A;--desk-geopolitical:#6B2430;--desk-ai:#3E356B;--desk-sports:#A05A1F;--desk-science:#2F5570;--desk-life:#8A6D1F}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bone);color:var(--ink);font:18px/1.55 'Spectral',Georgia,serif}
@@ -66,6 +66,7 @@ a{color:inherit;text-decoration:none}
 @media(max-width:699px){.swipe-hint{display:block}}
 .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 6px 20px rgba(11,31,58,.05);display:flex;flex-direction:column}
 .card-img img{width:100%;aspect-ratio:1200/630;object-fit:cover;display:block}
+.card-img .noart{display:flex;align-items:flex-end;width:100%;aspect-ratio:1200/630;padding:14px 16px;box-sizing:border-box;background:var(--hue);color:#fff;font:900 30px/1 'Playfair Display',Georgia,serif}
 .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
 .card h3{font:700 21px/1.25 'Playfair Display',Georgia,serif;margin:6px 0 10px}
 .card ul{list-style:none;margin:0 0 10px;padding:0}
@@ -155,6 +156,9 @@ a{color:inherit;text-decoration:none}
 .wnote b{display:block;font:700 13px Arial,sans-serif;font-style:normal;color:var(--slate)}
 .see-all>summary{list-style:none;cursor:pointer;font:700 14px Arial,sans-serif;color:var(--seal);padding:14px 0 0}
 .see-all .instr{margin-top:12px}
+/* 2026-10-04: top five and See all share one edge and one rhythm (no card around either). */
+.others .else-big{margin:0}.others .see-all>.else-big{margin-top:12px}
+.others>.see-all>summary{margin-top:4px}
 .others>.see-all>summary{font:700 15px Arial,sans-serif;letter-spacing:.04em;color:var(--ink);padding:0}
 .others>.see-all>summary::after{content:' \203A';color:var(--seal)}
 
@@ -373,10 +377,10 @@ details.bd-read .t{font-size:18px;line-height:1.3}
 .xr{display:block;padding:6px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
 
 .cv,.cv-sec,.cv-tc,.cv-s,.cv-grid>*{min-width:0;overflow-wrap:anywhere}
-.cv-sec{margin:0 0 18px}.cv-sec h3{font:700 19px 'Spectral',Georgia,serif;margin:0 0 6px;padding-top:10px;border-top:2px solid var(--hue,#8A6D1F)}
+.cv-sec{margin:0 0 18px}.cv-sec h3{font:700 19px 'Spectral',Georgia,serif;margin:0 0 6px;padding-top:10px;border-top:2px solid var(--hue,#9B3D6E)}
 .cv-sec h3 span{font:400 12px Arial,sans-serif;color:var(--wr-slate);margin-left:4px}
 .cv-trend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:4px 18px}
-.cv-th{font:700 12px Arial,sans-serif;color:var(--hue,#8A6D1F);padding:4px 0}
+.cv-th{font:700 12px Arial,sans-serif;color:var(--hue,#9B3D6E);padding:4px 0}
 .cv-tc ol{margin:0;padding:0;list-style:none;counter-reset:n}
 .cv-tc li{counter-increment:n;border-top:1px dotted var(--wr-rule)}
 .cv-tc li a{display:grid;grid-template-columns:20px minmax(0,1fr) auto;column-gap:6px;padding:5px 0;text-decoration:none;color:var(--wr-ink)}
@@ -398,8 +402,8 @@ details.bd-read .t{font-size:18px;line-height:1.3}
 .cv-s b{display:block;font:500 15px/1.3 'Spectral',Georgia,serif}.cv-s i{display:block;font:normal 11.5px Arial,sans-serif;color:var(--wr-slate);margin-top:2px}
 .cv-note{font:italic 14.5px/1.4 'Spectral',Georgia,serif;color:var(--wr-ink);margin:0 0 8px}.cv-own{font:11.5px Arial,sans-serif;color:var(--wr-slate);margin:-2px 0 6px}.cv-own a{color:inherit;text-decoration:underline}
 .cv-cal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:2px 0 8px}
-.cv-cal a{display:block;border:1px solid var(--wr-rule);border-top:3px solid var(--hue,#8A6D1F);border-radius:4px;padding:8px 10px;text-decoration:none;color:var(--wr-ink);background:#fff}
-.cv-cal a{padding:7px 8px}.cv-cal em{display:block;font:700 18px 'Spectral',Georgia,serif;font-style:normal;color:var(--hue,#8A6D1F)}.cv-cal b{display:block;font:600 16px 'Spectral',Georgia,serif}.cv-cal i{display:block;font:normal 11px/1.35 Arial,sans-serif;color:var(--wr-slate)}@media(max-width:600px){.cv-cal i{font-size:10.5px}.cv-cal b{font-size:14.5px}}
+.cv-cal a{display:block;border:1px solid var(--wr-rule);border-top:3px solid var(--hue,#9B3D6E);border-radius:4px;padding:8px 10px;text-decoration:none;color:var(--wr-ink);background:#fff}
+.cv-cal a{padding:7px 8px}.cv-cal em{display:block;font:700 18px 'Spectral',Georgia,serif;font-style:normal;color:var(--hue,#9B3D6E)}.cv-cal b{display:block;font:600 16px 'Spectral',Georgia,serif}.cv-cal i{display:block;font:normal 11px/1.35 Arial,sans-serif;color:var(--wr-slate)}@media(max-width:600px){.cv-cal i{font-size:10.5px}.cv-cal b{font-size:14.5px}}
 /* Phones: the ranked lists swipe sideways instead of stacking seven deep. */
 @media(max-width:700px){.cv-trend{align-items:flex-start;display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:4px}.cv-trend::-webkit-scrollbar{display:none}.cv-trend .cv-tc{flex:0 0 84%;scroll-snap-align:start}}
 .cc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 10px}
@@ -703,17 +707,17 @@ a.hub-row-title:hover { color: var(--desk-accent); }
   <section class="lead">
     <a href="/briefings/2026-10-04-hk-finance-pm"><img src="https://audio.wangreport.com/art/takes/2026-10-04-hk-finance-pm-9bc7e.jpg" alt=""></a>
     <div>
-      <span class="kicker">Rachel Lam · 4 h ago</span>
+      <span class="kicker">Rachel Lam · 13 h ago</span>
       <h1><a href="/briefings/2026-10-04-hk-finance-pm">Hong Kong share sales hit record US$47.5 billion in third quarter, as nine-month IPO haul reaches HK$388 billion</a></h1>
       <p>Three record totals circulated over the weekend, and the reports do not say whether they count the same thing.</p>
       <div class="by"><a href="/briefings/2026-10-04-hk-finance-pm" style="color:var(--hue);font-weight:700">Read the take &rarr;</a></div>
     </div>
   </section>
-  <section class="sec"><div class="instr" style="--hue:#1E5C46"><div class="fc-panel"><div class="fp-legend">Hong Kong money, 30 days <span>closing values</span></div><div class="fc-row"><span class="fc-l"><b>Hang Seng</b><span class="fc-n">day <span class="fc-dn">-2.6%</span> · month <span class="fc-dn">-5.3%</span></span></span><span class="fc-v">23,972</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,7.3L5.9,8.8L9.7,2.0L21.3,5.7L25.2,7.2L29.1,7.8L32.9,12.8L36.8,15.1L48.4,13.4L52.3,17.2L56.1,16.5L60.0,18.2L63.9,15.9L75.5,11.4L79.3,10.7L83.2,14.7L87.1,15.8L90.9,19.7L102.5,17.6L106.4,19.5L110.3,18.1L118.0,28.0"/><circle cx="118.0" cy="28.0" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>USD/HKD</b><span class="fc-n">peg band 7.75 to 7.85; at the weak side</span></span><span class="fc-v">7.8463</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><line x1="0" x2="120" y1="28.0" y2="28.0" class="fc-band"/><line x1="0" x2="120" y1="2.0" y2="2.0" class="fc-band"/><path d="M2.0,4.4L5.6,4.2L9.2,4.6L20.0,4.4L23.6,4.6L27.2,4.2L30.8,4.0L34.4,4.3L45.2,4.1L48.8,3.8L52.4,3.4L56.0,3.5L59.6,3.1L70.4,3.4L74.0,3.3L77.6,3.9L81.2,4.0L84.8,3.9L95.6,3.5L99.2,3.4L102.8,3.0L106.4,3.0L110.0,2.9L118.0,3.0"/><circle cx="118.0" cy="3.0" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>1-month HIBOR</b><span class="fc-n"><span class="fc-up">+28 bp</span> in a month · overnight 2.63%</span></span><span class="fc-v">2.97%</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,28.0L10.3,27.3L13.0,20.4L15.8,19.5L18.6,20.0L21.3,15.1L29.6,15.1L32.4,14.0L35.1,14.1L37.9,15.6L40.7,15.7L49.0,14.8L51.7,11.8L54.5,12.5L57.2,13.0L60.0,12.8L68.3,12.1L71.0,10.2L73.8,7.3L76.6,11.2L79.3,13.6L87.6,13.6L90.4,15.6L93.1,12.3L95.9,6.7L98.7,4.1L107.0,2.0L109.7,2.1L112.5,3.0L118.0,5.8"/><circle cx="118.0" cy="5.8" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>Aggregate balance</b><span class="fc-n">banks' cash at the HKMA · <span class="fc-up">+0.1 bn</span> in a month</span></span><span class="fc-v">HK$54.1bn</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,28.0L10.3,17.1L13.0,27.0L15.8,25.6L18.6,25.2L21.3,25.4L29.6,25.4L32.4,25.4L35.1,27.4L37.9,27.4L40.7,27.4L49.0,27.4L51.7,27.4L54.5,27.3L57.2,27.6L60.0,27.6L68.3,27.6L71.0,27.6L73.8,2.0L76.6,27.9L79.3,27.9L87.6,27.9L90.4,27.9L93.1,25.8L95.9,25.8L98.7,18.5L107.0,25.8L109.7,25.3L112.5,26.3L118.0,26.3"/><circle cx="118.0" cy="26.3" r="2.2"/></svg></div>
+  <section class="sec"><div class="instr" style="--hue:#1E5C46"><div class="fc-panel"><div class="fp-legend">Hong Kong money, 30 days <span>closing values</span></div><div class="fc-row"><span class="fc-l"><b>Hang Seng</b><span class="fc-n">day <span class="fc-dn">-2.6%</span> · month <span class="fc-dn">-5.3%</span></span></span><span class="fc-v">23,972</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,7.3L5.9,8.8L9.7,2.0L21.3,5.7L25.2,7.2L29.1,7.8L32.9,12.8L36.8,15.1L48.4,13.4L52.3,17.2L56.1,16.5L60.0,18.2L63.9,15.9L75.5,11.4L79.3,10.7L83.2,14.7L87.1,15.8L90.9,19.7L102.5,17.6L106.4,19.5L110.3,18.1L118.0,28.0"/><circle cx="118.0" cy="28.0" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>USD/HKD</b><span class="fc-n">peg band 7.75 to 7.85; at the weak side</span></span><span class="fc-v">7.8464</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><line x1="0" x2="120" y1="28.0" y2="28.0" class="fc-band"/><line x1="0" x2="120" y1="2.0" y2="2.0" class="fc-band"/><path d="M2.0,4.4L5.5,4.2L9.0,4.6L19.6,4.4L23.1,4.6L26.6,4.2L30.1,4.0L33.7,4.3L44.2,4.1L47.7,3.8L51.2,3.4L54.8,3.5L58.3,3.1L68.8,3.4L72.3,3.3L75.9,3.9L79.4,4.0L82.9,3.9L93.4,3.5L97.0,3.4L100.5,3.0L104.0,3.0L107.5,2.9L118.0,2.9"/><circle cx="118.0" cy="2.9" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>1-month HIBOR</b><span class="fc-n"><span class="fc-up">+28 bp</span> in a month · overnight 2.63%</span></span><span class="fc-v">2.97%</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,28.0L10.3,27.3L13.0,20.4L15.8,19.5L18.6,20.0L21.3,15.1L29.6,15.1L32.4,14.0L35.1,14.1L37.9,15.6L40.7,15.7L49.0,14.8L51.7,11.8L54.5,12.5L57.2,13.0L60.0,12.8L68.3,12.1L71.0,10.2L73.8,7.3L76.6,11.2L79.3,13.6L87.6,13.6L90.4,15.6L93.1,12.3L95.9,6.7L98.7,4.1L107.0,2.0L109.7,2.1L112.5,3.0L118.0,5.8"/><circle cx="118.0" cy="5.8" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>Aggregate balance</b><span class="fc-n">banks' cash at the HKMA · <span class="fc-up">+0.1 bn</span> in a month</span></span><span class="fc-v">HK$54.1bn</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,28.0L10.3,17.1L13.0,27.0L15.8,25.6L18.6,25.2L21.3,25.4L29.6,25.4L32.4,25.4L35.1,27.4L37.9,27.4L40.7,27.4L49.0,27.4L51.7,27.4L54.5,27.3L57.2,27.6L60.0,27.6L68.3,27.6L71.0,27.6L73.8,2.0L76.6,27.9L79.3,27.9L87.6,27.9L90.4,27.9L93.1,25.8L95.9,25.8L98.7,18.5L107.0,25.8L109.7,25.3L112.5,26.3L118.0,26.3"/><circle cx="118.0" cy="26.3" r="2.2"/></svg></div>
   <div class="cy-key">Hang Seng: index points. USD/HKD: the peg's band drawn as two lines. HIBOR: what banks charge each other, the rate mortgages follow. Aggregate balance: a falling figure means money leaving and rates rising. Sources: Yahoo Finance, HKMA.</div></div></div></section>
   
   
-  <section class="sec"><h2>Earlier from this desk</h2><div class="earlier"><a href="/briefings/2026-10-04-hk-finance-midday"><img src="https://audio.wangreport.com/art/takes/2026-10-04-hk-finance-midday-9736f-t.jpg" alt="" loading="lazy"><b>SFC issues circular on Single Submission Arrangement with Securities Commission Malaysia for dual listings</b><span>Rachel Lam · 9 h ago</span></a><a href="/briefings/2026-10-04-hk-finance"><img src="https://audio.wangreport.com/art/takes/2026-10-04-hk-finance-919c8-t.jpg" alt="" loading="lazy"><b>SFC and AFRC sign new MoU extending cooperation to financial reporting of licensed firms and funds</b><span>Rachel Lam · 16 h ago</span></a><a href="/briefings/2026-10-03-hk-finance-midday"><img src="https://audio.wangreport.com/art/takes/2026-10-03-hk-finance-midday-82202-t.jpg" alt="" loading="lazy"><b>HSBC shares fall nearly 5 percent through HK$150 as Hang Seng sheds 640 points</b><span>Rachel Lam · 33 h ago</span></a></div></section>
+  <section class="sec"><h2>Earlier from this desk</h2><div class="earlier"><a href="/briefings/2026-10-05-hk-finance"><b>SFC issues Investor Identification Regime roadmap and client consent circular for exchange-traded derivatives</b><span>Rachel Lam · 19 min ago</span></a><a href="/briefings/2026-10-04-hk-finance-midday"><img src="https://audio.wangreport.com/art/takes/2026-10-04-hk-finance-midday-9736f-t.jpg" alt="" loading="lazy"><b>SFC issues circular on Single Submission Arrangement with Securities Commission Malaysia for dual listings</b><span>Rachel Lam · 18 h ago</span></a><a href="/briefings/2026-10-04-hk-finance"><img src="https://audio.wangreport.com/art/takes/2026-10-04-hk-finance-919c8-t.jpg" alt="" loading="lazy"><b>SFC and AFRC sign new MoU extending cooperation to financial reporting of licensed firms and funds</b><span>Rachel Lam · 24 h ago</span></a></div></section>
   <p class="foot">Everything on this desk, in full: <a href="/board#finance">the Board</a></p>
 </main>
 <script>
