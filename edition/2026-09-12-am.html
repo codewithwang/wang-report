@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- wr-edition-home -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthropic Details How Attackers Used Claude · Morning Edition</title>
+<meta name="description" content="Anthropic disclosed the mechanics of AI-assisted hacking campaigns it disrupted, handing defenders a rare look at how the abuse actually worked and how fast it moved.">
+<link rel="canonical" href="https://wangreport.com/edition/2026-09-12-am">
+<link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+<meta property="og:title" content="Anthropic Details How Attackers Used Claude · Morning Edition">
+<meta property="og:description" content="Anthropic disclosed the mechanics of AI-assisted hacking campaigns it disrupted, handing defenders a rare look at how the abuse actually worked and how fast it moved.">
+<meta property="og:image" content="https://wangreport.com/img/edition/2026-09-12-am-ec9b716297.jpg">
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=ab37b9e826">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HHENRPSK4D');</script>
+<style>.take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
+.ed-hit summary{list-style:none;cursor:pointer}.ed-hit summary::-webkit-details-marker{display:none}
+.ed-hit-t{font-weight:700;color:var(--wr-ink)}
+.ed-rm{font:700 12px Arial,sans-serif;color:var(--wr-seal);white-space:nowrap}
+details[open].ed-hit .ed-rm,details[open].ed-hit .ed-hit-gloss{display:none}
+.ed-hit-body{margin:10px 0 6px;font-size:17px;line-height:1.55}
+.ed-hit-body img{width:100%;height:auto;display:block;border:1px solid var(--wr-rule);margin-bottom:10px}
+.ed-hit-by{font:12.5px Arial,sans-serif;color:var(--wr-slate);margin:0 0 6px}
+.ed-hit-open a{font:700 12.5px Arial,sans-serif;color:var(--wr-seal)}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+<header>
+  <div class="masthead"><a href="/" style="color:inherit;text-decoration:none;">THE WANG REPORT</a></div>
+  <div class="subhead">Saturday, September 12, 2026 &middot; Hong Kong</div>
+</header>
+<main class="ed-wrap">
+  <div class="ed-banner">
+    <span>Morning Report <span class="ed-when">&middot; 06:27 HKT</span></span>
+    <span><a href="/edition/2026-09-11-pm">&larr; Evening Report</a> &middot; <a href="/edition/">All editions</a></span>
+  </div>
+  <div class="ed-speaker">
+    <img class="ed-face" src="/masthead/img/feed/charmaine-lo-sq.jpg" alt="" loading="lazy">
+    <div><span class="ed-name">Charmaine Lo<span class="zh">羅 嘉 晴</span></span><span class="ed-role">News Anchor · Morning Report</span></div>
+  </div>
+  <p class="ed-greet">Here is today's morning report. <span class="ed-greet-when">Sat, Sep 12, 06:27 HKT</span></p>
+  <ul class="ed-hits"><li><span class="ed-hit-when">06:10 HKT</span> <a href="/briefings/2026-09-12-cyber">Anthropic Says It Disrupted Claude-Assisted Hacking Campaigns</a> <span class="ed-hit-gloss">Kai Tanner has the technique Anthropic disrupted: a state group using Claude to rebuild malware faster than signatures could catch it.</span></li>
+<li><span class="ed-hit-when">06:12 HKT</span> <a href="/briefings/2026-09-12-ai-focus">OpenAI's Astra Solves a Fluid-Dynamics Problem, Then Freezes Its Own Signups</a> <span class="ed-hit-gloss">Aya Nakamura on Astra's physics proof, the Pro-tier freeze two days later, and what the distillation fight actually routes around.</span></li>
+<li><span class="ed-hit-when">06:10 HKT</span> <a href="/briefings/2026-09-12-geopolitical">US and Chinese Commanders Hold First Strait Talks</a> <span class="ed-hit-gloss">Mei Chen on the first direct US-China commander talks over the Taiwan Strait, opened as Beijing reinforces artillery.</span></li>
+<li><span class="ed-hit-when">06:11 HKT</span> <a href="/briefings/2026-09-12-hk-finance">UBS Rebounds After $7.93 Billion Tender for Its Own Notes</a> <span class="ed-hit-gloss">Rachel Lam on UBS's $7.93 billion note buyback, and why the rebound isn't relief about finding the cash.</span></li>
+<li><span class="ed-hit-when">06:11 HKT</span> <a href="/briefings/2026-09-12-geopolitical-ledger">PBOC Sends Anniversary Message As Kim Marks Founding Day</a> <span class="ed-hit-gloss">Vincent Lai on Beijing's Kim Jong Un anniversary message, and the PBOC clearing review that actually prices peninsula risk.</span></li>
+<li><span class="ed-hit-when">06:13 HKT</span> <a href="/briefings/2026-09-12-science">Pooling Patients' Brain Signals Cuts Speech Decoder Setup Time</a> <span class="ed-hit-gloss">Magnus Honeyfield on a UC Davis result that pretrains speech implants on other patients' brain signals to cut calibration time.</span></li>
+<li><span class="ed-hit-when">06:12 HKT</span> <a href="/briefings/2026-09-12-health">What a 117-Year Life Reveals About Aging's Two Speeds</a> <span class="ed-hit-gloss">Sora Whitlam on the fullest biological profile yet of a 117-year life, and why it breaks the slow-aging story.</span></li>
+<li><span class="ed-hit-when">06:11 HKT</span> <a href="/briefings/2026-09-12-hk-desk">A Man Grabbed HK$30 Million That Wasn't His</a> <span class="ed-hit-gloss">Cheung Kwok-keung on the HK$30 million Mark Six ticket that walked off with one guy instead of fourteen.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">Anthropic Details How Attackers Used Claude</h1>
+    <p class="ed-deck">Anthropic disclosed the mechanics of AI-assisted hacking campaigns it disrupted, handing defenders a rare look at how the abuse actually worked and how fast it moved.</p>
+    <figure class="ed-lead"><img src="/img/edition/2026-09-12-am-ec9b716297.jpg" alt="" loading="lazy"><figcaption>Photo: bleepingcomputer.com</figcaption></figure>
+    <div class="ed-body">
+<p>For weeks this story arrived in fragments: a claim here, a vendor statement there. This week Anthropic filed the mechanics. A Russian state-sponsored group built a workflow around Claude specifically to rebuild malware faster than defenders could re-detect it, a technique-development loop rather than the one-off jailbreak this desk has covered before. Separately, financially motivated and China-linked espionage actors used Claude to pull secrets out of 1.8 million Android apps, and Anthropic identified industrial-scale distillation attacks against its own models from seven China-based labs, Alibaba, Moonshot, DeepSeek and Z.ai among them. <a class="ed-ref" href="/briefings/2026-09-12-cyber">Kai Tanner</a>'s desk has the full technique breakdown, and the detail Anthropic left out: which detection signatures the rebuilt malware actually evaded.</p>
+<p>HKMA's TM-G-1 and MAS TRM both assume attacker development cycles measured in weeks. The Bank for International Settlements said this month that routine patching schedules are increasingly inadequate as AI compresses that cycle to minutes. A bank refreshing detection signatures on the same quarterly rhythm it patches Windows is testing its controls against an attacker whose cycle time has changed.</p>
+<p>Elsewhere this cycle, <a class="ed-ref" href="/briefings/2026-09-12-ai-focus">Aya Nakamura</a>'s desk has OpenAI shipping a model that solved a fluid-dynamics problem mathematicians have worked since the 1840s, then freezing its own Pro subscriptions two days later because it couldn't serve the demand. <a class="ed-ref" href="/briefings/2026-09-12-geopolitical">Mei Chen</a>'s desk has US and Chinese commanders opening a direct line over Taiwan, infrastructure for an incident neither side has ordered yet. <a class="ed-ref" href="/briefings/2026-09-12-hk-finance">Rachel Lam</a> has UBS buying back $7.93 billion of its own notes, a tender that reads less like spare cash and more like a treasury desk that wanted to control its own timeline.</p>
+<p>None of this changes what a bank does differently on Monday. No vendor named in Anthropic's disclosure is one an APAC institution runs directly, so there is no patch to apply and no product to swap out. What changes is the assumption underneath the audit: a control built to catch last month's malware family, checked once a quarter, is not a control against an attacker whose development cycle now runs in the same afternoon as the detection update it's evading.</p>
+    </div>
+  </details>
+  <div class="ed-listen" data-bc="charmaine">
+    <span class="ed-play" role="button" aria-label="Play"></span>
+    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  </div>
+  <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/hackers-abused-claude-to-extract-secrets-from-18m-android-apps/" rel="noopener" target="_blank">Hackers Weaponize Claude AI To Ransack 1.8 Million Android Apps For Secrets</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPUkxXc2JVVUxqdmJvWTRPQ3B4eUlfb1NhUHNzZ0pIWF9WZXBOSks2TFdNampOaVA0bnhvbmY3RFBYbW40aFRKaW5WbDBtQnJJeFIxc3ExamVPUE5nVXhDczZEWWJmcDBwZExXSVZWY3JXUjlqcm1mX3hXeGUtQWNJczJiS29qbFlOT3dIV2pzVnh1NThDc29fMEJqbGQtLV80VnM1SXhGQU1qRWkyWkxlaWg1eUhuQQ?oc=5" rel="noopener" target="_blank">Houthis Seize Key Red Sea Port</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxONUQ1VFl3RGVXQnFjNUhwZ3Q2R04wemM0dUdJel9sQjh6MzdGS1pFb2g0T1VtVFVuOWFyOGJnNkNBaHdhYmxYbGZOV0l4VG05RjIxdFNJa0VYXzNaSml2VzRhbDRpWTRUaEk5SG9XQ3pVLU8wNmFCQUpabG5WNENPT2pYeFVxLXZOcy1fMnlucE03bnhU?oc=5" rel="noopener" target="_blank">Oil Prices Spike, Wall Street Slides</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/video/us/politics/100000011133866/how-trump-is-using-the-postal-service-to-intervene-in-elections.html" rel="noopener" target="_blank">Trump Uses Postal Service On Elections</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3367254/us-consumer-prices-pick-august-bolstering-chances-interest-rate-increase?utm_source=rss_feed" rel="noopener" target="_blank">US Inflation Accelerates In August</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNVTBFUTEzeTBvRXBvblJZelMzMGR6aUJ4Z1NHaFpmVmlLVlpGOVNidnNJdU5TN2FobjFzX1JJR3duN2JOWXdMMzFka0JHSFdCOWkzaUlnSUpxV2hXMnFxNVprSWwxUDZjM094dFBCeWdpOWdCd3VudWZIM3VDbkJWS01ZWXJHY084MHVuVUxNWUt1V05SbVg0OEJOblk4Rk83U1pjdE5haDQ1WEQ3?oc=5" rel="noopener" target="_blank">California Signs AI Chatbot Kid Laws</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-11/treasuries-fall-as-higher-than-expected-cpi-boosts-fed-hike-odds" rel="noopener" target="_blank">Treasury Yields Hit Multiyear Highs</a> <span class="take-source-meta">(bloomberg.com)</span></li></ul></div>
+  
+  <div class="ed-foot">
+    <a href="/edition/">Edition archive</a> &middot; <a href="/wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="/masthead">Masthead</a> &middot; <a href="/classic">Classic front page</a> &middot; <a href="/how-its-made">How it's made</a>
+  </div>
+</main>
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><style>
+.sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
+.sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
+.sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
+.sf-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin:16px 0}
+.sf-col h5{font:700 12px Arial,sans-serif;color:#0B1F3A;margin:0 0 6px}
+.sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
+.sf-col a:hover{color:#0B1F3A;text-decoration:underline}
+.sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
+</style><footer class="sf"><div class="sf-in">
+  <a class="sf-mark" href="/">The Wang Report</a>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
+</div></footer>
+<script>
+(function () {
+  var box = document.querySelector('.ed-listen'); if (!box) return;
+  var key = box.getAttribute('data-bc');
+  fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
+    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    if (!ep) return;
+    var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
+    var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
+    player.addEventListener('ended', function () { box.classList.remove('playing'); });
+    box.querySelector('.ed-play').addEventListener('click', function () {
+      if (player.paused) { player.play(); box.classList.add('playing'); } else { player.pause(); box.classList.remove('playing'); }
+    });
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>

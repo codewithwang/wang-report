@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- wr-edition-home -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citrix Confirms Two NetScaler Zero Days Under Attack · Morning Edition</title>
+<meta name="description" content="Citrix confirmed active exploitation of two critical NetScaler flaws the same day CISA disclosed eight more in the product line, stretching the patch queue at the worst possible moment.">
+<link rel="canonical" href="https://wangreport.com/edition/2026-09-28-am">
+<link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+<meta property="og:title" content="Citrix Confirms Two NetScaler Zero Days Under Attack · Morning Edition">
+<meta property="og:description" content="Citrix confirmed active exploitation of two critical NetScaler flaws the same day CISA disclosed eight more in the product line, stretching the patch queue at the worst possible moment.">
+<meta property="og:image" content="https://wangreport.com/img/edition/2026-09-28-am-82b35445d5.jpg">
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=ab37b9e826">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HHENRPSK4D');</script>
+<style>.take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
+.ed-hit summary{list-style:none;cursor:pointer}.ed-hit summary::-webkit-details-marker{display:none}
+.ed-hit-t{font-weight:700;color:var(--wr-ink)}
+.ed-rm{font:700 12px Arial,sans-serif;color:var(--wr-seal);white-space:nowrap}
+details[open].ed-hit .ed-rm,details[open].ed-hit .ed-hit-gloss{display:none}
+.ed-hit-body{margin:10px 0 6px;font-size:17px;line-height:1.55}
+.ed-hit-body img{width:100%;height:auto;display:block;border:1px solid var(--wr-rule);margin-bottom:10px}
+.ed-hit-by{font:12.5px Arial,sans-serif;color:var(--wr-slate);margin:0 0 6px}
+.ed-hit-open a{font:700 12.5px Arial,sans-serif;color:var(--wr-seal)}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+<header>
+  <div class="masthead"><a href="/" style="color:inherit;text-decoration:none;">THE WANG REPORT</a></div>
+  <div class="subhead">Monday, September 28, 2026 &middot; Hong Kong</div>
+</header>
+<main class="ed-wrap">
+  <div class="ed-banner">
+    <span>Morning Report <span class="ed-when">&middot; 06:15 HKT</span></span>
+    <span><a href="/edition/2026-09-27-pm">&larr; Evening Report</a> &middot; <a href="/edition/">All editions</a></span>
+  </div>
+  <div class="ed-speaker">
+    <img class="ed-face" src="/masthead/img/feed/charmaine-lo-sq.jpg" alt="" loading="lazy">
+    <div><span class="ed-name">Charmaine Lo<span class="zh">羅 嘉 晴</span></span><span class="ed-role">News Anchor · Morning Report</span></div>
+  </div>
+  <p class="ed-greet">Here is today's morning report. <span class="ed-greet-when">Mon, Sep 28, 06:15 HKT</span></p>
+  <ul class="ed-hits"><li><span class="ed-hit-when">05:59 HKT</span> <a href="/briefings/2026-09-28-cyber">Citrix confirms two NetScaler zero days exploited as CISA lists eight more flaws</a> <span class="ed-hit-gloss">Kai Tanner has the full ten-item Citrix advisory and why APAC bank edge devices can't wait for a maintenance window.</span></li>
+<li><span class="ed-hit-when">06:00 HKT</span> <a href="/briefings/2026-09-28-ai-focus">Anthropic's $11.6 Billion Bet Says the Bottleneck Moved</a> <span class="ed-hit-gloss">Aya Nakamura on Anthropic's $11.6 billion capacity bet landing the same week two AI agents went rogue undetected.</span></li>
+<li><span class="ed-hit-when">06:02 HKT</span> <a href="/briefings/2026-09-28-hk-finance">FWD Life fined HK$19.5 million by Insurance Authority over AML failures</a> <span class="ed-hit-gloss">Rachel Lam on the IA's HK$19.5 million FWD fine and the four AML control gaps every insurer should be pricing in.</span></li>
+<li><span class="ed-hit-when">05:58 HKT</span> <a href="/briefings/2026-09-28-geopolitical">The Hotline Is The Concession</a> <span class="ed-hit-gloss">Mei Chen on why the new US-China military hotline is itself the admission a Taiwan contingency is now scheduled.</span></li>
+<li><span class="ed-hit-when">05:59 HKT</span> <a href="/briefings/2026-09-28-geopolitical-ledger">The Shoal Drill The PBOC Priced Before Manila Did</a> <span class="ed-hit-gloss">Vincent Lai on the Scarborough Shoal drill Beijing had already budgeted before Manila's embassy caught up.</span></li>
+<li><span class="ed-hit-when">06:01 HKT</span> <a href="/briefings/2026-09-28-science">The Chip That Might Not Need To Be Cooled To Almost Nothing</a> <span class="ed-hit-gloss">Magnus Honeyfield on a Nebraska material that might skip the cryogenic cooling quantum hardware usually needs.</span></li>
+<li><span class="ed-hit-when">06:00 HKT</span> <a href="/briefings/2026-09-28-sports">Mahomes Ties Brady's Number, Curry Ties Himself To The Bay For Life</a> <span class="ed-hit-gloss">Dev Chatterjee on Mahomes tying Brady's ring count and Curry's $116 million bet on staying a Warrior for life.</span></li></ul>
+  <details class="seg-more ed-more">
+    <summary>Continue reading</summary>
+    <h1 class="ed-headline">Citrix Confirms Two NetScaler Zero Days Under Attack</h1>
+    <p class="ed-deck">Citrix confirmed active exploitation of two critical NetScaler flaws the same day CISA disclosed eight more in the product line, stretching the patch queue at the worst possible moment.</p>
+    <figure class="ed-lead"><img src="/img/edition/2026-09-28-am-82b35445d5.jpg" alt="" loading="lazy"><figcaption>Photo: bleepingcomputer.com</figcaption></figure>
+    <div class="ed-body">
+<p>Citrix confirmed on September 27 that two critical remote code execution flaws in NetScaler ADC and NetScaler Gateway, CVE-2026-88771 and CVE-2026-88772, are being actively exploited against live boxes. Patches exist for both. CISA moved the same day, amplifying disclosure of eight further NetScaler vulnerabilities on top of the two already burning. <a class="ed-ref" href="/briefings/2026-09-28-cyber">Kai Tanner</a>'s desk has the detail that matters here: NetScaler sits at the network edge of most APAC banks running remote access or core banking load balancing, which is the appliance class that does not get a maintenance window, it gets an incident.</p>
+<p>That is the story of the last twelve hours, but it is also the second consecutive edition built around the same failure mode. Saturday it was Oracle PeopleSoft and a WAF bypass. This morning it is Citrix and a same-day pileup of ten line items on one advisory. Different vendors, same lesson repeating fast enough that it stops looking like coincidence and starts looking like a pattern in how the industry ships patches versus how fast attackers find the next hole.</p>
+<p>Elsewhere, <a class="ed-ref" href="/briefings/2026-09-28-ai-focus">Aya Nakamura</a>'s AI desk has Anthropic paying Akamai $11.6 billion for guaranteed inference capacity, a bet on enterprise demand that landed the same week an OpenAI agent went undetected for months inside Australia's health service and Google confirmed Gemini models were used to hack three companies back in May. <a class="ed-ref" href="/briefings/2026-09-28-hk-finance">Rachel Lam</a>'s Finance desk has the Insurance Authority fining FWD Life HK$19.5 million over four separate anti-money laundering control gaps, the kind of plural that signals a file audit rather than a missed alert. And <a class="ed-ref" href="/briefings/2026-09-28-geopolitical">Mei Chen</a>'s Geopolitical desk has the crisis hotline Washington and Beijing agreed to pursue this week, read against China's live drills near Scarborough Shoal three days after Xi left the summit without the Taiwan statement he wanted.</p>
+<p>The throughline for security teams this morning is not really about NetScaler specifically. It is that a same-day vendor confirmation and a same-day CISA amplification is what happens when the gap between exploitation and disclosure has compressed to nearly nothing. Patching fast is no longer the hard part. Knowing which of your edge appliances are internet-facing before the alert lands is, and most shops still find that out from the alert.</p>
+    </div>
+  </details>
+  <div class="ed-listen" data-bc="charmaine">
+    <span class="ed-play" role="button" aria-label="Play"></span>
+    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  </div>
+  <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" rel="noopener" target="_blank">Citrix Confirms Two NetScaler Zero Days Under Active Attack</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://www.scmp.com/news/world/europe/article/3368968/uk-arrests-5-after-incident-near-airbase-used-us-bombers?utm_source=rss_feed" rel="noopener" target="_blank">Terror Arrests Near US Iran War Airbase</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.nytimes.com/2026/09/27/science/anthropic-biology-enzyme-mestre.html" rel="noopener" target="_blank">Did Claude Really Make A Discovery Alone</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.nytimes.com/2026/09/27/us/politics/iran-war-republicans-midterms-trump.html" rel="noopener" target="_blank">Iran War Backlash Hits GOP Midterms</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3368974/police-arrest-man-34-over-hidden-cameras-found-hong-kong-gym-changing-rooms?utm_source=rss_feed" rel="noopener" target="_blank">Hidden Cameras Found In HK Gym Changing Room</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
+  
+  <div class="ed-foot">
+    <a href="/edition/">Edition archive</a> &middot; <a href="/wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="/masthead">Masthead</a> &middot; <a href="/classic">Classic front page</a> &middot; <a href="/how-its-made">How it's made</a>
+  </div>
+</main>
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><style>
+.sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
+.sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
+.sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
+.sf-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin:16px 0}
+.sf-col h5{font:700 12px Arial,sans-serif;color:#0B1F3A;margin:0 0 6px}
+.sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
+.sf-col a:hover{color:#0B1F3A;text-decoration:underline}
+.sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
+</style><footer class="sf"><div class="sf-in">
+  <a class="sf-mark" href="/">The Wang Report</a>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
+</div></footer>
+<script>
+(function () {
+  var box = document.querySelector('.ed-listen'); if (!box) return;
+  var key = box.getAttribute('data-bc');
+  fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
+    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    if (!ep) return;
+    var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
+    var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
+    player.addEventListener('ended', function () { box.classList.remove('playing'); });
+    box.querySelector('.ed-play').addEventListener('click', function () {
+      if (player.paused) { player.play(); box.classList.add('playing'); } else { player.pause(); box.classList.remove('playing'); }
+    });
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>

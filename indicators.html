@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indicators · THE WANG REPORT</title>
+  <meta name="description" content="Every number on The Wang Report front page, with how it is computed, where it comes from, and its 30-day trend.">
+  <link rel="canonical" href="https://wangreport.com/indicators">
+  <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="Indicators · THE WANG REPORT">
+  <meta property="og:description" content="Every number on The Wang Report front page, with how it is computed, where it comes from, and its 30-day trend.">
+  <meta property="og:url" content="https://wangreport.com/indicators">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Indicators · THE WANG REPORT">
+  <meta name="twitter:description" content="Every number on The Wang Report front page, with how it is computed, where it comes from, and its 30-day trend.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=ab37b9e826">
+<style>
+.in-wrap{width:100%;max-width:820px;margin:0 auto;padding:0 12px 48px}
+.in-title{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:26px;margin:12px 0 2px}
+.in-sub{font-family:Arial,sans-serif;font-size:12px;color:var(--wr-slate);margin-bottom:14px}
+.in-card{display:grid;grid-template-columns:1fr 240px;gap:14px;align-items:start;padding:12px 0;border-top:1px solid var(--wr-rule)}
+@media(max-width:600px){.in-card{grid-template-columns:1fr}}
+.in-card h2{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.08em;margin:0 0 4px}
+.in-card h2 a{color:var(--wr-ink);text-decoration:none}
+.in-val{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:30px;line-height:1.05}
+.in-val small{font-family:Arial,sans-serif;font-size:12px;font-weight:400;color:var(--wr-slate);margin-left:8px}
+.in-meth{font-family:'Spectral',Georgia,serif;font-size:14px;line-height:1.45;margin:6px 0 2px}
+.in-src{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate)}
+.spark{width:100%;height:48px;display:block}
+.in-trend{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate);text-align:right}
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="./">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+<div class="in-wrap">
+  <div class="in-title">Indicators</div>
+  <div class="in-sub">Every number on the front page, with its method, its source and its trend. History starts 2026-09-27; one reading a day, the last build of the day. <a href="./">Back to the front page</a></div>
+  <section class="in-card" id="threat">
+  <div>
+    <h2><a href="geopolitical">Threat (WRTI)</a></h2>
+    <div class="in-val">34<small>today</small></div>
+    <p class="in-meth">VIX 50%, Fear and Greed (inverted) 33%, climate clock 17%, live inputs only. 0 to 100; under 30 low, 30 to 59 elevated, 60 to 79 high, 80 and over critical.</p>
+    <div class="in-src">Source: Yahoo Finance (VIX), alternative.me (Fear and Greed), climateclock.world</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,35.8 L36.4,35.3 L69.9,34.9 L103.3,31.1 L136.7,30.7 L170.1,31.6 L203.6,31.1 L237.0,30.7" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="30.7" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · +1 since the previous day · up means more stress</div></div>
+</section>
+<section class="in-card" id="market_risk">
+  <div>
+    <h2><a href="hk-finance">Market risk gauge</a></h2>
+    <div class="in-val">50<small>today</small></div>
+    <p class="in-meth">VIX 30%, Hang Seng daily move 30%, HKD peg distance 20%, Fear and Greed 20%. Higher is calmer: under 30 high risk, 30 to 49 caution, 50 to 69 moderate, 70 to 84 benign, 85 and over low risk. A missing input scores neutral 50.</p>
+    <div class="in-src">Source: Finance and Risk desk cache (companies-news.json riskData)</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,24.0 L36.4,24.0 L69.9,24.0 L103.3,24.0 L136.7,24.0 L170.1,24.0 L203.6,24.0 L237.0,24.0" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="24.0" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · 0 since the previous day · up means more benign</div></div>
+</section>
+<section class="in-card" id="cyber">
+  <div>
+    <h2><a href="/cve/">Cyber score</a></h2>
+    <div class="in-val">54<small>today</small></div>
+    <p class="in-meth">KEV additions in 7 days 35% (10 a week = 100), share of critical and high severity 30%, share tagged APAC financial services 20%, mean EPSS of the top 20 15%. Under 25 low, 25 to 49 moderate, 50 to 74 elevated, 75 and over high.</p>
+    <div class="in-src">Source: CISA KEV, NVD, EPSS via the CVE Intel feed</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,16.9 L36.4,15.6 L69.9,20.2 L103.3,18.5 L136.7,19.8 L170.1,22.3 L203.6,19.4 L237.0,22.3" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="22.3" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · -7 since the previous day · up means more exploitation pressure</div></div>
+</section>
+<section class="in-card" id="ai_pulse">
+  <div>
+    <h2><a href="ai-focus">AI pulse</a></h2>
+    <div class="in-val">60<small>today</small></div>
+    <p class="in-meth">Story flow 40% (30 ranked stories = 100), GitHub trending star mass 30% (500k stars = 100), fixed activity baseline 60 at 30%. Under 30 quiet, 30 to 59 active, 60 to 79 surging, 80 and over overdrive.</p>
+    <div class="in-src">Source: AI desk news ranking and GitHub trending</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,19.8 L36.4,20.2 L69.9,20.2 L103.3,20.2 L136.7,19.8 L170.1,20.2 L203.6,19.8 L237.0,19.8" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="19.8" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · 0 since the previous day · up means more activity</div></div>
+</section>
+<section class="in-card" id="vix">
+  <div>
+    <h2><a href="geopolitical">VIX</a></h2>
+    <div class="in-val">15.31<small>today</small></div>
+    <p class="in-meth">CBOE Volatility Index, last regular-session price.</p>
+    <div class="in-src">Source: Yahoo Finance chart API</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,45.0 L36.4,21.6 L69.9,22.8 L103.3,27.5 L136.7,3.0 L170.1,33.7 L203.6,37.2 L237.0,37.2" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="37.2" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · 0 since the previous day · up means more expected volatility</div></div>
+</section>
+<section class="in-card" id="fear_greed">
+  <div>
+    <h2><a href="geopolitical">Fear and Greed</a></h2>
+    <div class="in-val">65<small>today</small></div>
+    <p class="in-meth">The crypto Fear and Greed index as published, 0 extreme fear to 100 extreme greed.</p>
+    <div class="in-src">Source: alternative.me</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,15.6 L36.4,13.9 L69.9,14.3 L103.3,15.2 L136.7,13.9 L170.1,14.8 L203.6,16.9 L237.0,17.7" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="17.7" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · -2 since the previous day · up means greedier</div></div>
+</section>
+<section class="in-card" id="kev_week">
+  <div>
+    <h2><a href="/cve/">CISA KEV additions, 7 days</a></h2>
+    <div class="in-val">7<small>today</small></div>
+    <p class="in-meth">Count of CVEs whose KEV listing date falls in the last seven days.</p>
+    <div class="in-src">Source: CISA Known Exploited Vulnerabilities via the CVE Intel feed</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,24.0 L36.4,3.0 L69.9,3.0 L103.3,34.5 L136.7,24.0 L170.1,34.5 L203.6,45.0 L237.0,45.0" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="45.0" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · 0 since the previous day · up means more confirmed exploitation</div></div>
+</section>
+<section class="in-card" id="exposure_week">
+  <div>
+    <h2><a href="/cyber-exposure">Exposure ledger rows opened, 7 days</a></h2>
+    <div class="in-val">1<small>today</small></div>
+    <p class="in-meth">Rows added to the Exposure Ledger (KEV entries that touch the 15 vendors in the regulated-firm footprint) in the last seven days.</p>
+    <div class="in-src">Source: Exposure Ledger</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,45.0 L36.4,45.0 L69.9,45.0 L103.3,45.0 L136.7,3.0 L170.1,3.0 L203.6,3.0 L237.0,45.0" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="45.0" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · -1 since the previous day · up means more of our footprint exposed</div></div>
+</section>
+<section class="in-card" id="model_changes_week">
+  <div>
+    <h2><a href="/ai-models">Model ledger changes, 7 days</a></h2>
+    <div class="in-val">30<small>today</small></div>
+    <p class="in-meth">Price, context, release and route changes recorded on the Model Ledger in the last seven days.</p>
+    <div class="in-src">Source: OpenRouter models API via the Model Ledger</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,26.3 L36.4,12.3 L69.9,3.0 L103.3,12.3 L136.7,31.0 L170.1,40.3 L203.6,45.0 L237.0,40.3" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="40.3" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · +1 since the previous day · up means more model churn</div></div>
+</section>
+<section class="in-card" id="flashpoint_moves_48h">
+  <div>
+    <h2><a href="/flashpoints">Flashpoint moves, 48 hours</a></h2>
+    <div class="in-val">13<small>today</small></div>
+    <p class="in-meth">Moves the Geopolitical desk filed against the ten registered flashpoints in the last 48 hours.</p>
+    <div class="in-src">Source: Flashpoint register</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,38.0 L36.4,24.0 L69.9,31.0 L103.3,3.0 L136.7,38.0 L170.1,45.0 L203.6,10.0 L237.0,24.0" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="24.0" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · -2 since the previous day · up means more movement on the register</div></div>
+</section>
+<section class="in-card" id="hk_temp">
+  <div>
+    <h2><a href="https://www.hko.gov.hk/en/">Hong Kong temperature</a></h2>
+    <div class="in-val">29°C<small>today</small></div>
+    <p class="in-meth">Current reading at the Hong Kong Observatory.</p>
+    <div class="in-src">Source: HKO open data (rhrread)</div>
+  </div>
+  <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="8 days">
+  <path d="M3.0,24.0 L36.4,24.0 L69.9,3.0 L103.3,3.0 L136.7,3.0 L170.1,45.0 L203.6,45.0 L237.0,24.0" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="24.0" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">8 days · +1 since the previous day · up means hotter</div></div>
+</section>
+</div>
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><style>
+.sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
+.sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
+.sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
+.sf-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin:16px 0}
+.sf-col h5{font:700 12px Arial,sans-serif;color:#0B1F3A;margin:0 0 6px}
+.sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
+.sf-col a:hover{color:#0B1F3A;text-decoration:underline}
+.sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
+</style><footer class="sf"><div class="sf-in">
+  <a class="sf-mark" href="./">The Wang Report</a>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
+</div></footer>
+</body>
+</html>

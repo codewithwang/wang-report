@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cisco and CISA Confirm Active Exploits as Kyiv Buries Its Dead · Walter's Morning Synthesis · THE WANG REPORT</title>
+  <meta name="description" content="A SharePoint flaw and a Cisco call-manager bug both went from disclosed to exploited inside days, and Russia's heaviest strike on Kyiv this war reframes what the region's supply chains are actually exposed to.">
+  <link rel="canonical" href="https://wangreport.com/morning-synthesis">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="Cisco and CISA Confirm Active Exploits as Kyiv Buries Its Dead · Walter's Morning Synthesis · THE WANG REPORT">
+  <meta property="og:description" content="A SharePoint flaw and a Cisco call-manager bug both went from disclosed to exploited inside days, and Russia's heaviest strike on Kyiv this war reframes what the region's supply chains are actually exposed to.">
+  <meta property="og:url" content="https://wangreport.com/morning-synthesis">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cisco and CISA Confirm Active Exploits as Kyiv Buries Its Dead · Walter's Morning Synthesis · THE WANG REPORT">
+  <meta name="twitter:description" content="A SharePoint flaw and a Cisco call-manager bug both went from disclosed to exploited inside days, and Russia's heaviest strike on Kyiv this war reframes what the region's supply chains are actually exposed to.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=ab37b9e826">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F4EFE6; color: #0B1F3A; font-family: Georgia, 'Times New Roman', serif; line-height: 1.5; }
+  .ms-wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+  .ms-eyebrow { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #B0241E; text-transform: uppercase; padding: 28px 0 6px; }
+  .ms-rule { border: none; border-top: 3px solid #0B1F3A; margin: 0 0 4px; }
+  .ms-rule-thin { border: none; border-top: 1px solid #C8C0B0; margin: 4px 0 28px; }
+  .ms-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; line-height: 1.15; font-weight: 700; color: #0B1F3A; margin: 8px 0 14px; }
+  .ms-deck { font-family: Georgia, serif; font-size: 18px; font-style: italic; line-height: 1.5; color: #333; margin: 0 0 28px; padding-left: 14px; border-left: 3px solid #B0241E; }
+  .ms-byline-row { display: flex; align-items: center; gap: 12px; margin: 0 0 28px; padding: 12px 0; border-top: 1px solid #C8C0B0; border-bottom: 1px solid #C8C0B0; }
+  .ms-portrait { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .ms-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ms-byline-text { font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #5A6470; letter-spacing: 0.5px; }
+  .ms-byline-name { font-weight: bold; color: #0B1F3A; font-size: 13px; display: block; letter-spacing: 1px; text-transform: uppercase; }
+  .ms-body p { font-family: Georgia, serif; font-size: 17px; line-height: 1.75; color: #0B1F3A; margin-bottom: 18px; }
+  .ms-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; margin: 36px 0 10px; padding-bottom: 4px; border-bottom: 1px solid #0B1F3A; }
+  .ms-top-col { background: #EDE8DE; padding: 16px 18px; margin: 4px 0 28px; border-left: 4px solid #0B1F3A; }
+  .ms-top-col-key { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1.5px; color: #5A6470; text-transform: uppercase; }
+  .ms-top-col-title { font-family: Georgia, serif; font-size: 19px; font-weight: bold; margin: 6px 0; color: #0B1F3A; }
+  .ms-top-col-title a { color: inherit; text-decoration: none; }
+  .ms-top-col-title a:hover { color: #B0241E; }
+  .ms-pick { padding: 14px 0; border-bottom: 1px solid #C8C0B0; }
+  .ms-pick:last-child { border-bottom: none; }
+  .ms-pick-tier { display: inline-block; font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 1.5px; padding: 2px 6px; border-radius: 2px; margin-right: 8px; text-transform: uppercase; vertical-align: middle; }
+  .ms-pick-tier.a { background: #0B1F3A; color: #F4EFE6; }
+  .ms-pick-tier.b { background: #C8C0B0; color: #0B1F3A; }
+  .ms-pick-headline { font-family: Georgia, serif; font-size: 15px; font-weight: bold; color: #0B1F3A; }
+  .ms-pick-headline a { color: inherit; text-decoration: none; }
+  .ms-pick-headline a:hover { color: #B0241E; }
+  .ms-pick-gloss { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #5A6470; margin-top: 4px; line-height: 1.55; }
+  .ms-watch { background: #0B1F3A; color: #F4EFE6; padding: 18px 20px; margin: 28px 0 0; }
+  .ms-watch-tag { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; margin-bottom: 8px; }
+  .ms-watch-text { font-family: Georgia, serif; font-size: 16px; line-height: 1.55; font-style: italic; }
+  .ms-footer { font-family: Arial, sans-serif; font-size: 10px; color: #5A6470; text-align: center; letter-spacing: 1px; margin-top: 40px; }
+  .ms-footer a { color: #B0241E; text-decoration: none; }
+  .ms-footer a:hover { color: #0B1F3A; }
+  .ms-comp-list { margin: 4px 0 16px; }
+  .ms-comp-row { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; border-bottom: 1px solid #C8C0B0; font-family: Georgia, serif; font-size: 14px; line-height: 1.5; flex-wrap: wrap; }
+  .ms-comp-row:last-child { border-bottom: none; }
+  .ms-comp-bucket { font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #5A6470; text-transform: uppercase; min-width: 90px; flex-shrink: 0; }
+  .ms-comp-outlet { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #0B1F3A; min-width: 100px; flex-shrink: 0; }
+  .ms-comp-headline { color: #0B1F3A; }
+  .ms-comp-headline a { color: inherit; text-decoration: none; }
+  .ms-comp-headline a:hover { color: #B0241E; }
+  .ms-we-led { background: #0B1F3A; color: #F4EFE6; padding: 18px 20px; margin: 16px 0 28px; }
+  .ms-we-led-tag { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; margin-bottom: 8px; }
+  .ms-we-led-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .ms-we-led-rationale { font-family: Georgia, serif; font-size: 14px; font-style: italic; line-height: 1.6; color: #C8C0B0; }
+  .ms-gap-list { margin: 4px 0 28px; }
+  .ms-gap-row { padding: 12px 0; border-bottom: 1px solid #C8C0B0; }
+  .ms-gap-row:last-child { border-bottom: none; }
+  .ms-gap-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .ms-gap-outlet { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; color: #B0241E; text-transform: uppercase; flex-shrink: 0; min-width: 100px; }
+  .ms-gap-headline { font-family: Georgia, serif; font-size: 15px; font-weight: bold; color: #0B1F3A; }
+  .ms-gap-headline a { color: inherit; text-decoration: none; }
+  .ms-gap-headline a:hover { color: #B0241E; }
+  .ms-gap-note { font-family: Georgia, serif; font-size: 13.5px; font-style: italic; color: #5A6470; line-height: 1.55; margin-top: 4px; padding-left: 110px; }
+  @media (max-width: 600px) {
+    .ms-headline { font-size: 28px; }
+    .ms-deck { font-size: 16px; }
+    .ms-body p { font-size: 16px; }
+    .ms-comp-bucket, .ms-comp-outlet, .ms-gap-outlet { min-width: auto; }
+    .ms-gap-note { padding-left: 0; }
+  }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body>
+  <div class="nav-bar"><a href="./" class="">Main</a> | <a href="wire" class="">Wire</a> | <a href="issue" class="">The Issue</a> | <a href="masthead" class="">Masthead</a> | <a href="about" class="">About</a></div>
+<nav class="nav-desks" aria-label="Desks"><div class="nav-desks-inner"><a href="geopolitical" class="nav-desk-link">Geopolitical</a><a href="hk-finance" class="nav-desk-link">Finance & Risk</a><a href="cyber" class="nav-desk-link">Cyber</a><a href="ai-focus" class="nav-desk-link">AI</a><a href="hk-local" class="nav-desk-link">HK Local</a><a href="sports" class="nav-desk-link">Sports</a><a href="life" class="nav-desk-link">Life</a><a href="stocks" class="nav-desk-link">Stocks</a></div></nav>
+  <div class="ms-wrap">
+    <div class="ms-eyebrow">Morning Synthesis · Friday, July 3, 2026 at 06:51 AM</div>
+    <hr class="ms-rule">
+    <hr class="ms-rule-thin">
+
+    <h1 class="ms-headline">Cisco and CISA Confirm Active Exploits as Kyiv Buries Its Dead</h1>
+    <div class="ms-deck">A SharePoint flaw and a Cisco call-manager bug both went from disclosed to exploited inside days, and Russia's heaviest strike on Kyiv this war reframes what the region's supply chains are actually exposed to.</div>
+
+    <div class="ms-byline-row">
+      <div class="ms-portrait"><img src="/masthead/img/walter-wang.png" alt="Walter Wang"></div>
+      <div class="ms-byline-text">
+        <span class="ms-byline-name">Walter Wang · WR</span>
+        Editor-in-Chief · Hong Kong
+      </div>
+    </div>
+
+    <div class="ms-body">
+      <p>Two vulnerability disclosures turned into active exploitation overnight, and the gap between patch and breach keeps shrinking. CISA confirmed attackers are already inside Microsoft SharePoint deployments through a remote code execution flaw, hours after Cisco admitted its Unified Communications Manager, the call routing software banks and trading floors run their voice infrastructure on, is being hit too. Neither is isolated. Disclosure, weaponisation, exploitation, compressed to a single news cycle. Overnight, Russia hit Kyiv with its most massive missile and drone barrage of the war, killing at least 27 and pushing the mayor to declare a day of mourning. European risk desks have not adjusted exposure to match. Brussels moved on China trade, telling Beijing it would accept a narrower surplus if concessions follow, while the EU's top court upheld a 4.1 billion euro fine against Google over Android, confirming Brussels intends to keep using antitrust as its primary lever against US platforms. Anthropic's custom chip talks with Samsung sit alongside that fine as a second data point: Washington's export leverage and Brussels' regulatory leverage are now pulling on the same firms from different directions. A Singapore compliance officer should already be checking whether call manager infrastructure sits anywhere in the vendor stack. Watch whether CISA adds a mandated patch deadline by evening.</p>
+    </div>
+
+    
+
+    
+    <div class="ms-section-tag">What others led with this morning</div>
+    <div class="ms-comp-list">
+      
+    <div class="ms-comp-row">
+      <span class="ms-comp-bucket">WIRES</span>
+      <span class="ms-comp-outlet">Google News</span>
+      <span class="ms-comp-headline"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNanlUU1dXMzZtYzJCS1l2eVpVRGo5OXVFVmdsaWptV28ta3FaUkMwTmZfc3JlOVMwMGNNdlcwUk5wM3FrN2VvUzBlanpJZ2lXczEzRTgwWmlFa3NHNlRKT1B5RTFTWm5aam9ORWJaaFdHa2NpV21iUnVWb3dQQ192SlJBcFRzMkdlSFhteDZXOFVEbW5WLVRFYTVYcWhOekZjX2tDbDlFc0k?oc=5" target="_blank" rel="noopener">U.S. Olympic canoeist David 'Davey' Hearn charged in Reflecting Pool vandalism - NBC News</a></span>
+    </div>
+
+    <div class="ms-comp-row">
+      <span class="ms-comp-bucket">BROADSHEETS</span>
+      <span class="ms-comp-outlet">FT</span>
+      <span class="ms-comp-headline"><a href="https://www.ft.com/content/f27b6126-2c96-42f4-acf7-b54936f6f510" target="_blank" rel="noopener">Burnham insists he will be disciplined with UK public finances</a></span>
+    </div>
+
+    <div class="ms-comp-row">
+      <span class="ms-comp-bucket">AGGREGATORS</span>
+      <span class="ms-comp-outlet">Memeorandum</span>
+      <span class="ms-comp-headline"><a href="https://www.cnn.com/2026/07/02/politics/former-olympic-rower-indicted-for-felony-related-to-reflecting-pool" target="_blank" rel="noopener">Former Olympic canoeist indicted by a grand jury after arrest at the Reflecting Pool</a></span>
+    </div>
+
+    <div class="ms-comp-row">
+      <span class="ms-comp-bucket">REGIONALS</span>
+      <span class="ms-comp-outlet">SCMP</span>
+      <span class="ms-comp-headline"><a href="https://www.scmp.com/news/us/diplomacy/article/3359225/us-lawmakers-push-fewer-tax-breaks-reduce-reliance-china-technology?utm_source=rss_feed" target="_blank" rel="noopener">US lawmakers push for fewer tax breaks to reduce reliance on China technology</a></span>
+    </div>
+
+    <div class="ms-comp-row">
+      <span class="ms-comp-bucket">INSPIRATION</span>
+      <span class="ms-comp-outlet">Drudge Report</span>
+      <span class="ms-comp-headline"><a href="https://www.nytimes.com/2026/07/01/us/politics/trump-saudi-crown-prince-iran.html?unlocked_article_code=1.ulA.9ii0.DZ7LMbBwVJiI&amp;smid=url-share" target="_blank" rel="noopener">Iran Ignited Clash Between Trump and Saudi Crown Prince...</a></span>
+    </div>
+    </div>
+    <div class="ms-we-led">
+      <div class="ms-we-led-tag">We led with</div>
+      <div class="ms-we-led-headline">Cisco and CISA Confirm Active Exploits as Kyiv Buries Its Dead</div>
+      <div class="ms-we-led-rationale">FT, Memeorandum and Google News all led with a canoeist's Reflecting Pool indictment, a domestic curiosity with no APAC practitioner relevance; SCMP's China tax lead was closer but narrower than two simultaneous active-exploitation confirmations hitting bank infrastructure directly.</div>
+    </div>
+
+    
+    <div class="ms-section-tag">What they covered, we didn't</div>
+    <div class="ms-gap-list">
+      
+    <div class="ms-gap-row">
+      <div class="ms-gap-head">
+        <span class="ms-gap-outlet">SCMP</span>
+        <span class="ms-gap-headline"><a href="https://www.scmp.com/news/world/europe/article/3359223/uk-teen-rapists-get-detention-after-outrage-lenient-sentences?utm_source=rss_feed" target="_blank" rel="noopener">UK teen rapists get detention after outrage at lenient sentences</a></span>
+      </div>
+      <div class="ms-gap-note">UK domestic sentencing story, no practitioner relevance for an APAC cyber, AI, or finance reader.</div>
+    </div>
+
+    <div class="ms-gap-row">
+      <div class="ms-gap-head">
+        <span class="ms-gap-outlet">Drudge Report</span>
+        <span class="ms-gap-headline"><a href="https://www.nytimes.com/2026/07/02/us/politics/israel-iran-negotiators-plot.html?unlocked_article_code=1.ulA.UsQa.7BvP9veePqT0&amp;smid=url-share" target="_blank" rel="noopener">USA Believed Israel Was Plotting to Kill Tehran Negotiators...</a></span>
+      </div>
+      <div class="ms-gap-note">A genuine gap: intelligence on a plot against negotiators would shift how Gulf desks assess risk, and it sits nowhere in today's homepage lineup.</div>
+    </div>
+
+    <div class="ms-gap-row">
+      <div class="ms-gap-head">
+        <span class="ms-gap-outlet">Google News</span>
+        <span class="ms-gap-headline"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNc2JPUU96WEkyajlING5zNFZTZGRPTkpabS1MN1BVVGczNE5HX3ZNVkI5RmtEZkc1Q2thc214cV9rZzE5djlBdDZsWjJ0cF9qazh4N0YzVFdGek1hZk5yeDRJZjdkdkFHME9fcGxhUks1UGVMU2Z4RW94a01Xam5HNGliVTc?oc=5" target="_blank" rel="noopener">Trump hijacked US's 250 anniversary to serve 'political ideology and pet projects', congressional report says</a></span>
+      </div>
+      <div class="ms-gap-note">US domestic political theatre, not material for the practitioner reader, noise rather than signal.</div>
+    </div>
+    </div>
+
+    <div class="ms-section-tag">What Walter is watching on the wire</div>
+    
+    <div class="ms-pick">
+      <span class="ms-pick-tier b">hk-local</span>
+      <span class="ms-pick-headline"><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxQaEQ4UWFGVGppSXhaVk9NNTlaa2JickJUWWxvcXhYTmtfczNLRmlaMTJ0eks3OUNPRkVzYzU1cG9IdUxueTFEdDc2RkN0Z1ZOVVNBbWZtQVN4WFBnTmxPeW1VY3J5di1WVDRsMVhFLUM3N2NzY1hCU3lySm1CS0ZyUUNEMjBZQ25ET1ZfUVM1NXFHNm5EZ3FaZktvZVA2U3lKQW5pVnBmYmtXMnpKaURSbm8wa1ZQZHVFSXRfWkJpUU1fV1dxekJiX244allad1pkOWFr?oc=5" target="_blank" rel="noopener">Breaking News: Federal immigration officials have detained more than 10,000 people in the last five days, a major surge that has stemmed from a push within ICE to increase arrest rates.</a></span>
+      <div class="ms-pick-gloss">A domestic enforcement surge, not a market story on its face, but a signal on US administrative capacity worth tracking for compliance teams with US-exposed staff.</div>
+    </div>
+
+    <div class="ms-pick">
+      <span class="ms-pick-tier a">geopolitical</span>
+      <span class="ms-pick-headline"><a href="https://www.bbc.co.uk/news/articles/c4gyv05gk4do?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">At least 13 killed in 'most massive' Russian attack on Kyiv</a></span>
+      <div class="ms-pick-gloss">The scale here is the story, the war has not de-escalated on any timeline European insurers were modelling.</div>
+    </div>
+
+    <div class="ms-pick">
+      <span class="ms-pick-tier a">geopolitical</span>
+      <span class="ms-pick-headline"><a href="https://news.google.com/rss/articles/CBMijoFBVV95cUxQZGY5NzNSVGpuUDYzdVhTdW52RTdQMTVQY0toc1ZQdjdsTEdsWHRoSHF3c191ZE9tU0t3TGdqTk80LWhRVS1HNzB5LW9aekVGNlN2YzB0dmdiX2N6ZEFlMWZoV1dCQzdRZGxJTEtLRFVXVEJJNFhfbmFsXzNOSVVQQXB4eHRORWVjbFlHZ3JB?oc=5" target="_blank" rel="noopener">Trump refuses to renew USMCA trade pact, toppling one of the last pillars of stability in global trade</a></span>
+      <div class="ms-pick-gloss">The USMCA, the North American trade pact underpinning cross-border manufacturing, was the model the region pointed to for predictability, that reference case is gone.</div>
+    </div>
+
+    <div class="ms-pick">
+      <span class="ms-pick-tier a">geopolitical</span>
+      <span class="ms-pick-headline"><a href="https://www.nytimes.com/2026/07/01/us/politics/trump-finances-government-conflicts.html" target="_blank" rel="noopener">The Key Ways Trump's Financial Interests Intersect With Government Policy</a></span>
+      <div class="ms-pick-gloss">Compliance officers screening for conflicted counterparties now have to model a head of state as one.</div>
+    </div>
+
+    <div class="ms-pick">
+      <span class="ms-pick-tier a">hk-finance</span>
+      <span class="ms-pick-headline"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNNGlaTmFCSl9BV3p4TmRWbFhMcUtoSUNqQklOMUdGcm5zM1JsUmp3Q1J0MjRRdFZtQnpGbWhLUjNqc0g5bFdTbklTaXUzRU5iNUlxRW0tOEJ0dExCcWozbV83SnA1THlnYV9CblhrSkRLdkFIdHZBcTFJaWNFcXBhNjNVcTdrMmM3M0ZxM3JDd2ZKdEZocXJzQV85TTJqYVY0S3RzS0Z0YkZ3a05xWjR4aFJLZmdUSXVWUXk5dU1TNA?oc=5" target="_blank" rel="noopener">Trump's financial disclosure lists $1.4 billion in crypto earnings, powered largely by meme coins</a></span>
+      <div class="ms-pick-gloss">A sitting president's meme coin book is now a line item regulators in Singapore and Hong Kong will have to reference when they write digital asset disclosure rules.</div>
+    </div>
+
+    <div class="ms-watch">
+      <div class="ms-watch-tag">What to watch today</div>
+      <div class="ms-watch-text">Whether CISA issues a binding patch deadline for the SharePoint flaw before US markets open, and whether Cisco names a CVE severity score for the Unified Communications Manager bug. Either would tell APAC banks how many hours of exposure they are actually carrying.</div>
+    </div>
+
+    <div class="ms-footer">Walter's Morning Synthesis publishes 06:30 HKT, Monday to Friday. <a href="/morning-synthesis/">Past syntheses &rarr;</a></div>
+  </div>
+</body>
+</html>

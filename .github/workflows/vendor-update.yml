@@ -1,0 +1,59 @@
+name: Daily vendor data update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 00:00 UTC daily
+  workflow_dispatch:        # manual trigger from GitHub UI
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-vendors:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run vendor update script
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          TODAY: ${{ github.event.repository.updated_at }}
+        run: python scripts/update_vendors.py
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet data/vendors.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Read PR body
+        if: steps.diff.outputs.changed == 'true'
+        id: pr_body
+        run: echo "body<<EOF" >> $GITHUB_OUTPUT && cat .pr_body.md >> $GITHUB_OUTPUT && echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Open pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "data: daily vendor update ${{ github.run_id }}"
+          branch: "auto/vendor-update-${{ github.run_number }}"
+          title: "Daily vendor update — $(date +%Y-%m-%d)"
+          body: ${{ steps.pr_body.outputs.body }}
+          labels: "automated,data-update"
+          draft: false
