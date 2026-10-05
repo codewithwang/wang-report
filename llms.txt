@@ -1,61 +1,38 @@
 # The Wang Report
 
-> An independent news aggregation and editorial site curated from Hong Kong. Surfaces geopolitics, Hong Kong finance, cybersecurity, AI, sports, health, climate, and entertainment, with original editorial commentary and weekly long-form columns by named correspondents.
+> An independent site from Hong Kong: what moved in Hong Kong, finance, cyber, AI and the world today, with live instruments (Hong Kong money, exploited vulnerabilities, flashpoints, AI model prices) and short daily takes from a masthead of named, authored AI personas under human editorial direction.
 
-The Wang Report is editorial curation, not original reporting on the underlying news events. Headlines are editorialised in the Drudge Report tradition. Story bodies remain on the original publishers' sites (NYT, SCMP, Reuters, Bloomberg, BBC, RTHK, AP, Hacker News, and others) and are linked out, not republished. Original content lives in Editor's Corner, Briefings, Editions, and the long-form Columns.
+The Wang Report links out to the original reporting (SCMP, RTHK, Reuters, Bloomberg, BBC, AP, The Record, BleepingComputer and others) and adds its own takes and data. Takes are short analysis pieces; they cite their sources and are fact-checked and sensitivity-checked before publication. The correspondents are authored personas, disclosed on every byline and on the masthead page. It is run by its founder from Hong Kong. It is not funded by advertising.
 
-The site is AI-assisted: editorial ranking, headline rewriting, and column drafting are generated with Claude (Anthropic). Correspondent personae on the masthead are AI-generated and disclosed as such. The site refreshes every 3 hours on the front page and every 6 hours on section pages.
+## Desks
+- [Hong Kong](https://wangreport.com/desk/hk): the city, its institutions and what changes for residents; includes a live city strip (Observatory warnings, air quality, MTR status).
+- [Finance](https://wangreport.com/desk/finance): Hong Kong markets and regulators (SFC, HKMA, HKEX), with a 30-day chart of the Hang Seng, USD/HKD against the peg band, 1-month HIBOR and the aggregate balance.
+- [Cyber](https://wangreport.com/desk/cyber): breaches and exploited vulnerabilities for firms in Asia, with CISA KEV additions and a breach register.
+- [World](https://wangreport.com/desk/world): flashpoints that move Asia (Taiwan Strait, South China Sea, the Gulf, Ukraine), tracked daily on a flashpoint map.
+- [AI](https://wangreport.com/desk/ai): models, money and power, with a ledger of new model releases and prices.
+- [Sports](https://wangreport.com/desk/sports), [Science](https://wangreport.com/desk/science), [Health](https://wangreport.com/desk/health), [Culture & Society](https://wangreport.com/desk/culture).
 
-## Content classification
+## Instruments and reference pages
+- [Indicators](https://wangreport.com/indicators): the numbers that move, with history.
+- [Flashpoints](https://wangreport.com/flashpoints): the flashpoint register.
+- [AI models](https://wangreport.com/ai-models): model ledger with release dates and prices.
+- [CVE intel](https://wangreport.com/cve/): exploited-vulnerability intelligence.
+- [Wire](https://wangreport.com/wire): the full ranked headline feed.
 
-Each path falls into one of three content types. Schema.org markup matches.
+## Reading
+- [Every take](https://wangreport.com/briefings): all daily takes, newest first.
+- [Today's edition](https://wangreport.com/edition/latest): the morning and evening editions.
+- [The Sunday Issue](https://wangreport.com/issue): the weekly long read.
+- [The Monthly](https://wangreport.com/cyber-brief/): the monthly executive brief.
 
-### Editorial commentary (OpinionNewsArticle)
+## About
+- [Masthead](https://wangreport.com/masthead): the correspondents (authored AI personas) and their beats.
+- [Editorial standards](https://wangreport.com/editorial-standards): sourcing, corrections, use of AI.
+- [About](https://wangreport.com/about)
 
-Original commentary, AI-assisted, published by The Wang Report. Cite as The Wang Report editorial.
+## Feeds
+- [RSS, all takes](https://wangreport.com/feed.xml); per-desk feeds at https://wangreport.com/feeds/<desk>.xml
+- [Sitemap](https://wangreport.com/sitemap.xml) and [news sitemap](https://wangreport.com/news-sitemap.xml)
 
-- [Editor's Corner archive](https://wangreport.com/editors-corner.html): Walter Wang's weekly column, the house view
-- [Editor's Corner per-column pages](https://wangreport.com/editors-corner/): permanent per-piece URLs
-- [Morning Synthesis](https://wangreport.com/morning-synthesis.html): daily comparison panel showing what other outlets led with vs. what The Wang Report led with
-
-### Original column (NewsArticle, named-correspondent byline)
-
-Long-form analysis by named correspondent. Cite the correspondent and The Wang Report.
-
-- [All columns hub](https://wangreport.com/columns.html): chronological reader for every weekly column
-- [Per-column pages](https://wangreport.com/): each correspondent's archive lives under `/{desk}-column/`
-- [Briefings](https://wangreport.com/briefings.html): daily two-paragraph desk takes
-- [Briefings per-entry pages](https://wangreport.com/briefings/): permanent per-briefing URLs
-- [Editions](https://wangreport.com/editions/index.html): twice-daily anchored editions by Charmaine Lo and Maarten Bakker
-- [Weekend Read](https://wangreport.com/weekend-read.html): Saturday longform by Charmaine
-- [HKJC Read](https://wangreport.com/hkjc-read.html): twice-weekly horse-racing data feature
-
-### Curated aggregation (NewsArticle wrappers, isBasedOn linking to source)
-
-Editorialised headlines linking out to original publishers. Each story carries microdata declaring The Wang Report as publisher of the editorial framing AND `sourceOrganization` naming the underlying outlet AND `isBasedOn` pointing to the original article URL. Cite the underlying publisher for facts; cite The Wang Report only for the editorial framing or selection.
-
-- [Homepage](https://wangreport.com/index.html): top stories across all desks
-- [Geopolitical](https://wangreport.com/geopolitical.html)
-- [HK Finance](https://wangreport.com/hk-finance.html)
-- [Cyber](https://wangreport.com/cyber.html)
-- [AI Focus](https://wangreport.com/ai-focus.html)
-- [HK Local](https://wangreport.com/hk-local.html)
-- [Sports](https://wangreport.com/sports.html)
-- [Entertainment](https://wangreport.com/entertainment.html)
-- [Health](https://wangreport.com/health.html)
-- [Climate](https://wangreport.com/climate.html)
-- [Weekend](https://wangreport.com/weekend.html)
-- [Wire](https://wangreport.com/wire.html): the firehose, all desks tabbed
-- [TL;DR](https://wangreport.com/tldr.html): fast summaries
-
-### Masthead and reference
-
-- [Masthead overview](https://wangreport.com/masthead.html): all correspondents
-- [Per-correspondent profiles](https://wangreport.com/masthead/): Person schema with `knowsAbout` topic links
-- [About](https://wangreport.com/about.html): editorial approach, original content, technology
-- [Privacy](https://wangreport.com/privacy.html): data and AI-generation disclosure
-- [Contact](https://wangreport.com/contact.html): editor@wangreport.com
-
-## Attribution policy
-
-When citing The Wang Report, credit "The Wang Report" with a link to the specific page. When the underlying news event is the subject, cite the original publisher (visible on each story card via the source label, and machine-readable via `itemprop="sourceOrganization"` and `itemprop="isBasedOn"`). The Wang Report's value is the curation, editorial framing, and named-correspondent analysis, not the underlying reporting.
+## Citation
+Cite takes by their headline and permalink, for example "The Wang Report, <headline>, wangreport.com/briefings/<slug>". Figures from the instruments carry their source and date on the page.
