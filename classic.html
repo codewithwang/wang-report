@@ -1,174 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- wr-simple -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Wang Report</title>
-<meta name="description" content="The Wang Report: Hong Kong news, markets, cyber, AI and the world, edited.">
-<link rel="canonical" href="https://wangreport.com/">
-<link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
-<link rel="icon" href="/img/favicon.ico"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<!-- Fonts load without blocking first paint (2026-10-06, Lighthouse: FCP 3.1 s on mobile). -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:wght@400;600&display=swap" rel="stylesheet"></noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HHENRPSK4D');</script>
-<style>
-:root{--bone:#F9F8F6;--ink:#0B1F3A;--seal:#B0241E;--rule:#E3DDD2;--slate:#5A6470;--panel:#F0EFED;--wr-bone:#F9F8F6;--wr-ink:#0B1F3A;--wr-seal:#B0241E;--wr-rule:#C8C0B0;--wr-slate:#5A6470;--wr-panel:#F0EFED;
---desk-culture:#9B3D6E;--desk-reddit:#5A6470;--desk-hk-local:#B0241E;--desk-finance:#1E5C46;--desk-cyber:#1D5F5A;--desk-geopolitical:#6B2430;--desk-ai:#3E356B;--desk-sports:#A05A1F;--desk-science:#2F5570;--desk-life:#8A6D1F}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bone);color:var(--ink);font:18px/1.55 'Spectral',Georgia,serif}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.top{position:sticky;top:0;z-index:20;background:rgba(249,248,246,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
-.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 8px}
-.mast{display:flex;align-items:center;gap:9px;font:900 26px/1 'Playfair Display',Georgia,serif;white-space:nowrap}
-.mast .chop{width:26px;height:26px;border-radius:2px;display:block}
-.more-btn{font:600 14px Arial,sans-serif;border:1px solid var(--ink);border-radius:999px;padding:7px 14px;background:none;color:var(--ink);cursor:pointer}
-.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 10px;-webkit-overflow-scrolling:touch}
-.tabs::-webkit-scrollbar{display:none}
-.tabs a{flex:0 0 auto;font:600 14px Arial,sans-serif;padding:6px 12px;border-radius:999px;color:var(--slate);background:var(--panel)}
-.tabs a.on{background:var(--hue,var(--ink));color:#fff}
-.sheet{display:none;position:fixed;inset:0;z-index:30;background:rgba(11,31,58,.35)}
-.sheet.open{display:block}
-.sheet-in{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:var(--bone);padding:22px 22px 40px;overflow-y:auto;box-shadow:-10px 0 30px rgba(0,0,0,.12)}
-.sheet-in h4{font:700 13px Arial,sans-serif;letter-spacing:.05em;color:var(--slate);margin:18px 0 6px}
-.sheet-in a{display:block;font-size:19px;padding:9px 0;border-bottom:1px solid var(--rule)}
-.sheet-x{float:right;font:600 14px Arial,sans-serif;border:none;background:none;cursor:pointer;color:var(--slate)}
-.date{font:14px Arial,sans-serif;color:var(--slate);padding:18px 0 0}
-.kicker{font:700 13px Arial,sans-serif;letter-spacing:.04em;color:var(--hue,var(--seal))}
-.lead{display:grid;gap:22px;padding:22px 0 34px;border-bottom:1px solid var(--rule)}
-.lead img{width:100%;height:auto;display:block;border-radius:4px}
-.lead h1{font:700 32px/1.18 'Playfair Display',Georgia,serif;margin:8px 0 12px}
-.lead p{margin:0;color:#2b3a50;font-size:19px}
-.by{font:14px Arial,sans-serif;color:var(--slate);margin-top:14px}
-@media(min-width:860px){.lead{grid-template-columns:1.25fr 1fr;align-items:center}.lead h1{font-size:40px}}
-.sec{padding:30px 0;border-bottom:1px solid var(--rule)}
-.sec h2{font:700 15px Arial,sans-serif;letter-spacing:.04em;margin:0 0 14px}
-.five{list-style:none;margin:0;padding:0;counter-reset:n}
-.five li{counter-increment:n;display:grid;grid-template-columns:28px 1fr;padding:10px 0;border-top:1px solid var(--rule)}
-.five li::before{content:counter(n);font:700 15px 'Playfair Display',serif;color:var(--seal)}
-.five li span{font:13px Arial,sans-serif;color:var(--slate);margin-right:8px}
-.cards{display:grid;gap:26px;grid-template-columns:1fr 1fr}
-@media(min-width:1000px){.cards{grid-template-columns:1fr 1fr 1fr}}
-@media(max-width:699px){.cards{align-items:flex-start;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .cards::-webkit-scrollbar{display:none}.cards .card{flex:0 0 84%;scroll-snap-align:center}}
-.swipe-hint{display:none;font:13px Arial,sans-serif;color:var(--slate);margin:-4px 0 12px}
-.chart-row{display:grid;gap:22px;grid-template-columns:1fr}
-@media(min-width:860px){.chart-row{grid-template-columns:1fr 1fr}}
-@media(max-width:699px){.chart-row{align-items:flex-start;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .chart-row::-webkit-scrollbar{display:none}.chart-row .chart-item{flex:0 0 88%;scroll-snap-align:center}}
-.chart-item{display:flex;flex-direction:column;min-width:0}
-.chart-item h3{font:700 15px Arial,sans-serif;letter-spacing:.04em;margin:0 0 10px;color:var(--hue)}
-.chart-item .instr{--desk-accent:var(--hue);flex:1}.chart-item .fp-panel{margin:0}
-.chart-item .go{display:inline-block;margin-top:12px;font:700 14px Arial,sans-serif;color:var(--hue)}
-@media(max-width:699px){.swipe-hint{display:block}}
-.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 6px 20px rgba(11,31,58,.05);display:flex;flex-direction:column}
-.card-img img{width:100%;aspect-ratio:1200/630;object-fit:cover;display:block}
-.card-img .noart{display:flex;align-items:flex-end;width:100%;aspect-ratio:1200/630;padding:14px 16px;box-sizing:border-box;background:var(--hue);color:#fff;font:900 30px/1 'Playfair Display',Georgia,serif}
-.card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
-.card h3{font:700 21px/1.25 'Playfair Display',Georgia,serif;margin:6px 0 10px}
-.card ul{list-style:none;margin:0 0 10px;padding:0}
-.card li{font-size:16px;line-height:1.4;padding:8px 0;border-top:1px solid var(--rule);color:#2b3a50}
-.card .go{margin-top:0;font:700 14px Arial,sans-serif;color:var(--hue)}
-/* 2026-10-04, Rubin review round 1: the card carries the writer's dek (WR_CARDS_V3=off) */
-.card .dek{margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font:italic 18px/1.45 'Spectral',Georgia,serif;color:#1f2f45;border-left:3px solid var(--hue);padding-left:12px}
-.v2 .card h3{font-size:23px;line-height:1.2}
-.card h3{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
-.chart-more{font:700 14px Arial,sans-serif;margin:14px 0 0;color:var(--slate)}.chart-more a{color:var(--ink)}
-.charts.one .chart-item{max-width:none}
-.live .mv{font-weight:700;font-size:.92em;white-space:nowrap}.live .mv.good{color:#1E5C46}.live .mv.bad{color:#B0241E}
-/* Tablet (2026-10-05, Harry: cards awkward on the iPad): a chart in a half-width card stacks its
-   inner columns, so product names and lists stop being squeezed. */
-.chart-item{container-type:inline-size}
-@container (max-width:560px){.chart-item .cy-panel,.chart-item .ai-panel,.chart-item .fp-panel{grid-template-columns:minmax(0,1fr)!important}}
-@media(min-width:700px){.chart-row{align-items:start}}
-/* 2026-10-04: Overheard translations; Leading elsewhere as big desk-coloured rows. */
-.overheard .msg .en{display:block;font-style:italic;font-size:.88em;color:var(--slate);margin-top:3px}
-.else-big{list-style:none;margin:0;padding:0}
-.else-big li{border-left:4px solid var(--hue);padding:10px 0 10px 14px;margin:0 0 10px;background:color-mix(in srgb,var(--hue) 5%,transparent);border-radius:0 6px 6px 0}
-.else-big .k{display:block;font:700 12px Arial,sans-serif;color:var(--hue)}
-.else-big a{display:block;font:600 20px/1.3 Spectral,Georgia,serif;color:var(--ink);text-decoration:none;margin:3px 0}
-.else-big .o{display:block;font:12px Arial,sans-serif;color:var(--slate)}
-/* Capped swipe row (2026-10-04): every slide one height, the panel fades out under "More". */
-.charts.capped .chart-item .instr{max-height:440px;overflow:hidden;position:relative;flex:0 0 auto}
-.charts.capped .chart-item .instr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(rgba(249,248,246,0),var(--bone))}
-.charts.capped .chart-item.paired .instr{max-height:300px}
-.chart-item h3 span{font:400 12px Arial,sans-serif;letter-spacing:0;color:var(--slate);margin-left:8px}
-.chart-story{display:grid;grid-template-columns:84px 1fr;gap:10px;margin-top:10px;padding:10px;border:1px solid var(--rule);border-left:4px solid var(--hue);border-radius:6px;background:#fff;text-decoration:none;color:var(--ink)}
-.chart-story img{width:84px;height:84px;object-fit:cover;border-radius:4px}
-.chart-story em{display:block;font:700 11px Arial,sans-serif;font-style:normal;color:var(--hue)}
-.chart-story b{display:block;font:700 16px/1.25 'Playfair Display',Georgia,serif;margin:2px 0}
-.chart-story i{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:normal 13px/1.35 Spectral,Georgia,serif;color:#333}
-.chart-story small{display:block;font:12px Arial,sans-serif;color:var(--slate);margin-top:3px}
-.more-row{padding:26px 0 46px;text-align:center}
-.more-row a{display:inline-block;margin:6px 6px;padding:12px 20px;border:1px solid var(--ink);border-radius:999px;font:600 15px Arial,sans-serif}
-.more-row a.primary{background:var(--ink);color:var(--bone)}
-.desk-head{padding:26px 0 4px}
-.desk-head h1{font:900 38px/1.1 'Playfair Display',Georgia,serif;margin:0;color:var(--hue)}
-.desk-head p{margin:6px 0 0;color:var(--slate);font-size:17px}
-.instr{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 0 var(--rule)}
-.latest{list-style:none;margin:0;padding:0}
-.latest li{padding:12px 0;border-top:1px solid var(--rule)}
-.latest li a{font-size:18px;line-height:1.4}
-.latest li span{display:block;font:13px Arial,sans-serif;color:var(--slate);margin-top:3px}
-.latest details summary{list-style:none;cursor:pointer;font:700 14px Arial,sans-serif;color:var(--hue);padding:14px 0}
-.earlier{display:grid;gap:18px;grid-template-columns:1fr}
-@media(min-width:700px){.earlier{grid-template-columns:1fr 1fr 1fr}}
-.earlier a{display:block}.earlier img{width:100%;aspect-ratio:1200/630;object-fit:cover;border-radius:6px;display:block}
-.earlier b{display:block;font:700 17px/1.3 'Playfair Display',serif;margin-top:8px}.earlier span{font:13px Arial,sans-serif;color:var(--slate)}
-@media(max-width:699px){.earlier a{display:grid;grid-template-columns:112px 1fr;column-gap:12px;align-items:start}.earlier img{grid-row:span 2;border-radius:4px}.earlier b{margin-top:0;font-size:16px}}
-.desk-head .team{font:13px Arial,sans-serif;color:var(--slate);margin-top:-4px}.desk-head .team a{color:var(--ink);text-decoration:underline}
-.foot{font:13px Arial,sans-serif;color:var(--slate);text-align:center;padding:10px 0 40px}
-.live{display:block;font:14px/1.5 Arial,sans-serif;color:var(--slate);padding:8px 0 0}
-.live .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--seal);animation:pulse 2s infinite;margin-right:7px;vertical-align:1px}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.who{display:flex;align-items:center;gap:9px;font:14px Arial,sans-serif;color:var(--slate)}
-.who img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 1px var(--rule)}
-.who b{color:var(--ink);font-weight:700}
-.card .who{margin:-34px 0 6px;position:relative}.card .who img{width:46px;height:46px;border:3px solid #fff}
-.card .who span{margin-top:26px}
-.who.big{margin-top:16px}.who.big img{width:44px;height:44px}
-.ednote{display:flex;gap:10px;margin-top:16px;padding:12px 14px;background:#fff;border-left:3px solid var(--seal);border-radius:4px;font-size:16px;line-height:1.45;color:#2b3a50}
-.ednote img{width:32px;height:32px;border-radius:50%;object-fit:cover;flex:0 0 32px}
-.ednote span{display:block;font:700 12px Arial,sans-serif;color:var(--slate);margin-bottom:2px}
-.chart .go,.overheard .go{display:inline-block;margin-top:12px;font:700 14px Arial,sans-serif;color:var(--hue,var(--seal))}
-.overheard .msg{display:flex;gap:10px;padding:8px 0}
-.overheard .msg img{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:0 0 36px}
-.overheard .msg b{display:block;font:700 13px Arial,sans-serif}
-.overheard .msg span{display:inline-block;background:#fff;border-radius:14px;padding:8px 12px;font-size:16px;line-height:1.4;box-shadow:0 1px 0 var(--rule);margin-top:3px}
-.foot a{text-decoration:underline}
-.strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:18px 0}
-.strip span{flex:1 1 200px;font:15px/1.4 Arial,sans-serif;color:var(--ink)}
-.strip input[type=email]{flex:1 1 170px;max-width:280px;font:16px Arial,sans-serif;padding:9px 11px;border:1px solid var(--wr-rule);border-radius:6px;background:#fff}
-.strip button{min-height:42px;font:600 14px Arial,sans-serif;padding:9px 16px;color:var(--bone);background:var(--ink);border:1px solid var(--ink);border-radius:999px;cursor:pointer}
-.vh{position:absolute;left:-9999px}
-.others .tag{all:unset;font:11px Arial,sans-serif;color:var(--seal);margin-left:6px}.others .tag.on{color:var(--slate)}
-/* 2026-10-04, Rubin review round 2: said once in the heading; See all keeps only the slate 'on our board' marks */
-.others.v3 .see-all .tag:not(.on){display:none}
-.tag{display:inline-block;font:700 11px/1 Arial,sans-serif;font-style:normal;color:#fff;background:var(--seal);border-radius:3px;padding:3px 6px;margin-right:7px;vertical-align:2px}
-/* 2026-10-04, Rubin review: front v2 type (WR_FRONT_V2=off drops the .v2 class) */
-.v2 .lead{padding:16px 0 34px}
-.v2 .lead h1{font:900 36px/1.08 'Playfair Display',Georgia,serif;letter-spacing:-.01em;margin:10px 0 14px}
-@media(min-width:860px){.v2 .lead h1{font-size:54px}}
-.v2 .lead p{font-size:20px;line-height:1.5}
-.v2 .five li{grid-template-columns:36px 1fr;padding:13px 0}
-.v2 .five li::before{font:900 24px/1.1 'Playfair Display',serif}
-.v2 .five li a{font:600 19px/1.35 'Spectral',Georgia,serif}
-.v2 .five li span{display:block;margin:0 0 3px}
-.wnote{display:flex;gap:10px;align-items:flex-start;padding:12px 0 2px;font:italic 18px/1.45 'Spectral',Georgia,serif;color:var(--ink)}
-.wnote img{width:32px;height:32px;border-radius:50%;object-fit:cover;flex:0 0 32px;margin-top:2px}
-.wnote b{display:block;font:700 13px Arial,sans-serif;font-style:normal;color:var(--slate)}
-.see-all>summary{list-style:none;cursor:pointer;font:700 14px Arial,sans-serif;color:var(--seal);padding:14px 0 0}
-.see-all .instr{margin-top:12px}
-/* 2026-10-04: top five and See all share one edge and one rhythm (no card around either). */
-.others .else-big{margin:0}.others .see-all>.else-big{margin-top:12px}
-.others>.see-all>summary{margin-top:4px}
-.others>.see-all>summary{font:700 15px Arial,sans-serif;letter-spacing:.04em;color:var(--ink);padding:0}
-.others>.see-all>summary::after{content:' \203A';color:var(--seal)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE WANG REPORT</title>
+  <meta name="description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
+  <link rel="canonical" href="https://wangreport.com/">
+  <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="THE WANG REPORT">
+  <meta property="og:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
+  <meta property="og:url" content="https://wangreport.com/">
+  <meta property="og:image" content="https://wangreport.com/img/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="THE WANG REPORT">
+  <meta name="twitter:description" content="Independent news curation from Hong Kong: geopolitics, finance, cyber, AI, sports, health, and culture. Refreshed every 3 hours.">
+  <meta name="twitter:image" content="https://wangreport.com/img/hero.jpg">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=08003390ba">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://wangreport.com/#organization","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","logo":{"@type":"ImageObject","url":"https://wangreport.com/img/og-default.png","width":1200,"height":630},"image":"https://wangreport.com/img/og-default.png","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","foundingDate":"2025","foundingLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hong Kong","addressCountry":"HK"}},"email":"editor@wangreport.com","knowsLanguage":["en","zh-Hant"],"publishingPrinciples":"https://wangreport.com/editorial-standards","ethicsPolicy":"https://wangreport.com/editorial-standards","diversityPolicy":"https://wangreport.com/editorial-standards","actionableFeedbackPolicy":"https://wangreport.com/contact","correctionsPolicy":"https://wangreport.com/editorial-standards#corrections","sameAs":["https://x.com/wangreport"]}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body>
 
+<header class="nh">
+<nav class="nh-desks" aria-label="Desks"><a href="#top" class="on" style="--c:var(--wr-ink)">Front</a><a href="#hk" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="#cyber" style="--c:var(--desk-cyber)">Cyber</a><a href="#finance" style="--c:var(--desk-finance)">Finance</a><a href="#world" style="--c:var(--desk-geopolitical)">World</a><a href="#ai" style="--c:var(--desk-ai)">AI</a><a href="#sports" style="--c:var(--desk-sports)">Sports</a><a href="#science" style="--c:var(--desk-science)">Science & Health</a></nav>
+<nav class="nh-tools" aria-label="Tools"><a href="/edition/latest">Edition</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/issue">Sunday Issue</a><a href="listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/dads">Dads</a></nav>
+</header>
+
+<style>.wx-inline { font-family:"Courier New",Courier,monospace; font-size:10px; color:#0B1F3A; letter-spacing:1px; margin-left:10px; }</style>
+<div class="timestamp-bar">
+  Tuesday, October 6, 2026 at 09:02 AM GMT+8&ensp;<span class="wx-inline">HK &middot; SUNNY INTERVALS &middot; 24&deg;C (23&ndash;29) &middot; 70% HUM</span>
+</div>
+
+<div class="ad-leaderboard"></div>
+
+
+
+
+
+
+    <div class="hero-headline">
+      <a href="/geopolitical-column/2026-09-26-vincent-lai" target="_blank">The HKMA Tells Banks To Lend The Yuan</a>
+    </div>
+    <div class="hero-sub">
+      <a href="/geopolitical-column/2026-09-26-vincent-lai" target="_blank">The HKMA Tells Banks To Lend The Yuan</a>
+      <span class="source">Geopolitical · Vincent Lai</span>
+    </div>
+    <div class="hero-image"><img src="img/hero.jpg?t=1791248540982" alt=""></div>
+
+<div class="masthead">THE WANG REPORT</div>
+<div class="subhead">Independent news curation from Hong Kong  ·  Refreshed every 3 hours</div>
+
+
+
+<div class="markets-bar"><span class="market-up">HSI 24,040.34 &#9650; +0.28%</span> | <span class="market-up">S&amp;P 500 7,773.95 &#9650; +0.66%</span> | <span class="market-up">NASDAQ 27,477.31 &#9650; +1.05%</span> | <span class="market-up">BTC 86,113.98 &#9650; +0.42%</span> | <span class="market-up">USD/HKD 7.85 &#9650; +0.01%</span></div>
+
+<div style="background:#1a2640;color:#c8d4e8;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
+  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <a href="geopolitical" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">THREAT INDEX <span style="color:#fff;">32</span> <span style="color:#aab8cc;">ELEVATED</span></a>
+    <span style="color:#6b7fa0;">|</span>
+    <span>VIX 15.52</span>
+    <span style="color:#6b7fa0;">|</span>
+    <span>F&amp;G 73</span>
+    <span style="color:#6b7fa0;">|</span>
+    <span>CLIMATE 2y 9m</span>
+    <span style="margin-left:auto;"><a href="geopolitical" style="color:#7a9abf;text-decoration:none;font-size:10px;">Full index &rarr;</a></span>
+  </div>
+</div><div style="background:#0d1520;color:#c8d4e8;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:.04em;">
+  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <a href="/cyber" style="text-decoration:none;font-weight:700;color:#e8d5a0;letter-spacing:.08em;">CYBER INTEL <span style="color:#fff;font-size:15px;">54</span> <span style="color:#cc5533;">ELEVATED</span></a>
+    <span style="color:#3a5a7a;">|</span>
+    <span>KEV 7d <span style="color:#e8a0a0;">5</span></span>
+    <span style="color:#3a5a7a;">|</span>
+    <span>CRIT/HIGH <span style="color:#e8a0a0;">84%</span></span>
+    <span style="color:#3a5a7a;">|</span>
+    <span>APAC-FSI <span style="color:#a0c0e8;">38%</span></span>
+    <span style="margin-left:auto;font-size:9px;color:#3a5a7a;"><a href="/cyber" style="color:#6a9abf;text-decoration:none;">Cyber desk &rarr;</a></span>
+  </div>
+</div><div style="background:#0d1a0d;color:#a8c8a0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
+  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:5px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <a href="ai-focus" style="text-decoration:none;font-weight:700;color:#c8e8a0;letter-spacing:.08em;">AI PULSE <span style="color:#cc5533;">60</span> <span style="color:#88aa80;">SURGING</span> ·  LIVE</a>
+    <span style="color:#3a5a3a;">|</span>
+    <span>GH TRENDING 10 repos</span>
+    <span style="color:#3a5a3a;">|</span>
+    <span>HN AI POSTS 100</span>
+    <span style="margin-left:auto;"><a href="ai-focus" style="color:#7ab07a;text-decoration:none;font-size:10px;">AI desk &rarr;</a></span>
+  </div>
+</div><div style="background:#2B1A0D;color:#E8D8C0;font-family:Courier New,monospace;font-size:11px;letter-spacing:.04em;">
+  <div style="max-width:min(1280px,98vw);margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <a href="hk-local" style="text-decoration:none;font-weight:700;color:#C8A96A;letter-spacing:.08em;">HK PULSE <span style="color:#fff;">30</span> <span style="color:#C8934A;">SUBDUED</span></a>
+    <span style="color:#705a40;">|</span>
+    <span>Mood <span style="color:#C8A96A;">34</span></span>
+    <span style="color:#705a40;">|</span>
+    <span>HKD 7.8465</span>
+    <span style="color:#705a40;">|</span>
+    <span>HSI --</span>
+    <span style="margin-left:auto;"><a href="hk-local" style="color:#C8A96A;text-decoration:none;font-size:10px;">HK desk &rarr;</a></span>
+  </div>
+</div><style>
+    .iss-mod { max-width: var(--wr-page, min(1280px, 98vw)); margin: 22px auto 8px; background: #0B1F3A; color: #F1ECE1; padding: 18px 22px 20px; }
+    .iss-mod-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(241,236,225,0.25); padding-bottom: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+    .iss-mod-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: #fff; }
+    .iss-mod-cta { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #E8B04B; text-decoration: none; white-space: nowrap; }
+    .iss-mod-cta:hover { color: #fff; }
+    .iss-mod-lead { font-family: Spectral, Georgia, serif; font-size: 14.5px; font-style: italic; color: #D8D0C2; line-height: 1.5; margin: 8px 0 12px; }
+    .iss-mod-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid rgba(241,236,225,0.12); text-decoration: none; color: #F1ECE1; }
+    .iss-mod-row:first-of-type { border-top: none; }
+    .iss-mod-row:hover .iss-mod-title { color: #E8B04B; }
+    .iss-mod-face { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: none; }
+    .iss-mod-desk { font-family: "Courier New", Courier, monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #9AA6B4; flex: none; width: 110px; }
+    .iss-mod-title { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700; line-height: 1.25; flex: 1 1 auto; min-width: 0; }
+    .iss-mod-by { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #9AA6B4; flex: none; white-space: nowrap; }
+    @media (max-width: 720px) {
+      .iss-mod-desk { display: none; }
+      .iss-mod-by { display: none; }
+    }
+  </style>
+  <section class="iss-mod">
+    <div class="iss-mod-head">
+      <span class="iss-mod-eyebrow">The Sunday Issue</span>
+      <a class="iss-mod-cta" href="/issue">Read the Sunday Issue &rarr;</a>
+    </div>
+    
+    <a class="iss-mod-row" href="/geopolitical-column/2026-09-26-vincent-lai">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/vincent-lai.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
+      <span class="iss-mod-title">The HKMA Tells Banks To Lend The Yuan</span>
+      <span class="iss-mod-by">Vincent Lai</span>
+    </a>
+<a class="iss-mod-row" href="/geopolitical-column/2026-09-26-mei-chen">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/mei-chen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">GEOPOLITICAL DESK</span>
+      <span class="iss-mod-title">Trump Banks Taiwan's Interceptors For Two More Summits</span>
+      <span class="iss-mod-by">Mei Chen</span>
+    </a>
+<a class="iss-mod-row" href="/cyber-column/2026-09-26-kai-tanner">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/kai-tanner.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">CYBER DESK</span>
+      <span class="iss-mod-title">Bitget's $387 Million Theft Left No Regulator To Call</span>
+      <span class="iss-mod-by">Kai Tanner</span>
+    </a>
+<a class="iss-mod-row" href="/ai-focus-column/2026-09-26-aya-nakamura">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/aya-nakamura.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">AI DESK</span>
+      <span class="iss-mod-title">Two Courts Split On Anthropic's Government Access</span>
+      <span class="iss-mod-by">Aya Nakamura</span>
+    </a>
+<a class="iss-mod-row" href="/sports-column/2026-09-26-dev-chatterjee">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/dev-chatterjee.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">SPORTS DESK</span>
+      <span class="iss-mod-title">Cardboard Now Outbids The King</span>
+      <span class="iss-mod-by">Dev Chatterjee</span>
+    </a>
+<a class="iss-mod-row" href="/science-column/2026-09-26-magnus-honeyfield">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/magnus-honeyfield.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">SCIENCE AND HEALTH DESK</span>
+      <span class="iss-mod-title">Anthropic's 950-Agent Swarm Finds A New Enzyme In 21 Hours</span>
+      <span class="iss-mod-by">Magnus Honeyfield</span>
+    </a>
+<a class="iss-mod-row" href="/science-column/2026-09-26-sora-whitlam">
+      <img class="iss-mod-face" src="/masthead/img/thumbs/sora-whitlam.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="iss-mod-desk">SCIENCE AND HEALTH DESK</span>
+      <span class="iss-mod-title">8.8 Million Adults Later, HHS's Ultra-Processed Definition Is Still in Review</span>
+      <span class="iss-mod-by">Sora Whitlam</span>
+    </a>
+  </section><style>
+  .tt-block { max-width: var(--wr-page, min(1280px, 98vw)); margin: 18px auto 24px; padding: 16px 18px 18px; border: 1px solid #C8C0B0; background: #F0EFED; }
+  .tt-eyebrow { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #444; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid #000; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+  .tt-ts { font-size: 9px; font-weight: normal; letter-spacing: 1px; color: #999; }
+  .tt-cta a { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #B0241E; text-decoration: none; }
+  .tt-cta a:hover { text-decoration: underline; }
+  .tt-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
+  .tt-row { display: flex; gap: 10px; padding: 6px 0; text-decoration: none; color: #111; border-top: 1px solid #eee; align-items: baseline; }
+  .tt-row:first-child, .tt-rows > .tt-row:nth-child(2) { border-top: none; }
+  .tt-row:hover .tt-head { color: #B0241E; }
+  .tt-row-anchor { background: rgba(212, 197, 106, 0.18); }
+  .tt-rank { font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: bold; color: #888; min-width: 22px; padding-left: 4px; }
+  .tt-body { display: flex; flex-direction: column; gap: 2px; }
+  .tt-cat-line { display: flex; align-items: baseline; gap: 8px; }
+  .tt-cat { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 1.8px; color: #5A6470; text-transform: uppercase; }
+  .tt-anchor-mark { font-family: "Courier New", Courier, monospace; font-size: 9px; font-weight: bold; letter-spacing: 1.5px; color: #B0241E; text-transform: uppercase; }
+  .tt-head { font-family: Spectral, Georgia, serif; font-size: 14px; line-height: 1.35; }
+  .tt-brief { font-family: Spectral, Georgia, serif; font-size: 12px; line-height: 1.45; color: #5A6470; margin-top: 1px; }
+  @media (max-width: 760px) { .tt-rows { grid-template-columns: 1fr; } }
+  </style>
+  <div class="tt-block">
+    <div class="tt-eyebrow">
+      <span>TODAY'S 6 &middot; Evening Edition <span class="tt-ts">&middot; 21:57 HKT</span></span>
+      <span class="tt-cta"><a href="wire">See full Wire &rarr;</a></span>
+    </div>
+    <div class="tt-rows"><a href="https://www.scmp.com/news/world/middle-east/article/3369825/yemeni-government-forces-seize-control-bab-el-mandeb-strait-minister-says?utm_source=rss_feed" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="SCMP"><meta itemprop="datePublished" content="2026-10-05T13:23:24.000Z"><link itemprop="isBasedOn" href="https://www.scmp.com/news/world/middle-east/article/3369825/yemeni-government-forces-seize-control-bab-el-mandeb-strait-minister-says?utm_source=rss_feed"><meta itemprop="headline" content="Yemeni government forces claim control of Bab el-Mandeb Strait with Saudi air support">
+      <span class="tt-rank">1</span>
+      <span class="tt-body">
+        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span></span>
+        <span class="tt-head">Yemeni government forces claim control of Bab el-Mandeb Strait with Saudi air support</span>
+        <span class="tt-brief">Saudi-backed Yemeni government forces say they have taken effective control of the Bab el-Mandeb Strait, though fighting with Houthi forces…</span>
+      </span>
+    </a>
+<a href="https://www.ft.com/content/53e88a8d-65b5-445e-82ee-aee253a32094?syn-25a6b1a6=1" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="FT"><meta itemprop="datePublished" content="2026-10-05T08:21:07.000Z"><link itemprop="isBasedOn" href="https://www.ft.com/content/53e88a8d-65b5-445e-82ee-aee253a32094?syn-25a6b1a6=1"><meta itemprop="headline" content="Aramco chief warns global oil stockpiles are critically low after Middle East conflict">
+      <span class="tt-rank">2</span>
+      <span class="tt-body">
+        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a4731">Markets &amp; Macro</span></span>
+        <span class="tt-head">Aramco chief warns global oil stockpiles are critically low after Middle East conflict</span>
+        <span class="tt-brief">Saudi Aramco CEO Amin Nasser said global oil inventories depleted by the Middle East conflict could take up to two years to rebuild.</span>
+      </span>
+    </a>
+<a href="https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer"><meta itemprop="datePublished" content="2026-10-04T21:58:01.000Z"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/"><meta itemprop="headline" content="Citrix patches NetScaler zero-day exploited in the wild">
+      <span class="tt-rank">3</span>
+      <span class="tt-body">
+        <span class="tt-cat-line"><span class="tt-cat" style="color: #1e3a5f">Cybersecurity</span></span>
+        <span class="tt-head">Citrix patches NetScaler zero-day exploited in the wild</span>
+        <span class="tt-brief">Citrix released emergency updates for CVE-2026-88779, a NetScaler denial-of-service flaw already exploited in attacks.</span>
+      </span>
+    </a>
+<a href="https://www.bbc.co.uk/news/articles/cwgkv70gg1j3o?at_medium=RSS&amp;amp;at_campaign=rss" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BBC World"><meta itemprop="datePublished" content="2026-10-05T08:22:41.000Z"><link itemprop="isBasedOn" href="https://www.bbc.co.uk/news/articles/cwgkv70gg1j3o?at_medium=RSS&amp;amp;at_campaign=rss"><meta itemprop="headline" content="Arrest of US marine for murder reignites protests in Okinawa">
+      <span class="tt-rank">4</span>
+      <span class="tt-body">
+        <span class="tt-cat-line"><span class="tt-cat" style="color: #3a2a1a">APAC</span></span>
+        <span class="tt-head">Arrest of US marine for murder reignites protests in Okinawa</span>
+        <span class="tt-brief">The arrest of a US marine on a murder charge has revived local anger and protests over the American military presence in Okinawa.</span>
+      </span>
+    </a>
+<a href="https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/" class="tt-row" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BleepingComputer, TechCrunch"><meta itemprop="datePublished" content="2026-10-05T08:27:46.000Z"><link itemprop="isBasedOn" href="https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/"><meta itemprop="headline" content="Google suspends open-source bug bounty program after flood of AI-generated reports">
+      <span class="tt-rank">5</span>
+      <span class="tt-body">
+        <span class="tt-cat-line"><span class="tt-cat" style="color: #1a3558">AI &amp; Tech</span></span>
+        <span class="tt-head">Google suspends open-source bug bounty program after flood of AI-generated reports</span>
+        <span class="tt-brief">Google has paused submissions to its Open Source Software Vulnerability Rewards Program after being overwhelmed by AI-generated reports.</span>
+      </span>
+    </a>
+<a href="https://www.bbc.co.uk/news/articles/ck1l34ed592no?at_medium=RSS&amp;amp;at_campaign=rss" class="tt-row tt-row-anchor" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/NewsArticle"><meta itemprop="publisher" content="The Wang Report"><meta itemprop="sourceOrganization" content="BBC World, FT"><meta itemprop="datePublished" content="2026-10-05T03:16:16.000Z"><link itemprop="isBasedOn" href="https://www.bbc.co.uk/news/articles/ck1l34ed592no?at_medium=RSS&amp;amp;at_campaign=rss"><meta itemprop="headline" content="Flávio Bolsonaro wins Brazil's first round, run-off set for October 25">
+      <span class="tt-rank">6</span>
+      <span class="tt-body">
+        <span class="tt-cat-line"><span class="tt-cat" style="color: #7b1c1c">Geopolitics</span><span class="tt-anchor-mark">Maarten's pick</span></span>
+        <span class="tt-head">Flávio Bolsonaro wins Brazil's first round, run-off set for October 25</span>
+        <span class="tt-brief">Flávio Bolsonaro finished first in Brazil's presidential vote but fell short of 50%, forcing a run-off on 25 October.</span>
+      </span>
+    </a></div>
+  </div>
+
+
+
+<style>
+  .di-strip { max-width: var(--wr-page, min(1280px, 98vw)); margin: 0 auto; display:grid; grid-template-columns:repeat(7,1fr); gap:1px; background:#C8C0B0; border-bottom:1px solid #C8C0B0; }
+  .di-card { background:#F9F8F6; display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 8px 9px; text-decoration:none; color:#111; text-align:center; transition:background 0.12s; }
+  .di-card:hover { background:#F0EFED; }
+  .di-avatar { width:36px; height:36px; border-radius:50%; object-fit:cover; border:1px solid #ddd; flex-shrink:0; }
+  .di-text { display:flex; flex-direction:column; gap:2px; min-width:0; width:100%; }
+  .di-desk { font-family:"Courier New",Courier,monospace; font-size:8.5px; font-weight:bold; color:#B0241E; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; justify-content:center; gap:4px; }
+  .di-pill { font-size:7px; font-weight:bold; letter-spacing:1px; padding:1px 4px; flex-shrink:0; }
+  .di-fresh { color:#0B1F3A; background:#D4C56A; }
+  .di-stale { color:#9AA3B8; border:1px solid #9AA3B8; }
+  .di-name { font-family:"Courier New",Courier,monospace; font-size:9px; color:#5A6470; letter-spacing:0.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .di-title { font-family:Spectral,Georgia,serif; font-size:11px; font-style:italic; line-height:1.3; color:#222; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .di-notfiled { color:#aaa; font-style:italic; }
+  @media(max-width:880px){ .di-strip { grid-template-columns:repeat(4,1fr); } }
+  @media(max-width:540px){ .di-strip { grid-template-columns:repeat(3,1fr); } .di-title { display:none; } }
+  </style>
+  <div class="di-strip"><a href="/geopolitical-column/2026-09-26-vincent-lai" class="di-card">
+      <img src="/masthead/img/thumbs/mei-chen.jpg" class="di-avatar" alt="Mei Chen" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">GEOPOLITICAL</span>
+        <span class="di-name">Mei Chen</span>
+        <span class="di-title">The HKMA Tells Banks To Lend The Yuan</span>
+      </div>
+    </a><a href="/hk-finance-column/2026-09-07-rachel-lam" class="di-card">
+      <img src="/masthead/img/thumbs/rachel-lam.jpg" class="di-avatar" alt="Rachel Lam" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">FINANCE & RISK</span>
+        <span class="di-name">Rachel Lam</span>
+        <span class="di-title">Shein's IPO Raised $1.7 Billion, But Only 5 to 6.6…</span>
+      </div>
+    </a><a href="/cyber-column/2026-09-26-kai-tanner" class="di-card">
+      <img src="/masthead/img/thumbs/kai-tanner.jpg" class="di-avatar" alt="Kai Tanner" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">CYBER</span>
+        <span class="di-name">Kai Tanner</span>
+        <span class="di-title">Bitget's $387 Million Theft Left No Regulator To C…</span>
+      </div>
+    </a><a href="/ai-focus-column/2026-09-26-aya-nakamura" class="di-card">
+      <img src="/masthead/img/thumbs/aya-nakamura.jpg" class="di-avatar" alt="Aya Nakamura" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">AI</span>
+        <span class="di-name">Aya Nakamura</span>
+        <span class="di-title">Two Courts Split On Anthropic's Government Access</span>
+      </div>
+    </a><a href="/hk-local-column/2026-09-07-cheung-kwok-keung" class="di-card">
+      <img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" class="di-avatar" alt="Cheung Kwok-keung" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">HK LOCAL</span>
+        <span class="di-name">Cheung Kwok-keung</span>
+        <span class="di-title">Five Clean Years Beat A HK$21,000 Guide Badge</span>
+      </div>
+    </a><a href="/sports-column/2026-09-26-dev-chatterjee" class="di-card">
+      <img src="/masthead/img/thumbs/dev-chatterjee.jpg" class="di-avatar" alt="Dev Chatterjee" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">SPORTS</span>
+        <span class="di-name">Dev Chatterjee</span>
+        <span class="di-title">Cardboard Now Outbids The King</span>
+      </div>
+    </a><a href="/life-column/2026-09-07-joy-lee" class="di-card">
+      <img src="/masthead/img/thumbs/joy-lee.jpg" class="di-avatar" alt="Joy Lee" onerror="this.style.display='none'">
+      <div class="di-text">
+        <span class="di-desk">LIFE</span>
+        <span class="di-name">Joy Lee</span>
+        <span class="di-title">HBO Max Won The Emmys, Not The Merger</span>
+      </div>
+    </a></div>
+
+
+
+
+
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="editorial-standards">Editorial Standards</a>.</div><style>
 .sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
 .sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
 .sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
@@ -177,690 +335,15 @@ a{color:inherit;text-decoration:none}
 .sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
 .sf-col a:hover{color:#0B1F3A;text-decoration:underline}
 .sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
-
-/* board card styles */
-
-.bd-wrap{width:100%;max-width:var(--wr-page);margin:0 auto;padding:0 12px 48px;min-width:0}
-.bd-grid>*,.bd-list li>*,.bd-read>*,.bd-h>*{min-width:0}
-.bd-list li a{overflow-wrap:anywhere}
-.bd-desk{scroll-margin-top:92px}
-#top.bd-wrap{padding-bottom:0}
-.bd-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:10px 0 6px}
-.bd-title{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:30px;letter-spacing:.02em;color:var(--wr-ink)}
-.bd-title a{color:inherit;text-decoration:none}
-.bd-when{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate)}
-.bd-strip{display:flex;gap:8px;overflow-x:auto;padding:8px 0 10px;border-top:2px solid var(--wr-ink);border-bottom:1px solid var(--wr-rule);-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.bd-strip::-webkit-scrollbar{display:none}
-.bd-chip{flex:0 0 auto;min-width:118px;background:var(--wr-panel);border:1px solid var(--wr-rule);border-radius:6px;padding:6px 10px;text-decoration:none;color:var(--wr-ink)}
-.bd-chip .l{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.06em;color:var(--wr-slate)}
-.bd-chip .v{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;line-height:1.1}
-.bd-chip .s{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
-.bd-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:14px}
-@media(max-width:820px){.bd-grid{grid-template-columns:1fr}}
-.bd-h{font-family:Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:none;color:var(--wr-ink);border-bottom:1px solid var(--wr-ink);padding-bottom:4px;margin:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
-.bd-h span{font-weight:400;color:var(--wr-slate);letter-spacing:0}
-.bd-h a{color:var(--wr-slate);text-decoration:none;font-weight:400;letter-spacing:0}
-.bd-desk{margin-bottom:14px}
-.bd-desk-h{display:flex;align-items:baseline;gap:8px;margin:10px 0 4px}
-.bd-desk-h a{font-family:Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-decoration:none}
-.bd-read{font-family:'Spectral',Georgia,serif;font-size:16px;line-height:1.35;margin:0 0 6px;padding-left:10px;border-left:3px solid var(--wr-rule)}
-.bd-read a{color:var(--wr-ink);text-decoration:none}
-.bd-read .who{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate)}
-.bd-list{list-style:none;margin:0;padding:0}
-.bd-list li{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:baseline;padding:3px 0;border-bottom:1px dotted var(--wr-rule);font-family:'Spectral',Georgia,serif;font-size:16px;line-height:1.3}
-.bd-list li a{color:var(--wr-ink);text-decoration:none}
-.bd-list li a:hover{text-decoration:underline}
-.bd-list li.hot a{font-weight:600}
-.bd-list li.hot a::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--wr-seal);margin-right:6px;vertical-align:1px}
-.bd-list .m{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate);white-space:nowrap}
-details.bd-more summary{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate);cursor:pointer;padding:4px 0;list-style:none}
-details.bd-more summary::-webkit-details-marker{display:none}
-.bd-oth{list-style:none;margin:0;padding:0}
-.bd-oth li{padding:5px 0;border-bottom:1px dotted var(--wr-rule);font-family:'Spectral',Georgia,serif;font-size:14.5px;line-height:1.3}
-.bd-oth .o{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--wr-slate);display:block}
-.bd-oth a{color:var(--wr-ink);text-decoration:none}
-.bd-oth .tag{font-family:Arial,sans-serif;font-size:11px;color:var(--wr-seal);margin-left:6px}
-.bd-oth .tag.on{color:var(--wr-slate)}
-.bd-worth{list-style:none;margin:0;padding:0}
-.bd-worth li{padding:7px 0;border-bottom:1px solid var(--wr-rule)}
-.bd-worth a{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:16px;line-height:1.25;color:var(--wr-ink);text-decoration:none}
-.bd-worth .d{font-family:'Spectral',Georgia,serif;font-size:14.5px;color:var(--wr-ink);margin:2px 0 0}
-.bd-worth .who{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate)}
-.bd-card{background:var(--wr-panel);border:1px solid var(--wr-rule);border-radius:6px;padding:8px 10px;margin-bottom:10px}
-.bd-card h4{margin:0 0 4px;font-family:Arial,sans-serif;font-size:12.5px;letter-spacing:.08em}
-.bd-card h4 a{color:var(--wr-ink);text-decoration:none}
-.bd-card ul{list-style:none;margin:0;padding:0}
-.bd-card li{font-family:'Spectral',Georgia,serif;font-size:14.5px;line-height:1.3;padding:3px 0;border-top:1px dotted var(--wr-rule)}
-.bd-card li a{color:var(--wr-ink);text-decoration:none}
-.bd-card .s{display:block;font-family:Arial,sans-serif;font-size:11px;color:var(--wr-slate)}
-.bd-catch{font-family:'Spectral',Georgia,serif;font-size:14.5px}
-.bd-catch a{color:var(--wr-ink)}
-.bd-catch .who{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate)}
-.bd-quiet{font-family:Arial,sans-serif;font-size:12.5px;color:var(--wr-slate)}
-details.bd-read{display:block}
-.bd-read .art{width:132px;height:69px;object-fit:cover;flex:0 0 132px;margin-left:auto;border:1px solid var(--wr-rule)}
-details[open].bd-read .art{display:none}
-.bd-read .art-full{width:100%;height:auto;display:block;margin:6px 0 10px;border:1px solid var(--wr-rule)}
-@media(max-width:600px){.bd-read .art{width:92px;height:48px;flex-basis:92px}}
-.bd-read .face{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:0 0 34px;border:1px solid var(--wr-rule)}
-.bd-list li.has-th{grid-template-columns:auto 1fr auto}
-.bd-list .th{width:56px;height:40px;object-fit:cover;border-radius:3px;border:1px solid var(--wr-rule);align-self:center}
-.bd-list li a:visited,.bd-list li.read a,.bd-oth a:visited,.bd-worth a:visited{color:var(--wr-slate)}
-.bd-list li.read a::before{background:var(--wr-rule)}
-.bd-list li.new .m::before{content:'new';font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--wr-seal);border-radius:3px;padding:1px 4px;margin-right:6px;vertical-align:1px}
-.bd-when b{font-weight:400;color:var(--wr-ink)}
-.bd-desk{background:color-mix(in srgb,var(--hue) 5%,transparent);border-left:3px solid color-mix(in srgb,var(--hue) 45%,transparent);border-radius:0 6px 6px 0;padding:4px 10px 6px}
-.bd-desk .bd-list li{border-bottom-color:color-mix(in srgb,var(--hue) 18%,transparent)}
-details.bd-read .teaser{display:block;color:var(--wr-ink);font-size:14.5px;margin-top:3px}
-details.bd-read .teaser b,.bd-worth .rm{font-family:Arial,sans-serif;font-size:12.5px;font-weight:700;color:var(--hue,var(--wr-seal));white-space:nowrap}
-details[open] .teaser,.bd-worth details[open] .rm{display:none}
-.less{font:12px Arial,sans-serif;color:var(--wr-slate);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
-.bd-oc{margin:0 0 8px;padding:2px 8px 4px;background:color-mix(in srgb,var(--hue) 4%,transparent);border-left:3px solid color-mix(in srgb,var(--hue) 40%,transparent);border-radius:0 6px 6px 0}
-.cy-panel{--desk-accent:var(--desk-cyber);grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-.cy-panel .fp-n{color:var(--desk-cyber)}
-.cy-row .fp-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cy-row .cy-prod{grid-column:2/-1;font:400 12.5px/1.3 Arial,sans-serif;color:var(--wr-slate);white-space:normal;overflow-wrap:anywhere;margin-top:-3px;padding-bottom:2px}
-.cy-key{font:10px Arial,sans-serif;color:var(--wr-slate);padding-top:4px}.cy-key a{color:var(--wr-slate)}
-.cy-inc{display:block;padding:4px 0;border-top:1px dotted var(--wr-rule);font:13px/1.3 'Spectral',Georgia,serif;color:var(--wr-ink);text-decoration:none}
-.cy-inc span{font:11px Arial,sans-serif;color:var(--wr-slate)}
-.fp-legend a{color:var(--wr-slate)}
-.gct{display:block;text-decoration:none;color:var(--wr-ink);font:14px/1.4 'Spectral',Georgia,serif;padding:7px 0;border-bottom:1px solid var(--wr-rule)}
-.gct b{font:700 12.5px Arial,sans-serif;margin-right:4px}
-.gct-l{font:700 11px Arial,sans-serif;letter-spacing:.06em;color:#fff;background:var(--wr-ink);padding:2px 6px;margin-right:8px;clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%)}
-.ged .gct-l{background:var(--wr-seal)}
-.gct-more{font:11px Arial,sans-serif;color:var(--wr-slate);white-space:nowrap}
-.reg{color:var(--desk-finance);font-weight:700}
-.sc-strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 0 8px;margin:4px 0 6px;-webkit-overflow-scrolling:touch}
-.sc-strip::-webkit-scrollbar{display:none}
-.sc-card{flex:0 0 150px;background:var(--wr-bone);border:1px solid color-mix(in srgb,var(--hue) 25%,transparent);border-top:3px solid var(--hue);padding:6px 8px;font:12px/1.45 Arial,sans-serif;color:var(--wr-ink)}
-.sc-card.live{border-top-color:var(--wr-seal)}
-.sc-h{font:700 14.5px 'Spectral',Georgia,serif;display:flex;flex-wrap:wrap;gap:4px;align-items:baseline;margin-bottom:2px}
-.sc-lg{font:10px Arial,sans-serif;color:var(--wr-slate);margin-left:auto}
-.sc-po{font:700 11px Arial,sans-serif;color:#fff;background:var(--hue);padding:1px 4px}
-.sc-last b{display:inline-block;width:14px;font-weight:700}.sc-last .rW{color:var(--desk-finance)}.sc-last .rL{color:var(--wr-seal)}
-.sc-next span,.sc-live span{color:var(--wr-slate)}.sc-live{color:var(--wr-seal);font-weight:700}
-.sc-last b.pnl{width:auto;margin-right:4px}
-.sc-rk{font:700 11px Arial,sans-serif;color:var(--wr-slate);margin-right:3px}
-.sc-list{margin:2px 0 4px}
-.sc-row{display:flex;gap:8px;justify-content:space-between;align-items:baseline;padding:6px 0;border-top:1px dotted var(--wr-rule);font:12px/1.4 Arial,sans-serif;color:var(--wr-ink)}
-.sc-t{white-space:nowrap}.sc-more{display:block;padding:6px 0 2px;border-top:1px dotted var(--wr-rule);font:12px Arial,sans-serif;color:var(--desk-sports);text-decoration:none}
-.sc-row.live{background:color-mix(in srgb,var(--wr-seal) 5%,transparent)}
-.sc-rn{flex:0 0 34%;min-width:0}.sc-rn b{font:700 15px 'Spectral',Georgia,serif}.sc-rn>span:last-child{display:block;font:11px Arial,sans-serif;color:var(--wr-slate)}
-.sc-rr{flex:1;min-width:0;text-align:right}.sc-rr>span{display:block}
-.sc-rr .sc-last b{display:inline-block;width:14px;font-weight:700}.sc-rr .rW{color:var(--desk-finance)}.sc-rr .rL{color:var(--wr-seal)}
-.sc-q{color:var(--wr-slate)}
-a.sc-card{text-decoration:none}
-.ai-panel{--desk-accent:var(--desk-ai);grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-.ai-b,.ai-m{display:block;padding:4px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-.ai-term{font:700 16px 'Spectral',Georgia,serif;margin-right:6px}
-.ai-k{font:700 11px Arial,sans-serif;color:var(--desk-ai);border:1px solid color-mix(in srgb,var(--desk-ai) 35%,transparent);padding:0 3px;margin-right:3px}
-.ai-s{display:block;font:12px Arial,sans-serif;color:var(--wr-slate);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ai-m b{font:600 14.5px 'Spectral',Georgia,serif}.ai-m span{display:block;font:11px Arial,sans-serif;color:var(--wr-slate)}
-@media(max-width:640px){.ai-panel{grid-template-columns:minmax(0,1fr)}}
-.fp-legend span{white-space:normal}
-.ai-s2{display:block;font:15px/1.35 'Spectral',Georgia,serif;color:var(--wr-ink)}
-.ai-more .ai-ix{display:inline}.ai-more summary{padding-top:6px}
-.ai-bar{display:block;padding:5px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-.ai-bn{display:block}.ai-bn b{font:600 14.5px 'Spectral',Georgia,serif;margin-right:6px}.ai-bn>span:last-child{display:block;font:11px Arial,sans-serif;color:var(--wr-slate)}
-.ai-ix{font:700 10.5px Arial,sans-serif;color:var(--desk-ai);border:1px solid color-mix(in srgb,var(--desk-ai) 35%,transparent);padding:0 3px;vertical-align:2px}
-.ai-bt{display:flex;align-items:center;gap:6px;margin-top:3px}.ai-bt i{display:block;height:9px;background:var(--desk-ai);opacity:.75;border-radius:0 2px 2px 0}.ai-bt em{font:normal 11px Arial,sans-serif;color:var(--wr-slate);white-space:nowrap}
-.ai-w{display:block;font:12px Arial,sans-serif;color:var(--wr-slate);margin-top:2px}
-details.cp-wrap summary{font:11px Arial,sans-serif;color:var(--desk-ai);cursor:pointer;padding:2px 0 6px}
-.cp-panel{margin:6px 0 8px;background:var(--wr-bone);border:1px solid color-mix(in srgb,var(--hue) 20%,transparent);border-radius:6px;padding:8px}
-.cp-row{display:block;padding:4px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-.cp-t{font:14px/1.3 'Spectral',Georgia,serif;margin-right:6px}
-.cp-fig{font:700 12.5px Arial,sans-serif;color:var(--desk-ai);border-bottom:2px solid color-mix(in srgb,var(--desk-ai) 35%,transparent);margin-right:6px;white-space:nowrap}
-.cp-ctx{font:12px/1.45 'Spectral',Georgia,serif;color:var(--wr-slate);border-top:1px solid var(--wr-rule);margin-top:4px;padding-top:6px}.cp-ctx a{color:var(--desk-ai)}
-.cp-m{display:block;font:11px Arial,sans-serif;color:var(--wr-slate)}
-.bd-list .also{color:var(--wr-slate);font-style:italic}
-.fp-panel{--desk-accent:var(--desk-geopolitical);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px;margin:6px 0 8px;background:var(--wr-bone);border:1px solid color-mix(in srgb,var(--hue) 20%,transparent);border-radius:6px;padding:8px}
-@media(max-width:640px){.fp-panel{grid-template-columns:1fr}}
-.fp-map svg{width:100%;height:auto;max-height:190px;display:block}
-.fp-legend{display:flex;justify-content:space-between;font:10px Arial,sans-serif;color:var(--wr-slate);margin-bottom:3px}
-.fp-row{display:grid;grid-template-columns:16px minmax(0,1fr) auto 22px;gap:6px;align-items:center;padding:3px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-.fp-n{font:700 11px Arial,sans-serif;color:var(--desk-geopolitical)}
-.fp-name{font:600 14.5px 'Spectral',Georgia,serif;line-height:1.2;overflow:hidden}
-.fp-wrap .fp-last{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.fp-sum-row .fp-sum{grid-column:2/-1;font:400 12.5px/1.35 Arial,sans-serif;color:var(--wr-slate);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:-2px;padding-bottom:3px}
-.fp-last{display:block;font:400 12.5px Arial,sans-serif;color:var(--wr-slate);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fp-cells{display:grid;grid-template-columns:repeat(14,7px);gap:2px}
-.fp-cells i{width:7px;height:14px;border-radius:1px;display:block}
-.fp-tot{font:700 12.5px Arial,sans-serif;text-align:right}
-.bd-oc-h{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--hue);padding-top:4px}
-details.bd-read summary{display:flex;gap:8px;align-items:flex-start;cursor:pointer;list-style:none}
-details.bd-read summary::-webkit-details-marker{display:none}
-details.bd-read .t{color:var(--wr-ink)}
-
-details.bd-read .body{margin:6px 0 4px 42px;font-family:'Spectral',Georgia,serif;font-size:16px;line-height:1.5}
-details.bd-read .body p{margin:0 0 8px}details.bd-read .body .dek{font-style:italic;color:var(--wr-slate)}
-.open{font-family:Arial,sans-serif;font-size:12.5px}.open a{color:var(--wr-seal);text-decoration:none}
-.bd-list li.has-x{grid-template-columns:1fr auto}.bd-list li.has-th.has-x{grid-template-columns:auto 1fr auto}
-.bd-list .x{font:700 12.5px/1 Arial,sans-serif;color:var(--wr-slate);background:none;border:1px solid var(--wr-rule);border-radius:3px;width:18px;height:18px;margin-left:6px;cursor:pointer;vertical-align:1px;padding:0}
-.bd-list .snip{grid-column:1/-1;font-family:'Spectral',Georgia,serif;font-size:14.5px;line-height:1.45;color:var(--wr-ink);background:var(--wr-panel);border-left:3px solid var(--wr-rule);padding:6px 10px;margin:4px 0 2px}
-.bd-list .snip a{color:var(--wr-seal);font-family:Arial,sans-serif;font-size:12.5px}
-/* Type scale 2026-09-28 (Harry: one size system for the whole page, not just the lists):
-   labels 11px, meta 12.5px, card rows 14.5px, reading text 16px (17px on phones), take titles 18px.
-   Readability pass 2026-09-28 (Harry: "font small, everything dense, not using the spacing well").
-   Bigger type everywhere; on phones the source/time line drops under the headline so
-   headlines use the full width instead of wrapping in a narrow column. */
-.bd-list li{font-size:16px;line-height:1.38;padding:6px 0}
-.bd-list .m{font-size:12.5px}
-details.bd-read .teaser{font-size:16px;line-height:1.45}
-.gct{font-size:16px}
-details.bd-read .t{font-size:18px;line-height:1.3}
-@media(max-width:600px){
-  .bd-list li,.bd-list li.has-x,.bd-list li.has-th,.bd-list li.has-th.has-x{display:block;padding:8px 0;font-size:17px}
-  .bd-list .th{float:right;width:76px;height:52px;margin:2px 0 4px 10px}
-  .bd-list .m{display:block;margin-top:3px;white-space:normal}
-  .bd-list .snip{clear:both}
-  details.bd-read summary{flex-wrap:wrap}
-  details.bd-read summary>span{flex:1 1 0}
-  .bd-read .art{order:-1;width:100%;height:150px;flex-basis:100%;margin:0 0 10px}
-  details.bd-read .teaser{font-size:16px}
-}
-.bd-worth details summary{cursor:pointer;list-style:none}.bd-worth details summary::-webkit-details-marker{display:none}
-.bd-worth .t{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:16px;line-height:1.25;color:var(--wr-ink)}
-
-.bd-worth .body{font-family:'Spectral',Georgia,serif;font-size:14.5px;line-height:1.5;margin-top:6px}.bd-worth .body p{margin:0 0 8px}
-
-.fc-panel{--desk-accent:var(--desk-finance)}
-.fc-row{display:grid;grid-template-columns:minmax(0,1fr) auto 120px;gap:8px;align-items:center;padding:7px 0;border-top:1px dotted var(--wr-rule)}
-.fc-l b{display:block;font:600 14.5px 'Spectral',Georgia,serif;color:var(--wr-ink)}
-.fc-n{display:block;font:11px/1.35 Arial,sans-serif;color:var(--wr-slate)}
-.fc-v{font:700 14px Arial,sans-serif;color:var(--wr-ink);white-space:nowrap}
-.fc-up{color:var(--desk-finance);font-weight:700}.fc-dn{color:var(--wr-seal);font-weight:700}
-.fc-sp path{fill:none;stroke:var(--desk-finance);stroke-width:1.6}.fc-sp circle{fill:var(--desk-finance)}
-.fc-band{stroke:var(--wr-slate);stroke-width:.8;stroke-dasharray:3 3;opacity:.7}
-@media(max-width:420px){.fc-row{grid-template-columns:minmax(0,1fr) auto;}.fc-sp{grid-column:1/-1;width:100%}}
-.hc-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.hc{display:block;padding:8px 9px;border:1px solid var(--wr-rule);border-radius:4px;text-decoration:none;color:var(--wr-ink)}
-.hc-l{display:block;font:11px Arial,sans-serif;color:var(--wr-slate)}.hc-v{display:block;font:700 19px 'Spectral',Georgia,serif;margin:1px 0}.hc-s{display:block;font:11px/1.35 Arial,sans-serif;color:var(--wr-slate)}
-.hc-bad{border-color:var(--wr-seal)}.hc-bad .hc-v{color:var(--wr-seal)}
-@media(max-width:420px){.hc-row{grid-template-columns:1fr}}
-.xb{margin:0 0 10px}
-.xv{display:flex;gap:8px;padding:6px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-.xv img{flex:0 0 96px;width:96px;height:54px;object-fit:cover;border-radius:3px;background:var(--wr-panel)}
-.xv b,.xr b{display:block;font:500 14px/1.32 'Spectral',Georgia,serif}
-.xv i,.xr i{display:block;font:normal 11px Arial,sans-serif;color:var(--wr-slate);margin-top:2px}
-.xr{display:block;padding:6px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-
-.cv,.cv-sec,.cv-tc,.cv-s,.cv-grid>*{min-width:0;overflow-wrap:anywhere}
-.cv-sec{margin:0 0 18px}.cv-sec h3{font:700 19px 'Spectral',Georgia,serif;margin:0 0 6px;padding-top:10px;border-top:2px solid var(--hue,#9B3D6E)}
-.cv-sec h3 span{font:400 12px Arial,sans-serif;color:var(--wr-slate);margin-left:4px}
-.cv-trend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:4px 18px}
-.cv-th{font:700 12px Arial,sans-serif;color:var(--hue,#9B3D6E);padding:4px 0}
-.cv-tc ol{margin:0;padding:0;list-style:none;counter-reset:n}
-.cv-tc li{counter-increment:n;border-top:1px dotted var(--wr-rule)}
-.cv-tc li a{display:grid;grid-template-columns:20px minmax(0,1fr) auto;column-gap:6px;padding:5px 0;text-decoration:none;color:var(--wr-ink)}
-.cv-tc li a::before{content:counter(n);font:700 13px Arial,sans-serif;color:var(--wr-slate);grid-row:span 2}
-.cv-tc b{font:500 14.5px/1.3 'Spectral',Georgia,serif}.cv-tc i{grid-column:2;font:normal 11.5px/1.3 Arial,sans-serif;color:var(--wr-slate)}
-.cv-tc em{grid-column:3;grid-row:1;font:normal 11px Arial,sans-serif;color:var(--wr-slate);white-space:nowrap}
-.cv-hint{font:11px Arial,sans-serif;color:var(--wr-slate);margin:2px 0 6px}
-.cv-grow{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;align-items:flex-start;-webkit-overflow-scrolling:touch}.cv-grow::-webkit-scrollbar{display:none}
-.cv-g{flex:0 0 138px;font:12px/1.35 Arial,sans-serif;color:var(--wr-ink)}
-.cv-g a{position:relative;display:block}.cv-g img{width:138px;height:138px;object-fit:cover;border-radius:4px;display:block;background:var(--wr-panel)}
-.cv-gl{position:absolute;left:6px;top:6px;background:rgba(11,31,58,.82);color:#fff;font:700 11px Arial,sans-serif;padding:2px 6px;border-radius:3px}
-.cv-g b{display:block;font:600 14px/1.25 'Spectral',Georgia,serif;margin-top:5px}.cv-g i{display:block;font-style:normal;color:var(--wr-slate)}
-.cv-g small{display:block;font-size:11px;color:var(--wr-slate);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cv-trend.two{margin-top:6px}
-.cv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));min-width:0;gap:12px}
-.cv-s{display:block;text-decoration:none;color:var(--wr-ink);padding:6px 0;border-top:1px dotted var(--wr-rule)}
-.cv-grid .cv-s{border-top:0;padding:0}
-.cv-s img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;display:block;margin-bottom:5px;background:var(--wr-panel)}
-.cv-s b{display:block;font:500 15px/1.3 'Spectral',Georgia,serif}.cv-s i{display:block;font:normal 11.5px Arial,sans-serif;color:var(--wr-slate);margin-top:2px}
-.cv-note{font:italic 14.5px/1.4 'Spectral',Georgia,serif;color:var(--wr-ink);margin:0 0 8px}.cv-own{font:11.5px Arial,sans-serif;color:var(--wr-slate);margin:-2px 0 6px}.cv-own a{color:inherit;text-decoration:underline}
-.cv-cal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:2px 0 8px}
-.cv-cal a{display:block;border:1px solid var(--wr-rule);border-top:3px solid var(--hue,#9B3D6E);border-radius:4px;padding:8px 10px;text-decoration:none;color:var(--wr-ink);background:#fff}
-.cv-cal a{padding:7px 8px}.cv-cal em{display:block;font:700 18px 'Spectral',Georgia,serif;font-style:normal;color:var(--hue,#9B3D6E)}.cv-cal b{display:block;font:600 16px 'Spectral',Georgia,serif}.cv-cal i{display:block;font:normal 11px/1.35 Arial,sans-serif;color:var(--wr-slate)}@media(max-width:600px){.cv-cal i{font-size:10.5px}.cv-cal b{font-size:14.5px}}
-/* Phones: the ranked lists swipe sideways instead of stacking seven deep. */
-@media(max-width:700px){.cv-trend{align-items:flex-start;display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:4px}.cv-trend::-webkit-scrollbar{display:none}.cv-trend .cv-tc{flex:0 0 84%;scroll-snap-align:start}}
-.cc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 10px}
-.cc-t{position:relative;display:block;min-width:0;text-decoration:none;color:var(--wr-ink);font:11px/1.3 Arial,sans-serif}
-.cc-t img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;display:block;background:var(--wr-panel)}
-.cc-t b{display:block;font:600 12.5px/1.2 'Spectral',Georgia,serif;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cc-t i{display:block;font-style:normal;color:var(--wr-slate);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cc-s{display:grid;grid-template-columns:18px 1fr;column-gap:6px;padding:5px 0;border-top:1px dotted var(--wr-rule);text-decoration:none;color:var(--wr-ink)}
-.cc-s em{grid-row:span 2;font:700 13px Arial,sans-serif;font-style:normal;color:var(--wr-slate)}.cc-s b{font:500 14px/1.25 'Spectral',Georgia,serif}.cc-s i{font:normal 11px Arial,sans-serif;color:var(--wr-slate)}
-
-
-
-
-.hub-pulse { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
-  letter-spacing: .04em; color: #444; padding: 6px 8px;
-  border-top: 2px solid var(--desk-accent); border-bottom: 1px solid var(--wr-rule);
-  max-width: var(--wr-page); margin: 0 auto; }
-
-.hub-pulse a { color: var(--wr-ink); text-decoration: none; }
-
-.hub-pulse a:hover { color: var(--desk-accent); text-decoration: underline; }
-
-.hub-pv { font-weight: bold; color: var(--desk-accent); }
-
-.hub-pv--alert { color: var(--wr-seal); }
-
-.hub-pv--ink { color: var(--wr-ink); }
-
-.hub-pv--muted { color: var(--wr-slate); }
-
-.hub-pulse-sep { color: var(--desk-faint); }
-
-.hub-pulse-note { color: var(--desk-faint); font-size: 9px; }
- .hub-pulse-note { display: none; }
-
-
-.hub-rulebar { max-width: 732px; margin: 0 auto; padding: 0 16px; }
-
-.hub-rule { border: none; border-top: 3px solid #000; margin: 12px 0 0; }
-
-.hub-rule-thin { border: none; border-top: 1px solid #ccc; margin: 3px 0 0; }
-
-
-
-.hub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
-  border-bottom: 1px solid var(--desk-rule); padding-bottom: 6px; margin: 36px 0 4px; }
-
-.hub-tag { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
-  letter-spacing: 2.5px; color: var(--desk-accent); text-transform: uppercase; }
-
-.hub-head-link { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold;
-  letter-spacing: 1.5px; text-transform: uppercase; color: #667; text-decoration: none; white-space: nowrap; }
-
-.hub-head-link:hover { color: var(--desk-accent); }
-
-
-
-.hub-wlist { border-left: 2px solid var(--desk-accent); }
-
-.hub-w-item { display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 14px;
-  text-decoration: none; border-bottom: 1px solid var(--desk-rule); }
-
-.hub-w-item:last-child { border-bottom: none; }
-
-.hub-w-item:hover .hub-w-title { color: var(--desk-accent); }
-
-.hub-w-title { flex: 1; min-width: 0; font-size: 14.5px; line-height: 1.45; color: #222; }
-
-.hub-w-meta { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
-
-.hub-w-src { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; color: #999; text-transform: uppercase; }
-
-.hub-w-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: var(--desk-faint); }
-
-
-
-.hub-row { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0;
-  border-bottom: 1px solid var(--desk-rule); }
-
-.hub-row:last-child { border-bottom: none; }
-
-.hub-row-key { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: bold;
-  color: var(--desk-accent); min-width: 84px; padding-top: 2px; }
-
-.hub-row-key--alert { color: var(--wr-seal); }
-
-.hub-row-key--muted { color: #667; }
-
-.hub-row-main { flex: 1; min-width: 0; }
-
-.hub-row-title { font-size: 14.5px; line-height: 1.4; color: #222; text-decoration: none; display: block; }
-
-a.hub-row-title:hover { color: var(--desk-accent); }
-
-.hub-row-meta { font-family: 'Courier New', Courier, monospace; font-size: 10px; color: var(--desk-faint); margin-top: 2px; }
-
-.hub-row-meta b { color: var(--desk-accent); font-weight: bold; }
-
-.hub-foot { font-family: 'Courier New', Courier, monospace; font-size: 9px; color: var(--desk-faint);
-  margin-top: 10px; line-height: 1.5; }
-
-
-
-.hub-kv-row { display: flex; align-items: baseline; gap: 12px; padding: 8px 0;
-  border-bottom: 1px solid var(--desk-rule); text-decoration: none; }
-
-.hub-kv-row:last-child { border-bottom: none; }
-
-.hub-kv-key { font-family: 'Courier New', Courier, monospace; font-size: 11px; font-weight: bold;
-  letter-spacing: .5px; color: var(--desk-accent); min-width: 122px; flex-shrink: 0; }
-
-.hub-kv-line { flex: 1; min-width: 0; font-size: 14px; line-height: 1.45; color: #222; }
-
-.hub-kv-row:hover .hub-kv-line { color: var(--desk-accent); }
-
-.hub-kv-date { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: .5px; color: var(--desk-faint); flex-shrink: 0; }
-
-
-
-.hub-index { text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 11px;
-  font-weight: bold; letter-spacing: .04em; color: #444; padding: 8px 10px; margin-top: 40px;
-  border-top: 1px solid var(--desk-accent); border-bottom: 1px solid var(--desk-accent); }
-
-.hub-index a { color: var(--wr-ink); text-decoration: none; margin: 0 10px; white-space: nowrap; }
-
-.hub-index a:hover { color: var(--desk-accent); text-decoration: underline; }
-
-  .hub-kv-row { flex-wrap: wrap; gap: 4px 12px; }
-
-  .hub-kv-key { min-width: 0; }
-
-  .hub-kv-date { display: none; }
-
-  .hub-row-key { min-width: 70px; }
-
-
-
-.hub-resource { max-width: var(--wr-col); }
-
-.hub-resource .subhead { font-family: var(--wr-meta); text-transform: none; letter-spacing: 0; color: var(--wr-slate); }
-
-.hub-resource .hub-head { border-top: 3px solid #000; border-bottom: none; padding: 10px 0 0; margin: 44px 0 14px; }
-
-.hub-resource .hub-tag { font-family: var(--wr-text); font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--wr-ink); }
-
-.hub-resource .hub-head-link { font-family: var(--wr-meta); font-size: 11px; font-weight: normal; letter-spacing: 0; text-transform: none; color: var(--wr-slate); }
-
-.hub-resource .hub-head-link:hover { color: var(--wr-seal); }
-
-.hub-desk { margin-top: 26px; }
-
-.hub-people { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; }
-
-.hub-person { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-
-.hub-face { width: 64px; height: 64px; object-fit: cover; border: 1px solid #ddd; }
-
-.hub-person-text { display: flex; flex-direction: column; }
-
-.hub-person-name { font-family: var(--wr-display); font-size: 19px; color: var(--wr-ink); }
-
-.hub-person-zh { font-size: 13px; color: #666; letter-spacing: 2px; margin-left: 6px; }
-
-.hub-person-role { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 3px; }
-
-.hub-person:hover .hub-person-name { color: var(--wr-seal); }
-
-.hub-promise { font-family: var(--wr-text); font-size: 17px; line-height: 1.5; font-style: italic; color: #333; margin: 18px 0 0; padding-left: 12px; border-left: 3px solid var(--wr-seal); }
-
-.hub-latest { margin-top: 22px; padding: 10px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; font-family: var(--wr-text); font-size: 15px; line-height: 1.5; }
-
-.hub-latest .hub-tag { margin-right: 6px; }
-
-.hub-latest > a { font-family: var(--wr-text); font-size: 16px; font-weight: 600; color: var(--wr-ink); text-decoration: none; }
-
-.hub-latest > a:hover { color: var(--wr-seal); }
-
-.hub-latest-meta { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-left: 6px; }
-
-.hub-latest-meta a { color: var(--wr-slate); text-decoration: none; }
-
-.hub-latest-meta a:hover { color: var(--wr-seal); }
-
-.hub-stats { display: flex; flex-wrap: wrap; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
-
-.hub-stat { flex: 1 1 110px; display: flex; flex-direction: column; padding: 12px 10px 10px; text-decoration: none; border-right: 1px solid #eee; }
-
-.hub-stat:last-child { border-right: none; }
-
-.hub-stat-n { font-family: var(--wr-display); font-size: 30px; line-height: 1; color: var(--wr-ink); }
-
-.hub-stat-n.hub-stat--alert { color: var(--wr-seal); }
-
-.hub-stat-s { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-left: 6px; }
-
-.hub-stat-l { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 8px; }
-
-.hub-resource .hub-foot { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 10px; line-height: 1.5; }
-
-.hub-resource .hub-row { border-bottom: 1px solid #ddd; }
-
-.hub-resource .hub-row-key { font-family: var(--wr-meta); font-size: 11px; font-weight: 600; color: var(--wr-ink); min-width: 92px; padding-top: 3px; }
-
-.hub-resource .hub-row-key--alert { color: var(--wr-seal); }
-
-.hub-resource .hub-row-key--muted { color: var(--wr-slate); }
-
-.hub-resource .hub-row-title { font-family: var(--wr-text); font-size: 16px; font-weight: 600; color: var(--wr-ink); }
-
-.hub-resource a.hub-row-title:hover { color: var(--wr-seal); }
-
-.hub-resource .hub-row-meta { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); margin-top: 3px; }
-
-.hub-resource .hub-row-meta b { color: var(--wr-seal); }
-
-.hub-resource .hub-kv-row { border-bottom: 1px solid #ddd; }
-
-.hub-resource .hub-kv-key { font-family: var(--wr-text); font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--wr-ink); min-width: 122px; }
-
-.hub-resource .hub-kv-line { font-family: var(--wr-text); font-size: 15px; color: #222; }
-
-.hub-resource .hub-kv-row:hover .hub-kv-line { color: var(--wr-seal); }
-
-.hub-resource .hub-kv-date { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); }
-
-.hub-tools { margin-top: 4px; }
-
-.hub-tool { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid #ddd; text-decoration: none; }
-
-.hub-tool-title { font-family: var(--wr-display); font-size: 18px; color: var(--wr-ink); }
-
-.hub-tool:hover .hub-tool-title { color: var(--wr-seal); }
-
-.hub-tool-desc { font-family: var(--wr-text); font-size: 15px; line-height: 1.5; color: #444; }
-
-.hub-tool-go { font-family: var(--wr-meta); font-size: 11px; font-weight: 600; color: var(--wr-seal); margin-top: 2px; }
-
-.hub-archive { margin-top: 8px; }
-
-.hub-arch { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid #ddd; text-decoration: none; }
-
-.hub-arch:last-child { border-bottom: none; }
-
-.hub-arch-date { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); min-width: 52px; flex-shrink: 0; }
-
-.hub-arch-title { flex: 1; font-family: var(--wr-text); font-size: 15px; font-weight: 600; color: var(--wr-ink); }
-
-.hub-arch:hover .hub-arch-title { color: var(--wr-seal); }
-
-.hub-arch-by { font-family: var(--wr-meta); font-size: 11px; color: var(--wr-slate); flex-shrink: 0; }
-
-.hub-theses .hub-thesis { font-family: var(--wr-text); font-size: 17px; line-height: 1.6; color: #111; margin: 0; padding: 10px 0; border-bottom: 1px solid #ddd; }
-
-.hub-theses .hub-thesis:last-of-type { border-bottom: none; }
-
-.hub-latest .hub-tag { display: block; margin: 0 0 4px; }
-
-.hub-latest > a { display: block; }
-
-.hub-latest-meta { display: block; margin: 4px 0 0; }
-
-  .hub-stat { flex-basis: 30%; }
-
-
-
-.hub-map { display: block; width: 100%; height: auto; margin: 2px 0 6px; }
-
-.hub-map-land { fill: color-mix(in srgb, var(--desk-accent) 9%, #fff); stroke: color-mix(in srgb, var(--desk-accent) 35%, #fff); stroke-width: 0.6; }
-
-.hub-map-dot circle { fill: #9a9a9a; stroke: #fff; stroke-width: 1.5; }
-
-.hub-map-dot--watch circle { fill: #fff; stroke: var(--desk-accent); stroke-width: 2.2; }
-
-.hub-map-dot--moved circle { fill: var(--desk-accent); stroke: #fff; stroke-width: 1.5; }
-
-.hub-map-dot text { font-family: var(--wr-meta); font-size: 11px; font-weight: 700; fill: var(--wr-ink); paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
-
-.hub-map a:hover circle { stroke: var(--wr-ink); }
-
-.hub-latest--next { margin-top: 0; border-top: none; }
-
-
-.hub-notice { margin-top: 36px; padding-top: 12px; border-top: 1px solid #ddd; }
-
-.hub-notice a { color: inherit; }
-
-.hub-map-summary { font-family: var(--wr-text); font-size: 15px; line-height: 1.55; color: var(--wr-ink); margin: 0 0 10px; }
-:root{--desk-accent:var(--hue);--wr-meta:Arial,sans-serif}</style>
-</head>
-<body>
-<div class="top"><div class="wrap">
-  <div class="top-row"><a class="mast" href="./"><img class="chop" src="img/chop-128.png" alt="" width="26" height="26">The Wang Report</a><button class="more-btn" type="button" onclick="document.getElementById('sheet').classList.add('open')">More</button></div>
-  <nav class="tabs"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></nav>
-</div></div>
-<div class="sheet" id="sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sheet-in">
-  <button class="sheet-x" type="button" onclick="document.getElementById('sheet').classList.remove('open')">Close</button>
-  <h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a>
-</div></div>
-<main class="wrap v2">
-  <div class="date">Tuesday 6 October · Hong Kong</div>
-  
-  <a class="live" href="/indicators"><span class="dot"></span>24°C · Hang Seng 24,040 <span class="mv bad">▼2.3%</span> · markets: greedy (70) · 6 flaws exploited this week · 3 flashpoint moves in 48 h <span class="mv good" title="yesterday 7">▼4</span></a>
-  <section class="lead" style="--hue:#1D5F5A">
-    <a href="/briefings/2026-10-06-cyber" aria-label="South Korean banks must name their own entry point before the regulator names it"><img src="https://audio.wangreport.com/art/takes/2026-10-06-cyber-bbb39.jpg" alt="" fetchpriority="high" decoding="async"></a>
-    <div>
-      <span class="kicker">Top story · Cyber</span>
-      <h1><a href="/briefings/2026-10-06-cyber">South Korean banks must name their own entry point before the regulator names it</a></h1>
-      <p>The regulator convened before anyone has publicly named how the attackers got in, which leaves every bank answering a question the commission has not yet defined.</p>
-      <a class="who big" href="/briefings/2026-10-06-cyber"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt=""><span><b>Kai Tanner</b> on Cyber</span></a>
-    </div>
-  </section>
-  <section class="sec">
-    <h2>The day in five lines</h2>
-    <ol class="five"><li><a href="/briefings/2026-10-05-science"><span>Science</span>FDA approves daraxonrasib for pancreatic cancer after trial shows survival nearly doubled</a></li><li><a href="https://www.scmp.com/opinion/hong-kong-opinion/article/3369682/hong-kong-must-scrap-housing-plan-and-preserve-golf-course?utm_source=rss_feed" rel="noopener"><span>Hong Kong</span>Golf course housing plan scrapped</a></li><li><a href="https://www.msn.com/en-us/news/other/ubs-drops-spotify-price-target-citing-cost-pressures/ar-AA2dD5ik" rel="noopener"><span>Finance</span>UBS Cuts Spotify Price Target on Cost Pressures</a></li><li><a href="https://www.darkreading.com/cyberattacks-data-breaches/chinese-actor-impersonates-us-officials-cyber-espionage" rel="noopener"><span>Cyber</span>Chinese Hackers Pose As US Officials To Spy On AI Policy Experts</a></li><li><a href="https://www.channelnewsasia.com/east-asia/china-philippines-trade-accusations-over-south-china-sea-aircraft-encounter-6433456" rel="noopener"><span>World</span>Beijing and Manila Trade Airspace Charges</a></li></ol>
-  </section>
-  <section class="sec overheard"><h2>Overheard in the newsroom</h2><div class="msg"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt=""><div><b>Kai</b><span>r/cybersecurity: two federal agencies hacked in a month and the headline is that it spilled a bonanza of sensitive data. a bonanza. that is the word we are using now</span></div></div><div class="msg"><img src="/masthead/img/thumbs/aya-nakamura.jpg" alt=""><div><b>Aya</b><span>so, a spill.</span></div></div><div class="msg"><img src="/masthead/img/thumbs/kai-tanner.jpg" alt=""><div><b>Kai</b><span>a spill with a celebratory noun. i will be adding it to the tally next to &quot;no evidence of exploitation&quot; even though it is a different genre</span></div></div><a class="go" href="/group-chat#t-2026-10-05-8">The whole thread (6 messages) &rarr;</a></section>
-  <section class="sec">
-    <h2>The desks</h2>
-    <p class="swipe-hint">Swipe for more desks &rarr;</p>
-    <div class="cards"><article class="card" style="--hue:#3E356B">
-    <a class="card-img" href="/briefings/2026-10-06-ai-focus" aria-label="DeepSeek V4 Pro now costs $3.5 per million output tokens, up from $0.79"><img src="https://audio.wangreport.com/art/takes/2026-10-06-ai-focus-bbb39-t.jpg" alt="" loading="lazy"></a>
-    <div class="card-body">
-      <a class="who" href="/desk/ai"><img src="/masthead/img/thumbs/aya-nakamura.jpg" alt=""><span><b>Aya Nakamura</b> on AI</span></a>
-      <h3><a href="/briefings/2026-10-06-ai-focus">DeepSeek V4 Pro now costs $3.5 per million output tokens, up from $0.79</a></h3>
-      <p class="dek">Reflection says Beam rivals Chinese models at lower compute cost, arriving just as a major Chinese model got far more expensive.</p>
-      <a class="go" href="/desk/ai">More AI &rarr;</a>
-    </div>
-  </article>
-<article class="card" style="--hue:#6B2430">
-    <a class="card-img" href="/briefings/2026-10-06-geopolitical" aria-label="US defence experts work inside Taiwan's military headquarters, SCMP reports"><img src="https://audio.wangreport.com/art/takes/2026-10-06-geopolitical-bbb39-t.jpg" alt="" loading="lazy"></a>
-    <div class="card-body">
-      <a class="who" href="/desk/world"><img src="/masthead/img/thumbs/mei-chen.jpg" alt=""><span><b>Mei Chen</b> on World</span></a>
-      <h3><a href="/briefings/2026-10-06-geopolitical">US defence experts work inside Taiwan's military headquarters, SCMP reports</a></h3>
-      <p class="dek">The one form of US support that needs no presidential signature has been running in the building where Taiwan plans its war.</p>
-      <a class="go" href="/desk/world">More World &rarr;</a>
-    </div>
-  </article>
-<article class="card" style="--hue:#B0241E">
-    <a class="card-img" href="/briefings/2026-10-05-hk-desk-live-1205" aria-label="HK Express Hefei flights from 3 December, HK$77 sale closed 4 October"><img src="https://audio.wangreport.com/art/takes/2026-10-05-hk-desk-live-1205-ab897-t.jpg" alt="" loading="lazy"></a>
-    <div class="card-body">
-      <a class="who" href="/desk/hk"><img src="/masthead/img/thumbs/cheung-kwok-keung.jpg" alt=""><span><b>Cheung Kwok-keung</b> on Hong Kong</span></a>
-      <h3><em class="tag">Trending</em><a href="/briefings/2026-10-05-hk-desk-live-1205">HK Express Hefei flights from 3 December, HK$77 sale closed 4 October</a></h3>
-      <p class="dek">The sale that got everyone searching closed last night, so the price you see now is not the price in the headlines.</p>
-      <a class="go" href="/desk/hk">More Hong Kong &rarr;</a>
-    </div>
-  </article>
-<article class="card" style="--hue:#A05A1F">
-    <a class="card-img" href="/briefings/2026-10-06-sports" aria-label="Chiefs reach out to Tyreek Hill after Thornton's 12 to 16 week ankle injury"><img src="https://audio.wangreport.com/art/takes/2026-10-06-sports-bbb39-t.jpg" alt="" loading="lazy"></a>
-    <div class="card-body">
-      <a class="who" href="/desk/sports"><img src="/masthead/img/thumbs/dev-chatterjee.jpg" alt=""><span><b>Dev Chatterjee</b> on Sports</span></a>
-      <h3><a href="/briefings/2026-10-06-sports">Chiefs reach out to Tyreek Hill after Thornton's 12 to 16 week ankle injury</a></h3>
-      <p class="dek">Kansas City beat the Raiders 30-27 on Sunday, and the first thing the front office did with the bye week was reach for a name from the dynasty's first act.</p>
-      <a class="go" href="/desk/sports">More Sports &rarr;</a>
-    </div>
-  </article><article class="card" style="--hue:#9B3D6E">
-    <a class="card-img" href="/desk/culture" aria-label="Culture &amp; Society"><img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8b/dd/6f/8bdd6f68-9d07-3666-f337-aca58e85ccb6/196874376287.jpg/300x300bb.jpg" alt="" loading="lazy" style="object-fit:cover"></a>
-    <div class="card-body">
-      <a class="who" href="/desk/culture"><img src="/masthead/img/thumbs/priscilla-yeung.jpg" alt=""><span><b>Priscilla Yeung</b> on Culture &amp; Society</span></a>
-      <h3><a href="/desk/culture">Zaslav says goodbye to Warner Bros. on video, and Drake and Don Toliver hold three of Apple's top five.</a></h3>
-      <a class="go" href="/desk/culture">More Culture &amp; Society &rarr;</a>
-    </div>
-  </article></div>
-  </section>
-  <section class="sec charts capped">
-    <h2>Today's charts</h2>
-    <p class="swipe-hint">Swipe for more charts &rarr;</p>
-    <div class="chart-row"><div class="chart-item paired" style="--hue:#1E5C46"><h3>Finance<span>today's biggest move</span></h3><div class="instr"><div class="fc-panel"><div class="fp-legend">Hong Kong money, 30 days <span>closing values</span></div><div class="fc-row"><span class="fc-l"><b>Hang Seng</b><span class="fc-n">day <span class="fc-dn">-2.3%</span> · month <span class="fc-dn">-5.4%</span></span></span><span class="fc-v">24,040</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,2.0L6.6,3.7L11.3,4.5L15.9,10.3L20.6,13.0L34.5,10.9L39.1,15.5L43.8,14.6L48.4,16.6L53.0,14.0L67.0,8.7L71.6,7.9L76.2,12.4L80.9,13.8L85.5,18.3L99.4,15.9L104.1,18.1L108.7,16.4L118.0,28.0"/><circle cx="118.0" cy="28.0" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>USD/HKD</b><span class="fc-n">peg band 7.75 to 7.85; at the weak side</span></span><span class="fc-v">7.8467</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><line x1="0" x2="120" y1="28.0" y2="28.0" class="fc-band"/><line x1="0" x2="120" y1="2.0" y2="2.0" class="fc-band"/><path d="M2.0,4.4L6.0,4.6L10.0,4.2L14.0,4.0L18.0,4.3L30.0,4.1L34.0,3.8L38.0,3.4L42.0,3.5L46.0,3.1L58.0,3.4L62.0,3.3L66.0,3.9L70.0,4.0L74.0,3.9L86.1,3.5L90.1,3.4L94.1,3.0L98.1,3.0L102.1,2.9L114.1,2.8L118.0,2.9"/><circle cx="118.0" cy="2.9" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>1-month HIBOR</b><span class="fc-n"><span class="fc-up">+25 bp</span> in a month · overnight 2.55%</span></span><span class="fc-v">2.94%</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,28.0L4.8,20.9L7.5,20.0L10.3,20.5L13.0,15.5L21.3,15.5L24.1,14.4L26.9,14.5L29.6,16.0L32.4,16.1L40.7,15.1L43.4,12.1L46.2,12.8L49.0,13.3L51.7,13.1L60.0,12.4L62.8,10.4L65.5,7.4L68.3,11.5L71.0,14.0L79.3,13.9L82.1,16.0L84.9,12.6L87.6,6.9L90.4,4.2L98.7,2.0L101.4,2.1L104.2,3.0L109.7,6.0L118.0,8.1"/><circle cx="118.0" cy="8.1" r="2.2"/></svg></div><div class="fc-row"><span class="fc-l"><b>Aggregate balance</b><span class="fc-n">banks' cash at the HKMA · <span class="fc-dn">-0.8 bn</span> in a month</span></span><span class="fc-v">HK$54.1bn</span><svg class="fc-sp" viewBox="0 0 120 30" width="120" height="30" aria-hidden="true"><path d="M2.0,17.2L4.8,27.1L7.5,25.7L10.3,25.3L13.0,25.4L21.3,25.4L24.1,25.4L26.9,27.5L29.6,27.5L32.4,27.5L40.7,27.5L43.4,27.5L46.2,27.4L49.0,27.7L51.7,27.7L60.0,27.7L62.8,27.7L65.5,2.0L68.3,28.0L71.0,28.0L79.3,28.0L82.1,28.0L84.9,25.9L87.6,25.9L90.4,18.6L98.7,25.9L101.4,25.4L104.2,26.4L109.7,26.4L118.0,26.4"/><circle cx="118.0" cy="26.4" r="2.2"/></svg></div>
-  <div class="cy-key">Hang Seng: index points. USD/HKD: the peg's band drawn as two lines. HIBOR: what banks charge each other, the rate mortgages follow. Aggregate balance: a falling figure means money leaving and rates rising. Sources: Yahoo Finance, HKMA.</div></div></div><a class="chart-story" href="/briefings/2026-10-05-hk-finance"><img src="https://audio.wangreport.com/art/takes/2026-10-05-hk-finance-a740b-t.jpg" alt="" loading="lazy"><span><em>The story</em><b>SFC issues Investor Identification Regime roadmap and client consent circular for exchange-traded derivatives</b><i>Two SFC circulars dated 30 September give derivatives intermediaries a build schedule and a consent procedure, and the consent half is the one that needs a client to answer.</i><small>Rachel Lam · 24 h ago</small></span></a><a class="go" href="/desk/finance">More Finance &rarr;</a></div><div class="chart-item" style="--hue:#B0241E"><h3>Hong Kong</h3><div class="instr"><div class="hc-strip"><div class="fp-legend">Hong Kong right now <span>official feeds: HKO, EPD, MTR</span></div><div class="hc-row"><a class="hc" href="https://www.hko.gov.hk/en/" rel="noopener"><span class="hc-l">Weather</span><span class="hc-v">24°C</span><span class="hc-s">no warnings in force · humidity 68%</span></a><a class="hc" href="https://www.aqhi.gov.hk/en.html" rel="noopener"><span class="hc-l">Air quality</span><span class="hc-v">2 to 3</span><span class="hc-s">low at worst, Southern</span></a><a class="hc" href="https://www.mtr.com.hk/" rel="noopener"><span class="hc-l">MTR</span><span class="hc-v">Normal</span><span class="hc-s">all lines running normally</span></a></div></div></div><a class="go" href="/desk/hk">More Hong Kong &rarr;</a></div><div class="chart-item" style="--hue:#1D5F5A"><h3>Cyber</h3><div class="instr"><div class="fp-panel cy-panel">
-    <div class="fp-rows"><div class="fp-legend">Exploited in the wild (CISA), last 14 days <span>total</span></div><a class="fp-row cy-row" href="https://nvd.nist.gov/vuln/detail/CVE-2026-76504" rel="noopener"><span class="fp-n">●</span><span class="fp-name">Cisco</span><span class="fp-cells"><i title="2026-09-23: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-26: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-29: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-30: 1 exploited" style="background:color-mix(in srgb,var(--desk-cyber) 65%,transparent)"></i><i title="2026-10-01: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-02: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-03: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-04: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-05: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 exploited" style="background:var(--wr-panel)"></i></span><span class="fp-tot">1</span><span class="cy-prod">Cisco Catalyst SD-WAN Manager · System Account Authorization Bypass Vulnerability</span></a><a class="fp-row cy-row" href="https://nvd.nist.gov/vuln/detail/CVE-2026-65660" rel="noopener"><span class="fp-n">●</span><span class="fp-name">Microsoft</span><span class="fp-cells"><i title="2026-09-23: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-25: 1 exploited" style="background:color-mix(in srgb,var(--desk-cyber) 65%,transparent)"></i><i title="2026-09-26: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-29: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-30: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-01: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-02: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-03: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-04: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-05: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 exploited" style="background:var(--wr-panel)"></i></span><span class="fp-tot">1</span><span class="cy-prod">Microsoft SharePoint Enterprise Server 2016 · SharePoint Server Remote Code Execution Vulnerability</span></a><a class="fp-row cy-row" href="https://nvd.nist.gov/vuln/detail/CVE-2026-88772" rel="noopener"><span class="fp-n"></span><span class="fp-name">Citrix NetScaler</span><span class="fp-cells"><i title="2026-09-23: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-26: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-27: 2 exploited" style="background:color-mix(in srgb,var(--desk-cyber) 95%,transparent)"></i><i title="2026-09-28: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-29: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-09-30: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-01: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-02: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-03: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-04: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-05: 0 exploited" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 exploited" style="background:var(--wr-panel)"></i></span><span class="fp-tot">2</span><span class="cy-prod">ADC · Memory overflow vulnerability leading to Remote Code…</span></a>
-      <div class="cy-key">● in the regulated-firm footprint · tap a row for the worst flaw · <a href="/cve/">all vulnerabilities</a></div></div>
-    <div class="cy-incs"><div class="fp-legend">Latest breaches <span><a href="cyber">register</a></span></div><a class="cy-inc" href="/briefings/2026-10-04-cyber-pm"><b>Technical University of Denmark (DTU)</b> <span>education</span> Attackers accessed the identity and access management system and downloaded data; up to 200,000 users may be… <span>10-04</span></a></div>
-  </div></div><a class="go" href="/desk/cyber">More Cyber &rarr;</a></div><div class="chart-item" style="--hue:#6B2430"><h3>World</h3><div class="instr"><div class="fp-panel">
-    <div class="fp-map"><svg class="hub-map" viewBox="528.9 55.2 383.9 185.4" role="img" aria-label="Flashpoint map"><path class="hub-map-land" d="M311.8,382.9 319.3,385.3 307.7,387.5 292.6,380.1 302.5,383.5 307.4,379.2 311.8,382.9ZM337.4,375.3 338.8,377.5 330.0,377.4 337.4,375.3ZM695.2,371.4 691.0,371.6 691.5,368.4 695.9,369.6 695.2,371.4ZM903.9,346.6 911.9,346.9 910.9,353.4 905.7,354.3 902.0,347.7 903.9,346.6ZM980.6,347.0 984.0,348.2 980.8,355.1 976.3,356.2 970.4,362.9 963.0,361.7 964.0,358.6 980.6,347.0ZM985.0,333.8 991.0,338.6 995.9,338.0 986.8,349.1 985.8,344.2 982.8,343.1 985.3,337.2 979.5,329.2 985.0,333.8ZM995.5,281.5 996.0,283.8 992.7,283.8 995.5,281.5ZM998.2,280.0 996.1,279.6 1000.0,278.0 998.2,280.0ZM639.0,271.0 639.9,277.0 638.0,277.0 630.8,302.6 626.1,304.4 622.3,302.7 620.2,294.6 623.3,289.1 623.5,278.4 632.5,273.9 636.7,266.8 639.0,271.0ZM898.8,271.6 903.8,275.0 906.6,286.0 913.5,290.0 925.4,305.8 924.7,321.2 916.7,337.3 906.4,341.8 902.9,338.6 898.9,341.1 890.7,338.9 887.7,333.7 883.7,332.3 883.9,328.8 880.1,331.3 882.8,324.7 877.7,330.3 873.0,323.9 864.8,320.8 850.4,322.8 843.5,327.5 833.0,327.7 827.8,330.7 819.5,328.3 821.4,321.1 814.8,305.9 817.3,306.4 815.0,301.1 817.1,293.8 817.3,295.9 824.2,290.8 835.7,288.0 849.1,272.9 853.0,271.7 860.1,274.9 862.8,268.2 868.3,267.0 867.7,264.2 875.8,267.4 879.1,266.3 880.4,267.6 876.4,275.0 889.5,282.5 892.4,278.9 895.9,263.0 898.8,271.6ZM845.7,261.5 842.9,261.8 847.5,257.4 853.7,256.7 845.7,261.5ZM827.5,255.8 830.9,257.5 824.3,258.4 827.5,255.8ZM801.7,252.2 807.7,251.3 821.4,256.6 792.7,252.4 794.6,249.7 801.7,252.2ZM922.2,248.6 917.3,250.9 912.0,249.3 918.9,248.5 920.9,244.9 923.2,245.3 922.2,248.6ZM862.4,241.9 863.4,244.1 855.3,242.8 862.4,241.9ZM872.6,236.5 873.4,241.0 876.3,242.7 884.2,238.1 901.6,244.1 910.1,250.2 908.9,253.9 918.6,262.7 910.9,261.5 902.1,254.5 896.2,259.2 886.5,255.8 882.3,256.7 885.2,253.7 883.1,248.3 871.3,243.2 869.4,244.8 866.6,241.2 871.4,239.5 862.6,235.9 867.7,234.4 872.6,236.5ZM847.9,229.4 843.6,232.7 833.8,232.7 835.9,237.2 842.6,235.0 837.5,238.6 842.1,248.2 839.5,248.0 840.9,245.7 837.5,246.0 836.0,240.6 834.2,241.5 834.5,248.7 831.6,248.3 829.9,241.1 833.4,231.8 835.8,229.7 847.9,229.4ZM857.5,230.2 855.8,235.8 853.9,230.5 855.4,227.3 857.5,230.2ZM793.9,249.6 785.0,245.1 764.7,218.1 770.8,218.8 788.4,233.0 787.3,235.3 794.7,241.8 793.9,249.6ZM827.4,228.3 830.5,230.8 827.3,231.2 822.6,244.5 806.2,241.5 803.0,234.6 804.6,227.8 808.8,228.2 809.4,225.8 813.9,224.7 824.2,214.1 831.1,218.3 825.9,224.3 827.4,228.3ZM851.0,210.0 848.3,217.8 843.4,211.6 838.7,213.4 843.0,209.2 848.5,208.4 848.4,206.2 851.0,210.0ZM725.6,216.1 721.9,214.5 722.6,206.0 727.2,212.4 725.6,216.1ZM330.7,205.2 327.9,205.3 330.3,203.1 330.7,205.2ZM844.4,204.8 841.7,208.3 839.9,206.4 844.7,202.1 844.4,204.8ZM829.2,207.5 825.5,210.1 832.0,201.8 829.2,207.5ZM838.6,200.3 842.0,201.2 838.9,204.3 838.6,200.3ZM848.6,199.5 849.4,202.6 847.3,201.9 846.7,205.2 845.2,198.5 848.6,199.5ZM837.6,197.0 836.8,199.4 834.2,195.9 837.6,197.0ZM837.0,181.9 839.6,182.0 840.3,185.9 838.1,193.5 844.3,195.0 844.7,198.5 835.1,194.8 836.1,193.0 833.5,191.7 833.0,187.9 837.0,181.9ZM298.4,178.1 310.2,181.6 301.7,184.4 293.2,182.4 299.1,181.5 296.1,178.8 298.4,178.1ZM806.5,181.4 801.8,181.9 801.7,179.5 807.7,177.6 806.5,181.4ZM67.9,180.3 67.1,177.0 70.0,179.1 67.9,180.3ZM278.7,170.1 293.9,177.0 284.0,178.2 285.9,176.6 281.3,173.3 272.8,170.5 264.0,172.5 271.5,168.9 278.7,170.1ZM836.6,170.0 835.4,172.3 833.6,167.9 837.5,163.1 836.6,170.0ZM286.1,159.5 285.6,161.4 283.9,158.2 286.1,159.5ZM874.0,138.5 872.8,141.1 867.7,141.7 869.2,138.7 874.0,138.5ZM596.0,134.2 591.6,137.3 589.6,135.8 596.0,134.2ZM565.8,134.2 573.0,135.3 568.7,136.3 565.8,134.2ZM543.1,127.1 541.9,131.6 534.5,128.9 543.1,127.1ZM525.6,118.9 526.9,124.5 524.5,125.3 522.7,119.6 525.6,118.9ZM891.6,130.2 889.6,135.7 877.2,140.4 875.2,137.2 863.9,139.2 866.7,141.3 864.8,146.0 861.7,146.1 862.4,143.6 859.5,140.8 868.4,134.9 876.9,134.6 879.8,129.7 881.6,131.0 887.3,127.2 888.6,120.7 892.7,118.4 894.1,124.5 891.6,130.2ZM526.6,116.2 525.6,118.4 523.7,116.0 526.1,113.9 526.6,116.2ZM899.8,110.6 903.7,110.0 904.3,113.2 897.7,116.7 893.4,114.8 891.9,117.8 888.8,117.9 894.4,106.8 899.8,110.6ZM156.9,98.6 151.0,97.7 143.4,92.3 150.7,93.6 156.9,98.6ZM344.1,92.5 342.2,95.0 351.5,96.5 352.6,103.7 349.5,103.3 349.3,100.7 346.1,103.1 343.7,101.0 335.4,101.1 340.7,92.4 346.1,90.0 344.1,92.5ZM131.4,83.2 134.0,83.0 133.2,86.2 135.6,88.4 130.4,85.0 131.4,83.2ZM899.0,92.4 901.8,97.3 897.7,96.4 896.0,100.4 898.6,105.2 896.5,103.5 894.7,105.6 893.3,89.1 895.0,82.7 899.0,92.4ZM481.1,88.2 472.3,89.4 474.5,86.5 473.1,83.7 481.3,80.1 484.3,81.8 481.1,88.2ZM535.3,78.9 533.6,81.1 530.3,78.4 535.3,78.9ZM75.0,74.7 72.2,75.7 70.4,73.7 77.4,73.4 75.0,74.7ZM491.7,70.5 488.7,73.5 494.6,73.1 491.3,77.9 504.7,86.8 504.0,90.9 485.4,94.6 490.5,90.5 485.4,88.9 488.3,88.1 487.3,84.7 491.8,83.4 486.5,81.1 486.0,78.4 484.5,79.7 482.9,75.6 486.1,70.5 491.7,70.5ZM263.4,51.0 277.5,56.3 257.7,56.8 263.4,51.0ZM459.7,48.7 462.2,52.4 448.2,57.0 436.8,55.7 439.5,54.4 433.5,53.1 438.3,51.7 432.4,51.1 438.5,48.9 442.8,50.7 459.7,48.7ZM289.3,46.8 285.5,45.6 291.3,44.4 289.3,46.8ZM13.8,48.4 22.6,47.5 28.1,50.1 20.7,51.6 19.6,54.9 4.6,51.7 3.6,49.7 0.3,50.3 0.0,52.8 0.0,41.8 14.1,46.7 13.8,48.4ZM234.3,41.4 222.8,40.6 227.2,38.5 234.3,41.4ZM1000.0,36.6 996.5,35.8 1000.0,34.7 1000.0,36.6ZM3.6,36.4 0.0,36.6 0.0,34.7 6.7,35.4 3.6,36.4ZM248.5,40.3 248.5,43.1 252.2,40.9 257.4,46.7 262.4,39.2 270.5,39.8 274.2,41.2 272.3,44.1 274.3,45.6 268.5,48.9 261.8,48.4 257.4,53.4 241.2,61.0 237.0,69.6 241.1,70.0 243.6,74.8 271.5,80.1 271.9,85.3 278.0,91.1 281.7,87.3 278.3,81.5 287.4,76.3 281.9,70.0 285.2,67.1 283.0,60.2 294.9,59.9 306.7,63.7 307.5,69.6 312.1,71.6 320.6,65.7 329.5,75.1 328.3,76.8 340.7,81.6 345.3,88.5 333.2,93.8 315.6,93.8 302.5,103.3 319.3,96.6 321.7,97.9 319.1,99.8 320.9,104.9 329.1,105.9 331.9,102.8 333.9,105.8 318.4,112.4 316.2,109.8 321.0,107.5 313.5,108.0 303.6,113.8 305.7,117.7 295.2,119.6 300.2,119.6 294.6,120.1 291.9,125.2 290.2,123.6 291.5,126.7 289.1,130.0 287.9,124.6 288.0,127.5 286.2,127.1 289.6,134.6 274.1,146.0 276.7,163.3 273.0,161.5 266.4,149.7 252.3,149.1 252.2,152.0 249.6,152.5 239.3,150.8 231.7,154.7 228.1,171.0 232.5,179.7 237.7,182.9 244.3,181.4 247.9,179.8 249.2,175.0 258.2,173.5 253.0,189.2 268.3,190.9 267.2,202.5 273.8,208.9 279.0,206.6 286.6,209.3 291.9,202.5 300.7,198.8 302.4,199.7 300.1,201.6 300.8,208.1 301.7,202.9 305.7,199.5 310.6,204.0 328.1,203.6 326.7,205.7 341.3,216.7 350.1,217.3 357.5,221.7 361.2,228.5 360.0,233.6 364.9,234.0 365.0,236.8 367.2,234.9 375.3,237.6 376.2,240.8 388.9,241.3 401.1,247.6 403.5,253.7 402.4,258.3 392.6,269.6 390.9,283.0 386.3,294.3 367.6,302.5 364.2,313.0 350.5,328.9 343.8,330.2 337.7,327.5 342.3,335.8 335.5,340.9 326.8,341.2 325.7,347.3 319.1,347.4 319.5,350.2 323.7,351.6 318.9,354.2 317.9,358.4 313.1,359.9 312.3,361.9 317.7,364.5 316.7,367.0 307.9,374.3 310.7,378.7 303.2,380.3 302.8,382.9 291.8,378.5 290.0,368.5 294.1,363.7 289.9,362.9 293.5,355.8 296.6,356.8 298.0,351.1 293.5,353.4 296.6,342.4 295.6,336.5 301.6,323.4 305.1,288.2 301.5,281.6 288.9,274.0 278.4,253.3 274.3,250.4 273.9,246.5 278.4,240.7 275.1,239.6 275.2,236.3 285.8,222.6 282.8,210.2 279.0,208.5 275.3,213.3 262.1,205.7 257.0,196.4 246.6,194.6 237.0,188.3 231.8,189.9 212.5,182.5 207.0,177.9 205.5,170.1 188.3,152.9 185.7,146.7 181.2,145.0 181.5,149.5 196.0,168.9 194.4,169.9 188.4,164.6 188.1,161.1 180.4,156.3 182.9,154.0 174.2,141.5 164.9,137.2 154.4,121.4 155.8,106.9 153.6,99.5 158.0,99.9 159.5,102.5 158.8,97.2 146.0,92.1 144.9,88.0 127.6,71.9 91.3,64.2 78.6,69.0 81.6,63.1 59.9,77.8 42.3,82.2 61.9,73.4 63.8,69.7 50.1,70.4 50.3,67.7 44.9,67.2 38.6,62.5 42.9,57.9 53.4,56.2 51.3,54.4 53.4,53.4 41.8,54.3 33.0,50.9 43.1,48.4 50.9,49.7 36.8,43.4 65.1,35.1 120.8,41.9 144.1,37.5 150.7,40.3 154.4,38.4 154.8,40.6 162.6,39.5 183.6,43.3 179.7,44.7 197.6,46.2 200.6,44.8 197.7,43.6 199.5,42.6 205.1,42.2 218.2,45.4 226.5,45.1 228.7,42.8 233.0,43.8 233.0,46.4 238.2,41.5 232.0,38.6 235.5,33.6 245.8,38.4 243.3,39.7 248.5,40.3ZM182.9,30.2 181.5,31.5 194.7,30.7 199.5,34.3 198.9,30.3 204.1,30.3 209.8,36.1 219.2,40.0 214.6,40.3 215.5,42.4 185.2,43.0 174.1,39.0 187.7,37.9 172.5,37.4 171.0,36.4 177.5,35.3 168.3,34.6 172.6,31.4 182.9,30.2ZM209.7,29.4 207.3,31.2 202.9,29.3 209.7,29.4ZM259.5,30.1 261.7,31.8 271.3,28.5 275.7,33.2 283.8,31.3 294.2,35.2 299.3,34.6 314.0,41.1 308.9,42.4 328.2,47.6 322.4,52.8 311.1,49.3 320.4,57.2 319.4,59.2 308.9,56.3 316.2,61.3 292.1,53.7 284.1,54.9 281.8,54.0 283.6,51.9 294.6,51.5 297.4,45.2 280.7,38.4 264.0,39.0 250.3,35.5 251.6,30.2 261.6,28.3 259.5,30.1ZM221.2,28.2 229.5,28.4 227.6,30.6 231.8,31.8 231.3,34.3 224.1,35.1 215.3,31.9 221.0,31.4 217.9,29.6 221.2,28.2ZM898.9,30.0 888.5,29.5 894.6,28.2 898.9,30.0ZM241.1,31.2 235.0,33.2 233.3,29.3 237.5,27.4 248.6,28.2 241.1,31.2ZM165.4,35.0 158.1,36.4 150.2,33.7 155.7,28.7 153.0,27.0 179.1,29.2 165.4,35.0ZM240.0,25.1 231.1,25.2 236.5,23.2 240.0,25.1ZM903.0,23.4 900.8,25.5 886.0,26.1 880.5,24.3 885.6,21.8 903.0,23.4ZM226.4,20.2 228.5,21.5 227.3,25.0 215.3,23.4 215.1,21.3 226.4,20.2ZM199.4,21.7 206.4,23.7 188.3,26.6 183.7,25.8 189.5,24.5 173.0,24.4 179.4,20.9 197.0,23.7 193.1,21.0 199.4,21.7ZM659.8,36.9 649.1,36.8 642.9,33.3 654.5,24.8 691.3,20.7 662.4,26.9 653.9,32.3 659.8,36.9ZM237.0,19.2 252.3,23.3 274.6,23.0 278.2,25.2 250.7,26.3 230.2,20.1 237.0,19.2ZM177.2,17.7 174.7,20.7 158.7,21.9 177.2,17.7ZM797.1,19.5 817.0,22.6 803.9,27.3 842.2,30.6 842.4,28.5 852.7,29.0 864.7,36.7 867.4,33.8 888.5,34.8 886.5,32.2 890.2,31.0 915.3,32.8 924.9,36.5 941.7,36.5 947.1,40.5 966.2,40.0 971.0,42.5 974.5,41.6 973.5,38.6 988.1,39.2 1000.0,41.8 1000.0,52.8 992.8,53.9 997.9,60.3 982.4,62.1 973.1,67.0 969.2,65.1 954.3,67.0 950.0,71.5 953.3,73.3 950.3,81.0 945.5,82.4 944.5,85.5 940.4,86.2 935.5,91.6 931.8,79.5 933.1,75.6 954.6,63.5 956.9,59.6 944.8,65.2 942.5,61.7 935.3,62.7 928.4,67.3 930.7,69.0 895.0,69.3 875.4,81.3 883.8,84.0 888.6,82.8 892.7,88.2 889.1,98.8 883.9,104.7 874.6,112.8 867.4,113.1 854.3,122.9 859.6,131.2 858.6,135.9 851.3,137.8 850.3,131.3 852.4,130.9 846.4,127.5 848.1,123.5 836.3,125.3 839.4,121.0 837.9,119.6 827.9,124.4 826.5,125.7 830.3,129.3 839.9,129.3 831.0,136.4 838.6,145.3 836.8,148.1 839.1,150.5 838.0,154.9 829.6,165.1 821.9,170.0 807.7,173.9 806.8,176.8 801.5,173.0 794.1,178.5 803.7,196.0 803.3,200.9 792.1,209.4 791.9,205.8 778.0,196.1 775.6,207.7 786.0,218.0 789.5,229.7 781.6,225.7 778.0,215.4 773.6,210.0 773.2,211.7 774.3,201.6 769.9,186.3 764.9,189.7 761.6,188.8 762.0,182.7 753.9,170.1 751.4,170.0 750.8,172.7 741.6,173.6 740.3,177.4 723.1,189.2 721.8,204.6 715.4,211.2 704.3,188.9 701.8,174.0 695.8,175.3 684.4,162.7 659.4,161.8 656.9,157.9 652.0,159.8 643.1,155.9 639.2,149.6 633.3,150.1 641.1,164.6 641.7,161.1 643.3,161.7 643.9,166.6 650.0,166.3 656.6,160.0 657.9,166.0 666.1,171.4 660.6,177.1 660.3,180.7 653.5,185.5 635.2,194.4 620.8,198.2 618.5,186.7 608.7,174.2 606.9,167.5 596.2,155.4 597.0,151.4 594.2,156.5 590.1,150.4 598.7,169.2 602.4,172.2 604.1,181.6 620.3,198.9 618.7,200.7 623.9,204.3 642.0,199.9 641.8,203.8 632.6,221.6 611.8,240.5 608.9,246.3 607.8,251.3 612.4,263.2 613.3,274.1 609.6,279.8 596.6,288.3 598.9,299.2 590.5,304.8 589.5,313.2 578.4,324.4 571.6,327.6 554.5,330.1 551.0,328.2 550.6,321.3 542.3,308.6 539.6,294.8 532.8,283.5 532.7,277.2 538.0,263.1 533.1,247.3 524.4,236.4 526.1,223.0 523.6,220.1 516.4,221.5 512.0,215.9 494.5,220.2 475.0,219.9 465.5,213.2 453.9,199.5 451.0,192.4 455.1,183.0 452.9,172.5 459.9,160.4 473.4,150.2 474.2,142.9 483.5,134.0 494.0,135.6 504.1,131.7 526.4,129.6 530.8,130.8 528.7,139.5 553.0,149.3 555.9,143.8 559.8,142.1 580.3,147.6 586.0,145.7 593.8,147.3 600.0,137.1 600.4,131.5 576.8,131.5 572.7,123.7 581.2,118.8 593.1,116.6 606.5,119.6 615.8,116.8 601.9,107.7 608.7,102.0 597.1,104.8 600.9,108.0 594.1,110.1 590.2,107.4 592.5,105.3 585.4,103.9 576.9,115.1 580.0,119.3 573.2,121.8 569.2,119.6 565.9,120.3 566.4,122.3 562.9,121.5 566.8,128.7 564.2,128.0 564.3,132.2 562.5,132.2 553.9,121.5 554.3,117.4 536.5,106.3 534.2,107.3 535.0,110.9 551.3,121.8 546.9,121.0 547.4,125.3 544.7,127.8 542.8,122.1 524.7,110.1 518.1,113.5 508.6,113.7 508.4,117.0 502.3,119.4 500.3,125.7 494.0,131.5 485.1,133.5 481.9,130.7 475.3,130.9 473.9,113.8 496.2,111.0 496.7,105.5 487.2,98.1 495.5,98.2 494.6,95.1 503.7,94.1 513.1,85.9 522.6,84.6 524.4,83.3 523.7,74.7 529.4,73.0 530.3,76.5 526.8,79.2 530.4,83.3 554.6,82.1 559.1,80.0 559.9,73.9 567.0,74.9 567.9,71.2 564.8,68.9 580.9,66.6 563.5,67.1 559.2,64.7 559.8,57.8 570.6,52.5 566.4,50.0 561.6,50.8 559.4,54.4 549.6,59.0 547.6,62.9 552.2,66.4 546.7,70.2 544.1,77.5 536.0,79.6 528.8,68.1 523.3,71.4 515.7,70.6 513.9,61.2 529.2,54.2 541.0,45.0 568.2,36.0 578.2,35.6 586.9,37.6 583.3,38.4 586.4,40.1 601.4,41.5 614.1,46.0 614.2,47.8 606.6,50.0 592.2,48.2 596.7,50.3 597.1,54.4 602.8,56.0 601.4,53.4 603.3,52.4 610.0,54.1 612.3,53.4 610.5,51.4 616.9,48.7 622.1,49.8 623.7,47.9 620.7,42.9 628.5,43.7 630.1,45.3 626.6,47.2 628.7,48.1 649.2,42.1 651.3,42.2 648.6,43.9 663.3,42.0 666.5,43.7 669.7,41.8 666.8,40.2 668.2,39.3 690.3,44.2 692.2,42.7 685.9,40.4 685.3,36.0 692.2,31.0 701.6,31.2 699.6,35.0 702.2,37.8 701.6,41.6 704.6,43.3 698.0,49.1 701.2,49.5 708.5,45.1 708.2,41.7 704.4,39.9 706.7,37.1 703.1,34.9 708.0,33.0 707.4,31.0 710.2,32.5 709.1,35.2 712.1,35.7 710.8,33.7 715.5,32.6 726.4,34.0 723.6,28.8 741.2,28.0 738.9,26.5 742.1,24.7 779.9,21.0 789.9,17.5 797.1,19.5ZM568.7,17.1 557.6,17.6 563.6,15.4 568.7,17.1ZM233.8,16.5 227.4,16.4 226.0,14.2 233.8,16.5ZM222.1,15.8 207.8,15.6 210.5,14.8 207.0,13.1 222.1,15.8ZM791.9,15.8 776.2,16.9 783.6,12.9 791.9,15.8ZM550.7,11.9 559.8,14.0 544.2,20.1 529.0,12.1 550.7,11.9ZM570.7,10.0 576.1,11.0 564.0,12.8 548.2,10.2 570.7,10.0ZM777.6,14.2 763.8,13.8 753.3,10.2 766.5,7.6 778.3,11.7 777.6,14.2ZM258.3,12.1 261.6,13.0 247.8,16.1 231.4,10.7 243.3,7.6 258.3,12.1ZM309.7,2.5 328.2,3.8 312.1,6.9 318.1,6.9 302.3,11.7 286.4,13.0 290.6,15.2 278.4,18.9 283.6,20.1 276.2,21.7 251.4,20.9 256.2,18.9 254.8,16.9 264.0,17.9 255.7,15.6 263.6,12.9 258.5,10.4 272.6,9.8 256.7,9.7 245.6,5.8 279.7,2.4 309.7,2.5ZM424.7,1.3 442.1,3.5 411.4,5.0 438.7,6.3 435.6,7.9 456.2,5.8 466.1,7.5 444.3,10.6 450.7,10.8 445.3,14.6 445.4,17.7 448.7,19.5 439.8,20.5 444.9,21.9 445.6,24.3 442.6,24.6 446.2,27.0 434.5,29.7 438.1,32.8 431.1,32.4 439.6,37.0 429.0,34.9 430.0,36.8 426.8,38.3 437.9,38.5 389.4,51.5 381.1,59.2 379.5,66.4 365.9,64.3 356.6,56.6 350.1,46.7 358.7,39.1 348.1,40.0 349.0,36.6 357.2,37.3 344.9,34.3 348.0,31.7 337.3,23.6 309.7,22.1 301.7,19.4 314.5,18.4 296.4,16.5 317.5,12.8 311.0,10.8 327.1,7.4 326.0,6.2 360.0,4.3 376.3,6.5 370.1,3.8 424.7,1.3Z"/><a href="#bfp-taiwan-strait"><g class="hub-map-dot hub-map-dot--moved"><circle cx="832.2" cy="166.6" r="6.5"/><text x="841.7" y="170.4" text-anchor="start">1</text><title>Taiwan Strait: moved in the last 7 days</title></g></a><a href="#bfp-israel-iran"><g class="hub-map-dot hub-map-dot--moved"><circle cx="627.8" cy="143.0" r="6.5"/><text x="637.3" y="146.8" text-anchor="start">2</text><title>Israel and Iran: moved in the last 7 days</title></g></a><a href="#bfp-south-china-sea"><g class="hub-map-dot hub-map-dot--moved"><circle cx="819.4" cy="198.6" r="6.5"/><text x="828.9" y="202.4" text-anchor="start">3</text><title>South China Sea: moved in the last 7 days</title></g></a><a href="#bfp-ukraine"><g class="hub-map-dot hub-map-dot--moved"><circle cx="588.9" cy="97.2" r="6.5"/><text x="598.4" y="101.0" text-anchor="start">4</text><title>Ukraine: moved in the last 7 days</title></g></a><a href="#bfp-korean-peninsula"><g class="hub-map-dot hub-map-dot--moved"><circle cx="852.8" cy="126.4" r="6.5"/><text x="862.3" y="130.2" text-anchor="start">6</text><title>Korean Peninsula: moved in the last 7 days</title></g></a><a href="#bfp-east-china-sea"><g class="hub-map-dot hub-map-dot--moved"><circle cx="845.8" cy="151.6" r="6.5"/><text x="855.3" y="155.4" text-anchor="start">7</text><title>East China Sea: moved in the last 7 days</title></g></a></svg></div>
-    <div class="fp-rows"><div class="fp-legend">Moves per day, last 14 days <span>total</span></div><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-taiwan-strait"><span class="fp-n">1</span><span class="fp-name">Taiwan Strait</span><span class="fp-cells"><i title="2026-09-23: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-24: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-25: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-09-26: 4 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 100%,transparent)"></i><i title="2026-09-27: 3 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 100%,transparent)"></i><i title="2026-09-28: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-29: 4 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 100%,transparent)"></i><i title="2026-09-30: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-10-01: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-10-02: 5 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 100%,transparent)"></i><i title="2026-10-03: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-04: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-05: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-06: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i></span><span class="fp-tot">27</span><span class="fp-sum">SCMP reports US defence experts work inside Taiwan's military headquarters under a previously little-reported pact</span></a><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-israel-iran"><span class="fp-n">2</span><span class="fp-name">Israel and Iran</span><span class="fp-cells"><i title="2026-09-23: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-26: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-29: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-09-30: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-10-01: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-10-02: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-03: 3 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 100%,transparent)"></i><i title="2026-10-04: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-05: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 moves" style="background:var(--wr-panel)"></i></span><span class="fp-tot">10</span><span class="fp-sum">US troop surge into the Gulf put at 20,000, with Trump saying Washington must choose between striking Iran and a deal</span></a><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-south-china-sea"><span class="fp-n">3</span><span class="fp-name">South China Sea</span><span class="fp-cells"><i title="2026-09-23: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-24: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-26: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-27: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-09-28: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-09-29: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-30: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-01: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-02: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-03: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-04: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-05: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 moves" style="background:var(--wr-panel)"></i></span><span class="fp-tot">9</span><span class="fp-sum">Japan's press reported China building up Antelope Reef in the Paracels, adding concrete in the South China Sea</span></a><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-ukraine"><span class="fp-n">4</span><span class="fp-name">Ukraine</span><span class="fp-cells"><i title="2026-09-23: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-26: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-29: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-09-30: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-01: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-02: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-03: 3 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 100%,transparent)"></i><i title="2026-10-04: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-10-05: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 moves" style="background:var(--wr-panel)"></i></span><span class="fp-tot">8</span><span class="fp-sum">Zelenskyy vowed to hit Russian oil refineries harder in reply to the bridge strikes</span></a><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-us-china-controls"><span class="fp-n">5</span><span class="fp-name">US and China: trade and technology</span><span class="fp-cells"><i title="2026-09-23: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-25: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-26: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-29: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-30: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-01: 2 moves" style="background:color-mix(in srgb,var(--desk-geopolitical) 75%,transparent)"></i><i title="2026-10-02: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-03: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-04: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-05: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 moves" style="background:var(--wr-panel)"></i></span><span class="fp-tot">3</span><span class="fp-sum">Sources told a US outlet Washington is slowing aircraft part exports to China as Trump seeks leverage in trade negotiations</span></a><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-korean-peninsula"><span class="fp-n">6</span><span class="fp-name">Korean Peninsula</span><span class="fp-cells"><i title="2026-09-23: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-26: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-29: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-30: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-01: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-02: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-03: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-04: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-10-05: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 moves" style="background:var(--wr-panel)"></i></span><span class="fp-tot">1</span><span class="fp-sum">North Korea said it tested a hypersonic missile under Kim Jong Un's supervision, a drill meant to show its nuclear deterrent is reliable</span></a><a class="fp-row fp-wrap fp-sum-row" href="/flashpoints#fp-east-china-sea"><span class="fp-n">7</span><span class="fp-name">East China Sea</span><span class="fp-cells"><i title="2026-09-23: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-24: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-25: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-26: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-27: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-28: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-09-29: 1 move" style="background:color-mix(in srgb,var(--desk-geopolitical) 50%,transparent)"></i><i title="2026-09-30: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-01: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-02: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-03: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-04: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-05: 0 moves" style="background:var(--wr-panel)"></i><i title="2026-10-06: 0 moves" style="background:var(--wr-panel)"></i></span><span class="fp-tot">1</span><span class="fp-sum">Taiwan News reported a Chinese research ship probing waters around the Diaoyutai islands, which Japan calls the Senkakus</span></a></div>
-  </div></div><a class="go" href="/desk/world">More World &rarr;</a></div><div class="chart-item" style="--hue:#3E356B"><h3>AI</h3><div class="instr"><div class="fp-panel ai-panel"><div><div class="fp-legend">New models, 14 days: what they cost <span><a href="/ai-models">ledger</a></span></div><div class="ai-chart"><a class="ai-bar" href="https://openrouter.ai/openai/gpt-6.1-sol-pro" rel="noopener"><span class="ai-bn"><b>GPT-6.1 Sol Pro</b><span>OpenAI · 09-29</span></span><span class="ai-bt"><i style="width:93%"></i><em>$2/$10</em></span></a><a class="ai-bar" href="https://openrouter.ai/openai/gpt-6.1-sol" rel="noopener"><span class="ai-bn"><b>GPT-6.1 Sol</b><span class="ai-ix" title="Artificial Analysis intelligence index">AA 52</span><span>OpenAI · 09-29</span></span><span class="ai-bt"><i style="width:93%"></i><em>$2/$10</em></span></a><a class="ai-bar" href="https://openrouter.ai/anthropic/claude-sonnet-5.5" rel="noopener"><span class="ai-bn"><b>Claude Sonnet 5.5</b><span class="ai-ix" title="Artificial Analysis intelligence index">AA 56</span><span>Anthropic · 09-28</span></span><span class="ai-bt"><i style="width:93%"></i><em>$2/$10</em></span></a><a class="ai-bar" href="https://openrouter.ai/z-ai/glm-5.3-prime" rel="noopener"><span class="ai-bn"><b>GLM 5.3 Prime</b><span>Zhipu (GLM) · 09-23</span></span><span class="ai-bt"><i style="width:90%"></i><em>$2.8/$8.8</em></span></a><a class="ai-bar" href="https://openrouter.ai/qwen/qwen3.8-max-prime" rel="noopener"><span class="ai-bn"><b>Qwen3.8 Max Prime</b><span>Alibaba Qwen · 09-23</span></span><span class="ai-bt"><i style="width:98%"></i><em>$4/$12</em></span></a><a class="ai-bar" href="https://openrouter.ai/openai/gpt-6-luna-pro" rel="noopener"><span class="ai-bn"><b>GPT-6 Luna Pro</b><span>OpenAI · 09-22</span></span><span class="ai-bt"><i style="width:17%"></i><em>$0.1/$0.5</em></span></a><div class="cy-key">Bar: output price per million tokens, log scale. Label: input/output $ per M. AA: Artificial Analysis intelligence index.</div></div><details class="cp-wrap ai-more"><summary>7 more releases, last 30 days</summary><a class="ai-m" href="https://openrouter.ai/anthropic/claude-opus-5.5" rel="noopener"><b>Claude Opus 5.5</b> <span class="ai-ix">AA 58</span> <span>Anthropic · 09-22 · $4/$20 per M</span></a><a class="ai-m" href="https://openrouter.ai/cohere/command-a-plus" rel="noopener"><b>Command A+</b> <span>Cohere · 09-22 · $0.3/$1.5 per M</span></a><a class="ai-m" href="https://openrouter.ai/openai/gpt-6-sol" rel="noopener"><b>GPT-6 Sol</b> <span class="ai-ix">AA 48</span> <span>OpenAI · 09-22 · $2/$10 per M</span></a><a class="ai-m" href="https://openrouter.ai/qwen/qwen3.8-omni-flash" rel="noopener"><b>Qwen3.8 Omni Flash</b> <span>Alibaba Qwen · 09-21 · $0.15/$0.47 per M</span></a><a class="ai-m" href="https://openrouter.ai/x-ai/grok-4.7" rel="noopener"><b>Grok 4.7</b> <span class="ai-ix">AA 46</span> <span>xAI · 09-21 · $2/$6 per M</span></a><a class="ai-m" href="https://openrouter.ai/z-ai/glm-5.3-flashx" rel="noopener"><b>GLM 5.3 FlashX</b> <span>Zhipu (GLM) · 09-18 · $0.37/$1.25 per M</span></a><a class="ai-m" href="https://openrouter.ai/deepseek/deepseek-v4.1-flash" rel="noopener"><b>DeepSeek V4.1 Flash</b> <span class="ai-ix">AA 40</span> <span>DeepSeek · 09-10 · $0.3/$1.2 per M · open weights</span></a><a class="ai-m" href="/ai-models"><span>The full model ledger &rarr;</span></a></details></div>
-    <div><div class="fp-legend">Worth a look: AI channels we follow</div><a class="ai-b" href="https://www.youtube.com/shorts/jo70OkhryIA" rel="noopener"><span class="ai-s2">DeepSeek Painted My Portrait</span><span class="ai-w"><span class="ai-k">YouTube</span>Matthew Berman · 1 d</span></a><a class="ai-b" href="https://www.youtube.com/watch?v=9CGsq3A590Q" rel="noopener"><span class="ai-s2">OpenAI's employee's WARNING</span><span class="ai-w"><span class="ai-k">YouTube</span>Wes Roth · 1 d</span></a></div></div>
-  <details class="cp-wrap"><summary>Compute and power</summary><div class="cp-panel"><div class="fp-legend">Compute and power: data-centre and power stories this week <span>1</span></div><a class="cp-row" href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" rel="noopener"><span class="cp-t">Amazon’s $1B plan to combat data center backlash draws more backlash</span><span class="cp-m">Ars Technica · 3 d</span></a>
-  <div class="cp-ctx">For scale: data centres used about 415 TWh of electricity in 2024, around 1.5% of the world's total; the US accounted for 45%, China 25%, Europe 15%. The IEA expects about 945 TWh by 2030. <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" rel="noopener">IEA, Energy and AI</a></div></div></details></div><a class="go" href="/desk/ai">More AI &rarr;</a></div><div class="chart-item" style="--hue:#9B3D6E"><h3>Culture &amp; Society</h3><div class="instr"><div class="xp"><div class="xb"><div class="fp-legend">Reddit front page today</div><a class="xr" href="https://www.reddit.com/r/SipsTea/comments/1wxxvsm/filipino_model_uses_money_made_on_of_to_build/" rel="noopener"><b>Filipino Model Uses Money Made On OF To Build School In Her Hometown</b><i>r/SipsTea</i></a><a class="xr" href="https://www.reddit.com/r/interesting/comments/1wxvfr1/this_is_the_moment_captured_when_former_high/" rel="noopener"><b>This is the moment captured when former high school football star breaks down in court as rape charge is dismissed after the 16-year-old acc</b><i>r/interesting</i></a><a class="xr" href="https://www.reddit.com/r/interestingasfuck/comments/1wy0abt/the_tree_perfectly_fitting_into_the_sunset/" rel="noopener"><b>The tree perfectly fitting into the sunset.</b><i>r/interestingasfuck</i></a><a class="xr" href="https://www.reddit.com/r/cats/comments/1wy916s/my_parents_cat_escaped_and_they_sent_me_this_pic/" rel="noopener"><b>My parents’ cat escaped and they sent me this pic of her trying to get back into the house</b><i>r/cats</i></a><a class="xr" href="https://www.reddit.com/r/MadeMeSmile/comments/1wydjmg/a_brave_woman_defending_the_right_to_read/" rel="noopener"><b>A brave woman defending the right to read</b><i>r/MadeMeSmile</i></a></div><div class="xb"><div class="fp-legend">Worth a watch</div><a class="xv" href="https://www.youtube.com/shorts/h2ZWVtqpZZs" rel="noopener"><img src="https://i.ytimg.com/vi/h2ZWVtqpZZs/mqdefault.jpg" alt="" loading="lazy"><span><b>The Biggest Brand Deal Pokimane Turned Down</b><i>Colin and Samir · 3 h</i></span></a><a class="xv" href="https://www.youtube.com/shorts/G01zYSmcRVA" rel="noopener"><img src="https://i.ytimg.com/vi/G01zYSmcRVA/mqdefault.jpg" alt="" loading="lazy"><span><b>The dress that broke color</b><i>Vox · 5 h</i></span></a><a class="xv" href="https://www.youtube.com/shorts/em9omznpz2I" rel="noopener"><img src="https://i.ytimg.com/vi/em9omznpz2I/mqdefault.jpg" alt="" loading="lazy"><span><b>Weed and Reggae go together like Weed and Reggae.</b><i>Polyphonic · 8 h</i></span></a></div><div class="xb"><div class="fp-legend">Music</div><a class="xr" href="https://stereogum.com/2513650/phil-collins-weighs-in-on-nasty-donald-trump-has-an-idea-for-a-song-about-america-called-fat-people-with-guns/news/" rel="noopener"><b>Phil Collins Weighs In On &quot;Nasty&quot; Donald Trump, Has An Idea For A Song About America Called &quot;Fat People With Guns&quot;</b><i>Stereogum · 1 h</i></a><a class="xr" href="https://stereogum.com/2513674/olivia-rodrigo-slams-cornell-and-every-institution-who-protects-rapists/news/" rel="noopener"><b>Olivia Rodrigo Slams Cornell And &quot;Every Institution Who Protects Rapists&quot;</b><i>Stereogum · 1 h</i></a><a class="xr" href="https://www.npr.org/2026/10/05/nx-s1-5936425-e1/with-a-voice-as-vast-as-the-ocean-beth-taylor-has-arrived" rel="noopener"><b>With a voice as vast as the ocean, Beth Taylor has arrived</b><i>NPR Music · 2 h</i></a></div><div class="xb"><div class="fp-legend">Worth a read: society and ideas</div><a class="xr" href="https://kottke.org/26/10/0049722-in-defense-of-the-detour" rel="noopener"><b>Designer Giorgia Lupi: In Defense of the Detour. “I fear...</b><i>Kottke · 2 h</i></a><a class="xr" href="https://aeon.co/videos/a-traditional-inuit-game-of-balance-and-strength-stylishly-captured" rel="noopener"><b>All-around junior male</b><i>Aeon · 13 h</i></a><a class="xr" href="https://pudding.cool/2026/10/lifeafter" rel="noopener"><b>Who believes in an afterlife?</b><i>The Pudding · 5 d</i></a></div></div></div><a class="go" href="/desk/culture">More Culture &amp; Society &rarr;</a></div><div class="chart-item" style="--hue:#A05A1F"><h3>Sports</h3><div class="instr"><div class="sc-strip"><a class="sc-card" href="hkjc-read" style="--hue:var(--desk-finance)"><div class="sc-h">HKJC<span class="sc-lg">Racing</span></div><div class="sc-last"><b class="pnl rW">+HK$0</b> Sha Tin 10-03 <span>5 bets</span></div></a><div class="sc-card live"><div class="sc-h">MLB</div><div class="sc-last">CHW <b>1</b></div><div class="sc-last">CLE <b>2</b></div><div class="sc-live">Bot 4th</div></div><div class="sc-card"><div class="sc-h">MLB<span class="sc-po">postseason</span></div><div class="sc-last">NYY </div><div class="sc-last">TB </div><div class="sc-next"><span>Tue 08:00 HKT</span></div></div></div><div class="sc-list"><div class="fp-legend">Our teams <span>last result · next game, HKT</span></div><div class="sc-row">
-    <div class="sc-rn"><b>Dodgers</b><span>MLB</span></div>
-    <div class="sc-rr"><span class="sc-last"><b class="rL">L</b> 2-3 v Atlanta Braves</span>
-    <span class="sc-next">Next @ Atlanta Braves <span class="sc-t">Wed 06:00</span></span></div></div><div class="sc-row">
-    <div class="sc-rn"><b>Warriors</b><span>NBA</span></div>
-    <div class="sc-rr"><span class="sc-last"><b class="rL">L</b> 101-104 @ LA Clippers</span>
-    <span class="sc-next">Next v Lakers <span class="sc-t">Wed 10:00</span></span></div></div><div class="sc-row">
-    <div class="sc-rn"><b>Kansas City Chiefs</b><span>NFL</span></div>
-    <div class="sc-rr"><span class="sc-last"><b class="rW">W</b> 30-27 @ Las Vegas Raiders</span>
-    </div></div><div class="sc-row">
-    <div class="sc-rn"><b>Cowboys</b><span>NFL</span></div>
-    <div class="sc-rr"><span class="sc-last"><b class="rW">W</b> 34-30 @ Houston Texans</span>
-    <span class="sc-next">Next v Tampa Bay Buccaneers <span class="sc-t">Fri 08:15</span></span></div></div><div class="sc-row">
-    <div class="sc-rn"><b>Yankees</b><span>MLB</span></div>
-    <div class="sc-rr"><span class="sc-last"><b class="rL">L</b> 0-1 @ Tampa Bay Rays</span>
-    <span class="sc-next">Next @ Tampa Bay Rays <span class="sc-t">Tue 08:00</span></span></div></div><div class="sc-row">
-    <div class="sc-rn"><b>Commodores</b><span>College football</span></div>
-    <div class="sc-rr"><span class="sc-last"><b class="rL">L</b> 14-38 @ Georgia Bulldogs</span>
-    <span class="sc-next">Next v Ole Miss Rebels <span class="sc-t">Sun 03:30</span></span></div></div><div class="sc-row">
-    <div class="sc-rn"><b>Lakers</b><span>NBA</span></div>
-    <div class="sc-rr">
-    <span class="sc-next">Next @ Sacramento Kings <span class="sc-t">Tue 10:00</span></span></div></div><div class="sc-row">
-    <div class="sc-rn"><b>Mavericks</b><span>NBA</span></div>
-    <div class="sc-rr">
-    <span class="sc-next">Next v Houston Rockets <span class="sc-t">Fri 20:00</span></span></div></div><a class="sc-more" href="sports">4 more teams &rarr;</a></div></div><a class="go" href="/desk/sports">More Sports &rarr;</a></div></div>
-  </section>
-  <form class="sec strip" method="post" action="/api/subscribe">
-    <input type="hidden" name="note" value="strip:front">
-    <span>The Executive Brief, once a month, free.</span>
-    <label for="strip-email" class="vh">Email address</label>
-    <input id="strip-email" name="email" type="email" autocomplete="email" required spellcheck="false" placeholder="you@firm.com">
-    <button type="submit">Subscribe</button>
-  </form>
-  <section class="sec others v3"><h2>Leading elsewhere, not on our board</h2><ol class="else-big"><li style="--hue:var(--wr-ink)"><span class="k">Top news</span><a href="https://www.nytimes.com/2026/10/05/business/media/fox-news-karoline-leavitt.html?unlocked_article_code=1.GVE.nbpz.WJYtPC9ha_46&amp;smid=url-share" rel="noopener">Karoline Leavitt, Trump's 'Machine Gun,' Has a New Gig at Fox News</a><span class="o">Memeorandum · 1 h ago</span></li><li style="--hue:var(--desk-finance)"><span class="k">Business</span><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOYmFlX3pxTllubHhKWkgycEVOdlZ3c2F3TzA5OUU4RmFmWmQ2dWlaY3B1TlFfek85dHhZakt3aFJHZjlEUEJ2Zk9MVldfeTdUVkxoUzN1MU9wUWlUdGhFd3M4T3dNamMxbGprT1A3R3g4UGI0Q2RyU3hrczI0WExYWlpNa3N4RjlNRzFGN0U5d1NPN3p4VlN2R2MzRkc4WXlyV3Z4Z21ZZHVtY3FzYmc?oc=5" rel="noopener">OPEC, Allies Hold Oil Output Steady Amid Middle East Tensions - WSJ</a><span class="o">Google News Business · 23 h ago</span></li><li style="--hue:var(--desk-ai)"><span class="k">Tech and AI</span><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" rel="noopener">Gemini 4 Argon</a><span class="o">Hacker News · 5 d ago</span></li><li style="--hue:var(--wr-ink)"><span class="k">Top news</span><a href="https://www.cnbc.com/2026/10/05/russia-plague-suspected-case-irkutsk.html" rel="noopener">PNEUMONIC PLAGUE SHAKING RUSSIA...</a><span class="o">Drudge Report · 1 h ago</span></li></ol><details class="see-all"><summary>See all</summary><ol class="else-big"><li style="--hue:var(--desk-geopolitical)"><span class="k">World</span><a href="https://www.scmp.com/opinion/hong-kong-opinion/article/3369682/hong-kong-must-scrap-housing-plan-and-preserve-golf-course?utm_source=rss_feed" rel="noopener">Hong Kong must scrap housing plan and preserve golf course</a><span class="o">SCMP · 1 h ago · also on our board</span></li><li style="--hue:var(--desk-geopolitical)"><span class="k">World</span><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNSk5hVVhEeHdBcW41SkxsWm56LTdGMlFBRkFYdWNXdmR0UUdHUlFFcUdlZGcxU1RxRXRlOFpQVjlfdVRqTkdjSEJNUDRLT2dxUDdkcXRuN05FWUE4MkNzTzM5T3ZIODZvLVFrUnRrWm53cWQ3QlAtbzltRkd1VXFoZkw5LUQ1VENlbGtyRHk1OEwtb2lxMkhDYzJlWExxS2hqaEdtONIBqgFBVV95cUxQeVFUZE1UWUZUYU9NNVFYc2tRWHE4OHYwbHRtVHRKQloxcFJWUTdIV1pSN242Z1R3cXlqZGtZMFZVUzRrX0R6VHFTTjA4MmVqbnpPSnB2ZnNpQ1NUR0dfVHZSMEtPRC01dm1JUzVZUWFmOTFtTkJHM25tRnVzazM5ZTdjYkFUblNfS0hJSU42MlJCV1VZdWpfcUJJZnhuSzJuMjdpR1RGSEdtZw?oc=5" rel="noopener">Japan summons US envoy as marine arrested over Okinawa murder - Al Jazeera</a><span class="o">Google News World · 23 h ago · also on our board</span></li><li style="--hue:var(--desk-finance)"><span class="k">Business</span><a href="https://www.ft.com/content/74c3cc77-1593-4c49-90f9-0d92fa3a2418?syn-25a6b1a6=1" rel="noopener">French central bank head warns country at risk of being ‘strangled by interest rates’</a><span class="o">FT · 1 h ago · also on our board</span></li><li style="--hue:var(--desk-cyber)"><span class="k">Cyber</span><a href="https://www.bleepingcomputer.com/news/security/rejetto-hfs-servers-now-actively-scanned-for-critical-rce-flaw/" rel="noopener">Rejetto HFS servers now actively scanned for critical RCE flaw</a><span class="o">BleepingComputer · now ago · also on our board</span></li><li style="--hue:var(--desk-cyber)"><span class="k">Cyber</span><a href="https://therecord.media/wikimedia-foundation-openai-agents-report" rel="noopener">Wikimedia Foundation: OpenAI agents tried to edit pages and compromise notes tool</a><span class="o">The Record · now ago · also on our board</span></li><li style="--hue:var(--desk-reddit)"><span class="k">On Reddit</span><a href="https://www.reddit.com/r/HongKong/comments/1wy98tv/star_ferry_pier/" rel="noopener">Star ferry pier</a><span class="o">r/HongKong · now ago</span></li><li style="--hue:var(--desk-reddit)"><span class="k">On Reddit</span><a href="https://www.reddit.com/r/HongKong/comments/1wy86b8/cast_of_the_new_8pm_tvb_come_home_love_has_some/" rel="noopener">Cast of the new 8pm TVB Come Home Love has some of the most punchable faces on TV</a><span class="o">r/HongKong · now ago</span></li><li style="--hue:var(--desk-reddit)"><span class="k">On Reddit</span><a href="https://www.reddit.com/r/HongKong/comments/1wy2rht/hk_activists_stage_protest_reading_names_of/" rel="noopener">HK activists stage protest, reading names of Palestinians killed in Israel’s war since US-brokered ceasefire</a><span class="o">r/HongKong · now ago</span></li><li style="--hue:var(--desk-reddit)"><span class="k">On Reddit</span><a href="https://www.reddit.com/r/worldnews/comments/1wxtfy0/5_hospitals_have_been_closed_for_quarantines_in/" rel="noopener">5 hospitals have been closed for quarantines in Siberia due to a possible plague outbreak.</a><span class="o">r/worldnews · now ago</span></li><li style="--hue:var(--desk-reddit)"><span class="k">On Reddit</span><a href="https://www.reddit.com/r/worldnews/comments/1wy6apa/student_15_has_hand_blown_off_during_french/" rel="noopener">Student, 15, has hand blown off during French school protests, local press reports</a><span class="o">r/worldnews · now ago</span></li><li style="--hue:var(--desk-reddit)"><span class="k">On Reddit</span><a href="https://www.reddit.com/r/worldnews/comments/1wxvrjw/trump_threatens_tariffs_of_up_to_300_as_korea/" rel="noopener">Trump threatens tariffs of up to 300% as Korea faces pressure over US investment</a><span class="o">r/worldnews · now ago</span></li></ol></details></section>
-  <p class="foot"><a href="masthead">Meet the masthead</a>: the sixteen correspondents, anchors and editors behind every take.</p>
-</main>
-<script>
-(function(){
-  var SCHED=[];for(var hh=0;hh<24;hh++){SCHED.push(hh*60+15,hh*60+45);}
-  function hk(d){var p=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Hong_Kong'}).formatToParts(d);var h=0,m=0;p.forEach(function(x){if(x.type==='hour')h=+x.value;if(x.type==='minute')m=+x.value;});return h*60+m;}
-  function ago(d,now){var m=Math.round((now-d)/60000);if(m<1)return 'now';if(m<60)return m+' min';var h=Math.round(m/60);if(h<24)return h+' h';return Math.round(h/24)+' d';}
-  function pad(n){return (n<10?'0':'')+n;}
-  var LS=null;try{LS=window.localStorage;}catch(e){}
-  var last=0;try{last=+(LS&&LS.getItem('wr-board-last'))||0;}catch(e){}
-  var read={};try{read=JSON.parse((LS&&LS.getItem('wr-board-read'))||'{}');}catch(e){}
-  var items=document.querySelectorAll('[data-ts]');
-  function tick(){
-    var now=new Date();
-    items.forEach(function(el){var t=new Date(el.getAttribute('data-ts'));var tm=el.querySelector('time');if(tm)tm.textContent=ago(t,now);});
-    var w=document.getElementById('bd-when');
-    if(w){var b=new Date(w.getAttribute('data-built'));var cur=hk(now);var next=null;for(var i=0;i<SCHED.length;i++){if(SCHED[i]>cur+1){next=SCHED[i];break;}}var wait=next==null?(SCHED[0]+24*60-cur):(next-cur);next=next==null?SCHED[0]:next;var wh=Math.floor(wait/60),wm=wait%60;
-      w.innerHTML='updated <b>'+ago(b,now)+' ago</b> · next refresh about '+pad(Math.floor(next/60))+':'+pad(next%60)+' HKT (in '+(wh?wh+' h ':'')+wm+' min)';}
-  }
-  items.forEach(function(el){
-    if(!el.matches('li'))return;
-    var a=el.querySelector('a');if(!a)return;
-    var t=new Date(el.getAttribute('data-ts')).getTime();
-    if(last&&t>last)el.classList.add('new');
-    if(read[a.href])el.classList.add('read');
-    a.addEventListener('click',function(){read[a.href]=1;el.classList.add('read');el.classList.remove('new');try{var k=Object.keys(read);if(k.length>600){k.slice(0,k.length-600).forEach(function(x){delete read[x];});}LS&&LS.setItem('wr-board-read',JSON.stringify(read));}catch(e){}});
-  });
-  document.querySelectorAll('.bd-list .x').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();var li=b.closest('li');var s=li.querySelector('.snip');if(!s)return;var open=s.hasAttribute('hidden');if(open){s.removeAttribute('hidden');b.textContent='−';}else{s.setAttribute('hidden','');b.textContent='+';}b.setAttribute('aria-expanded',open?'true':'false');});});
-  document.querySelectorAll('.less').forEach(function(b){b.addEventListener('click',function(){var d=b.closest('details');if(d){d.open=false;d.scrollIntoView({block:'nearest'});}});});
-  if('IntersectionObserver' in window){var chips={};document.querySelectorAll('.nh-desks a[href^="#"]').forEach(function(a){chips[a.getAttribute('href').slice(1)]=a;});
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var a=chips[{health:'science',culture:'science'}[e.target.id]||e.target.id]||chips.top;if(!a)return;Object.keys(chips).forEach(function(k){chips[k].classList.remove('on');});a.classList.add('on');if(a.scrollIntoView)a.parentNode.scrollTo({left:a.offsetLeft-12,behavior:'smooth'});});},{rootMargin:'-100px 0px -70% 0px'});
-    document.querySelectorAll('.bd-desk[id]').forEach(function(s){io.observe(s);});}
-  try{LS&&LS.setItem('wr-board-last',String(Date.now()));}catch(e){}
-  tick();setInterval(tick,60000);
-})();
-</script>
-<footer class="sf"><div class="sf-in">
+</style><footer class="sf"><div class="sf-in">
   <a class="sf-mark" href="./">The Wang Report</a>
   <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
   <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
 </div></footer>
+
+<script>
+
+</script>
+
 </body>
 </html>
