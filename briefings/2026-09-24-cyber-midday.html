@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Check Point Patches Fourth VPN Flaw in Six Months · Kai Tanner · THE WANG REPORT</title>
-  <meta name="description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
+  <meta name="description" content="CVE-2026-93616 scores a perfect path traversal on the same Quantum Security Management console Check Point has patched three times since April, while a...">
   <link rel="canonical" href="https://wangreport.com/briefings/2026-09-24-cyber-midday">
   <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -12,12 +12,12 @@
   <meta property="og:site_name" content="The Wang Report">
   <meta property="og:locale" content="en_HK">
   <meta property="og:title" content="Check Point Patches Fourth VPN Flaw in Six Months · Kai Tanner · THE WANG REPORT">
-  <meta property="og:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
+  <meta property="og:description" content="CVE-2026-93616 scores a perfect path traversal on the same Quantum Security Management console Check Point has patched three times since April, while a...">
   <meta property="og:url" content="https://wangreport.com/briefings/2026-09-24-cyber-midday">
   <meta property="og:image" content="https://wangreport.com/img/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Check Point Patches Fourth VPN Flaw in Six Months · Kai Tanner · THE WANG REPORT">
-  <meta name="twitter:description" content="The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.">
+  <meta name="twitter:description" content="CVE-2026-93616 scores a perfect path traversal on the same Quantum Security Management console Check Point has patched three times since April, while a...">
   <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -76,16 +76,31 @@
 </head>
 <body>
 
-<div class="br-nav"><header class="nh">
-<nav class="nh-desks" aria-label="Desks"><a href="/" class="" style="--c:var(--wr-ink)">Front</a><a href="/hk-local" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="/cyber" style="--c:var(--desk-cyber)">Cyber</a><a href="/hk-finance" style="--c:var(--desk-finance)">Finance</a><a href="/geopolitical" style="--c:var(--desk-geopolitical)">World</a><a href="/ai-focus" style="--c:var(--desk-ai)">AI</a><a href="/sports" style="--c:var(--desk-sports)">Sports</a><a href="/science" style="--c:var(--desk-science)">Science & Health</a></nav>
-<nav class="nh-tools" aria-label="Tools"><a href="/front-edition">Edition</a><a href="/group-chat">Group Chat</a><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/issue">Sunday Issue</a><a href="/listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="/hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/dads">Dads</a></nav>
-</header></div>
+<div class="br-nav"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div></div>
 
 <div class="br-wrap">
-  <a class="br-back" href="/briefings">&larr; All Briefings</a>
-  <div class="br-masthead">Briefings</div>
-  <hr class="br-rule">
-  <hr class="br-rule-thin">
+  <a class="br-back" href="/desk/cyber">&larr; Cyber</a>
 
   <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
     <div class="br-byline-row">
@@ -97,8 +112,16 @@
         <span class="br-entry-date">Thursday, September 24, 2026</span>
       </div>
     </div>
+    
     <div class="br-title">Check Point Patches Fourth VPN Flaw in Six Months</div>
     
+    <form class="wr-strip" method="post" action="/api/subscribe" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px;padding:10px 12px;background:#F0EFED;border-radius:6px;font-family:Arial,sans-serif">
+  <input type="hidden" name="note" value="strip:briefings/2026-09-24-cyber-midday">
+  <span style="flex:1 1 180px;font-size:13px;color:#0B1F3A;line-height:1.35">The Executive Brief, once a month, free. <a href="/subscribe" style="color:#5A6470">What it is</a></span>
+  <label for="wr-strip-email" style="position:absolute;left:-9999px">Email address</label>
+  <input id="wr-strip-email" name="email" type="email" autocomplete="email" required spellcheck="false" placeholder="you@firm.com" style="flex:1 1 160px;max-width:260px;font-size:16px;padding:8px 10px;border:1px solid #C8C0B0;border-radius:4px">
+  <button type="submit" style="min-height:40px;font-size:13px;padding:8px 14px;color:#fff;background:#0B1F3A;border:1px solid #0B1F3A;border-radius:4px;cursor:pointer">Subscribe</button>
+</form>
     <div class="br-body">
       <p>Check Point disclosed CVE-2026-93616 on September 22, a path traversal vulnerability in Quantum Security Management scoring 9.8 on CVSS, alongside confirmation that CVE-2026-85102, a pre-authentication remote code execution flaw in the same product line's VPN certificate handling, is under active exploitation. CISA added both to its Known Exploited Vulnerabilities catalog within a week of each other. The EPSS score on the path traversal sits at 2 percent, low relative to its severity rating, which is the gap worth reading: a critical-rated bug the exploitation-prediction models do not yet expect anyone to bother with, sitting on a management console that talks to every gateway an APAC bank has deployed.</p>
         <p>The Quantum Security Management console is the administrative layer that pushes policy to Check Point's distributed VPN gateways, so a path traversal there does not compromise one appliance, it compromises whatever the console is trusted to configure. Combine that with a pre-auth RCE already being exploited on the gateway side and a bank running Check Point has two live disclosures on the same product family in the same week, one theoretical and one not. The people who inherit this are the network engineers who scheduled last week's manual hotfix for CVE-2026-85102 and are now told there is a second one. Check Point's public advisory language calls the pair &quot;critical vulnerabilities,&quot; which is accurate and also the least informative thing that could be said about a management-plane bug versus a gateway RCE with attackers already in it.</p>
@@ -107,7 +130,7 @@
     <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/check-point-warns-of-hackers-exploiting-security-gateway-vpn-rce-flaw/" rel="noopener" target="_blank">Hackers Actively Exploiting Check Point VPN Zero Day</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-93616" rel="noopener" target="_blank">CVE-2026-93616 (NVD)</a> <span class="take-source-meta">(nvd.nist.gov)</span></li></ul></div>
     <aside class="wr-sub" style="margin:36px 0 8px;padding:16px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;font-family:Arial,sans-serif">
   <div style="font-size:14px;color:#0B1F3A;font-weight:bold;margin-bottom:4px">The Executive Brief, once a month</div>
-  <div style="font-size:13px;color:#555;margin-bottom:10px">What the Cyber desk's registers added up to over the month, for people running regulated firms in Asia. One email, first Monday. <a href="/subscribe" style="color:#B0241E">What arrives</a></div>
+  <div style="font-size:13px;color:#555;margin-bottom:10px">Walter Wang writes the month whole, from every desk at the paper. One email, first Monday. <a href="/subscribe" style="color:#B0241E">What arrives</a></div>
   <form method="post" action="/api/subscribe" style="display:flex;flex-wrap:wrap;gap:8px">
     <input type="hidden" name="note" value="inline:briefings/2026-09-24-cyber-midday">
     <label for="wr-sub-email" style="position:absolute;left:-9999px">Email address</label>
@@ -121,13 +144,20 @@
   <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
 </div>
 
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><footer class="footer wr-foot">
-  <div class="wr-foot-mark">THE WANG REPORT</div>
-  <div class="wr-foot-row"><a href="/hk-local">Hong Kong</a> &middot; <a href="/cyber">Cyber</a> &middot; <a href="/hk-finance">Finance</a> &middot; <a href="/geopolitical">World</a> &middot; <a href="/ai-focus">AI</a> &middot; <a href="/sports">Sports</a> &middot; <a href="/science">Science &amp; Health</a></div>
-  <div class="wr-foot-row"><a href="/">Front</a> &middot; <a href="/indicators">Indicators</a> &middot; <a href="/flashpoints">Flashpoints</a> &middot; <a href="/wire">Wire</a> &middot; <a href="/issue">The Sunday Issue</a> &middot; <a href="/listen">Listen</a> &middot; <a href="/edition/">Editions</a> &middot; <a href="/briefings/">Take Archive</a></div>
-  <div class="wr-foot-row wr-foot-trust"><a href="/masthead">Masthead</a> &middot; <a href="/about">About</a> &middot; <a href="/editorial-standards">Editorial Standards</a> &middot; <a href="/corrections">Corrections</a> &middot; <a href="/how-its-made">How It's Made</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/subscribe">Subscribe</a> &middot; <a href="/feed.xml">RSS</a></div>
-  <div class="wr-foot-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
-</footer>
+<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><style>
+.sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
+.sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
+.sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
+.sf-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin:16px 0}
+.sf-col h5{font:700 12px Arial,sans-serif;color:#0B1F3A;margin:0 0 6px}
+.sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
+.sf-col a:hover{color:#0B1F3A;text-decoration:underline}
+.sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
+</style><footer class="sf"><div class="sf-in">
+  <a class="sf-mark" href="/">The Wang Report</a>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Culture &amp; Society</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
+</div></footer>
 
 </body>
 </html>
