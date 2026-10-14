@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Wang Report's OpenAI Pivot Tests More Than Model Mapping · Aya Nakamura</title>
+  <meta name="description" content="The initial switch happened on 12 October. Scheduled production followed. Proving the whole migration takes a different kind of evidence.">
+  <link rel="canonical" href="https://wangreport.com/briefings/2026-10-14-ai-focus-model-resilience">
+  <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="The Wang Report's OpenAI Pivot Tests More Than Model Mapping · Aya Nakamura">
+  <meta property="og:description" content="The initial switch happened on 12 October. Scheduled production followed. Proving the whole migration takes a different kind of evidence.">
+  <meta property="og:url" content="https://wangreport.com/briefings/2026-10-14-ai-focus-model-resilience">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Wang Report's OpenAI Pivot Tests More Than Model Mapping · Aya Nakamura">
+  <meta name="twitter:description" content="The initial switch happened on 12 October. Scheduled production followed. Proving the whole migration takes a different kind of evidence.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css?v=08003390ba">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F4EFE6; color: #0B1F3A; font-family: Georgia, 'Times New Roman', serif; }
+  .br-nav { border-bottom: 1px solid #C8C0B0; }
+  .br-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
+  .br-masthead { text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 3px; color: #5A6470; padding: 24px 0 4px; text-transform: uppercase; }
+  .br-rule { border: none; border-top: 3px solid #0B1F3A; margin: 0 0 4px; }
+  .br-rule-thin { border: none; border-top: 1px solid #C8C0B0; margin: 4px 0 32px; }
+  .br-entry { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #C8C0B0; }
+  .br-entry:last-child { border-bottom: none; }
+  .br-byline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .br-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: 0.5px; }
+  .br-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+  .br-byline-text { flex: 1; min-width: 0; }
+  .br-section-tag { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: 2px; color: #B0241E; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .br-journalist-name { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #0B1F3A; display: block; }
+  .br-journalist-role { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #5A6470; display: block; margin-top: 1px; }
+  .br-entry-date { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #5A6470; display: block; margin-top: 5px; }
+  .br-title { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; line-height: 1.3; color: #0B1F3A; margin: 0 0 14px; }
+  .br-body p { font-size: 15px; line-height: 1.75; color: #0B1F3A; margin-bottom: 14px; }
+  .br-body p:last-child { margin-bottom: 0; }
+  .br-permalink { display: inline-block; margin-top: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; }
+  .br-permalink:hover { color: #0B1F3A; }
+  .br-empty { text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #5A6470; padding: 60px 0; }
+  .br-footer { font-family: Arial, sans-serif; font-size: 10px; color: #5A6470; text-align: center; margin-top: 40px; letter-spacing: 1px; }
+  .br-margin-note { margin-top: 24px; padding: 2px 0 2px 16px; border-left: 2px solid #C8C0B0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13px; line-height: 1.7; color: #5A6470; }
+  .br-margin-verdict { font-weight: 600; color: #0B1F3A; margin-right: 2px; }
+  .br-margin-sig { font-style: normal; font-weight: 700; color: #5A6470; font-size: 10px; letter-spacing: 1px; margin-left: 8px; }
+  @media (max-width: 600px) { .br-avatar { width: 44px; height: 44px; font-size: 12px; } }
+
+  .br-wrap { padding-top: 20px; }
+  .br-back { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #B0241E; text-decoration: none; display: block; margin-bottom: 32px; }
+  .take-sources { margin-top: 14px; padding-top: 10px; border-top: 1px solid #ddd; }
+.take-sources-tag { font-family: Spectral, Georgia, serif; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #0B1F3A; margin: 0 0 6px; }
+.take-sources ul { list-style: none; margin: 0; padding: 0; }
+.take-sources li { font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.7; color: #333; }
+.take-sources li a { color: #0B1F3A; text-decoration: underline; }
+.take-source-meta { color: #777; font-size: 11px; }
+  .br-back:hover { color: #0B1F3A; }
+  .br-body h2 { font:700 22px/1.35 Georgia,serif; margin:30px 0 12px; color:#0B1F3A; }
+  .br-special-dek { font:italic 18px/1.5 Georgia,serif; color:#5A6470; margin:0 0 24px; }
+  .br-special-closing { border-top:2px solid #0B1F3A; margin-top:28px; padding-top:18px; }
+  .br-special-companion { border-top:1px solid #C8C0B0; padding-top:18px; margin-top:28px; font:15px/1.6 Georgia,serif; }
+  .br-art { margin: 14px 0 22px; } .br-art img { width: 100%; height: auto; display: block; border: 1px solid #C8C0B0; } .br-art figcaption { font: 11px Arial, sans-serif; color: #5A6470; margin-top: 5px; } .br-art-in { margin: 26px 0; } .br-art-in figcaption { font: italic 15px/1.45 Georgia, serif; color: #0B1F3A; border-left: 3px solid #B0241E; padding-left: 10px; margin-top: 8px; }</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"OpinionNewsArticle","headline":"The Wang Report's OpenAI Pivot Tests More Than Model Mapping","description":"The initial switch happened on 12 October. Scheduled production followed. Proving the whole migration takes a different kind of evidence.","datePublished":"2026-10-14T04:36:57.814Z","dateModified":"2026-10-14T04:36:57.814Z","mainEntityOfPage":"https://wangreport.com/briefings/2026-10-14-ai-focus-model-resilience","url":"https://wangreport.com/briefings/2026-10-14-ai-focus-model-resilience","image":["https://wangreport.com/img/og-default.png","https://wangreport.com/masthead/img/aya-nakamura.png"],"articleSection":"AI Desk special","inLanguage":"en","isAccessibleForFree":true,"creditText":"AI-assisted editorial by The Wang Report","publishingPrinciples":"https://wangreport.com/editorial-standards","publisher":{"@type":"NewsMediaOrganization","@id":"https://wangreport.com/#organization","name":"The Wang Report","url":"https://wangreport.com","logo":{"@type":"ImageObject","url":"https://wangreport.com/img/og-default.png","width":1200,"height":630}},"author":{"@type":"Person","@id":"https://wangreport.com/masthead/aya-nakamura#person","name":"Aya Nakamura","jobTitle":"AI Desk, Senior Correspondent","url":"https://wangreport.com/masthead/aya-nakamura","worksFor":{"@id":"https://wangreport.com/#organization"},"disambiguatingDescription":"An authored editorial persona of The Wang Report; briefings under this byline are produced by AI under human editorial direction."}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body>
+
+<div class="br-nav"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div></div>
+
+<div class="br-wrap">
+  <a class="br-back" href="/desk/ai">&larr; AI</a>
+
+  <div class="br-entry" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
+    <div class="br-byline-row">
+      <div class="br-avatar"><img src="/masthead/img/thumbs/aya-nakamura.jpg" alt="AN"/></div>
+      <div class="br-byline-text">
+        <span class="br-section-tag">AI Desk special</span>
+        <span class="br-journalist-name">Aya Nakamura</span>
+        <span class="br-journalist-role">AI Desk, Senior Correspondent</span>
+        <span class="br-entry-date">Wednesday, October 14, 2026</span>
+      </div>
+    </div>
+    
+    <div class="br-title">The Wang Report's OpenAI Pivot Tests More Than Model Mapping</div>
+    <p class="br-special-dek">The initial switch happened on 12 October. Scheduled production followed. Proving the whole migration takes a different kind of evidence.</p>
+    
+    <form class="wr-strip" method="post" action="/api/subscribe" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px;padding:10px 12px;background:#F0EFED;border-radius:6px;font-family:Arial,sans-serif">
+  <input type="hidden" name="note" value="strip:briefings/2026-10-14-ai-focus-model-resilience">
+  <span style="flex:1 1 180px;font-size:13px;color:#0B1F3A;line-height:1.35">The Executive Brief, once a month, free. <a href="/subscribe" style="color:#5A6470">What it is</a></span>
+  <label for="wr-strip-email" style="position:absolute;left:-9999px">Email address</label>
+  <input id="wr-strip-email" name="email" type="email" autocomplete="email" required spellcheck="false" placeholder="you@firm.com" style="flex:1 1 160px;max-width:260px;font-size:16px;padding:8px 10px;border:1px solid #C8C0B0;border-radius:4px">
+  <button type="submit" style="min-height:40px;font-size:13px;padding:8px 14px;color:#fff;background:#0B1F3A;border:1px solid #0B1F3A;border-radius:4px;cursor:pointer">Subscribe</button>
+</form>
+    <div class="br-body">
+      <section><h2>The old function still had its name</h2><p>A function in The Wang Report is still called callClaudeAsync. It now runs OpenAI through Codex. The name survived because the callers needed the same contract: give it the editorial instructions and source material, get back a completed result, or receive a failure. That small piece of compatibility helped the paper change its language-model engine without rewriting every desk.</p>
+<p>The initial cutover and shared routing layer were installed on 12 October. Scheduled morning production then completed on 13 October, with generated output and deployment records. Subsequent checks continued on 14 October. That is the useful shape of our pivot: an initial change on one date, production evidence afterward, and acceptance that continues beyond both. The record does not support a single stopwatch figure for the whole migration.</p></section>
+<section><h2>Give the model a place in the architecture</h2><p>The paper already had a shared execution boundary. During the migration, a central registry made the selection policy explicit: provider, model, task role, reasoning effort, capabilities and billing. Callers can ask for fast, balanced or deep work; the registry maps that request to an approved model. Older Haiku, Sonnet and Opus names remain compatibility aliases. They are routing decisions, with no claim that the corresponding models behave identically.</p>
+<p>A team designing this from scratch should put provider-specific authentication, request formats and response parsing behind adapters. Keep source retrieval, editorial instructions, saved state and approval decisions in the application. Make exceptions visible: a job pinned to a particular model may bypass the normal role mapping. Inventory those pins as carefully as the default.</p>
+<p>Our registry currently enables Codex. It makes model selection more manageable, but it is not a running second provider on standby. Another provider would still need an adapter, approved access and workload tests. Two model names in a settings screen do not prove that a deadline can survive the loss of one supplier.</p></section>
+<section><h2>Carry the work, then check what changed</h2><p>We carried the paper's sources, voices and checks across. The execution contract needed translation. The Codex adapter parses an event stream and requires a completed turn and a final response. A process that starts, or emits some text, has not necessarily finished the job.</p>
+<p>Reasoning effort became an explicit routing setting. Research gets a different allowance from an ordinary completion. Tool access also needed deliberate configuration: a drafting call should not inherit permission to browse, write files or run commands merely because the desktop application can do those things. The research path and the plain writing path have different jobs.</p>
+<p>Authentication and billing needed the same care. This installation uses ChatGPT subscription authentication and refuses silent fallback to paid APIs. That is our chosen operating policy. An organisation should select its own approved access method and data-handling controls before making the switch; a subscription session and an API credential are different arrangements. OpenAI's documentation describes those distinctions.</p></section>
+<section><h2>The experience is still being measured</h2><p>The most concrete Claude-versus-OpenAI differences in this migration were around the work: carrying instructions, mapping models, setting reasoning effort, configuring tools and interpreting completion. Those are observations about our integration. They do not establish that one model writes better, reasons better or is more dependable across every task.</p>
+<p>A successful run establishes that a workflow produced output. Editorial equivalence requires someone to read it. Use the same archived source packet to compare factual accuracy, citations, voice, omissions and the effort needed to correct a piece. Measure end-to-end time, retries and failure behaviour as well as the final prose. A fast first answer can still leave the editor with more work.</p>
+<p>For a desktop user, test what survives the move: saved instructions, memories, files, connectors and permissions. In our wider migration, some legacy memory material remained readable while native memory import stayed uncompleted. Context portability is its own acceptance task. It cannot be inferred from a successful model call.</p></section>
+<section><h2>A switch needs an owner and a way back</h2><p>Before a pilot, the application owner should agree with security, data and risk owners which workloads may move, what information may leave, what the new provider may retain, and which actions still require a person. Check location eligibility, contractual terms, capacity and the limits of the proposed alternative. Switching supplier changes the risk assessment even when the prompt stays the same.</p>
+<p>Start with a representative workload using public or synthetic inputs, with sending and publishing disabled. Test both ordinary and awkward cases: missing credentials, exhausted quota, invalid output, a partial response, denied tool access and a timeout. Test images and research if the application depends on them. Set the minimum acceptable quality and maximum recovery time before seeing the results.</p>
+<p>Our changes were backed up with recorded file hashes so restoration could detect intervening edits. A team also needs to preserve state and prevent duplicate actions. An automated retry must not send the same message or publish the same item twice. If the previous provider is no longer accessible, the fallback may be the last good output, a manual workflow or a paused service. Define that degraded mode before it is needed.</p></section>
+<section><h2>Close the migration with evidence</h2><p>Track each workload through mapped, tested, enabled and observed in production. Give each an owner and attach evidence from the actual run: its outcome, output, log and state. Scheduler success without the expected output stays unaccepted. A dashboard that says complete must agree with the files and service it describes.</p>
+<p>We added application, model, effort and billing attribution to instrumented calls. That made wrong or missing application labels visible during ordinary scheduled work. The records remain partial; an unrecorded call is not zero usage, and token counts do not by themselves establish account-wide spend or available quota.</p>
+<p>Measure time to first safe output, time to restore critical workloads and time to finish acceptance separately. Keep watching factual corrections, voice drift, latency, retries and failures after cutover. Set thresholds that bring a workload back to its owner. The next recovery exercise can then use the last one as evidence: how long each approved alternative actually took to produce acceptable work, and which dependency stopped it.</p></section><div class="br-special-closing"><p>The next supplier change will put that record to use. The workload owner will have a tested route, an accepted output and a measured recovery time before the deadline arrives.</p></div>
+    </div>
+    <p class="br-special-companion">Walter Wang's companion piece: <a href="/briefings/2026-10-14-editor-farewell-claude">The Wang Report Says Goodbye to Claude</a></p>
+    <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://learn.chatgpt.com/docs/auth" rel="noopener" target="_blank">OpenAI: Codex authentication and access methods</a> <span class="take-source-meta">(learn.chatgpt.com)</span></li><li><a href="https://learn.chatgpt.com/docs/config-file/config-basic" rel="noopener" target="_blank">OpenAI: Codex configuration and reasoning effort</a> <span class="take-source-meta">(learn.chatgpt.com)</span></li><li><a href="https://www.anthropic.com/legal/supported-regions" rel="noopener" target="_blank">Anthropic's Supported Regions Policy</a> <span class="take-source-meta">(anthropic.com)</span></li></ul></div>
+    <aside class="wr-sub" style="margin:36px 0 8px;padding:16px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;font-family:Arial,sans-serif">
+  <div style="font-size:14px;color:#0B1F3A;font-weight:bold;margin-bottom:4px">The Executive Brief, once a month</div>
+  <div style="font-size:13px;color:#555;margin-bottom:10px">Walter Wang writes the month whole, from every desk at the paper. One email, first Monday. <a href="/subscribe" style="color:#B0241E">What arrives</a></div>
+  <form method="post" action="/api/subscribe" style="display:flex;flex-wrap:wrap;gap:8px">
+    <input type="hidden" name="note" value="inline:briefings/2026-10-14-ai-focus-model-resilience">
+    <label for="wr-sub-email" style="position:absolute;left:-9999px">Email address</label>
+    <input id="wr-sub-email" name="email" type="email" autocomplete="email" required spellcheck="false" placeholder="you@firm.com" style="flex:1 1 220px;max-width:340px;font-size:16px;padding:10px;border:1px solid #999;background:#fff;color:#222">
+    <button type="submit" style="min-height:44px;font-size:14px;padding:10px 18px;color:#fff;background:#0B1F3A;border:1px solid #0B1F3A;cursor:pointer">Send me the brief</button>
+  </form>
+</aside>
+    <!-- Margin note rendering disconnected (2026-07-26, Harry) - see renderEntryHtml above -->
+  </div>
+
+  <div class="br-footer" style="margin-top:60px">THE WANG REPORT &middot; BRIEFINGS</div>
+</div>
+
+<div class="ai-colophon">The Wang Report uses OpenAI models through Codex under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><style>
+.sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
+.sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
+.sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
+.sf-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin:16px 0}
+.sf-col h5{font:700 12px Arial,sans-serif;color:#0B1F3A;margin:0 0 6px}
+.sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
+.sf-col a:hover{color:#0B1F3A;text-decoration:underline}
+.sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
+</style><footer class="sf"><div class="sf-in">
+  <a class="sf-mark" href="/">The Wang Report</a>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
+</div></footer>
+
+</body>
+</html>
