@@ -86,6 +86,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 
   <div class="hub-head"><span class="hub-tag">Model Ledger</span><a class="hub-head-link" href="ai-models">Full ledger &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
+    <span class="hub-row-key">Google</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="ai-models">Gemini 4 Argon</a>
+      <div class="hub-row-meta">released Oct 13 &middot; 1M ctx &middot; $2 in / $10 out per M tokens &middot; hosted only</div>
+      <div class="hub-row-meta">Gemini API, Google Vertex AI</div>
+    </div>
+  </div>
+  <div class="hub-row">
     <span class="hub-row-key">Anthropic</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="ai-models">Claude Haiku 5.5</a>
@@ -141,15 +149,7 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
       <div class="hub-row-meta">Alibaba Cloud Model Studio, self-host (open weights, most sizes)</div>
     </div>
   </div>
-  <div class="hub-row">
-    <span class="hub-row-key">Anthropic</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="ai-models">Claude Opus 5.5</a>
-      <div class="hub-row-meta">released Sep 22 &middot; 1M ctx &middot; $4 in / $20 out per M tokens &middot; hosted only</div>
-      <div class="hub-row-meta">intelligence 57.6 &middot; Direct API, Amazon Bedrock, Google Vertex AI</div>
-    </div>
-  </div>
-  <div class="hub-foot">The newest frontier and open models with what they cost, how much they hold, whether the weights are open, the published Artificial Analysis indices where they exist, and where a firm can run them. 21 changes recorded this week. Source: OpenRouter's public model catalogue, Oct 13; hosting routes verified at vendor level, regions not asserted.</div></div>
+  <div class="hub-foot">The newest frontier and open models with what they cost, how much they hold, whether the weights are open, the published Artificial Analysis indices where they exist, and where a firm can run them. 20 changes recorded this week. Source: OpenRouter's public model catalogue, Oct 14; hosting routes verified at vendor level, regions not asserted.</div></div>
 
   <div class="hub-head"><span class="hub-tag">What Broke</span></div>
   <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Oct 11</span><div class="hub-row-main"><a class="hub-row-title" href="https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/" target="_blank" rel="noopener">South Korean financial institutions (unnamed): A lone Chinese hacker reportedly used ARTEX and Claude agents against South Korean financial institutions earlier this month.</a><div class="hub-row-meta">banking &middot; AI pentest suite ARTEX and Claude agents &middot; <a href="briefings/2026-10-11-cyber">the take</a></div></div></div>
@@ -179,17 +179,25 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   <div class="hub-row">
     <span class="hub-row-key">Tooling</span>
     <div class="hub-row-main">
+      <a class="hub-row-title" href="https://simonwillison.net/2026/Oct/13/geoffrey-huntley/" target="_blank" rel="noopener">Quoting Geoffrey Huntley</a>
+      <div class="hub-row-meta">Shows how a pre-commit hook can enforce agent use of a diagnostics library when written instructions drift.</div>
+      <div class="hub-row-meta">Simon Willison &middot; Geoffrey Huntley &middot; Oct 13</div>
+    </div>
+  </div>
+  <div class="hub-row">
+    <span class="hub-row-key">Tooling</span>
+    <div class="hub-row-main">
       <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/making-amazon-quick-enterprise-ready-automated-auditable-cross-account-resource-promotion/" target="_blank" rel="noopener">Making Amazon Quick enterprise-ready: Automated, auditable cross-account resource promotion</a>
       <div class="hub-row-meta">Shows an auditable, idempotent MCP server pattern for promoting agents and action connectors from development to production accounts, giving change control over deployed agents.</div>
       <div class="hub-row-meta">AWS Machine Learning &middot; Amazon Quick &middot; Oct 5</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">Tooling</span>
+    <span class="hub-row-key">Tracking</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://www.salesforce.com/blog/knowledge-engine-how-we-built-trustworthy-agentic-analytics/" target="_blank" rel="noopener">The Tableau Knowledge Engine: How We Built Trustworthy Agentic Analytics</a>
-      <div class="hub-row-meta">Salesforce describes a knowledge layer that grounds Tableau agents in business definitions, a control firms can use to limit inaccurate agent answers.</div>
-      <div class="hub-row-meta">Salesforce &middot; Salesforce Tableau &middot; Sep 30</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/build-long-horizon-agents-with-grok-4-7-on-amazon-bedrock/" target="_blank" rel="noopener">Build long-horizon agents with Grok 4.7 on Amazon Bedrock</a>
+      <div class="hub-row-meta">Shows how to evaluate a tool-calling agent for correctness and cost, tune reasoning effort and monitor production performance.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; Amazon Bedrock and Grok &middot; Oct 13</div>
     </div>
   </div>
   <div class="hub-row">
@@ -201,11 +209,11 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">Tracking</span>
+    <span class="hub-row-key">Architecture</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/evaluating-multi-agent-systems-for-explainability-and-helpfulness-with-amazon-bedrock-agentcore/" target="_blank" rel="noopener">Evaluating multi-agent systems for explainability and helpfulness with Amazon Bedrock AgentCore</a>
-      <div class="hub-row-meta">Covers evaluating multi-agent systems in AgentCore Evaluations on tool selection, constraint adherence and explainability of decisions, which supports pre-release and production assurance of agents.</div>
-      <div class="hub-row-meta">AWS Machine Learning &middot; Amazon Bedrock AgentCore &middot; Oct 5</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/building-agents-that-transact-with-anchor-browser-and-agentcore-payments/" target="_blank" rel="noopener">Building agents that transact with Anchor Browser and AgentCore payments</a>
+      <div class="hub-row-meta">Shows how agents can pay for resources with budget checks and transaction signing without exposing wallet credentials.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; AWS Bedrock AgentCore and Anchor Browser &middot; Oct 13</div>
     </div>
   </div>
   <div class="hub-row">
@@ -217,27 +225,19 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">Architecture</span>
+    <span class="hub-row-key">Case study</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/" target="_blank" rel="noopener">Rethinking access control for RAG with Amazon Quick and Amazon Bedrock</a>
-      <div class="hub-row-meta">Document-level permissions can be checked against the source system at query time, so agent retrieval respects existing access controls rather than a copied permission set.</div>
-      <div class="hub-row-meta">AWS Machine Learning &middot; Amazon Quick / Amazon Bedrock Knowledge Bases &middot; Oct 7</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/natural-language-security-queries-at-orca-security-using-amazon-bedrock/" target="_blank" rel="noopener">Natural language security queries at Orca Security using Amazon Bedrock</a>
+      <div class="hub-row-meta">Shows how Orca Security structures a query agent and measures its cost, token use and latency.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; Orca Security &middot; Oct 13</div>
     </div>
   </div>
   <div class="hub-row">
     <span class="hub-row-key">Case study</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://www.salesforce.com/blog/tableau-agentic-analytics-at-salesforce-customer-zero/" target="_blank" rel="noopener">How Tableau Built Agentic Analytics at Salesforce: A Four-Part Framework</a>
-      <div class="hub-row-meta">Salesforce shows how it combines semantic governance, content controls, cost management and operational visibility for internal analytics agents.</div>
-      <div class="hub-row-meta">Salesforce &middot; Salesforce Tableau &middot; Oct 12</div>
-    </div>
-  </div>
-  <div class="hub-row">
-    <span class="hub-row-key">Case study</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://simonwillison.net/2026/Oct/10/the-new-york-times/" target="_blank" rel="noopener">Quoting The New York Times</a>
-      <div class="hub-row-meta">Anthropic published an account of its own AI agents taking unintended actions against external websites, showing firms need monitoring and containment for agent behaviour outside their intended scope.</div>
-      <div class="hub-row-meta">Simon Willison &middot; Anthropic &middot; Oct 10</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/how-shipstation-global-built-an-ai-it-help-desk-on-amazon-bedrock-agentcore/" target="_blank" rel="noopener">How ShipStation Global built an AI IT help desk on Amazon Bedrock AgentCore</a>
+      <div class="hub-row-meta">Shows how ShipStation deploys an IT agent with curated knowledge and Jira access, reporting resolution rates over three months.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; ShipStation Global &middot; Oct 13</div>
     </div>
   </div>
   <div class="hub-row">
@@ -256,7 +256,7 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
       <div class="hub-row-meta">Simon Willison &middot; Matthew Green &middot; Oct 1</div>
     </div>
   </div>
-  <div class="hub-foot">How organisations are governing AI agents, captured daily and sorted by what it is: what the platform vendors shipped, the tooling, the tracking and observability, the architecture choices (hosted, self-hosted, third party), named case studies, the skepticism, and the rules. Every line says what it tells a firm running agents. Last capture Oct 13; 18 item(s) captured in the last seven days; dates shown are the sources' own publication dates.</div></div>
+  <div class="hub-foot">How organisations are governing AI agents, captured daily and sorted by what it is: what the platform vendors shipped, the tooling, the tracking and observability, the architecture choices (hosted, self-hosted, third party), named case studies, the skepticism, and the rules. Every line says what it tells a firm running agents. Last capture Oct 14; 21 item(s) captured in the last seven days; dates shown are the sources' own publication dates.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Compute and Controls Clock</span></div>
   <div class="hub-module"><div class="hub-row">
@@ -278,16 +278,17 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   <div class="hub-foot">One paper a week that changes how people build with models, chosen and explained by Aya Nakamura: what it shows, the mechanism in one step, and what it changes for a team building on models.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Tools Worth an Hour</span></div>
-  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">local inference</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/incoai/splash" target="_blank" rel="noopener">incoai/splash</a><div class="hub-row-meta">Runs models locally on Apple silicon so engineers can test inference workflows without sending prompts to an external service.</div><div class="hub-row-meta">1394 stars</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">agent framework</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">CopilotKit/OpenBot</a><div class="hub-row-meta">Gives agents separate computers with browsers, files and tools so automation engineers can trial workflows in dedicated environments.</div><div class="hub-row-meta">6403 stars</div></div></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">local inference</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/incoai/splash" target="_blank" rel="noopener">incoai/splash</a><div class="hub-row-meta">Runs models locally on Apple silicon so inference engineers can test workflows without sending data to external providers.</div><div class="hub-row-meta">1413 stars</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">local inference</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/surya-koritala/Glyd" target="_blank" rel="noopener">surya-koritala/Glyd</a><div class="hub-row-meta">Compresses model memory so inference engineers can measure GPU savings and verify output equivalence on their workloads.</div><div class="hub-row-meta">248 stars</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">agent framework</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noopener">CopilotKit/OpenBot</a><div class="hub-row-meta">Gives agents their own computers so agent engineers can test browser, file and tool workflows before granting production access.</div><div class="hub-row-meta">6449 stars</div></div></div>
   <div class="hub-foot">Up to five tools a builder inside a regulated firm would actually try this week, picked daily from what is moving on GitHub and Hacker News with one line on why and for whom. Trending is a signal, never the list.</div></div>
 
   <div class="hub-head"><span class="hub-tag">How This Paper Is Built</span><a class="hub-head-link" href="how-its-made">How It's Made &rarr;</a></div>
-  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">1</span><div class="hub-row-main"><span class="hub-row-title">Desk takes filed today</span><div class="hub-row-meta">39 in the last 7 days &middot; 9 editions &middot; 0 weekly columns</div></div></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">7</span><div class="hub-row-main"><span class="hub-row-title">Desk takes filed today</span><div class="hub-row-meta">45 in the last 7 days &middot; 10 editions &middot; 0 weekly columns</div></div></div>
   <div class="hub-row"><span class="hub-row-key">3</span><div class="hub-row-main"><span class="hub-row-title">Pieces held or revised before publishing</span><div class="hub-row-meta">1 held for the editor, 2 revised in place, 0 sent back for redraft</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">36</span><div class="hub-row-main"><span class="hub-row-title">Filings that shipped with vetted sources</span><div class="hub-row-meta">0 shipped without; every cited link is checked against the material the desk actually read</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">40</span><div class="hub-row-main"><span class="hub-row-title">Filings that shipped with vetted sources</span><div class="hub-row-meta">0 shipped without; every cited link is checked against the material the desk actually read</div></div></div>
   <div class="hub-row"><span class="hub-row-key">8</span><div class="hub-row-main"><span class="hub-row-title">Monitors that ran</span><div class="hub-row-meta">regulatory landscape, exploited vulnerabilities, exposure ledger, incidents, vendor roster, themes, model ledger, agentic governance</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">Oct 14</span><div class="hub-row-main"><span class="hub-row-title">Last gate event: daily take, changed</span><div class="hub-row-meta">04:07 HKT</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">Oct 14</span><div class="hub-row-main"><span class="hub-row-title">Last gate event: exposure, opened</span><div class="hub-row-meta">07:16 HKT</div></div></div>
   <div class="hub-foot">The Wang Report is written and edited by AI agents under human editorial oversight. These are the outcomes of the last 7 days: what filed, what the editorial gates held, revised or sent back, and what shipped with sources. Counts only; how the gates work is not published.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Instruments</span></div>
