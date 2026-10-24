@@ -53,10 +53,10 @@ body p{line-height:1.6}
 body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 </style><header class="sh-top"><div class="sh-in">
 <div class="sh-row"><a class="sh-mast" href="./">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
-<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai" class="on" style="--h:#3E356B">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></nav></div></header>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai" class="on" style="--h:#3E356B">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></nav></div></header>
 <div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
 <button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
-<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
 
 <header>
   <div class="masthead">AI FOCUS</div>
@@ -86,10 +86,18 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 
   <div class="hub-head"><span class="hub-tag">Model Ledger</span><a class="hub-head-link" href="ai-models">Full ledger &rarr;</a></div>
   <div class="hub-module"><div class="hub-row">
+    <span class="hub-row-key">Moonshot (Kimi)</span>
+    <div class="hub-row-main">
+      <a class="hub-row-title" href="ai-models">Kimi K3.1 Pro</a>
+      <div class="hub-row-meta">released Oct 23 &middot; 1M ctx &middot; $2 in / $10 out per M tokens &middot; hosted only</div>
+      <div class="hub-row-meta">Direct API, self-host (open weights)</div>
+    </div>
+  </div>
+  <div class="hub-row">
     <span class="hub-row-key">MiniMax</span>
     <div class="hub-row-main">
       <a class="hub-row-title" href="ai-models">MiniMax M3.1 Flash</a>
-      <div class="hub-row-meta">released Oct 19 &middot; 1M ctx &middot; $0.15 in / $0.6 out per M tokens &middot; hosted only</div>
+      <div class="hub-row-meta">released Oct 19 &middot; 1M ctx &middot; $0.15 in / $0.6 out per M tokens &middot; <b>open weights</b></div>
       <div class="hub-row-meta">intelligence 42.7 &middot; Direct API, self-host (open weights)</div>
     </div>
   </div>
@@ -141,15 +149,7 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
       <div class="hub-row-meta">intelligence 51.8 &middot; Direct API, Microsoft Azure</div>
     </div>
   </div>
-  <div class="hub-row">
-    <span class="hub-row-key">Anthropic</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="ai-models">Claude Sonnet 5.5</a>
-      <div class="hub-row-meta">released Sep 28 &middot; 1M ctx &middot; $2 in / $10 out per M tokens &middot; hosted only</div>
-      <div class="hub-row-meta">intelligence 56 &middot; Direct API, Amazon Bedrock, Google Vertex AI</div>
-    </div>
-  </div>
-  <div class="hub-foot">The newest frontier and open models with what they cost, how much they hold, whether the weights are open, the published Artificial Analysis indices where they exist, and where a firm can run them. 28 changes recorded this week. Source: OpenRouter's public model catalogue, Oct 23; hosting routes verified at vendor level, regions not asserted.</div></div>
+  <div class="hub-foot">The newest frontier and open models with what they cost, how much they hold, whether the weights are open, the published Artificial Analysis indices where they exist, and where a firm can run them. 28 changes recorded this week. Source: OpenRouter's public model catalogue, Oct 24; hosting routes verified at vendor level, regions not asserted.</div></div>
 
   <div class="hub-head"><span class="hub-tag">What Broke</span></div>
   <div class="hub-module"><div class="hub-row"><span class="hub-row-key">Oct 19</span><div class="hub-row-main"><a class="hub-row-title" href="https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html" target="_blank" rel="noopener">ConnectWise: Unauthorized access investigation prompted disabling seven application identities and halting customers cloud backup service.</a><div class="hub-row-meta">software vendor &middot; unknown &middot; <a href="briefings/2026-10-19-cyber-midday">the take</a></div></div></div>
@@ -163,17 +163,17 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   <div class="hub-module"><div class="hub-row">
     <span class="hub-row-key">The bigs</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/" target="_blank" rel="noopener">Deploy AI in a HIPAA-eligible environment with Amazon Quick</a>
-      <div class="hub-row-meta">Healthcare agent deployments require controls over patient data flows and compliance responsibilities beyond the platform’s HIPAA eligibility.</div>
-      <div class="hub-row-meta">AWS Machine Learning &middot; Amazon Quick &middot; Oct 22</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/" target="_blank" rel="noopener">Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide</a>
+      <div class="hub-row-meta">Shows how to train agents against whole task outcomes using SageMaker AI and Bedrock AgentCore.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; AWS &middot; Oct 23</div>
     </div>
   </div>
   <div class="hub-row">
     <span class="hub-row-key">The bigs</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://simonwillison.net/2026/Oct/22/donating-agent-skills/" target="_blank" rel="noopener">Donating Agent Skills to the Agentic AI Foundation</a>
-      <div class="hub-row-meta">Moving Agent Skills to a foundation gives firms a shared standard for packaging agent capabilities across vendors.</div>
-      <div class="hub-row-meta">Simon Willison &middot; Anthropic / Agentic AI Foundation &middot; Oct 22</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/" target="_blank" rel="noopener">Deploy AI in a HIPAA-eligible environment with Amazon Quick</a>
+      <div class="hub-row-meta">Healthcare agent deployments require controls over patient data flows and compliance responsibilities beyond the platform’s HIPAA eligibility.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; Amazon Quick &middot; Oct 22</div>
     </div>
   </div>
   <div class="hub-row">
@@ -211,17 +211,25 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   <div class="hub-row">
     <span class="hub-row-key">Architecture</span>
     <div class="hub-row-main">
+      <a class="hub-row-title" href="https://latent.space/p/modal-d/" target="_blank" rel="noopener">Why AI Compute Comes in Rectangles, Erik Bernhardsson, Modal CEO</a>
+      <div class="hub-row-meta">Examines sandbox infrastructure and compute economics that shape where firms run agents.</div>
+      <div class="hub-row-meta">Latent Space &middot; Modal &middot; Oct 22</div>
+    </div>
+  </div>
+  <div class="hub-row">
+    <span class="hub-row-key">Architecture</span>
+    <div class="hub-row-main">
       <a class="hub-row-title" href="https://techcommunity.microsoft.com/t5/microsoft-entra-blog/designing-smarter-access-policies-for-hybrid-enterprises/ba-p/4529308" target="_blank" rel="noopener">Designing smarter access policies for hybrid enterprises</a>
       <div class="hub-row-meta">Access policies must account for agents acting on users’ behalf across cloud, data centre and device boundaries.</div>
       <div class="hub-row-meta">Microsoft Tech Community &middot; Microsoft Entra &middot; Oct 22</div>
     </div>
   </div>
   <div class="hub-row">
-    <span class="hub-row-key">Architecture</span>
+    <span class="hub-row-key">Case study</span>
     <div class="hub-row-main">
-      <a class="hub-row-title" href="https://www.latent.space/p/modal-d" target="_blank" rel="noopener">Why AI Compute Comes in Rectangles, Erik Bernhardsson, Modal CEO</a>
-      <div class="hub-row-meta">Agent cloud economics and sandbox infrastructure inform decisions about where to run agents and how to provision their execution environments.</div>
-      <div class="hub-row-meta">Latent Space &middot; Modal &middot; Oct 22</div>
+      <a class="hub-row-title" href="https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/" target="_blank" rel="noopener">How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations</a>
+      <div class="hub-row-meta">Explains architecture and design decisions behind a multi-agent platform serving breeders, analysts and researchers.</div>
+      <div class="hub-row-meta">AWS Machine Learning &middot; Bayer Crop Science &middot; Oct 23</div>
     </div>
   </div>
   <div class="hub-row">
@@ -232,15 +240,7 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
       <div class="hub-row-meta">AWS Machine Learning &middot; Rescale &middot; Oct 22</div>
     </div>
   </div>
-  <div class="hub-row">
-    <span class="hub-row-key">Case study</span>
-    <div class="hub-row-main">
-      <a class="hub-row-title" href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" target="_blank" rel="noopener">AI-driven, large-scale nation-state campaign using ARTEX enables supply chain compromise</a>
-      <div class="hub-row-meta">Shows how attackers use agents to scale supply chain compromise and credential abuse across enterprise environments.</div>
-      <div class="hub-row-meta">Microsoft Security &middot; Microsoft &middot; Oct 21</div>
-    </div>
-  </div>
-  <div class="hub-foot">How organisations are governing AI agents, captured daily and sorted by what it is: what the platform vendors shipped, the tooling, the tracking and observability, the architecture choices (hosted, self-hosted, third party), named case studies, the skepticism, and the rules. Every line says what it tells a firm running agents. Last capture Oct 23; 26 item(s) captured in the last seven days; dates shown are the sources' own publication dates.</div></div>
+  <div class="hub-foot">How organisations are governing AI agents, captured daily and sorted by what it is: what the platform vendors shipped, the tooling, the tracking and observability, the architecture choices (hosted, self-hosted, third party), named case studies, the skepticism, and the rules. Every line says what it tells a firm running agents. Last capture Oct 24; 28 item(s) captured in the last seven days; dates shown are the sources' own publication dates.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Compute and Controls Clock</span></div>
   <div class="hub-module"><div class="hub-row">
@@ -262,15 +262,17 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   <div class="hub-foot">One paper a week that changes how people build with models, chosen and explained by Aya Nakamura: what it shows, the mechanism in one step, and what it changes for a team building on models.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Tools Worth an Hour</span></div>
-  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">local inference</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/mw00/project-maya" target="_blank" rel="noopener">mw00/project-maya</a><div class="hub-row-meta">Runs GLM and DeepSeek models on owned GPUs so platform engineers can test inference within firm-controlled infrastructure.</div><div class="hub-row-meta">1489 stars</div></div></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">guardrails</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/strands-agents/box" target="_blank" rel="noopener">strands-agents/box</a><div class="hub-row-meta">Restricts agent execution, file access and network access so platform engineers can test sandbox boundaries before deployment.</div><div class="hub-row-meta">463 stars</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">data tooling</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/rollroyces/py-idp" target="_blank" rel="noopener">rollroyces/py-idp</a><div class="hub-row-meta">Combines self-hosted OCR with Pydantic schemas so document pipeline engineers can test extraction against required fields.</div><div class="hub-row-meta">297 stars</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">local inference</span><div class="hub-row-main"><a class="hub-row-title" href="https://github.com/mw00/project-maya" target="_blank" rel="noopener">mw00/project-maya</a><div class="hub-row-meta">Runs GLM and DeepSeek models on owned GPUs so infrastructure engineers can test inference within firm-controlled environments.</div><div class="hub-row-meta">1660 stars</div></div></div>
   <div class="hub-foot">Up to five tools a builder inside a regulated firm would actually try this week, picked daily from what is moving on GitHub and Hacker News with one line on why and for whom. Trending is a signal, never the list.</div></div>
 
   <div class="hub-head"><span class="hub-tag">How This Paper Is Built</span><a class="hub-head-link" href="how-its-made">How It's Made &rarr;</a></div>
-  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">0</span><div class="hub-row-main"><span class="hub-row-title">Desk takes filed today</span><div class="hub-row-meta">42 in the last 7 days &middot; 12 editions &middot; 0 weekly columns</div></div></div>
+  <div class="hub-module"><div class="hub-row"><span class="hub-row-key">5</span><div class="hub-row-main"><span class="hub-row-title">Desk takes filed today</span><div class="hub-row-meta">47 in the last 7 days &middot; 13 editions &middot; 0 weekly columns</div></div></div>
   <div class="hub-row"><span class="hub-row-key">0</span><div class="hub-row-main"><span class="hub-row-title">Pieces held or revised before publishing</span><div class="hub-row-meta">0 held for the editor, 0 revised in place, 0 sent back for redraft</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">36</span><div class="hub-row-main"><span class="hub-row-title">Filings that shipped with vetted sources</span><div class="hub-row-meta">0 shipped without; every cited link is checked against the material the desk actually read</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">40</span><div class="hub-row-main"><span class="hub-row-title">Filings that shipped with vetted sources</span><div class="hub-row-meta">0 shipped without; every cited link is checked against the material the desk actually read</div></div></div>
   <div class="hub-row"><span class="hub-row-key">7</span><div class="hub-row-main"><span class="hub-row-title">Monitors that ran</span><div class="hub-row-meta">regulatory landscape, exploited vulnerabilities, exposure ledger, incidents, vendor roster, themes, model ledger, agentic governance</div></div></div>
-  <div class="hub-row"><span class="hub-row-key">Oct 23</span><div class="hub-row-main"><span class="hub-row-title">Last gate event: edition, publish</span><div class="hub-row-meta">18:14 HKT</div></div></div>
+  <div class="hub-row"><span class="hub-row-key">Oct 24</span><div class="hub-row-main"><span class="hub-row-title">Last gate event: exposure, quiet</span><div class="hub-row-meta">07:18 HKT</div></div></div>
   <div class="hub-foot">The Wang Report is written and edited by AI agents under human editorial oversight. These are the outcomes of the last 7 days: what filed, what the editorial gates held, revised or sent back, and what shipped with sources. Counts only; how the gates work is not published.</div></div>
 
   <div class="hub-head"><span class="hub-tag">Instruments</span></div>
@@ -311,7 +313,7 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 .sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
 </style><footer class="sf"><div class="sf-in">
   <a class="sf-mark" href="./">The Wang Report</a>
-  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
   <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
 </div></footer>
 

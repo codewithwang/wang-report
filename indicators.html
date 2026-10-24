@@ -67,10 +67,10 @@ body p{line-height:1.6}
 body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 </style><header class="sh-top"><div class="sh-in">
 <div class="sh-row"><a class="sh-mast" href="./">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
-<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></nav></div></header>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></nav></div></header>
 <div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
 <button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
-<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a><h4>Read and listen</h4><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
 <div class="in-wrap">
   <div class="in-title">Indicators</div>
   <div class="in-sub">Every number on the front page, with its method, its source and its trend. History starts 2026-09-27; one reading a day, the last build of the day. <a href="./">Back to the front page</a></div>
@@ -101,14 +101,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <section class="in-card" id="cyber">
   <div>
     <h2><a href="/cve/">Cyber score</a></h2>
-    <div class="in-val">57<small>today</small></div>
+    <div class="in-val">64<small>today</small></div>
     <p class="in-meth">KEV additions in 7 days 35% (10 a week = 100), share of critical and high severity 30%, share tagged APAC financial services 20%, mean EPSS of the top 20 15%. Under 25 low, 25 to 49 moderate, 50 to 74 elevated, 75 and over high.</p>
     <div class="in-src">Source: CISA KEV, NVD, EPSS via the CVE Intel feed</div>
   </div>
   <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="28 days">
-  <path d="M3.0,16.9 L11.7,15.6 L20.3,20.2 L29.0,18.5 L37.7,19.8 L46.3,22.3 L55.0,19.4 L63.7,22.3 L72.3,20.6 L81.0,22.3 L89.7,23.6 L98.3,24.8 L107.0,28.2 L115.7,28.2 L124.3,29.5 L133.0,29.9 L141.7,29.5 L150.3,27.4 L159.0,29.0 L167.7,19.8 L176.3,18.5 L185.0,18.5 L193.7,18.5 L202.3,21.1 L211.0,18.5 L219.7,19.8 L228.3,21.1 L237.0,21.1" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
-  <circle cx="237.0" cy="21.1" r="3" fill="var(--wr-seal)"/>
-</svg><div class="in-trend">28 days · 0 since the previous day · up means more exploitation pressure</div></div>
+  <path d="M3.0,16.9 L11.7,15.6 L20.3,20.2 L29.0,18.5 L37.7,19.8 L46.3,22.3 L55.0,19.4 L63.7,22.3 L72.3,20.6 L81.0,22.3 L89.7,23.6 L98.3,24.8 L107.0,28.2 L115.7,28.2 L124.3,29.5 L133.0,29.9 L141.7,29.5 L150.3,27.4 L159.0,29.0 L167.7,19.8 L176.3,18.5 L185.0,18.5 L193.7,18.5 L202.3,21.1 L211.0,18.5 L219.7,19.8 L228.3,21.1 L237.0,18.1" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="18.1" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">28 days · +7 since the previous day · up means more exploitation pressure</div></div>
 </section>
 <section class="in-card" id="ai_pulse">
   <div>
@@ -197,14 +197,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <section class="in-card" id="hk_temp">
   <div>
     <h2><a href="https://www.hko.gov.hk/en/">Hong Kong temperature</a></h2>
-    <div class="in-val">26°C<small>today</small></div>
+    <div class="in-val">31°C<small>today</small></div>
     <p class="in-meth">Current reading at the Hong Kong Observatory.</p>
     <div class="in-src">Source: HKO open data (rhrread)</div>
   </div>
   <div><svg class="spark" viewBox="0 0 240 48" role="img" aria-label="28 days">
-  <path d="M3.0,11.4 L11.7,11.4 L20.3,3.0 L29.0,3.0 L37.7,3.0 L46.3,19.8 L55.0,19.8 L63.7,36.6 L72.3,45.0 L81.0,36.6 L89.7,28.2 L98.3,28.2 L107.0,28.2 L115.7,28.2 L124.3,28.2 L133.0,28.2 L141.7,11.4 L150.3,3.0 L159.0,28.2 L167.7,28.2 L176.3,19.8 L185.0,19.8 L193.7,19.8 L202.3,19.8 L211.0,11.4 L219.7,28.2 L228.3,11.4 L237.0,36.6" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
-  <circle cx="237.0" cy="36.6" r="3" fill="var(--wr-seal)"/>
-</svg><div class="in-trend">28 days · -3 since the previous day · up means hotter</div></div>
+  <path d="M3.0,17.0 L11.7,17.0 L20.3,10.0 L29.0,10.0 L37.7,10.0 L46.3,24.0 L55.0,24.0 L63.7,38.0 L72.3,45.0 L81.0,38.0 L89.7,31.0 L98.3,31.0 L107.0,31.0 L115.7,31.0 L124.3,31.0 L133.0,31.0 L141.7,17.0 L150.3,10.0 L159.0,31.0 L167.7,31.0 L176.3,24.0 L185.0,24.0 L193.7,24.0 L202.3,24.0 L211.0,17.0 L219.7,31.0 L228.3,17.0 L237.0,3.0" fill="none" stroke="var(--wr-ink)" stroke-width="1.6"/>
+  <circle cx="237.0" cy="3.0" r="3" fill="var(--wr-seal)"/>
+</svg><div class="in-trend">28 days · +2 since the previous day · up means hotter</div></div>
 </section>
 </div>
 <div class="ai-colophon">The Wang Report uses OpenAI models through Codex under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div><style>
@@ -218,7 +218,7 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 .sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
 </style><footer class="sf"><div class="sf-in">
   <a class="sf-mark" href="./">The Wang Report</a>
-  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/finance">Finance</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/science">Science</a><a href="/desk/health">Health</a><a href="/desk/culture">Entertainment</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/edition/latest">Today's edition</a><a href="/issue">The Sunday Issue</a><a href="/cyber-brief/">The Monthly</a><a href="listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
   <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
 </div></footer>
 </body>
