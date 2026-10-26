@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The lead story comes down to an access control someone did not check, at a vendor whose customers assumed &#39;cloud&#39; meant &#39;secure.&#39; The HKMA and MAS both require regulated institutions to know where verification flow data physically sits and who can reach it, and a fresh SFC circular this month extends the same expectation to virtual asset intermediaries. Vendors that can answer that question with a log file are in a different position this quarter than the ones still writing the incident report.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-11-am" data-revision="2026-09-10T22:27:35.905Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/" rel="noopener" target="_blank">IDScan Confirms Breach Behind Driver's License Mega Leak</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPSVlEaEpsMXNNdTNyNTY5VzZyTDVfQkFyNTJTTTNyZkM1amhPQnZtRFpCdFU1X245b1lSUEQ4Y0Zqa0x5Nkgzb3NjX1BxX1BlcUo1LThfUDNyVXpGd08wTFJ1cE4tb19SSnlXMERDc2tMUDZfN3VjZm02QjVQMmVmelVYYnhRV3pEQ2pqSXRVUlpSRGhwemdr?oc=5" rel="noopener" target="_blank">Anthropic Researcher: AI Could End Humanity by 2030</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQdGg1NEo3VVRGTDl0eEFZVkVVWjVUTGtmVC1haUp5c2kzb1NYcXMzNFlVZk9rQl92VTNFREZuSDlBTEhYQ19Lci1ZV2tCTk1tLVRDMEcydzk4ZEZOY3dEMUhhSlU5eXdOVnBLQWRxUlk1bXl3QjNQWklTYm9jdVZ6NHB6V0FkamhIUFJJYjhsMVk5XzlOWnZfbm1IVTVmR05TYmc?oc=5" rel="noopener" target="_blank">Oil Surges Past $100 as Iran War Widens</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE16LW5ZZHNBWW40b3BGeGRQLXdaX2xmeWhWdTE5VTFTZ1VLS2M1aDZMdTB4WlQ0NHAwMzhza29uVzV2RzJxb3czMjdMTXFVd0dLYldtRjBfTFVYdw?oc=5" rel="noopener" target="_blank">Trump Vows $5,000 Check for Every Adult</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3367101/icac-charges-ex-hkex-vice-president-over-alleged-failure-declare-assets?utm_source=rss_feed" rel="noopener" target="_blank">Ex-HKEX Vice President Charged By ICAC</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.scmp.com/news/us/article/3367100/huawei-racketeering-trial-turns-alleged-trade-secret-theft?utm_source=rss_feed" rel="noopener" target="_blank">Huawei Racketeering Trial Continues In Brooklyn</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

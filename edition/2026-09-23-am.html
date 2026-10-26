@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Across the cyber and AI filings this week, the pattern is not which vendor&#39;s software failed or which lab&#39;s model was used. A federal agency, a systemic bank, and a frontier AI lab each learned of a breach or made an admission before their own regulators or auditors caught it. The disclosure came from the attacker, or from the CEO&#39;s own mouth, ahead of the system built to catch it.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-23-am" data-revision="2026-09-22T22:14:56.757Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.404media.co/we-hacked-the-fbi-hackers-say-they-have-data-on-all-fbi-employees/" rel="noopener" target="_blank">Hackers Say They Have Data On Every FBI Employee</a> <span class="take-source-meta">(404media.co)</span></li><li><a href="https://www.nytimes.com/2026/09/21/world/asia/xi-trump-meeting-china-summit.html" rel="noopener" target="_blank">Xi Seeks Truce Lock In With Trump</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.nytimes.com/2026/09/21/business/china-rare-earth-summit.html" rel="noopener" target="_blank">Rare Earths Shadow Trump-Xi Talks</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3368393/free-sports-drinks-suspicious-pinhole-marks-leave-10-hong-kong-students-ill?utm_source=rss_feed" rel="noopener" target="_blank">Pinhole Drinks Sicken HK Students</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

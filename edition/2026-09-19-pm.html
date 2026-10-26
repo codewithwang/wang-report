@@ -88,9 +88,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>None of these stories are about a rogue machine deciding to cause harm. They are about institutions, a defense department, a search company, a network vendor, a city government, deploying systems fast enough that the verification step arrived after the failure rather than before it. The Pentagon&#39;s report was caught. The next one might not be, and the fix nobody has built yet is not a smarter model. It is a person, logged and accountable, standing between what an AI claims and what happens next.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-19-pm" data-revision="2026-09-19T10:09:53.037Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://arstechnica.com/ai/2026/09/report-us-almost-boarded-chinese-ship-over-hallucinated-ai-arms-report/" rel="noopener" target="_blank">AI Hallucination Nearly Sparks Nuclear Strike</a> <span class="take-source-meta">(arstechnica.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVkkxUTRoek1LSEdkVEFfU3BQQ1dIV3pUb0JGOGpVYjJ0ZWJxa2x1OTVIdC1yQm40S2gxN3Z5eTZDVl9WM1Z3eXI0R2NQV2xSVmxoWl9lbktZcURmS0RFVTVlaWxCZVp3WnRwZ2FxeE90cGdNZ0J5eHpGSm82dTBkdi15TlUtOHpLS0pWbURuM2xfTE5wLWdQR2UyNHc3QVJ4cXZhejlNWTbSAa4BQVVfeXFMUGRIeDBYODBtSmV2WkxLRFNGME8tUXo2ams0c052eFJxUm9NMW1jdUFIb2MxanhEWTZrT2tieDQ5YVlFTjAzdUdHZTRXQkpPNVdVdnhiaXNXck5wU0pqRFJWNzFzNTdiMXRMMWpneDVmUGRZOE9MNk1jbVBxZl9BQkdRZHF0TTNVaC1aWnpYU2J5Q0RDLVVZZnhka25tblRjR3B2ZE50MU1mMGloU0hB?oc=5" rel="noopener" target="_blank">Trump Bans CNN, Politico From White House (Al Jazeera)</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxNSkRoV1JuUE5GMUFkRWlJTFNEenBuZ0QtNTB2el9DR1o4VzVBMWFJTko0T1hyeXZuYXFFaHU1ZFdGSGZCMnhKZV9YVnpsc2JLV21iLWFTeDlMeWMtVFV5aG5pSnlfNUtKaVJrazJSVWVMalBVQ1F6SE5jeVI1MlFGU3VFWGFuM1plb0E?oc=5" rel="noopener" target="_blank">Putin Readies New Ukraine Escalation (The Telegraph)</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/18/technology/anthropic-ipo-ai-safety.html" rel="noopener" target="_blank">Anthropic Pushes IPO Amid Safety Warnings (NYT)</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9va0QwNnh0SG96SlBKaWE5SVppRWVOZDJ1RW1qR1ZLMWJWRG1TalpJSGZtUDJhRkQ4bC1ZRDNWWFlVOG1ma2paWXhKbnQtd3hwUF80eFZFeXdxSmJOVmp2cVVHbnVvb2ducDZZcmVocGh2Nm8?oc=5" rel="noopener" target="_blank">World's Best Airline For 2026 Named (CNN)</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBLUGFWeHM1QUM3R1F4Ymo4a0d4QXhRVk4wQ3g0ajI3Y2d1cWEta3ZJZVBNOU1PcGlpVnNXNkJiTnUtbDZHYnRmT0Flb3kza1Z3ak5LUjhoSklXYWc?oc=5" rel="noopener" target="_blank">Buffett Steps Down After Six Decades (BBC)</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -117,8 +117,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

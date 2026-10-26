@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A GitLab server and a payment rail are both infrastructure that other systems trust by default, and in both cases the entity holding the obligation is not the one everyone is instinctively blaming. GitLab is not the bank running the exposed instance. Apple is not the regulated entity in the card chain. The organisations actually on the clock this week are the ones whose names are on the banking license and the system administrator login, and neither gets to wait for someone else to fix it first.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-14-pm" data-revision="2026-09-14T10:08:24.221Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/" rel="noopener" target="_blank">CISA Warns Hackers Now Exploiting Max Severity GitLab Flaw</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://www.nytimes.com/2026/09/13/technology/anthropic-ceo-slower-ai-development.html" rel="noopener" target="_blank">Amodei Demands Global AI Speed Limit</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-13/us-stock-futures-fall-on-ai-warning-oil-gains-markets-wrap" rel="noopener" target="_blank">AI Slowdown Fears Slam Markets</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://securityaffairs.com/197174/breaking-news/chess-com-leak-exposes-7-3-million-users-evidence-points-to-scraping.html" rel="noopener" target="_blank">Chess.com Breach Exposes 7.3M Users</a> <span class="take-source-meta">(securityaffairs.com)</span></li><li><a href="https://www.scmp.com/news/asia/east-asia/article/3367418/japans-chubu-electric-bosses-resign-over-quake-data-tampering-scandal?utm_source=rss_feed" rel="noopener" target="_blank">Nuclear Bosses Quit Over Quake Data Fraud</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://calif.io/research/oempocalypse" rel="noopener" target="_blank">Android Root Flaw Hits Samsung Xiaomi</a> <span class="take-source-meta">(calif.io)</span></li><li><a href="https://community.signalusers.org/t/registration-without-a-phone-number/2222?page=10" rel="noopener" target="_blank">Signal Drops Phone Number Requirement</a> <span class="take-source-meta">(community.signalusers.org)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

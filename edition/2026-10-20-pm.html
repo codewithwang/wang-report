@@ -83,9 +83,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Washington’s decision and the deployment question operate at different levels. The ban determines which supplier civilian agencies may use. Enforced permissions determine what an authorised agent can reach. Neither decision settles the other. The meaning of this expansion is that competition with Beijing now directly narrows civilian government’s AI choices, regardless of the technical merits agencies might otherwise weigh.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-20-pm" data-revision="2026-10-20T10:10:25.671Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.msn.com/en-us/technology/artificial-intelligence/us-bans-deepseek-from-civilian-agencies-as-ai-rivalry-with-china-intensifies/vi-AA2fCZwc" rel="noopener" target="_blank">Washington Shuts DeepSeek Out</a> <span class="take-source-meta">(msn.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/politics/article/3371461/john-lee-pledges-showcase-hong-kongs-financial-strengths-apec-meeting?utm_source=rss_feed" rel="noopener" target="_blank">Hong Kong Takes The Apec Stage</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="http://www.boredhackerblog.info/2026/10/plex-vulnerabilities-being-exploited-in.html" rel="noopener" target="_blank">Plex Flaws Fuel Cryptomining Attacks</a> <span class="take-source-meta">(boredhackerblog.info)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-20/china-s-huachen-energy-risks-fresh-default-on-956-million-debt" rel="noopener" target="_blank">China’s Huachen Faces Fresh Default Risk</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bbc.co.uk/news/videos/c3vgx05p149wo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Drone Lifts Wounded Soldier To Safety</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://apnews.com/article/apu-simpsons-voice-hari-kondabolu-sunil-malhotra-a908773dbf9cd621178ec5de03aad5a2" rel="noopener" target="_blank">Apu Returns With South Asian Voice</a> <span class="take-source-meta">(apnews.com)</span></li></ul></div>
   
@@ -112,8 +112,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

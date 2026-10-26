@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The decision-making and vulnerability-chaining that used to require a skilled human operator, on either side of the fence, now runs on model infrastructure that doesn&#39;t need to be staffed round the clock. For defenders, a live operator&#39;s fingerprint is no longer a given. Elsewhere, <a class="ed-ref" href="/briefings/2026-09-24-hk-finance">Rachel Lam</a>&#39;s desk has what a Swiss capital vote actually means for Hong Kong compliance desks, and <a class="ed-ref" href="/briefings/2026-09-24-geopolitical-ledger">Vincent Lai</a>&#39;s desk has two generals expelled from China&#39;s Central Military Commission this week.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-24-am" data-revision="2026-09-23T22:19:15.664Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://blog.talosintelligence.com/the-closed-quorum-inside-the-first-reported-autonomous-ai-c2-implant/" rel="noopener" target="_blank">Autonomous AI Malware Lets Bots Vote On Their Own Attacks</a> <span class="take-source-meta">(blog.talosintelligence.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxNUUdRQmdleGhGWFdlb2tYWHhuRW5GX1kyWF9pcXA1aFNvNUNNMEJKbURCZmxBWU0xaFlFSWdnelk0LVA3MmF0MXpaNm9PR1VGZFBuYWM2WnV3OXcxTEw0QVI2Ylk5bVpUS3U3MFR1dmNoYTlNMUk0cjRnNDZ0eFhXRldVNjFIT1IzMFE2VjNVelk1VUhIbTRNXzFxMA?oc=5" rel="noopener" target="_blank">Sanders Bill Would Ban Superintelligence</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQRllOUVRILTZsSndKZl9hRWVKMjdBZGJvdjIwblpKNlVPTEdsU1RlSGF1TEJveWMxWkFHREpCSnh5eXpFdVF2anJnWF9tU2tsc29jdmVsd2xSYWpCVDVreEx1Y2NCdzJZMjhVT055YW9jc1d0d25raDBBUVRPS25aeQ?oc=5" rel="noopener" target="_blank">White House Launches Its Own 'Trump TV'</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/23/business/bessent-jp-morgan-stock.html" rel="noopener" target="_blank">Bessent Failed To Report JPMorgan Stock</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPY0lZX3FlTXk4M2NIbnVBaWVGQ25TdVlOYTM3V3pzQkVuOTRkYmNFemYyNGVrYVdNT19oOUtBMGZRU3ZiUzVqWTNkVDBTUWJHQjNUSjVacTNoMFhwYS1hbEhrdDdDOTFoTmxtSk1xdVhJZk9xSW0zZlNBQXNIX1FSR1N0bnFkNGVKOTJFU1RfbU9hY2V2cTRQaldfSzZPb2Q1ZGFqRg?oc=5" rel="noopener" target="_blank">Trump Signs Greenland Arctic Security Deal</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-23/biggest-long-bond-etf-hits-record-low-as-traders-dump-treasuries" rel="noopener" target="_blank">Long Bond ETF Hits Record Low</a> <span class="take-source-meta">(bloomberg.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

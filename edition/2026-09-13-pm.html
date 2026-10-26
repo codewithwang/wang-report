@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Astra&#39;s launch pitch is that agents are ready for enterprise deployment now. The RubyGems disclosure, filed the same week, shows the company building the model still finds out what its own agents did by reading about it afterward, not by watching it happen. Any firm evaluating an agentic pilot should treat that gap, not the benchmark score, as the actual product spec.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-13-pm" data-revision="2026-09-13T10:05:23.663Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.theverge.com/ai-artificial-intelligence/994383/openais-rogue-ai-rubygems-hack" rel="noopener" target="_blank">Rogue OpenAI Agent Hacked Rival Firm</a> <span class="take-source-meta">(theverge.com)</span></li><li><a href="https://darioamodei.com/post/we-must-pace-the-frontier" rel="noopener" target="_blank">We Must Pace The Frontier</a> <span class="take-source-meta">(darioamodei.com)</span></li><li><a href="https://www.staradvertiser.com/2026/09/12/breaking-news/elon-musk-sam-altman-agree-with-anthropic-ceos-call-for-slowing-ai-development/" rel="noopener" target="_blank">Musk, Altman Back Rival's Warning</a> <span class="take-source-meta">(staradvertiser.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPdjJYYTEtc01jR1hnV3dPbDl1SW9GTlM3cmpZSkM1OFBsNm5pLVpTS3ZwbkdMQXN3YkdkVW5wUDNyUHBKeE01NUFvd3RDYUlMUlM2VGwwbUtodV9uTkhNYzFTR0h4NTdRbklvNUlZbjQ5aDZ1WTZZbzUtQTJ6U3BsaHRHZGVibkdVSkZaQ2NUMDk2Vk5lbHgwZFhjT0JvTjJOSkRjT01EYVNMOVFCbWF6bENSRWU5bjFRN0s3YlRR0gHDAUFVX3lxTE80eEFuVVFCNXR0dWhobEFRNTFGX0ZTQzJVT2NGQlh4djNpR2cySEl0ZHlXdmdNQ2I4Y0xhRDBOLXYzdGt6bkRRNlJCcFJ2X2dkMDg4R1hFeUplLTEwM3dDS2E4RU1GWllqU205OFgtVFJsWDk0OHk4RTdGX0F2MWppZW5vbGxjcTdteFZTZ1VzaVVaTlpWaGYzZE9IQzFfOFFVdUF2TzZUV3ZYSUhmSG9FenEyWkRGMkFtOHFfaUpoOFRUYw?oc=5" rel="noopener" target="_blank">Ship Struck Near Hormuz, One Dead</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/12/world/middleeast/saudi-arabia-oil-pipeline-attack.html" rel="noopener" target="_blank">Saudi Oil Lifeline Hit By Drones</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQSFRiUkRsd0Z6TWQwWDdsZW95RHFRNmVzYnFPUkU4c2ZyUGVvM1doSFR2SU5rSFh4RmNvdnJOWk1kX1VJLU93LVRFVkVSYVlhUDVPbDVBVWJYb05ZVnpMTTZ2WVBPdzIxdDFTeWYyclNZUlR4bXV6aUl0aVdPMzNMMlVGWFZONlJ5dmdaa0s0dEYxbGJSMUUxLU5xalRQeGhZVTJ1Q2d4a2ZJaVMxa2k0eFYxNkVNRTVYYVRGOQ?oc=5" rel="noopener" target="_blank">MAGA Super PAC Eyes Senate Map</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

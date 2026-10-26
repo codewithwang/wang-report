@@ -84,9 +84,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The point of the day is plain. A war that began as a matter of ships, bases and bombers is now being argued in terms of American cities and American families, and when members of both parties object to the same sentence, it means how the war is described has become as politically consequential as how it is fought.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-07-pm" data-revision="2026-10-07T10:11:49.298Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/10/06/us/politics/trump-iran-take-out-los-angeles.html" rel="noopener" target="_blank">Trump Iran Remark Ignites Bipartisan Uproar</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-07/taiwan-accuses-hong-kong-residents-of-paying-to-spy-on-lawmaker" rel="noopener" target="_blank">Hong Kong Pair Accused in Taiwan Spying</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://arstechnica.com/security/2026/10/hackers-obtain-counterfeit-tls-certificates-for-google-and-other-large-services/" rel="noopener" target="_blank">Hackers Forge Google TLS Certificates</a> <span class="take-source-meta">(arstechnica.com)</span></li><li><a href="https://www.bloomberg.com/news/videos/2026-10-07/india-s-central-bank-hikes-repo-rate-by-25-bps-video" rel="noopener" target="_blank">India Hikes Rates for First Time Since 2022</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://apnews.com/article/warner-bros-skydance-ellison-studio-hollywood-5f4326c083ca2fc084ff399c1b8aa035" rel="noopener" target="_blank">Paramount Swallows Warner Bros. Whole</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.scmp.com/news/china/diplomacy/article/3369992/last-chance-saloon-eu-presses-china-sign-prove-trade-talks-can-work?utm_source=rss_feed" rel="noopener" target="_blank">EU Heads to Beijing for Trade Showdown</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -113,8 +113,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

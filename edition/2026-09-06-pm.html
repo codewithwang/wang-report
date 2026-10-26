@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Kai Tanner&#39;s cyber desk is watching a version of the same split from a different angle: CrowdStrike&#39;s own endpoint agent turned out to have a privilege-escalation hole in the trust boundary it was sold to protect. A headline fix and the underlying architecture are not the same thing, and mistaking one for the other is how institutions get surprised. Witkoff and Kushner can extract a quieter skyline in Kyiv this week. They cannot extract a faster reserve-release timeline from Brussels, and that timeline, not the sound of the strikes, is what still determines the cost of holding Russian-linked paper. The war got quieter in exactly the two cities that make for good television. Everywhere the money actually moves, nothing changed at all.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-06-pm" data-revision="2026-09-06T10:07:57.285Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/09/06/world/europe/ukraine-zelensky-witkoff-kushner-russia-putin.html" rel="noopener" target="_blank">Trump Envoys Head To Kyiv After Putin Talks</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/world/middle-east/article/3366526/iran-attacks-naval-drone-near-hormuz-after-us-strikes-3-oil-tankers?utm_source=rss_feed" rel="noopener" target="_blank">Iran Strikes US Drone Near Hormuz After Tanker Hit</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.nytimes.com/2026/09/06/world/europe/afd-germany-election-ulrich-siegmund.html" rel="noopener" target="_blank">Far Right Nears Power In German State Vote</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.nytimes.com/2026/09/06/world/europe/ukraine-war-weapons-fraud-corruption.html" rel="noopener" target="_blank">Audits Reveal Ukraine Lost $1.2 Billion To Fraud</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.staradvertiser.com/2026/09/05/breaking-news/in-major-leak-hunt-pentagon-gives-polygraph-tests-to-joint-staff-members/" rel="noopener" target="_blank">Pentagon Polygraphs Joint Staff In Leak Hunt</a> <span class="take-source-meta">(staradvertiser.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/politics/article/3366528/5-year-plan-boost-livelihoods-policy-address-set-out-concrete-measures-john-lee?utm_source=rss_feed" rel="noopener" target="_blank">John Lee Vows Five Year Plan To Boost Livelihoods</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

@@ -82,9 +82,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>What this means is simple to state. A war fought from an ally&#39;s soil depends on the host country&#39;s ability to protect the runway as much as on the aircraft that use it. By moving the bombers, Washington has judged that protection insufficient, whether or not any plot is ever proven. That trades proximity for safety, and it shows that the war&#39;s reach now extends to the English countryside where its aircraft were parked.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-05-pm" data-revision="2026-10-05T10:10:31.821Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/10/04/us/politics/us-bombers-britain-raf-fairford-iran.html" rel="noopener" target="_blank">Bombers Flee British Base Over Iran Plot</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/cqj6jenp26zyo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Trump Launches 'Super Intelligence Force'</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://www.themoscowtimes.com/2026/10/02/nearly-200-people-under-observation-after-irkutsk-lab-worker-dies-from-plague-a93857" rel="noopener" target="_blank">Plague Death Puts Siberia On Alert</a> <span class="take-source-meta">(themoscowtimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/health-environment/article/3369769/kai-tak-hospital-starts-first-phase-operations-treats-300-patients-day-1?utm_source=rss_feed" rel="noopener" target="_blank">Kai Tak Hospital Opens Its Doors</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-05/schneider-electric-to-acquire-ptc-for-more-than-20-billion" rel="noopener" target="_blank">Schneider Pays $22.6 Billion For PTC</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-05/euro-falls-to-17-month-low-on-region-s-fiscal-political-risks" rel="noopener" target="_blank">Euro Sinks To 17-Month Low</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/ck1l34ed592no?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Bolsonaro Heir Forces Brazil Run-Off</a> <span class="take-source-meta">(bbc.co.uk)</span></li></ul></div>
   
@@ -111,8 +111,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

@@ -42,7 +42,7 @@
         const data = await response.json();
         if (!data.event || data.event.id !== id || !Array.isArray(data.races)) throw Error('Invalid event');
         last = data; draw(data);
-        closed = WRLiveSports.phase(data.event,Date.now()) === 'closed';
+        closed = ['closed','cancelled','postponed'].includes(WRLiveSports.phase(data.event,Date.now()));
       } catch {
         if (last) draw({...last,stale:true});
         else nodes.forEach(n=>{

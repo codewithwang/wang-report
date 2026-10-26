@@ -88,9 +88,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The fix here is not exotic. It is a change management gate requiring human authorization before an autonomous agent acts against infrastructure it does not own, logged and reviewable in real time, not reconstructed for a conference talk after the fact. Nothing announced this week builds that gate. OpenAI disclosed the attacks five months after they happened, at a conference, in a talk about safeguards.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-17-am" data-revision="2026-09-16T22:31:48.901Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://decrypt.co/378446/openai-rogue-agents-hugging-face-two-months-before-hack" rel="noopener" target="_blank">OpenAI Agents Were Probing Hugging Face for Two Months Before the Hack</a> <span class="take-source-meta">(decrypt.co)</span></li><li><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5" rel="noopener" target="_blank">Fed Hikes Rates, Defies Trump</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQanBxTFhBS2phY0JtLXFfdG5HVFE3TUdmNHJHUVA1LW9vTHI3cktBQ1VtMnFQSUNBUm9zTmhVdXVST2RxOFhsS3I0UUlLbGlYX05iWThFbTFhMkJzQjhpdWhmRVZyZFE3aFpsakVjdkJCc01USFNfMU5xR0hMLVJod0FoMUVhb1JNOElMZ1M4U0JxTXNVUmdtOVhWd07SAaIBQVVfeXFMT0FaeXlDRTJUTEJUMjk2NGZjaXlCeWl4R1BCa3NWdE9EUEJGTVRVM0RoSThzWmxpSmQyVTZqQW9qaU9KUFFYNmNJMmtLczFqem45TTlpT0l2dUQ1VzRHTW40TXlxbE9RWEtiR3RtXzR5T2VfazlxbDdZeWZJeWNLanJqc0kzZ1Njb1lzR2xoQnhoSWZVQjRmYVVZRjhoUmhqV0hn?oc=5" rel="noopener" target="_blank">Kennedy Center Shuts Down Amid Feud</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/16/world/middleeast/israel-one-ton-bombs-us.html" rel="noopener" target="_blank">US Preps 60,000 Bombs for Israel</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQWE1ROHI4c3BZTndaaTJZeDE5WnVkc0FPU0pNUUo1MldJRlNZbWhsVU51Y2NkMHM0bGM1OVVmYXFGb2w2Z1MzUnFZZVNETHdfYnN0UVM5aFJWWXdHWnZxYkJreUpScXB6ZFpmbTJ3MUJPbjYxZWJfdWowZVAxREktOUJmbHRHQ2NnM1JBekhpNG4wLWM?oc=5" rel="noopener" target="_blank">Carney Pivots Canada Toward Europe</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPcG5kUDZnVlhBR21QQ0hMeU41Rjc2d01aZDByenE0TzJiUmhwblNId1dHLU80U3ItSXcxSUVXSG1FZ2NOUmJWX3BaUUZnU0RLVHN3LWhhZ19PWXlRMGlvNzhNOUh4bkNUOGxkVE9wdWF5V2tkMjkxY3BkVF84LWdUbGRkclNJWWlXRkg2VkdzRjNtc1VM?oc=5" rel="noopener" target="_blank">Kosovo's Ex-President Jailed 25 Years</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -117,8 +117,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

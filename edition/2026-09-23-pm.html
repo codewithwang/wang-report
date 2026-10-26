@@ -88,9 +88,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A hacking group claimed a breach this morning and a government stayed quiet about it. That happened with a different platform too. In both the FBI&#39;s HR records and a Chinese naval vessel&#39;s intentions ahead of a state visit, claim came first and confirmation has not followed. Institutions that used to issue same-day statements are now running on their own clock, and the public is left reading screenshots and inferring the rest.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-23-pm" data-revision="2026-09-23T10:01:40.341Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/" rel="noopener" target="_blank">ShinyHunters Claims It Hacked The FBI, Stole Employee Data</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://www.nytimes.com/2026/09/22/us/politics/un-trump-speech-iran-venezuela-greenland.html" rel="noopener" target="_blank">Trump Vows to Annihilate Iran at UN</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.nytimes.com/2026/09/23/business/trump-cnn-politico-ms-now-ban.html" rel="noopener" target="_blank">White House Defends Press Ban In Court</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPUXNoR2dST3VwYWoxa3VaUVVGNGZhZ1lJNzNudG9pRDBBUkUzb3lyTlEzczRlb1RlcDVfQ3VZYm1hLXJaS2VSeUx4amxCY0IwNm9pOEZaeG9qLUZFVm1GNkJjT08wbnZpRnFLNWloSWc4QWUzZnlHS1RQTlQyQTNKLW00VkthZ29MRDc5aWxLTmRxa01CMUc5T1ROV3VFYUpE?oc=5" rel="noopener" target="_blank">Trump, Xi Clash Over AI Ahead of Talks</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.cnet.com/tech/services-and-software/trump-ai-super-intelligence-internet-response/" rel="noopener" target="_blank">Trump Wants AI Renamed Super Intelligence</a> <span class="take-source-meta">(cnet.com)</span></li><li><a href="https://www.bloomberg.com/graphics/2026-iran-school-attack/" rel="noopener" target="_blank">Pentagon Blames AI For School Strike</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp" rel="noopener" target="_blank">WordPress Bug Opens Door to Full Takeover</a> <span class="take-source-meta">(github.com)</span></li></ul></div>
   
@@ -117,8 +117,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

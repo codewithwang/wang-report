@@ -412,7 +412,26 @@
       },
       "archiveUrl": "/sports/events/db-dragon-boat-2026",
       "reconcileUntil": "2026-10-28T18:00:00+08:00",
-      "reconcileSeconds": 3600
+      "reconcileSeconds": 3600,
+      "owners": {
+        "editorial": "Sports / Dev Chatterjee",
+        "review": "Walter Wang",
+        "operations": "Site operations"
+      },
+      "sourceAuthority": "volunteer-community",
+      "expectedUpdateMinutes": 30,
+      "completeness": "All scheduled races have a finish or an explicitly sourced non-finish status for every allocated crew.",
+      "fallbackSources": [
+        {
+          "url": "https://dragonboathk.com/results-mtw",
+          "use": "Research lead only; require matching event, date and category before reviewed import."
+        }
+      ],
+      "roundup": {
+        "status": "due",
+        "reason": "All 27 source races now have finishes; editorial/source review required.",
+        "nextReview": "2026-10-28T18:00:00+08:00"
+      }
     }
   ]
 }

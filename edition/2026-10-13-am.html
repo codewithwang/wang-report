@@ -84,9 +84,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>For Hong Kong readers, this is a clear example of what connecting operational equipment to digital controls puts at stake. The useful distinction is between recovering control of a machine and recovering what the machine was protecting. One can follow the other only so far. A refrigeration system can resume cooling; spoiled food stays spoiled. The attackers did not need to interrupt every part of a supermarket to cause substantial losses. Disrupting the equipment that preserved its goods was enough. The incident makes cybersecurity an issue of whether an ordinary business can continue delivering an ordinary service, with the cost falling on physical stock long before an investigation is complete.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-13-am" data-revision="2026-10-12T22:14:29.552Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bbc.co.uk/news/articles/crq5nzxv9q4yo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Hackers Turn Supermarket Fridges Into Ovens</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3370644/hong-kong-can-boost-regional-prosperity-through-soft-connectivity-adviser-says?utm_source=rss_feed" rel="noopener" target="_blank">Hong Kong Pitches Its Regional Advantage</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.nytimes.com/2026/10/12/us/politics/ilhan-omar-home-searched.html" rel="noopener" target="_blank">Federal Agents Search Omar’s Home</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://apnews.com/article/nobel-prize-economics-sweden-96f32f1aaeff1054e2dd653e6ea86268" rel="noopener" target="_blank">Economic Shock Research Wins Nobel</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://apnews.com/article/san-diego-police-artificial-intelligence-reports-12d1954d30d1bd68bc56ee0ff9105572" rel="noopener" target="_blank">San Diego Weighs AI Police Reports</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.bloomberg.com/news/videos/2026-10-12/rising-us-bond-yields-show-no-sign-of-slowing-video" rel="noopener" target="_blank">US Bond Yields Keep Climbing</a> <span class="take-source-meta">(bloomberg.com)</span></li></ul></div>
   
@@ -113,8 +113,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

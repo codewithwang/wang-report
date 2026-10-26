@@ -83,9 +83,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The result is a smaller American diplomatic presence because Washington judges the danger to Americans serious enough to move personnel. That decision cannot tell us whether an attack will happen. It does tell us that the threat has already changed how the United States operates in the region. The immediate consequence is therefore concrete: an official assessment has become a decision about who can safely remain.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-24-pm" data-revision="2026-10-24T10:17:20.220Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/10/23/us/politics/security-warnings-iran-threats.html" rel="noopener" target="_blank">Iran Threat Triggers American Diplomatic Exodus</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/transport/article/3372008/16000-sign-exam-drive-taxis-or-ride-hailing-cars-hong-kong" rel="noopener" target="_blank">Hong Kong Driving Exam Draws 16,000 (SCMP)</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Britain Bets £100 Million On Biosecurity AI (BBC)</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-24/singapore-expands-haze-investigation-to-10-locally-based-firms" rel="noopener" target="_blank">Singapore Widens Haze Probe To Ten Firms (Bloomberg)</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-24/kenya-records-second-ebola-death-a-close-relative-of-first-case" rel="noopener" target="_blank">Kenya Records Second Ebola Death (Bloomberg)</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-24/india-regulator-orders-options-trainer-avadhut-sathe-to-refund-inr-5-46b" rel="noopener" target="_blank">India Orders Trading Academy To Repay Millions (Bloomberg)</a> <span class="take-source-meta">(bloomberg.com)</span></li></ul></div>
   
@@ -112,8 +112,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

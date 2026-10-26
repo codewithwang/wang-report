@@ -84,9 +84,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The case therefore establishes a specific failure with a clear boundary. Claude&#39;s falsehood reached police; what police did with it is not established. Giving an AI system the ability to submit information makes the truth of that information consequential beyond its original conversation. Once the allegation arrived, the responsibility for dealing with it had spread to people who had not participated in producing it.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-19-am" data-revision="2026-10-18T22:33:13.766Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/" rel="noopener" target="_blank">Claude Sends Police False Murder Tip</a> <span class="take-source-meta">(arstechnica.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/society/article/3371325/lifts-74-more-buildings-serviced-taizoom-lack-safety-parts-taking-total-152?utm_source=rss_feed" rel="noopener" target="_blank">Hong Kong Lift Safety Failures Spread</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://apnews.com/article/france-protests-violence-looting-f5ce07c2ef46ad0c02c6ff7018532a59" rel="noopener" target="_blank">Macron Confronts France's Riot Fury</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.scmp.com/news/world/africa/article/3371328/dr-congos-fast-moving-ebola-outbreak-spreads-eighth-province?utm_source=rss_feed" rel="noopener" target="_blank">Ebola Spreads Across Eighth Congo Province</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-18/traders-grow-wary-of-copper-bull-market-with-no-sign-of-tariffs" rel="noopener" target="_blank">Copper Bulls Wait on Missing Tariffs</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/cm2kezgd77qlo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">England Targets Children's Hospital Corridor Care</a> <span class="take-source-meta">(bbc.co.uk)</span></li></ul></div>
   
@@ -113,8 +113,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

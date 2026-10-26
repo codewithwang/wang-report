@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A firewall vendor&#39;s patch note, an AI lab&#39;s containment log, a foreign ministry&#39;s note verbale: each is a record of whether an institution can show, on demand, that it controls what it says it controls. The firms and governments that can produce that record this quarter are in a different position than the ones still writing the ticket.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-10-pm" data-revision="2026-09-10T10:07:32.336Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/cisco-confirms-cve-2026-20079-secure-fmc-flaw-exploited-in-attacks/" rel="noopener" target="_blank">Cisco Confirms Max Severity Firewall Flaw Under Active Attack</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxNMldfZlUwY0FCWmkxTF9kZmlRak9fai1nQlpjUC01bmxabUZzaGV3N2NNN1J1aVZIa0Ftc0l3RS1mc2pkeTJxSVNiLU5EaGNBTkN6NG9ZRWJmTWFOY1JhS3A5elZTbjA2dzRlRE9VUTktdjk0MWZMVTFNWUp5NmhVYXpqeWZCQ0l3a3Y5T2x4aDNud2ZuWmdwdDRZeUEyWGtTRGtzRXFWRW83NWRQR3Jncw?oc=5" rel="noopener" target="_blank">Iran Attacks US Warships After Tanker Strikes</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1YNWJtUDJmUXdQb2JLMUZpVFNTU3llRTdfSHkzQWVPMjdfb3lJM0RhaTJBWk51RDY4QWlQS3IzemgyeU1EcXBVMkRlVXlySHZzQWFRcFZ0eVFXdw?oc=5" rel="noopener" target="_blank">Oil Tops $100 A Barrel</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNTFVuRjI3ZmphcmFXSWxBWkNkYUtjc1FhVDB4RllGaUZfdlNCOTViQktDc1lieWRpQmhtMWkxZkZ6eTdYRE53eE1MSjI3M0tLNkpzZnRIUW9veERzNi1OTS0ycW0tUFFxUE8zV0ZRQ0gyRXExSFFwajlVUnJOd0dLemIyYnh6R3Q2TWx6MXhqc1NhX1BDbVZPX3JRLUhhTlRnal9naEdkYVpBYnpLcnRORHNhbmNVQ3Zrdkl5TXhndw?oc=5" rel="noopener" target="_blank">Trump Dangles $5,000 Checks For GOP Win</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/09/business/economy/treasury-repurchase-bessent.html" rel="noopener" target="_blank">Bond Market Snubs Treasury's Cost-Cutting Plan</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxNZnNEUHIyS2lzSmJQbndlYkJTcnJtNEdnTlRVNU5rTGJUVU9zOTcxNU9keURpVE40eHgzSExCYzRxcTM4bDdzMVBLSmdtRVYwRWczZU4xbDEwN090dkhiMEF6OG1VMWtPcFdhX20xVTQ0QTBSLVJQZTNjVzN3dDRGTzlyeUlUV1JUMk9NOUhlZFFXUQ?oc=5" rel="noopener" target="_blank">Apple Unveils Foldable iPhone Duo</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.scmp.com/business/china-business/article/3367006/mainland-chinese-shoppers-lose-trusted-hong-kong-veggie-tag-customs-revamp-hits-shelves?utm_source=rss_feed" rel="noopener" target="_blank">Beijing Customs Rule Drops HK Veggie Label</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

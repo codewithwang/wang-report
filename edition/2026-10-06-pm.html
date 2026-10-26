@@ -84,9 +84,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>So the withdrawal tells us something about the war itself. The Iran conflict was supposed to be fought in the Gulf, and American planners are now treating an English airfield as inside Iran&#39;s range of options. Washington has decided that bombers are better placed out of reach than within reach, and it has now said, through officials, what it was afraid of.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-06-pm" data-revision="2026-10-06T10:12:34.927Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/10/05/us/politics/iran-drone-attack-threat.html" rel="noopener" target="_blank">Iranian Drone Threat Forces Bombers Out</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/world/russia-central-asia/article/3369888/ukraine-attacks-moscow-region-650-drones-both-sides-step-strikes?utm_source=rss_feed" rel="noopener" target="_blank">650 Drones Swarm Moscow Region</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://apnews.com/article/yemen-houthis-iran-saudi-arabia-red-sea-taiz-e87beb84a0d146e4f0546b50508f7e32" rel="noopener" target="_blank">Houthis Pushed Back From Red Sea Strait</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/society/article/3369874/hong-kong-prepares-reforms-accountability-measures-ahead-tai-po-fire-report?utm_source=rss_feed" rel="noopener" target="_blank">Hong Kong Readies For Tai Po Verdict</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-06/deepseek-to-raise-at-least-12-billion-in-tencent-backed-funding" rel="noopener" target="_blank">DeepSeek Raises $12 Billion Ahead Of IPO</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html" rel="noopener" target="_blank">Anthropic Tipped Police To Woman's Diary</a> <span class="take-source-meta">(techspot.com)</span></li><li><a href="https://apnews.com/article/japan-us-military-okinawa-marine-arrested-be87679d33e3c0d9e6e453a9e3e5826f" rel="noopener" target="_blank">Okinawa Marine Arrest Ignites Fury</a> <span class="take-source-meta">(apnews.com)</span></li></ul></div>
   
@@ -113,8 +113,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

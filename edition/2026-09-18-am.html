@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Four filings, one shared gap between announcement and enforcement. Labs say they might slow down, with nothing forcing them to. Regulators say the rule was always there, and prosecute the failure to answer it. A hospital says a patient spoke again, with a sample size of one. A government says it will reform fire safety, with no word yet on who inspects what. In every domain making news this morning, the promise arrived well ahead of the mechanism that would make it real.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-18-am" data-revision="2026-09-18T00:42:36.360Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.theverge.com/ai-artificial-intelligence/996563/ai-safety-research-metr-redwood-openai-anthropic" rel="noopener" target="_blank">Inside AI Safety's Explosive New World</a> <span class="take-source-meta">(theverge.com)</span></li><li><a href="https://www.scmp.com/news/china/diplomacy/article/3367905/rare-honour-trump-will-greet-xi-andrews-not-just-white-house?utm_source=rss_feed" rel="noopener" target="_blank">Rare honour: Trump will greet Xi at Joint Base Andrews, not just White House</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5" rel="noopener" target="_blank">Fed Hikes Rates, Defies Trump</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxPQnh0S0FWVVRkVmxPNVBfeTlCSnlsSHBOM0VzZWRjYU5mSVNORWd1UnpBSmhFT2V6aktBMHc3V0lOVGpiUHlBUFFDV1RYRE1pYWFsNHgtd0xlZFcybFA3ODF3LVVFSzEyaUN6WmJtclE5ZEJUSUF6U0F1cUpWbWJndENiaTRuSEtaWU4yTEs0dmJ1b1I1a2UzMXpNRm5nWjUtZV95c09Lbw?oc=5" rel="noopener" target="_blank">House Passes Russia Sanctions Bill</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxOR28xNGtYVnlWVW4xTXBENVo3aFlrdWdFbFVGS2JoQUs4WVZrbk9CV1dYUFIyUVhTSTZ1T0pqMUxSZFFJUWc5Sl9ZZU9CMXVxaVlJTUdxazE0cG5zWGtMdVljUDJ6YmRkWHpTelVVanpIYU9aU3dqMmlYUU5XZlR2bmdkd0RUSzNlWDZaV1h3?oc=5" rel="noopener" target="_blank">Sweden's PM Resigns After Election</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/16/technology/openai-model-safety-guardrails.html" rel="noopener" target="_blank">OpenAI Admits Six Rogue AI Incidents</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/politics/article/3367906/hong-kong-hits-out-us-panel-over-jimmy-lai-hearing-and-sanctions-bill?utm_source=rss_feed" rel="noopener" target="_blank">HK Slams US Over Jimmy Lai Hearing</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

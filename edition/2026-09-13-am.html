@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A vendor whose pitch is real time detection has just shown its real time was measured in campaign length, not query length. Any firm routing regulated data through Claude, Gemini or GPT based agents can now ask its own vendor a concrete question: not whether misuse gets caught, but how many weeks pass before it does.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-13-am" data-revision="2026-09-12T22:29:57.900Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://thehackernews.com/2026/09/anthropic-says-seven-china-based-ai.html" rel="noopener" target="_blank">Seven China AI Labs Ran Industrial Scale Claude Theft Operation</a> <span class="take-source-meta">(thehackernews.com)</span></li><li><a href="https://darioamodei.com/post/we-must-pace-the-frontier" rel="noopener" target="_blank">We Must Pace The Frontier</a> <span class="take-source-meta">(darioamodei.com)</span></li><li><a href="https://www.nytimes.com/2026/09/12/world/middleeast/iran-escalation-leverage-houthis-strait.html" rel="noopener" target="_blank">Iran Turns Escalation Into Leverage</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-12/xi-sits-down-with-modi-during-first-trip-to-india-in-seven-years" rel="noopener" target="_blank">Xi And Modi Reset Ties At BRICS</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/health-environment/article/3367323/39-pupils-and-staff-fall-ill-after-eating-school-lunches-sha-tin?utm_source=rss_feed" rel="noopener" target="_blank">Sha Tin School Lunch Sickens 39</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOdVd3Q2R6NGZfdkJHREJrV2N1RDcwSTRBZy1JYTZTS05kTno2N2pqWnZBQ21XOTJ3Yl9ObERSSE94U3dkWF8wSVRtNGtHQklLbkFhUFoyUHR5dGp1MmtWX0s0enEzNktEd1ZGRzkwTktMckpUMGlFZE83UWhCVkFvVV94ZTZKUENwdUdZRS1jS2RhWVk?oc=5" rel="noopener" target="_blank">Two AI Chiefs Agree: Slow Down</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

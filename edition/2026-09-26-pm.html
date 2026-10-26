@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>What FWD&#39;s fine tells a compliance desk anywhere in Hong Kong is that the IA is not grading on relationship or size. It fined one of the territory&#39;s larger life insurers over the same control categories it would cite at a small broker, and it found trouble in four of them at once. There is no hearing or consultation window attached; this is final enforcement. The next test is FWD&#39;s own next AML attestation to the IA, the mechanism that will show whether four failures becomes a habit or a one time correction.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-26-pm" data-revision="2026-09-26T10:02:05.141Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.asiainsurancereview.com/News/View-NewsLetter-Article?id=97015&amp;Type=eDaily" rel="noopener" target="_blank">IA fined FWD Life 19.5 million Hong Kong dollars for anti-money laundering and counter-terrorist financing control shortcomings</a> <span class="take-source-meta">(asiainsurancereview.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxObWZQTjhjMFdDMERwWVlvODFMMXo0dHAwd3QxOHRkYVhSd1d6aktSemFqZWZFQTFDaV9LVzFUekVWVnllRURsYXczUkJrTC1tWkpEcVhXX1htT29MZjk2ZGpCZXlGeUJGVmxCaVZwMldpZnNkNEE4dFg0NDZwZUdPZzktM0tNN1ZzQWp2WWpsYlVJdl8tNURJNE1KbS1nWFE?oc=5" rel="noopener" target="_blank">Xi Lays Out Terms To Avoid War</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Gc2xjQ1lxckxXLVQ1ajFKakNhUkNZT2FlLWRDYXFmdTJkUndJcjlPaVFhZmFlTVBkbWFTV2VwczA5SnlhNjF6VUJCdnMzemVXWFZBdWJfd0c5V2s?oc=5" rel="noopener" target="_blank">OpenAI Bots Went Rogue On Federal Sites</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.cbsnews.com/news/facebook-liable-deceiving-users-cambridge-analytica/" rel="noopener" target="_blank">Facebook Found Liable In Cambridge Analytica Case</a> <span class="take-source-meta">(cbsnews.com)</span></li><li><a href="https://www.jezebel.com/flock-cameras-data-innocent-woman-arrested-lindsey-isaacs-palm-beach-florida-lawsuit-vehicular-homicide" rel="noopener" target="_blank">Flock Camera Data Jailed Innocent Woman</a> <span class="take-source-meta">(jezebel.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/society/article/3368888/hong-kong-minister-pledges-public-account-faulty-lifts-queen-mary-hospital?utm_source=rss_feed" rel="noopener" target="_blank">HK Minister Vows Account On Hospital Lift Saga</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>None of this changes what a bank does differently on Monday. No vendor named in Anthropic&#39;s disclosure is one an APAC institution runs directly, so there is no patch to apply and no product to swap out. What changes is the assumption underneath the audit: a control built to catch last month&#39;s malware family, checked once a quarter, is not a control against an attacker whose development cycle now runs in the same afternoon as the detection update it&#39;s evading.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-12-am" data-revision="2026-09-11T22:27:00.026Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/hackers-abused-claude-to-extract-secrets-from-18m-android-apps/" rel="noopener" target="_blank">Hackers Weaponize Claude AI To Ransack 1.8 Million Android Apps For Secrets</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPUkxXc2JVVUxqdmJvWTRPQ3B4eUlfb1NhUHNzZ0pIWF9WZXBOSks2TFdNampOaVA0bnhvbmY3RFBYbW40aFRKaW5WbDBtQnJJeFIxc3ExamVPUE5nVXhDczZEWWJmcDBwZExXSVZWY3JXUjlqcm1mX3hXeGUtQWNJczJiS29qbFlOT3dIV2pzVnh1NThDc29fMEJqbGQtLV80VnM1SXhGQU1qRWkyWkxlaWg1eUhuQQ?oc=5" rel="noopener" target="_blank">Houthis Seize Key Red Sea Port</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxONUQ1VFl3RGVXQnFjNUhwZ3Q2R04wemM0dUdJel9sQjh6MzdGS1pFb2g0T1VtVFVuOWFyOGJnNkNBaHdhYmxYbGZOV0l4VG05RjIxdFNJa0VYXzNaSml2VzRhbDRpWTRUaEk5SG9XQ3pVLU8wNmFCQUpabG5WNENPT2pYeFVxLXZOcy1fMnlucE03bnhU?oc=5" rel="noopener" target="_blank">Oil Prices Spike, Wall Street Slides</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/video/us/politics/100000011133866/how-trump-is-using-the-postal-service-to-intervene-in-elections.html" rel="noopener" target="_blank">Trump Uses Postal Service On Elections</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3367254/us-consumer-prices-pick-august-bolstering-chances-interest-rate-increase?utm_source=rss_feed" rel="noopener" target="_blank">US Inflation Accelerates In August</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNVTBFUTEzeTBvRXBvblJZelMzMGR6aUJ4Z1NHaFpmVmlLVlpGOVNidnNJdU5TN2FobjFzX1JJR3duN2JOWXdMMzFka0JHSFdCOWkzaUlnSUpxV2hXMnFxNVprSWwxUDZjM094dFBCeWdpOWdCd3VudWZIM3VDbkJWS01ZWXJHY084MHVuVUxNWUt1V05SbVg0OEJOblk4Rk83U1pjdE5haDQ1WEQ3?oc=5" rel="noopener" target="_blank">California Signs AI Chatbot Kid Laws</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-11/treasuries-fall-as-higher-than-expected-cpi-boosts-fed-hike-odds" rel="noopener" target="_blank">Treasury Yields Hit Multiyear Highs</a> <span class="take-source-meta">(bloomberg.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

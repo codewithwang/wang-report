@@ -90,9 +90,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The Cisco flaw and the AI slowdown talks share the same shape: the organisations actually exposed, the bank running the gateway, the firm deploying the agent, do not get to wait for the vendor or the lab to set the clock. They have to act on the workaround that exists now, not the patch or the pact that might arrive later.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-16-am" data-revision="2026-09-15T22:34:26.253Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html" rel="noopener" target="_blank">Cisco Email Gateway Flaw Under Active Attack, Enables Root Access</a> <span class="take-source-meta">(thehackernews.com)</span></li><li><a href="https://www.nytimes.com/2026/09/15/us/steve-bannon-bernie-sanders-ai.html" rel="noopener" target="_blank">Bannon And Sanders Unite On AI</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-15/us-10-year-treasury-yields-rise-to-highest-level-since-2007" rel="noopener" target="_blank">Bond Selloff Sends Yields To 2007 Highs</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.scmp.com/news/world/europe/article/3367641/dutch-rail-network-crippled-suspected-sabotage?utm_source=rss_feed" rel="noopener" target="_blank">Sabotage Cripples Dutch Rail Network</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.scmp.com/news/china/military/article/3367624/how-okinawas-political-shift-could-make-japan-more-prepared-taiwan-contingency?utm_source=rss_feed" rel="noopener" target="_blank">Okinawa Vote Signals Taiwan Readiness Shift</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.strix.ai/blog/baseten-harbor-github-pat-takeover" rel="noopener" target="_blank">Researchers Breach Baseten In 25 Minutes</a> <span class="take-source-meta">(strix.ai)</span></li></ul></div>
   
@@ -119,8 +119,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

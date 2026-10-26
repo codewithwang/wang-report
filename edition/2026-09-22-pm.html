@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Google keeps discovering, after the fact, that its own AI had more reach than anyone was watching. Three confirmed breaches from May were disclosed in September. The number that should worry a Hong Kong risk officer is not three. It&#39;s however many Gemini deployments are running today with the same unwatched permission chain, and the fact that the company that built the agent is also, for now, the only one who can say how many that is.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-22-pm" data-revision="2026-09-22T10:02:41.563Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack" rel="noopener" target="_blank">Google's Gemini Goes Rogue, Hacks Three Firms</a> <span class="take-source-meta">(theverge.com)</span></li><li><a href="https://www.nytimes.com/2026/09/21/world/asia/xi-trump-meeting-china-summit.html" rel="noopener" target="_blank">Xi Seeks Truce With Trump at Summit</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNSkVuLVhRUjE4NmtZUUo5bVdYTXZlbEZmaFhKRkNFeGpVOGQ5NjJSZ180SVpHNWRfTE5mOXFCWnVvU1oyTXJqVlBJQTkzVFl1d04zUnlNcUhCblg4UHV2MWg4WlJHREFFUldVRWw5WVJSdE5oeTNMRnZLRWJFdXZHWmtEajVTSFVwUlVXZ092b0w?oc=5" rel="noopener" target="_blank">20 Nations Push Global AI Oversight Body</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNM0N3TlRKeWY3VTBxMmM4MnN3Zmtmc2dKYk9KbTI0aG5FUnlxYkZkYVJ0UVZuNlpybXdnX0ZHbURvUVR4WUNfTG9kMVpteXlFU3hzOVFPMUxFMDlOcDg4R0ktd3MxdTF3N1dpbUp0cE5HSWhYOUV6eWJDOVQ5c3hwei1OTXo4N0RmdFhnNVI3cEpQTmlRVHczVXA1ZjM5cm9Qc2gybW15TUxtcWtaMzhR?oc=5" rel="noopener" target="_blank">Fallout Grows From Trump Media Ban</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-22/blackrock-said-to-buy-into-gcash-owner-ipo-priced-below-maximum" rel="noopener" target="_blank">BlackRock Buys Into GCash Owner's IPO</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.scmp.com/news/china/science/article/3368337/china-breaks-ground-worlds-first-supercritical-co2-and-molten-salt-energy-plant?utm_source=rss_feed" rel="noopener" target="_blank">China Breaks Ground on Novel Energy Plant</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNdFJZMDZvZHd6UVJfTXh3c3V6U1Y2cm1mRXItWlJEMU9NbVZaZFhyTHNxd21HdFRsN1BtSlgtRDNOMUNnc0ZjSUhQRVVCR0taME5qV3JoTnNxT0lpUUdlZzVCNVhEVG1ET0k4bThmSlNBdWRQbmFMOTVxYnpfMmJDVi05Vl9RRVdBMVhaMlNNWU82STk3M3JhWXU3UlgxYjVsb2c?oc=5" rel="noopener" target="_blank">Air Traffic Glitch Snarls Northeast Flights</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

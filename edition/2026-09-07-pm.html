@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The guide&#39;s badge and Washington&#39;s ledgers share the same lesson in different clothing. Systems that look slow, whether a licensing board or a sanctions regime, are still bound by capacity, not intention. Hong Kong had the paperwork to strip a badge the moment it chose to spend the enforcement effort. Washington has the same choice ahead on North Korea and Iran, and which track gets the follow-through will say more about priorities than about either country&#39;s behavior.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-07-pm" data-revision="2026-09-07T10:07:50.551Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://news.rthk.hk/rthk/en/component/k2/1869096-20260907.htm" rel="noopener" target="_blank">Tour Guide, Agencies Stripped Of Licences</a> <span class="take-source-meta">(news.rthk.hk)</span></li><li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9MR2lQUEVfWHpBVV9NQjVxS0x6WldUNHB1RzFWSzlDa0hYWm1wYVpxMEVhdkRiT1dCeGVlY2Y5d25uR3lQOEtxbW5CVG5VNDRhRmFvU2NLQlN5UQ?oc=5" rel="noopener" target="_blank">US, Iran Trade Deadly Strikes On Tankers</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNYWtBaEpyZlBiQmtRT25NRWJ0RnNOSmdNVDN0V2hSdG9nSFV5OUhfUzh4ZnJNU3F6eXZhUy1EM2ZTU2pmYlpHUGxYeEhhTWFtSElTMTFtamlLZGFyeEJJVk41V1pLUEQtQXZpNGtoUGprX3FNMkl3S3FwbUthVkVjOXJ6eVVpM3hDckpnclZJeXpiamdaMXfSAZsBQVVfeXFMT01wLUJCeTF5MXpBRWh1UXg5SFlhUDdRYmZYVFVkcjI5bVltdEh5TlkwV1FMLV91REt5djJSeUxNb3A4ZXJuVWhrZGNlSWxRTmpQbHFldm1TYk41dGdvT0FuQTBHbE96bENKaDRWWWc1QUxEV0xlM0ZQT05aakZ1MnNIbG9feTZnUUp3SVJPVVdNaWJnZVNDZlVtUEE?oc=5" rel="noopener" target="_blank">Hackers Hit Water Systems In 12 States</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/06/world/europe/ukraine-war-weapons-fraud-corruption.html" rel="noopener" target="_blank">Ukraine Lost $1.2 Billion To Weapons Fraud</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/article/3366608/make-home-ownership-5-year-plan-goal-legco-president-says?utm_source=rss_feed" rel="noopener" target="_blank">Legco Chief Urges Home Ownership Push</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

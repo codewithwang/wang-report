@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>That is what the sequence means. Washington has chosen fuel prices at home over pressure on Moscow, and it has done so while asking Kyiv to look at its own leadership. Bloomberg Economics says the deal is unlikely to meaningfully lower American pump prices, which makes it an expensive way to change the subject. Ukraine&#39;s refinery campaign is now the one sanction on Russian fuel that still operates, and Kyiv is running it without American cover.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-11-am" data-revision="2026-10-10T22:23:03.728Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/10/10/world/europe/ukraine-russia-trump-diesel-talks.html" rel="noopener" target="_blank">Trump: Ukraine Should Get New President</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://apnews.com/article/nine-killed-shooting-erie-pennsylvania-563c7c4262d47858dabecc43485c6483" rel="noopener" target="_blank">Erie Massacre Leaves Nine Dead</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://cphpost.dk/2026-10-10/news/round-up/123456-password-used-in-massive-danish-cpr-data-breach/" rel="noopener" target="_blank">Danish Data Breach Used 123456</a> <span class="take-source-meta">(cphpost.dk)</span></li><li><a href="https://www.khou.com/article/syndication/associatedpress/a-timeline-of-developments-in-ai-safety-since-the-attack-on-hugging-face/616-3158cc79-7817-4739-8c18-bedf843c27c0" rel="noopener" target="_blank">Inside the Hugging Face AI Attack</a> <span class="take-source-meta">(khou.com)</span></li><li><a href="https://apnews.com/article/united-states-spain-score-uswnt-5663aac2634a3e844dec3ed525f65149" rel="noopener" target="_blank">Spain Stuns USWNT in Top Showdown</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3370463/isaias-kills-4-us-leaves-670000-without-power?utm_source=rss_feed" rel="noopener" target="_blank">Isaias Leaves 670,000 Without Power</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

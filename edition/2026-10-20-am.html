@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The significance is that France&#39;s response has moved from policing a confrontation to restricting ordinary public life across parts of several cities. That may constrain the unrest, but it also broadens the reach of the government&#39;s decisions. The underlying political problem survives the curfew: authority has to protect people while answering for how it treats them.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-20-am" data-revision="2026-10-19T22:58:00.207Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bbc.co.uk/news/articles/cx30ez03djyqo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">France Loses Control, Cities Under Curfew</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://www.scmp.com/news/us/article/3371428/trump-says-hes-open-xi-putin-meeting-china-nuclear-talks?utm_source=rss_feed" rel="noopener" target="_blank">Trump Floats Xi, Putin Nuclear Summit (SCMP)</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9" rel="noopener" target="_blank">AI Agents Want Your Private Life (AP)</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.asiaasset.com/exchange-traded-funds/value-partners-launches-worlds-first-pcb-active-etf/" rel="noopener" target="_blank">Hong Kong Gets Circuit Board ETF (bing news)</a> <span class="take-source-meta">(asiaasset.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/cmvgxvkv54w1o?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Mars Moon Mission Targets Precious Dust (BBC)</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://apnews.com/article/beavers-drought-western-us-colorado-river-605cfffb016e87f62b954be148332d18" rel="noopener" target="_blank">Beavers Recruited to Fight Drought (AP)</a> <span class="take-source-meta">(apnews.com)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

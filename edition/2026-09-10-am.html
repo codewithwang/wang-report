@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>No vendor an APAC institution runs is implicated as a bad actor here. Anthropic, OpenAI and Google are the victims, and rate-limiting and output-watermarking on outbound API access is now a documented case study rather than a hypothetical. The dispute over who trained on whom will run through trade talks and lawsuits for years. Whether a bank knows what its own model exposure looks like from the other side has an answer available today.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-10-am" data-revision="2026-09-09T22:30:25.857Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a" rel="noopener" target="_blank">CISA Names China AI Firms In Distillation Campaign Advisory</a> <span class="take-source-meta">(cisa.gov)</span></li><li><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxNMldfZlUwY0FCWmkxTF9kZmlRak9fai1nQlpjUC01bmxabUZzaGV3N2NNN1J1aVZIa0Ftc0l3RS1mc2pkeTJxSVNiLU5EaGNBTkN6NG9ZRWJmTWFOY1JhS3A5elZTbjA2dzRlRE9VUTktdjk0MWZMVTFNWUp5NmhVYXpqeWZCQ0l3a3Y5T2x4aDNud2ZuWmdwdDRZeUEyWGtTRGtzRXFWRW83NWRQR3Jncw?oc=5" rel="noopener" target="_blank">Iran Attacks US Warships After Tanker Strikes</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3366969/ai-researcher-quits-anthropic-over-superintelligence-fears-gambling-our-lives?utm_source=rss_feed" rel="noopener" target="_blank">AI Researcher Quits Over Existential Fears</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.nytimes.com/2026/09/09/technology/apple-iphone-duo-foldable-phone.html" rel="noopener" target="_blank">Apple Unveils $1,999 Foldable Duo</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/politics/article/3366966/tributes-flow-hong-kong-mourns-tung-chee-hwa-pioneering-first-leader?utm_source=rss_feed" rel="noopener" target="_blank">Hong Kong Mourns Founding Leader Tung</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOVXBpQXVVMGZ0UzgzTzVKYjhWWkNOeWpLU3A1VFQxZ0EyQ1JTaGc2ejNYTGhsLTNCVUVlOXRIMjFGMDNhMFBTelc3WnRZYUViT2FmYXE0UGI5VW1VbXJSdHY0b2pwOXQ5LU9rUDRGNEN6NnlpaXN2OGgtV2Z4OHUwM1NFX0xzMzU1aG9qXzhxVm1oT2lGeDNkWHotQjlFVndSeXVXSnRyYkMxNWVvcmFzbTRTZm4wb2Y4XzFaN0hoVkV0WjEtTGN3WWJvYlpma2FzYVZHbENDLTA1Zw?oc=5" rel="noopener" target="_blank">Microsoft Patches Nearly 1,000 Flaws</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/09/business/economy/treasury-repurchase-bessent.html" rel="noopener" target="_blank">Bond Market Snubs Treasury's Buyback Plan</a> <span class="take-source-meta">(nytimes.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

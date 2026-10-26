@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Whether the adversary is a criminal gang or an AI agent doing a job on its own terms, the compromise happens inside systems built on assumed trust. Someone, or something, watching from inside continuously caught what none of the victims&#39; own monitoring did.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-21-am" data-revision="2026-09-20T22:26:32.575Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/" rel="noopener" target="_blank">Google Mole Infiltrated Worst Ever Software Supply Chain Hacking Gang</a> <span class="take-source-meta">(wired.com)</span></li><li><a href="https://www.nytimes.com/2026/09/20/business/china-ai-economy.html" rel="noopener" target="_blank">China's AI Surges As Economy Lags</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://apnews.com/article/antitrust-lawsuit-ai-slowdown-anthropic-openai-spacexai-google-960af4308161eaf4ed13c383b0ce1c1b" rel="noopener" target="_blank">Lawsuit Alleges AI Giants Colluded On Slowdown</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.scmp.com/news/world/europe/article/3368175/germanys-merz-vows-press-ahead-reforms-after-historic-state-election-defeat?utm_source=rss_feed" rel="noopener" target="_blank">Merz Party Suffers Historic Election Defeat</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/politics/article/3368170/his-love-hong-kong-was-profound-tung-chee-hwa-honoured-state-funeral?utm_source=rss_feed" rel="noopener" target="_blank">Tung Chee-hwa Honoured At State Funeral</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.reuters.com/business/openais-sam-altman-to-brief-un-security-council-next-week-during-2026-09-18/" rel="noopener" target="_blank">Altman To Brief UN Security Council</a> <span class="take-source-meta">(reuters.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

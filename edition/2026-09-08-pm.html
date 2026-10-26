@@ -86,9 +86,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A runway overshoot is not a rare category of accident, which is why the buffer technology exists. Investigators will now ask the question they ask after every prior overshoot: was the infrastructure meant to catch this failure actually in place, and if it was, why didn&#39;t it work.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-08-pm" data-revision="2026-09-08T10:09:43.752Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5wSkw0UXZKdFc1ZGdldUhtb3pxeGdXcXRQQXNUcC1IQi1QcXJ4RFpWTHZUTEFBbnlEUGk0c0RRelVuTFdacVZGc2R6QmkybFJlYzl4Mjh5R1BSZw?oc=5" rel="noopener" target="_blank">Amazon Cargo Plane Crash Kills Five In Miami</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPX0tYMlJiSnROMHFKX3dJV04wTU50bkdYWHdheVdTN0dJRHJDbUZMYkhEX0JFa2pxNFNadzdEWW95bndCQ1ByRGhUZzQ1T0pJQWhFSWVmSU5IOUY2MEJTaWF5bl90N2JrdGxxMVJ2MWdoTHlpVEJJWWY1dGl2TGlDanZ3MXMxUGJnR3RPMmRMSjlEdVVVdFlIWlRpdDZodHF0Ym1uTlJFZEJmTGFIN0lKT1hXVWFRdW9XU1VHbmk3OGZQcGZEX0E?oc=5" rel="noopener" target="_blank">Germany Shaken As Far Right Surges To Power</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPS3FNdm13NVd2bmJkY3V1YUFNSk52amNNb2otakJHclc2SEhtRTRaRG5xX3FfdHN4S0JtTjZGdV9HYndObkhRbHZxNzc1aGUwdjNQN3VDYWZnbFZ6RnYtRUVXNWd3ZExub3dzanB3WlVGLVNEeW9NanBsTlN3ZV9IZlhhZEZ0ZkYyakt4czZnRFNkT3lwLVA5WjdoYTlGRk1CUWM3WlBVT1QxdlJHemtB?oc=5" rel="noopener" target="_blank">Witkoff, Kushner Leave Kyiv Without Deal</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.scmp.com/tech/policy/article/3366733/china-targets-fourfold-boost-ai-computing-capacity-2030-major-tech-push?utm_source=rss_feed" rel="noopener" target="_blank">China Plans Fourfold Boost In AI Computing Power</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://mcpherrin.ca/2026/09/07/rsa.html" rel="noopener" target="_blank">Researcher Cracks 1990s CA's RSA Keys</a> <span class="take-source-meta">(mcpherrin.ca)</span></li><li><a href="https://www.scmp.com/news/world/middle-east/article/3366732/houthi-attacks-saudi-arabia-wound-dozens-coalition-vows-response?utm_source=rss_feed" rel="noopener" target="_blank">Houthi Strikes Wound Dozens In Saudi Arabia</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -115,8 +115,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

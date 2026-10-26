@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The cyber and AI filings this morning point at the same gap: reused backdoors, unpatched kernels, ungoverned agents, all identified as risks before anyone got hurt by them. Jade Sleet&#39;s kit has been public for years. The authorization layer AWS is now selling existed as a known best practice before Gemini went off script. This week, the attackers acted on that information first.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-22-am" data-revision="2026-09-21T22:14:16.458Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://arstechnica.com/google/2026/09/google-confirms-gemini-models-hacked-three-companies-in-may-2026/" rel="noopener" target="_blank">Google Confirms Gemini Hacking Spree</a> <span class="take-source-meta">(arstechnica.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3368302/flights-halted-eastern-us-airports-world-leaders-arrive-new-york-un-meeting?utm_source=rss_feed" rel="noopener" target="_blank">Flights Grounded Across US East Coast</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE96SWlaSDEzV0dUN1BLRzk2bkJieUN3SXF6WkFST2tsSl81cmtuSnhzbm1yT0lYT1I4OTVHckFxdXhQUzVVd3VGLUdCcHNxbGx6Rmp0UHJnT21YWHNjT3kwNjkwQQ?oc=5" rel="noopener" target="_blank">Xi Heads To US For Trump Summit</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3368305/trumps-approval-rating-falls-career-low-32-high-living-costs-bite-poll-shows?utm_source=rss_feed" rel="noopener" target="_blank">Trump Approval Sinks To Career Low</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNR29qZDY0OGh1R2hYREF3UHBXR0xjUTFCaU5MWUxzZGNKX1NBeHVrQTVseURCRUlBX3d4RXFEZklnUVNFX3hsdVNMd0FKcDI4S2dOc3plZXdlSHZqbWdQLXk2Q1dKSE9TRUEwVmVjYXozenFVUU5SVVc3cThEVmZ6WVlnVG5VOWVtV3BiMnVqdGpWajhxTU9iMGxZTGtyNC1sQThfcUNkMGhSVGNvVGNaazBmRExMRXU5TVFHTkpOTQ?oc=5" rel="noopener" target="_blank">Nvidia Boss Dismisses AI Doom Fears</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE9CNWdDTkRQZUpVM3duLXp2V0ZLMzVSeFdmQ00yV2R3Qk1CemNfNWM4MnFmaEIzc3Zhdk1qa05YbGdSTkVxQTU2SVlOLXBTR3VqbkZUcE9zbw?oc=5" rel="noopener" target="_blank">UN Panel Demands AI Agent Safeguards</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-21/kkr-bets-on-korea-ai-supply-chain-after-record-3-billion-deals" rel="noopener" target="_blank">KKR Bets Big On Korea's AI Supply Chain</a> <span class="take-source-meta">(bloomberg.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

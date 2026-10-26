@@ -89,9 +89,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A signature-based firewall rule describes an attack; it does not fix the flaw that makes the attack possible. Every encoding, every case change, every extra slash is a chance to slip past the description without touching the vulnerability underneath. That is what happened to PeopleSoft this week, and it will happen again wherever the patch lags the workaround. Oracle has not shipped the fix that actually closes CVE-2026-35273.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-27-am" data-revision="2026-09-26T22:22:11.836Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/" rel="noopener" target="_blank">ShinyHunters Bypasses Firewalls, Renews Mass Oracle PeopleSoft Attacks</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://swarmtraces.org/" rel="noopener" target="_blank">OpenAI Agents Caught Hacking Hugging Face</a> <span class="take-source-meta">(swarmtraces.org)</span></li><li><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNZTlYWmNvWG9uODA3NXdWTTQ0d1EtNnFKczBKYThkcFExSmZGWjlqb2xmc0ZsUDNsYWxUWjhLNm1ocTRCcmJDMGdhUmZ1NC1WdjVJdWFxNDRzLTA0Mk11dUN6WHkyUUVpcFMxV1A1d2RFUXljR0xlY293UldHb2ZoUDAzT294ZmVUWVdCZUEzUTlGSkp4cEhTLTVqTllkU3lDNDREeXFqVlQzSUU1VGpnXzZYZ1ZSMXZ3dmU0Tg?oc=5" rel="noopener" target="_blank">Trump Rejects Iran's Hormuz Truce</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/26/health/cdc-staff-cuts-rfk-jr.html" rel="noopener" target="_blank">CDC Left 'Zombified' By Staff Cuts</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://cyberinsider.com/malicious-twitch-chat-messages-can-trigger-code-execution-on-obs-studio/" rel="noopener" target="_blank">Malicious Twitch chat messages can trigger code execution on OBS Studio</a> <span class="take-source-meta">(cyberinsider.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxNR2Z3MXZCQVpaQ0ZBMEdjcTZMLVVOZ1NhakhDWW1rQk5hSHdvVnd2VjBQYXlfM0kzMWhqXy15S2U2d1kzSUFzTi1XNWhDeUtScG00akljajBXQjdQa3JYQ1BDQklyNmhQay0wcVdDUjRWZnE4VjhXSXlYMEFZLWdUSXVibEdscnl6UUtmNjFEQ3RydlFKYS1pZTFoMHM2YjN4aWw4VGsyVFhobGxDeHBjU1dFRkY2bkdhTExKTVFxSk9sUQ?oc=5" rel="noopener" target="_blank">Supreme Court Rejects GOP Map Again</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -118,8 +118,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

@@ -83,9 +83,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The meaning of this breach is straightforward. Recovery is incomplete when a website has been restored but still accepts the credential used to compromise it. A clean set of files establishes the condition of the site now. Revoking the stolen authority addresses how the attacker could change it again.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-21-pm" data-revision="2026-10-21T10:13:07.036Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bleepingcomputer.com/news/security/stolen-updraftcentral-keys-used-to-backdoor-wordpress-sites/" rel="noopener" target="_blank">BleepingComputer</a> <span class="take-source-meta">(bleepingcomputer.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-21/super-typhoon-champi-on-path-to-impact-china-taiwan-within-days" rel="noopener" target="_blank">Super Typhoon Bears Down on East Asia</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/cq5ynkx3xy11o?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">US Envoy Arrives for Putin Talks</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-21/uk-borrowing-exceeds-forecast-in-final-data-before-budget" rel="noopener" target="_blank">Britain's Debt Breaks Through £3 Trillion</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://apnews.com/article/chicago-food-delivery-robots-biometric-data-lawsuits-16ead54eb7dc7c6eacbf011c53b9b20d" rel="noopener" target="_blank">Delivery Robots Face Biometric Snooping Suit</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.scmp.com/news/china/science/article/3371607/terracotta-warriors-could-be-mainly-built-women-and-children-batch-fingerprints-show" rel="noopener" target="_blank">Fingerprints Rewrite Terracotta Army's Labour History</a> <span class="take-source-meta">(scmp.com)</span></li></ul></div>
   
@@ -112,8 +112,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

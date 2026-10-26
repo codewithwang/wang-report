@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>What it means is simple enough. A mall built for people who are passing through has turned out to be worth less to its builder than the cost of leaving it. When a developer pays to exit, the price of exit is its own valuation of the project, and it sits below zero. The site goes back to the airport&#39;s owner, and the loss stays with New World.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-10-02-pm" data-revision="2026-10-02T10:12:22.749Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.ft.com/content/68210efa-4b9b-416d-a867-0334f1410753?syn-25a6b1a6=1" rel="noopener" target="_blank">New World Pays $430mn To Flee Airport Mall (FT)</a> <span class="take-source-meta">(ft.com)</span></li><li><a href="https://apnews.com/article/israel-saudi-flight-copilot-flydubai-investigation-83cf555e36d5b58b85f5073215841058" rel="noopener" target="_blank">Trump Threatens Iran Over Cockpit Stabbing (AP)</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.nytimes.com/2026/10/02/world/europe/russia-ukraine-winter.html" rel="noopener" target="_blank">Russia Plots Winter Freeze For Ukraine (NYT)</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-02/hong-kong-stocks-slump-most-since-march-leading-losses-in-asia" rel="noopener" target="_blank">Hong Kong Stocks Suffer Worst Day Since March (Bloomberg)</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.scmp.com/tech/tech-war/article/3369526/hong-kong-users-caught-offguard-anthropic-tightens-vpn-access-claude?utm_source=rss_feed" rel="noopener" target="_blank">Anthropic Locks Out Hong Kong VPN Users (SCMP)</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-10-02/novartis-inks-chinese-mrna-therapy-deal-for-up-to-7-8-billion" rel="noopener" target="_blank">Novartis Pays Up To $7.8B For Chinese mRNA (Bloomberg)</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.nytimes.com/2026/10/01/us/tennessee-executions-christa-pike-lee-review.html" rel="noopener" target="_blank">Pike Clings To Life, Tennessee Halts Executions (NYT)</a> <span class="take-source-meta">(nytimes.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

@@ -11,7 +11,7 @@
 // Revert: empty this map.
 const DESK_MOVES = {
   '/hk-local': '/desk/hk', '/hk-finance': '/desk/finance', '/cyber': '/desk/cyber', '/geopolitical': '/desk/world',
-  '/ai-focus': '/desk/ai', '/sports': '/desk/sports', '/science': '/desk/science', '/life': '/desk/health',
+  '/ai-focus': '/desk/ai', '/sports': '/desk/sports', '/science': '/desk/science', '/life': '/desk/life',
 };
 
 export async function onRequest({ request, next }) {

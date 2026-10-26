@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The attacks have now reached both passenger infrastructure and the headquarters of a major oil producer. That broadens the civilian and commercial exposure to the conflict. The reported Aramco strike demonstrates vulnerability at the centre of Saudi oil infrastructure, even though its effect on oil output has not been established.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-14-am" data-revision="2026-10-13T22:24:02.281Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bloomberg.com/news/articles/2026-10-13/aramco-headquarters-hit-during-houthi-attacks-on-saudi-arabia" rel="noopener" target="_blank">Houthis Hit Aramco Headquarters</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/ck1wvd9dvv22o?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Pope Leo Faces Lung Cancer (BBC)</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://apnews.com/article/treasury-bank-of-america-money-laundering-29013b2c8f08a3a8d579a96721ed1aa4" rel="noopener" target="_blank">Bank Of America Hit With Billion-Dollar Fine (AP)</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://apnews.com/article/kroger-layoffs-grocery-job-cuts-30f0a5d88377e9969ce8994644e14498" rel="noopener" target="_blank">Kroger Cuts 3,000 As AI Expands (AP)</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://apnews.com/article/cornell-rape-investigation-frat-party-ban-686aaca2c81878f8cd771a0e3bdf7fa4" rel="noopener" target="_blank">Cornell Shuts Down Fraternity Parties (AP)</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://apnews.com/article/six-flags-georgia-roller-coaster-death-a9ce45f681772b828f7b5d3c59d010d1" rel="noopener" target="_blank">Fatal Fall Shuts Six Flags Coasters (AP)</a> <span class="take-source-meta">(apnews.com)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

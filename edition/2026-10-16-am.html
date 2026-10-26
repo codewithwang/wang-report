@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The significance of this price jump is that an economy can keep functioning while becoming more expensive to run. Businesses then face a choice between absorbing higher costs and seeking higher prices. Neither makes the cost disappear. September&#39;s figures show that continued supply and stable prices are separate achievements.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-16-am" data-revision="2026-10-15T17:03:21.135Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.bloomberg.com/news/videos/2026-10-15/us-producer-prices-up-most-since-2022-video" rel="noopener" target="_blank">Energy Shock Sends Producer Prices Soaring</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/education/article/3371049/hong-kong-loses-record-40-kindergartens-birth-rate-drops-women-wait-have-kids?utm_source=rss_feed" rel="noopener" target="_blank">Hong Kong Loses Record 40 Kindergartens</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.scmp.com/tech/big-tech/article/3371047/deepseek-offers-user-refunds-after-suffering-another-major-outage?utm_source=rss_feed" rel="noopener" target="_blank">DeepSeek Offers Refunds After Five-Hour Outage</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.scmp.com/news/china/science/article/3371035/china-led-team-hits-83-success-rate-anticipating-earthquakes-seismo-ripples-study?utm_source=rss_feed" rel="noopener" target="_blank">Earthquake Study Claims 83 Percent Success</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.nytimes.com/2026/10/15/us/texas-students-bad-behavior-criminal-charges.html" rel="noopener" target="_blank">School Misbehavior Becomes Criminal Business</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bbc.co.uk/sport/football/articles/cmd7qgj3zwero?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Infantino Apologises, Leadership Revolt Persists</a> <span class="take-source-meta">(bbc.co.uk)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

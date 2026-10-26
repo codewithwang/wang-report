@@ -86,9 +86,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>A self-hosted GitLab instance is not an internal dev tool this week. It&#39;s a server holding the keys to production, and Red Heron has already shown what happens to the version of this bug that gets exploited before anyone patches. Patch on the assumption that the disclosure and the exploitation report arrive in the wrong order, because for Gitea&#39;s thirteen victims, they already did.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-15-am" data-revision="2026-09-14T22:26:09.569Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.darkreading.com/cyberattacks-data-breaches/maximum-severity-gitlab-flaw-supply-chains-risk" rel="noopener" target="_blank">Maximum Severity GitLab Flaw Puts Global Supply Chains At Risk</a> <span class="take-source-meta">(darkreading.com)</span></li><li><a href="https://www.nytimes.com/2026/09/14/technology/trump-ai-safety-jensen-huang.html" rel="noopener" target="_blank">Trump Calls Huang Onstage, Mocks AI Fears</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-14/us-10-year-yield-breaches-5-as-inflation-supply-worries-mount" rel="noopener" target="_blank">10-Year Treasury Yield Breaks 5% Barrier</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.scmp.com/news/world/united-states-canada/article/3367513/us-has-weapons-deployed-orbit-space-force-says-offensive-and-defensive-use?utm_source=rss_feed" rel="noopener" target="_blank">Space Force Confirms Orbital Weapons Deployed</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.cnn.com/2026/09/14/style/singapore-money-laundering-auctions" rel="noopener" target="_blank">Singapore Auctions Off $2.4B Laundering Haul</a> <span class="take-source-meta">(cnn.com)</span></li><li><a href="https://www.theregister.com/os-platforms/2026/09/14/microsoft-patches-windows-and-excel-breaks-audio-remote-access-and-paste/5296085" rel="noopener" target="_blank">Microsoft Patch Breaks Audio, Remote Access</a> <span class="take-source-meta">(theregister.com)</span></li></ul></div>
   
@@ -115,8 +115,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

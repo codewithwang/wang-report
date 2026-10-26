@@ -85,9 +85,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The distinction between a threatened challenge and a successful one is essential to understanding what changed. Trump has publicly attached federal legal action to the possibility of Sullivan&#39;s defeat. That does not overturn an election. It does put the presidency behind an effort to obstruct formal recognition of that particular outcome. The significance is the commitment of public authority to a candidate&#39;s electoral fate, before any judicial decision establishes whether the requested intervention has a lawful basis.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-10-24-am" data-revision="2026-10-23T22:35:48.883Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://apnews.com/article/alaska-senate-race-sullivan-name-lawsuit-certification-d8f4a3c7b5247cc427a05f796d7c0d82" rel="noopener" target="_blank">Trump Orders Alaska Election Lawsuit</a> <span class="take-source-meta">(apnews.com)</span></li><li><a href="https://www.bbc.com/news/live/c6kg7kzzyyvet?page=2" rel="noopener" target="_blank">Champi Grounds Flights Across East Asia (bing news)</a> <span class="take-source-meta">(bbc.com)</span></li><li><a href="https://www.nytimes.com/2026/10/23/business/energy-environment/oil-prices-iran-war.html" rel="noopener" target="_blank">Oil Hits $116 as Iran Fears Mount (NYT)</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bloomberg.com/news/videos/2026-10-23/oncologists-cheer-melanoma-data-video" rel="noopener" target="_blank">Cancer Vaccine Data Splits Doctors, Investors (Bloomberg)</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://denverite.com/2026/10/23/ai-denver-risk-management-audit/" rel="noopener" target="_blank">Denver Audit Finds AI Risk Gap (bing news)</a> <span class="take-source-meta">(denverite.com)</span></li><li><a href="https://www.bbc.co.uk/sport/football/articles/ck3r5792en7go?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Bayern Boss Kompany Collapses at Training (BBC)</a> <span class="take-source-meta">(bbc.co.uk)</span></li></ul></div>
   
@@ -114,8 +114,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

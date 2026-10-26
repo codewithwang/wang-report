@@ -88,9 +88,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The letter will not slow anything by itself. What it does is put a name and a signature from inside the industry on a risk that regulators in Washington have just admitted, on the record, they do not know how to address. For any firm running these models in production, that is now the operating assumption: the labs are saying the guardrails are behind the capability, and no government has a plan to close that gap for them.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-14-am" data-revision="2026-09-13T22:23:34.707Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://www.nytimes.com/2026/09/13/technology/anthropic-ceo-slower-ai-development.html" rel="noopener" target="_blank">Amodei Drops AI Slowdown Bombshell</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.bbc.co.uk/news/articles/c7v48vp31mdo?at_medium=RSS&amp;amp;at_campaign=rss" rel="noopener" target="_blank">Boris Johnson's Train Struck By Russia</a> <span class="take-source-meta">(bbc.co.uk)</span></li><li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1WYkFDZzd0RXNwRTVPRHhYcTlPRG12WmJXWU9fYVZ6YjBjOUFUMXNoZEhYMjRpcEF4WGNhNmVnQzZ4eDl5Y0d3dDZQTVZnd0xNWExUY2JvSWhxdw?oc=5" rel="noopener" target="_blank">Saudi Oil Pipeline Shut After Drone Strike</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-13/a-5-treasury-yield-is-raising-new-risks-for-markets-economy" rel="noopener" target="_blank">5 Percent Treasury Yield Rattles Markets</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://www.nytimes.com/2026/09/13/business/guidepost-montessori-higher-ground-education-ray-girn.html" rel="noopener" target="_blank">Montessori Chain's $440 Million Collapse</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/opinion/hong-kong-opinion/article/3367209/will-hong-kongs-educators-learn-sliding-pisa-results?utm_source=rss_feed" rel="noopener" target="_blank">HK Schools Slide In Global Pisa Rankings</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxOUHc5VVA1ZE8yZnB0VWlLbS1MdlM3UEhHaDhzYWJuZG11eW82eDRpdjVNYWF5aE1hQzVmZ21WMG5LZl95Y3BxTFc1OW5maGdCNHJTOEFrZHBVNkplV3R6UXM2T2RLYnFnSDZ3R0VsVjQzUXhDaDR1U1JLbG9mTHg2TmVCMElDNzFYUGx0WkdZcTJCV3l3UUVjWA?oc=5" rel="noopener" target="_blank">129 Still Missing After Indonesia Ferry Capsizes</a> <span class="take-source-meta">(news.google.com)</span></li></ul></div>
   
@@ -117,8 +117,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

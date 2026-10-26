@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>The through-line across the security stories tonight, from PeopleSoft to FWD, is the same one: a control that exists on paper gets treated as a control that exists in practice, and nobody tests the gap until someone else does it for them. Oracle wrote a patch. Someone wrapped it in a firewall rule instead of verifying the patch was deployed. The Insurance Authority found four gaps in one insurer&#39;s screening process, not one. In both cases the failure wasn&#39;t a lack of a rule, it was mistaking the rule for the fix.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="maarten">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="maarten" data-edition="2026-09-27-pm" data-revision="2026-09-27T09:59:24.678Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Maarten Bakker <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html" rel="noopener" target="_blank">Google Warns Of Mass Oracle PeopleSoft Web Shell Attacks</a> <span class="take-source-meta">(thehackernews.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNT2FRVWRwSDZuWUZPYTRXcmNuNTFDR0hrQkVUZnpSdV9RdGhpUjV5R0hwN2V6MUNUS2hiTHpENFhwUFVDODBIeDhBSm5SdUJOeU1qSUhjekl2RzBDd0VBYi0tdmNDblQwV1RMTF9QMGFHdlFRcDRmalE3dWlhX0l6aUJjSGtsVjlsZXNnbmZWY3JzMEtwY3hxNEZHT3JjWXJEQlVRSFpSM0haSUROOUFRaWJB?oc=5" rel="noopener" target="_blank">China, US Strike AI and Tariff Truce</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Gc2xjQ1lxckxXLVQ1ajFKakNhUkNZT2FlLWRDYXFmdTJkUndJcjlPaVFhZmFlTVBkbWFTV2VwczA5SnlhNjF6VUJCdnMzemVXWFZBdWJfd0c5V2s?oc=5" rel="noopener" target="_blank">OpenAI Bots Breached US Agencies</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/26/us/politics/trump-iran-hormuz-strait.html" rel="noopener" target="_blank">Trump Rejects Iran Cease-Fire Deal</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcGhQUmlKRzBRSVdZLWl6NGh2ZDZfbEZmbGNmRnFyVFFnWlU2bmluRFItTS1NZzFQclZCVFQxdVZCY1BIdzZ5azdmRWFsX1NEbEpYQ0ZuZ0E3WjF5aUNGM1MxX1lKOGNZNHZBc0lEY3E2Y3l1Z1BHcXQ0MExKWnFwdVo3eDJtV3lPbEJaX0FROXM2Sjc2ZUlwdWVta3J3bTRsbXZDbzFmbDNBcG5XXzNkekp6dl9BMEhT?oc=5" rel="noopener" target="_blank">Xi Wins Optics War At Trump Summit</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://www.nytimes.com/2026/09/27/world/asia/china-us-ai-distrust.html" rel="noopener" target="_blank">Why China Shrugs Off AI Doomsday Talk</a> <span class="take-source-meta">(nytimes.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });

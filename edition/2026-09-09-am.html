@@ -87,9 +87,9 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
 <p>Google&#39;s finding is that agentic AI is already running offensive operations, not sitting as a future attack surface to secure, and Nvidia&#39;s purchase is a bet that whoever owns model distribution controls the supply chain underneath every one of those agents. A bank auditing its model sourcing policy and a SOC team auditing its detection curve are, this week, auditing the same problem from opposite ends.</p>
     </div>
   </details>
-  <div class="ed-listen" data-bc="charmaine">
-    <span class="ed-play" role="button" aria-label="Play"></span>
-    <span class="ed-listen-text"><strong>Listen to this edition</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
+  <div class="ed-listen" data-bc="charmaine" data-edition="2026-09-09-am" data-revision="2026-09-08T22:36:26.725Z">
+    <button class="ed-play" type="button" aria-label="Play this edition" disabled></button>
+    <span class="ed-listen-text"><strong class="ed-audio-status">Audio being prepared</strong> read by Charmaine Lo <span class="ed-listen-dur"></span><br><a href="/listen">All episodes and how to subscribe &rarr;</a></span>
   </div>
   <div class="take-sources"><div class="take-sources-tag">Sources</div><ul><li><a href="https://siliconangle.com/2026/09/08/google-says-attackers-used-ai-agents-to-steal-credentials-in-under-six-hours/" rel="noopener" target="_blank">Google: AI Agents Stole Thousands Of Credentials In Under Six Hours</a> <span class="take-source-meta">(siliconangle.com)</span></li><li><a href="https://www.nytimes.com/2026/09/08/world/middleeast/saudi-arabia-yemen-houthis-energy-attack.html" rel="noopener" target="_blank">Saudi Arabia, Houthis Edge Toward War</a> <span class="take-source-meta">(nytimes.com)</span></li><li><a href="https://www.scmp.com/news/hong-kong/politics/article/3366827/hong-kongs-first-chief-executive-tung-chee-hwa-dies-aged-89?utm_source=rss_feed" rel="noopener" target="_blank">Tung Chee Hwa, HK's First Leader, Dies At 89</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.scmp.com/news/asia/southeast-asia/article/3366830/singapore-man-malone-lam-pleads-guilty-after-massive-us-bitcoin-heist-and-spending-spree?utm_source=rss_feed" rel="noopener" target="_blank">Man Pleads Guilty In $250M Bitcoin Heist</a> <span class="take-source-meta">(scmp.com)</span></li><li><a href="https://www.bloomberg.com/news/articles/2026-09-08/google-blackstone-venture-faces-delays-at-data-center-sites" rel="noopener" target="_blank">Google Data Center Venture Hits Delays</a> <span class="take-source-meta">(bloomberg.com)</span></li><li><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxPUHY1aG82Qkh1TXlnZmo4OUVTZFlCaENZMFp4RVFCOEtDUWNoV3BaU1NzMWtEaHVUVzVob21XZ08tZ09XU25ZWmVDelZzNUZWQVBzN2VQQjhIX0hJNmxWMjBaWUdNLW5rU0FKbzlnQkpqUmNDYmJob2FFVzBFcTNKXzZUTTdFTHEycUVQMURpR0o3MG5vQUZMZjhPMVhtNHFSWHRNR0hWcnZEZVNsbE5kZ0dvWQ?oc=5" rel="noopener" target="_blank">OpenAI Claims Math Breakthrough, Sparks Feud</a> <span class="take-source-meta">(news.google.com)</span></li><li><a href="https://finance.yahoo.com/technology/ai/articles/broadcom-ceo-sees-ai-value-210204442.html" rel="noopener" target="_blank">Broadcom CEO: AI Value Flows To Chips</a> <span class="take-source-meta">(finance.yahoo.com)</span></li></ul></div>
   
@@ -116,8 +116,14 @@ body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
   var box = document.querySelector('.ed-listen'); if (!box) return;
   var key = box.getAttribute('data-bc');
   fetch('https://audio.wangreport.com/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
-    var ep = null; eps.forEach(function (e) { if (e.anchor === key && (!ep || e.published > ep.published)) ep = e; });
+    var slug = box.getAttribute('data-edition'), revision = box.getAttribute('data-revision');
+    var ep = null; eps.forEach(function (e) {
+      var sameEdition = e.edition === slug || (!e.edition && e.key === slug.slice(0, 10) + '-' + key);
+      if (e.anchor === key && sameEdition && revision && e.source_generated_at === revision && (!ep || e.published > ep.published)) ep = e;
+    });
     if (!ep) return;
+    box.querySelector('.ed-audio-status').textContent = 'Listen to this edition';
+    box.querySelector('.ed-play').disabled = false;
     var d = box.querySelector('.ed-listen-dur'); if (d && ep.duration) d.textContent = '(' + Math.floor(ep.duration / 60) + ':' + String(ep.duration % 60).padStart(2, '0') + ')';
     var player = document.createElement('audio'); player.preload = 'none'; player.src = ep.url; document.body.appendChild(player);
     player.addEventListener('ended', function () { box.classList.remove('playing'); });
