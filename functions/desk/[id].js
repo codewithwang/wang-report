@@ -10,8 +10,20 @@ export async function onRequestGet({ env, params, next }) {
   const kv = env.SUBSCRIBERS;
   const id = String(params.id || '').replace(/\.html$/, '');
   if (!kv || !/^[a-z-]{2,20}$/.test(id)) return next();
-  const html = await kv.get(`desk:${id}`);
-  if (!html) return next();
+  const deployed = await next();
+  let html;
+  try { html = await kv.get(`desk:${id}`); } catch { return deployed; }
+  if (!html) return deployed;
+  if (deployed.ok) {
+    const staticHtml = await deployed.clone().text();
+    const built = text => text.match(/name="wr-built-at" content="([^"]+)"/)?.[1] || '';
+    if (built(staticHtml) > built(html)) {
+      const headers = new Headers(deployed.headers);
+      headers.set('x-wr-front', 'static-newer-build');
+      headers.set('cache-control', 'public, max-age=60');
+      return new Response(staticHtml, {status: deployed.status, headers});
+    }
+  }
   return new Response(html, {
     headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=60', 'x-wr-front': 'kv' },
   });

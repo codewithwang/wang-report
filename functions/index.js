@@ -15,9 +15,12 @@ export async function onRequestGet({ env, next }) {
   if(!html)return deployed;
   if(deployed.ok){
     const staticHtml=await deployed.clone().text();
-    if(editionVersion(staticHtml)>editionVersion(html)){
+    const built = text => text.match(/name="wr-built-at" content="([^"]+)"/)?.[1] || '';
+    const newerEdition=editionVersion(staticHtml)>editionVersion(html);
+    const newerBuild=editionVersion(staticHtml)===editionVersion(html)&&built(staticHtml)>built(html);
+    if(newerEdition||newerBuild){
       const headers=new Headers(deployed.headers);
-      headers.set('x-wr-front','static-newer-edition');
+      headers.set('x-wr-front',newerEdition?'static-newer-edition':'static-newer-build');
       headers.set('cache-control','public, max-age=60');
       return new Response(staticHtml,{status:deployed.status,headers});
     }
