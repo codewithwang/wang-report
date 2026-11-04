@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The HKJC Read · THE WANG REPORT</title>
+  <meta name="description" content="The HKJC Read: twice-weekly Hong Kong horse-racing data feature by Vivian Wong and Aya Nakamura.">
+  <link rel="canonical" href="https://wangreport.com/hkjc-read">
+  <link rel="alternate" type="application/rss+xml" title="The Wang Report" href="https://wangreport.com/feed.xml">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Wang Report">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:title" content="The HKJC Read · THE WANG REPORT">
+  <meta property="og:description" content="The HKJC Read: twice-weekly Hong Kong horse-racing data feature by Vivian Wong and Aya Nakamura.">
+  <meta property="og:url" content="https://wangreport.com/hkjc-read">
+  <meta property="og:image" content="https://wangreport.com/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The HKJC Read · THE WANG REPORT">
+  <meta name="twitter:description" content="The HKJC Read: twice-weekly Hong Kong horse-racing data feature by Vivian Wong and Aya Nakamura.">
+  <meta name="twitter:image" content="https://wangreport.com/img/og-default.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=08003390ba">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #f7f5f0; color: #1a1a1a; font-family: Georgia, 'Times New Roman', serif; }
+.hr-nav { border-bottom: 1px solid #d8d4c5; background: #f7f5f0; }
+.hr-nav .nav-bar a { color: #1a1a1a; }
+.hr-nav .nav-bar a:hover { color: #006400; }
+.hr-wrap { max-width: 820px; margin: 0 auto; padding: 0 24px 100px; }
+.hr-masthead { text-align: center; padding: 56px 0 14px; }
+.hr-wordmark { font-family: "Courier New", Courier, monospace; font-size: 18px; font-weight: bold; letter-spacing: 6px; color: #006400; text-transform: uppercase; }
+.hr-tagline { font-family: Georgia, serif; font-style: italic; font-size: 14px; color: #555; margin-top: 8px; }
+.hr-rule { border: none; border-top: 3px solid #006400; margin: 18px 0 0; }
+.hr-rule-thin { border: none; border-top: 1px solid #c8c2b0; margin: 4px 0 36px; }
+.hr-byline { display: flex; gap: 18px; align-items: center; padding: 18px 0; margin-bottom: 28px; border-bottom: 1px solid #d8d4c5; }
+.hr-byline-avatar { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid #fff; box-shadow: 0 0 0 1px #c8c2b0; }
+.hr-byline-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hr-byline-text { font-family: Georgia, serif; font-size: 14px; color: #333; line-height: 1.5; }
+.hr-byline-text a { color: #006400; text-decoration: none; font-weight: bold; }
+.hr-byline-role { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #777; text-transform: uppercase; margin-top: 2px; }
+.hr-explainer { font-family: Georgia, serif; font-size: 16px; line-height: 1.7; color: #222; margin-bottom: 36px; padding: 20px 22px; background: #efeadb; border-left: 4px solid #006400; }
+.hr-piece { margin-bottom: 56px; }
+.hr-piece-meta { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 2px; color: #006400; text-transform: uppercase; margin-bottom: 8px; }
+.hr-piece-title { font-family: Georgia, serif; font-size: 28px; font-weight: bold; line-height: 1.25; color: #1a1a1a; margin-bottom: 12px; }
+.hr-piece-deck { font-family: Georgia, serif; font-style: italic; font-size: 16px; line-height: 1.55; color: #444; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid #d8d4c5; }
+.hr-piece h3 { font-family: "Courier New", Courier, monospace; font-size: 12px; font-weight: bold; letter-spacing: 2.5px; color: #006400; text-transform: uppercase; margin: 28px 0 12px; }
+.hr-piece p { font-family: Georgia, serif; font-size: 16px; line-height: 1.75; color: #1a1a1a; margin-bottom: 16px; }
+.hr-section { margin-bottom: 44px; }
+.hr-section-title { font-family: "Courier New", Courier, monospace; font-size: 12px; font-weight: bold; letter-spacing: 3px; color: #006400; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2px solid #006400; margin-bottom: 18px; }
+.hr-archive-item { padding: 14px 0; border-bottom: 1px dotted #c8c2b0; }
+.hr-archive-item a { color: #1a1a1a; text-decoration: none; }
+.hr-archive-item a:hover { color: #006400; }
+.hr-archive-date { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: 1.5px; color: #777; text-transform: uppercase; }
+.hr-archive-title { font-family: Georgia, serif; font-size: 16px; font-weight: bold; margin-top: 4px; }
+.hr-empty { font-family: Georgia, serif; font-size: 14px; font-style: italic; color: #888; padding: 20px 0; }
+.hr-footer-note { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #888; text-align: center; margin-top: 56px; letter-spacing: 1.5px; }
+/* ── Field Breakdown ─────────────────────────────────── */
+.hr-breakdown { margin-top: 44px; padding-top: 36px; border-top: 2px solid #006400; }
+.hr-bd-note { font-family: Georgia, serif; font-size: 13px; font-style: italic; color: #777; margin-bottom: 28px; }
+.hr-bd-race { margin-bottom: 32px; border-left: 3px solid #c8c2b0; padding-left: 16px; }
+.hr-bd-race-header { margin-bottom: 14px; }
+.hr-bd-race-no { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; letter-spacing: 2px; color: #006400; text-transform: uppercase; margin-right: 10px; }
+.hr-bd-race-name { font-family: Georgia, serif; font-size: 15px; font-weight: bold; color: #1a1a1a; margin-right: 10px; }
+.hr-bd-race-meta { font-family: "Courier New", Courier, monospace; font-size: 10px; color: #888; letter-spacing: 1px; }
+.hr-bd-runner { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+.hr-bd-rank { font-family: "Courier New", Courier, monospace; font-size: 11px; font-weight: bold; color: #006400; width: 36px; flex-shrink: 0; padding-top: 2px; }
+.hr-bd-dark-label { color: #8b0000; }
+.hr-bd-dark { border-left: 2px dashed #c8c2b0; padding-left: 12px; margin-left: -15px; margin-top: 4px; }
+.hr-bd-horse { flex: 1; }
+.hr-bd-name { font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: bold; letter-spacing: 0.5px; color: #1a1a1a; margin-right: 10px; }
+.hr-bd-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; vertical-align: middle; }
+.hr-bd-chip { font-family: "Courier New", Courier, monospace; font-size: 10px; background: #efeadb; color: #555; padding: 1px 6px; border-radius: 2px; white-space: nowrap; }
+.hr-bd-thesis { font-family: Georgia, serif; font-size: 14px; color: #333; line-height: 1.5; margin-top: 4px; }
+.hr-bd-conf { font-family: "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 1px; color: #555; margin-top: 3px; }
+.hr-bd-conf-max { color: #B0241E; font-weight: bold; }
+.hr-bd-conf-why { font-family: Georgia, serif; font-size: 12.5px; font-style: italic; color: #777; letter-spacing: normal; }
+.hr-bd-fullfield { margin: 14px 0 4px; border-top: 1px dashed #d8d2c0; padding-top: 10px; }
+.hr-bd-fullfield > summary { font-family: "Courier New", Courier, monospace; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; color: #006400; text-transform: uppercase; cursor: pointer; padding: 4px 0; list-style: none; }
+.hr-bd-fullfield > summary::-webkit-details-marker { display: none; }
+.hr-bd-fullfield > summary::before { content: "▸ "; display: inline-block; transition: transform 0.15s; }
+.hr-bd-fullfield[open] > summary::before { content: "▾ "; }
+.hr-bd-fullfield-list { list-style: none; padding: 8px 0 4px; margin: 0; counter-reset: ff; }
+.hr-bd-fullfield-list li { display: grid; grid-template-columns: 28px minmax(140px, 1.8fr) 64px 1.2fr 1.2fr; gap: 8px; padding: 4px 0; font-size: 12px; align-items: baseline; border-bottom: 1px dotted #ece6d4; }
+.hr-bd-fullfield-list li:last-child { border-bottom: 0; }
+.hr-ff-draw { font-family: "Courier New", Courier, monospace; font-weight: bold; color: #555; text-align: center; }
+.hr-ff-name { font-family: "Courier New", Courier, monospace; font-weight: bold; color: #1a1a1a; letter-spacing: 0.3px; }
+.hr-ff-rtg { font-family: "Courier New", Courier, monospace; color: #777; font-size: 11px; }
+.hr-ff-jockey { font-family: Georgia, serif; color: #444; font-size: 12px; }
+.hr-ff-trainer { font-family: Georgia, serif; color: #888; font-size: 11px; font-style: italic; }
+@media (max-width: 640px) {
+  .hr-wordmark { font-size: 14px; letter-spacing: 4px; }
+  .hr-byline { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .hr-bd-race-meta { display: block; margin-top: 4px; }
+  .hr-bd-fullfield-list li { grid-template-columns: 24px 1fr 50px; gap: 6px; }
+  .hr-ff-jockey, .hr-ff-trainer { grid-column: 2 / -1; font-size: 11px; padding-left: 0; }
+  .hr-ff-trainer { color: #999; }
+}</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://wangreport.com/#website","name":"The Wang Report","alternateName":"Wang Report","url":"https://wangreport.com","description":"The Wang Report, independent news curation from Hong Kong covering geopolitics, finance, cyber, AI, and culture.","inLanguage":"en","publisher":{"@id":"https://wangreport.com/#organization"}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHENRPSK4D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HHENRPSK4D');
+  </script>
+</head>
+<body>
+
+<div class="hr-nav"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a><h4>Read and listen</h4><a href="/search">Search articles</a><a href="/edition/latest">Today's edition</a><a href="/issue">The View</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div></div>
+
+<div class="hr-wrap">
+  <div class="hr-masthead">
+    <div class="hr-wordmark">The HKJC Read</div>
+    <div class="hr-tagline">A Wang Report Data Feature &middot; Vivian Wong &amp; Pris Yeung</div>
+    <hr class="hr-rule">
+    <hr class="hr-rule-thin">
+  </div>
+
+  <div class="hr-byline">
+    <a href="/masthead/vivian-wong" class="hr-byline-avatar"><img src="/masthead/img/vivian-wong.png" alt="Vivian Wong"></a>
+    <a href="/masthead/priscilla-yeung" class="hr-byline-avatar"><img src="/masthead/img/priscilla-yeung.png" alt="Priscilla Yeung"></a>
+    <div class="hr-byline-text">
+      By <a href="/masthead/vivian-wong">Vivian Wong</a> (Sports Desk, Research Editor)<br>
+      with <a href="/masthead/priscilla-yeung">Priscilla Yeung</a> (Gaming/Interactive Correspondent)
+      <div class="hr-byline-role">Twice weekly &middot; race-day mornings</div>
+    </div>
+  </div>
+
+  <p class="hr-explainer">The HKJC Read is the Wang Report's twice-weekly data-journalism feature on Hong Kong horse racing. It publishes race-day mornings before the first post at Sha Tin (Sunday) or Happy Valley (Wednesday), analyzing the field and the institutional context using the publication's data tooling. Alongside the analysis it runs the HK$200 Exercise, a tracked paper-betting record: one pick for every race, logged before the first post with the horse number, the bet and the reasons, HK$200 a pick in confidence order until the week's HK$1,000 is used, the rest logged as passes, every pick settled in public against HKJC's official dividends. It is not betting advice.</p>
+  <div class="hr-section">
+    <div class="hr-section-title">Filed 2026-11-04</div>
+    <div class="hr-piece">
+    <div class="hr-piece-meta">Happy Valley &middot; Wednesday evening meeting &middot; 2026-11-04</div>
+    <div class="hr-piece-title">Same Distance, Different Evidence</div>
+    <div class="hr-piece-deck">Five Happy Valley sprints give Wednesday’s meeting a common distance, but reading form against the money requires separating class, race shape and pool mechanics.</div>
+    <h3>The Repeated Test</h3><p>Happy Valley’s Wednesday meeting puts the same distance in front of the market five times. Five of its nine races are over 1200 metres, including three Class 4 contests followed by two in Class 3. Each has 12 runners. That repetition sharpens the evening’s question: when money concentrates around a runner, how much of that confidence belongs to demonstrated ability, and how much depends on the particular race it must negotiate? The card provides a useful comparison across races, but matching distances and field sizes do not make the contests interchangeable. The distribution of speed within each field matters more than the resemblance between their headings.</p>
+<h3>Class Needs Context</h3><p>Races 3, 5 and 6 share the Class 4 rating band of 60–40. Races 8 and 9 move to Class 3, rated 80–60. Those bands organise eligibility; they do not describe how closely matched the runners are within a race. Twelve starters can include a tight cluster of ratings or a broader spread, with different weights and recent trajectories. A horse arriving from another class also brings evidence that needs translating: the strength of its previous opposition, the pace it encountered and the work required to secure its position. None of those distinctions can be recovered from the class label alone. Repeated conditions make comparison possible, then make careless comparison tempting.</p><p>The market adds another measurement, provided its components stay separate. A shortening win price records a change in the distribution of money in that pool. It does not identify the reason for the change. Place betting asks a different question, while quinella and trifecta prices reflect combinations of runners rather than a direct ranking of individual ability. Agreement across pools can strengthen the case that attention is concentrating; disagreement needs examination before it acquires a story. The supplied card contains no prices, pool totals, runner histories or sectional times. There is consequently no evidenced form-and-market disagreement to name this morning. The useful task is to establish what would count as one.</p>
+<h3>Read The Conditions</h3><p>The rest of the programme keeps that sprint-heavy frame honest. Three 1650-metre races span Classes 5, 4 and 3, while the opening Class 5 contest supplies the evening’s only 1000-metre race. Money moving across those contests cannot be read through one account of speed or stamina. Each requires its own assessment of position, pace and the opposition. Wednesday’s meeting therefore offers a disciplined way to read HKJC’s market as the evening develops: compare the confidence expressed in a pool with the specific performance evidence supporting it. Where the two diverge, identify the assumption separating them. That gap, once established, is the story the prices alone cannot tell.</p>
+    <div class="hr-breakdown">
+  <div class="hr-section-title">Field Breakdown &middot; Vivian Wong</div>
+  <p class="hr-bd-note">Top 3 contenders by rating and form, plus one dark horse per race. Not selections -- structural reads of the field. Tap "Full field" to see every runner.</p>
+  
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 1</span>
+        <span class="hr-bd-race-name">CLEVELAND HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 5 &middot; 1000M Turf &middot; Going: Good &middot; Rating: 40-0</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">LOVING VIBES</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 40</span>
+            <span class="hr-bd-chip">Draw 7</span>
+            <span class="hr-bd-chip">H Y Yuen (-7)</span>
+          </span>
+          <div class="hr-bd-thesis">The highest rating and a 7lb claim support his case, although his three older seconds have given way to fourth, ninth and fifth.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The rating lead and claim help, but recent form has weakened and draw 7 offers no obvious advantage.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">SPICY SPANGLE</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 38</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">P N Wong (-7)</span>
+          </span>
+          <div class="hr-bd-thesis">A win two starts ago and a 7lb claim distinguish him among the runners rated 38, with draw 9 the positional concern.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">Recent winning form supports the mark, but his latest fifth and outside draw limit confidence.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">MAPOGO</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 38</span>
+            <span class="hr-bd-chip">Draw 8</span>
+            <span class="hr-bd-chip">K Teetan</span>
+          </span>
+          <div class="hr-bd-thesis">Three top-five finishes in his last four starts give his joint-second-highest rating more substance than several similarly rated rivals.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">Recent fourths and fifths are defensible, but there is no recent placing and draw 8 adds uncertainty.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">ALWAYS MY FOLKS</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 35</span>
+            <span class="hr-bd-chip">Draw 4</span>
+            <span class="hr-bd-chip">C L Chau (-2)</span>
+          </span>
+          <div class="hr-bd-thesis">Draw 4 and a 2lb claim provide a concrete advantage over the wider leading selections, although his last win is five starts back.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">The draw and claim help, but ninth and eighth in his latest two runs weaken the form case.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">CELESTIAL STRIDER</span><span class="hr-ff-rtg">Rtg 34</span><span class="hr-ff-jockey">M L Yeung</span><span class="hr-ff-trainer">W Y So</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">RUNJEET</span><span class="hr-ff-rtg">Rtg 28</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">D J Whyte</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">ICONICAL</span><span class="hr-ff-rtg">Rtg 33</span><span class="hr-ff-jockey">J Orman</span><span class="hr-ff-trainer">J Richards</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">ALWAYS MY FOLKS</span><span class="hr-ff-rtg">Rtg 35</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">JOY STAR</span><span class="hr-ff-rtg">Rtg 38</span><span class="hr-ff-jockey">H T Mo (-2)</span><span class="hr-ff-trainer">Y S Tsui</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">LEAN MASTER</span><span class="hr-ff-rtg">Rtg 34</span><span class="hr-ff-jockey">H Bentley</span><span class="hr-ff-trainer">C H Yip</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">LOVING VIBES</span><span class="hr-ff-rtg">Rtg 40</span><span class="hr-ff-jockey">H Y Yuen (-7)</span><span class="hr-ff-trainer">M Newnham</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">MAPOGO</span><span class="hr-ff-rtg">Rtg 38</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">K L Man</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">SPICY SPANGLE</span><span class="hr-ff-rtg">Rtg 38</span><span class="hr-ff-jockey">P N Wong (-7)</span><span class="hr-ff-trainer">W K Mo</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">COMET RADIANCE</span><span class="hr-ff-rtg">Rtg 38</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">A S Cruz</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">SOLAR RIVER</span><span class="hr-ff-rtg">Rtg 30</span><span class="hr-ff-jockey">R Kingscote</span><span class="hr-ff-trainer">K H Ting</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">ZETA HEDGE</span><span class="hr-ff-rtg">Rtg 38</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">C W Chang</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 2</span>
+        <span class="hr-bd-race-name">CANNON HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 5 &middot; 1650M Turf &middot; Going: Good &middot; Rating: 40-0</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">LOVELY MILES</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 40</span>
+            <span class="hr-bd-chip">Draw 5</span>
+            <span class="hr-bd-chip">H Y Yuen (-7)</span>
+          </span>
+          <div class="hr-bd-thesis">A latest fourth restores some support for the field's highest rating, with a 7lb claim easing his top-weight assignment.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The latest improvement, draw 5 and claim align, but the preceding results were poor.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">MONTA FRUTTA</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 38</span>
+            <span class="hr-bd-chip">Draw 3</span>
+            <span class="hr-bd-chip">Y L Chung (-2)</span>
+          </span>
+          <div class="hr-bd-thesis">The second-highest rating, draw 3 and a third three starts ago sustain his case despite subsequent sixth and ninth finishes.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">An inside draw supports the 1650M case, but his two latest runs dilute the earlier placing.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">GOR GOR</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 37</span>
+            <span class="hr-bd-chip">Draw 6</span>
+            <span class="hr-bd-chip">K Teetan</span>
+          </span>
+          <div class="hr-bd-thesis">His progression from eighth to seventh to sixth and draw 6 give him the stronger case of the two runners rated 37.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">Recent results show modest improvement, but none of his supplied runs produced a placing.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">OUR LUCKY GLORY</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 32</span>
+            <span class="hr-bd-chip">Draw 7</span>
+            <span class="hr-bd-chip">A Badel</span>
+          </span>
+          <div class="hr-bd-thesis">A latest fourth matches the best last-start finish in this field while he carries eight pounds less than LOVELY MILES before claims.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">The latest fourth and lower weight provide a case, but his preceding three runs were unplaced.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">LUCKY BLESSING</span><span class="hr-ff-rtg">Rtg 31</span><span class="hr-ff-jockey">K C Leung</span><span class="hr-ff-trainer">W K Mo</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">PRINCE ALEX</span><span class="hr-ff-rtg">Rtg 26</span><span class="hr-ff-jockey">L Hewitson</span><span class="hr-ff-trainer">D J Whyte</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">MONTA FRUTTA</span><span class="hr-ff-rtg">Rtg 38</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">A S Cruz</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">TELECOM POWER</span><span class="hr-ff-rtg">Rtg 28</span><span class="hr-ff-jockey">H Bentley</span><span class="hr-ff-trainer">Y S Tsui</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">LOVELY MILES</span><span class="hr-ff-rtg">Rtg 40</span><span class="hr-ff-jockey">H Y Yuen (-7)</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">GOR GOR</span><span class="hr-ff-rtg">Rtg 37</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">B Crawford</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">OUR LUCKY GLORY</span><span class="hr-ff-rtg">Rtg 32</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">W Y So</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">TO INFINITY</span><span class="hr-ff-rtg">Rtg 33</span><span class="hr-ff-jockey">J Orman</span><span class="hr-ff-trainer">J Richards</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">CAN'T GO WONG</span><span class="hr-ff-rtg">Rtg 36</span><span class="hr-ff-jockey">M F Poon</span><span class="hr-ff-trainer">F C Lor</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">SUPER SICARIO</span><span class="hr-ff-rtg">Rtg 36</span><span class="hr-ff-jockey">B Avdulla</span><span class="hr-ff-trainer">C Fownes</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">WHOWROTETHATSONG</span><span class="hr-ff-rtg">Rtg 37</span><span class="hr-ff-jockey">L Ferraris</span><span class="hr-ff-trainer">C H Yip</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">WINNING DIAMOND</span><span class="hr-ff-rtg">Rtg 24</span><span class="hr-ff-jockey">R Kingscote</span><span class="hr-ff-trainer">D Eustace</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 3</span>
+        <span class="hr-bd-race-name">GLOUCESTER HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 4 &middot; 1200M Turf &middot; Going: Good &middot; Rating: 60-40</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">BROWNNEEDSFURTHER</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 60</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">Z Purton</span>
+          </span>
+          <div class="hr-bd-thesis">The highest-rated runner brings two wins followed by a fourth and the Purton booking, although draw 9 complicates his positioning.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Strong recent form supports his class-ceiling rating, with the outside draw preventing a higher assessment.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">MASTER CHAMPION</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 57</span>
+            <span class="hr-bd-chip">Draw 7</span>
+            <span class="hr-bd-chip">H Y Yuen (-7)</span>
+          </span>
+          <div class="hr-bd-thesis">Consecutive third and fourth finishes mark a clear improvement, supported by a 7lb claim against this Class 4 field.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">His latest two runs and claim are persuasive, but draw 7 and earlier poor form temper confidence.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">ISLAND BUDDY</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 56</span>
+            <span class="hr-bd-chip">Draw 2</span>
+            <span class="hr-bd-chip">K Teetan</span>
+          </span>
+          <div class="hr-bd-thesis">Draw 2 complements a latest fourth and three earlier consecutive thirds, giving his rating a firmer form basis than THUNDER ACTION's.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Four top-four finishes in five starts and an inside draw support a strong assessment despite the intervening thirteenth.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">DAN ATTACK</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 52</span>
+            <span class="hr-bd-chip">Draw 1</span>
+            <span class="hr-bd-chip">H Bentley</span>
+          </span>
+          <div class="hr-bd-thesis">Three consecutive seconds and the inside gate give this lower-rated runner an unusually substantial form-and-draw case.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Repeated recent placings and draw 1 align, although his rating remains eight points below the top runner.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">DAN ATTACK</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">H Bentley</span><span class="hr-ff-trainer">D J Whyte</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">ISLAND BUDDY</span><span class="hr-ff-rtg">Rtg 56</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">B Crawford</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">THUNDER ACTION</span><span class="hr-ff-rtg">Rtg 58</span><span class="hr-ff-jockey">M L Yeung</span><span class="hr-ff-trainer">W Y So</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">TOURBILLON GOLFER</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">M F Poon</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">MEGA AWESOME</span><span class="hr-ff-rtg">Rtg 45</span><span class="hr-ff-jockey">L Hewitson</span><span class="hr-ff-trainer">D A Hayes</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">JOKER ORBIT</span><span class="hr-ff-rtg">Rtg 48</span><span class="hr-ff-jockey">K C Leung</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">MASTER CHAMPION</span><span class="hr-ff-rtg">Rtg 57</span><span class="hr-ff-jockey">H Y Yuen (-7)</span><span class="hr-ff-trainer">P C Ng</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">UNRIVALED KING</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">A Atzeni</span><span class="hr-ff-trainer">K L Man</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">BROWNNEEDSFURTHER</span><span class="hr-ff-rtg">Rtg 60</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">D J Hall</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">PODIUM</span><span class="hr-ff-rtg">Rtg 41</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">D Eustace</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">LIGHTNESS OF BEING</span><span class="hr-ff-rtg">Rtg 42</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">A S Cruz</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">RELENTLESS PURSUIT</span><span class="hr-ff-rtg">Rtg 50</span><span class="hr-ff-jockey">L Ferraris</span><span class="hr-ff-trainer">M Newnham</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 4</span>
+        <span class="hr-bd-race-name">EAST POINT HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 4 &middot; 1650M Turf &middot; Going: Good &middot; Rating: 60-40</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">WELL ENOUGH</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 56</span>
+            <span class="hr-bd-chip">Draw 4</span>
+            <span class="hr-bd-chip">H Bentley</span>
+          </span>
+          <div class="hr-bd-thesis">The field's clear rating leader has improved from fifth to third and draws favourably in gate 4 for 1650M.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">A seven-point rating advantage, improving recent form and draw 4 converge, although earlier results were weak.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">BEST WORLD</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 47</span>
+            <span class="hr-bd-chip">Draw 8</span>
+            <span class="hr-bd-chip">B Avdulla</span>
+          </span>
+          <div class="hr-bd-thesis">Two fifths in four starts provide limited support for his rating advantage over most rivals, although his latest eleventh weakens the case.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">Earlier fifths are the main evidence, with a poor latest run and draw 8 limiting confidence.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">VIVA FIRECRACKER</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 46</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">A Badel</span>
+          </span>
+          <div class="hr-bd-thesis">A win two starts ago gives him the strongest recent achievement among the runners rated 46, despite a subsequent twelfth and draw 9.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">The recent win supplies a credible basis, but the latest reversal and outside draw are substantial negatives.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">GAZELEY</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 44</span>
+            <span class="hr-bd-chip">Draw 12</span>
+            <span class="hr-bd-chip">M Chadwick</span>
+          </span>
+          <div class="hr-bd-thesis">Consecutive seconds give him the field's strongest immediate placing sequence, although gate 12 threatens an economical 1650M passage.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">Two recent seconds justify interest at this rating, but the widest supplied draw materially reduces confidence.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">PRESTIGE RICKY</span><span class="hr-ff-rtg">Rtg 42</span><span class="hr-ff-jockey">A Atzeni</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">PRESIDENT PEGASUS</span><span class="hr-ff-rtg">Rtg 42</span><span class="hr-ff-jockey">L Hewitson</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">LUCKY TOGETHER</span><span class="hr-ff-rtg">Rtg 44</span><span class="hr-ff-jockey">K C Leung</span><span class="hr-ff-trainer">F C Lor</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">WELL ENOUGH</span><span class="hr-ff-rtg">Rtg 56</span><span class="hr-ff-jockey">H Bentley</span><span class="hr-ff-trainer">J Richards</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">SILVERY KNIGHT</span><span class="hr-ff-rtg">Rtg 46</span><span class="hr-ff-jockey">R Kingscote</span><span class="hr-ff-trainer">D J Whyte</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">QUICK CONTRIBUTION</span><span class="hr-ff-rtg">Rtg 43</span><span class="hr-ff-jockey">M F Poon</span><span class="hr-ff-trainer">D J Hall</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">AMAZING AWARD</span><span class="hr-ff-rtg">Rtg 44</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">D Eustace</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">BEST WORLD</span><span class="hr-ff-rtg">Rtg 47</span><span class="hr-ff-jockey">B Avdulla</span><span class="hr-ff-trainer">D A Hayes</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">VIVA FIRECRACKER</span><span class="hr-ff-rtg">Rtg 46</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">A S Cruz</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">COOGEE BAY</span><span class="hr-ff-rtg">Rtg 46</span><span class="hr-ff-jockey">C Y Ho</span><span class="hr-ff-trainer">P C Ng</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">SEA CHARIOT</span><span class="hr-ff-rtg">Rtg 49</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">W K Mo</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">GAZELEY</span><span class="hr-ff-rtg">Rtg 44</span><span class="hr-ff-jockey">M Chadwick</span><span class="hr-ff-trainer">K W Lui</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 5</span>
+        <span class="hr-bd-race-name">THE ANT DIGITAL TECHNOLOGIES CUP (HANDICAP)</span>
+        <span class="hr-bd-race-meta">Class 4 &middot; 1200M Turf &middot; Going: Good &middot; Rating: 60-40</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">GALLANT DESIGN</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 55</span>
+            <span class="hr-bd-chip">Draw 12</span>
+            <span class="hr-bd-chip">B Avdulla</span>
+          </span>
+          <div class="hr-bd-thesis">Five consecutive top-four finishes underpin his rating of 55, although gate 12 is a significant obstacle to economical positioning.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">Consistent recent placings support the selection, but the outside gate prevents a stronger assessment.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">SOLID CAR</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 55</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">J Orman</span>
+          </span>
+          <div class="hr-bd-thesis">A latest third following a win extends his sequence of top-three finishes to four, with draw 9 the principal drawback.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Four consecutive top-three finishes strongly support the rating, although the wide draw introduces a positional cost.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">UNSTOPPAPLE</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 54</span>
+            <span class="hr-bd-chip">Draw 1</span>
+            <span class="hr-bd-chip">K C Leung</span>
+          </span>
+          <div class="hr-bd-thesis">A latest second and draw 1 give him a more defensible case than the higher-rated runners arriving off repeated poor finishes.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The improved latest run and inside gate help, but only three starts are supplied.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">PACKING SMART</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 52</span>
+            <span class="hr-bd-chip">Draw 2</span>
+            <span class="hr-bd-chip">Z Purton</span>
+          </span>
+          <div class="hr-bd-thesis">Draw 2 and the Purton booking provide specific positives for a runner whose supplied record contains no race form.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 1/5</span> &middot; <span class="hr-bd-conf-why">The draw and booking are attractive, but there is no supplied form to establish readiness or competitiveness.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">UNSTOPPAPLE</span><span class="hr-ff-rtg">Rtg 54</span><span class="hr-ff-jockey">K C Leung</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">PACKING SMART</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">D A Hayes</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">TACTICAL ACE</span><span class="hr-ff-rtg">Rtg 54</span><span class="hr-ff-jockey">M F Poon</span><span class="hr-ff-trainer">W Y So</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">MR DESIRA</span><span class="hr-ff-rtg">Rtg 60</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">C Fownes</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">LUNAR DASH</span><span class="hr-ff-rtg">Rtg 55</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">B Crawford</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">CORNERSTONE</span><span class="hr-ff-rtg">Rtg 45</span><span class="hr-ff-jockey">R Kingscote</span><span class="hr-ff-trainer">C H Yip</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">COPARTNER FLEET</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">K W Lui</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">FLYING TING LOK</span><span class="hr-ff-rtg">Rtg 45</span><span class="hr-ff-jockey">A Atzeni</span><span class="hr-ff-trainer">Y S Tsui</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">SOLID CAR</span><span class="hr-ff-rtg">Rtg 55</span><span class="hr-ff-jockey">J Orman</span><span class="hr-ff-trainer">D J Hall</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">ALABAMA SONG</span><span class="hr-ff-rtg">Rtg 41</span><span class="hr-ff-jockey">M L Yeung</span><span class="hr-ff-trainer">J Size</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">SYNERGY IN ACTION</span><span class="hr-ff-rtg">Rtg 47</span><span class="hr-ff-jockey">C Y Ho</span><span class="hr-ff-trainer">P C Ng</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">GALLANT DESIGN</span><span class="hr-ff-rtg">Rtg 55</span><span class="hr-ff-jockey">B Avdulla</span><span class="hr-ff-trainer">J Richards</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 6</span>
+        <span class="hr-bd-race-name">GLOUCESTER HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 4 &middot; 1200M Turf &middot; Going: Good &middot; Rating: 60-40</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">STORMING DRAGON</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 60</span>
+            <span class="hr-bd-chip">Draw 3</span>
+            <span class="hr-bd-chip">Z Purton</span>
+          </span>
+          <div class="hr-bd-thesis">The highest rating, draw 3 and a latest fourth give the Purton mount a solid foundation despite mixed preceding form.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The rating and inside draw support his latest improvement, but recent sixth and eighth finishes limit conviction.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">CHARMING BABE</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 58</span>
+            <span class="hr-bd-chip">Draw 8</span>
+            <span class="hr-bd-chip">H Y Yuen (-7)</span>
+          </span>
+          <div class="hr-bd-thesis">A last-start win supports his six-point rating rise, while a 7lb claim helps with the weight assignment from draw 8.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The win and claim are positives, but the higher mark, wider gate and uneven earlier form require restraint.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">FRIENDS OF SHAJING</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 58</span>
+            <span class="hr-bd-chip">Draw 5</span>
+            <span class="hr-bd-chip">C L Chau (-2)</span>
+          </span>
+          <div class="hr-bd-thesis">Consecutive thirds, an unchanged rating and draw 5 give him a stable recent platform with a 2lb claim.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Repeated placings at an unchanged mark and a workable draw support a strong assessment.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">CROSSBORDERDUDE</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 57</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">A Atzeni</span>
+          </span>
+          <div class="hr-bd-thesis">A two-point rating reduction offers relief to a runner whose earlier sequence of second and three thirds shows established placing ability.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">The lower mark and earlier placings help, but successive fifth and eighth finishes and draw 9 weaken the current case.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">STANLEY EXPRESS</span><span class="hr-ff-rtg">Rtg 54</span><span class="hr-ff-jockey">B Avdulla</span><span class="hr-ff-trainer">D Eustace</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">SIGHT GENIUS</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">M F Poon</span><span class="hr-ff-trainer">D A Hayes</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">STORMING DRAGON</span><span class="hr-ff-rtg">Rtg 60</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">J Richards</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">KWAI CHUNG TALENTS</span><span class="hr-ff-rtg">Rtg 48</span><span class="hr-ff-jockey">M L Yeung</span><span class="hr-ff-trainer">C W Chang</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">FRIENDS OF SHAJING</span><span class="hr-ff-rtg">Rtg 58</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">W K Mo</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">VERBIER</span><span class="hr-ff-rtg">Rtg 42</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">C Fownes</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">DOUBLE MONEY</span><span class="hr-ff-rtg">Rtg 59</span><span class="hr-ff-jockey">H T Mo (-2)</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">CHARMING BABE</span><span class="hr-ff-rtg">Rtg 58</span><span class="hr-ff-jockey">H Y Yuen (-7)</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">CROSSBORDERDUDE</span><span class="hr-ff-rtg">Rtg 57</span><span class="hr-ff-jockey">A Atzeni</span><span class="hr-ff-trainer">J Size</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">OUTGATE</span><span class="hr-ff-rtg">Rtg 57</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">A S Cruz</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">SASSPHIRE</span><span class="hr-ff-rtg">Rtg 52</span><span class="hr-ff-jockey">L Hewitson</span><span class="hr-ff-trainer">M Newnham</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">HEALTHY HEALTHY</span><span class="hr-ff-rtg">Rtg 56</span><span class="hr-ff-jockey">L Ferraris</span><span class="hr-ff-trainer">P C Ng</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 7</span>
+        <span class="hr-bd-race-name">JAFFE HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 3 &middot; 1650M Turf &middot; Going: Good &middot; Rating: 80-60</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">LOCH TAY</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 78</span>
+            <span class="hr-bd-chip">Draw 4</span>
+            <span class="hr-bd-chip">R Kingscote</span>
+          </span>
+          <div class="hr-bd-thesis">The joint-highest rating and draw 4 are supported by a latest fourth and a win four starts ago.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The rating and favourable draw help, but his three runs since winning have yielded fourth, sixth and fourth.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">SOLID WIN</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 78</span>
+            <span class="hr-bd-chip">Draw 5</span>
+            <span class="hr-bd-chip">J Orman</span>
+          </span>
+          <div class="hr-bd-thesis">A latest win earns him joint-top rating, with draw 5 providing a workable starting position under his five-point increase.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The recent win supports his standing, but the higher mark and less convincing preceding form temper confidence.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">FLOW WATER FLOW</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 69</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">Z Purton</span>
+          </span>
+          <div class="hr-bd-thesis">Two older wins and recent sixth, fourth and fifth finishes give the Purton mount a defensible record despite draw 9.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">His supplied record is stronger than several higher-rated rivals' recent form, but results have softened since those wins.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">DO YOUR PART</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 65</span>
+            <span class="hr-bd-chip">Draw 2</span>
+            <span class="hr-bd-chip">C L Chau (-2)</span>
+          </span>
+          <div class="hr-bd-thesis">Draw 2 and a 2lb claim offer an economical 1650M setup, although his older placings have given way to fourth, sixth and seventh.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">The inside draw and claim are concrete advantages, but his recent finishing sequence has deteriorated.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">JOYFIELD</span><span class="hr-ff-rtg">Rtg 74</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">DO YOUR PART</span><span class="hr-ff-rtg">Rtg 65</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">K W Lui</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">STAY COSMIC</span><span class="hr-ff-rtg">Rtg 67</span><span class="hr-ff-jockey">M F Poon</span><span class="hr-ff-trainer">D A Hayes</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">LOCH TAY</span><span class="hr-ff-rtg">Rtg 78</span><span class="hr-ff-jockey">R Kingscote</span><span class="hr-ff-trainer">D Eustace</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">SOLID WIN</span><span class="hr-ff-rtg">Rtg 78</span><span class="hr-ff-jockey">J Orman</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">MONEY GAMES</span><span class="hr-ff-rtg">Rtg 64</span><span class="hr-ff-jockey">K C Leung</span><span class="hr-ff-trainer">M Newnham</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">STORMI</span><span class="hr-ff-rtg">Rtg 61</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">W K Mo</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">CALL ME TOPSEED</span><span class="hr-ff-rtg">Rtg 64</span><span class="hr-ff-jockey">H Bentley</span><span class="hr-ff-trainer">K L Man</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">FLOW WATER FLOW</span><span class="hr-ff-rtg">Rtg 69</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">J Size</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">RISING PHOENIX</span><span class="hr-ff-rtg">Rtg 66</span><span class="hr-ff-jockey">P N Wong (-7)</span><span class="hr-ff-trainer">D J Hall</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">NATURAL NUMBERS</span><span class="hr-ff-rtg">Rtg 61</span><span class="hr-ff-jockey">M Chadwick</span><span class="hr-ff-trainer">Y S Tsui</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">CORLEONE</span><span class="hr-ff-rtg">Rtg 71</span><span class="hr-ff-jockey">C Y Ho</span><span class="hr-ff-trainer">C Fownes</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 8</span>
+        <span class="hr-bd-race-name">CAUSEWAY BAY HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 3 &middot; 1200M Turf &middot; Going: Good &middot; Rating: 80-60</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">TARGET AUDIENCE</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 75</span>
+            <span class="hr-bd-chip">Draw 11</span>
+            <span class="hr-bd-chip">A Badel</span>
+          </span>
+          <div class="hr-bd-thesis">A win followed by two seconds gives the highest-rated runner with supplied form a strong case, tempered by draw 11.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Three consecutive top-two finishes substantiate his rating, but the wide gate prevents maximum confidence.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">JUBILANT WINNER</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 71</span>
+            <span class="hr-bd-chip">Draw 9</span>
+            <span class="hr-bd-chip">H Bentley</span>
+          </span>
+          <div class="hr-bd-thesis">A latest third restores support for his rating of 71, although draw 9 and inconsistent earlier results limit the strength of that evidence.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The recent placing is encouraging, but it follows an eleventh and the draw adds difficulty.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">KYRUS DRAGON</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 71</span>
+            <span class="hr-bd-chip">Draw 3</span>
+            <span class="hr-bd-chip">C L Chau (-2)</span>
+          </span>
+          <div class="hr-bd-thesis">Draw 3 and a 2lb claim strengthen his joint-third-highest rating, with a latest fifth improving on three preceding unplaced runs.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 2/5</span> &middot; <span class="hr-bd-conf-why">The draw and claim help, but his latest four starts contain no placing.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">FOUR STARS ALIGN</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 65</span>
+            <span class="hr-bd-chip">Draw 2</span>
+            <span class="hr-bd-chip">Y L Chung (-2)</span>
+          </span>
+          <div class="hr-bd-thesis">Fourth followed by third in his two supplied starts combines with draw 2 and a 2lb claim to give the lowest-rated runner a concrete case.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">Both supplied runs were competitive and the draw is favourable, but the short record limits certainty.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">LIVE WIRE</span><span class="hr-ff-rtg">Rtg 64</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">D J Whyte</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">FOUR STARS ALIGN</span><span class="hr-ff-rtg">Rtg 65</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">A S Cruz</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">KYRUS DRAGON</span><span class="hr-ff-rtg">Rtg 71</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">D J Hall</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">FLASHING FIGHTER</span><span class="hr-ff-rtg">Rtg 67</span><span class="hr-ff-jockey">H Y Yuen (-7)</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">MATTERS MOST</span><span class="hr-ff-rtg">Rtg 63</span><span class="hr-ff-jockey">K C Leung</span><span class="hr-ff-trainer">C S Shum</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">SPICY STANDARD</span><span class="hr-ff-rtg">Rtg 67</span><span class="hr-ff-jockey">A Atzeni</span><span class="hr-ff-trainer">J Size</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">KING OF FIGHTERS</span><span class="hr-ff-rtg">Rtg 61</span><span class="hr-ff-jockey">L Hewitson</span><span class="hr-ff-trainer">B Crawford</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">GOD OF PI</span><span class="hr-ff-rtg">Rtg 76</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">K L Man</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">JUBILANT WINNER</span><span class="hr-ff-rtg">Rtg 71</span><span class="hr-ff-jockey">H Bentley</span><span class="hr-ff-trainer">J Richards</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">NOTTHESILLYONE</span><span class="hr-ff-rtg">Rtg 61</span><span class="hr-ff-jockey">M Chadwick</span><span class="hr-ff-trainer">M Newnham</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">TARGET AUDIENCE</span><span class="hr-ff-rtg">Rtg 75</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">C Fownes</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">YOUNG EMPEROR</span><span class="hr-ff-rtg">Rtg 70</span><span class="hr-ff-jockey">L Ferraris</span><span class="hr-ff-trainer">D Eustace</span></li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="hr-bd-race">
+      <div class="hr-bd-race-header">
+        <span class="hr-bd-race-no">Race 9</span>
+        <span class="hr-bd-race-name">CAUSEWAY BAY HANDICAP</span>
+        <span class="hr-bd-race-meta">Class 3 &middot; 1200M Turf &middot; Going: Good &middot; Rating: 80-60</span>
+      </div>
+      
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">1</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">ACE CHAMPION</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 76</span>
+            <span class="hr-bd-chip">Draw 5</span>
+            <span class="hr-bd-chip">C Y Ho</span>
+          </span>
+          <div class="hr-bd-thesis">Consecutive wins establish the strongest recent form behind the field's highest rating, although an eight-point rise makes this a sterner assignment.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 4/5</span> &middot; <span class="hr-bd-conf-why">Two recent wins and draw 5 support confidence, with the substantial rating increase the main reservation.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">2</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">SYMBOL OF STRENGTH</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 73</span>
+            <span class="hr-bd-chip">Draw 2</span>
+            <span class="hr-bd-chip">B Avdulla</span>
+          </span>
+          <div class="hr-bd-thesis">The second-highest rating and draw 2 are backed by a latest fourth after consecutive fifths, with a two-point reduction adding relief.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">Consistent recent finishes and an inside draw help, but the supplied record contains no placing.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-contender">
+        <div class="hr-bd-rank">3</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">ALL OUT FOR SIX</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 67</span>
+            <span class="hr-bd-chip">Draw 7</span>
+            <span class="hr-bd-chip">K Teetan</span>
+          </span>
+          <div class="hr-bd-thesis">A latest second at an unchanged rating gives him a stronger current form case than higher-rated FORTUNE LINK.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">The recent second supports his mark, but it followed ninth and eleventh finishes and draw 7 offers limited assistance.</span></div>
+        </div>
+      </div>
+      <div class="hr-bd-runner hr-bd-dark">
+        <div class="hr-bd-rank hr-bd-dark-label">Dark</div>
+        <div class="hr-bd-horse">
+          <span class="hr-bd-name">QUANTUM CLOUD</span>
+          <span class="hr-bd-chips">
+            <span class="hr-bd-chip">Rtg 64</span>
+            <span class="hr-bd-chip">Draw 1</span>
+            <span class="hr-bd-chip">L Hewitson</span>
+          </span>
+          <div class="hr-bd-thesis">Draw 1 and a light 120lb assignment complement improvement from eighth to fourth to third at the bottom of this field's ratings.</div>
+          <div class="hr-bd-conf"><span class="hr-bd-conf-rating">Confidence 3/5</span> &middot; <span class="hr-bd-conf-why">Improving recent finishes and the inside gate support the case, although his rating trails the leader by 12 points.</span></div>
+        </div>
+      </div>
+      <details class="hr-bd-fullfield">
+        <summary>Full field &middot; 12 runners</summary>
+        <ol class="hr-bd-fullfield-list">
+          <li><span class="hr-ff-draw">1</span><span class="hr-ff-name">QUANTUM CLOUD</span><span class="hr-ff-rtg">Rtg 64</span><span class="hr-ff-jockey">L Hewitson</span><span class="hr-ff-trainer">B Crawford</span></li>
+          <li><span class="hr-ff-draw">2</span><span class="hr-ff-name">SYMBOL OF STRENGTH</span><span class="hr-ff-rtg">Rtg 73</span><span class="hr-ff-jockey">B Avdulla</span><span class="hr-ff-trainer">F C Lor</span></li>
+          <li><span class="hr-ff-draw">3</span><span class="hr-ff-name">CALIFORNIA BLITZ</span><span class="hr-ff-rtg">Rtg 62</span><span class="hr-ff-jockey">Z Purton</span><span class="hr-ff-trainer">W K Mo</span></li>
+          <li><span class="hr-ff-draw">4</span><span class="hr-ff-name">WUKONG JEWELLERY</span><span class="hr-ff-rtg">Rtg 63</span><span class="hr-ff-jockey">A Atzeni</span><span class="hr-ff-trainer">J Size</span></li>
+          <li><span class="hr-ff-draw">5</span><span class="hr-ff-name">ACE CHAMPION</span><span class="hr-ff-rtg">Rtg 76</span><span class="hr-ff-jockey">C Y Ho</span><span class="hr-ff-trainer">P C Ng</span></li>
+          <li><span class="hr-ff-draw">6</span><span class="hr-ff-name">IT IS YOU</span><span class="hr-ff-rtg">Rtg 64</span><span class="hr-ff-jockey">C L Chau (-2)</span><span class="hr-ff-trainer">D Eustace</span></li>
+          <li><span class="hr-ff-draw">7</span><span class="hr-ff-name">ALL OUT FOR SIX</span><span class="hr-ff-rtg">Rtg 67</span><span class="hr-ff-jockey">K Teetan</span><span class="hr-ff-trainer">Y S Tsui</span></li>
+          <li><span class="hr-ff-draw">8</span><span class="hr-ff-name">KING MILES</span><span class="hr-ff-rtg">Rtg 60</span><span class="hr-ff-jockey">M Chadwick</span><span class="hr-ff-trainer">K W Lui</span></li>
+          <li><span class="hr-ff-draw">9</span><span class="hr-ff-name">POWER KOEPP</span><span class="hr-ff-rtg">Rtg 67</span><span class="hr-ff-jockey">L Ferraris</span><span class="hr-ff-trainer">M Newnham</span></li>
+          <li><span class="hr-ff-draw">10</span><span class="hr-ff-name">FORTUNE LINK</span><span class="hr-ff-rtg">Rtg 69</span><span class="hr-ff-jockey">H Y Yuen (-7)</span><span class="hr-ff-trainer">P F Yiu</span></li>
+          <li><span class="hr-ff-draw">11</span><span class="hr-ff-name">YOUNG ARROW</span><span class="hr-ff-rtg">Rtg 62</span><span class="hr-ff-jockey">A Badel</span><span class="hr-ff-trainer">D J Whyte</span></li>
+          <li><span class="hr-ff-draw">12</span><span class="hr-ff-name">VIVA PROSPERAR</span><span class="hr-ff-rtg">Rtg 64</span><span class="hr-ff-jockey">Y L Chung (-2)</span><span class="hr-ff-trainer">A S Cruz</span></li>
+        </ol>
+      </details>
+    </div>
+</div>
+  </div>
+  </div>
+  
+  <div class="hr-footer-note">THE WANG REPORT &middot; THE HKJC READ</div>
+</div>
+
+<div class="ai-colophon">The Wang Report uses OpenAI models through Codex under human editorial oversight. See our <a href="editorial-standards">Editorial Standards</a>.</div><style>
+.sf{border-top:1px solid #E3DDD2;margin-top:28px;background:#F4F2EE;font-family:Arial,sans-serif}
+.sf-in{max-width:1080px;margin:0 auto;padding:22px 16px 36px}
+.sf-mark{font:900 20px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none}
+.sf-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin:16px 0}
+.sf-col h5{font:700 12px Arial,sans-serif;color:#0B1F3A;margin:0 0 6px}
+.sf-col a{display:block;font:13px/1.9 Arial,sans-serif;color:#5A6470;text-decoration:none}
+.sf-col a:hover{color:#0B1F3A;text-decoration:underline}
+.sf-copy{font:12px Arial,sans-serif;color:#5A6470;border-top:1px solid #E3DDD2;padding-top:12px}
+</style><footer class="sf"><div class="sf-in">
+  <a class="sf-mark" href="/">The Wang Report</a>
+  <div class="sf-cols"><div class="sf-col"><h5>Desks</h5><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></div><div class="sf-col"><h5>Read and listen</h5><a href="/search">Search articles</a><a href="/edition/latest">Today's edition</a><a href="/issue">The View</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a></div><div class="sf-col"><h5>Live data</h5><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a></div><div class="sf-col"><h5>The newsroom</h5><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a></div><div class="sf-col"><h5>About</h5><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
+  <div class="sf-copy">&copy; 2026 The Wang Report &middot; Hong Kong</div>
+</div></footer>
+
+
+</html>
+</body></html>
