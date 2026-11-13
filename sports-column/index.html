@@ -47,10 +47,28 @@
 </head>
 <body>
 
-<header class="nh">
-<nav class="nh-desks" aria-label="Desks"><a href="/" class="" style="--c:var(--wr-ink)">Front</a><a href="/hk-local" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="/cyber" style="--c:var(--desk-cyber)">Cyber</a><a href="/hk-finance" style="--c:var(--desk-finance)">Finance</a><a href="/geopolitical" style="--c:var(--desk-geopolitical)">World</a><a href="/ai-focus" style="--c:var(--desk-ai)">AI</a><a href="/sports" class="on" style="--c:var(--desk-sports)">Sports</a><a href="/science" style="--c:var(--desk-science)">Science & Health</a></nav>
-<nav class="nh-tools" aria-label="Tools"><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/issue">Sunday Issue</a><a href="/listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="/hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/dads">Dads</a></nav>
-</header>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports" class="on" style="--h:#A05A1F">Sports</a><a href="/desk/life">Life</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a><h4>Read and listen</h4><a href="/search">Search articles</a><a href="/edition/latest">Latest edition</a><a href="/issue">The View</a><a href="/weekly-journal/">Weekly Journal</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
 
 <div class="cola-wrap">
   <div class="cola-fieldstamp">SPORTS DESK · HONG KONG · WEEKLY · HONG KONG · Saturday cadence · ARCHIVE</div>
@@ -59,139 +77,139 @@
 
       <a href="/sports-column/2026-09-26-dev-chatterjee" class="cola-item">
         <div class="cola-date">September 27, 2026</div>
-        <div class="cola-title">Cardboard Now Outbids The King</div>
-        <div class="cola-deck">A Cooper Flagg rookie card sold for more than LeBron James will earn in Philadelphia, and the gap says more about how the NBA prices greatness than any box score this week.</div>
+        <div class="cola-title">Unverified reporting: Cardboard Now Outbids The King</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: ESPN -- Cooper Flagg rookie patch card sells for $8.04M; ESPN -- Warriors and Curry reach 2-year, $116M extension; ESPN -- Pelinka says Lakers-LeBron exit was amicable, Doncic-centered plan. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: A Cooper Flagg rookie card sold for more than LeBron James will earn in Philadelphia, and the gap says more about how the NBA prices greatness than any box score this week.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-09-07-dev-chatterjee" class="cola-item">
         <div class="cola-date">September 7, 2026</div>
-        <div class="cola-title">Nineteenth To First, Sixty Years In Between</div>
-        <div class="cola-deck">Kimi Antonelli won Monza from nineteenth on the grid on a seat Mercedes built for free inside its own junior program, in the same year Saudi Arabia's sovereign fund proved buying a champion outright is the pricier way to do it.</div>
+        <div class="cola-title">Unverified reporting: Nineteenth To First, Sixty Years In Between</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Formula1.com -- race report on Antonelli's Monza win from P19; The National -- Antonelli ends 60-year Italian wait for a home GP winner; Sunday Guardian Live -- championship standings after Italian GP, Antonelli's 66-point lead. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Kimi Antonelli won Monza from nineteenth on the grid on a seat Mercedes built for free inside its own junior program, in the same year Saudi Arabia's sovereign fund proved buying a champion outright is the pricier way to do it.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-08-29-dev-chatterjee" class="cola-item">
         <div class="cola-date">August 30, 2026</div>
-        <div class="cola-title">UFC Buys China Cheaper Than Saudi Arabia Did</div>
-        <div class="cola-deck">Song Yadong's Shanghai knockout cost UFC one $100,000 bonus, the same week Saudi Arabia's $6 billion, six-year LIV Golf subsidy formally ended, and the cheap bet won.</div>
+        <div class="cola-title">Unverified reporting: UFC Buys China Cheaper Than Saudi Arabia Did</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: ESPN -- Song Yadong's second-round KO of Umar Nurmagomedov, records and odds; Yahoo Sports -- round-by-round UFC Shanghai results and Song's title-shot quote; Forbes -- UFC Shanghai bonus payouts. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Song Yadong's Shanghai knockout cost UFC one $100,000 bonus, the same week Saudi Arabia's $6 billion, six-year LIV Golf subsidy formally ended, and the cheap bet won.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-08-22-dev-chatterjee" class="cola-item">
         <div class="cola-date">August 23, 2026</div>
-        <div class="cola-title">The Fine That Costs Less Than An Ad</div>
-        <div class="cola-deck">FIFA fined Leandro Paredes $90,000 for choking an opponent in the World Cup final, less than Fox charged for the ad break that followed, exposing which number FIFA actually protects.</div>
+        <div class="cola-title">Unverified reporting: The Fine That Costs Less Than An Ad</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: ESPN; SI.com; ABC7 New York. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: FIFA fined Leandro Paredes $90,000 for choking an opponent in the World Cup final, less than Fox charged for the ad break that followed, exposing which number FIFA actually protects.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-08-15-dev-chatterjee" class="cola-item">
         <div class="cola-date">August 16, 2026</div>
-        <div class="cola-title">Liverpool's $7 Billion Option, Not a Sale</div>
-        <div class="cola-deck">Liverpool's $7 billion sale isn't a sale at all, it's a twelve-month option, and the real story is what FSG's stalling reveals about who actually controls Anfield.</div>
+        <div class="cola-title">Unverified reporting: Liverpool's $7 Billion Option, Not a Sale</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: CNBC -- deal terms and FSG's continued control; Sportico -- $7bn valuation and investor list; Sky Sports -- stake size, board changes, historical valuation context. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Liverpool's $7 billion sale isn't a sale at all, it's a twelve-month option, and the real story is what FSG's stalling reveals about who actually controls Anfield.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-08-08-dev-chatterjee" class="cola-item">
         <div class="cola-date">August 9, 2026</div>
-        <div class="cola-title">Newcastle Sells Bruno Guimaraes for 75 Million Pounds</div>
-        <div class="cola-deck">Arsenal paid 75 million pounds for Bruno Guimaraes, and Newcastle's own finances say the sale was not required, leaving PIF's stake sale as the more telling number.</div>
+        <div class="cola-title">Unverified reporting: Newcastle Sells Bruno Guimaraes for 75 Million Pounds</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: ESPN, Arsenal sign Bruno Guimaraes from Newcastle; Sky Sports, Arsenal agree £75m fee for Bruno Guimaraes; Sports Illustrated, Newcastle chief confirms Arsenal agreement for Bruno Guimaraes. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Arsenal paid 75 million pounds for Bruno Guimaraes, and Newcastle's own finances say the sale was not required, leaving PIF's stake sale as the more telling number.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-08-01-dev-chatterjee" class="cola-item">
         <div class="cola-date">August 2, 2026</div>
-        <div class="cola-title">The Math That Finally Beat Gianni Infantino</div>
-        <div class="cola-deck">Infantino has never lost a vote he controlled the agenda for, but fifty-five federations did their own arithmetic on a $20 billion World Cup asset and made him fold.</div>
+        <div class="cola-title">Unverified reporting: The Math That Finally Beat Gianni Infantino</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Al Jazeera -- why has Infantino scrapped FIFA's World Cup investment plan; Al Jazeera -- Infantino's senior adviser Cordeiro resigns over FIFA World Cup plan; NBC News -- FIFA president Gianni Infantino faces boycott over $20B private equity plan. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Infantino has never lost a vote he controlled the agenda for, but fifty-five federations did their own arithmetic on a $20 billion World Cup asset and made him fold.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-07-25-dev-chatterjee" class="cola-item">
         <div class="cola-date">July 26, 2026</div>
-        <div class="cola-title">The 540-Dollar Ticket for LeBron's 8-Million-Dollar Deal</div>
-        <div class="cola-deck">LeBron's 76ers deal split the market in two: professional bettors priced a marginal rotation piece, while ticket brokers priced a farewell tour worth quadrupling admission for.</div>
+        <div class="cola-title">Unverified reporting: The 540-Dollar Ticket for LeBron's 8-Million-Dollar Deal</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: ESPN -- LeBron's two-year, $8 million deal with the 76ers; Washington Post -- Trump says LeBron James &quot;maybe...a racist,&quot; prefers Jordan; TicketNews -- StubHub/SeatGeek demand spike after LeBron's announcement. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: LeBron's 76ers deal split the market in two: professional bettors priced a marginal rotation piece, while ticket brokers priced a farewell tour worth quadrupling admission for.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-07-20-dev-chatterjee" class="cola-item">
         <div class="cola-date">July 20, 2026</div>
-        <div class="cola-title">Spain Won the Cup for Less Than One Winger</div>
-        <div class="cola-deck">Chelsea just paid more for an Aston Villa winger than Spain's entire squad earned winning the World Cup, and the transfer market's math is not broken, it is honest.</div>
+        <div class="cola-title">Unverified reporting: Spain Won the Cup for Less Than One Winger</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: NPR -- Spain beats Argentina 1-0 for second World Cup title; ESPN -- Spain outlasts Argentina, Messi and Argentina exit quietly; SportsPro -- Breaking down the business of the $13bn 2026 World Cup. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Chelsea just paid more for an Aston Villa winger than Spain's entire squad earned winning the World Cup, and the transfer market's math is not broken, it is honest.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-07-13-dev-chatterjee" class="cola-item">
         <div class="cola-date">July 14, 2026</div>
-        <div class="cola-title">The $9.612 Billion Seahawks Sale That a Rounding Error Froze</div>
-        <div class="cola-deck">This week sport's economics outran the referees meant to manage them, from World Cup ratings blowing past format critics to an NFL sale frozen by a rounding-error stake.</div>
+        <div class="cola-title">Unverified reporting: The $9.612 Billion Seahawks Sale That a Rounding Error Froze</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: ESPN -- confirmed England face Argentina July 15 in Atlanta, first Messi-England meeting; CBS Sports -- Mbappe downplays ankle injury ahead of France-Spain semifinal; Hollywood Reporter -- Fox's USA-Belgium broadcast draws 30 million viewers, best-ever US soccer audience. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: This week sport's economics outran the referees meant to manage them, from World Cup ratings blowing past format critics to an NFL sale frozen by a rounding-error stake.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-07-11-dev-chatterjee" class="cola-item">
         <div class="cola-date">July 12, 2026</div>
-        <div class="cola-title">PIF Trades LIV Golf for the 2034 World Cup</div>
-        <div class="cola-deck">PIF is ending its LIV Golf funding after 2026, not because the golf bet failed, but because hosting the 2034 World Cup is a better use of the same money.</div>
+        <div class="cola-title">Unverified reporting: PIF Trades LIV Golf for the 2034 World Cup</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: PIF is ending its LIV Golf funding after 2026, not because the golf bet failed, but because hosting the 2034 World Cup is a better use of the same money.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-07-04-dev-chatterjee" class="cola-item">
         <div class="cola-date">July 5, 2026</div>
-        <div class="cola-title">FIFA's World Cup Rights Fall to $37.7 Million a Game</div>
-        <div class="cola-deck">FIFA's record broadcast revenue at the 2026 World Cup is hiding a falling per-game rights value, and that arithmetic will decide how every future World Cup gets sold and watched.</div>
+        <div class="cola-title">Unverified reporting: FIFA's World Cup Rights Fall to $37.7 Million a Game</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: FIFA's record broadcast revenue at the 2026 World Cup is hiding a falling per-game rights value, and that arithmetic will decide how every future World Cup gets sold and watched.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-07-01-dev-chatterjee" class="cola-item">
         <div class="cola-date">July 1, 2026</div>
-        <div class="cola-title">Paraguay's Shootout Ambush Exposes Fox's $485M Bargain</div>
-        <div class="cola-deck">Paraguay's shootout ambush of Germany was the World Cup's signature shock, and it landed the same week that record US ratings showed just how badly FIFA underpriced its television rights.</div>
+        <div class="cola-title">Unverified reporting: Paraguay's Shootout Ambush Exposes Fox's $485M Bargain</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Paraguay's shootout ambush of Germany was the World Cup's signature shock, and it landed the same week that record US ratings showed just how badly FIFA underpriced its television rights.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-06-27-dev-chatterjee" class="cola-item">
         <div class="cola-date">June 28, 2026</div>
-        <div class="cola-title">PIF Takes 70 Percent Off Its Books, Keeps the Leverage</div>
-        <div class="cola-deck">Saudi Arabia's withdrawal from direct LIV Golf funding is not a retreat from sports diplomacy but a restructuring that trades balance-sheet exposure for deniability at lower political cost.</div>
+        <div class="cola-title">Unverified reporting: PIF Takes 70 Percent Off Its Books, Keeps the Leverage</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Saudi Arabia's withdrawal from direct LIV Golf funding is not a retreat from sports diplomacy but a restructuring that trades balance-sheet exposure for deniability at lower political cost.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-06-20-dev-chatterjee" class="cola-item">
         <div class="cola-date">June 21, 2026</div>
-        <div class="cola-title">Li-Ning Signs Curry, PIF Exits Golf</div>
-        <div class="cola-deck">PIF's structured exit from LIV Golf ends the sport-as-diplomacy experiment just as Chinese brand capital, via Curry's $400 million Li-Ning deal, claims the lane Saudi wealth is vacating.</div>
+        <div class="cola-title">Unverified reporting: Li-Ning Signs Curry, PIF Exits Golf</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: PIF's structured exit from LIV Golf ends the sport-as-diplomacy experiment just as Chinese brand capital, via Curry's $400 million Li-Ning deal, claims the lane Saudi wealth is vacating.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-06-07-dev-chatterjee" class="cola-item">
         <div class="cola-date">June 7, 2026</div>
-        <div class="cola-title">Dallas Shed Three Stars, Sands Renewed One License</div>
-        <div class="cola-deck">The Dallas Mavericks have shed three superstar-grade players in four seasons, and the governance culture behind their casino-empire ownership is built for concession renewals, not basketball continuity.</div>
+        <div class="cola-title">Unverified reporting: Dallas Shed Three Stars, Sands Renewed One License</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: The Dallas Mavericks have shed three superstar-grade players in four seasons, and the governance culture behind their casino-empire ownership is built for concession renewals, not basketball continuity.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-05-31-dev-chatterjee" class="cola-item">
         <div class="cola-date">May 31, 2026</div>
-        <div class="cola-title">$70,000 Bought an Early Exit</div>
-        <div class="cola-deck">The NBA's first public bribery benchmark is an offshore-betting story priced in Asian handicap markets, and the league's APAC commercial expansion has not reduced the exposure that made it possible.</div>
+        <div class="cola-title">Unverified reporting: $70,000 Bought an Early Exit</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: The NBA's first public bribery benchmark is an offshore-betting story priced in Asian handicap markets, and the league's APAC commercial expansion has not reduced the exposure that made it possible.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-05-24-dev-chatterjee" class="cola-item">
         <div class="cola-date">May 24, 2026</div>
-        <div class="cola-title">Arsenal Won. Star Sports' Math Changed.</div>
-        <div class="cola-deck">Arsenal's first Premier League title in 22 years resolves the competitive-uncertainty deficit that City's serial dominance had been building into the league's Asian broadcast price.</div>
+        <div class="cola-title">Unverified reporting: Arsenal Won. Star Sports' Math Changed.</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Arsenal's first Premier League title in 22 years resolves the competitive-uncertainty deficit that City's serial dominance had been building into the league's Asian broadcast price.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-05-16-dev-chatterjee-3" class="cola-item">
         <div class="cola-date">May 16, 2026</div>
-        <div class="cola-title">The Other Board Sits in Austin</div>
-        <div class="cola-deck">Miriam Adelson's move to rebuild the Mavericks and Las Vegas Sands' push to legalize Texas gaming are one project described in different press releases.</div>
+        <div class="cola-title">Unverified reporting: The Other Board Sits in Austin</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Miriam Adelson's move to rebuild the Mavericks and Las Vegas Sands' push to legalize Texas gaming are one project described in different press releases.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-05-16-dev-chatterjee-2" class="cola-item">
         <div class="cola-date">May 16, 2026</div>
-        <div class="cola-title">The Mavericks Are a Macau Capital Play</div>
-        <div class="cola-deck">Patrick Dumont's Mavericks are running the Las Vegas Sands asset-building playbook in basketball: buy the distressed franchise, install credible management, acquire the anchor talent.</div>
+        <div class="cola-title">Unverified reporting: The Mavericks Are a Macau Capital Play</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Patrick Dumont's Mavericks are running the Las Vegas Sands asset-building playbook in basketball: buy the distressed franchise, install credible management, acquire the anchor talent.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-05-16-dev-chatterjee" class="cola-item">
         <div class="cola-date">May 16, 2026</div>
-        <div class="cola-title">Sands Capital, Ujiri, and the Tencent Clock</div>
-        <div class="cola-deck">Miriam Adelson's Mavericks pursuing Ace Dybantsa and Masai Ujiri simultaneously is a capital-positioning play aimed at the NBA's next China streaming window, not just a basketball rebuild.</div>
+        <div class="cola-title">Unverified reporting: Sands Capital, Ujiri, and the Tencent Clock</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Miriam Adelson's Mavericks pursuing Ace Dybantsa and Masai Ujiri simultaneously is a capital-positioning play aimed at the NBA's next China streaming window, not just a basketball rebuild.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
       <a href="/sports-column/2026-05-10-dev-chatterjee-2" class="cola-item">
         <div class="cola-date">May 10, 2026</div>
-        <div class="cola-title">The House Runs the Mavs Now</div>
-        <div class="cola-deck">Miriam Adelson's decision to dismiss Nico Harrison and hire Mike Schmitz completes the Mavericks' transformation from Mark Cuban's equity experiment into a Las Vegas Sands property.</div>
+        <div class="cola-title">Unverified reporting: The House Runs the Mavs Now</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Miriam Adelson's decision to dismiss Nico Harrison and hire Mike Schmitz completes the Mavericks' transformation from Mark Cuban's equity experiment into a Las Vegas Sands property.</div>
         <div class="cola-author">Dev Chatterjee</div>
       </a>
 </div>
 
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div>
+<div class="ai-colophon">The Wang Report uses OpenAI models through Codex under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div>
 <div class="footer">
   THE WANG REPORT &copy; 2026 | <a href="/">MAIN</a> | <a href="/sports-column">SPORTS DESK COLUMN</a> | <a href="/columns">ALL COLUMNS</a> | <a href="/masthead">MASTHEAD</a>
 </div>

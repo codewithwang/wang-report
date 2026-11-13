@@ -47,10 +47,28 @@
 </head>
 <body>
 
-<header class="nh">
-<nav class="nh-desks" aria-label="Desks"><a href="/" class="" style="--c:var(--wr-ink)">Front</a><a href="/hk-local" class="on" style="--c:var(--desk-hk-local)">Hong Kong</a><a href="/cyber" style="--c:var(--desk-cyber)">Cyber</a><a href="/hk-finance" style="--c:var(--desk-finance)">Finance</a><a href="/geopolitical" style="--c:var(--desk-geopolitical)">World</a><a href="/ai-focus" style="--c:var(--desk-ai)">AI</a><a href="/sports" style="--c:var(--desk-sports)">Sports</a><a href="/science" style="--c:var(--desk-science)">Science & Health</a></nav>
-<nav class="nh-tools" aria-label="Tools"><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/issue">Sunday Issue</a><a href="/listen">Listen</a><span class="nh-sep"></span><a href="/hk-adults-calendar/">Calendars</a><a href="/hkjc-read">HKJC</a><a href="/stocks">Stocks</a><a href="/dads">Dads</a></nav>
-</header>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<style>.sh-top{position:sticky;top:0;z-index:50;background:rgba(249,248,246,.97);border-bottom:1px solid #E3DDD2;font-family:Arial,sans-serif}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px}.sh-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 6px}
+.sh-mast{font:900 22px/1 'Playfair Display',Georgia,serif;color:#0B1F3A;text-decoration:none;white-space:nowrap;letter-spacing:0;text-transform:none}
+.sh-more{font:600 13px Arial,sans-serif;border:1px solid #0B1F3A;border-radius:999px;padding:6px 13px;background:none;color:#0B1F3A;cursor:pointer}
+.sh-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 9px;-webkit-overflow-scrolling:touch}.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tabs a{flex:0 0 auto;font:600 13px Arial,sans-serif;padding:5px 11px;border-radius:999px;color:#5A6470;background:#F0EFED;text-decoration:none;letter-spacing:0;text-transform:none}
+.sh-tabs a.on{background:var(--h);color:#fff}
+.sh-sheet{display:none;position:fixed;inset:0;z-index:60;background:rgba(11,31,58,.35)}.sh-sheet.open{display:block}
+.sh-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,86vw);background:#F9F8F6;padding:20px 22px 40px;overflow-y:auto;text-align:left}
+.sh-panel h4{font:700 12px Arial,sans-serif;letter-spacing:.05em;color:#5A6470;margin:16px 0 4px;text-transform:none}
+.sh-panel a{display:block;font:18px 'Spectral',Georgia,serif;color:#0B1F3A;padding:9px 0;border-bottom:1px solid #E3DDD2;text-decoration:none}
+.sh-x{float:right;font:600 13px Arial,sans-serif;border:none;background:none;cursor:pointer;color:#5A6470}
+body{background:#F9F8F6;color:#0B1F3A;font-family:'Spectral',Georgia,serif;-webkit-text-size-adjust:100%}
+body p{line-height:1.6}
+body h1,body h2{font-family:'Playfair Display',Georgia,serif;letter-spacing:0}
+</style><header class="sh-top"><div class="sh-in">
+<div class="sh-row"><a class="sh-mast" href="/">The Wang Report</a><button class="sh-more" type="button" onclick="document.getElementById('sh-sheet').classList.add('open')">More</button></div>
+<nav class="sh-tabs" aria-label="Desks"><a href="/desk/hk" class="on" style="--h:#B0241E">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a></nav></div></header>
+<div class="sh-sheet" id="sh-sheet" onclick="if(event.target===this)this.classList.remove('open')"><div class="sh-panel">
+<button class="sh-x" type="button" onclick="document.getElementById('sh-sheet').classList.remove('open')">Close</button>
+<h4>Desks</h4><a href="/desk/hk">Hong Kong</a><a href="/desk/cyber">Cyber</a><a href="/desk/world">World</a><a href="/desk/finance">Finance</a><a href="/desk/ai">AI</a><a href="/desk/sports">Sports</a><a href="/desk/life">Life</a><h4>Read and listen</h4><a href="/search">Search articles</a><a href="/edition/latest">Latest edition</a><a href="/issue">The View</a><a href="/weekly-journal/">Weekly Journal</a><a href="/cyber-brief/">The Monthly</a><a href="/listen">Listen</a><a href="/briefings/">Every take</a><a href="/dads">Dads</a><h4>Live data</h4><a href="/indicators">Indicators</a><a href="/flashpoints">Flashpoints</a><a href="/wire">Wire</a><a href="/ai-models">AI models</a><a href="/cve/">CVE intel</a><a href="/stocks">Stocks</a><a href="/hkjc-read">HKJC</a><a href="/hk-adults-calendar/">Calendars</a><a href="/board">Everything (the full Board)</a><h4>The newsroom</h4><a href="/masthead">The masthead</a><a href="/group-chat">Group Chat</a><a href="/how-its-made">How it's made</a><a href="/editorial-standards">Editorial standards</a><a href="/corrections">Corrections</a><h4>About</h4><a href="/about">About</a><a href="/subscribe">Subscribe</a><a href="/feed.xml">RSS</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></div></div>
 
 <div class="cola-wrap">
   <div class="cola-fieldstamp">HK LOCAL DESK · HONG KONG · WEEKEND BRIEF · ARCHIVE</div>
@@ -59,109 +77,109 @@
 
       <a href="/hk-local-weekend-column/2026-09-07-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">September 7, 2026</div>
-        <div class="cola-title">Three Robots Argue, HKO Won't Pick A Winner</div>
-        <div class="cola-deck">Hong Kong's own weather site is showing three AI models split on whether a cyclone brushes the city Saturday, and the Observatory is letting the public referee it themselves.</div>
+        <div class="cola-title">Unverified reporting: Three Robots Argue, HKO Won't Pick A Winner</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: The Standard -- AI model FengWu projects cyclone approach within 400km of HK by Saturday, HKO has not confirmed; Sing Tao -- broad low-pressure area may develop in South China Sea, AI models diverge on track; RTHK -- Travel Industry Authority strips two agencies and a tour guide of licences over coerced shopping. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Hong Kong's own weather site is showing three AI models split on whether a cyclone brushes the city Saturday, and the Observatory is letting the public referee it themselves.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-08-29-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">August 30, 2026</div>
-        <div class="cola-title">Hong Kong Calls The Taxi Crash Permanent</div>
-        <div class="cola-deck">Hong Kong opened ride-hailing licence applications this week, confirming a taxi licence collapse from HK$7.66 million to HK$2.6 million that the Chief Executive already called irreversible.</div>
+        <div class="cola-title">Unverified reporting: Hong Kong Calls The Taxi Crash Permanent</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: HKFP -- Uber and Didi confirm plans to apply for ride-hailing licences as applications open; RTHK -- Chan says no cap on ride-hailing licences, sets HK$50m capital bar; SCMP -- Hong Kong sets ride-hailing permit cap at 10,000. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Hong Kong opened ride-hailing licence applications this week, confirming a taxi licence collapse from HK$7.66 million to HK$2.6 million that the Chief Executive already called irreversible.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-08-22-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">August 23, 2026</div>
-        <div class="cola-title">China Resources Banks $1.53 Billion On 46,921 Rejections</div>
-        <div class="cola-deck">The Sterling I's record-breaking sellout says more about a well-timed discount than about a housing market finding its footing again.</div>
+        <div class="cola-title">Unverified reporting: China Resources Banks $1.53 Billion On 46,921 Rejections</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Sterling I sellout figures and pricing; Ballot record and land cost detail; Unemployment rate holds at 3.7pc. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: The Sterling I's record-breaking sellout says more about a well-timed discount than about a housing market finding its footing again.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-08-15-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">August 16, 2026</div>
-        <div class="cola-title">Housing Bureau Calls A Worse Wait Good News</div>
-        <div class="cola-deck">The public housing wait crept to 4.8 years, and the Housing Bureau called it a 'positive sign,' the same week the plan meant to fix it closed for submissions.</div>
+        <div class="cola-title">Unverified reporting: Housing Bureau Calls A Worse Wait Good News</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Hong Kong Free Press -- public rental housing wait creeps to 4.8 years, Housing Bureau data; South China Morning Post -- breaks down urban vs New Territories wait times and Q2 allocations; South China Morning Post -- business chambers push Northern Metropolis and AI in Five-Year Plan submissions. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: The public housing wait crept to 4.8 years, and the Housing Bureau called it a 'positive sign,' the same week the plan meant to fix it closed for submissions.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-08-08-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">August 9, 2026</div>
-        <div class="cola-title">Hong Kong's Heat Warning Beat the Housing Transfer Queue</div>
-        <div class="cola-deck">Hong Kong's government can flag a dangerous temperature within minutes but let a documented, nine-month neighbour dispute run to a fatal stabbing before it moved anyone.</div>
+        <div class="cola-title">Unverified reporting: Hong Kong's Heat Warning Beat the Housing Transfer Queue</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: SCMP -- lift attack, victim's condition and police assessment of premeditation; RTHK -- November 2025 noise complaint history and pending Housing Department transfer; SCMP -- Saturday's 38.5C reading and heat-related hiker evacuations. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Hong Kong's government can flag a dangerous temperature within minutes but let a documented, nine-month neighbour dispute run to a fatal stabbing before it moved anyone.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-08-01-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">August 2, 2026</div>
-        <div class="cola-title">Kai Tak's Roof Opened Cold. Huanggang Needs 10,000 People First</div>
-        <div class="cola-deck">Kai Tak proved Hong Kong can open a major venue cold; Huanggang's 10,000-person drill requirement says the border's caution is about blame, not safety.</div>
+        <div class="cola-title">Unverified reporting: Kai Tak's Roof Opened Cold. Huanggang Needs 10,000 People First</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: SCMP -- Huanggang stress tests, 10,000 participants; SCMP -- September target and August drill start; Hong Kong Free Press -- Brave Chan on readiness and capacity. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Kai Tak proved Hong Kong can open a major venue cold; Huanggang's 10,000-person drill requirement says the border's caution is about blame, not safety.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-07-25-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">July 26, 2026</div>
-        <div class="cola-title">The Monkey That Out-Disrupted a Typhoon</div>
-        <div class="cola-deck">Typhoon Noul took 29 hours, a grounded airline and a live Signal No.10 watch to rattle Hong Kong; a monkey shut the Tsuen Wan Line twice for free.</div>
+        <div class="cola-title">Unverified reporting: The Monkey That Out-Disrupted a Typhoon</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: RTHK -- T9 hoisted 1:10am Sunday, T10 under assessment, wind gusts and shelter figures; RTHK -- Cathay Pacific cancels all HK flights 1:15am-6pm Sunday, fee waivers; SCMP -- Full signal timeline T3 to T9, mainland evacuation scale. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Typhoon Noul took 29 hours, a grounded airline and a live Signal No.10 watch to rattle Hong Kong; a monkey shut the Tsuen Wan Line twice for free.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-07-19-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">July 19, 2026</div>
-        <div class="cola-title">The Water Department's Tai Po Moment</div>
-        <div class="cola-deck">The same week officials vowed to end self-policed contractor checks after Tai Po, an 18-inch government pipe proved you don't need a contractor to defer maintenance.</div>
+        <div class="cola-title">Unverified reporting: The Water Department's Tai Po Moment</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: 10,000 homes face 24-hour wait for water after Shau Kei Wan pipe burst; WSD director confirms aged cast-iron main caused Shau Kei Wan cut; Government vows tighter contractor oversight as Tai Po inquiry closes. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: The same week officials vowed to end self-policed contractor checks after Tai Po, an 18-inch government pipe proved you don't need a contractor to defer maintenance.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-07-13-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">July 13, 2026</div>
-        <div class="cola-title">A Warning With No Off Switch</div>
-        <div class="cola-deck">Hong Kong only changes behaviour when a number forces it to, and this week's Very Hot Weather Warning proved it by sending six hikers to hospital.</div>
+        <div class="cola-title">Unverified reporting: A Warning With No Off Switch</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: South China Morning Post -- Bavi's subsiding air brings extremely hot weather over the weekend; Dimsum Daily -- Four hikers suffer suspected heatstroke, one airlifted in Tuen Mun; Sing Tao -- At least 6 hiking rescue calls amid heat warning, one hiker unconscious. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Hong Kong only changes behaviour when a number forces it to, and this week's Very Hot Weather Warning proved it by sending six hikers to hospital.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-07-11-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">July 12, 2026</div>
-        <div class="cola-title">Bavi Missed HK, 135 Flights Cancelled Anyway</div>
-        <div class="cola-deck">Typhoon Bavi never touched Hong Kong, yet the city ate a weekend of cancelled flights and record heat, while the same World Cup fever fills a licensed Lan Kwai Fong screen and an illegal Tai Po betting den with identical money.</div>
+        <div class="cola-title">Unverified reporting: Bavi Missed HK, 135 Flights Cancelled Anyway</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Typhoon Bavi never touched Hong Kong, yet the city ate a weekend of cancelled flights and record heat, while the same World Cup fever fills a licensed Lan Kwai Fong screen and an illegal Tai Po betting den with identical money.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-07-04-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">July 5, 2026</div>
-        <div class="cola-title">Clear Water Bay's Propeller Strike Under Signal 1</div>
-        <div class="cola-deck">A confirmed injury at Clear Water Bay under Signal 1 conditions means the Observatory's undecided call on Signal 3 is already beside the point for anyone planning a weekend on the water.</div>
+        <div class="cola-title">Unverified reporting: Clear Water Bay's Propeller Strike Under Signal 1</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: A confirmed injury at Clear Water Bay under Signal 1 conditions means the Observatory's undecided call on Signal 3 is already beside the point for anyone planning a weekend on the water.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-06-27-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">June 28, 2026</div>
-        <div class="cola-title">No Protocol Stopped the 32-Degree Sports Day</div>
-        <div class="cola-deck">Hong Kong's outdoor event calendar ran at full volume this weekend with no protocol to pause it, and a child died at a sports ground while thousands watched dragon boats on the harbour.</div>
+        <div class="cola-title">Unverified reporting: No Protocol Stopped the 32-Degree Sports Day</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Hong Kong's outdoor event calendar ran at full volume this weekend with no protocol to pause it, and a child died at a sports ground while thousands watched dragon boats on the harbour.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-06-20-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">June 21, 2026</div>
-        <div class="cola-title">Free Harbour, Germany at 4 a.m.</div>
-        <div class="cola-deck">This weekend in Hong Kong, the free TST harbour carnival runs through the day and World Cup football on Now TV runs through the night.</div>
+        <div class="cola-title">Unverified reporting: Free Harbour, Germany at 4 a.m.</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: This weekend in Hong Kong, the free TST harbour carnival runs through the day and World Cup football on Now TV runs through the night.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-06-13-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">June 14, 2026</div>
-        <div class="cola-title">Two Infants in ICU While Venues Open Saturday</div>
-        <div class="cola-deck">Two unvaccinated infants are in Prince of Wales Hospital's paediatric ICU as authorities warn COVID transmission rises over the next two months; the family weekend opens regardless.</div>
+        <div class="cola-title">Unverified reporting: Two Infants in ICU While Venues Open Saturday</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Two unvaccinated infants are in Prince of Wales Hospital's paediatric ICU as authorities warn COVID transmission rises over the next two months; the family weekend opens regardless.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-06-05-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">June 5, 2026</div>
-        <div class="cola-title">HK$17 Gate, Queue Before Eight</div>
-        <div class="cola-deck">The Observatory's extreme heat warning means the public pool queue and the nearest air-conditioned mall are where this Saturday's outdoor plans actually end up.</div>
+        <div class="cola-title">Unverified reporting: HK$17 Gate, Queue Before Eight</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: The Observatory's extreme heat warning means the public pool queue and the nearest air-conditioned mall are where this Saturday's outdoor plans actually end up.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-05-29-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">May 29, 2026</div>
-        <div class="cola-title">HK$4.6 Billion Keeps the Counter Open</div>
-        <div class="cola-deck">Home prices logged an eleventh consecutive monthly gain; the public post office serving the same streets needs HK$4.6 billion from the government to avoid service cuts through next year.</div>
+        <div class="cola-title">Unverified reporting: HK$4.6 Billion Keeps the Counter Open</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Home prices logged an eleventh consecutive monthly gain; the public post office serving the same streets needs HK$4.6 billion from the government to avoid service cuts through next year.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
       <a href="/hk-local-weekend-column/2026-05-22-cheung-kwok-keung" class="cola-item">
         <div class="cola-date">May 22, 2026</div>
-        <div class="cola-title">Goldman's 15 Percent, Friday's Gazette</div>
-        <div class="cola-deck">Goldman's fifteen percent revision hits estate agent windows on the same Friday the civil service investigation regulation lands, handing two very different papers to two very different readers.</div>
+        <div class="cola-title">Unverified reporting: Goldman's 15 Percent, Friday's Gazette</div>
+        <div class="cola-deck">Unverified reporting: No current, complete source review supports this version; Independent editorial review is missing, incomplete or stale. Attribution: Wang Report draft; original source unavailable. Material claims have not been independently confirmed. Source verification remains incomplete. Unverified reporting, attributed to Wang Report: Goldman's fifteen percent revision hits estate agent windows on the same Friday the civil service investigation regulation lands, handing two very different papers to two very different readers.</div>
         <div class="cola-author">Cheung Kwok-keung</div>
       </a>
 </div>
 
-<div class="ai-colophon">The Wang Report's columns are produced by AI under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div>
+<div class="ai-colophon">The Wang Report uses OpenAI models through Codex under human editorial oversight. See our <a href="/editorial-standards">Editorial Standards</a>.</div>
 <div class="footer">
   THE WANG REPORT &copy; 2026 | <a href="/">MAIN</a> | <a href="/hk-local-weekend-column">HK LOCAL WEEKEND COLUMN</a> | <a href="/columns">ALL COLUMNS</a> | <a href="/masthead">MASTHEAD</a>
 </div>
