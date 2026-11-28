@@ -1,3 +1,5 @@
+import withdrawnBriefings from '../lib/withdrawn-briefings.cjs';
+const WITHDRAWN = new Set(withdrawnBriefings);
 /**
  * Site-wide middleware (Cloudflare Pages Function, 2026-09-24).
  *
@@ -16,6 +18,10 @@ const DESK_MOVES = {
 
 export async function onRequest({ request, next }) {
   const url = new URL(request.url);
+  const slug = url.pathname.match(/^\/briefings\/([a-z0-9-]+)(?:\.html|\/)?$/)?.[1];
+  if (WITHDRAWN.has(slug)) return new Response(null, {
+    status: 302, headers: { 'Location': 'https://wangreport.com/', 'Cache-Control': 'no-store' },
+  });
   if (url.hostname === 'www.wangreport.com') {
     url.hostname = 'wangreport.com';
     return Response.redirect(url.toString(), 301);
